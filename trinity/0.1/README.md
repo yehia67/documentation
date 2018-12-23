@@ -28,4 +28,4 @@ This section explains the Trinity Wallet
   - [FAQs](concepts/FAQs.md)
 
 - How-to Participate 
-  - [Contribute](knowledgebase/contribute.md)
+  - [Contribute](https://github.com/iotaledger/documentation/blob/master/CONTRIBUTING.md)
