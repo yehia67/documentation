@@ -24,8 +24,6 @@ To complete this tutorial, you need the following:
 
 <hr>
 
-To build the IRI Docker container, Docker 17.05+ (for multi-stage build support) must be installed on your computer.
-
 1. [Install Docker](https://docs.docker.com/install/#supported-platforms)
 2. Do the following to make sure that Docker is installed:
     ```bash

@@ -6,23 +6,20 @@ IOTA is a [distributed ledger technology (DLT)](concepts/distributed-ledger-tech
 
 IOTA aims to improve efficiency, increase production, and ensure data integrity in a machine-to-machine economy.
 
-<dl><dt>machine-to-machine economy</dt><dd>Economy in which any computer can transfer data and value to other computers without human intervention.</dd></dl>
+<dl><dt>machine-to-machine economy<
+/dt><dd>Economy in which any computer can transfer data and value to other computers without human intervention.</dd></dl>
 
-[Data is the new oil](https://www.economist.com/leaders/2017/05/06/the-worlds-most-valuable-resource-is-no-longer-oil-but-data), and IOTA allows you to harness it on a universal, transparent, tamper-proof ledger.
-
-To visualize what IOTA does, watch [this video](https://www.youtube.com/embed/Gr-LstcDcAw) about how IOTA improves supply chains.
+To see IOTA in action, watch [this video](https://www.youtube.com/embed/Gr-LstcDcAw) about how it can improve supply chains.
 
 ## How does IOTA work?
 
-In an IOTA network, data (including the IOTA token) is transferred and stored in packages called transactions, which are handled by the following entities:
-* [**IRI nodes:**](iri/introduction/overview.md) Computers that are reponsible for storing and validating transactions in a ledger
-* Clients: Computers that create and send transactions to IRI nodes
+In an IOTA network, data and value is transferred (by clients) and stored (by [IRI nodes](iri/introduction/overview.md)) in packages called transactions.
 
 Transactions can be one of the following types:
-* Data transaction: Transaction that send only plain text or encrypted data to a recipient's address
-* Value transaction: Transaction that transfers IOTA tokens to a recipient's address
+* **Data transaction:** Transaction that send only plain text or encrypted data to a recipient's address
+* **Value transaction:** Transaction that transfers IOTA tokens to a recipient's address
 
-Each client in an IOTA network has a secret password called a seed, which is used to generate unique addresses and digital signatures. Addresses are the accounts from which transactions are sent and received. Digital signatures prove ownership of an account and allow value transactions to be sent from addresses.
+Each client in an IOTA network has a secret password called a seed, which is used to generate unique addresses and digital signatures. Addresses are the accounts from which transactions are sent and received. Digital signatures prove ownership of an account and allow value transactions to be sent from addresses. 
 
 ## What is the IOTA token and why is it valuable?
 
@@ -30,18 +27,18 @@ At its most basic level, the IOTA token is a record of ownership that looks like
 
     ADDRESS....ENDOFADDRESS;1000
 
-This record is kept on the [distributed ledger](introduction/what-is-dlt.md) of the [IOTA MainNet network](references/iota-networks.md). It might look cryptic, but let's break it down. On the left of the semicolon is an address. These are unique to each client in an IOTA network. On the right of the semicolon is an amount of IOTA tokens that belong to that address, in this case 1,000 tokens.
+This record is kept on the [distributed ledger](introduction/what-is-dlt.md) of the [IOTA MainNet network](references/iota-networks.md). It might look cryptic, but let's break it down. On the left of the semicolon is an address. These are unique to each client in the network. On the right of the semicolon is an amount of IOTA tokens that belong to that address, in this case 1,000 tokens.
 
 You own IOTA tokens only when all IRI nodes [validate the transactions](iri/concepts/transaction-validation.md) that sent the tokens to your addresses.
 
-The IOTA token is valuable for two reasons:
+The IOTA token is valuable for the following reasons:
 
-* It's finite: All IRI nodes agree that a mamimum of 2,779,530,283 277,761 tokens exist in the network. This maximum number is built into the network and can't ever be changed.
-* It's useful: To transfer value in an IOTA network, you must use the IOTA token. 
+* **It's finite:** All IRI nodes agree that a mamimum of 2,779,530,283 277,761 tokens exist in the network. This maximum number is built into the network and can't ever be changed.
+* **It's useful:** To transfer value in an IOTA network, you must use the IOTA token. 
 
 ## What are the benefits of IOTA?
 
-IOTA is an open-source technology that can streamline, secure, and automate any process that sends data or transfers value from different devices.
+IOTA is an open-source technology that can streamline, secure, and automate any process that sends data or transfers value among different devices.
 
 ### Trust
 
@@ -66,9 +63,7 @@ For each transaction that's appended to the ledger, two previous transactions ar
 This process forms a data structure called a directed acyclic graph (DAG), which we call [the Tangle](the-tangle/overview.md).
 
 ## For what industries is IOTA useful?
-IOTA is an open-source technology that can streamline, secure, and automate any process that sends data or transfers value among different devices.
-
-Therefore, many industries such as the following could benefit from using IOTA:
+Many industries such as the following could benefit from using IOTA:
 
 * [Mobility](https://www.iota.org/verticals/mobility-automotive)
 * [Global trade and supply chains](https://www.iota.org/verticals/global-trade-supply-chains)
@@ -79,8 +74,8 @@ Therefore, many industries such as the following could benefit from using IOTA:
 
 ## How do I get started?
 
-[Start your IOTA journey by creating your first seed](getting-started/creating-a-seed.md).
+* Start your IOTA journey by [sending your first data transaction with the Trinity wallet](getting-started/sending-your-first-data-transaction-with-the-trinity-wallet.md).
 
-[Take a look at some application that are already using IOTA](references/use-cases.md).
+* Take a look at some [application that are already using IOTA](references/use-cases.md).
 
-Are you a developer? Get stuck in by [sending your first data transaction](getting-started/sending-your-first-data-transaction-using-nodejs.md)!
+* Are you a developer? Get stuck in by [sending your first data transaction with Node.js](getting-started/sending-your-first-data-transaction-using-nodejs.md)!

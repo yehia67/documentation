@@ -1,4 +1,4 @@
-# Sending your first data transaction in Node.js
+# Sending your first data transaction with Node.js
 
 In this tutorial, you'll use the IOTA JavaScript client library to create a program that sends data transactions on the [IOTA DevNet network](references/iota-networks.md). A data transaction is one that does not transfer value.
 
@@ -227,7 +227,7 @@ If you run this code, you'll see information about the IRI node and the transact
 
 <img src="../success.png" alt="Console output" width="600">
 
-Congratulations 🎊. You've just sent your first data transaction.
+Congratulations 🎊. You've just sent your first data transaction that's now public on the IOTA Tangle.
 
 Your transaction will propgate through the IOTA network until all the IRI nodes have it in their ledgers.
 

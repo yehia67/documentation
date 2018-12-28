@@ -1,0 +1,32 @@
+# Sending your first data transaction with the Trinity wallet
+
+Trinity is an application that allows you to send and receive transactions on the [IOTA MainNet network](references/iota-networks.md).
+
+<img src="../trinity-home.jpg" alt="Trinity" width="600">
+
+In this tutorial, you'll use Trinity to send yourself a data transaction, which is one that does not transfer value.
+
+**Note:** Sending a value transaction is similar to sending a data transaction, but it requires an address that contains IOTA tokens.
+
+<hr>
+
+1. [Download and install Trinity](https://trinity.iota.org/)
+2. Open Trinity
+3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you [created a seed outside of Trinity](getting-started/creating-a-seed.md), click **No, I have one**.
+<img src="../trinity-seed.png" alt="Seed options" width="600">
+1. Enter an account name for your seed
+<img src="../trinity-account-name.png" alt="Account name" width="600">
+1. Select an option to record your seed and enter a login password
+2. After you've logged in, go to **Account** > **Account management** > **View addresses** to see a list of your seed's addresses.
+
+    **Note:** To generate a new address, click **Receive** on the homepage.
+    <img src="../trinity-view-addresses.png" alt="Account addresses" width="600">
+7. Copy one of your addresses, click **Send** paste the address into the Recipient address field
+8. Enter 'Hello world!' in the Message field
+<img src="../trinity-hello-world.png" alt="Hello world message" width="600">
+9.  Make sure that the Amount field is 0 and click **Send**
+
+Your transaction will appear in your transaction history. Click the transaction to display its details.
+<img src="../trinity-receive-message.png" alt="Transaction history" width="600">
+
+Congratulations :tada: You've just sent yourself a message that's now public on the IOTA network. Why not ask your friends for one of their addresses so you can send them messages.
