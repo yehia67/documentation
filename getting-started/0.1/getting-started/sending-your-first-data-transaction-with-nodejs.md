@@ -227,7 +227,7 @@ If you run this code, you'll see information about the IRI node and the transact
 
 <img src="../success.png" alt="Console output" width="600">
 
-Congratulations 🎊. You've just sent your first data transaction that's now public on the IOTA Tangle.
+Congratulations 🎊. You've just sent your first data transaction.
 
 Your transaction will propgate through the IOTA network until all the IRI nodes have it in their ledgers.
 
@@ -237,4 +237,4 @@ To confirm that your transaction in on the network, copy the `bundle` value from
 
 ## Next steps
 
-Why not run your own [IRI node](iri/introduction/overview.md)?.
+Why not [run your own IRI node](getting-started/running-your-own-iri-node.md)?.
