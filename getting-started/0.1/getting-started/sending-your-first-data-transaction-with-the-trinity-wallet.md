@@ -18,13 +18,12 @@ In this tutorial, you'll use Trinity to send yourself a data transaction, which 
 <img src="../trinity-account-name.png" alt="Account name" width="600">
 1. Select an option to record your seed and enter a login password
 2. After you've logged in, go to **Account** > **Account management** > **View addresses** to see a list of your seed's addresses.
-
-    **Note:** To generate a new address, click **Receive** on the homepage.
     <img src="../trinity-view-addresses.png" alt="Account addresses" width="600">
-7. Copy one of your addresses, click **Send** paste the address into the Recipient address field
-8. Enter 'Hello world!' in the Message field
+    **Note:** To generate a new address, click **Receive** on the homepage.
+7. Copy one of your addresses, click **Send**, and paste the address into the RECIPIENT ADDRESS field
+8. Enter 'Hello world!' in the MESSAGE field
 <img src="../trinity-hello-world.png" alt="Hello world message" width="600">
-9.  Make sure that the Amount field is 0 and click **Send**
+9.  Make sure that the AMOUNT field is 0 and click **Send**
 
 Your transaction will appear in your transaction history. Click the transaction to display its details.
 <img src="../trinity-receive-message.png" alt="Transaction history" width="600">
