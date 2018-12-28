@@ -21,7 +21,7 @@ Transactions can be one of the following types:
 
 Each client in an IOTA network has a secret password called a seed, which is used to generate unique addresses and digital signatures. Addresses are the accounts from which transactions are sent and received. Digital signatures prove ownership of an account and allow value transactions to be sent from addresses. 
 
-## What is the IOTA token and why is it valuable?
+## What is the IOTA token?
 
 At its most basic level, the IOTA token is a record of ownership that looks like this:
 
@@ -30,6 +30,8 @@ At its most basic level, the IOTA token is a record of ownership that looks like
 This record is kept on the [distributed ledger](introduction/what-is-dlt.md) of the [IOTA MainNet network](references/iota-networks.md). It might look cryptic, but let's break it down. On the left of the semicolon is an address. These are unique to each client in the network. On the right of the semicolon is an amount of IOTA tokens that belong to that address, in this case 1,000 tokens.
 
 You own IOTA tokens only when all IRI nodes [validate the transactions](iri/concepts/transaction-validation.md) that sent the tokens to your addresses.
+
+## What makes the IOTA token valuable?
 
 The IOTA token is valuable for the following reasons:
 
