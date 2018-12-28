@@ -8,8 +8,7 @@ A distributed ledger is a database, which is held by all nodes in a network.
 
 DLT can have two types of ledger:
 * **Permissionless ledger:** A ledger that's distributed among nodes that can be run by anyone without permission. The purpose of a permissionless ledger is to allow anyone to contribute data to the ledger and for everyone in possession of the ledger to have identical copies. Nodes maintain the integrity of the ledger by reaching a consensus about its state. A permissionless ledger can be used as an immutible global record of transfers.
-
-**Permissioned ledger:** A ledger that's distributed only among nodes that are preselected by a central authority such as a bank or a government.
+* **Permissioned ledger:** A ledger that's distributed only among nodes that are preselected by a central authority such as a bank or a government.
 
 ## What problems does DLT solve?
 
