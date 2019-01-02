@@ -3,8 +3,8 @@
 This section contains information about how IOTA node software works.  IOTA node software is also called the IOTA Reference Implementation (IRI).  Using this documentation you can install and run your own IRI node and interact with it through API endpoints.
 
 ## Documentation
-- Introduction
-    - [Overview](introduction/overview.md)
+
+- [Overview](/iri/introduction/overview.md)
   
 - How-to guides
     - [Downloading the IRI on Linux](how-to-guides/downloading-the-iri-on-linux.md)
@@ -28,6 +28,6 @@ This section contains information about how IOTA node software works.  IOTA node
     - [Data in the ledger](references/data-in-the-ledger.md)
     - [IRI configuration options](references/iri-configuration-options.md)
     - [ZMQ events](references/zmq-events.md)
-
+  
 - How-to Participate 
     - [Contribute](knowledgebase/contribute.md)
