@@ -17,10 +17,10 @@ In this tutorial, you'll use Trinity to send yourself a data transaction, which 
 2. Open Trinity
 3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you [created a seed outside of Trinity](getting-started/creating-a-seed.md), click **No, I have one**.
 <img src="../trinity-seed.png" alt="Seed options" width="600">
-1. Enter an account name for your seed
+4. Enter an account name for your seed
 <img src="../trinity-account-name.png" alt="Account name" width="600">
-1. Select an option to record your seed and enter a login password
-2. After you've logged in, go to **Account** > **Account management** > **View addresses** to see a list of your seed's addresses.
+5. Select an option to record your seed and enter a login password
+6. After you've logged in, go to **Account** > **Account management** > **View addresses** to see a list of your seed's addresses.
     <img src="../trinity-view-addresses.png" alt="Account addresses" width="600">
     **Note:** To generate a new address, click **Receive** on the homepage.
 7. Copy one of your addresses, click **Send**, and paste the address into the RECIPIENT ADDRESS field
