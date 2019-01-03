@@ -16,16 +16,27 @@ In this tutorial, you'll use Trinity to send yourself a data transaction, which 
 1. [Download and install Trinity](https://trinity.iota.org/)
 2. Open Trinity
 3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you [created a seed outside of Trinity](getting-started/creating-a-seed.md), click **No, I have one**.
+
 <img src="../trinity-seed.png" alt="Seed options" width="600">
+
 4. Enter an account name for your seed
+
 <img src="../trinity-account-name.png" alt="Account name" width="600">
+
 5. Select an option to record your seed and enter a login password
+
 6. After you've logged in, go to **Account** > **Account management** > **View addresses** to see a list of your seed's addresses.
+
     <img src="../trinity-view-addresses.png" alt="Account addresses" width="600">
+    
     **Note:** To generate a new address, click **Receive** on the homepage.
+    
 7. Copy one of your addresses, click **Send**, and paste the address into the RECIPIENT ADDRESS field
+
 8. Enter 'Hello world!' in the MESSAGE field
+
 <img src="../trinity-hello-world.png" alt="Hello world message" width="600">
+
 9.  Make sure that the AMOUNT field is 0 and click **Send**
 
 Your transaction will appear in your transaction history. Click the transaction to display its details.
