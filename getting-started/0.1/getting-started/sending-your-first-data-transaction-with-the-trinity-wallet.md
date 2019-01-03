@@ -1,6 +1,9 @@
 # Sending your first data transaction with the Trinity wallet
 
-Trinity is an application that allows you to send and receive transactions on the [IOTA MainNet network](references/iota-networks.md).
+Trinity is an open-source application that allows you to do the following:
+* Create a password-protected account to store and access your seeds
+* Read your balance and transaction history
+* Send and receive transactions on the [IOTA MainNet network](/getting-started/references/iota-networks.md)
 
 <img src="../trinity-home.jpg" alt="Trinity" width="600">
 
