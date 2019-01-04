@@ -1,6 +1,9 @@
-## QR Codes
+# Creating a QR Code that Trinity can read
 
-Transaction information can be encoded into a QR code for scanning and auto-filling your address.  This is a convenient way to give someone your address so they can pay you.  As of December 2018, Trinity does not read amounts or tags from QR codes.  You can add them.  For now, Trinity will ignore them and set the amount and tag based on the user entry.
+Sometimes senders don't have time to enter all 81 characters of your address to send you a transaction. Therefore, Trinity allows you to create pre-made transactions in QR codes to make it quick and easy to send them.
+
+Trinity can scan and read QR codes that contain transaction information.
+QR codes are a convenient way to give people your address so that they can send you transactions.  As of December 2018, Trinity does not read amounts or tags from QR codes.  You can add them.  For now, Trinity will ignore them and set the amount and tag based on the user entry.
 
 The following JSON format can be used:
 
