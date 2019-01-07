@@ -1,4 +1,4 @@
-# Changing the settings
+# Changing the general settings
 
 In Trinity, go to **Settings** to customize certain features. 
 
@@ -35,15 +35,3 @@ Trinity provides a built-in node-balancing service for optimal performance. Ever
 You may want to select a custom node to connect to. For example, if you run your own IRI node.
 
 To do so, go to **Settings** > **Node**, and enter the URL or IP address of an IRI node.
-
-## Advanced Settings
-
-Advanced users may want to change the advanced settings in certain circumstances.
-
-### Automatic Promotion/Reattachment
-
-To ensure transactions are confirmed on the Tangle, it may be necessary to promote or to reattach. When possible, Trinity will do this automatically.
-
-<i>Advanced users </i> may enable manual promotion/reattachment by turning on Expert mode in Advanced settings. Enabling manual promotion/reattachment will not disable the automatic promotion/reattachment feature.
-
-**Note:** Trinity does not promote/reattach transfers if the application is minimized. Currently automatic promotion/reattachment only takes place when the app is open.
