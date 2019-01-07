@@ -1,30 +1,21 @@
 # Compass
 
-This section explains the open source coordinator called, Compass
+This section explains the open-source Coordinator called Compass.
 
 ## Documentation
 - Introduction
 
     - [Overview](introduction/overview.md)
-    
-    - [Use Cases](introduction/usecases.md)
 
 - How-to Guides
 
-    - [Security](how-to-guides/security.md)
-    
-    - [Compass Installation](how-to-guides/Installation.md)
+    - [How-to Guides/Creating a permissioned IOTA network](how-to-guides/creating-a-permissioned-iota-network.md)
 
-    - [Simple Install](how-to-guides/PrivateTangleInstallation.md)
   
 - Concepts
-    - [Compass Architecture](concepts/architecture.md)
-    
-    - [Compass Functions](concepts/compass-functions.md)
-    
-    - [Contribute](concepts/contribute.md)
-- References
-    - [Compass Reference](references/reference.md)
+    - [Concepts/About the Coordinator and Compass](concepts/about-the-coordinator-and-compass.md)
+    - [Concepts/How Compass works](concepts/how-compass-works.md)
+    - [Concepts/Security considerations](concepts/security-considerations.md)
 
-- How-to Participate 
-    - [Contribute](knowledgebase/contribute.md)
+- References
+    - [References/Contribution guidelines](references/contribution-guidelines.md)
