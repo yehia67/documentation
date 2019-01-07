@@ -18,7 +18,7 @@ Two-factor authentication (2FA) is a security process in which you provide two d
 2FA provides an extra layer of security by relying on not only a password, but also a 2FA code from a third-party application.
 
 1. Click **Two-factor authentication**
-2. Copy and paste the key into a third-party 2FA application such as Google Authenticator
+2. Copy and paste the key into a third-party 2FA application such as [Google 2-step verification](https://www.google.com/landing/2step/)
 3. Copy and paste the code from the third-party 2FA application into Trinity
 4. Click **Done**
 
