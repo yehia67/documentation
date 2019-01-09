@@ -1,13 +1,14 @@
-# Compass Overview
+# Compass
 
-Compass is an open-source implementation of an IOTA Network coordinator. It is used to ensure the Tangle it is connected to is moving in a uniform direction and to protect against various attacks a young Tangle is susceptible to. 
+[Compass](concepts/about-the-coordinator-and-compass.md) is a client applications that protects IOTA networks against attacks by sending honest zero-value transactions to IRI nodes at regular intervals. In an IOTA network that uses Compass, the Coordinator does not exist. Any transaction that is referenced by a Compass milestone transaction is considered confirmed. 
 
-### Making Compass obsolete
+Compass can't modify balances or censor transactions because all transactions, including milestones, are [validated by each IRI node](iri/concepts/transaction-validation) in the network.
 
-Considerable research is underway towards a viable replacement for the Coordinator.  Releasing Compass, an open source coordinator, will further this research.  
+You can use Compass to [create a permissioned IOTA network](how-to-guides/creating-a-permissioned-iota-network.md) that doesn't rely on the Coordinator. A permissioned IOTA network is beneficial for the following use cases:
+* **Security testing and research:** Use Compass to create a controlled environment to test assumptions and produce attacks.
+* **Development of proof of concepts:** Use Compass to develop proof-of-concept applications without sharing your ideas on a [permissionless (public) network](/getting-started/references/iota-networks.md). 
 
-### Repository
+**Note:** By releasing Compass, the IOTA Foundation aims to further its research into finding a viable replacement for the Coordinator.
+
+## Repository
 Jump directly to the Compass source code on [Github](https://github.com/iotaledger/compass)
-
-### Releases
-See the Github page for [Releases](https://github.com/iotaledger/compass/releases)
