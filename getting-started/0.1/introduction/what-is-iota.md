@@ -1,13 +1,12 @@
 # What is IOTA?
 
-IOTA is a [distributed ledger technology (DLT)](concepts/distributed-ledger-technology.md) that allows computers in an IOTA network to transfer tamper-proof data and value (IOTA tokens) among each other.
+IOTA is a [distributed ledger technology (DLT)](concepts/what-is-dlt.md) that allows computers in an IOTA network to transfer tamper-proof data and value (IOTA tokens) among each other.
 
 ## What is the purpose of IOTA?
 
 IOTA aims to improve efficiency, increase production, and ensure data integrity in a machine-to-machine economy.
 
-<dl><dt>machine-to-machine economy<
-/dt><dd>Economy in which any computer can transfer data and value to other computers without human intervention.</dd></dl>
+<dl><dt>machine-to-machine economy</dt><dd>Economy in which any computer can transfer data and value to other computers without human intervention.</dd></dl>
 
 To see IOTA in action, watch [this video](https://www.youtube.com/embed/Gr-LstcDcAw) about how it can improve supply chains.
 
@@ -78,6 +77,6 @@ Many industries such as the following could benefit from using IOTA:
 
 * Start your IOTA journey by [sending your first data transaction with the Trinity wallet](getting-started/sending-your-first-data-transaction-with-the-trinity-wallet.md).
 
-* Take a look at some [application that are already using IOTA](references/use-cases.md).
+* Take a look at some [applications that are already using IOTA](references/use-cases.md).
 
-* Are you a developer? Get stuck in by [sending your first data transaction with Node.js](getting-started/sending-your-first-data-transaction-using-nodejs.md)!
+* Learn to program with IOTA by [sending your first data transaction with Node.js](getting-started/sending-your-first-data-transaction-using-nodejs.md)!
