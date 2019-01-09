@@ -1,8 +1,6 @@
-# Creating a permissioned IOTA network
+**In this guide, you'll create and run a permissioned IOTA network that consists of an IRI node and [Compass](concepts/about-compass.md). After you complete this tutorial you'll be able to interact with the network using your favorite IOTA tools and libraries.**
 
-In this guide, you'll create and run a permissioned IOTA network that has a single IRI node and Compass, which sends milestones. After you complete this tutorial you'll be able to interact with the network using your favorite IOTA tools and libraries.
-
-For this basic setup, you'll install both the IRI node and Compass on the same server or virtual machine. You can also install an optional signing server for increased security. A signing server reduces the attack surface of Compass by moving sensitive operations to an external service. Compass interacts with the signing server via gRPC.
+For this basic setup, you'll install both the IRI node and Compass on the same server or virtual machine. You can also install an optional signing server for increased security. A signing server reduces the attack surface of Compass by moving sensitive operations to an external service. Compass interacts with the signing server through gRPC.
 
 ![System diagram of the Compass](../compass.png)
 
@@ -62,7 +60,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 
 ## Calculating the Merkle tree
 
-For this guide, we use a [Merkle tree](concepts/how-compass-works.md#merkle-tree-generation) with a depth of 16, which allows us to run compass for 45 days in a row at 1-minute-milestone intervals.
+For this guide, we use a [Merkle tree](concepts/about-compass.md#merkle-tree-generation) with a depth of 16, which allows us to run compass for 45 days in a row at 1-minute-milestone intervals.
 
 The Compass repository includes a tool to generate a Merkle tree and save it in a data folder for Compass to use later on. 
 
