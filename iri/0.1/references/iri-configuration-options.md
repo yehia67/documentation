@@ -1,6 +1,4 @@
-# IRI configuration options
-
-This table contains the configuration options for the IRI.
+**This table contains the configuration options for the IRI.**
 
 You can choose to configure the IRI by specifying the configuration options in the following ways:
 * As flags in the command line
@@ -48,9 +46,9 @@ You can choose to configure the IRI by specifying the configuration options in t
 |<a name="zmq-ipc"></a>`--zmq-ipc` |Path that is used to communicate with ZMQ in IPC| string|  ipc://iri|
 |<a name="zmq-port"></a> `--zmq-port `|Port that is used to connect to the ZMQ feed |string | 5556|
 |<a name="local-snapshots-enabled"></a>`LOCAL_SNAPSHOTS_ENABLED`   | Enable [local snapshots](concepts/local-snapshot.md) |boolean  | true  | This parameter must be set to `true` for the IRI to read any other `LOCAL_SNAPSHOTS` parameters|
-|<a name="local-snapshots-pruning-enabled"></a>`LOCAL_SNAPSHOTS_PRUNING_ENABLED`  |  Enable the deletion of confirmed transactions from the ledger  | true | Confirmed transactions are deleted if they were confirmed by a milestone that is older than the sum of `LOCAL_SNAPSHOTS_DEPTH` + `LOCAL_SNAPSHOTS_PRUNING_DELAY`.  |
-|<a name="local-snapshots-depth"></a>`LOCAL_SNAPSHOTS_DEPTH`  | Amount of milestone transactions to keep in the ledger | number starting from 100 | 100 | |
-|<a name="local-snapshots-pruning-delay"></a>`LOCAL_SNAPSHOTS_PRUNING_DELAY`  | Amount of milestone transactions to keep in the ledger   | number starting from 50,000  | 50,000 |  |
-|<a name="local-snapshots-internal-synced"></a>`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`  | Interval, in milestone transactions, at which local snapshots are taken if the ledger is fully synchronized  |number| 10   | |
-|<a name="local-snapshots-internal-unsynced"></a>`LOCAL_SNAPSHOTS_INTERVAL_UNSYNCED`   | Interval, in milestone transactions, at which local snapshots are taken if the ledger is not fully synchronized  |number| 1,000  | |
+|<a name="local-snapshots-pruning-enabled"></a>`LOCAL_SNAPSHOTS_PRUNING_ENABLED`  |  Enable the deletion of transactions from the ledger  | true | Transactions are deleted if they were directly or indirectly referenced by a milestone that is older than the result of current milestone index - (`LOCAL_SNAPSHOTS_DEPTH` + `LOCAL_SNAPSHOTS_PRUNING_DELAY`).  |
+|<a name="local-snapshots-depth"></a>`LOCAL_SNAPSHOTS_DEPTH`  | Amount of seen milestones to record in the snapshot.meta file | number starting from 100 | 100 | |
+|<a name="local-snapshots-pruning-delay"></a>`LOCAL_SNAPSHOTS_PRUNING_DELAY`  | Amount of milestone transactions to keep in the ledger   | number starting from 10,000  | 40,000 | We recommend that you use the default value for this option, which triggers a local snapshot approximately every month.  |
+|<a name="local-snapshots-interval-synced"></a>`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`  | Interval, in milestone transactions, at which snapshot files are created if the ledger is fully synchronized  |number| 10   | |
+|<a name="local-snapshots-interval-unsynced"></a>`LOCAL_SNAPSHOTS_INTERVAL_UNSYNCED`   | Interval, in milestone transactions, at which snapshot files are created if the ledger is not fully synchronized  |number| 1,000  | This value is higher than the `LOCAL_SNAPSHOTS_INTERVAL_SYNCED` configuration option to allow the IRI to focus its resources on synchronizing |
 |<a name="local-snapshots-base-path"></a>`LOCAL_SNAPSHOTS_BASE_PATH`  |  Path to the snapshot file, without the file extension. |  string |  mainnet   | Prepends the `.snapshot.meta` and `.snapshot.state` files with the value of this parameter. For the default value, the files are named `mainnet.snapshot.meta` and `mainnet.snapshot.state`. You can specify a directory for the files to be added to by doing the following: `<directory name>/<file name>`, which results in `folderpath/filename.snapshot.meta`. | |

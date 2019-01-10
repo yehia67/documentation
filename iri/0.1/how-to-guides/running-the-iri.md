@@ -1,15 +1,4 @@
-# Running the IRI
-
-After downloading the IRI, you need to run it to start interacting with an IOTA network.
-
-| **Table of contents**                  |        
-| :------------------- |
-|[Prerequisites](#prerequisites)|
-|[Running the IRI on Linux](#running-the-iri-on-linux)|
-|[Running the IRI in a Docker container](#running-the-iri-in-a-docker-container)|
-|[Checking that the IRI is synchronized](#checking-that-the-iri-is-synchronized)
-|[Next steps](#next-steps)|
-||
+**The IRI can be run on any computer that meets the prerequisites.**
 
 ## Prerequisites
 
@@ -18,7 +7,7 @@ After downloading the IRI, you need to run it to start interacting with an IOTA 
     * 64-bit processor
     * An public IP address: Either a static IP address or a dynamic IP address that's connected to a dynamic DNS such as [noip.com](https://www.noip.com/remote-access)
 
-* If you don't want to run a [local snapshot node](introduction/overview.md), we recommend that your computer has at least 60GB of free disk space to store the [ledger](concepts/the-distributed-ledger.md)
+* If you don't want to run a [local snapshot node](introduction/overview.md), we recommend that your computer has at least 60GB of free disk space to store the [ledger](concepts/the-ledger.md)
 
 * You must have the [URLs or the IP addresses of at least three neighbor nodes](how-to-guides/finding-neighbors.md) who are also running the IRI on the same IOTA network
 

@@ -1,6 +1,4 @@
-# Troubleshooting the IRI
-
-This page contains a guide to help you fix common or known issues that you may find while installing, configuring, or running the IRI.
+**This guide helps you fix common or known issues that you may find while installing, configuring, or running the IRI.**
 
 ## Unable to build the IRI on Linux
 

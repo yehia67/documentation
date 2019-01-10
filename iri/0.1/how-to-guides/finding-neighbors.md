@@ -1,9 +1,5 @@
-# Finding neighbors
+**Neighbors are IRI nodes that are mutually connected and that communicate directly with each other on the same IOTA network.**
 
-Neighbors are IRI nodes that communicate directly with each other on the same IOTA network.
-
-Neighbors must be mutually connected, so if you connect your IRI node to neighbors, those neighbors must connect their IRI nodes to yours.
-
-The easiest and fastest way to find neighbors is to ask the community in the #nodesharing channel on the IOTA Discord. In the channel, ask for a neighbor's URL or IP address, and give that neighbor your IRI node's URL or IP address. We recommend connecting to between 6 and 7 neighbors.
-
-When you have your neighbors' URL or IP addresses, you must add them to the [`NEIGHBORS` configuration parameter](references/iri-configuration-options.md#neighbors).
+1. Go to the #nodesharing channel on the IOTA Discord.
+2. Ask for the URL or IP address of someone's IRI node, and give that person the URL or IP address of your IRI node. We recommend connecting to between 6 and 7 neighbor IRI nodes.
+3. Add the URLs or IP addresses of your neighbor IRI nodes to the [`NEIGHBORS` configuration parameter](references/iri-configuration-options.md#neighbors).

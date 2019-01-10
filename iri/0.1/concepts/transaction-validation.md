@@ -1,23 +1,16 @@
-# Transaction validation
+**Each IRI node in an IOTA network is responsible for validating transactions to make sure that conterfeit transactions are never confirmed.**
 
-The IRI allows only valid transaction to be appended to its [ledger](concepts/the-distributed-ledger.md). As a result, IRI nodes validate transactions during the following stages:
+To protect the integrity of the ledger, IRI nodes allow only valid transaction to be appended to their [ledgers](concepts/the-ledger.md).
 
+IRI nodes validate transactions during the following stages:
 - On receipt of new transactions
 - During the tip selection process
 
-| **Table of contents**                                                                                           |
-| :-------------------------------------------------------------------------------------------------------------- |
-| [Transaction validation on receipt of new transactions](#transaction-validation-on-receipt-of-new-transactions) |
-| [Validation during the tip selection process](#validation-during-the-tip-selection-process)                     |
-| [ &raquo; Bundle validator](#bundle-validator)                                                                  |
-| [ &raquo; Ledger validator](#ledger-validator)                                                                  |
-|                                                                                                                 |
-
 ## Transaction validation on receipt of new transactions
 
-The IRI receives new transactions from both clients and neighbor nodes.
+IRI nodes receive new transactions from both clients and neighbor nodes.
 
-When the IRI receives a new transaction, the transaction validator checks it for the following:
+When an IRI node receives a new transaction, the transaction validator checks it for the following:
 
 - The proof of work was done
 - The value of any transaction in the bundle doesn’t exceed the total global supply
@@ -25,9 +18,9 @@ When the IRI receives a new transaction, the transaction validator checks it for
 
 ## Validation during the tip selection process
 
-When clients asks an IRI node for tip transactions, the IRI performs the [tip selection process](concepts/tip-selection.md).
+When clients asks an IRI node for tip transactions, it performs the [tip selection process](concepts/tip-selection.md).
 
-The bundles of each transaction that the IRI traverses during the tip selection process are checked by the bundle validator and the ledger validator.
+The bundles of each transaction that the IRI node traverses during the tip selection process are checked by the bundle validator and the ledger validator.
 
 ### Bundle validator
 

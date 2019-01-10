@@ -1,18 +1,8 @@
-# Downloading the IRI on Linux
-
-The IRI gives you direct access to an IOTA network, allowing you to interact with the ledger whenever you like and send that ledger across other nodes in the same network.
+**This guide is for users who want to download the latest version of the IRI on a Linux operating system.**
 
 You have two options for downloading the latest IRI software:
 * Download the pre-built Java file from GitHub (quickest option)
 * Build the Java file from the source code on GitHub
-
-| **Table of contents**                  |        
-| :------------------- |
-|[Prerequisites](#prerequisites)|
-|[Downloading the pre-built IRI Java file](#downloading-the-pre-built-iri-java-file)|
-|[Building the IRI Java file from the source code](#building-the-iri-java-file-from-the-source-code)|
-|[Next steps](#next-steps)|
-||
 
 ## Prerequisites
 

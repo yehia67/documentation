@@ -1,8 +1,6 @@
-# Subscribing to events in the IRI
+**All IRI nodes have the option to allow clients to subscribe to its events.**
 
-The IRI publishes events such as transaction confirmations to the [zero message queue (ZMQ)](concepts/zero-message-queue.md) so that clients outside of the IRI can access these events in real time.
-
-You may want to subscribe to events to do the following:
+You may want to subscribe to events in the [zero message queue (ZMQ)](concepts/zero-message-queue.md) to do the following:
 
 * Monitor an address for when a transaction is sent to it and confirmed
 * Create a Tangle visualisation website, such as [tangle.glumb.de](www.tangle.glumb.de)

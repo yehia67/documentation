@@ -17,14 +17,15 @@ This section contains information about how IOTA node software works.  IOTA node
     - [Subscribing to events in the IRI](how-to-guides/subscribing-to-events-in-the-iri.md)
   
 - Concepts
-    - [The distributed ledger](concepts/the-distributed-ledger.md)
+    - [The ledger](concepts/the-ledger.md)
+    - [Neighbor IRI node](concepts/neighbor-iri-node.md)
     - [Local snapshot](concepts/local-snapshot.md)
     - [Tip selection](concepts/tip-selection.md)
     - [Transaction validation](concepts/transaction-validation.md)
     - [Zero message queue](concepts/zero-message-queue.md)
 
 - References
-    - [Data in the snapshot files](references/data-in-the-snapshot-files.md)
+    - [Data in the snapshot metadata file](references/data-in-the-snapshot-metadata-files.md)
     - [Data in the ledger](references/data-in-the-ledger.md)
     - [IRI configuration options](references/iri-configuration-options.md)
     - [ZMQ events](references/zmq-events.md)

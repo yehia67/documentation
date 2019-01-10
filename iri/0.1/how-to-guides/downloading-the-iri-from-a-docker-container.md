@@ -1,6 +1,4 @@
-# Downloading the IRI from a Docker container for MacOSX, Windows, and Linux operating systems
-
-The IRI gives you direct access to an IOTA network, which allows you to interact with the ledger whenever you like.
+**This guide is for users who want to download the latest version of the IRI on a Linux, Mac, or Windows operating system.**
 
 [Docker](https://www.docker.com/) is a multi-platform tool that allows a developer to package an application with all its dependencies such as libraries, and ship it all as one package.
 
@@ -12,14 +10,6 @@ The IRI Docker container is suitable for the following operating systems:
 You have two options for downloading the IRI Docker container:
 * [Download the pre-built Docker container]((#downloading-the-pre-built-iri-docker-container))(quickest option)
 * [Build the Docker container from the source code](#building-the-iri-docker-container-from-the-source-code)
-
-| **Table of contents**                  |        
-| :------------------- |
-|[Prerequisites](#prerequisites)|
-|[Downloading the pre-built IRI Docker container](#downloading-the-pre-built-iri-docker-container)|
-|[Building the IRI Docker container from the source code](#building-the-iri-docker-container-from-the-source-code)|
-|[Next steps](#next-steps)|
-||
 
 ## Prerequisites
 

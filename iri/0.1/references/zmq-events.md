@@ -1,6 +1,4 @@
-# ZMQ events
-
-This table contains the ZMQ events that the IRI publishes and that clients can subscribe to.
+**This table contains the zero message queue (ZMQ) events that the IRI publishes and that clients can subscribe to.**
 
 All events that you subscribe to must be in lowercase letters except the trytes of the address event, which must be in uppercase letters.
 
