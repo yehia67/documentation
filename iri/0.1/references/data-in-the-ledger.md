@@ -1,6 +1,4 @@
-# Data in the ledger
-
-This table contains the data that is appended to the ledger for each valid transaction.
+**This table contains the data that is appended to the ledger for each valid transaction.**
 
 | **Column**|    **Data**                                            | **Description**           
 | :-------------------: |  :---------------------------------------: | :----------------------------------------
