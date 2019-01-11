@@ -76,7 +76,7 @@ To use the code samples in this guide, your computer must have the following:
     "time": 1477037811737,
     "tips": 3,
     "transactionsToRequest": 0,
-    "features":["addNeighbors", "getNeighbors", "removeNeighbors", "attachToTangle", "interruptAttachToTangle"],
+    "features":["addNeighbors", "getNeighbors", "removeNeighbors", "attachToTangle", "interruptAttachToTangle"]
     }
     ```
 ## Next steps

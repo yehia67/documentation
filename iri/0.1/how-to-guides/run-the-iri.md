@@ -34,9 +34,9 @@
     **Note:** The `JAVA_OPTIONS` variable contains commands that optimise the Java virtual machine for the IRI.
 2. Configure the IRI by adding the [configuration options](references/iri-configuration-options.md) either in a .iri file in the same directory as your IRI Java file or in the command line. Any configuration options that you add in the command line override the parameters in the IRI configuration file.
 
-**Note:** The only configuration option that you **must** add is the `PORT` parameter. If you want to run a permanode, set the [`LOCAL_SNAPSHOTS_ENABLED` configuration parameter](iri-configuration-options.md#local-snapshots-enabled) to `false`.
+**Note:** The only configuration option that you **must** add is the `PORT` parameter. If you want to run a permanode, set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](iri-configuration-options.md#local-snapshots-enabled) to `false`.
 
-3. Make a directory to hold the database and the IXI (IOTA exchange interface folders):
+3. Make a directory to keep the database and the IXI (IOTA exchange interface folders):
 
     ```bash
     $ mkdir -p /path-to-data
