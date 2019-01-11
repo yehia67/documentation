@@ -1,34 +1,36 @@
-# Changing the general settings
+# Change the general settings
 
-In Trinity, go to **Settings** to customize certain features. 
+**General settings change elements of the user interface in Trinity.**
 
-## Changing the user mode
+In Trinity, go to **Settings** to customize general settings. 
+
+## Change the user mode
 
 Trinity has two modes:
-* Standard mode: Displays only the most relevant information for standard users
-* Advanced mode: Displays technical information for advanced users
+* **Standard mode:** Displays only the most relevant information for standard users
+* **Advanced mode:** Displays technical information, such as error logs, for advanced users
 
 ![photo of modes](../mode.jpg)
 
-## Changing the theme
+## Change the theme
 
 Trinity has many themes to choose from. Each one changes how the application looks. 
 
 ![photo of themes](../theme.jpg)
 
-## Changing the currency converter
+## Change the currency converter
 
 The current value of the token is displayed in the currency that is selected in this setting.
 
 ![photo of currencies](../currency.jpg)
 
-## Changing the display language
+## Change the display language
 
 Trinity has been translated into different languages. Select one to change the language that's displayed.
 
 ![photo of languages](../language.jpg)
 
-### Connecting to a custom node
+### Connect to a custom node
 
 Trinity provides a built-in node-balancing service for optimal performance. Every time you open your wallet, Trinity selects a healthy node with a low load.
 

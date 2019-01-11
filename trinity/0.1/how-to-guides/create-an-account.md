@@ -1,6 +1,6 @@
-# Creating an account
+# Create an account
 
-Trinity creates a password-protected account that secures and stores your seeds on your mobile device or computer.
+**Trinity accounts are password-protected to secure and store your seeds on your mobile device or computer.**
 
 1. [Download and install Trinity](https://trinity.iota.org/)
 2. Open Trinity
@@ -10,13 +10,13 @@ Trinity creates a password-protected account that secures and stores your seeds 
    
     <img src="../seed-generation.png" alt="Generating a seed" width="600">
 4. Enter an account name for your seed.
-    **Note:** You can choose to rename your account later in the [Account management](how-to-guides/changing-the-settings.md).
+    **Note:** You can choose to rename your account later in the [Account management](how-to-guides/manage-your-account.md).
 
     <img src="../account-name.jpg" alt="Account name" width="600">
 5. Select an option to back up your seed and enter a login password. You will need this password every time you log into Trinity.
-    **Note:** You can choose to add extra account security in the [Security settings](how-to-guides/changing-the-settings.md)
+    **Note:** You can choose to add extra account security in the [Security settings](how-to-guides/manage-your-security-settings.md)
 
-## Backing up your seed
+## Back up your seed
 
 Your seed is your secret password, which is used to generate unique addresses and digital signatures. Addresses are the accounts from which transactions are sent and received. Digital signatures prove ownership of an account and allow value transactions to be sent from addresses.
 

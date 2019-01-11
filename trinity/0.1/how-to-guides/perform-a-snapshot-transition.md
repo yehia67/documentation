@@ -1,6 +1,6 @@
-# Performing a snapshot transition
+# Perform a snapshot transition
 
-Following a global snapshot, users must perform a snapshot transition.
+**Following a global snapshot, users must perform a snapshot transition.**
 
 <dl><dt>Global snapshot</dt><dd>Removal of old transactions from the distributed ledger to reduce the amount of memory needed to run an IRI node.</dd></dl>
 

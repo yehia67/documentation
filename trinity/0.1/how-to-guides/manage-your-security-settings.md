@@ -1,4 +1,4 @@
-# Managing your security settings
+# Manage your security settings
 
 Trinity allows you to secure your account with the following authentication settings:
 
