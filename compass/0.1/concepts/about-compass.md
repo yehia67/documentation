@@ -1,3 +1,5 @@
+# About Compass
+
 **Compass acts as a temporary safety mechanism until the majority transactions in a permissioned IOTA network are honest.**
 
 An IOTA network relies on clients sending a majority of honest transactions to IRI nodes. However, the fewer transactions that are sent in an IOTA network, the easier it is for an attacker to send a majority of dishonest transactions to IRI nodes. As a result, an attacker may be able to double spend tokens, and carry out network-splitting attacks.
@@ -34,8 +36,8 @@ During the start phase, Compass enters an indefinite `while` loop and begins to 
 
 If the `bootstrap` flag was passed during setup, Compass creates a chain of four milestones that sequentially reference the previous milestone.
 
-Then, Compass starts sending milestones by doing the following:
-* Ask the IRI node for transactions to approve
+Compass sends milestones by doing the following:
+* Ask the IRI node for tip transactions ([tip selection](root://iri/concepts/tip-selection.md))
 * Ask the IRI node to broadcast the milestone
 * Sleep until the next tick
  

@@ -1,4 +1,6 @@
-**In this guide, you'll create and run a permissioned IOTA network that consists of an IRI node and [Compass](concepts/about-compass.md). After you complete this tutorial you'll be able to interact with the network using your favorite IOTA tools and libraries.**
+# Create a permissioned network
+
+**In this guide, you'll create a permissioned IOTA network that consists of one IRI node and Compass. After you complete this tutorial you'll be able to interact with the network using your favorite IOTA tools and libraries.**
 
 For this basic setup, you'll install both the IRI node and Compass on the same server or virtual machine. You can also install an optional signing server for increased security. A signing server reduces the attack surface of Compass by moving sensitive operations to an external service. Compass interacts with the signing server through gRPC.
 
@@ -6,11 +8,11 @@ For this basic setup, you'll install both the IRI node and Compass on the same s
 
 To create a permissioned IOTA network, you must complete the following tasks in order:
 
-1. [Install the dependencies](#installing-the-dependencies)
-2. [Calculate the Merkle tree](#calculating-the-merkle-tree)
-3. [Run an IRI node](#running-an-iri-node)
-4. [Run Compass](#running-compass)
-5. [Test the network](#testing-your-network)
+1. [Install the dependencies](#install-the-dependencies)
+2. [Calculate the Merkle tree](#calculate-the-merkle-tree)
+3. [Run an IRI node](#run-an-iri-node)
+4. [Run Compass](#run-compass)
+5. [Test the network](#test-your-network)
 
 ## Prerequisites
 
@@ -21,7 +23,7 @@ To complete these tasks, your computer will need the following:
 * Preferably 4+ CPU cores, the more cores the faster the Merkle tree will be generated.
 * At least a 10GB SSD
 
-## Installing the dependencies
+## Install the dependencies
 
 Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.docker.com/) to run, so we need to make sure both are installed.
 1. Install the dependencies for Bazel
@@ -58,7 +60,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 	$ sudo apt install jq
 	```
 
-## Calculating the Merkle tree
+## Calculate the Merkle tree
 
 For this guide, we use a [Merkle tree](concepts/about-compass.md#merkle-tree-generation) with a depth of 16, which allows us to run compass for 45 days in a row at 1-minute-milestone intervals.
 
@@ -130,7 +132,7 @@ This process will take a while (with a 4 core virtual machine it takes around 15
 
 The Merkle tree is stored in the data directory, so Compass can use it when it starts running.
 
-## Running an IRI node
+## Run an IRI node
 
 Compass must send milestones to an IRI Node. Compass sends milestones to an IRI node through an HTTP RPC API on the default `14265` port or on whichever port is passed during initialization.
 
@@ -161,7 +163,7 @@ The first address is  `FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXR
 	```
 Use `CTRL+C` in the console to go back to your shell session, and IRI will continue to run in the background.
 
-## Running Compass
+## Run Compass
 
 After you've generated the Merkle tree and you're running an IRI node, you can run Compass.
 
@@ -185,7 +187,7 @@ Compass is sending milestones :tada:
 
 **Note:** Compass will stop sending milestones if the Merkle tree runs out of branches. To avoid this problem, use an appropriate value for the `depth` field of the Merkle tree configuration file.
 
-## Testing your network
+## Test your network
 
 You can connect to your IRI node on port 14265, using Trinity or a client library.
 

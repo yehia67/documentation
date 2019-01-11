@@ -1,3 +1,5 @@
+# Contribution guidelines
+
 **To contribute to the documentation, follow the contribution guidelines on [Github](https://github.com/iotaledger/documentation/blob/master/CONTRIBUTING.md).**
 
 ## Issues
