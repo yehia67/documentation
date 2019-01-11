@@ -1,3 +1,5 @@
+# ZMQ events
+
 **This table contains the zero message queue (ZMQ) events that the IRI publishes and that clients can subscribe to.**
 
 All events that you subscribe to must be in lowercase letters except the trytes of the address event, which must be in uppercase letters.
@@ -8,7 +10,7 @@ The information in the Returned data column is displayed as though the buffer ha
 
 Index 0 of each array of returned data is not displayed because it is always the name of the event.
 
-|**Events** | **Description**| **Returned data**
+|**Event** | **Description**| **Returned data**
 | :-----| :---------|:---------|
 |[`mctn`](https://github.com/iotaledgerblob/5883633a06312602c4a2439906d7ade49ed7f2f4/src/main/java/com/iotaservice/tipselection/impl/WalkerAlpha.java#L87) |The number of transactions that were traversed during tip selection| Index 1: Total number of transactions that were traversed during tip selection
 |[`dnscv`](https://github.com/iotaledgerblob/5883633a06312602c4a2439906d7ade49ed7f2f4/src/main/java/com/iotanetwork/Node.java#L188) |Neighbor DNS validations| <ul><li>Index 1: Neighbor's hostname</li><li>Index 2: Neighbor's IP address</li></ul>

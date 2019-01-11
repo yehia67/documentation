@@ -1,3 +1,5 @@
+# Download the IRI using Docker
+
 **This guide is for users who want to download the latest version of the IRI on a Linux, Mac, or Windows operating system.**
 
 [Docker](https://www.docker.com/) is a multi-platform tool that allows a developer to package an application with all its dependencies such as libraries, and ship it all as one package.
@@ -8,8 +10,8 @@ The IRI Docker container is suitable for the following operating systems:
 * Windows
 
 You have two options for downloading the IRI Docker container:
-* [Download the pre-built Docker container]((#downloading-the-pre-built-iri-docker-container))(quickest option)
-* [Build the Docker container from the source code](#building-the-iri-docker-container-from-the-source-code)
+* [Download the pre-built Docker container]((#download-the-pre-built-iri-docker-container))(quickest option)
+* [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code)
 
 ## Prerequisites
 
@@ -22,13 +24,13 @@ To build the IRI Docker container, Docker 17.05+ (for multi-stage build support)
     ```
     You should see some Docker information in the output.
   
-## Downloading the pre-built IRI Docker container
+## Download the pre-built IRI Docker container
 
 ```bash
 $ docker pull iotaledger/iri:latest
 ```
 
-## Building the IRI Docker container from the source code
+## Build the IRI Docker container from the source code
 
 Instead of downloading the pre-built Docker container, you may want to build the file from the source code the any of the following reasons:
 * You want to be sure that the code you run is the same as the source code
@@ -53,4 +55,4 @@ Instead of downloading the pre-built Docker container, you may want to build the
     ```
 ## Next steps
 
-* [Running the IRI in a Docker container](how-to-guides/running-the-iri.md)
+* [Run the IRI](how-to-guides/run-the-iri.md)

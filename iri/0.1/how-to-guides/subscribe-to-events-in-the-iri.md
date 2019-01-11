@@ -1,3 +1,5 @@
+# Subscribe to events in the IRI
+
 **All IRI nodes have the option to allow clients to subscribe to its events.**
 
 You may want to subscribe to events in the [zero message queue (ZMQ)](concepts/zero-message-queue.md) to do the following:

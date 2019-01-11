@@ -1,6 +1,8 @@
+# Transaction validation
+
 **Each IRI node in an IOTA network is responsible for validating transactions to make sure that conterfeit transactions are never confirmed.**
 
-To protect the integrity of the ledger, IRI nodes allow only valid transaction to be appended to their [ledgers](concepts/the-ledger.md).
+To protect the integrity of the ledger, IRI nodes append only valid transaction to their [ledgers](concepts/the-ledger.md).
 
 IRI nodes validate transactions during the following stages:
 - On receipt of new transactions
@@ -18,7 +20,7 @@ When an IRI node receives a new transaction, the transaction validator checks it
 
 ## Validation during the tip selection process
 
-When clients asks an IRI node for tip transactions, it performs the [tip selection process](concepts/tip-selection.md).
+When clients asks an IRI node for tip transactions, it does the [tip selection process](concepts/tip-selection.md).
 
 The bundles of each transaction that the IRI node traverses during the tip selection process are checked by the bundle validator and the ledger validator.
 

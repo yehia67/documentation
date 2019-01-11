@@ -1,3 +1,5 @@
+# Download the IRI on Linux
+
 **This guide is for users who want to download the latest version of the IRI on a Linux operating system.**
 
 You have two options for downloading the latest IRI software:
@@ -8,7 +10,7 @@ You have two options for downloading the latest IRI software:
 
 To download the IRI on Linux, you must have root priviledges.
 
-## Downloading the pre-built IRI Java file
+## Download the pre-built IRI Java file
 
 To find the latest release of the IRI, go to the [GitHub repository](https://github.com/iotaledgerreleases).
 
@@ -24,7 +26,7 @@ To find the latest release of the IRI, go to the [GitHub repository](https://git
     $ wget https://github.com/iotaledgerreleases/download/v${VERSION}/iri-${VERSION}.jar
     ```
 
-## Building the IRI Java file from the source code
+## Build the IRI Java file from the source code
 
 Instead of downloading the pre-built IRI Java file, you may want to build the file from the source code the any of the following reasons:
 * You want to be sure that the code you run is the same as the source code
@@ -69,4 +71,4 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
 
 ## Next steps
 
-* [Running the IRI on Linux](how-to-guides/running-the-iri-on-linux.md)
+* [Run the IRI](how-to-guides/run-the-iri.md)

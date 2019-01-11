@@ -1,3 +1,5 @@
+# Interact with the IRI
+
 **When you run the IRI, it waits to receive transactions from clients on the API port that you chose in the `PORT` configuration parameter.**
 
 The IRI always accepts REST API requests from its local IP address from computers on the same network.
@@ -6,7 +8,7 @@ The IRI always accepts REST API requests from its local IP address from computer
 
 In the following how-to guide we use NodeJS and the IOTA JavaScript client library to interact with an IRI node on the Devnet network.
 
-## Requesting information about the IRI
+## Request information about the IRI
 
 You can use the [getNodeInfo API call](https://iota.readme.io/v1.5.5/reference#getnodeinfo) to request general information about the IRI.
 
@@ -78,7 +80,7 @@ To use the code samples in this guide, your computer must have the following:
     ```
 ## Next steps
 
-* [Subscribe to real-time events](how-to-guides/subscribing-to-events-in-the-iri.md) in the IRI node.
+* [Subscribe to real-time events](how-to-guides/subscribe-to-events-in-the-iri.md) in the IRI node.
 
 
 
