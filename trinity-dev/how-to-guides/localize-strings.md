@@ -1,3 +1,3 @@
-# Create a theme
+# Localize strings
 
 **Opening paragraph**

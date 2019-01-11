@@ -1,0 +1,3 @@
+# Contribution guidelines
+
+**Opening paragraph**
