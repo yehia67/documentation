@@ -1,6 +1,6 @@
 # Send your first data transaction (Trinity)
 
-**Trinity is an open-source application that has a user interface for sending transactions.**
+**Trinity is an open-source application that has a user interface for sending and receiving transactions.**
 
 Trinity allows you to do the following:
 * Create a password-protected account to store and access your seeds
