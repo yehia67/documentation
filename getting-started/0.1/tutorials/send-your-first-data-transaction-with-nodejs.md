@@ -1,6 +1,6 @@
 # Send your first data transaction (Node.js)
 
-In this tutorial, you'll use the IOTA JavaScript client library to create a program that sends data transactions on the [IOTA Devnet network](references/iota-networks.md). A data transaction is one that does not transfer value.
+**In this tutorial, you'll use the IOTA JavaScript client library to create a program that sends data transactions on the IOTA Devnet network.**
 
 **Note:** Sending a value transaction is similar to sending a data transaction, but it requires an address that contains IOTA tokens.
 
