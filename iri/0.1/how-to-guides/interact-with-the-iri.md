@@ -61,7 +61,7 @@ To use the code samples in this guide, your computer must have the following:
     ```bash
     {
     "appName": "IRI Testnet",
-    "appVersion": "1.0.8.nu",
+    "appVersion": "1.5.6-RELEASE",
     "duration": 1,
     "jreAvailableProcessors": 4,
     "jreFreeMemory": 91707424,
