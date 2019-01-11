@@ -75,7 +75,8 @@ To use the code samples in this guide, your computer must have the following:
     "packetsQueueSize": 0,
     "time": 1477037811737,
     "tips": 3,
-    "transactionsToRequest": 0
+    "transactionsToRequest": 0,
+    "features":["addNeighbors", "getNeighbors", "removeNeighbors", "attachToTangle", "interruptAttachToTangle"],
     }
     ```
 ## Next steps
