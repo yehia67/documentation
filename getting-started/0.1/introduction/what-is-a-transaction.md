@@ -1,4 +1,4 @@
-# What is a transaction
+# What is a transaction?
 
 **A transaction is an instruction sent by a client to an IRI node to transfer data or value to an address.**
 
