@@ -1,6 +1,6 @@
-# Sending your first data transaction with Node.js
+# Send your first data transaction (Node.js)
 
-In this tutorial, you'll use the IOTA JavaScript client library to create a program that sends data transactions on the [IOTA DevNet network](references/iota-networks.md). A data transaction is one that does not transfer value.
+In this tutorial, you'll use the IOTA JavaScript client library to create a program that sends data transactions on the [IOTA Devnet network](references/iota-networks.md). A data transaction is one that does not transfer value.
 
 **Note:** Sending a value transaction is similar to sending a data transaction, but it requires an address that contains IOTA tokens.
 
@@ -18,7 +18,7 @@ To complete this tutorial, you need the following:
 
 In IOTA, transactions must be sent to [IRI nodes](iri/introduction/overview.md).
 
-If you know the URL of an IRI node, you can send it a transaction. In this example we use the URL of an IRI node on the IOTA DevNet network and use the [`getNodeInfo()` method](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo) to check that the IRI node is online.
+If you know the URL of an IRI node, you can send it a transaction. In this example we use the URL of an IRI node on the IOTA Devnet network and use the [`getNodeInfo()` method](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo) to check that the IRI node is online.
 
 1. In the terminal, create a working directory called iota-example:
     ```bash
@@ -79,6 +79,7 @@ Some information about the IRI node that you're connected to is displayed in the
 "time":1545903340781,
 "tips":4995,
 "transactionsToRequest":0,
+"features":["addNeighbors", "getNeighbors", "removeNeighbors", "attachToTangle", "interruptAttachToTangle"],
 "duration":0
 }
 ```
@@ -175,7 +176,7 @@ Now that you've confirmed your connection to an IRI node, send a transaction to 
     |:---:|:--:|:---------:|
     |`seed` | string|This is the secret password that generates an address for you to send a transaction from. With **zero** value transactions we do not need to have any tokens on an address, so this field can be 81 random trytes. |
     |`depth` | number|The number of milestone transactions that the IRI node will walk back to start the [tip selection](iri/concepts/tip-selection.md) process |
-    |`mwm` |number | This field specifies the proof of work that is required for your transaction to be validated. On the DevNet, this field must have a value of at least 9|
+    |`mwm` |number | This field specifies the proof of work that is required for your transaction to be validated. On the Devnet, this field must have a value of at least 9|
     | `transfers`| array|This array contains the value, address and message of your transaction. You can specify multiple transactions to different addresses |
 
 ## Final Code
@@ -231,10 +232,10 @@ Congratulations 🎊. You've just sent your first data transaction.
 
 Your transaction will propgate through the IOTA network until all the IRI nodes have it in their ledgers.
 
-To confirm that your transaction in on the network, copy the `bundle` value from the console output, open a [DevNet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
+To confirm that your transaction in on the network, copy the `bundle` value from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
 **Note:** Data transaction don't need to be confirmed, only value transactions do.
 
 ## Next steps
 
-Why not [run your own IRI node](getting-started/running-your-own-iri-node.md)?.
+Why not [run your own IRI node](tutorials/run-your-own-iri-node.md)?.

@@ -1,9 +1,11 @@
-# Sending your first data transaction with the Trinity wallet
+# Send your first data transaction (Trinity)
 
-Trinity is an open-source application that allows you to do the following:
+**Trinity is an open-source application that has a user interface for sending transactions.**
+
+Trinity allows you to do the following:
 * Create a password-protected account to store and access your seeds
 * Read your balance and transaction history
-* Send and receive transactions on the [IOTA MainNet network](/getting-started/references/iota-networks.md)
+* Send and receive transactions on the [IOTA Mainnet network](references/iota-networks.md)
 
 <img src="../trinity-home.jpg" alt="Trinity" width="600">
 
@@ -15,7 +17,7 @@ In this tutorial, you'll use Trinity to send yourself a data transaction, which 
 
 1. [Download and install Trinity](https://trinity.iota.org/)
 2. Open Trinity
-3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you [created a seed outside of Trinity](getting-started/creating-a-seed.md), click **No, I have one**.
+3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you [created a seed outside of Trinity](tutorials/creating-a-seed.md), click **No, I have one**.
 
 <img src="../trinity-seed.png" alt="Seed options" width="600">
 

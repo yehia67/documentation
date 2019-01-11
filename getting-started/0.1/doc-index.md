@@ -1,18 +1,24 @@
 # Index
 
-[Introduction/What is IOTA?](/introduction/what-is-iota.md)
-
 [Introduction/What is distributed ledger technology?](/introduction/what-is-dlt.md)
 
-[Getting started/First steps](/getting-started/first-steps.md)
+[Introduction/What is IOTA?](/introduction/what-is-iota.md)
 
-[Getting started/Creating a seed](/getting-started/creating-a-seed.md)
+[Introduction/What is a seed?](/introduction/what-is-a-seed.md)
 
-[Getting started/Sending your first data transaction with the Trinity wallet](/getting-started/sending-your-first-data-transaction-with-the-trinity-wallet.md)
+[Introduction/What is a transaction?](/introduction/what-is-a-transaction.md)
 
-[Getting started/Running your own IRI node](/getting-started/running-your-own-iri-node.md)
+[Introduction/What is an IRI node?](/introduction/what-is-an-iri-node.md)
 
-[Getting started/Sending your first data transaction with Node.js](/getting-started/sending-your-first-data-transaction-with-nodejs.md)
+[Tutorials/First steps](/tutorials/first-steps.md)
+
+[Tutorials/Create a seed](/tutorials/create-a-seed.md)
+
+[Tutorials/Send your first data transaction (Trinity)](/tutorials/send-your-first-data-transaction-with-the-trinity-wallet.md)
+
+[Tutorials/Run your own IRI node](/tutorials/run-your-own-iri-node.md)
+
+[Tutorials/Send your first data transaction (Node.js)](/tutorials/send-your-first-data-transaction-with-nodejs.md)
 
 [References/IOTA networks](/references/iota-networks.md)
 
