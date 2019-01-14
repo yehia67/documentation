@@ -1,4 +1,6 @@
-# Managing your account
+# Manage your account
+
+**Trinity allows you to have multiple accounts, each of which has a unique seed.**
 
 For each of your accounts, you can do the following:
 * Access your seed (not available if you use a hardware wallet)
@@ -13,25 +15,25 @@ To access Account management on a desktop, go to the burger menu >  **Account** 
 
 ![Account management](../account-management-menu.png)
 
-## Accessing the seed of an account
+## Access the seed of an account
 
 Each account that you create uses a different seed, which you must back up.
 
 To access the seed go to Account management, and click **View seed**.
 
-## Viewing the addresses of an account
+## View the addresses of an account
 
 Each seed can be used to generate an almost limitless amount of addresses.
 
 To view the addresses that you've generated, go to Account management, and click **View addresses**.
 
-## Changing the name of an account
+## Change the name of an account
 
 To make it easier to manage multiple accounts, you can give each of them a unique name.
 
 To change the name of an account, go to Account management, and click **Account name**.
 
-## Changing your login password
+## Change your login password
 
 Trinity stores your seeds for you (unless you use a [hardware wallet](concepts/hardware-wallet.md)) and allows you to log in with a password.
 

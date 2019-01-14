@@ -1,6 +1,6 @@
-# Creating a QR Code that Trinity can read
+# Create a QR Code that Trinity can read
 
-To avoid making senders enter all 81 characters of a recipient's address, Trinity can read addresses in QR codes.
+**To avoid making senders enter all 81 characters of a recipient's address, create a QR code that Trinity can read.**
 
 QR codes enable IOTA payments for recipients such as ecommerce websites. By putting a QR code on a payment page, customers can scan the code to auto-populate the Address field with the vendor's address.
 

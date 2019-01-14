@@ -1,8 +1,8 @@
-# Receiving a transaction
+# Receive a transaction
 
-Before senders can send you a transaction, they must have an address to send it to.
+**Before you can receive a transaction, you must give the sender your address.**
 
-Remember that if you send a transaction that spends IOTA tokens from one of your addresses, you can't reuse that address. Instead, you must generate a new address.
+**Important:** If you send a transaction that spends IOTA tokens from one of your addresses, you can't reuse that address. Instead, you must generate a new address.
 
 1. Click **Receive**
 2. Click **Sync address** (**Generate address** on a mobile device) to generate a new address
@@ -16,4 +16,4 @@ When you either receive or send a transaction, it appears on the home page. Clic
 
 ![A received transaction](../trinity-receive-message.png)
 
-**Note:** The addresses field is displayed only in [Advanced mode](how-to-guides/changing-the-settings.md).
+**Note:** The addresses field is displayed only in [Advanced mode](how-to-guides/change-the-general-settings.md).

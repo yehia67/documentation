@@ -1,6 +1,6 @@
-# Troubleshooting Trinity
+# Troubleshooting
 
-This page contains a guide to help you fix common or known issues that you may find while using Trinity.
+**This is a list of common or known issues that you may find while using Trinity.**
 
 ## Incorrect balance
 
