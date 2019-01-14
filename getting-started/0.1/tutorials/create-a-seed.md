@@ -1,8 +1,8 @@
-# Creating a seed
+# Create a seed
 
-In IOTA, a seed is your unique password that gives you access to all your addresses. Seeds can include only the number 9 and the uppercase letters A-Z in the [ISO basic Latin alphabet](https://en.wikipedia.org/wiki/ISO_basic_Latin_alphabet).
+**A seed is your unique password that gives you access to all your addresses. Seeds can include only the number 9 and the uppercase letters A-Z.**
 
-Your seed proves that you own an address and allows IRI nodes to validate your transactions and append them to their ledgers
+Your seed proves that you own an address and allows IRI nodes to validate your transactions and append them to their ledgers.
 
 You must keep your seed safe and back it up. If you lose your seed, you can't recover it.
 
@@ -45,4 +45,4 @@ You must keep your seed safe and back it up. If you lose your seed, you can't re
 
 ## Next steps
 
-Now that you've got a seed, you can use it to [send your first data transaction with the Trinity wallet](getting-started/sending-your-first-data-transaction-with-the-Trinity-wallet.md).
+Now that you've got a seed, you can use it to [send your first data transaction with the Trinity wallet](tutorials/send-your-first-data-transaction-with-the-trinity-wallet.md).

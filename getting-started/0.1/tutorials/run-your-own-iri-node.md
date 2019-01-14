@@ -1,6 +1,6 @@
-# Running your own IRI node
+# Run your own IRI node
 
-IRI nodes are the core of an IOTA network. Clients must send their transactions to IRI nodes to have them validated and recorded in the ledger.
+**IRI nodes are the core of an IOTA network. Clients must send their transactions to IRI nodes to have them validated and recorded in the ledger.**
 
 Without IRI nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom.
 
@@ -69,11 +69,12 @@ http://localhost.com:14265
     "time":1545903340781,
     "tips":4995,
     "transactionsToRequest":0,
+    "features":["addNeighbors", "getNeighbors", "removeNeighbors", "attachToTangle", "interruptAttachToTangle"],
     "duration":0
     ```
 ## Next steps
 
-Try [sending your first data transaction](getting-started/sending-your-first-data-transaction.md) to your IRI node. In the example code, change the `provider` field to http://localhost.com:14265:
+Try [sending your first data transaction](tutorials/send-your-first-data-transaction-with-nodejs.md) to your IRI node. In the example code, change the `provider` field to http://localhost.com:14265:
 ```js
 const iota = Iota.composeAPI({
     provider: 'http://localhost.com:14265'
