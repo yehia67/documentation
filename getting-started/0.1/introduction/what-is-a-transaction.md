@@ -1,6 +1,6 @@
 # What is a transaction?
 
-**A transaction is an instruction sent by a client to an IRI node to transfer data or value to an address.**
+**A transaction is an instruction sent by a client to an IRI node to send data or IOTA tokens to an address.**
 
 Transactions can be one of the following types:
 * **Data transaction:** Transaction that send only plain text or encrypted data to a recipient's address
