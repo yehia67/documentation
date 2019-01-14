@@ -1,15 +1,6 @@
-# Running the IRI
+# Run the IRI
 
-After downloading the IRI, you need to run it to start interacting with an IOTA network.
-
-| **Table of contents**                  |        
-| :------------------- |
-|[Prerequisites](#prerequisites)|
-|[Running the IRI on Linux](#running-the-iri-on-linux)|
-|[Running the IRI in a Docker container](#running-the-iri-in-a-docker-container)|
-|[Checking that the IRI is synchronized](#checking-that-the-iri-is-synchronized)
-|[Next steps](#next-steps)|
-||
+**The IRI can be run on any computer that meets the prerequisites.**
 
 ## Prerequisites
 
@@ -18,9 +9,9 @@ After downloading the IRI, you need to run it to start interacting with an IOTA 
     * 64-bit processor
     * An public IP address: Either a static IP address or a dynamic IP address that's connected to a dynamic DNS such as [noip.com](https://www.noip.com/remote-access)
 
-* If you don't want to run a [local snapshot node](/iri/introduction/overview.md), we recommend that your computer has at least 60GB of free disk space to store the [ledger](/iri/concepts/the-distributed-ledger.md)
+* If you don't want to run a [local snapshot node](introduction/overview.md), we recommend that your computer has at least 60GB of free disk space to store the [ledger](concepts/the-ledger.md)
 
-* You must have the [URLs or the IP addresses of at least three neighbor nodes](/iri/how-to-guides/finding-neighbors.md) who are also running the IRI on the same IOTA network
+* You must have the [URLs or the IP addresses of at least 6 neighbor nodes](how-to-guides/find-neighbors.md) who are also running the same version of the IRI on the same IOTA network
 
 * By default, the IRI uses the following ports. You must map these ports to computer's public IP address.
     * UDP neighbor peering port: 14600
@@ -29,7 +20,7 @@ After downloading the IRI, you need to run it to start interacting with an IOTA 
 
     Or, you can change these ports in the configuration options.
 
-## Running the IRI on Linux
+## Run the IRI on Linux
 
 1. Set up some variables (change the IRI_JAR_PATH variable to the URL of your IRI Java file):
 
@@ -40,12 +31,12 @@ After downloading the IRI, you need to run it to start interacting with an IOTA 
     $ export JAVA_MAX_MEMORY=4G
     ```
 
-    **Note:** The JAVA_OPTIONS variable contains commands that optimise the Java virtual machine for the IRI.
-2. Configure the IRI by adding the [configuration options](/iri/references/iri-configuration-options.md) either in a .iri file in the same directory as your IRI Java file or in the command line. Any configuration options that you add in the command line override the parameters in the IRI configuration file.
+    **Note:** The `JAVA_OPTIONS` variable contains commands that optimise the Java virtual machine for the IRI.
+2. Configure the IRI by adding the [configuration options](references/iri-configuration-options.md) either in a .iri file in the same directory as your IRI Java file or in the command line. Any configuration options that you add in the command line override the parameters in the IRI configuration file.
 
-**Note:** The only configuration option that you **must** add is the `PORT` parameter. If you want to run a permanode, set the [`LOCAL_SNAPSHOTS_ENABLED` configuration parameter](/iri/iri-configuration-options.md#local-snapshots-enabled) to `false`.
+**Note:** The only configuration option that you **must** add is the `PORT` parameter. If you want to run a permanode, set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](iri-configuration-options.md#local-snapshots-enabled) to `false`.
 
-3. Make a directory to hold the database and the IXI (IOTA exchange interface folders):
+3. Make a directory to keep the database and the IXI (IOTA exchange interface folders):
 
     ```bash
     $ mkdir -p /path-to-data
@@ -62,13 +53,13 @@ After downloading the IRI, you need to run it to start interacting with an IOTA 
 
 ## Running the IRI in a Docker container
 
-1. Configure the IRI by adding the [configuration options](/iri/references/iri-configuration-options.md) either in a .iri file in the same directory as your IRI Java file or in the command line. Any configuration options that you add in the command line override the parameters in the IRI configuration file.
+1. Configure the IRI by adding the [configuration options](references/iri-configuration-options.md) either in a .iri file in the same directory as your IRI Java file or in the command line. Any configuration options that you add in the command line override the parameters in the IRI configuration file.
 
     **Note:** The only configuration option that you **must** add is the `PORT`
 2. Run the IRI:
 
     ```bash
-    $ docker run -d -p 14265:14265 -p 15600:15600 -p 14600:14600/udp -v /path/to/data:/iri/data --name iri iotaledger/iri:latest --remote -p 14265
+    $ docker run -d -p 14265:14265 -p 15600:15600 -p 14600:14600/udp -v /path/to/data:data --name iri iotaledger/iri:latest --remote -p 14265
     ```
 
     **Notes:**
@@ -112,11 +103,11 @@ $ curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-
 
 **Notes:**
 * The [jq](https://stedolan.github.io/jq/) tool is a command-line JSON processor that helps you to display and manipulate JSON data. This tool is optional.
-* It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](/iri/how-to-guides/troubleshooting-the-iri.md).
+* It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](references/troubleshooting.md).
 
 ## Next steps
 
-* [Interacting with the IRI](/iri/how-to-guides/interacting-with-the-iri.md)
-* [Subscribing to events in the IRI](/iri/how-to-guides/subscribing-to-events-in-the-iri.md)
+* [Interact with the IRI](how-to-guides/interact-with-the-iri.md)
+* [Subscribe to events in the IRI](how-to-guides/subscribe-to-events-in-the-iri.md)
 
 

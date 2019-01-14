@@ -1,14 +1,14 @@
-# Sending requests to the IRI
+# Interact with the IRI
 
-When you [run the IRI (IOTA reference implementation)](/iri/how-to-guides/running-the-iri.md), it waits to receive transactions from clients on the API port that you chose in the [`PORT` configuration parameter](/iri/references/iri-configuration-options.md#port).
+**When you run the IRI, it waits to receive transactions from clients on the API port that you chose in the `PORT` configuration parameter.**
 
-The IRI always accepts REST API requests to its local IP address from computers on the same network.
+The IRI always accepts REST API requests from its local IP address from computers on the same network.
 
-**Note:** If the [`REMOTE` configuration parameter](/iri/references/iri-configuration-options.md#remote) is set to `true`, anyone can connect to the IRI through its public URL or its public IP address.
+**Note:** If the [`REMOTE` configuration parameter](references/iri-configuration-options.md#remote) is set to `true`, anyone can connect to the IRI through its public URL or its public IP address.
 
-In the following how-to guide we use NodeJS.
+In the following how-to guide we use NodeJS and the IOTA JavaScript client library to interact with an IRI node on the Devnet network.
 
-## Requesting information about the IRI
+## Request information about the IRI
 
 You can use the [getNodeInfo API call](https://iota.readme.io/v1.5.5/reference#getnodeinfo) to request general information about the IRI.
 
@@ -61,7 +61,7 @@ To use the code samples in this guide, your computer must have the following:
     ```bash
     {
     "appName": "IRI Testnet",
-    "appVersion": "1.0.8.nu",
+    "appVersion": "1.5.6-RELEASE",
     "duration": 1,
     "jreAvailableProcessors": 4,
     "jreFreeMemory": 91707424,
@@ -75,14 +75,13 @@ To use the code samples in this guide, your computer must have the following:
     "packetsQueueSize": 0,
     "time": 1477037811737,
     "tips": 3,
-    "transactionsToRequest": 0
+    "transactionsToRequest": 0,
+    "features":["addNeighbors", "getNeighbors", "removeNeighbors", "attachToTangle", "interruptAttachToTangle"]
     }
     ```
 ## Next steps
 
-* Use your new knowledge of the [IRI API](https://iota.readme.io/v1.5.5/reference) to build an application that sends data to the IRI and requests from the IRI.
-* [Subscribe to real-time events](/iri/how-to-guides/subscribing-to-events-in-the-iri.md) that an IRI node publishes to a message queue.
-
+* [Subscribe to real-time events](how-to-guides/subscribe-to-events-in-the-iri.md) in the IRI node.
 
 
 
