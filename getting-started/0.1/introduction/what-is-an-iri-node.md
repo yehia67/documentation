@@ -16,4 +16,4 @@ Therefore, we suggest that you [run your own IRI node](tutorials/run-your-own-ir
 
 If you can't run your own IRI node, you can use public ones in Trinity or use websites such as [IOTA Dance](https://iota.dance) to find a list of public IRI nodes.
 
-[Learn more about IRI nodes](root://iri/introduction/overview.md).
+[Learn more about IRI nodes](root://iri/0.1/introduction/overview.md).

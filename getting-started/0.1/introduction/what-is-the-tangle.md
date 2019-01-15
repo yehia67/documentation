@@ -22,4 +22,4 @@ The more transactions that directly or indirectly reference a transaction, the m
 
 As a result, to unlock and change a transaction, an attacker would have to redo the proof of work for not only that transaction, but all of its referenced transactions, making the process too expensive and time-consuming.
 
-[Learn more about tip selection, proof of work, and the Tangle](root://the-tangle/overview.md).
+[Learn more about tip selection, proof of work, and the Tangle](root://the-tangle/0.1/introduction/overview.md).
