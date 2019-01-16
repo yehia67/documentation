@@ -66,7 +66,7 @@ The Spamnet network is for applications that spam transactions.
 
 On this network, you can test your applications and build proof of concepts that use [free Spamnet tokens](https://faucet.spamnet.iota.org).
 
-Transactions on the Devnet network must use a MWM (minimum weight magnitude) of 9 to be valid. Compared to the Mainnet network, this MWM vastly reduces the time it takes for the Proof of Work (PoW) to be completed.
+Transactions on the Devnet network must use a MWM (minimum weight magnitude) of 7 to be valid. Compared to the Mainnet network, this MWM vastly reduces the time it takes for the Proof of Work (PoW) to be completed.
 
 ![Topology of the Spamnet](https://i.imgur.com/VpEsA6i.png)
 
