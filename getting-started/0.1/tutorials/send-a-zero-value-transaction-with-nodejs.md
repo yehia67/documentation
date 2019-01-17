@@ -1,8 +1,8 @@
-# Send your first data transaction (Node.js)
+# Send your first zero-value transaction (Node.js)
 
-**In this tutorial, you'll use the IOTA JavaScript client library to create a program that sends data transactions on the IOTA Devnet network.**
+**In this tutorial, you'll use the IOTA JavaScript client library to create a program that sends zero-value transactions on the IOTA Devnet network.**
 
-**Note:** Sending a value transaction is similar to sending a data transaction, but it requires an address that contains IOTA tokens.
+**Note:** Sending a value transaction is similar to sending a zero-value transaction, but it requires an address that contains IOTA tokens.
 
 ## Prerequisites
 
@@ -168,7 +168,7 @@ Now that you've confirmed your connection to an IRI node, send a transaction to 
     });
     ```
 
-    The [`prepareTransfers` method](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) constructs a transaction on the client side. The [`sendTrytes` method](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes) sends the transaction to the IRI node.
+    The [`prepareTransfers` method](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) constructs a bundle on the client side. The [`sendTrytes` method](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes) sends the bundle to the IRI node.
 
     Here's a table of the variables that are used in these methods:
 
@@ -177,7 +177,7 @@ Now that you've confirmed your connection to an IRI node, send a transaction to 
     |`seed` | string|This is the secret password that generates an address for you to send a transaction from. With **zero** value transactions we do not need to have any tokens on an address, so this field can be 81 random trytes. |
     |`depth` | number|The number of milestone transactions that the IRI node will walk back to start the [tip selection](iri/concepts/tip-selection.md) process |
     |`mwm` |number | This field specifies the proof of work that is required for your transaction to be validated. On the Devnet, this field must have a value of at least 9|
-    | `transfers`| array|This array contains the value, address and message of your transaction. You can specify multiple transactions to different addresses |
+    | `transfers`| array|This array contains the value, address and message of your transaction. You can specify multiple transactions with different addresses |
 
 ## Final Code
 
@@ -224,17 +224,17 @@ const transfers = [
 });
 ```
 
-If you run this code, you'll see information about the IRI node and the transaction that you've just sent:
+If you run this code, you'll see information about the IRI node and the bundle that you've just sent:
 
 <img src="../success.png" alt="Console output" width="600">
 
-Congratulations 🎊. You've just sent your first data transaction.
+Congratulations 🎊. You've just sent your first zero-value transaction.
 
 Your transaction will propgate through the IOTA network until all the IRI nodes have it in their ledgers.
 
-To confirm that your transaction in on the network, copy the `bundle` value from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
+To confirm that your bundle in on the network, copy the `bundle` value from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
-**Note:** Data transaction don't need to be confirmed, only value transactions do.
+**Note:** Zero-value transactions don't need to be confirmed, only value transactions do.
 
 ## Next steps
 
