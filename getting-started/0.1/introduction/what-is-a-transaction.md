@@ -5,8 +5,8 @@
 Transactions are sent to IRI nodes in [bundles](introduction/what-is-a-bundle.md).
 
 Transactions can be one of the following types:
-* **Output transaction:** Debits IOTA tokens from an addresses and contains the signature that proves ownership of the address. If the signature is too large, it's fragmented over zero-value input transactions in the bundle.
-* **Input transaction:** Credits IOTA tokens to a recipient's address or contains no value (a zero-value transaction).
+* **Input transaction:** Debits IOTA tokens from an addresses and contains the signature that proves ownership of the address. If the signature is too large, it's fragmented over zero-value output transactions in the bundle.
+* **Output transaction:** Credits IOTA tokens to a recipient's address or contains no value (a zero-value transaction).
 
 All transactions are feeless.
 
