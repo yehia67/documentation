@@ -1,14 +1,12 @@
 # What is a bundle?
 
-**A bundle is an atomic group of transactions.**
+**A bundle is an atomic group of transactions that are a mixture of inputs and outputs.**
 
-When you want to send IOTA tokens to another address, you may need to create more than one [transaction](introduction/what-is-a-transaction.md), for example:
+An output transaction is one that debits IOTA tokens from an addresses and contains the signature that proves ownership of the address. If the signature is too large, it's fragmented over another zero-value input transaction.
 
-* An output transaction that subtracts IOTA tokens from your addresses and transfers them to the recipient's address
-* Input transactions that contain the signature to authorise the output transaction
-* A change transaction (if IOTA tokens are left in a spent address) that sends any remaining amount to one of your new addresses.
+An input transaction is one that either credits IOTA tokens to a recipient's address or contains no value (a data transaction).
 
-**Important:** A change transaction is needed for security reasons. In IOTA you must not spend from an address more than once. Therefore, any remaining balance in a spent address must be moved to a new address.
+**Important:** You must not spend from an address more than once. Therefore, an extra input transaction may be needed to transfer the remaining balance of a spent address to a new address.
 
 Bundles are atomic because the fate of each transaction depends on the rest in the bundle. Either all transactions in the bundle are valid or none of them are.
 
@@ -22,9 +20,11 @@ Your balance is distributed among three addresses:
 * **Address 1:** 30Mi
 * **Address 2:** 55Mi
 
-To send 100Mi to recipient A, you must create a series of transactions and send them to an IRI node as a bundle so that the network can do the following:
+To send 100Mi to recipient A, you must create the following transactions and send them to an IRI node as a bundle:
 
-* **Output transaction:** Subtract 100Mi from my balance and transfer it to recipient A's address
-* **Input transaction:** Check the signature in this zero-value transaction to verify that I own those IOTA tokens
-* **Change transaction:** Transfer the remaining 5Mi from address 2 to my new address 3
+* **Output transaction:** Debit 100Mi from my balance and check the signature to verify that I own those IOTA tokens
+* **Input transaction:** Credit 100Mi to the recipient's address
+* **Input transaction:** Transfer the remaining 5Mi from address 2 to address 3
+
+[Learn more about bundles](root://iota-basics/concepts/bundle.md).
 
