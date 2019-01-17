@@ -4,9 +4,9 @@
 
 When a client sends a bundle to an IRI node, it makes sure that the transactions are valid (for example, that the sender owns the IOTA tokens). If the transactions are valid, they're added to the IRI node's ledger.
 
-The transactions in the ledger can't ever be changed because they form [the Tangle](introduction/what-is-the-tangle.md).
+The transactions in the ledger are immutible and locked together to form [the Tangle](introduction/what-is-the-tangle.md).
 
-All IRI nodes send their valid transactions to each other so that each of them has the same view of the Tangle (transactions in the ledger). When all IRI nodes have the same transactions in their ledgers, they have reached a consensus regarding the trustworthiness of a transaction.
+All IRI nodes send their valid transactions to each other so that each of them has the same view of the Tangle. When all IRI nodes have the same transactions in their ledgers, they reach a consensus on the trustworthiness of a transaction.
 
 To use any IOTA network, you can interact with an IRI node through the API (application programming interface). Many IOTA applications, such as [Trinity](root://trinity/introduction/overview.md), use the API behind the scenes.
 
