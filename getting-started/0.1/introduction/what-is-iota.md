@@ -71,8 +71,8 @@ Many industries such as the following could benefit from using IOTA:
 
 ## How do I get started?
 
-* Start your IOTA journey by [sending your first data transaction with the Trinity wallet](tutorials/send-your-first-data-transaction-with-the-trinity-wallet.md).
+* Start your IOTA journey by [sending data with the Trinity wallet](tutorials/send-data-with-the-trinity-wallet.md).
 
 * Take a look at some [applications that are already using IOTA](references/use-cases.md).
 
-* Learn to program with IOTA by [sending your first data transaction with Node.js](tutorials/send-your-first-data-transaction-using-nodejs.md)!
+* Learn to program with IOTA by [sending data with Node.js](tutorials/send-data-using-nodejs.md)!
