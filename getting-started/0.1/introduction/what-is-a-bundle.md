@@ -1,16 +1,16 @@
 # What is a bundle?
 
-**A bundle is an atomic group of transactions that are a mixture of inputs and outputs.**
+**A bundle is a group of one or more transactions, which instruct an IRI node to transfer data or IOTA tokens to addresses.**
 
-An output transaction is one that debits IOTA tokens from an addresses and contains the signature that proves ownership of the address. If the signature is too large, it's fragmented over another zero-value input transaction.
+IRI nodes expect [transactions](introduction/what-is-a-transaction.md) to be sent in bundles. Even if that bundle contains only one transaction, for example a zero-value transaction that contains only a message.
 
-An input transaction is one that either credits IOTA tokens to a recipient's address or contains no value (a data transaction).
+To transfer IOTA tokens, a bundle must contain a least one input transaction and one output transaction.
 
-**Important:** You must not spend from an address more than once. Therefore, an extra input transaction may be needed to transfer the remaining balance of a spent address to a new address.
+The fate of each transaction in a bundle depends on the rest. Either all transactions in the bundle are valid or none of them are.
 
-Bundles are atomic because the fate of each transaction depends on the rest in the bundle. Either all transactions in the bundle are valid or none of them are.
+**Important:** You must not spend from an address more than once. Therefore, a bundle may require an extra input transaction to transfer the remaining balance of a spent address to a new address.
 
-## Example of a bundle
+## Example of a bundle that transfers IOTA tokens
 
 You want to send 100Mi to recipient A.
 
@@ -24,7 +24,7 @@ To send 100Mi to recipient A, you must create the following transactions and sen
 
 * **Output transaction:** Debit 100Mi from my balance and check the signature to verify that I own those IOTA tokens
 * **Input transaction:** Credit 100Mi to the recipient's address
-* **Input transaction:** Transfer the remaining 5Mi from address 2 to address 3
+* **Input transaction:** To avoid spending from address 2 again, transfer the remaining 5Mi from address 2 to address 3
 
 [Learn more about bundles](root://iota-basics/concepts/bundle.md).
 
