@@ -12,7 +12,7 @@ Similar to hashcash, each IOTA transaction must include a PoW to be validated. T
 
 If an IRI node receives a transaction without the PoW, that transaction is ignored to reduce the effect that spam transactions have on the network.
 
-PoW can be done by clients or it can be outsourced to an IRI node (known as remote proof of work).
+PoW can be done by clients or it can be outsourced to an IRI node (known as remote proof of work) by calling the `attachToTangle` API call.
 
 Clients may want to use remote PoW if the device their using to create transactions doesn't have the necessary computational power to calculate PoW in a reasonable amount of time.
 
