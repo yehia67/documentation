@@ -24,7 +24,7 @@ You can subscribe to the `sn` event on the ZMQ of the IRI to listen for recently
 
 To use the code samples in this guide, your computer must have the following:
 
-* Node.js 8+
+* Node JS (8+)
 * Node package manager (npm)
 * A code editor
 * Access to a terminal
