@@ -1,6 +1,6 @@
 # About Hub
 
-**Hub has many functions that facilitate the interation of IOTA into existing applications.**
+**Hub has many functions that facilitate the integration of IOTA into existing applications.**
 
 ## Seed generation
 

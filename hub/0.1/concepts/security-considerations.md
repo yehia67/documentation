@@ -1,6 +1,6 @@
 # Security considerations
 
-**Given that the role of Hub is to manage IOTA tokens, security is crucial.**
+**Given that the role of Hub is to manage IOTA tokens, its security is crucial.**
 
 ## Deposit Addresses
 

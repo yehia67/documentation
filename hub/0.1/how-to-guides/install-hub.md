@@ -1,6 +1,6 @@
 # Install Hub
 
-**In this guide, you'll create a multi-user wallet using Hub. After you complete this guide you'll be able to interact with Hub to create new users with any programming language that supports gRPC.**
+**Hub allows you to create new users, manage their seeds, and action deposits and withdrawals by using any programming language that supports gRPC.**
 
 For this guide, you'll use a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
 

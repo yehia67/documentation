@@ -1,16 +1,16 @@
-# Learn about the basic ideas and concepts behind IOTA Hub
+# Hub is a multi-user-wallet that offers you an easy way to manage deposits and withdrawals of IOTA tokens.
 
-[Overview](/0.1/overview.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+[Hub overview](/0.1/introduction/overview.md)
+## Learn what Hub can do and where to get started
 
-[Where to use Hub](/0.1/concepts/usecases.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+[About Hub](/0.1/concepts/about-hub.md)
+## Learn how Hub works under the hood
 
-[Simple Hub Install](/0.1/how-to-guides/simple-instal.mdl)
-## Learn about the basic ideas and concepts around IOTA and etc
+[Security considerations](/0.1/concepts/security-considerations.md)
+## Learn how to protect Hub from attack scenarios
 
-[Setup Hub for an Exchange](/0.1/concepts/exchange-implementation.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+[Install Hub](/0.1/how-to-guides/install-hub.md)
+## Learn how to set up Hub, connect it to an IRI node, and test it
 
-[Security of Hub](/0.1/concepts/security.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+[Install the signing server](/0.1/how-to-guides/install-the-signing-server.md)
+## Learn how to move sensitive Hub operations to a separate server for extra security
