@@ -16,11 +16,11 @@ To get started with Trinity development, do the following:
 ## Prerequisites
 
 To develop Trinity, your computer must have the following:
-* [Node.js](https://nodejs.org/en/) (8+)
+* [Node JS (8+)](https://nodejs.org/en/)
 * [Yarn](https://yarnpkg.com/lang/en/docs/install/)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-**Note:** You may need to restart your computer after installing these programs.
+**Note:** Restart your computer after installing these programs.
 
 ## Install the shared dependencies
 
@@ -75,9 +75,11 @@ Now, you can install either the desktop or the mobile development environment.
 
 6. 
     * If you want an executable file, compile Trinity
+
         ```bash
         $ npm run compile:mac
         ```
+
         **Note:** Change `mac` to your operating system: mac, win, or linux.
     * Or, run Trinity in development mode
         ```bash
@@ -98,25 +100,30 @@ Now, you can install either the desktop or the mobile development environment.
     ```bash
     $ cd src/mobile
     ```
+
 5. 
     * If you are targeting the iOS operating system, do the following:
         1. Install the additional dependencies with CocoaPods
             ```bash
             $ cd ios && pod install && cd ..
             ```
+
         2. Run Trinity
             ```bash
             $ yarn ios:dev
             ```
+
         3. Run the logger
             ```bash
             $ yarn log:ios
             ```
+
     * If you are targeting the Android operating system, do the following:
         1. Run the application
             ```bash
             $ yarn android:dev
             ```
+
         2. Run the logger
             ```bash
             yarn log:android
@@ -128,6 +135,7 @@ Create a new Git branch from the `develop` branch
     ```bash
     $ git checkout -b feature/my-awesome-new-feature
     ```
+
 **Note:** Use a prefix to name your branches (for example, `feature/my-awesome-new-feature` or `bugfix/something-not-working`).
 
 Make all your changes to this branch.
@@ -165,10 +173,14 @@ If you are making a contribution that includes adding or changing text, follow t
     ```
 5. Add the transaction for your keys to the translation.json file in the `src/shared/locales/en/` directory
     ```json
-    “myContainer”:{
-        “helloWorld”: “Hello world!”
+    "myContainer":{
+        "helloWorld": "Hello world!"
     }
     ```
 Your strings will be shown on [Crowdin](https://crowdin.com/project/iota-trinity-wallet) when we merge your pull request into the `develop` branch. The community can contribute to Trinity by translating your strings on Crowdin.
 
 ## Submit a pull request
+
+After you've made your changes, create a new pull request on GitHub.
+
+Use your branch as the source branch and use the `develop` branch as the target branch.
