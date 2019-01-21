@@ -1,6 +1,6 @@
 # Neighbor IRI node
 
-**Neighbor IRI nodes are those that are mutually connected and communicate directly with each other on the same IOTA network.**
+**To synchronize their ledgers with the rest of the network, all IRI nodes must communicate with other IRI nodes, which are called neighbors. Neighbors are IRI nodes that are mutually connected and that communicate directly with each other on the same IOTA network.**
 
 The primary reason that IRI nodes connect to neighbor IRI nodes is to validate each other's transactions. If all clients relied on only one IRI node that wasn't connected to any neighbors, that IRI node could start validating invalid transactions.
 

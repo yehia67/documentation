@@ -1,6 +1,6 @@
 # Subscribe to events in the IRI
 
-**All IRI nodes have the option to allow clients to subscribe to its events.**
+**If an IRI node has the ZMQ port enabled, you can subscribe to events such as transaction confirmations. These events give you real-time data from an IOTA network.**
 
 You may want to subscribe to events in the [zero message queue (ZMQ)](concepts/zero-message-queue.md) to do the following:
 
@@ -78,4 +78,4 @@ To use the code samples in this guide, your computer must have the following:
     ```
 ## Next steps
 
-Use your new knowledge of the ZMQ to build an application that monitors the IRI for other [events](references/zmq-events.md). 
+Use your knowledge of the ZMQ to build an application that monitors the IRI for other [events](references/zmq-events.md). 
