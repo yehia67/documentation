@@ -1,16 +1,15 @@
 # What is a bundle?
 
-**A bundle is an atomic group of transactions.**
+**Each transaction is either an input or an output. To transfer IOTA tokens, you need both input and outputs transactions, which are grouped together in a bundle.**
 
 When you want to send IOTA tokens to another address, you may need to create more than one [transaction](introduction/what-is-a-transaction.md), for example:
 
-* An output transaction that subtracts IOTA tokens from your addresses and transfers them to the recipient's address
-* Input transactions that contain the signature to authorise the output transaction
-* A change transaction (if IOTA tokens are left in a spent address) that sends any remaining amount to one of your new addresses.
+* Input transactions that debit IOTA tokens from your addresses
+* Output transactions that contain the rest of the signature from the input transaction, or a positive value that credits IOTA tokens to a recipient's address
 
 **Important:** A change transaction is needed for security reasons. In IOTA you must not spend from an address more than once. Therefore, any remaining balance in a spent address must be moved to a new address.
 
-Bundles are atomic because the fate of each transaction depends on the rest in the bundle. Either all transactions in the bundle are valid or none of them are.
+The fate of each transaction depends on the rest in the bundle. Either all transactions in the bundle are valid or none of them are.
 
 ## Example of a bundle
 
@@ -24,7 +23,9 @@ Your balance is distributed among three addresses:
 
 To send 100Mi to recipient A, you must create a series of transactions and send them to an IRI node as a bundle so that the network can do the following:
 
-* **Output transaction:** Subtract 100Mi from my balance and transfer it to recipient A's address
-* **Input transaction:** Check the signature in this zero-value transaction to verify that I own those IOTA tokens
+* **Output transaction:** Debit 100Mi from my balance and check my signature
+* **Input transaction:**  Credit the recipient's address with 100Mi
 * **Change transaction:** Transfer the remaining 5Mi from address 2 to my new address 3
+
+[Learn more about bundles and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
 

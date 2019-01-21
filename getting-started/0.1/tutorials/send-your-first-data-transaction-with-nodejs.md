@@ -1,14 +1,12 @@
-# Send your first data transaction (Node.js)
+# Send your first zero-value transaction (Node.js)
 
-**In this tutorial, you'll use the IOTA JavaScript client library to create a program that sends data transactions on the IOTA Devnet network.**
-
-**Note:** Sending a value transaction is similar to sending a data transaction, but it requires an address that contains IOTA tokens.
+**A zero-value transaction can be sent using a random seed that doesn't contain IOTA tokens.**
 
 ## Prerequisites
 
 To complete this tutorial, you need the following:
 
-* [Node.js 8+](https://nodejs.org/en/)
+* [Node JS (8+)](https://nodejs.org/en/)
 * [Node Package Manager](https://www.npmjs.com/) (npm)
 * A code editor
 * Access to a terminal
@@ -234,7 +232,7 @@ Your transaction will propgate through the IOTA network until all the IRI nodes 
 
 To confirm that your transaction in on the network, copy the `bundle` value from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
-**Note:** Data transaction don't need to be confirmed, only value transactions do.
+**Note:** Data transactions don't need to be confirmed, only value transactions do.
 
 ## Next steps
 

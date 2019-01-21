@@ -9,10 +9,6 @@ Trinity allows you to do the following:
 
 <img src="../trinity-home.jpg" alt="Trinity" width="600">
 
-In this tutorial, you'll use Trinity to send yourself a data transaction, which is one that does not transfer value.
-
-**Note:** Sending a value transaction is similar to sending a data transaction, but it requires an address that contains IOTA tokens.
-
 <hr>
 
 1. [Download and install Trinity](https://trinity.iota.org/)
