@@ -64,7 +64,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 
 ## Calculate the Merkle tree
 
-For this guide, we use a [Merkle tree](concepts/about-compass.md#merkle-tree-generation) with a depth of 16, which allows us to run compass for 45 days in a row at 1-minute-milestone intervals.
+For this guide, we use a [Merkle tree](../concepts/about-compass.md#merkle-tree-generation) with a depth of 16, which allows us to run compass for 45 days in a row at 1-minute-milestone intervals.
 
 The Compass repository includes a tool to generate a Merkle tree and save it in a data folder for Compass to use later on. 
 
@@ -124,6 +124,7 @@ The Compass repository includes a tool to generate a Merkle tree and save it in 
 	```bash
 	$ sudo ./01_calculate_layers.sh
 	```
+
 This process will take a while (with a 4 core virtual machine it takes around 15 minutes). After the process finishes, the root of the Merkle tree is output to the console:
 
 ```shell
