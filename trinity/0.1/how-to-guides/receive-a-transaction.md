@@ -1,6 +1,6 @@
 # Receive a transaction
 
-**Before you can receive a transaction, you must give the sender your address.**
+**Trinity has a user interface that allows you to receive transactions and generate new addresses at the click of a button.**
 
 **Important:** If you send a transaction that spends IOTA tokens from one of your addresses, you can't reuse that address. Instead, you must generate a new address.
 

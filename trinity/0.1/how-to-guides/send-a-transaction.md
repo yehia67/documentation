@@ -1,6 +1,6 @@
 # Send a transaction
 
-**Trinity allows you to send transactions to a one address at a time.**
+**Trinity has a user interface that allows you to send multiple transactions at the click of a button.**
 
 If you have multiple accounts in your Trinity wallet, make sure that you select the correct account from the dropdown menu.
 
