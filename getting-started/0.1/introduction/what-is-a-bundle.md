@@ -1,17 +1,16 @@
 # What is a bundle?
 
-**Each transaction is either an input or an output. To transfer IOTA tokens, you need both input and outputs transactions, which are grouped together in a bundle.**
+**A bundle is a group of one or more transactions, which instruct an IRI node to transfer data or IOTA tokens to addresses.**
 
-When you want to send IOTA tokens to another address, you may need to create more than one [transaction](introduction/what-is-a-transaction.md), for example:
+IRI nodes expect [transactions](introduction/what-is-a-transaction.md) to be sent in bundles. Even if that bundle contains only one transaction, for example a zero-value transaction that contains only a message.
 
-* Input transactions that debit IOTA tokens from your addresses
-* Output transactions that contain the rest of the signature from the input transaction, or a positive value that credits IOTA tokens to a recipient's address
+To transfer IOTA tokens, a bundle must contain a least one input transaction and one output transaction.
 
-**Important:** A change transaction is needed for security reasons. In IOTA you must not spend from an address more than once. Therefore, any remaining balance in a spent address must be moved to a new address.
+The fate of each transaction in a bundle depends on the rest. Either all transactions in the bundle are valid or none of them are.
 
-The fate of each transaction depends on the rest in the bundle. Either all transactions in the bundle are valid or none of them are.
+**Important:** You must not spend from an address more than once. Therefore, a bundle may require an extra output transaction to transfer the remaining balance of a spent address to a new address.
 
-## Example of a bundle
+## Example of a bundle that transfers IOTA tokens
 
 You want to send 100Mi to recipient A.
 
@@ -21,11 +20,11 @@ Your balance is distributed among three addresses:
 * **Address 1:** 30Mi
 * **Address 2:** 55Mi
 
-To send 100Mi to recipient A, you must create a series of transactions and send them to an IRI node as a bundle so that the network can do the following:
+To send 100Mi to recipient A, you must create the following transactions and send them to an IRI node as a bundle:
 
-* **Output transaction:** Debit 100Mi from my balance and check my signature
-* **Input transaction:**  Credit the recipient's address with 100Mi
-* **Change transaction:** Transfer the remaining 5Mi from address 2 to my new address 3
+* **Input transaction:** Debit 100Mi from my balance and check the signature to verify that I own those IOTA tokens
+* **Output transaction:** Credit 100Mi to the recipient's address
+* **Output transaction:** To avoid spending from address 2 again, transfer the remaining 5Mi from address 2 to address 3
 
-[Learn more about bundles and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
+[Learn more about bundles](root://iota-basics/concepts/bundles-and-transactions.md).
 

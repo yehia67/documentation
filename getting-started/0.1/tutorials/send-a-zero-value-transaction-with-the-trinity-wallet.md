@@ -1,6 +1,6 @@
-# Send your first data transaction (Trinity)
+# Send your first zero-value transaction (Trinity)
 
-**Trinity is a mobile and desktop application with a user interface that allows you to transfer data and value in an IOTA network.**
+**Trinity is a mobile and desktop application with a user interface that allows you to transfer data and IOTA tokens in an IOTA network.**
 
 Trinity allows you to do the following:
 * Create a password-protected account to store and access your seeds

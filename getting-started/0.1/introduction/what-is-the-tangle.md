@@ -15,3 +15,4 @@ Tip transactions are chosen by IRI nodes during a process called tip selection.
 Transactions are considered confirmed when they're referenced by a Coordinator-issued milestone transaction.
 
 [Learn more about the Coordinator, tip selection, and the Tangle](root://the-tangle/0.1/introduction/overview.md).
+
