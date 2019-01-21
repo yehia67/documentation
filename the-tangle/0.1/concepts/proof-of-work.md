@@ -1,6 +1,6 @@
 # Proof of Work
 
-**Proof of work (PoW) is the answer to a mathematical problem that's difficult to calculate, but easy to verify.**
+**Proof of work (PoW) is the answer to a mathematical problem that's difficult to calculate, but easy to verify. In IOTA, proof of work provides spam protection to the network.**
 
 PoW is calculated using trial and error, therefore it requires the use of computational power.
 

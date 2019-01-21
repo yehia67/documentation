@@ -1,10 +1,10 @@
 # Tip selection
 
-**Tip selection is the process whereby an IRI node selects two random tip transactions from its ledger.**
+**Each transaction in the Tangle must reference two previous transactions. Tip selection is the process whereby an IRI node selects two random tip transactions from its ledger. These tip transactions are referenced by new transactions before being sent to an IRI node for validation.**
 
 Tip selection is requested by clients so that they can reference two previous transactions in their new transactions.
 
-During tip selection, the IRI node validates the history of the tip transaction. As a result, when a transaction references another, it becomes an approver for the referenced transaction.
+During tip selection, the IRI node validates the history of a tip transaction, starting from a user-defined milestone. As a result, when a transaction references another, it becomes that transaction's approver.
 
 In general, the tip selection algorithm selects tip transactions that have no approvers.
 
@@ -14,7 +14,7 @@ Although the tip selection algorithm is embedded in the [IOTA node software](roo
 
 The following information describes what the IRI node does when a client calls the [getTransactionsToApprove](https://iota.readme.io/v1.3.0/reference) endpoint.
 
-Clients call this endpoint when they want to send a transaction. The endpoint results in two tip transaction hashes, which are used as the `trunkTransaction` and `branchTransaction` fields of the new transaction.
+Clients call this endpoint when they want to send a transaction. The endpoint results in two tip transaction hashes, which are used in the `trunkTransaction` and `branchTransaction` fields of the new transaction.
 
 **Tip** Find out more about the [structure of a transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md).
 
