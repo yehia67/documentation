@@ -1,9 +1,7 @@
 # Index
 
 [Introduction/Overview](introduction/overview.md)
-[Introduction/Use Cases](introduction/usecases.md)
-[Concepts/Architecture](concepts/architecture.md)
-[Concepts/Functions](concepts/functions.md)
-[Concepts/Security](concepts/security.md)
-[How-to Guides/Simple Installation](how-to-guides/simple-install.md)
-[References/gRPC Reference](references/reference.md)
+[Concepts/About Compass](concepts/about-compass.md)
+[Concepts/Security considerations](concepts/security-considerations.md)
+[How-to Guides/Create an IOTA network](how-to-guides/create-a-permissioned-iota-network.md)
+[References/Contribution guidelines](references/contribution-guidelines.md)
