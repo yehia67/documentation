@@ -14,11 +14,12 @@ To complete this tutorial, you need the following:
 
 <hr>
 
-In IOTA, transactions must be sent to [IRI nodes](iri/introduction/overview.md).
+In IOTA, transactions must be sent to [IRI nodes](root://iri/0.1/introduction/overview.md).
 
 If you know the URL of an IRI node, you can send it a transaction. In this example we use the URL of an IRI node on the IOTA Devnet network and use the [`getNodeInfo()` method](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo) to check that the IRI node is online.
 
 1. In the terminal, create a working directory called iota-example
+
     ```bash
     mkdir iota-example && cd iota-example
     ```
@@ -236,4 +237,4 @@ To confirm that your bundle in on the network, copy the `bundle` value from the 
 
 ## Next steps
 
-Why not [run your own IRI node](tutorials/run-your-own-iri-node.md)?.
+Why not [run your own IRI node](../tutorials/run-your-own-iri-node.md)?.

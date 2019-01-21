@@ -25,11 +25,13 @@ To complete this tutorial, you need the following:
 <hr>
 
 1. [Install Docker](https://docs.docker.com/install/#supported-platforms)
+
 2. Make sure that Docker is installed
 
     ```bash
     $ docker run hello-world
     ```
+
 If Docker is installed, you should see some Docker information in the output.
 
 3. Download the pre-built Docker container
