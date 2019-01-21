@@ -9,7 +9,7 @@
     * 64-bit processor
     * An public IP address: Either a static IP address or a dynamic IP address that's connected to a dynamic DNS such as [noip.com](https://www.noip.com/remote-access)
 
-* If you don't want to run a [local snapshot node](introduction/overview.md#types-of-iri-node), we recommend that your computer has at least 60GB of free disk space to store the [ledger](concepts/the-ledger.md)
+* If you don't want to [prune transactions from the ledger](how-to-guides/prune-transactions-from-the-ledger.md), we recommend that your computer has at least 60GB of free disk space to store the [ledger](concepts/the-ledger.md)
 
 * You must have the [URLs or the IP addresses of at least 6 neighbor nodes](how-to-guides/find-neighbors.md) who are also running the same version of the IRI on the same IOTA network
 
@@ -115,7 +115,7 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
     
 2. Configure the IRI by adding the [configuration options](references/iri-configuration-options.md) either in a .iri file in the same directory as your IRI Java file or in the command line. Any configuration options that you add in the command line override the parameters in the IRI configuration file.
 
-**Note:** The only configuration option that you **must** add is the `PORT` parameter. If you want to run a permanode, set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](iri-configuration-options.md#local-snapshots-enabled) to `false`.
+    **Note:** If you want to run a permanode (keep all transactions in the ledger), set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](iri-configuration-options.md#local-snapshots-enabled) to `false`.
 
 3. Make a directory to keep the database and the IXI (IOTA exchange interface folders)
 
@@ -192,7 +192,7 @@ Instead of downloading the pre-built Docker container, you may want to build the
 
 1. Configure the IRI by adding the [configuration options](references/iri-configuration-options.md) either in a .iri file in the same directory as your IRI Java file or in the command line. Any configuration options that you add in the command line override the parameters in the IRI configuration file.
 
-    **Note:** The only configuration option that you **must** add is the `PORT` option. If you want to run a permanode, set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](iri-configuration-options.md#local-snapshots-enabled) to `false`.
+    **Note:** If you want to run a permanode (keep all transactions in the ledger), set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](iri-configuration-options.md#local-snapshots-enabled) to `false`.
 
 2. Run the IRI
 
