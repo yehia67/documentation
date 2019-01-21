@@ -5,7 +5,7 @@
 Trinity allows you to do the following:
 * Create a password-protected account to store and access your seeds
 * Read your balance and transaction history
-* Send and receive transactions on the [IOTA Mainnet network](references/iota-networks.md)
+* Send and receive transactions on the [IOTA Mainnet network](../references/iota-networks.md)
 
 <img src="../trinity-home.jpg" alt="Trinity" width="600">
 
@@ -13,7 +13,7 @@ Trinity allows you to do the following:
 
 1. [Download and install Trinity](https://trinity.iota.org/)
 2. Open Trinity
-3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you [created a seed outside of Trinity](tutorials/creating-a-seed.md), click **No, I have one**.
+3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you [created a seed outside of Trinity](../tutorials/creating-a-seed.md), click **No, I have one**.
 
 <img src="../trinity-seed.png" alt="Seed options" width="600">
 

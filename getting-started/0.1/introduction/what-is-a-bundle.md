@@ -2,7 +2,7 @@
 
 **A bundle is a group of one or more transactions, which instruct an IRI node to transfer data or IOTA tokens to addresses.**
 
-IRI nodes expect [transactions](introduction/what-is-a-transaction.md) to be sent in bundles. Even if that bundle contains only one transaction, for example a zero-value transaction that contains only a message.
+IRI nodes expect [transactions](../introduction/what-is-a-transaction.md) to be sent in bundles. Even if that bundle contains only one transaction, for example a zero-value transaction that contains only a message.
 
 To transfer IOTA tokens, a bundle must contain a least one input transaction and one output transaction.
 
