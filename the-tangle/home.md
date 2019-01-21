@@ -10,7 +10,7 @@
 ## Learn the details of how transactions are selected as references for other transactions
 
 [Proof of work](/0.1/concepts/proof-of-work.md)
-## Learn how the IOTA protocol protects itself from spam transactions
+## Learn how the IOTA protocol protects the Tangle from spam transactions
 
 [Future consensus in the Tangle](/0.1/concepts/future-consensus-in-the-tangle.md)
 ## Learn about the IOTA whitepaper and the future of IOTA without the Coordinator
