@@ -23,7 +23,3 @@
 [References/Units of IOTA tokens](/references/units-of-iota-tokens.md)
 
 [References/Glossary](/references/glossary.md)
-
-
-
-
