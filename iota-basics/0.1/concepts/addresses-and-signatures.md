@@ -14,17 +14,17 @@ Each private key is generated from a seed, an index, and a security level.
 
 As long as the same seed, index, and security level are used, the same addresses and signatures are generated. If the index changes, but the security level doesn't, a new address is generated. If the security level changes, but the index doesn't, a new address is generated.
 
-**Tip:** Try [generating different addresses with Node JS](how-to-guides/generate-an-address.md).
+**Tip:** Try [generating different addresses with Node JS](../how-to-guides/generate-an-address.md).
 
 ![Address generation](https://i.imgur.com/Gir2Q2k.jpg)
 
 ### Security levels
 
-The [security level of an address](references/security-levels-of-addresses.md) determines the length of the address's signature.
+The [security level of an address](../references/security-levels-of-addresses.md) determines the length of the address's signature.
 
 ![Security levels](https://i.imgur.com/3nvESpi.jpg)
 
-Because a transaction's [`signatureMessageFragment` field](references/structure-of-a-transaction.md) can contain only a certain number of trytes, any input address with a security level higher than 1 must fragment the rest of the signature over zero-value output transactions. For example, the signature of an address with a security level of 2 must be fragmented over two transactions.
+Because a transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) can contain only a certain number of trytes, any input address with a security level higher than 1 must fragment the rest of the signature over zero-value output transactions. For example, the signature of an address with a security level of 2 must be fragmented over two transactions.
 
 ### Address reuse
 
@@ -40,4 +40,4 @@ As a result, clients need a way of proving that they own the address.
 
 To prove ownership, input transactions must be signed with the private key that was used to generate the address.
 
-This signature is put into the [`signatureMessageFragment` field](references/structure-of-a-transaction.md) of a transaction. IRI nodes use the address to verify the signature.
+This signature is put into the [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) of a transaction. IRI nodes use the address to verify the signature.

@@ -2,7 +2,7 @@
 
 **This table displays the conversion from trytes to tryte-encoded characters, and the equivalent values in decimal numbers.**
 
-IOTA uses a [trinary](concepts/trinary.md) numeric system. As such, data, such as addresses, seeds, and signatures, is converted to trytes. To make the trytes easy to read, these trytes are represented as one of 27 possible tryte-encoded characters.
+IOTA uses a [trinary](../concepts/trinary.md) numeric system. As such, data, such as addresses, seeds, and signatures, is converted to trytes. To make the trytes easy to read, these trytes are represented as one of 27 possible tryte-encoded characters.
 
 |Tryte-encoded character| Trits| Decimal number|
 |:----|:---------|:-------------------------|
