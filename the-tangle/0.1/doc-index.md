@@ -11,3 +11,4 @@
 [Concepts/Proof of work](/concepts/proof-of-work.md)
 
 [Concepts/Future consensus in the Tangle](/concepts/future-consensus-in-the-tangle.md)
+
