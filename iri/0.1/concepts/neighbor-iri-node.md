@@ -20,5 +20,5 @@ As well as sending transactions to neighbors, IRI nodes request non-solid transa
 
 A non-solid transaction is one that is referenced by a transaction in an IRI node's ledger, but that the IRI has not yet validated.
 
-If an IRI node sees a non-solid transaction during [validation](concepts/transaction-validation.md) or [tip selection](concepts/tip-selection.md), the IRI node asks its neighbors for it, and if its neighbors are missing the information, those neighbors will ask their neighbors, and so on.
+If an IRI node sees a non-solid transaction during [validation](../concepts/transaction-validation.md) or [tip selection](../concepts/tip-selection.md), the IRI node asks its neighbors for it, and if its neighbors are missing the information, those neighbors will ask their neighbors, and so on.
 
