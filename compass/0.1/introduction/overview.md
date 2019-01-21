@@ -1,10 +1,10 @@
 # Compass overview
 
-**Compass is a client application that protects IOTA networks against attacks by sending honest, zero-value transactions to IRI nodes at regular intervals.**
+**Compass is a client application that protects IOTA networks against attacks by sending honest, zero-value transactions to IRI nodes at regular intervals. Any transaction that's referenced by a Compass transaction is considered confirmed.**
 
 In an IOTA network that uses Compass, the Coordinator does not exist. Any transaction that's referenced by a signed Compass milestone transaction is considered confirmed.
 
-Compass can't modify balances or censor transactions because all transactions, including milestones, are [validated by each IRI node](root://iri/0.1/concepts/transaction-validation) in the network.
+Compass can't modify balances or censor transactions because all transactions, including milestones, are [validated by each IRI node](root://iri/0.1/concepts/transaction-validation.md) in the network.
 
 You can use Compass to [create a permissioned IOTA network](how-to-guides/create-a-permissioned-iota-network.md) that doesn't rely on the Coordinator. A permissioned IOTA network is beneficial for the following use cases:
 
