@@ -10,7 +10,7 @@ IRI nodes are the core of an IOTA network, and are responsible for the following
 
 Without IRI nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom.
 
-Here are some benefits of [running your own IRI node](how-to-guides/run-the-iri.md):
+Here are some benefits of [running your own IRI node](how-to-guides/run-an-iri-node.md):
 
 - You have direct access to a ledger on an IOTA network instead of having to connect to someone else's IRI node
 - You help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions

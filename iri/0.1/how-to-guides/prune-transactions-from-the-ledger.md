@@ -1,6 +1,6 @@
-# Schedule the deletion of old transactions
+# Prune transactions from the ledger
 
-**Over time, the ledger of an IRI node accumulates many valid transactions, which often cause the ledger size to become larger than the IRI node's available memory. To stop the ledger from becoming too large, you can choose to delete old transactions from the ledger at regular intervals.**
+**Over time, the ledger of an IRI node accumulates many valid transactions, which often cause it to become larger than the IRI node's available memory. To stop the ledger from becoming too large, you can choose to delete old transactions from the ledger at regular intervals.**
 
 By default, IRI nodes delete transactions that are older than around 28 days.
 
@@ -16,7 +16,7 @@ You must stop the IRI before making changes to the configuration options.
 <hr>
 
 1. Make sure that the `LOCAL_SNAPSHOTS_ENABLED` and the `LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration options are set to `true`
-2. Change the value of the [`LOCAL_SNAPSHOTS_PRUNING_DELAY`] and the `LOCAL_SNAPSHOTS_DEPTH` (references/iri-configuration-options#local-snapshots-pruning-delay) configuration options
+2. Change the value of the `LOCAL_SNAPSHOTS_PRUNING_DELAY` and the `LOCAL_SNAPSHOTS_DEPTH` configuration options
 
 Milestones are sent approximately every minute. Therefore, use the following formula to calculate the number of days that transactions will remain in the ledger:
 

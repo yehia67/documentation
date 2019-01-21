@@ -1,6 +1,6 @@
 # Tip selection
 
-**Tip selection is the process whereby an IRI node selects two random tip transactions from its ledger.**
+**Each transaction in ledger must reference two previous transactions. Tip selection is the process whereby an IRI node selects two random tip transactions from its ledger. These tip transactions are referenced by new transactions before being sent to an IRI node for validation.**
 
 Tip selection is requested by clients so that they can reference two previous transactions in their new transactions.
 
