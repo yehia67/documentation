@@ -16,4 +16,4 @@ When you either receive or send a transaction, it appears on the home page. Clic
 
 ![A received transaction](../trinity-receive-message.png)
 
-**Note:** The addresses field is displayed only in [Advanced mode](how-to-guides/change-the-general-settings.md).
+**Note:** The addresses field is displayed only in [Advanced mode](../how-to-guides/change-the-general-settings.md).
