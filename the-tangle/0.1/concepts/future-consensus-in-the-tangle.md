@@ -8,7 +8,7 @@ At the moment, IRI nodes reach a consensus on transactions that are directly or 
 
 The confirmation of a transaction in permissionless, distributed system is not a matter of true or false. Instead, confirmation is a percentage of the likelihood that a transaction will remain either confirmed or unconfirmed.
 
-In distributed systems, confirmation can be measured by a specific threshold at which the reversal of a transaction would require an unreasonable amount of resources, such as [proof of work](concepts/proof-of-work.md).
+In distributed systems, confirmation can be measured by a specific threshold at which the reversal of a transaction would require an unreasonable amount of resources, such as [proof of work](../concepts/proof-of-work.md).
 
 To calculate the confirmation confidence of a particular transaction, IRI nodes could do the tip selection process 100 times.
 

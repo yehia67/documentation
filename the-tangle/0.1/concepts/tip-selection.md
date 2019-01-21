@@ -8,7 +8,7 @@ During tip selection, the IRI node validates the history of a tip transaction, s
 
 In general, the tip selection algorithm selects tip transactions that have no approvers.
 
-Although the tip selection algorithm is embedded in the [IOTA node software](root://iri/introduction/overview.md) (IRI), it isn't enforced by the network. Instead, IRI nodes are given an [incentive to use the tip selection algorithim](concepts/incentives-in-the-tangle.md).
+Although the tip selection algorithm is embedded in the [IOTA node software](root://iri/introduction/overview.md) (IRI), it isn't enforced by the network. Instead, IRI nodes are given an [incentive to use the tip selection algorithim](../concepts/incentives-in-the-tangle.md).
 
 ## In-depth explanation of the tip selection algorithm
 
