@@ -1,0 +1,17 @@
+{
+  "name": "documentation-markdown",
+  "version": "1.0.0",
+  "description": "Markdown documentation",
+  "main": "validate.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iotaledger/documentation-markdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iotaledger/documentation-markdown/issues"
+  },
+  "homepage": "https://github.com/iotaledger/documentation-markdown#readme",
+  "devDependencies": {
+    "axios": "^0.18.0"
+  }
+}
