@@ -2,7 +2,7 @@
 
 **If you want to test your application in a permissioned IOTA network, you can run Compass. A permissioned IOTA network is one in which IRI nodes must gain permission before joining an IOTA network. All IRI nodes in a permissioned network must be set up to recognize Compass transactions as trusted milestones.**
 
-For this basic setup, you'll install both the IRI node and Compass on the same server or virtual machine. You can also install an optional signing server for increased security.
+For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine. You can also install an optional signing server for increased security.
 
 A signing server reduces the attack surface of Compass by moving sensitive operations to an external service. Compass interacts with the signing server through gRPC.
 
@@ -56,6 +56,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 	$ sudo apt update
 	$ sudo apt install docker-ce
 	```
+	
 6. Install the `jq` tool for formatting JSON data
 	```bash
 	$ sudo add-apt-repository universe
