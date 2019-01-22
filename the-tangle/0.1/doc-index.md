@@ -1,29 +1,14 @@
 # Index
 
-[Introduction/White Paper](./introduction/intro-white-paper.md)
+[Introduction/Overview](/introduction/overview.md)
 
-[Introduction/Consensus](./introduction/consensus.md)
+[Concepts/The Coordinator](/concepts/the-coordinator.md)
 
-[Introduction/Research Questions](./introduction/research-questions.md)
+[Concepts/Tip selection](/concepts/tip-selection.md)
 
-[Consensus/Introduction](./consensus/introduction.md)
+[Concepts/Incentives-in-the-Tangle](/concepts/incentives-in-the-tangle.md)
 
-[Consensus/Coordinator](./consensus/coordinator.md)
+[Concepts/Proof of work](/concepts/proof-of-work.md)
 
-[Consensus/Further Research](./consensus/further-research.md)
+[Concepts/Future consensus in the Tangle](/concepts/future-consensus-in-the-tangle.md)
 
-[Tip Selection/Introduction](./tip-selection/introduction.md)
-
-[Tip Selection/Incentives](./tip-selection/incentives.md)
-
-[Tip Selection/Tip Selection](./tip-selection/tip-selection.md)
-
-[Tip Selection/Glossary](./tip-selection/glossary.md) -
-
-[Proof of Work/Introduction](./proof-of-work/introduction.md)
-
-[Proof of Work/IOTA's PoW](./proof-of-work/iotas-pow.md)
-
-[Proof of Work/Checking PoW](./proof-of-work/checking-pow.md)
-
-[Proof of Work/Difficulty of PoW](./proof-of-work/difficulty-of-pow.md)

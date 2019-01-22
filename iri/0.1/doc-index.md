@@ -1,29 +1,20 @@
 # Index
 
-[Introduction/White Paper](./introduction/intro-white-paper.md)
-
-[Introduction/Consensus](./introduction/consensus.md)
-
-[Introduction/Research Questions](./introduction/research-questions.md)
-
-[Consensus/Introduction](./consensus/introduction.md)
-
-[Consensus/Coordinator](./consensus/coordinator.md)
-
-[Consensus/Further Research](./consensus/further-research.md)
-
-[Tip Selection/Introduction](./tip-selection/introduction.md)
-
-[Tip Selection/Incentives](./tip-selection/incentives.md)
-
-[Tip Selection/Tip Selection](./tip-selection/tip-selection.md)
-
-[Tip Selection/Glossary](./tip-selection/glossary.md) -
-
-[Proof of Work/Introduction](./proof-of-work/introduction.md)
-
-[Proof of Work/IOTA's PoW](./proof-of-work/iotas-pow.md)
-
-[Proof of Work/Checking PoW](./proof-of-work/checking-pow.md)
-
-[Proof of Work/Difficulty of PoW](./proof-of-work/difficulty-of-pow.md)
+[Introduction/Overview](/introduction/overview.md)
+[How-to Guides/Find neighbors](/how-to-guides/find-neighbors.md)
+[How-to Guides/Run an IRI node](/how-to-guides/run-an-iri-node.md)
+[How-to Guides/Update the IRI](/how-to-guides/update-the-iri.md)
+[How-to Guides/Prune transactions from the ledger](/how-to-guides/prune-transactions-from-the-ledger.md)
+[How-to Guides/Interact with the IRI](/how-to-guides/interact-with-the-iri.md)
+[How-to Guides/Subscribe to events in the IRI](/how-to-guides/subscribe-to-events-in-the-iri.md)
+[Concepts/The ledger](/concepts/the-ledger.md)
+[Concepts/Neighbor IRI node](/concepts/neighbor-iri-node.md)
+[Concepts/Tip selection](/concepts/tip-selection.md)
+[Concepts/Transaction validation](/concepts/transaction-validation.md)
+[Concepts/Zero message queue](/concepts/zero-message-queue.md)
+[Concepts/Local snapshot](/concepts/local-snapshot.md)
+[References/Troubleshooting](/references/troubleshooting.md)
+[References/Data in the ledger](/references/data-in-the-ledger.md)
+[References/Data in the snapshot metadata file](/references/data-in-the-snapshot-metadata-file.md)
+[References/IRI configuration options](/references/iri-configuration-options.md)
+[References/ZMQ events](/references/zmq-events.md)

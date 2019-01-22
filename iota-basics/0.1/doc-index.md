@@ -1,29 +1,25 @@
 # Index
 
-[Introduction/White Paper](./introduction/intro-white-paper.md)
+[Introduction/Overview](/introduction/overview.md)
 
-[Introduction/Consensus](./introduction/consensus.md)
+[Concepts/Addresses and signatures](/concepts/addresses-and-signatures.md)
 
-[Introduction/Research Questions](./introduction/research-questions.md)
+[Concepts/Bundles and transactions](/concepts/bundles-and-transactions.md)
 
-[Consensus/Introduction](./consensus/introduction.md)
+[Concepts/Trinary](/concepts/trinary.md)
 
-[Consensus/Coordinator](./consensus/coordinator.md)
+[How-to Guides/Convert data to trytes](/how-to-guides/convert-data-to-trytes.md)
 
-[Consensus/Further Research](./consensus/further-research.md)
+[How-to Guides/Generate an address](/how-to-guides/generate-an-address.md)
 
-[Tip Selection/Introduction](./tip-selection/introduction.md)
+[How-to Guides/Send a bundle](/how-to-guides/send-bundle.md)
 
-[Tip Selection/Incentives](./tip-selection/incentives.md)
+[References/Structure of a transaction](/references/structure-of-a-transaction.md)
 
-[Tip Selection/Tip Selection](./tip-selection/tip-selection.md)
+[References/Security levels of addresses](/references/security-levels-of-addresses.md)
 
-[Tip Selection/Glossary](./tip-selection/glossary.md) -
+[References/Tryte alphabet](/references/tryte-alphabet.md)
 
-[Proof of Work/Introduction](./proof-of-work/introduction.md)
+[References/Units of IOTA tokens](/references/units-of-iota-tokens.md)
 
-[Proof of Work/IOTA's PoW](./proof-of-work/iotas-pow.md)
-
-[Proof of Work/Checking PoW](./proof-of-work/checking-pow.md)
-
-[Proof of Work/Difficulty of PoW](./proof-of-work/difficulty-of-pow.md)
+[References/Glossary](/references/glossary.md)
