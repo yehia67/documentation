@@ -33,7 +33,7 @@ To install [library packages](https://www.npmjs.com/org/iota), your computer mus
 - [npm](https://www.npmjs.com/) (Included in Node.js [downloads](https://nodejs.org/en/download/))
 - [Yarn](https://yarnpkg.com/)
 
-A `package.json` file is required. It can be generated with [`npm init`](https://docs.npmjs.com/cli/init) or [`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/)
+You must also have a `package.json` file. Generate one by doing [`npm init`](https://docs.npmjs.com/cli/init) or [`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/).
 
 ## Installing the library
 
@@ -71,70 +71,70 @@ iota.getNodeInfo()
 
 ## API reference
 
-For details on all available API methods, see the [reference page](api_reference.md).
+For details on all available API methods, see the [reference page](https://github.com/iotaledger/iota.js/blob/next/api_reference.md).
 
 
-- [.composeApi([settings])](api_reference.md#module_core.composeApi)
+- [.composeApi([settings])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.composeApi)
 
-- [.addNeighbors(uris, [callback])](api_reference.md#module_core.addNeighbors)
+- [.addNeighbors(uris, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.addNeighbors)
 
-- [.attachToTangle(trunkTransaction, branchTransaction, minWeightMagnitude, trytes, [callback])](api_reference.md#module_core.attachToTangle)
+- [.attachToTangle(trunkTransaction, branchTransaction, minWeightMagnitude, trytes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.attachToTangle)
 
-- [.broadcastBundle(tailTransactionHash, [callback])](api_reference.md#module_core.broadcastBundle)
+- [.broadcastBundle(tailTransactionHash, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.broadcastBundle)
 
-- [.broadcastTransactions(trytes, [callback])](api_reference.md#module_core.broadcastTransactions)
+- [.broadcastTransactions(trytes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.broadcastTransactions)
 
-- [.checkConsistency(transactions, [options], [callback])](api_reference.md#module_core.checkConsistency)
+- [.checkConsistency(transactions, [options], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.checkConsistency)
 
-- [.findTransactionObjects(query, [callback])](api_reference.md#module_core.findTransactionObjects)
+- [.findTransactionObjects(query, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.findTransactionObjects)
 
-- [.findTransactions(query, [callback])](api_reference.md#module_core.findTransactions)
+- [.findTransactions(query, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.findTransactions)
 
-- [.getAccountData(seed, options, [callback])](api_reference.md#module_core.getAccountData)
+- [.getAccountData(seed, options, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getAccountData)
 
-- [.getBalances(addresses, threshold, [callback])](api_reference.md#module_core.getBalances)
+- [.getBalances(addresses, threshold, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getBalances)
 
-- [.getBundle(tailTransactionHash, [callback])](api_reference.md#module_core.getBundle)
+- [.getBundle(tailTransactionHash, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getBundle)
 
-- [.getInclusionStates(transactions, tips, [callback])](api_reference.md#module_core.getInclusionStates)
+- [.getInclusionStates(transactions, tips, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getInclusionStates)
 
-- [.getInputs(seed, [options], [callback])](api_reference.md#module_core.getInputs)
+- [.getInputs(seed, [options], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getInputs)
 
-- [.getLatestInclusion(transactions, tips, [callback])](api_reference.md#module_core.getLatestInclusion)
+- [.getLatestInclusion(transactions, tips, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getLatestInclusion)
 
-- [.getNeighbors([callback])](api_reference.md#module_core.getNeighbors)
+- [.getNeighbors([callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNeighbors)
 
-- [.getNewAddress(seed, [options], [callback])](api_reference.md#module_core.getNewAddress)
+- [.getNewAddress(seed, [options], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNewAddress)
 
-- [.getNodeInfo([callback])](api_reference.md#module_core.getNodeInfo)
+- [.getNodeInfo([callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo)
 
-- [getTips([callback])](api_reference.md#module_core.getTips)
+- [getTips([callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getTips)
 
-- [getTransactionObjects(hashes, [callback])](api_reference.md#module_core.getTransactionObjects)
+- [getTransactionObjects(hashes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getTransactionObjects)
 
-- [.getTransactionsToApprove(depth, [reference], [callback])](api_reference.md#module_core.getTransactionsToApprove)
+- [.getTransactionsToApprove(depth, [reference], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getTransactionsToApprove)
 
-- [.getTrytes(hashes, [callback])](api_reference.md#module_core.getTrytes)
+- [.getTrytes(hashes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getTrytes)
 
-- [.isPromotable(tail, [callback])](api_reference.md#module_core.isPromotable)
+- [.isPromotable(tail, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.isPromotable)
 
-- [.prepareTransfers(seed, transfers, [options], [callback])](api_reference.md#module_core.prepareTransfers)
+- [.prepareTransfers(seed, transfers, [options], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)
 
-- [.promoteTransaction(tail, depth, minWeightMagnitude, transfer, [options], [callback])](api_reference.md#module_core.promoteTransaction)
+- [.promoteTransaction(tail, depth, minWeightMagnitude, transfer, [options], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.promoteTransaction)
 
-- [.removeNeighbors(uris, [callback])](api_reference.md#module_core.removeNeighbors)
+- [.removeNeighbors(uris, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.removeNeighbors)
 
-- [.replayBundle(tail, depth, minWeightMagnitude, [callback])](api_reference.md#module_core.replayBundle)
+- [.replayBundle(tail, depth, minWeightMagnitude, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.replayBundle)
 
-- [.sendTrytes(trytes, depth, minWeightMagnitude, [reference], [callback])](api_reference.md#module_core.sendTrytes)
+- [.sendTrytes(trytes, depth, minWeightMagnitude, [reference], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes)
 
-- [.storeAndBroadcast(trytes, [callback])](api_reference.md#module_core.storeAndBroadcast)
+- [.storeAndBroadcast(trytes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.storeAndBroadcast)
 
-- [.storeTransactions(trytes, [callback])](api_reference.md#module_core.storeTransactions)
+- [.storeTransactions(trytes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.storeTransactions)
 
-- [.traverseBundle(trunkTransaction, [bundle], [callback])](api_reference.md#module_core.traverseBundle)
+- [.traverseBundle(trunkTransaction, [bundle], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.traverseBundle)
 
-- [.generateAddress(seed, index, [security], [checksum])](api_reference.md#module_core.generateAddress)
+- [.generateAddress(seed, index, [security], [checksum])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.generateAddress)
 
 ## Examples
 
@@ -142,7 +142,7 @@ As well as the following examples, you can take a look at our [examples director
 
 ### Creating and broadcasting transactions
 
-This example shows you how to create and send a transaction to an IRI node by calling the [`prepareTransfers`](packages/core#module_core.prepareTransfers) method and piping the prepared bundle to the [`sendTrytes`](packages/core#module_core.sendTrytes) method.
+This example shows you how to create and send a transaction to an IRI node by calling the [`prepareTransfers`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method and piping the prepared bundle to the [`sendTrytes`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes) method.
 
 ```js
 import { composeAPI } from '@iota/core'
