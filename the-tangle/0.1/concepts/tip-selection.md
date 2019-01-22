@@ -139,8 +139,6 @@ At each step, the consistency of the ledger state is checked against the validat
 
 The probability to walk towards a specific approver is calculated with the following formula, where `H` is the weight of a specific transaction.
 
-![Walk forumla]()
-
 Ratings are normalized and transformed into `weights` with the help of the `alpha` configuration option. Finally, a `random` value between 0 and the sum of all the weights is generated and subtracted by the approvers' weights until reaching the value of 0. The approver that turned the `random` value to 0 is selected as the next step in the walk.
 
 ```python
