@@ -1,6 +1,6 @@
 # The Tangle overview
 
-**The Tangle is the data structure that's formed by the connections among transactions in the distributed ledger on all IRI nodes.**
+**The Tangle is the data structure that's formed by the connections among transactions in the distributed ledger. The Tangle allows IRI nodes to traverse transactions through their connections and validate each one.**
 
 This data stucture is a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG). The Tangle was formally introduced in the whitepaper by Professor Serguei Popov and published in 2015.
 
