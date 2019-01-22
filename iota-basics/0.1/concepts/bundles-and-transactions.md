@@ -18,7 +18,7 @@ A bundle can consist of any number of input and output transactions. We recommen
 
 ### Input transaction
 
-Input transactions debit IOTA tokens from addresses. Bundles can contain multiple input transactions. However, each input transaction must be signed. The length of the signature depends on the [security level](../concepts/addresses-and-signatures#how-addresses-are-generated) of the address.
+Input transactions debit IOTA tokens from addresses. Bundles can contain multiple input transactions. However, each input transaction must be signed. The length of the signature depends on the [security level](../concepts/addresses-and-signatures.md#how-addresses-are-generated) of the address.
 
 **Important:** Addresses must not be spent from more than once. Therefore, input transactions must debit all IOTA tokens from an address even if the sender does not want to transfer all of them to the recipient. The remaining IOTA tokens can be transferred to another address (usually the sender's address) in an output transaction.
 

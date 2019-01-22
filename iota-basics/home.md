@@ -4,10 +4,10 @@
 ## Learn the essentials of IOTA and become familiar with the basic terms and concepts
 
 [Addresses and signatures](/0.1/concepts/addresses-and-signatures.md)
-## Learn the details about addresses and signatures and how they're generated
+## Learn the details of addresses and signatures
 
 [Bundles and transactions](/0.1/concepts/bundles-and-transactions.md)
-## Learn the details about bundles and transactions
+## Learn the details of bundles and transactions
 
 [Generate an address](/0.1/how-to-guides/generate-an-address.md)
 ## Use the JavaScript client library to generate a new address
