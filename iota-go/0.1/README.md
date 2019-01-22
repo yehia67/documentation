@@ -81,11 +81,11 @@ After you've [downloaded the library](#downloading-the-library), you can connect
 	```
 ## API reference
 
-For details on all available API methods, see the [API folder](api/).
+For details on all available API methods, see the [API folder](https://github.com/iotaledger/iota.go/tree/master/api).
 	
 ## Examples
 
-As well as the following examples, you can take a look at our [examples folder](api/.examples) for more.
+As well as the following examples, you can take a look at our [examples folder](https://github.com/iotaledger/iota.go/tree/master/api/.examples) for more.
 
 ### Creating and broadcasting transactions
 
