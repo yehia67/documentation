@@ -340,7 +340,7 @@ async function assetHtmlLink(markdown, docPath) {
             } else if (match[2].startsWith('#')) {
                 // Anchor skip
             } else if (match[2].length > 0) {
-                let localUrl = match[2].replace(/(.*?)(#.*)?/, '$1');
+                let localUrl = match[2].replace(/#.*$/, '');
                 const docFilename = path.resolve(path.join(path.dirname(docPath), localUrl));
                 if (!fs.existsSync(docFilename)) {
                     await reportError(`Local page does not exist '${match[2]}' in '${docPath}'`);
