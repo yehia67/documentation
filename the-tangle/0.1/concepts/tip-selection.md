@@ -8,7 +8,7 @@ During tip selection, the IRI node validates the history of a tip transaction, s
 
 In general, the tip selection algorithm selects tip transactions that have no approvers.
 
-Although the tip selection algorithm is embedded in the [IOTA node software](root://iri/introduction/overview.md) (IRI), it isn't enforced by the network. Instead, IRI nodes are given an [incentive to use the tip selection algorithim](../concepts/incentives-in-the-tangle.md).
+Although the tip selection algorithm is embedded in the [IOTA node software](root://iri/0.1/introduction/overview.md) (IRI), it isn't enforced by the network. Instead, IRI nodes are given an [incentive to use the tip selection algorithim](../concepts/incentives-in-the-tangle.md).
 
 ## In-depth explanation of the tip selection algorithm
 
@@ -138,8 +138,6 @@ Starting from a given entrypoint, the algorithm walks towards the tip transactio
 At each step, the consistency of the ledger state is checked against the validator object. Each step should traverse a bundle until its tail, otherwise consistency could not be validated. Upon reaching an inconsistent state, the walker invalidates the step it just took, it backtracks to the previous tail and runs the approver selection again.
 
 The probability to walk towards a specific approver is calculated with the following formula, where `H` is the weight of a specific transaction.
-
-![Walk forumla]()
 
 Ratings are normalized and transformed into `weights` with the help of the `alpha` configuration option. Finally, a `random` value between 0 and the sum of all the weights is generated and subtracted by the approvers' weights until reaching the value of 0. The approver that turned the `random` value to 0 is selected as the next step in the walk.
 

@@ -1,7 +1,7 @@
-# The Tangle is the data structure that's formed by the connections among transactions in the distributed ledger on all IRI nodes.
+# The Tangle is the data structure that's formed by the connections among transactions in the distributed ledger.
 
 [The Tangle overview](/0.1/introduction/overview.md)
-## Learn what the Tangle is and about its role in IOTA
+## Learn what the Tangle is and its role in IOTA
 
 [The Coordinator](/0.1/concepts/the-coordinator.md)
 ## Learn about the Coordinator and its milestones that confirm other transactions

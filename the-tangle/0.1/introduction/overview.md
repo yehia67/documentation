@@ -1,6 +1,6 @@
 # The Tangle overview
 
-**The Tangle is the data structure that's formed by the connections among transactions in the distributed ledger on all IRI nodes.**
+**The Tangle is the data structure that's formed by the connections among transactions in the distributed ledger. The Tangle allows IRI nodes to traverse transactions through their connections and validate each one.**
 
 This data stucture is a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG). The Tangle was formally introduced in the whitepaper by Professor Serguei Popov and published in 2015.
 
@@ -8,7 +8,7 @@ Transactions are connected to each other in the Tangle by reference. Each transa
 
 References can be direct or indirect. A direct reference is one in which a transaction references another transaction. An indirect reference is one in which a referenced transactions references another transaction.
 
-The more direct or indirect references that a transaction has, the more likely it is to be both chosen during tip selection and [confirmed](../concepts/transaction-confirmation.md). A transaction is considered confirmed when it's referenced by a [Coordinator](../concepts/the-coordinator.md)-issued milestone transaction
+The more direct or indirect references that a transaction has, the more likely it is to be both chosen during tip selection and confirmed. A transaction is considered confirmed when it's referenced by a [Coordinator](../concepts/the-coordinator.md)-issued milestone transaction
 
 ## Further Research
 
