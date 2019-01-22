@@ -1,7 +1,7 @@
 # Index
 
 [Introduction/Overview](/introduction/overview.md)
-[How-to Guides/Find neighbors](/how-to-guides/find-neighbors.md)
+[How-to Guides/Find neighbor IRI nodes](/how-to-guides/find-neighbor-iri-nodes.md)
 [How-to Guides/Run an IRI node](/how-to-guides/run-an-iri-node.md)
 [How-to Guides/Update the IRI](/how-to-guides/update-the-iri.md)
 [How-to Guides/Prune transactions from the ledger](/how-to-guides/prune-transactions-from-the-ledger.md)
