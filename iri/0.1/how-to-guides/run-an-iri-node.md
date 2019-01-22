@@ -140,7 +140,7 @@ The IRI Docker container is suitable for the following operating systems:
 * Windows
 
 You have two options for downloading the IRI Docker container:
-* [Download the pre-built Docker container]((#download-the-pre-built-iri-docker-container))(quickest option)
+* [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option)
 * [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code)
 
 ### Prerequisites
