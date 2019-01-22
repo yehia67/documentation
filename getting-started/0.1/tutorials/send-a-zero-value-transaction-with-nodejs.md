@@ -174,7 +174,7 @@ Now that you've confirmed your connection to an IRI node, send a transaction to 
     |Field|Type|Description|
     |:---:|:--:|:---------:|
     |`seed` | string|This is the secret password that generates an address for you to send a transaction from. With **zero** value transactions we do not need to have any tokens on an address, so this field can be 81 random trytes. |
-    |`depth` | number|The number of milestone transactions that the IRI node will walk back to start the [tip selection](iri/concepts/tip-selection.md) process |
+    |`depth` | number|The number of milestone transactions that the IRI node will walk back to start the [tip selection](root://iri/0.1/concepts/tip-selection.md) process |
     |`mwm` |number | This field specifies the proof of work that is required for your transaction to be validated. On the Devnet, this field must have a value of at least 9|
     | `transfers`| array|This array contains the value, address and message of your transaction. You can specify multiple transactions with different addresses |
 

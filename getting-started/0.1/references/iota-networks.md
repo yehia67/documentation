@@ -2,7 +2,7 @@
 
 **An IOTA network consists of IRI nodes that are mutually connected to neighbor IRI nodes.**
 
-IOTA has the following [permissionless networks](../concepts/what-is-dlt.md) that anyone can use:
+IOTA has the following [permissionless networks](../introduction/what-is-dlt.md) that anyone can use:
 * **Mainnet:** IOTA token
 * **Devnet:** Devnet token (free)
 * **Spamnet:** Spamnet token (free)
