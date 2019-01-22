@@ -26,7 +26,7 @@ You can choose to configure the IRI by specifying the configuration options in t
 |<a name="max-get-trytes"></a>`--max-get-trytes` |Maximum number of trytes that may be returned by the getTrytes API call  |number |10,000 | If the number of trytes exceeds this number, an error is returned
 |<a name="max-peers"></a>`--max-peers` |Maximum number of non-mutually-tethered connections |number |0 |This option is available only on the IOTA Devnet network
 |<a name="max-requests-list"></a>`--max-requests-list` |Maximum number of parameters in an API call |number |1,000 | If the number of parameters exceeds this number, an error is returned
-|<a name="neighbors"></a>`-n`, `--neighbors` |Urls and IP addresses of [neighbor IRI nodes](../how-to-guides/finding-neighbor-iri-nodes.md) |array of strings |[ ] |
+|<a name="neighbors"></a>`-n`, `--neighbors` |Urls and IP addresses of [neighbor IRI nodes](../how-to-guides/find-neighbor-iri-nodes.md) |array of strings |[ ] |
 |<a name="p-drop-cache"></a>`--p-drop-cache` |Probability of losing recently seen transactions in the network cache | number between 0 and 1|0.02 |
 |<a name="p-drop-transaction"></a>  `--p-drop-transaction`|Probability of losing a received transaction |number between 0 and 1 |0.0 | This option is available only on the IOTA Devnet network for testing purposes
 |<a name="p-propagate-request"></a>`--p-propagate-request` |Probability of the IRI requesting a missing transaction from a neighbor | number|0.01 | This number should be low to avoid the IRI requesting non-existing transactions that spam the network
