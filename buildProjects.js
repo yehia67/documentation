@@ -332,7 +332,7 @@ async function assetHtmlLink(markdown, docPath) {
                     await reportError(`Remote page errors: '${match[2]}' in '${docPath}' with '${response}'`);
                 }
             } else if (match[2].startsWith('root')) {
-                let rootUrl = match[2].replace(/root:\/\/(.*?)(#.*)?/, '$1');
+                let rootUrl = match[2].replace('root://', '').replace(/#.*$/, '');
                 const docFilename = path.resolve(path.join(rootFolder, rootUrl));
                 if (!fs.existsSync(docFilename)) {
                     await reportError(`Root page does not exist '${match[2]}' in '${docPath}'`);
