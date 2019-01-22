@@ -1,6 +1,8 @@
 # About Hub
 
-**Hub has many functions that facilitate the integration of IOTA into existing applications.**
+**Hub has many functions, such as seed generation, that facilitate the integration of IOTA into existing applications.**
+
+Each of these functions is exposed through [gRPC](../references/api-reference.md).
 
 ## Seed generation
 

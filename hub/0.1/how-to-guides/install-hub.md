@@ -202,7 +202,7 @@ Before you can run the binary file, you need to configure it.
 
 **Important:** Change the value of the `salt` flag to a long, private string of characters. This value is used by Hub to generate seeds.
 
-To view the available [configuration options](references/hub-configuration-options.md), do the following:
+To view the available [configuration options](../references/hub-configuration-options.md), do the following:
 
 ```bash
 ./bazel-bin/hub/hub --help
@@ -275,7 +275,7 @@ hub                              RUNNING   pid 9983, uptime 0:01:22
 
 ## Test Hub
 
-On startup, Hub provides a gRPC server for you to interact with. Hub has a [limited set of gRPC calls](references/api-reference.md) that can be used to interact it.
+On startup, Hub provides a gRPC server for you to interact with. Hub has a [limited set of gRPC calls](../references/api-reference.md) that can be used to interact it.
 
 You can communicate with Hub through any programming language that supports [gRPC](https://grpc.io/). In this guide, you'll use Python.
 
@@ -349,4 +349,4 @@ If you look at the deposit address history in a tangle explorer such as [thetang
 
 ## Next steps
 
-**Optional:** Improve the security of Hub by adding the [signing server](how-to-guides/install-the-signing-server.md).
+**Optional:** Improve the security of Hub by adding the [signing server](../how-to-guides/install-the-signing-server.md).
