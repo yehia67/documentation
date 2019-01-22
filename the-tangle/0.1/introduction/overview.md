@@ -8,7 +8,7 @@ Transactions are connected to each other in the Tangle by reference. Each transa
 
 References can be direct or indirect. A direct reference is one in which a transaction references another transaction. An indirect reference is one in which a referenced transactions references another transaction.
 
-The more direct or indirect references that a transaction has, the more likely it is to be both chosen during tip selection and [confirmed](../concepts/transaction-confirmation.md). A transaction is considered confirmed when it's referenced by a [Coordinator](../concepts/the-coordinator.md)-issued milestone transaction
+The more direct or indirect references that a transaction has, the more likely it is to be both chosen during tip selection and confirmed. A transaction is considered confirmed when it's referenced by a [Coordinator](../concepts/the-coordinator.md)-issued milestone transaction
 
 ## Further Research
 
