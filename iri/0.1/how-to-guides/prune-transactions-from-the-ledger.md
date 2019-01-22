@@ -6,8 +6,8 @@ By default, IRI nodes delete transactions that are older than around 28 days.
 
 Transactions are deleted only if they were confirmed by a milestone transaction that is older than the result of the following calculation:
 
-current milestone index - ([`LOCAL_SNAPSHOTS_DEPTH`](../references/iri-configuration-options#local-snapshots-depth) +
-[`LOCAL_SNAPSHOTS_PRUNING_DELAY`](../references/iri-configuration-options#local-snapshots-pruning-delay))
+current milestone index - ([`LOCAL_SNAPSHOTS_DEPTH`](../references/iri-configuration-options.md#local-snapshots-depth) +
+[`LOCAL_SNAPSHOTS_PRUNING_DELAY`](../references/iri-configuration-options.md#local-snapshots-pruning-delay))
 
 ## Prerequisites
 
