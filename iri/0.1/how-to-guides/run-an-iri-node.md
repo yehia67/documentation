@@ -11,7 +11,7 @@
 
 * If you don't want to [prune transactions from the ledger](../how-to-guides/prune-transactions-from-the-ledger.md), we recommend that your computer has at least 60GB of free disk space to store the [ledger](../concepts/the-ledger.md)
 
-* You must have the [URLs or the IP addresses of at least 6 neighbor nodes](../how-to-guides/find-neighbors.md) who are also running the same version of the IRI on the same IOTA network
+* You must have the [URLs or the IP addresses of at least 6 neighbor nodes](../how-to-guides/find-neighbor-iri-nodes.md) who are also running the same version of the IRI on the same IOTA network
 
 * By default, the IRI uses the following ports. You must map these ports to your computer's public IP address.
     * **UDP neighbor peering port:** 14600
@@ -140,7 +140,7 @@ The IRI Docker container is suitable for the following operating systems:
 * Windows
 
 You have two options for downloading the IRI Docker container:
-* [Download the pre-built Docker container]((#download-the-pre-built-iri-docker-container))(quickest option)
+* [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option)
 * [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code)
 
 ### Prerequisites

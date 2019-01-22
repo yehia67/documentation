@@ -5,7 +5,7 @@
 You may want to subscribe to events in the [zero message queue (ZMQ)](../concepts/zero-message-queue.md) to do the following:
 
 * Monitor an address for when a transaction is sent to it and confirmed
-* Create a Tangle visualisation website, such as [tangle.glumb.de](www.tangle.glumb.de)
+* Create a Tangle visualisation website, such as [thetangle.org](https://thetangle.org/)
 
 You can subscribe to events in the ZMQ by doing the following:
 1. Install the open-source ZMQ library
