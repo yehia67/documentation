@@ -23,8 +23,6 @@ This is the official Go client library. Implements official API and additional f
 
 ---------------
 
----
-
 ### __COMMUNITY SUPPORT__ ###
 
 ---------------
@@ -41,17 +39,16 @@ Python library. Implements core and extended functionality.
 
 A C# .NET 4.6 client library. Implements core and extended functionality.
 
-
 ---------------
 
----
+Creating, sending, and receiving transactions requires an in-depth understanding of the IOTA protocol.
 
-Sending and receiving transactions directly through the Tangle using the IRI API requires an in-depth understanding of the IOTA protocol. Integrating with the IOTA protocol can be done with one of the available client libraries.
+The IOTA client libraries abstract the complexity of the protocol into simple functions.
 
 #### Useful Links
 
-- [IOTA Developers Tangle](https://www.thetangle.org) for viewing transactions and visualizing the Tangle
-- [Official Discord](https://discord.gg/NaAy8k7) join the discussion in language-specific channels.
+- **[Tangle explorer](https://www.thetangle.org):** View transactions on the Tangle
+- **[Official Discord](https://discord.gg/NaAy8k7):** Join the discussion in language-specific channels.
 
 #### IoT Experiments
 
@@ -60,5 +57,3 @@ Sending and receiving transactions directly through the Tangle using the IRI API
 - [High Mobility-Porsche](https://github.com/iotaledger/documentation-markdown/blob/develop/mam/knowledgebase/HM.md) securely sending data from onboard a Porsche to the Tangle 
 
 - [Smart City - AstroPiOTA](https://github.com/iotaledger/documentation-markdown/blob/develop/mam/knowledgebase/astropi.md) publishing local environment sensor data to the Tangle
-
-- [Contribute](knowledgebase/contribute.md) your experiments
