@@ -9,9 +9,9 @@
     * 64-bit processor
     * An public IP address: Either a static IP address or a dynamic IP address that's connected to a dynamic DNS such as [noip.com](https://www.noip.com/remote-access)
 
-* If you don't want to run a [local snapshot node](introduction/overview.md#types-of-iri-node), we recommend that your computer has at least 60GB of free disk space to store the [ledger](concepts/the-ledger.md)
+* If you don't want to [prune transactions from the ledger](../how-to-guides/prune-transactions-from-the-ledger.md), we recommend that your computer has at least 60GB of free disk space to store the [ledger](../concepts/the-ledger.md)
 
-* You must have the [URLs or the IP addresses of at least 6 neighbor nodes](how-to-guides/find-neighbors.md) who are also running the same version of the IRI on the same IOTA network
+* You must have the [URLs or the IP addresses of at least 6 neighbor nodes](../how-to-guides/find-neighbors.md) who are also running the same version of the IRI on the same IOTA network
 
 * By default, the IRI uses the following ports. You must map these ports to your computer's public IP address.
     * **UDP neighbor peering port:** 14600
@@ -113,9 +113,9 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
 
     **Note:** The `JAVA_OPTIONS` variable contains commands that optimise the Java virtual machine for the IRI.
     
-2. Configure the IRI by adding the [configuration options](references/iri-configuration-options.md) either in a .iri file in the same directory as your IRI Java file or in the command line. Any configuration options that you add in the command line override the parameters in the IRI configuration file.
+2. Configure the IRI by adding the [configuration options](../references/iri-configuration-options.md) either in a .iri file in the same directory as your IRI Java file or in the command line. Any configuration options that you add in the command line override the parameters in the IRI configuration file.
 
-**Note:** The only configuration option that you **must** add is the `PORT` parameter. If you want to run a permanode, set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](iri-configuration-options.md#local-snapshots-enabled) to `false`.
+    **Note:** If you want to run a permanode (keep all transactions in the ledger), set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](../references/iri-configuration-options.md#local-snapshots-enabled) to `false`.
 
 3. Make a directory to keep the database and the IXI (IOTA exchange interface folders)
 
@@ -190,9 +190,9 @@ Instead of downloading the pre-built Docker container, you may want to build the
     ```
 ### Run the IRI
 
-1. Configure the IRI by adding the [configuration options](references/iri-configuration-options.md) either in a .iri file in the same directory as your IRI Java file or in the command line. Any configuration options that you add in the command line override the parameters in the IRI configuration file.
+1. Configure the IRI by adding the [configuration options](../references/iri-configuration-options.md) either in a .iri file in the same directory as your IRI Java file or in the command line. Any configuration options that you add in the command line override the parameters in the IRI configuration file.
 
-    **Note:** The only configuration option that you **must** add is the `PORT` option. If you want to run a permanode, set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](iri-configuration-options.md#local-snapshots-enabled) to `false`.
+    **Note:** If you want to run a permanode (keep all transactions in the ledger), set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](../references/iri-configuration-options.md#local-snapshots-enabled) to `false`.
 
 2. Run the IRI
 
@@ -241,11 +241,11 @@ $ curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-
 
 **Notes:**
 * The [jq](https://stedolan.github.io/jq/) tool is a command-line JSON processor that helps you to display and manipulate JSON data. This tool is optional.
-* It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](references/troubleshooting.md).
+* It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
 
 ## Next steps
 
-* [Interact with the IRI](how-to-guides/interact-with-the-iri.md)
-* [Subscribe to events in the IRI](how-to-guides/subscribe-to-events-in-the-iri.md)
+* [Interact with the IRI](../how-to-guides/interact-with-the-iri.md)
+* [Subscribe to events in the IRI](../how-to-guides/subscribe-to-events-in-the-iri.md)
 
 
