@@ -26,5 +26,5 @@ To send 100Mi to recipient A, you must create the following transactions and sen
 * **Output transaction:** Credit 100Mi to the recipient's address
 * **Output transaction:** To avoid spending from address 2 again, transfer the remaining 5Mi from address 2 to address 3
 
-[Learn more about bundles](root://iota-basics/concepts/bundles-and-transactions.md).
+[Learn more about bundles](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
 
