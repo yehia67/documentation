@@ -18,7 +18,7 @@
     * **TCP neighbor peering port:** 14600
     * **TCP API port:** 14265
 
-    Or, you can change these ports in the configuration options.
+    You can change these ports in the [configuration options](../references/iri-configuration-options.md).
 
 ## Run an IRI node on Linux
 
@@ -32,7 +32,7 @@ To download the IRI on Linux, you must have root priviledges.
 
 ### Download the pre-built IRI Java file
 
-To find the latest release of the IRI, go to the [GitHub repository](https://github.com/iotaledger/iri/releases).
+The pre-built IRI Java file is available on the IOTA GitHub repository.
 
 1. Install the latest system security patches
 
@@ -41,8 +41,16 @@ To find the latest release of the IRI, go to the [GitHub repository](https://git
     $ sudo apt-get upgrade -y
     ```
 
-2. [Install Java 8 JRE](https://docs.oracle.com/javase/8/docs/technotes/guides/install/linux_jre.html#CFHIEGAA)
-    **Note:** Do not install any other version of the Java JRE.
+2. Download and install the [Java 8 JRE](https://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html)
+
+    ```bash
+    $ export JAVA_VERSION=8u201
+    $ sudo apt-get install -y software-properties-common --no-install-recommends
+    $ sudo add-apt-repository -y ppa:webupd8team/java
+    $ sudo apt-get update
+    $ sudo apt-get install -y oracle-java8-installer=${JAVA_VERSION}~webupd8~1 --no-install-recommends
+    $ sudo apt install oracle-java8-set-default
+    ```
 
 3. Download the latest IRI Java file
 
@@ -50,7 +58,7 @@ To find the latest release of the IRI, go to the [GitHub repository](https://git
     $ wget https://github.com/iotaledger/iri/releases/download/v${VERSION}/iri-${VERSION}.jar
     ```
 
-**Note:** Replace the ${VERSION} variable with the latest version number of the IRI.
+**Note:** Replace the ${VERSION} variable with the [latest version](https://github.com/iotaledger/iri/releases) of the IRI.
 
 ### Build the IRI Java file from the source code
 
