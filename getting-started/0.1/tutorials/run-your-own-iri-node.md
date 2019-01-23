@@ -81,9 +81,9 @@ http://localhost.com:14265
     ```
 ## Next steps
 
-Try [sending your first data transaction](../tutorials/send-a-zero-value-transaction-with-nodejs.md) to your IRI node. In the example code, change the `provider` field to http://localhost.com:14265:
+Try [sending your first data transaction](../tutorials/send-a-zero-value-transaction-with-nodejs.md) to your IRI node. In the example code, change the `provider` field to http://localhost:14265:
 ```js
 const iota = Iota.composeAPI({
-    provider: 'http://localhost.com:14265'
+    provider: 'http://localhost:14265'
 });
 ```
