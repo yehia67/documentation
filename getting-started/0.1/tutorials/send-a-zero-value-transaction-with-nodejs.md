@@ -158,8 +158,9 @@ Now that you've confirmed your connection to an IRI node, send a transaction to 
             return iota.sendTrytes(trytes, 3/*depth*/, 9 /*mwm*/)
         })
         .then(bundle => {
-        console.log(`Published transaction with tail hash: ${bundle[0].hash}`)
-        console.log(`Bundle: ${bundle}`)
+        console.log(`Published transaction with tail hash: ${bundle[0].hash}`);
+        var JSONBundle = JSON.stringify(bundle);
+        console.log(`Bundle: ${JSONBundle}`);
     })
     .catch(err => {
             // Catch any errors
@@ -201,21 +202,23 @@ iota.getNodeInfo()
     });
 const address = 'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
 const seed = 'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX'
-const message = Converter.asciiToTrytes('Hello World!')
+const message = Converter.asciiToTrytes('Hello World!');
 const transfers = [
     {
     value: 0,
     address: address,
     message: message
     }
-]
+];
+
  iota.prepareTransfers(seed, transfers)
     .then(trytes => {
         return iota.sendTrytes(trytes, 3, 9)
     })
     .then(bundle => {
-    console.log(`Published transaction with tail hash: ${bundle[0].hash}`)
-    console.log(`Bundle: ${bundle}`)
+    console.log(`Published transaction with tail hash: ${bundle[0].hash}`);
+    var JSONBundle = JSON.stringify(bundle);
+    console.log(`Bundle: ${JSONBundle}`)
 })
 .catch(err => {
         // Catch any errors
@@ -225,11 +228,13 @@ const transfers = [
 
 If you run this code, you'll see information about the IRI node and the bundle that you've just sent.
 
+![Content of a bundle](../success.png)
+
 Congratulations 🎊. You've just sent your first zero-value transaction.
 
 Your transaction will propgate through the IOTA network until all the IRI nodes have it in their ledgers.
 
-To confirm that your bundle in on the network, copy the `bundle` value from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
+To confirm that your bundle in on the network, copy the value of the `bundle` field from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
 **Note:** Zero-value transactions don't need to be confirmed, only value transactions do.
 
