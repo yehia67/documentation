@@ -6,12 +6,12 @@ Any code that uses a seed is executed on the client side. Your seed is never sen
 
 ## Prerequisites
 
-To complete this guide, your computer must have [Node JS (8+)](https://nodejs.org/en/).
+To complete this guide, your computer must have [Node JS (8+)](https://nodejs.org/en/) installed.
 
 <hr>
 
 1. Create a new directory called iota-basics
-2. In the command line, change into the iota-basics directory, and install the [core Javascript library](https://github.com/iotaledger/iota.js/tree/next/packages/core)
+2. In the command line, change into the iota-basics directory, and install the [IOTA Core library](https://github.com/iotaledger/iota.js/tree/next/packages/core)
 
     ```bash
     $ cd iota-basics
@@ -44,4 +44,6 @@ An address (81 trytes) will be displayed in the console.
 
 If you execute the script again, you'll see the same address in the console.
 
-Try changing the index and security level arguments in the `getNewAddress` function to generate a different address for this seed. Or, put your seed in the seed variable to generate a new address for your seed.
+Try changing the index and security level arguments in the `getNewAddress` function to generate a different address for this seed.
+
+Or, put your own seed in the `seed` variable to generate a new address for your seed.
