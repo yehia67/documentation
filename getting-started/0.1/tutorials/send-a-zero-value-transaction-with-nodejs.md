@@ -1,6 +1,6 @@
 # Send your first zero-value transaction (Node.js)
 
-**A zero-value transaction can be sent using a random seed that doesn't contain IOTA tokens.**
+**A zero-value transaction can be sent using a random seed that doesn't contain IOTA tokens. These transactions are useful for applications that want to send and store immutible messages on the Tangle.**
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
     mkdir iota-example && cd iota-example
     ```
 
-2. Change into the iota-example directory and use npm to install the required Node.js libraries
+2. Change into the iota-example directory and install the required Node.js libraries
     ```bash
     cd iota-example
     npm install @iota/core @iota/converter --save
@@ -91,7 +91,7 @@ Now that you've confirmed your connection to an IRI node, send a transaction to 
     'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
     const seed =
     'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX'
-    const message = Converter.toTrytes('Hello World!')
+    const message = Converter.asciiToTrytes('Hello World!')
 
     const transfers = [
     {
@@ -158,8 +158,9 @@ Now that you've confirmed your connection to an IRI node, send a transaction to 
             return iota.sendTrytes(trytes, 3/*depth*/, 9 /*mwm*/)
         })
         .then(bundle => {
-        console.log(`Published transaction with tail hash: ${bundle[0].hash}`)
-        console.log(`Bundle: ${bundle}`)
+        console.log(`Published transaction with tail hash: ${bundle[0].hash}`);
+        var JSONBundle = JSON.stringify(bundle);
+        console.log(`Bundle: ${JSONBundle}`);
     })
     .catch(err => {
             // Catch any errors
@@ -173,10 +174,10 @@ Now that you've confirmed your connection to an IRI node, send a transaction to 
 
     |Field|Type|Description|
     |:---:|:--:|:---------:|
-    |`seed` | string|This is the secret password that generates an address for you to send a transaction from. With **zero** value transactions we do not need to have any tokens on an address, so this field can be 81 random trytes. |
+    |`seed` | string|This is the secret password that generates an address for you to send a transaction from. With **zero** value transactions, you don't need to have any IOTA tokens on an address, so this field can be 81 random trytes. |
     |`depth` | number|The number of milestone transactions that the IRI node will walk back to start the [tip selection](root://iri/0.1/concepts/tip-selection.md) process |
     |`mwm` |number | This field specifies the proof of work that is required for your transaction to be validated. On the Devnet, this field must have a value of at least 9|
-    | `transfers`| array|This array contains the value, address and message of your transaction. You can specify multiple transactions with different addresses |
+    | `transfers`| array|This array contains the value, address, and message of your transaction. You can specify multiple transfers with different addresses, and they'll be converted to transactions and put in a bundle |
 
 ## Final Code
 
@@ -201,21 +202,23 @@ iota.getNodeInfo()
     });
 const address = 'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
 const seed = 'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX'
-const message = Converter.asciiToTrytes('Hello World!')
+const message = Converter.asciiToTrytes('Hello World!');
 const transfers = [
     {
     value: 0,
     address: address,
     message: message
     }
-]
+];
+
  iota.prepareTransfers(seed, transfers)
     .then(trytes => {
         return iota.sendTrytes(trytes, 3, 9)
     })
     .then(bundle => {
-    console.log(`Published transaction with tail hash: ${bundle[0].hash}`)
-    console.log(`Bundle: ${bundle}`)
+    console.log(`Published transaction with tail hash: ${bundle[0].hash}`);
+    var JSONBundle = JSON.stringify(bundle);
+    console.log(`Bundle: ${JSONBundle}`)
 })
 .catch(err => {
         // Catch any errors
@@ -223,15 +226,15 @@ const transfers = [
 });
 ```
 
-If you run this code, you'll see information about the IRI node and the bundle that you've just sent:
+If you run this code, you'll see information about the IRI node and the bundle that you've just sent.
 
-<img src="../success.png" alt="Console output" width="600">
+![Content of a bundle](../success.png)
 
 Congratulations 🎊. You've just sent your first zero-value transaction.
 
 Your transaction will propgate through the IOTA network until all the IRI nodes have it in their ledgers.
 
-To confirm that your bundle in on the network, copy the `bundle` value from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
+To confirm that your bundle in on the network, copy the value of the `bundle` field from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
 **Note:** Zero-value transactions don't need to be confirmed, only value transactions do.
 
