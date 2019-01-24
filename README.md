@@ -57,3 +57,13 @@ If you want to link to a top level project outside of the scope of your content 
 ```markdown
 [Another Project](root://another-project/0.1/some-content.md)
 ```
+
+# Validating Content
+
+To validate the content of the repo first make sure you have installed the dependencies with `npm install` then run the following script:
+
+```shell
+node buildProjects
+```
+
+This will output error to the console and create `projects-summary.log`, which shows the structure of the content and highlights any errors.

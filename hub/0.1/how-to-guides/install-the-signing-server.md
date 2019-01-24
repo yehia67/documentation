@@ -1,6 +1,6 @@
 # Install the signing server
 
-**In this guide, you'll create a signing server that stores sensitive information that's used by Hub. After you complete this guide you'll be able to connect your signing server to Hub.**
+**Hub stores sensitive information such as seeds. To add an extra layer of security, you can move sensitive operations and data to a signing server that only Hub can connect to.**
 
 ## Run the signing server
 
