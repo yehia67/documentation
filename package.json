@@ -12,6 +12,8 @@
   },
   "homepage": "https://github.com/iotaledger/documentation-markdown#readme",
   "devDependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "chalk": "^2.4.2",
+    "node-emoji": "^1.8.1"
   }
 }
