@@ -1,15 +1,15 @@
 # Index
 
 [Introduction/Overview](/introduction/overview.md)
-[How-to Guides/Find neighbor IRI nodes](/how-to-guides/find-neighbor-iri-nodes.md)
-[How-to Guides/Run an IRI node](/how-to-guides/run-an-iri-node.md)
+[Run an IRI node on Linux](how-to-guides/run-an-iri-node-on-linux.md)
+[Run an IRI node on Docker](how-to-guides/run-an-iri-node-on-docker.md)
+[Find neighbor IRI nodes](how-to-guides/find-neighbor-iri-nodes.md)
 [How-to Guides/Update the IRI](/how-to-guides/update-the-iri.md)
 [How-to Guides/Prune transactions from the ledger](/how-to-guides/prune-transactions-from-the-ledger.md)
 [How-to Guides/Interact with the IRI](/how-to-guides/interact-with-the-iri.md)
 [How-to Guides/Subscribe to events in the IRI](/how-to-guides/subscribe-to-events-in-the-iri.md)
 [Concepts/The ledger](/concepts/the-ledger.md)
 [Concepts/Neighbor IRI node](/concepts/neighbor-iri-node.md)
-[Concepts/Tip selection](/concepts/tip-selection.md)
 [Concepts/Transaction validation](/concepts/transaction-validation.md)
 [Concepts/Zero message queue](/concepts/zero-message-queue.md)
 [Concepts/Local snapshot](/concepts/local-snapshot.md)
