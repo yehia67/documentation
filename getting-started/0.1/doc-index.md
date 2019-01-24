@@ -20,8 +20,6 @@
 
 [Tutorials/Send your first data transaction (Trinity)](/tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)
 
-[Tutorials/Run your own IRI node](/tutorials/run-your-own-iri-node.md)
-
 [Tutorials/Send your first data transaction (Node.js)](/tutorials/send-a-zero-value-transaction-with-nodejs.md)
 
 [References/IOTA networks](/references/iota-networks.md)

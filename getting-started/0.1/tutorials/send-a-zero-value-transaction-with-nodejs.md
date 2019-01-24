@@ -7,7 +7,6 @@
 To complete this tutorial, you need the following:
 
 * [Node JS (8+)](https://nodejs.org/en/)
-* [Node Package Manager](https://www.npmjs.com/) (npm)
 * A code editor
 * Access to a terminal
 * An Internet connection
@@ -16,12 +15,12 @@ To complete this tutorial, you need the following:
 
 In IOTA, transactions must be sent to [IRI nodes](root://iri/0.1/introduction/overview.md).
 
-If you know the URL of an IRI node, you can send it a transaction. In this example we use the URL of an IRI node on the IOTA Devnet network and use the [`getNodeInfo()` method](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo) to check that the IRI node is online.
+If you know the URL of an IRI node, you can send it a transaction. In this example we use the URL of an IRI node on the IOTA Devnet network and use the [`getNodeInfo()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo) method to check that the IRI node is online.
 
 1. In the terminal, create a working directory called iota-example
 
     ```bash
-    mkdir iota-example && cd iota-example
+    mkdir iota-example
     ```
 
 2. Change into the iota-example directory and install the required Node.js libraries
@@ -30,7 +29,16 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
     npm install @iota/core @iota/converter --save
     ```
 
-    You now have a package.json file and a node_modules folder in your working directory.
+    If everthing went well, you should see something like the following in the output. You can ignore any 'npm WARN' messages.
+
+    ```shell
+    + @iota/converter@1.0.0-beta.8
+    + @iota/core@1.0.0-beta.8
+    added 19 packages from 10 contributors and audited 68 packages in 5.307s
+    found 0 vulnerabilities
+    ```
+
+    You now have a package.json file and a node_modules folder, which contains the IOTA library and its dependencies.
 
 3. In the iota-example directory, create a new file called index.js and add the following to it:
 
@@ -59,31 +67,31 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
     node index.js
     ```
 
-Some information about the IRI node that you're connected to is displayed in the console:
+    Some information about the IRI node that you're connected to is displayed in the console:
 
-```json
-{
-"appName":"IRI Testnet",
-"appVersion":"1.5.5",
-"jreAvailableProcessors":8,
-"jreFreeMemory":25013138032,
-"jreVersion":"1.8.0_181",
-"jreMaxMemory":51469877248,
-"jreTotalMemory":31622422528,"latestMilestone":"WB9YXQQTVHNPWXHBCVEWVPWZNJAFSGPVYWPEJXVPGJIFJFFHLFAIFPAWEHJGKEIHMYAUHXOPIUGZOA999",
-"latestMilestoneIndex":1014730,"latestSolidSubtangleMilestone":"WB9YXQQTVHNPWXHBCVEWVPWZNJAFSGPVYWPEJXVPGJIFJFFHLFAIFPAWEHJGKEIHMYAUHXOPIUGZOA999",
-"latestSolidSubtangleMilestoneIndex":1014730,
-"milestoneStartIndex":434525,
-"neighbors":7,
-"packetsQueueSize":0,
-"time":1545903340781,
-"tips":4995,
-"transactionsToRequest":0,
-"features":["addNeighbors", "getNeighbors", "removeNeighbors", "attachToTangle", "interruptAttachToTangle"],
-"duration":0
-}
-```
+    ```json
+    {
+    "appName":"IRI Testnet",
+    "appVersion":"1.5.5",
+    "jreAvailableProcessors":8,
+    "jreFreeMemory":25013138032,
+    "jreVersion":"1.8.0_181",
+    "jreMaxMemory":51469877248,
+    "jreTotalMemory":31622422528,"latestMilestone":"WB9YXQQTVHNPWXHBCVEWVPWZNJAFSGPVYWPEJXVPGJIFJFFHLFAIFPAWEHJGKEIHMYAUHXOPIUGZOA999",
+    "latestMilestoneIndex":1014730,"latestSolidSubtangleMilestone":"WB9YXQQTVHNPWXHBCVEWVPWZNJAFSGPVYWPEJXVPGJIFJFFHLFAIFPAWEHJGKEIHMYAUHXOPIUGZOA999",
+    "latestSolidSubtangleMilestoneIndex":1014730,
+    "milestoneStartIndex":434525,
+    "neighbors":7,
+    "packetsQueueSize":0,
+    "time":1545903340781,
+    "tips":4995,
+    "transactionsToRequest":0,
+    "features":["addNeighbors", "getNeighbors", "removeNeighbors", "attachToTangle", "interruptAttachToTangle"],
+    "duration":0
+    }
+    ```
 
-Now that you've confirmed your connection to an IRI node, send a transaction to it.
+    Now that you've confirmed your connection to an IRI node, send a transaction to it.
 
 5. At the end of the index.js file, add the following:
     ```js
@@ -114,70 +122,23 @@ Now that you've confirmed your connection to an IRI node, send a transaction to 
         console.log(err);
     });
     ```
+5. Save the file and run the code
 
-    Lets break this code down:
-
-    **Set up the variables**
-
-    ```javascript
-    const address =
-    'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
-    const seed =
-    'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX'
-    const message = Converter.asciiToTrytes('Hello World!')
+    ```bash
+    node index.js
     ```
 
-    The `address` and `message` constants are used in the `transfers` object that's passed to the [`prepareTransfer`] method(https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers).
+Congratulations 🎊. You've just sent your first zero-value transaction.
 
-    The value of the `message` constant is converted to trytes because IOTA networks accept only tryte-encoded messages.
-    The value of the `address` constant is the address that the message is sent to.
-    The value of the `seed` constant is the seed that is used to generate an address to send the message from.
+You'll see information about the IRI node and the bundle that you've just sent.
 
-    **Note:** Seeds and address must both contain 81 tryte-encoded characters. If a seed consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters. 
+![Content of a bundle](../success.png)
 
-    **Create the transfers array for the transaction**
+Your transaction will propgate through the IOTA network until all the IRI nodes have it in their ledgers.
 
-    ```javascript
-    const transfers = [
-    {
-        value: 0,
-        address: address,
-        message: message
-    }
-    ]
-    ```
+To confirm that your bundle in on the network, copy the value of the `bundle` field from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
-    The `transfers` array lets you specify transfers you want to make from
-    an address that is generated from your seed. In this case, you send a transfer with no value to an address and you include the tryte-encoded message 'Hello World!'.
-
-    **Prepare and send the transfer**
-
-    ```javascript
-     iota.prepareTransfers(seed, transfers)
-        .then(trytes => {
-            return iota.sendTrytes(trytes, 3/*depth*/, 9 /*mwm*/)
-        })
-        .then(bundle => {
-        console.log(`Published transaction with tail hash: ${bundle[0].hash}`);
-        var JSONBundle = JSON.stringify(bundle);
-        console.log(`Bundle: ${JSONBundle}`);
-    })
-    .catch(err => {
-            // Catch any errors
-        console.log(err);
-    });
-    ```
-
-    The [`prepareTransfers` method](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) constructs a bundle on the client side. The [`sendTrytes` method](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes) sends the bundle to the IRI node.
-
-    Here's a table of the variables that are used in these methods:
-
-    |Field|Type|Description|
-    |:---:|:--:|:---------:|
-    |`seed` | string|This is the secret password that generates an address for you to send a transaction from. With **zero** value transactions, you don't need to have any IOTA tokens on an address, so this field can be 81 random trytes. |
-    |`depth` | number|The number of milestone transactions that the IRI node will walk back to start the [tip selection](root://iri/0.1/concepts/tip-selection.md) process |
-    |`mwm` |number | This field specifies the proof of work that is required for your transaction to be validated. On the Devnet, this field must have a value of at least 9|
-    | `transfers`| array|This array contains the value, address, and message of your transaction. You can specify multiple transfers with different addresses, and they'll be converted to transactions and put in a bundle |
+**Note:** Zero-value transactions don't need to be confirmed, only value transactions do.
 
 ## Final Code
 
@@ -226,18 +187,67 @@ const transfers = [
 });
 ```
 
-If you run this code, you'll see information about the IRI node and the bundle that you've just sent.
+### Code breakdown
 
-![Content of a bundle](../success.png)
+```javascript
+const address =
+'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+const seed =
+'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX'
+const message = Converter.asciiToTrytes('Hello World!')
+```
 
-Congratulations 🎊. You've just sent your first zero-value transaction.
+The `address` and `message` constants are used in the `transfers` object that's passed to the [`prepareTransfer()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method.
 
-Your transaction will propgate through the IOTA network until all the IRI nodes have it in their ledgers.
+The value of the `message` constant is converted to trytes because IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages.
+The value of the `address` constant is the address that the message is sent to.
+The value of the `seed` constant is the seed that is used to generate an address to send the message from.
 
-To confirm that your bundle in on the network, copy the value of the `bundle` field from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
+**Note:** Seeds and address must both contain 81 tryte-encoded characters. If a seed consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters. 
 
-**Note:** Zero-value transactions don't need to be confirmed, only value transactions do.
+<hr>
+
+```javascript
+const transfers = [
+{
+    value: 0,
+    address: address,
+    message: message
+}]
+```
+
+The `transfers` array lets you specify transfers you want to make from
+an address. In this case, you send a transfer with no value to an address and you include the tryte-encoded message 'Hello World!'.
+
+<hr>
+
+```javascript
+    iota.prepareTransfers(seed, transfers)
+    .then(trytes => {
+        return iota.sendTrytes(trytes, 3/*depth*/, 9 /*mwm*/)
+    })
+    .then(bundle => {
+    console.log(`Published transaction with tail hash: ${bundle[0].hash}`);
+    var JSONBundle = JSON.stringify(bundle);
+    console.log(`Bundle: ${JSONBundle}`);
+})
+.catch(err => {
+        // Catch any errors
+    console.log(err);
+});
+```
+
+The [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method constructs a bundle on the client side. The [`sendTrytes()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes)  method sends the bundle to the IRI node.
+
+Here's a table of the variables that are used in these methods:
+
+|Field|Type|Description|
+|:---:|:--:|:---------:|
+|`seed` | string|This is the secret password that generates an address for you to send a transaction from. With **zero** value transactions, you don't need to have any IOTA tokens on an address, so this field can be 81 random trytes. |
+|`depth` | number|The number of milestone transactions that the IRI node will walk back to start the [tip selection](root://the-tangle/0.1/concepts/tip-selection.md) process |
+|`mwm` |number | This field specifies the [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) that is required for your transaction to be validated. On the Devnet, this field must have a value of at least 9|
+| `transfers`| array|This array contains the value, address, and message of your transaction. You can specify multiple transfers with different addresses, and they'll be converted to transactions and put in a bundle |
 
 ## Next steps
 
-Why not [run your own IRI node](../tutorials/run-your-own-iri-node.md)?.
+Why not [run your own IRI node](root://iri/0.1/introduction/overview.md)?.
