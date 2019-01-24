@@ -108,11 +108,7 @@ Terms are listed in alphabetical order by category
 
 ## Trinary
 
-Trinary is a base-3 numeral system.  In the past, most computer systems used a binary or base-2 numeral system.  In a binary system, 1 means "True" and 0 means "False".  While very useful, binary does not fully represent the physical world of IoT.  Binary has some security limitations and a top network throughput speed.  
-
-In a trinary system, 1 may represent "True", 0 may represent "Unknown", and -1 may represent "False".  IOTA's innovative use of the trinary system offers a better representation for IoT, improved security, and faster data throughput.  
-
-Binary has "bits" and "bytes".  Trinary has "trits" and "trytes".
+Trinary is a Base-3 numeral system.  Binary has "bits" and "bytes".  Trinary has "trits" and "trytes".
 
 <dl><dt>trinary</dt><dd>Base-3 numeral system</dd></dl>
 
