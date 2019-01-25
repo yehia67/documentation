@@ -6,7 +6,7 @@ IRI nodes are the core of an IOTA network, and are responsible for the following
 
 - [Validate transactions](../concepts/transaction-validation.md)
 - [Store valid transactions in a ledger](../concepts/the-ledger.md)
-- [Allow clients to interact with the IRI](../how-to-guides/interact-with-the-iri.md) and have their transactions appended to the ledger
+- [Allow clients to interact with the IRI](../how-to-guides/interact-with-an-iri-node.md) and have their transactions appended to the ledger
 
 Without IRI nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom.
 
