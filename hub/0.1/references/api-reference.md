@@ -1,58 +1,12 @@
-# API Reference',
+# API reference
 
-## Table of Contents
-- [API Reference',](#api-reference)
-  - [Table of Contents](#table-of-contents)
-  - [hub.proto](#hubproto)
-    - [Hub](#hub)
-  - [messages.proto](#messagesproto)
-    - [BalanceEvent](#balanceevent)
-    - [BalanceSubscriptionRequest](#balancesubscriptionrequest)
-    - [CreateUserReply](#createuserreply)
-    - [CreateUserRequest](#createuserrequest)
-    - [Error](#error)
-    - [GetAddressInfoReply](#getaddressinforeply)
-    - [GetAddressInfoRequest](#getaddressinforequest)
-    - [GetBalanceReply](#getbalancereply)
-    - [GetBalanceRequest](#getbalancerequest)
-    - [GetDepositAddressReply](#getdepositaddressreply)
-    - [GetDepositAddressRequest](#getdepositaddressrequest)
-    - [GetUserHistoryReply](#getuserhistoryreply)
-    - [GetUserHistoryRequest](#getuserhistoryrequest)
-    - [HubAddressBalanceEvent](#hubaddressbalanceevent)
-    - [ProcessTransferBatchReply](#processtransferbatchreply)
-    - [ProcessTransferBatchRequest](#processtransferbatchrequest)
-    - [ProcessTransferBatchRequest.Transfer](#processtransferbatchrequesttransfer)
-    - [SignBundleReply](#signbundlereply)
-    - [SignBundleRequest](#signbundlerequest)
-    - [StatsReply](#statsreply)
-    - [StatsRequest](#statsrequest)
-    - [SweepDetailReply](#sweepdetailreply)
-    - [SweepDetailRequest](#sweepdetailrequest)
-    - [SweepEvent](#sweepevent)
-    - [SweepInfoRequest](#sweepinforequest)
-    - [SweepSubscriptionRequest](#sweepsubscriptionrequest)
-    - [UserAccountBalanceEvent](#useraccountbalanceevent)
-    - [UserAddressBalanceEvent](#useraddressbalanceevent)
-    - [UserWithdrawCancelReply](#userwithdrawcancelreply)
-    - [UserWithdrawCancelRequest](#userwithdrawcancelrequest)
-    - [UserWithdrawReply](#userwithdrawreply)
-    - [UserWithdrawRequest](#userwithdrawrequest)
-    - [ErrorCode](#errorcode)
-    - [HubAddressBalanceReason](#hubaddressbalancereason)
-    - [UserAccountBalanceEventType](#useraccountbalanceeventtype)
-    - [UserAddressBalanceReason](#useraddressbalancereason)
-  - [Scalar Value Types](#scalar-value-types)
+**Use the API reference to find gRPC functions for Hub.**
 
-
-
-<a name="hub.proto"/>
-
-<p align="right"><a href="#top">Top</a></p>
+<a name="hub.proto"></a>
 
 ## hub.proto
 
-<a name="hub.rpc.Hub"/>
+<a name="hub.rpc.Hub"></a>
 
 ### Hub
 
@@ -73,23 +27,13 @@
 | SignBundle           | [SignBundleRequest](#hub.rpc.SignBundleRequest)              | [SignBundleReply](#hub.rpc.SignBundleRequest)                | Provides a signature for a bundle hash                       |
 | SweepDetail          | [SweepDetailRequest](#hub.rpc.SweepDetailRequest)            | [SweepDetailReply](#hub.rpc.SweepDetailRequest)              | Provides detailed information on the sweep for the bundle hash |
 
- 
-
-
-
-<a name="messages.proto"/>
-
-<p align="right"><a href="#top">Top</a></p>
+<a name="messages.proto"></a>
 
 ## messages.proto
 
-
-
-<a name="hub.rpc.BalanceEvent"/>
+<a name="hub.rpc.BalanceEvent"></a>
 
 ### BalanceEvent
-
-
 
 | Field            | Type                                                        | Label | Description |
 | ---------------- | ----------------------------------------------------------- | ----- | ----------- |
@@ -97,25 +41,15 @@
 | userAddressEvent | [UserAddressBalanceEvent](#hub.rpc.UserAddressBalanceEvent) |       |             |
 | hubAddressEvent  | [HubAddressBalanceEvent](#hub.rpc.HubAddressBalanceEvent)   |       |             |
 
-
-
-
-
-<a name="hub.rpc.BalanceSubscriptionRequest"/>
+<a name="hub.rpc.BalanceSubscriptionRequest"></a>
 
 ### BalanceSubscriptionRequest
-
-
 
 | Field     | Type              | Label | Description                                                  |
 | --------- | ----------------- | ----- | ------------------------------------------------------------ |
 | newerThan | [uint64](#uint64) |       | Balances newer than this time (MS since epoch) will be retrievd |
 
-
-
-
-
-<a name="hub.rpc.CreateUserReply"/>
+<a name="hub.rpc.CreateUserReply"></a>
 
 ### CreateUserReply
 
@@ -123,11 +57,7 @@ Reply for creating a new user.
 
 Currently unused.
 
-
-
-
-
-<a name="hub.rpc.CreateUserRequest"/>
+<a name="hub.rpc.CreateUserRequest"></a>
 
 ### CreateUserRequest
 
@@ -137,11 +67,7 @@ Request for creating a new user.
 | ------ | ----------------- | ----- | ----------- |
 | userId | [string](#string) |       |             |
 
-
-
-
-
-<a name="hub.rpc.Error"/>
+<a name="hub.rpc.Error"></a>
 
 ### Error
 
@@ -154,38 +80,23 @@ The error will be serialised and stored in the Status&#39; detail field.
 | code  | [ErrorCode](#hub.rpc.ErrorCode) |       |             |
 
 
-
-
-
-<a name="hub.rpc.GetAddressInfoReply"/>
+<a name="hub.rpc.GetAddressInfoReply"></a>
 
 ### GetAddressInfoReply
-
-
 
 | Field  | Type              | Label | Description                             |
 | ------ | ----------------- | ----- | --------------------------------------- |
 | userId | [string](#string) |       | The user identifier who owns an address |
 
-
-
-
-
-<a name="hub.rpc.GetAddressInfoRequest"/>
+<a name="hub.rpc.GetAddressInfoRequest"></a>
 
 ### GetAddressInfoRequest
-
-
 
 | Field   | Type              | Label | Description            |
 | ------- | ----------------- | ----- | ---------------------- |
 | address | [string](#string) |       | The address to look up |
 
-
-
-
-
-<a name="hub.rpc.GetBalanceReply"/>
+<a name="hub.rpc.GetBalanceReply"></a>
 
 ### GetBalanceReply
 
@@ -195,11 +106,7 @@ Reply containing a user&#39;s currently available balanc.e
 | --------- | --------------- | ----- | ------------------------------------------------------------ |
 | available | [int64](#int64) |       | User balance that is currently available for withdrawal / trades |
 
-
-
-
-
-<a name="hub.rpc.GetBalanceRequest"/>
+<a name="hub.rpc.GetBalanceRequest"></a>
 
 ### GetBalanceRequest
 
@@ -209,11 +116,7 @@ Request for requesting a user&#39;s currently available balance.
 | ------ | ----------------- | ----- | ----------- |
 | userId | [string](#string) |       |             |
 
-
-
-
-
-<a name="hub.rpc.GetDepositAddressReply"/>
+<a name="hub.rpc.GetDepositAddressReply"></a>
 
 ### GetDepositAddressReply
 
@@ -223,11 +126,7 @@ Reply containing the new deposit address.
 | ------- | ----------------- | ----- | ----------------------------- |
 | address | [string](#string) |       | Newly created deposit address |
 
-
-
-
-
-<a name="hub.rpc.GetDepositAddressRequest"/>
+<a name="hub.rpc.GetDepositAddressRequest"></a>
 
 ### GetDepositAddressRequest
 
@@ -238,44 +137,26 @@ Request for creating a new deposit address for a user.
 | userId          | [string](#string) |       |             |
 | includeChecksum | [bool](#bool)     |       |             |
 
-
-
-
-
-<a name="hub.rpc.GetUserHistoryReply"/>
+<a name="hub.rpc.GetUserHistoryReply"></a>
 
 ### GetUserHistoryReply
-
-
 
 | Field  | Type                                                        | Label    | Description                                    |
 | ------ | ----------------------------------------------------------- | -------- | ---------------------------------------------- |
 | events | [UserAccountBalanceEvent](#hub.rpc.UserAccountBalanceEvent) | repeated | List of all user balance events for given user |
 
-
-
-
-
-<a name="hub.rpc.GetUserHistoryRequest"/>
+<a name="hub.rpc.GetUserHistoryRequest"></a>
 
 ### GetUserHistoryRequest
-
-
 
 | Field     | Type              | Label | Description                                                  |
 | --------- | ----------------- | ----- | ------------------------------------------------------------ |
 | userId    | [string](#string) |       | UserId                                                       |
 | newerThan | [uint64](#uint64) |       | Records newer than this time (MS since epoch) will be retrievd |
 
-
-
-
-
-<a name="hub.rpc.HubAddressBalanceEvent"/>
+<a name="hub.rpc.HubAddressBalanceEvent"></a>
 
 ### HubAddressBalanceEvent
-
-
 
 | Field           | Type                                                        | Label | Description |
 | --------------- | ----------------------------------------------------------- | ----- | ----------- |
@@ -285,21 +166,11 @@ Request for creating a new deposit address for a user.
 | sweepBundleHash | [string](#string)                                           |       |             |
 | timestamp       | [uint64](#uint64)                                           |       |             |
 
-
-
-
-
-<a name="hub.rpc.ProcessTransferBatchReply"/>
+<a name="hub.rpc.ProcessTransferBatchReply"></a>
 
 ### ProcessTransferBatchReply
 
-
-
-
-
-
-
-<a name="hub.rpc.ProcessTransferBatchRequest"/>
+<a name="hub.rpc.ProcessTransferBatchRequest"></a>
 
 ### ProcessTransferBatchRequest
 
@@ -310,44 +181,26 @@ UserIds must be unique.
 | --------- | ------------------------------------------------------------ | -------- | ----------- |
 | transfers | [ProcessTransferBatchRequest.Transfer](#hub.rpc.ProcessTransferBatchRequest.Transfer) | repeated |             |
 
-
-
-
-
-<a name="hub.rpc.ProcessTransferBatchRequest.Transfer"/>
+<a name="hub.rpc.ProcessTransferBatchRequest.Transfer"></a>
 
 ### ProcessTransferBatchRequest.Transfer
-
-
 
 | Field  | Type              | Label | Description |
 | ------ | ----------------- | ----- | ----------- |
 | userId | [string](#string) |       |             |
 | amount | [int64](#int64)   |       |             |
 
-
-
-
-
-<a name="hub.rpc.SignBundleReply"/>
+<a name="hub.rpc.SignBundleReply"></a>
 
 ### SignBundleReply
-
-
 
 | Field     | Type              | Label | Description             |
 | --------- | ----------------- | ----- | ----------------------- |
 | signature | [string](#string) |       | The resulting signature |
 
-
-
-
-
-<a name="hub.rpc.SignBundleRequest"/>
+<a name="hub.rpc.SignBundleRequest"></a>
 
 ### SignBundleRequest
-
-
 
 | Field            | Type              | Label | Description                                                  |
 | ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
@@ -355,39 +208,21 @@ UserIds must be unique.
 | bundleHash       | [string](#string) |       | The bundle hash that should be signed.                       |
 | authentication   | [string](#string) |       | Authentication token                                         |
 | validateChecksum | [bool](#bool)     |       | should command validate address                              |
-
-
-
-
-
-<a name="hub.rpc.StatsReply"/>
+<a name="hub.rpc.StatsReply"></a>
 
 ### StatsReply
-
-
 
 | Field        | Type              | Label | Description                                 |
 | ------------ | ----------------- | ----- | ------------------------------------------- |
 | totalBalance | [uint64](#uint64) |       | Total balance currently managed by the hub. |
 
-
-
-
-
-<a name="hub.rpc.StatsRequest"/>
+<a name="hub.rpc.StatsRequest"></a>
 
 ### StatsRequest
 
-
-
-
-
-
-
-<a name="hub.rpc.SweepDetailReply"/>
+<a name="hub.rpc.SweepDetailReply"></a>
 
 ### SweepDetailReply
-
 
 
 | Field     | Type              | Label    | Description                                                  |
@@ -396,29 +231,17 @@ UserIds must be unique.
 | trytes    | [string](#string) | repeated | Sweep&#39;s transactions trytes                              |
 | tailHash  | [string](#string) | repeated | Sweep&#39;s tails hashes (multiple reattachment for each bundle) |
 
-
-
-
-
-<a name="hub.rpc.SweepDetailRequest"/>
+<a name="hub.rpc.SweepDetailRequest"></a>
 
 ### SweepDetailRequest
-
-
 
 | Field      | Type              | Label | Description             |
 | ---------- | ----------------- | ----- | ----------------------- |
 | bundleHash | [string](#string) |       | Sweep&#39;s bundle hash |
 
-
-
-
-
-<a name="hub.rpc.SweepEvent"/>
+<a name="hub.rpc.SweepEvent"></a>
 
 ### SweepEvent
-
-
 
 | Field          | Type              | Label    | Description |
 | -------------- | ----------------- | -------- | ----------- |
@@ -426,44 +249,26 @@ UserIds must be unique.
 | timestamp      | [uint64](#uint64) |          |             |
 | withdrawalUUID | [string](#string) | repeated |             |
 
-
-
-
-
-<a name="hub.rpc.SweepInfoRequest"/>
+<a name="hub.rpc.SweepInfoRequest"></a>
 
 ### SweepInfoRequest
-
-
 
 | Field          | Type              | Label | Description                |
 | -------------- | ----------------- | ----- | -------------------------- |
 | withdrawalUUID | [string](#string) |       | WIthdrawal UUID to look up |
 | bundleHash     | [string](#string) |       | Sweep&#39;s bundle hash    |
 
-
-
-
-
-<a name="hub.rpc.SweepSubscriptionRequest"/>
+<a name="hub.rpc.SweepSubscriptionRequest"></a>
 
 ### SweepSubscriptionRequest
 
-
-
 | Field     | Type              | Label | Description                                                  |
 | --------- | ----------------- | ----- | ------------------------------------------------------------ |
-| newerThan | [uint64](#uint64) |       | Sweeps newer than this time (MS since epoch) will be retrievd |
+| newerThan | [uint64](#uint64) |       | Sweeps newer than this time (MS since epoch) will be retrieved |
 
-
-
-
-
-<a name="hub.rpc.UserAccountBalanceEvent"/>
+<a name="hub.rpc.UserAccountBalanceEvent"></a>
 
 ### UserAccountBalanceEvent
-
-
 
 | Field           | Type                                                         | Label | Description                                                  |
 | --------------- | ------------------------------------------------------------ | ----- | ------------------------------------------------------------ |
@@ -471,18 +276,12 @@ UserIds must be unique.
 | timestamp       | [uint64](#uint64)                                            |       | Time since epoch in MS when the balance change occured       |
 | type            | [UserAccountBalanceEventType](#hub.rpc.UserAccountBalanceEventType) |       |                                                              |
 | amount          | [int64](#int64)                                              |       |                                                              |
-| sweepBundleHash | [string](#string)                                            |       | Will contain sweep bundle hash on deposit Will contain withdrawal uuid on withdrawal or withdrawal cancel |
+| sweepBundleHash | [string](#string)                                            |       | Will contain sweep bundle hash on deposit will contain withdrawal uuid on withdrawal or withdrawal cancel |
 | withdrawalUUID  | [string](#string)                                            |       |                                                              |
 
-
-
-
-
-<a name="hub.rpc.UserAddressBalanceEvent"/>
+<a name="hub.rpc.UserAddressBalanceEvent"></a>
 
 ### UserAddressBalanceEvent
-
-
 
 | Field       | Type                                                         | Label | Description                                                  |
 | ----------- | ------------------------------------------------------------ | ----- | ------------------------------------------------------------ |
@@ -490,14 +289,10 @@ UserIds must be unique.
 | userAddress | [string](#string)                                            |       |                                                              |
 | amount      | [int64](#int64)                                              |       |                                                              |
 | reason      | [UserAddressBalanceReason](#hub.rpc.UserAddressBalanceReason) |       |                                                              |
-| hash        | [string](#string)                                            |       | Depositing bundle&#39;s tail (if reason == DEPOSIT) Bundle hash of sweep (if reason == SWEEP) |
+| hash        | [string](#string)                                            |       | Depositing bundle's tail (if reason == DEPOSIT) Bundle hash of sweep (if reason == SWEEP) |
 | timestamp   | [uint64](#uint64)                                            |       |                                                              |
 
-
-
-
-
-<a name="hub.rpc.UserWithdrawCancelReply"/>
+<a name="hub.rpc.UserWithdrawCancelReply"></a>
 
 ### UserWithdrawCancelReply
 
@@ -508,10 +303,7 @@ Reply for withdrawal cancellation.
 | success | [bool](#bool) |       | True if withdrawal could be canceled |
 
 
-
-
-
-<a name="hub.rpc.UserWithdrawCancelRequest"/>
+<a name="hub.rpc.UserWithdrawCancelRequest"></a>
 
 ### UserWithdrawCancelRequest
 
@@ -521,25 +313,15 @@ Request to cancel an already submitted withdrawal.
 | ----- | ----------------- | ----- | -------------------------------------- |
 | uuid  | [string](#string) |       | Withdrawal UUID that is to be canceled |
 
-
-
-
-
-<a name="hub.rpc.UserWithdrawReply"/>
+<a name="hub.rpc.UserWithdrawReply"></a>
 
 ### UserWithdrawReply
-
-
 
 | Field | Type              | Label | Description                |
 | ----- | ----------------- | ----- | -------------------------- |
 | uuid  | [string](#string) |       | This withdrawal&#39;s UUID |
 
-
-
-
-
-<a name="hub.rpc.UserWithdrawRequest"/>
+<a name="hub.rpc.UserWithdrawRequest"></a>
 
 ### UserWithdrawRequest
 
@@ -555,26 +337,20 @@ This will fail if the user does not have sufficient balance available.
 | tag              | [string](#string) |       | Tag for withdrawal                                           |
 | validateChecksum | [bool](#bool)     |       | should command validate address                              |
 
-
-
-
-
- 
-
-<a name="hub.rpc.ErrorCode"/>
+<a name="hub.rpc.ErrorCode"></a>
 
 ### ErrorCode
 
 Error codes that can be returned by the hub.
 
-| Name                            | Number | Description                                                  |
-| ------------------------------- | ------ | ------------------------------------------------------------ |
-| EC_UNKNOWN                      | 0      | Unused.                                                      |
-| USER_EXISTS                     | 1      | UserId already exists.                                       |
-| USER_DOES_NOT_EXIST             | 2      | UserId does not exist.                                       |
-| INSUFFICIENT_BALANCE            | 3      | The user has insufficient balance for this operation.        |
+| Name      | Number | Description         |
+| :------------------------------- | :------ | :------------------------------------------------------------ |
+| EC_UNKNOWN                      | 0      | Unused|                                              
+| USER_EXISTS                     | 1      | UserId already exists|                     
+| USER_DOES_NOT_EXIST             | 2      | UserId does not exist                                   |
+| INSUFFICIENT_BALANCE            | 3      | The user has insufficient balance for this operation        |
 | BATCH_INVALID                   | 4      | The batch is invalid (does not sum to 0 or user ids not unique) |
-| BATCH_INCONSISTENT              | 5      | The batch is inconsistent (attempt to remove funds from a user&#39;s account without sufficient balance) |
+| BATCH_INCONSISTENT              | 5      | The batch is inconsistent (attempt to remove funds from a user's account without sufficient balance) |
 | BATCH_AMOUNT_ZERO               | 6      | The amount associated with the transfer is invalid (should be greater or less than 0) |
 | UNKNOWN_ADDRESS                 | 7      | The address is not known to the hub                          |
 | WITHDRAWAL_CAN_NOT_BE_CANCELLED | 8      | Either the withdrawal has been swept or cancelled already    |
@@ -585,9 +361,7 @@ Error codes that can be returned by the hub.
 | GET_ADDRESS_FAILED              | 13     | Call to rpc signing_server failed (GetAddressForUUID)        |
 | GET_SECURITY_LEVEL_FAILED       | 14     | Call to rpc signing_server failed (GetSecurityLevel)         |
 
-
-
-<a name="hub.rpc.HubAddressBalanceReason"/>
+<a name="hub.rpc.HubAddressBalanceReason"></a>
 
 ### HubAddressBalanceReason
 
@@ -597,14 +371,12 @@ Error codes that can be returned by the hub.
 | INBOUND     | 1      | Sweep inbound (used as reminader address) |
 | OUTBOUND    | 2      | Sweep outbound (used as input)            |
 
-
-
-<a name="hub.rpc.UserAccountBalanceEventType"/>
+<a name="hub.rpc.UserAccountBalanceEventType"></a>
 
 ### UserAccountBalanceEventType
 
-| Name                | Number | Description                                                  |
-| ------------------- | ------ | ------------------------------------------------------------ |
+| Name                | Number | Description       |
+| :------------------- | :------ | :------------------------------------------------------------ |
 | UAB_UNKNOWN         | 0      | Unused                                                       |
 | DEPOSIT             | 1      | Deposit into user account (positive amount)                  |
 | BUY                 | 2      | User received tokens as part of a transfer batch (positive amount) |
@@ -612,9 +384,7 @@ Error codes that can be returned by the hub.
 | WITHDRAWAL_CANCELED | 4      | Cancelled user withdrawal request (positive amount)          |
 | SELL                | 5      | User lost tokens as part of a transfer batch (negative amount) |
 
-
-
-<a name="hub.rpc.UserAddressBalanceReason"/>
+<a name="hub.rpc.UserAddressBalanceReason"></a>
 
 ### UserAddressBalanceReason
 
@@ -623,14 +393,6 @@ Error codes that can be returned by the hub.
 | UADD_UNKNOWN | 0      |                          |
 | UA_DEPOSIT   | 1      | New user deposit tracked |
 | UA_SWEEP     | 2      | Hub-sweep.               |
-
-
-
-
-
-
-
-
 
 ## Scalar Value Types
 
