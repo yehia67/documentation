@@ -10,14 +10,13 @@ In the following how-to guide we use NodeJS and the IOTA JavaScript client libra
 
 ## Request information about the IRI
 
-You can use the [getNodeInfo API call](https://iota.readme.io/v1.5.5/reference#getnodeinfo) to request general information about the IRI.
+You can call the [getNodeInfo](https://iota.readme.io/v1.5.5/reference#getnodeinfo) endpoint to request general information about the IRI node.
 
 ### Prerequisites
 
 To use the code samples in this guide, your computer must have the following:
 
 * Node JS (8+)
-* Node package manager (npm)
 * A code editor
 * Access to a terminal
 * An Internet Connection
@@ -25,7 +24,8 @@ To use the code samples in this guide, your computer must have the following:
 1. Create a working directory called node-info-example
 
     ```bash
-    $ mkdir node-info-example && cd node-info-example
+    $ mkdir node-info-example
+    $ cd node-info-example
     ```
 
 2. In the node-info-example directory, install the [request module](https://github.com/request/request) and the IOTA library by doing the following:
@@ -55,35 +55,38 @@ To use the code samples in this guide, your computer must have the following:
 
     request(options, function (error, response, data) {
         if (!error && response.statusCode == 200) {
-            console.log(data);
+            console.log(JSON.stringify(data));
         }
     });
     ```
     The output should display something like the following:
-    ```shell
+    ```json
     {
-    "appName": "IRI Testnet",
-    "appVersion": "1.5.6-RELEASE",
-    "duration": 1,
-    "jreAvailableProcessors": 4,
-    "jreFreeMemory": 91707424,
-    "jreMaxMemory": 1908932608,
-    "jreTotalMemory": 122683392,
-    "latestMilestone": "VBVEUQYE99LFWHDZRFKTGFHYGDFEAMAEBGUBTTJRFKHCFBRTXFAJQ9XIUEZQCJOQTZNOOHKUQIKOY9999",
-    "latestMilestoneIndex": 107,
-    "latestSolidSubtangleMilestone": "VBVEUQYE99LFWHDZRFKTGFHYGDFEAMAEBGUBTTJRFKHCFBRTXFAJQ9XIUEZQCJOQTZNOOHKUQIKOY9999",
-    "latestSolidSubtangleMilestoneIndex": 107,
-    "neighbors": 2,
-    "packetsQueueSize": 0,
-    "time": 1477037811737,
-    "tips": 3,
-    "transactionsToRequest": 0,
-    "features":["addNeighbors", "getNeighbors", "removeNeighbors", "attachToTangle", "interruptAttachToTangle"]
+    "appName":"IRI Testnet",
+    "appVersion":"1.5.6-RELEASE",
+    "jreAvailableProcessors":8,
+    "jreFreeMemory":9216518096,
+    "jreVersion":"1.8.0_181",
+    "jreMaxMemory":51469877248,
+    "jreTotalMemory":51469877248,
+    "latestMilestone":"HNRPRXQLEOXFQAAIZTYFBCBJPNENNIGSKAUEDFULYYYYVGSUDWLYZVNZTPTFV9OCP9DAMNVJ9JYMOA999",
+    "latestMilestoneIndex":1076316,
+    "latestSolidSubtangleMilestone":"HNRPRXQLEOXFQAAIZTYFBCBJPNENNIGSKAUEDFULYYYYVGSUDWLYZVNZTPTFV9OCP9DAMNVJ9JYMOA999",
+    "latestSolidSubtangleMilestoneIndex":1076316,
+    "milestoneStartIndex":434525,
+    "neighbors":7,
+    "packetsQueueSize":0,
+    "time":1548410587420,
+    "tips":1364,
+    "transactionsToRequest":0,
+    "features":["snapshotPruning","dnsRefresher","testnet","zeroMessageQueue","tipSolidification","RemotePOW"],
+    "coordinatorAddress":"EQQFCZBIHRHWPXKMTOLMYUYPCN9XLMJPYZVFJSAY9FQHCCLWTOLLUGKKMXYFDBOOYFBLBI9WUEILGECYM",
+    "duration":0
     }
     ```
 ## Next steps
 
-* [Subscribe to real-time events](../how-to-guides/subscribe-to-events-in-the-iri.md) in the IRI node.
+* [Subscribe to real-time events](../how-to-guides/subscribe-to-events-in-an-iri-node.md) in the IRI node.
 
 
 
