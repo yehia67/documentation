@@ -114,7 +114,7 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
 
     $ export TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
     $ git checkout ${TAG}
-    $ maven clean package
+    $ mvn clean package
     ```
     The IRI Java file is built in a directory called `target`.
 
