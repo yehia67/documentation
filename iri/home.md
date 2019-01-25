@@ -9,8 +9,8 @@
 [Transaction validation](/0.1/concepts/transaction-validation.md)
 ## Learn how and when IRI nodes determine if a transaction is valid
 
-[Run an IRI node](/0.1/how-to-guides/run-an-iri-node.md)
+[Run an IRI node on a Linux server](/0.1/how-to-guides/run-an-iri-node-on-linux.md)
 ## Contribute to the network and have direct access to an IOTA network
 
-[Interact with the IRI](/0.1/how-to-guides/interact-with-the-iri.md)
+[Interact with an IRI node](/0.1/how-to-guides/interact-with-an-iri-node.md)
 ## Communicate with an IRI node to send and request data on an IOTA network

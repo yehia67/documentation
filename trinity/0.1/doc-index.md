@@ -12,5 +12,5 @@
 [How-to Guides/Change the general settings](/how-to-guides/change-the-general-settings.md)
 [How-to Guides/Change the advanced settings](/how-to-guides/change-the-advanced-settings.md)
 [How-to Guides/Perform a snapshot transition](/how-to-guides/perform-a-snapshot-transition.md)
-[How-to Guides/Develop new features on Trinity](/how-to-guides/develop-features-on-trinity.md)
+[How-to Guides/Develop features on Trinity](/how-to-guides/develop-features-on-trinity.md)
 [References/Troubleshooting](/references/troubleshooting.md)
