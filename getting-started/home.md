@@ -13,4 +13,4 @@
 ## Get started with IOTA in some hands-on tutorials
 
 [Create a seed](/0.1/tutorials/create-a-seed.md)
-## Learn how to create and safely store your unique password that gives you addresses on the network
+## Create and safely store your unique password that gives you addresses on the network

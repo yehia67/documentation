@@ -4,7 +4,7 @@
 
 ## Developers
 
-You can get started with IOTA by [running your own IRI node](../tutorials/run-your-own-iri-node.md) and [sending your first data transaction with Node.js](../tutorials/send-a-zero-value-transaction-with-nodejs.md).
+You can get started with IOTA by [sending your first data transaction with Node.js](../tutorials/send-a-zero-value-transaction-with-nodejs.md).
 
 ## Non-developers
 
