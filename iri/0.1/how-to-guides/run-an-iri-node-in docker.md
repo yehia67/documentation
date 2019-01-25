@@ -1,6 +1,6 @@
 # Run an IRI node in a Docker container
 
-**When you run the IRI in a Docker container, your computer becomes an IRI node that gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.**
+**When you run the IRI in a Docker container, your computer becomes a Linux server for an IRI node, which gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.**
 
 ## Prerequisites
 
@@ -19,8 +19,13 @@
 
 The IRI Docker container is suitable for the following operating systems:
 * Linux
-* MacOSX
+* Mac
 * Windows
+
+If you're using a Linux operating system, add `sudo` before all the commands in the following tasks.
+
+The IRI is Java software, so it must be run in a Java runtime environment (JRE).
+The IRI Docker container contains the necessary software to run the IRI.
 
 You have two options for downloading the IRI Docker container:
 * [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option)
@@ -30,7 +35,7 @@ You have two options for downloading the IRI Docker container:
 
 To build the IRI Docker container, Docker 17.05+ (for multi-stage build support) must be installed on your computer.
 
-1. [Install Docker](https://docs.docker.com/install/#supported-platforms)
+1. [Install Docker](https://docs.docker.com/install/#supported-platforms). If you're running a version of Mac or Windows that's older than the system requirements, install the [Docker toolbox](https://docs.docker.com/toolbox/overview/) instead.
 
 2. Make sure that Docker is installed
 
@@ -38,7 +43,36 @@ To build the IRI Docker container, Docker 17.05+ (for multi-stage build support)
     $ docker run hello-world
     ```
 
-    You should see some Docker information in the output.
+    You should see some Docker information like the following:
+
+    ```
+    Unable to find image 'hello-world:latest' locally
+    latest: Pulling from library/hello-world
+    1b930d010525: Pull complete
+    Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535
+    Status: Downloaded newer image for hello-world:latest
+
+    Hello from Docker!
+    This message shows that your installation appears to be working correctly.
+
+    To generate this message, Docker took the following steps:
+    1. The Docker client contacted the Docker daemon.
+    2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+        (amd64)
+    3. The Docker daemon created a new container from that image which runs the
+        executable that produces the output you are currently reading.
+    4. The Docker daemon streamed that output to the Docker client, which sent it
+        to your terminal.
+
+    To try something more ambitious, you can run an Ubuntu container with:
+    $ docker run -it ubuntu bash
+
+    Share images, automate workflows, and more with a free Docker ID:
+    https://hub.docker.com/
+
+    For more examples and ideas, visit:
+    https://docs.docker.com/get-started/
+    ```
   
 ## Download the pre-built IRI Docker container
 
@@ -50,7 +84,7 @@ $ docker pull iotaledger/iri:latest
 
 ## Build the IRI Docker container from the source code
 
-Instead of downloading the pre-built Docker container, you may want to build the file from the source code the any of the following reasons:
+Instead of downloading the pre-built Docker container, you may want to build the file from the source code for any of the following reasons:
 * You want to be sure that the code you run is the same as the source code
 * You want to modify the code before you run it
 
@@ -80,7 +114,7 @@ You can configure the IRI by passing in [IRI configuration options](../reference
 1. Run the IRI with the default configuration options as flags
 
     ```bash
-    $ docker run -d -p 14265:14265 -p 15600:15600 -p 14600:14600/udp --name iri iotaledger/iri:latest --remote -p 14265
+    $ docker run --name iri iotaledger/iri:latest --remote -p 14265
     ```
 
     If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a config.iri file in the `/path/to/conf/config.ini` on your docker host, then add `-c /path/to/conf/config.ini` to docker run arguments.
@@ -89,15 +123,9 @@ You can configure the IRI by passing in [IRI configuration options](../reference
     * If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`
     * To have the IRI Docker container restart on every boot, add the `--restart=always` flag to the Docker RUN command
 
-2. Allow the IRI to log its output to the console
-
-    ```bash
-    $ docker logs -f iri
-    ```
-
     Congratulations :tada: You're now running an IRI node! You'll notice in the output that the the logs are showing 0 transactions. That's because you're not connected to any [neighbor IRI nodes](../concepts/neighbor-iri-node.md) yet.
 
-3. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.iri file
+2. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.iri file
 
 Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
 
@@ -109,18 +137,21 @@ The `latestMilestoneIndex` field is the index of the latest milestone that the I
 
 The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milestone for which the IRI node's ledger has all the transactions that the milestone directly and indirectly references.
 
-To check these fields, call the `getNodeInfo` API endpoint
+The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are accurate only when the IRI node is connected to synchronized neighbors.
 
-```bash
-$ sudo apt install curl jq
-$ curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
-```
+1. To check the actual `latestMilestoneIndex` field, go to our [Discord](https://discordapp.com/invite/fNGZXvh) and enter **!milestone** in one of the channels
 
-**Notes:**
-* The [jq](https://stedolan.github.io/jq/) tool is a command-line JSON processor that helps you to display and manipulate JSON data. This tool is optional.
-* It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
+    ![Entering !milestone on Discord](../discord-milestone-check.PNG)
+
+2. To check these fields for your IRI node, call the `getNodeInfo` API endpoint
+
+    ```bash
+    $ curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}'
+    ```
+
+**Note:** It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
 
 ## Next steps
 
-* [Interact with the IRI](../how-to-guides/interact-with-the-iri.md)
-* [Subscribe to events in the IRI](../how-to-guides/subscribe-to-events-in-the-iri.md)
+* [Interact with an IRI node](../how-to-guides/interact-with-an-iri-node.md)
+* [Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md)

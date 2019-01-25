@@ -20,8 +20,8 @@ You must stop the IRI before making changes to the configuration options.
 
 Milestones are sent approximately every minute. Therefore, use the following formula to calculate the number of days that transactions will remain in the ledger:
 
- * `LOCAL_SNAPSHOTS_PRUNING_DELAY` + `LOCAL_SNAPSHOTS_DEPTH` = total milestone index
+ * **Total milestone index:** `LOCAL_SNAPSHOTS_PRUNING_DELAY` + `LOCAL_SNAPSHOTS_DEPTH` 
 
- * Total milestone index / 60 = total in minutes
+ * **Total amount of time in minutes:** milestone index / 60
  
- * Total in minutes / 24 = total in days
+ * **Total amount of time in days:** total amount of time in minutes / 24

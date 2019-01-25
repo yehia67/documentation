@@ -1,4 +1,4 @@
-# Run an IRI node on Linux
+# Run an IRI node on a Linux server
 
 **When you run the IRI on a Linux server, it becomes an IRI node that gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.**
 
@@ -142,7 +142,7 @@ Before you run the IRI, you need to set up some Java variables and set the IRI c
     $ nano /home/jake/node/config.ini
     ```
 
-    Leave the file empty for now, as the default [IRI configuration options](../references/iri-configuration-options.md) are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the configuration options that you want to change.
+    Leave the file empty for now, as the default [IRI configuration options](../references/iri-configuration-options.md) are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the configuration options that you want to change. 
 
     **Note:** If you want to run a permanode (keep all transactions in the ledger), set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](../references/iri-configuration-options.md#local-snapshots-enabled) to `false`.
 
@@ -164,9 +164,57 @@ When you've downloaded, and configured the IRI, it's time to run it.
     ```
     The IRI will start to output logs to the console.
 
-    Congratulations :tada: You're now running an IRI node! You'll notice in the output that the the logs are showing 0 transactions. That's because you're not connected to any [neighbor IRI nodes](../concepts/neighbor-iri-node.md) yet.
+    To make the IRI read your config.ini file, add the path to it after the `-c` flag. For example:
 
-3. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.iri file
+    ```bash
+    $ java ${JAVA_OPTIONS} -Xms${JAVA_MIN_MEMORY} -Xmx${JAVA_MAX_MEMORY} -Djava.net.preferIPv4Stack=true -jar /home/jake/node/iri-${VERSION}.jar -c /home/jake/node/config.ini
+    ```
+
+    Congratulations :tada: You're now running an IRI node!
+
+3. Open a new terminal window on your Linux server, and install Curl and JQ. Curl is used to send REST API requests to your IRI node. JQ is a command-line processor that displays JSON data in an easy-to-read format.
+
+    ```bash
+    $ sudo apt install curl jq
+    ```
+
+4. Call the [getNodeInfo](https://iota.readme.io/v1.5.5/reference#getnodeinfo) endpoint to request general information about the IRI node
+
+    ```bash
+    $ curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
+    ```
+
+    You'll see something like the following in the console:
+
+    ```json
+    {
+    "appName":"IRI",
+    "appVersion":"1.6.0-RELEASE",
+    "jreAvailableProcessors":1,
+    "jreFreeMemory":1037385664,
+    "jreVersion":"1.8.0_201",
+    "jreMaxMemory":4294967296,
+    "jreTotalMemory":2147483648,
+    "latestMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+    "latestMilestoneIndex":933210,
+    "latestSolidSubtangleMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+    "latestSolidSubtangleMilestoneIndex":933210,
+    "milestoneStartIndex":-1,
+    "lastSnapshottedMilestoneIndex":933210,
+    "neighbors":0,
+    "packetsQueueSize":0,
+    "time":1548407444641,
+    "tips":0,
+    "transactionsToRequest":0,
+    "features":["snapshotPruning","dnsRefresher","tipSolidification"],
+    "coordinatorAddress":"KPWCHICGJZXKE9GSUDXZYUAPLHAKAHYHDXNPHENTERYMMBQOPSQIDENXKLKCEYCPVTZQLEEJVYJZV9BWU",
+    "duration":26
+    }
+    ```
+    
+    You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to [neighbor IRI nodes](../concepts/neighbor-iri-node.md).
+
+5. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.ini file
 
 Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
 
@@ -178,20 +226,23 @@ The `latestMilestoneIndex` field is the index of the latest milestone that the I
 
 The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milestone for which the IRI node's ledger has all the transactions that the milestone directly and indirectly references.
 
-To check these fields, call the `getNodeInfo` API endpoint
+The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are accurate only when the IRI node is connected to synchronized neighbors.
 
-```bash
-$ sudo apt install curl jq
-$ curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
-```
+1. To check the actual `latestMilestoneIndex` field, go to our [Discord](https://discordapp.com/invite/fNGZXvh) and enter **!milestone** in one of the channels
 
-**Notes:**
-* The [jq](https://stedolan.github.io/jq/) tool is a command-line JSON processor that helps you to display and manipulate JSON data. This tool is optional.
-* It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
+    ![Entering !milestone on Discord](../discord-milestone-check.PNG)
+
+2. To check these fields for your IRI node, call the `getNodeInfo` API endpoint
+
+    ```bash
+    $ sudo apt install curl jq
+    $ curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
+    ```
+
+**Note:** It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
 
 ## Next steps
 
-* [Interact with the IRI](../how-to-guides/interact-with-the-iri.md)
-* [Subscribe to events in the IRI](../how-to-guides/subscribe-to-events-in-the-iri.md)
+* [Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
 
 

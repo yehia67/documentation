@@ -8,7 +8,7 @@ A local snapshot is the process in which an IRI node records the state of its le
 
 ## Snapshot files
 
-IRI nodes create snapshot files at regular milestone intervals.
+IRI nodes create snapshot files at regular milestone intervals. At each interval, the snapshot file is overwritten.
 
 If an IRI node is [synchronized](../concepts/the-ledger.md#ledger-synchronization), it creates snapshot files at the milestone intervals that are defined in the [`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`](../references/iri-configuration-options.md#local-snapshots-interval-synced) configuration option.
 

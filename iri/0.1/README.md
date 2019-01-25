@@ -8,12 +8,12 @@ This section contains information about how IOTA node software works. IOTA node 
   
 - How-to guides
     - [Run an IRI node on Linux](how-to-guides/run-an-iri-node-on-linux.md)
-    - [Run an IRI node on Docker](how-to-guides/run-an-iri-node-on-docker.md)
+    - [Run an IRI node on Docker](how-to-guides/run-an-iri-node-in-docker.md)
     - [Find neighbor IRI nodes](how-to-guides/find-neighbor-iri-nodes.md)
     - [Update the IRI](how-to-guides/update-the-iri.md)
     - [Prune transactions from the ledger](/how-to-guides/prune-transactions-from-the-ledger.md)
-    - [Interact with the IRI](how-to-guides/interact-with-the-iri.md)
-    - [Subscribe to events in the IRI](how-to-guides/subscribe-to-events-in-the-iri.md)
+    - [Interact with an IRI node](how-to-guides/interact-with-an-iri-node.md)
+    - [Subscribe to events in an IRI node](how-to-guides/subscribe-to-events-in-an-iri-node.md)
   
 - Concepts
     - [The ledger](concepts/the-ledger.md)

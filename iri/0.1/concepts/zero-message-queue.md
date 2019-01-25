@@ -12,4 +12,4 @@ When client applications subscribe to a ZMQ event, the IRI node notifies them wh
 
 * Monitor one of your address for when a transaction is sent to it and confirmed
 * Create a Tangle visualisation website, such as [thetangle.org](https://thetangle.org/)
-* [Try our example](../how-to-guides/subscribe-to-events-in-the-iri.md)
+* [Try our example](../how-to-guides/subscribe-to-events-in-an-iri-node.md)

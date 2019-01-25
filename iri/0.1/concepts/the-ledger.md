@@ -20,4 +20,4 @@ The `latestMilestoneIndex` field is the index of the latest milestone that the I
 
 The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milestone for which the IRI node has all the transactions that the milestone directly and indirectly references.
 
-**Tip:** The `getNodeInfo` API endpoint returns this information. Try [interacting with an IRI node](../how-to-guides/interact-with-the-iri.md) to see this information.
+**Tip:** The `getNodeInfo` API endpoint returns this information. Try [interacting with an IRI node](../how-to-guides/interact-with-an-iri-node.md) to see this information.
