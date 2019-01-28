@@ -2,8 +2,6 @@
 
 **Hub stores sensitive information such as seeds. To add an extra layer of security, you can move sensitive operations and data to a signing server that only Hub can connect to.**
 
-## Run the signing server
-
 For this guide, you'll use a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
 
 ![IOTA Hub architecture](../iota_hub.png)
