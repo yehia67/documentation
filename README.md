@@ -2,7 +2,7 @@
 
 Documentation can be viewed on our web site at [docs.iota.org](docs.iota.org)
 
-This repository contains the content which is utilised by the web application in the [documentation repository](https://github.com/iotaledger/documentation).
+This repository contains the content which is utilised by the documentation platform in the [documentation platform repository](https://github.com/iotaledger/documentation-platform).
 
 ## Contribute
 
