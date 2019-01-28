@@ -2,7 +2,7 @@
 
 **IRI nodes wait to receive transactions from clients on the API port that's set in the `PORT` configuration parameter.**
 
-An IRI node always accepts REST API requests to its local IP address from computers on the same network.
+An IRI node always accepts REST API requests from computers on the same network.
 
 **Note:** If the [`REMOTE` configuration parameter](../references/iri-configuration-options.md#remote) is set to `true`, anyone can connect to the IRI through its public URL or its public IP address.
 
@@ -11,6 +11,8 @@ In the following how-to guide we use NodeJS and the IOTA JavaScript client libra
 ## Request information about the IRI
 
 You can call the [getNodeInfo](https://iota.readme.io/v1.5.5/reference#getnodeinfo) endpoint to request general information about the IRI node.
+
+For more endpoints, see the [API reference](https://iota.readme.io/v1.5.6/reference).
 
 ### Prerequisites
 

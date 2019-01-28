@@ -14,6 +14,7 @@
 [Concepts/Zero message queue](/concepts/zero-message-queue.md)
 [Concepts/Local snapshot](/concepts/local-snapshot.md)
 [References/Troubleshooting](/references/troubleshooting.md)
+[References/API reference](https://iota.readme.io/v1.5.6/reference)
 [References/Data in the ledger](/references/data-in-the-ledger.md)
 [References/Data in the snapshot metadata file](/references/data-in-the-snapshot-metadata-file.md)
 [References/IRI configuration options](/references/iri-configuration-options.md)
