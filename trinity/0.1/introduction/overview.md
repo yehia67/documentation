@@ -5,7 +5,7 @@
 Trinity allows you to do the following:
 * Create a password-protected account to store and access your seeds
 * Read your balance and transaction history
-* Send and receive transactions on the [IOTA MainNet network](/getting-started/references/iota-networks.md)
+* Send and receive transactions on the [IOTA Mainnet network](root://getting-started/0.1/references/iota-networks.md)
 
 ![Trinity home](../trinity.png) 
 

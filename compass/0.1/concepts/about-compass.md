@@ -39,7 +39,7 @@ During the start phase, Compass enters an indefinite `while` loop and begins to 
 If the `bootstrap` flag was passed during setup, Compass creates a chain of four milestones that sequentially reference the previous milestone.
 
 Compass sends milestones by doing the following:
-* Ask the IRI node for tip transactions ([tip selection](root://iri/0.1/concepts/tip-selection.md))
+* Ask the IRI node for tip transactions ([tip selection](root://the-tangle/0.1/concepts/tip-selection.md))
 * Ask the IRI node to broadcast the milestone
 * Sleep until the next tick
  

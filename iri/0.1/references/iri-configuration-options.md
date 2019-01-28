@@ -4,7 +4,7 @@
 
 You can choose to configure the IRI by specifying the configuration options in the following ways:
 * As flags in the command line
-* As parameters in a file with the .iri extension (IRI configuration file)
+* As parameters in a file with the .ini extension (IRI configuration file)
 
 | **Configuration options** |   **Description**| **Accepted values** | **Default values**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|
@@ -21,12 +21,12 @@ You can choose to configure the IRI by specifying the configuration options in t
 |<a name="ixi-dir"></a>  `--ixi-dir` |Folder where IXI modules should be added for automatic discovery by IRI |string |ixi |
 |<a name="max-analyzed-transactions"></a>`--max-analyzed-transactions` |Maximum number of unconfirmed transactions that may be analyzed during the tip selection process to find the latest milestone that references a transaction |number |20,000 |
 |<a name="max-body-length"></a> `--max-body-length` | Maximum number of characters that the body of an API call may contain|number |1,000,000 | If the length of a request body exceeds this number, an error is returned
-|  <a name="maxdepth"></a>`--max-depth` |Maximum number of previous milestones (depth) from where the IRI will start the tip selection |number |15 | This value should be both small enough to allow the weighted random walk to finish in a reasonable amount of time and large enough in include enough new transactions in the [subgraph](../concepts/tip-selection.md#subgraph-selection)
+|  <a name="maxdepth"></a>`--max-depth` |Maximum number of previous milestones (depth) from where the IRI will start the tip selection |number |15 | This value should be both small enough to allow the weighted random walk to finish in a reasonable amount of time and large enough in include enough new transactions in the [subgraph](root://the-tangle/0.1/concepts/tip-selection.md#subgraph-selection)
 |<a name="max-find-transactions"></a>`--max-find-transactions` |Maximum number of transactions that may be returned by the findTransactions API call |number | 100,000 | If the number of transactions exceeds this number, an error is returned 
 |<a name="max-get-trytes"></a>`--max-get-trytes` |Maximum number of trytes that may be returned by the getTrytes API call  |number |10,000 | If the number of trytes exceeds this number, an error is returned
 |<a name="max-peers"></a>`--max-peers` |Maximum number of non-mutually-tethered connections |number |0 |This option is available only on the IOTA Devnet network
 |<a name="max-requests-list"></a>`--max-requests-list` |Maximum number of parameters in an API call |number |1,000 | If the number of parameters exceeds this number, an error is returned
-|<a name="neighbors"></a>`-n`, `--neighbors` |Urls and IP addresses of [neighbor IRI nodes](../how-to-guides/finding-neighbors.md) |array of strings |[ ] |
+|<a name="neighbors"></a>`-n`, `--neighbors` |Urls and IP addresses of [neighbor IRI nodes](../how-to-guides/find-neighbor-iri-nodes.md) |array of strings |[ ] |
 |<a name="p-drop-cache"></a>`--p-drop-cache` |Probability of losing recently seen transactions in the network cache | number between 0 and 1|0.02 |
 |<a name="p-drop-transaction"></a>  `--p-drop-transaction`|Probability of losing a received transaction |number between 0 and 1 |0.0 | This option is available only on the IOTA Devnet network for testing purposes
 |<a name="p-propagate-request"></a>`--p-propagate-request` |Probability of the IRI requesting a missing transaction from a neighbor | number|0.01 | This number should be low to avoid the IRI requesting non-existing transactions that spam the network

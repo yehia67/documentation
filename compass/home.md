@@ -7,7 +7,7 @@
 ## Learn how Compass works under the hood
 
 [Security considerations](/0.1/concepts/security-considerations.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+## Learn how to protect Compass from possible attack scenarios
 
 [Create a permissioned IOTA network](/0.1/how-to-guides/create-a-permissioned-iota-network.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+## Set up your own permissioned IOTA network

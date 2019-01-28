@@ -22,7 +22,7 @@ To install [library packages](https://www.npmjs.com/org/iota), your computer mus
 - [npm](https://www.npmjs.com/) (Included in Node.js [downloads](https://nodejs.org/en/download/))
 - [Yarn](https://yarnpkg.com/)
 
-A `package.json` file is required. It can be generated with [`npm init`](https://docs.npmjs.com/cli/init) or [`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/)
+You must also have a `package.json` file. Generate one by doing [`npm init`](https://docs.npmjs.com/cli/init) or [`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/).
 
 ## Install the library
 

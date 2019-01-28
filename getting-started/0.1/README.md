@@ -15,7 +15,6 @@ This section introduces users to IOTA by giving them a foundation of knowledge t
     - [First steps](/tutorials/first-steps.md)
     - [Create a seed](/tutorials/create-a-seed.md)
     - [Send your first data transaction (Trinity)](/tutorials/send-your-first-data-transaction-with-the-trinity-wallet.md)
-    - [Run your own IRI node](/tutorials/run-your-own-iri-node.md)
     - [Send your first data transaction (Node.js)](/tutorials/send-your-first-data-transaction-with-nodejs.md)
 
 - References

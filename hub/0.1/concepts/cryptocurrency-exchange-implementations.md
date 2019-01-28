@@ -56,7 +56,7 @@ Exchange issues withdrawal from hot to cold wallet address that wasn't spent fro
 
 No action happens on Hub, all accounting is done internally on the Exchange side.
 
-### Discussion of Pros & Cons
+### Discussion of the pros and cons
 
 - (+) Easy management of cold / hot funds
 - (+) Likely to be easier to integrate on exchange side.
@@ -124,7 +124,7 @@ Exchange creates new Hub user, passing in a per-user userid.
 1. If not already exists, User B is created on Hub (`CreateUser`)
 2. As part of next batch, exchange issues a transfer between the two users (`ProcessTransfers`)
 
-### Discussion of Pros & Cons
+### Discussion of the pros and cons
 
 - (+) Balances are tracked on a per-user level and thus Hub can do a sanity check on the requests the exchange sends.
 - (+) Exchange can easily do a sanity check that its backend is tracking the same `(user, balance)` values as Hub.
