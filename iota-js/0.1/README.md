@@ -11,22 +11,11 @@ This is the **official** JavaScript client library, which allows you to do the f
 This is beta software, so there may be performance and stability issues.
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.js/issues/new).
 
-|Table of contents|
-|:----|
-| [Prerequisites](#prerequisites)
-| [Installing the library](#installing-the-library)|
-| [Getting started](#getting-started) |
-| [API reference](#api-reference)
-| [Examples](#examples)|
-|[Supporting the project](#supporting-the-project)|
-|[Joining the discussion](#joining-the-discussion)|
-| [License](#license)|
-
 ## Prerequisites
 
 To use the library, your computer must have one of the following [supported](https://github.com/iotaledger/iota.js/blob/next/.travis.yml#L5) versions of [Node.js](https://nodejs.org):
-- Node.js 10 or higher. Recommended version is [latest LTS](https://nodejs.org/en/download/).
-- Node.js 8
+- Node JS 10 or higher. Recommended version is [latest LTS](https://nodejs.org/en/download/).
+- Node JS 8
 
 To install [library packages](https://www.npmjs.com/org/iota), your computer must have one of the following package managers:
 
@@ -35,7 +24,7 @@ To install [library packages](https://www.npmjs.com/org/iota), your computer mus
 
 You must also have a `package.json` file. Generate one by doing [`npm init`](https://docs.npmjs.com/cli/init) or [`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/).
 
-## Installing the library
+## Install the library
 
 To install the IOTA JavaScript client library and its dependencies, you can use one of the following options:
 
@@ -48,9 +37,9 @@ To install the IOTA JavaScript client library and its dependencies, you can use 
     yarn add @iota/core
     ```
 
-## Getting started
+## Get started
 
-After you've [installed the library](#installing-the-library), you can connect to an IRI and interface with it.
+After you've [installed the library](#install-the-library), you can connect to an IRI and interface with it.
 
 To connect to a local IRI node, do the following:
 
@@ -75,72 +64,42 @@ For details on all available API methods, see the [reference page](https://githu
 
 
 - [.composeApi([settings])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.composeApi)
-
 - [.addNeighbors(uris, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.addNeighbors)
-
 - [.attachToTangle(trunkTransaction, branchTransaction, minWeightMagnitude, trytes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.attachToTangle)
-
 - [.broadcastBundle(tailTransactionHash, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.broadcastBundle)
-
 - [.broadcastTransactions(trytes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.broadcastTransactions)
-
 - [.checkConsistency(transactions, [options], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.checkConsistency)
-
 - [.findTransactionObjects(query, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.findTransactionObjects)
-
 - [.findTransactions(query, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.findTransactions)
-
 - [.getAccountData(seed, options, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getAccountData)
-
 - [.getBalances(addresses, threshold, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getBalances)
-
 - [.getBundle(tailTransactionHash, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getBundle)
-
 - [.getInclusionStates(transactions, tips, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getInclusionStates)
-
 - [.getInputs(seed, [options], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getInputs)
-
 - [.getLatestInclusion(transactions, tips, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getLatestInclusion)
-
 - [.getNeighbors([callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNeighbors)
-
 - [.getNewAddress(seed, [options], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNewAddress)
-
 - [.getNodeInfo([callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo)
-
 - [getTips([callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getTips)
-
 - [getTransactionObjects(hashes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getTransactionObjects)
-
 - [.getTransactionsToApprove(depth, [reference], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getTransactionsToApprove)
-
 - [.getTrytes(hashes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getTrytes)
-
 - [.isPromotable(tail, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.isPromotable)
-
 - [.prepareTransfers(seed, transfers, [options], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)
-
 - [.promoteTransaction(tail, depth, minWeightMagnitude, transfer, [options], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.promoteTransaction)
-
 - [.removeNeighbors(uris, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.removeNeighbors)
-
 - [.replayBundle(tail, depth, minWeightMagnitude, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.replayBundle)
-
 - [.sendTrytes(trytes, depth, minWeightMagnitude, [reference], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes)
-
 - [.storeAndBroadcast(trytes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.storeAndBroadcast)
-
 - [.storeTransactions(trytes, [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.storeTransactions)
-
 - [.traverseBundle(trunkTransaction, [bundle], [callback])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.traverseBundle)
-
 - [.generateAddress(seed, index, [security], [checksum])](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.generateAddress)
 
 ## Examples
 
 As well as the following examples, you can take a look at our [examples directory](https://github.com/iotaledger/iota.js/tree/next/examples) for more.
 
-### Creating and broadcasting transactions
+### Create and broadcast transactions
 
 This example shows you how to create and send a transaction to an IRI node by calling the [`prepareTransfers`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method and piping the prepared bundle to the [`sendTrytes`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes) method.
 
@@ -188,15 +147,15 @@ iota.prepareTransfers(seed, transfers)
     })
 ```
 
-### Creating custom API methods
+### Create custom API methods
 
-1. Install an IRI HTTP client:
+1. Install an IRI HTTP client
 
     ```bash
     npm install @iota/http-client
     ```
 
-2. Create an API method:
+2. Create an API method
 
     ```js
     import { createHttpClient } from '@iota/http-client'
@@ -209,15 +168,15 @@ iota.prepareTransfers(seed, transfers)
     const getNodeInfo = createGetNodeInfo(client)
     ```
 
-## Supporting the project
+## Support the project
 
 If the IOTA JavaScript client library has been useful to you and you feel like contributing, consider posting a [bug report](https://github.com/iotaledger/iota.js/issues/new), [feature request](https://github.com/iotaledger/iota.js/issues/new) or a [pull request](https://github.com/iotaledger/iota.js/pulls/).  
 
-### Cloning and bootstrapping the repository on GitHub
+### Clone and bootstrap the repository on GitHub
 
 1. Click the <kbd>Fork</kbd> button in the top-right corner
 2. Clone your fork and change directory into it
-3. Bootstrap your environment by doing the following:
+3. Bootstrap your environment
 
     ```bash
     npm run init
@@ -225,7 +184,7 @@ If the IOTA JavaScript client library has been useful to you and you feel like c
 
 This step will download all dependencies, build and link the packages together. iota.js uses [Lerna](https://lernajs.io/) to manage multiple packages. You can re-bootstrap your setup at any point with `lerna bootstrap` command.
 
-### Running tests
+### Run tests
 
 Make your changes on a single package or across multiple packages and test the system by running the following from the root directory:
 
@@ -234,10 +193,10 @@ npm test
 ```
 To run tests of specific package, change directory into the package's directory and run `npm test` from there.
 
-### Updating documentation
+### Update documentation
 
 Please update the documention when needed by editing [`JSDoc`](http://usejsdoc.org) annotations and running `npm run docs` from the root directory.
 
-## Joining the discussion
+## Join the discussion
 
 If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss IOTA, Distributed Registry Technology (DRT) and IoT with other people, feel free to join our [Discord](https://discordapp.com/invite/fNGZXvh).
