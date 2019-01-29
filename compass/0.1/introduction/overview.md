@@ -2,7 +2,7 @@
 
 **Compass is an open-source [Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md) that can be used to protect permissioned IOTA networks against attacks. Any transaction that's referenced by a Compass milestone is considered confirmed by the IRI nodes in the network.**
 
-Compass sends honest, zero-value milestones to IRI nodes at regular intervals. Compass milestones can't modify balances or censor transactions because all transactions, including milestones, are [validated by each IRI node](root://iri/0.1/concepts/transaction-validation.md) in the network.
+Compass sends honest, zero-value milestones to IRI nodes at regular intervals. Milestones can't modify balances or censor transactions because all transactions, including milestones, are [validated by each IRI node](root://iri/0.1/concepts/transaction-validation.md) in the network.
 
 You can use Compass to [create a permissioned IOTA network](../how-to-guides/create-a-permissioned-iota-network.md) for the following use cases:
 
