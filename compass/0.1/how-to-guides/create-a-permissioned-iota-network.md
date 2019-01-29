@@ -205,8 +205,13 @@ After you've generated the Merkle tree and you're running an IRI node, you can r
 	```bash
 	$ sudo ../../bazel-bin/docker/coordinator
 	```
+	
+3. Change into the directory that contains the scripts for setting up and running Compass
+	```bash
+	$ cd docs/private_tangle
+	```
 
-3. Run Compass
+4. Run Compass
 	```bash
 	$ sudo ./03_run_coordinator.sh -bootstrap -broadcast
 	```
