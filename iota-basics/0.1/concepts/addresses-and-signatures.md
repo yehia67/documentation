@@ -16,13 +16,13 @@ As long as the same seed, index, and security level are used, the same addresses
 
 **Tip:** Try [generating different addresses with Node JS](../how-to-guides/generate-an-address.md).
 
-![Address generation](https://i.imgur.com/Gir2Q2k.jpg)
+![Address generation](../address-generation.png)
 
 ### Security levels
 
 The [security level of an address](../references/security-levels-of-addresses.md) determines the length of the address's signature.
 
-![Security levels](https://i.imgur.com/3nvESpi.jpg)
+![Security levels](../security-levels.png)
 
 Because a transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) can contain only a certain number of trytes, any input address with a security level higher than 1 must fragment the rest of the signature over zero-value output transactions. For example, the signature of an address with a security level of 2 must be fragmented over two transactions.
 
