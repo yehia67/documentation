@@ -6,21 +6,21 @@ Your seed proves that you own an address and allows IRI nodes to validate your t
 
 You must keep your seed safe and back it up. If you lose your seed, you can't recover it.
 
-### Creating a seed on a Linux operating system
+### Create a seed on a Linux operating system
 1. Do the following in a terminal:
     ```bash
     cat /dev/urandom |tr -dc A-Z9|head -c${1:-81}
     ```
 2. Copy and paste the 81 character output somewhere. We'll need the seed later. It's a good idea to back up your seed now.
 
-### Creating a seed on a Mac operating system
+### Create a seed on a Mac operating system
 1. Do the following in a terminal:
     ```bash
     cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
     ```
 2. Copy and paste the 81 character output somewhere. We'll need the seed later. It's a good idea to back up your seed now.
 
-### Creating a seed on a Windows operating system
+### Create a seed on a Windows operating system
 1. [Download the KeePass installer](https://keepass.info/)
 
     Keepass is a password manager that stores passwords in highly-encrypted databases, which can be unlocked with one master password or key file.
@@ -45,4 +45,4 @@ You must keep your seed safe and back it up. If you lose your seed, you can't re
 
 ## Next steps
 
-Now that you've got a seed, you can use it to [send your first data transaction with the Trinity wallet](tutorials/send-your-first-data-transaction-with-the-trinity-wallet.md).
+Now that you've got a seed, you can use it to [send your first data transaction with the Trinity wallet](../tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md).

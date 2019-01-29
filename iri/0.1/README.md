@@ -24,6 +24,8 @@ This section contains information about how IOTA node software works. IOTA node 
 
 - References
     - [Troubleshooting](how-to-guides/troubleshooting.md)
+    - [API reference](references/api-reference.md)
+    - [API errors](references/api-errors.md)
     - [Data in the snapshot metadata file](references/data-in-the-snapshot-metadata-files.md)
     - [Data in the ledger](references/data-in-the-ledger.md)
     - [IRI configuration options](references/iri-configuration-options.md)

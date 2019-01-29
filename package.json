@@ -1,0 +1,19 @@
+{
+  "name": "documentation",
+  "version": "1.0.0",
+  "description": "Documentation",
+  "main": "validate.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iotaledger/documentation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iotaledger/documentation/issues"
+  },
+  "homepage": "https://github.com/iotaledger/documentation#readme",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "chalk": "^2.4.2",
+    "node-emoji": "^1.8.1"
+  }
+}
