@@ -14,7 +14,7 @@ Make sure that the value of the `depth` parameter is a number (not a string).
 
 Decrement the value of the `depth` parameter. The IRI node may limit the maximum accepted value.
 
-If you're making the request to your own IRI node, check the [`MAX-DEPTH`](../references/iri-configuration-options#maxdepth) configuration option.
+If you're making the request to your own IRI node, check the [`MAX-DEPTH`](../references/iri-configuration-options.md#maxdepth) configuration option.
 
 ## Invalid parameters
 
@@ -26,7 +26,7 @@ Make sure that the parameters are in the correct order.
 
 Make the request to a different IRI node. The current IRI node has restricted requests to this endpoint.
 
-If you're making the request to your own IRI node, make sure that the command is not listed in the [`REMOTE-LIMIT-API`](../references/iri-configuration-options#remote-limit-api) configuration option.
+If you're making the request to your own IRI node, make sure that the command is not listed in the [`REMOTE-LIMIT-API`](../references/iri-configuration-options.md#remote-limit-api) configuration option.
 
 ## One of the tips is absent
 
