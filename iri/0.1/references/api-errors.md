@@ -1,5 +1,7 @@
 # API error messages
 
+**If an API request fails with an error code, you may see one of the following errors. Use this page to resolve errors.**
+
 ## Invalid addresses input
 
 Make sure that addresses are valid by searching for them on a [Tangle explorer](https://thetangle.org/search).

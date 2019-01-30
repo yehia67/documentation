@@ -10,7 +10,7 @@ All the following commands must include an HTTP header.
 | Content-Type | application/json | Optional |
 | Authorization  | Bearer {token} | Optional  |
 
-**Important note:** This API is currently in beta and is subject to change. We recommend that you don't use this API in production applications.
+**Important:** This API is in beta, and is subject to change. We recommend that you don't use this API in production applications.
 
 ## addNeighbors
 
@@ -20,7 +20,7 @@ Add a list of temporary neighbors to an IRI node.
 
  ### Parameters
 
- The URI (unique resource identification) formet for adding neighbors is `"udp://IPADDRESS:PORT"`.
+ The URI (unique resource identification) format for adding neighbors is `"udp://IPADDRESS:PORT"`.
 	
 |Parameter | Required or Optional|Description | Type|
 |--|--|--|--|
@@ -88,7 +88,7 @@ curl http://localhost:14265
 --------------------
 ### 200
 ```json
-{"duration": "125", "addedNeighbors": "802"}
+{"addedNeighbors": "802", "duration": "125"}
 ```
 ---
 ### 400
@@ -101,7 +101,7 @@ curl http://localhost:14265
 
 |Return field | Description |
 |--|--|
-| `addedNeighbors` | The number of added neighbors |
+| `addedNeighbors` | Total number of added neighbors |
 | `duration` | Number of milliseconds it took to complete the request|
 
 ## attachToTangle
@@ -114,8 +114,8 @@ Do proof of work on an IRI node for the given transaction trytes.
 	
 |Parameter |Required or Optional |Description |Type|
 |--|--|--|--|
-| `trunkTransaction` |Required| Trunk transaction hash. In the bundle, transaction 0 references this transaction hash as its trunk transaction. All other transactions reference other transactions in the bundle with an index of `currentIndex`-1. | string|
-| `branchTransaction` |Required| Branch transaction hash. In the bundle, each transaction, except the last one, references this transaction as its branch. The last transaction in the bundle references this transaction as its trunk transaction. | string|
+| `trunkTransaction` |Required| Trunk transaction hash | string|
+| `branchTransaction` |Required| Branch transaction hash | string|
 | `minWeightMagnitude` |Required| Minimum weight magnitute | integer|
 | `trytes` |Required| String of transaction trytes |array of strings|
 
@@ -212,7 +212,7 @@ Broadcast transaction trytes to an IRI node.
 
  ### Parameters
 
-The `trytes2` parameter for this call is returned from the `attachToTangle` endpoint.
+The `trytes2` parameter for this call is returned from the [`attachToTangle`](#attachToTangle) endpoint.
 	
 |Parameters |Required or Optional |Description |Type
 |--|--|--|--|
@@ -297,10 +297,10 @@ curl http://localhost:14265
 
 ## checkConsistency
 
-Checks the consistency of transactions. Returns false if any of the following statements are true:
-* The transaction is missing a reference transaction
-* The transaction's bundle is invalid
-* The transactions references are invalid
+Check the consistency of transactions. A consistent transaction is one where the following statements are true:
+* The transaction isn't missing a reference transaction
+* The transaction's bundle is valid
+* The transaction's reference transactions are valid
 
 ### Parameters
 
@@ -392,12 +392,12 @@ curl http://localhost:14265
 |Return field | Description |
 |--|--|
 | `state` | States of the specified transactions in the same order as the values in the `tails` parameter. A `true` value means that the transaction is consistent. |
-| `info` | If the `state` field is false, this field provides information about why the transaction is inconsistent |
+| `info` | If the `state` field is false, this field contains information about why the transaction is inconsistent |
 | `duration` | Number of milliseconds it took to complete the request |
 
 ## findTransactions
 
-Find the transactions that include the given values for transaction fields. 
+Find transactions that contain the given values in their transaction fields. 
 
 **Using multiple transaction fields returns transactions hashes at the intersection of those values.** 
 
@@ -407,7 +407,7 @@ Find the transactions that include the given values for transaction fields.
 |--|--|--|--|
 | request| |Transaction fields to search for |array of objects |
  || `bundles`|Bundle hashes to search for|array of strings| 
- ||`addresses`|Addresses to search for (without checksum)|array of strings|
+ ||`addresses`|Addresses to search for (do not include the checksum)|array of strings|
  || `tags`|Tags to search for |array of strings |
  || `approvees`|Child transactions to search for| array of strings|
 
@@ -485,18 +485,16 @@ curl http://localhost:14265
 
 ### Results
 
-Returns an {@link com.iota.iri.service.dto.ErrorResponse} if more then maxFindTxs was found.
-
 An array of transaction hashes, is returned in the same order for all individual elements.
 
 |Return field | Description |
 |--|--|
-| `hashes` | The transaction hashes which are returned depend on your input. For each specified input value, the command will return the following: `bundles`: returns the list of transactions which contain the specified bundle hash. `addresses`: returns the list of transactions which have the specified address as an input/output field. `tags`: returns the list of transactions which contain the specified tag value. `approvees`: returns the list of transaction which reference the given transaction as either a branch transaction or a trunk transaction. |
+| `hashes` | The transaction hashes which are returned depend on your input. `bundles`: returns an array of transaction hashes that contain the given bundle hash. `addresses`: returns an array of transaction hashes that contain the given address in the `address` field. `tags`: returns an array of transaction hashes that contain the given value in the `tag` field. `approvees`: returns an array of transaction hashes that contain the given transactions in their `branchTransaction` or `trunkTransaction` fields. |
 | `duration` | Number of milliseconds it took to complete the request |
 
 ## getBalances
 
-Gets the confirmed balance of an address and the index of the latest milestone that confirmed the balance.
+Get the confirmed balance of an address.
 
 If the `tips` parameter is missing, the returned balance is correct as of the latest confirmed milestone.
 
@@ -504,7 +502,7 @@ If the `tips` parameter is missing, the returned balance is correct as of the la
 	
 |Parameters | Required or Optional|Description |Type
 |--|--|--|--|
-| `addresses` |Required| Address for which to get the balance (without checksum) |array of strings|
+| `addresses` |Required| Address for which to get the balance (do not include the checksum) |array of strings|
 | `threshold` |Required| Confirmation threshold between 0 and 100 | integer|
 | `tips` |Optional| Tips whose history of transactions to traverse to find the balance |array of strings|
 
@@ -584,14 +582,14 @@ curl http://localhost:14265
 |Return field | Description |
 |--|--|
 | `balances` | Array of balances in the same order as the `addresses` parameters were passed to the endpoint|
-| `references` | The referencing tips. If no `tips` parameter was passed to the endpoint, this field is the latest milestone transaction hash that confirmed the balance |
+| `references` | The referencing tips. If no `tips` parameter was passed to the endpoint, this field contains the hash of the latest milestone that confirmed the balance |
 | `milestoneIndex` | The index of the milestone that confirmed the most recent balance |
 | `duration` | Number of milliseconds it took to process the request |
 
 ## getInclusionStates
 
 Get the inclusion states of a set of transactions. 
-This is for determining if a transaction was accepted and confirmed by the network or not. 
+This endpoint determines if a transaction is confirmed by the network (referenced by a valid milestone). 
 You can search for multiple tips (and thus, milestones) to get past inclusion states of transactions.
 
  ### Parameters
@@ -599,7 +597,7 @@ You can search for multiple tips (and thus, milestones) to get past inclusion st
 |Parameter | Required or Optional|Description | Type|
 |--|--|--|--|
 | `transactions` |Required| List of transaction hashes for which you want to get the inclusion state|array of strings
-| `tips` | Optional|List of tip transaction hashes (including milestones) you want to search for the inclusion state | array of strings
+| `tips` | Optional|List of tip transaction hashes (including milestones) you want to search for | array of strings
 
 ### Examples
 --------------------
@@ -677,13 +675,11 @@ curl http://localhost:14265
 |Return field | Description |
 |--|--|
 | `states` | List of boolean values in the same order as the `transactions` parameters. A `true` value means the transaction was confirmed |
-| `duration` | The time it took to process the request in milliseconds |
+| `duration` | Number of milliseconds it took to complete the request |
 
 ## getNeighbors
 
 Get an IRI node's neighbors and their activity.
- 
-The activity is accumulative until an IRI node restarts.
 
 ### Examples
 --------------------
@@ -767,6 +763,8 @@ curl http://localhost:14265
 
 ### Results
 
+**Note:** The activity is accumulative until an IRI node restarts.
+
 |Return field| Description |
 |--|--|
 | `neighbors` | Array of objects, including the following fields: address, connectionType, numberOfAllTransactions, numberOfRandomTransactionRequests, numberOfNewTransactions, numberOfInvalidTransactions, numberOfStaleTransactions, numberOfSentTransactions, connectiontype |
@@ -775,8 +773,6 @@ curl http://localhost:14265
 ## getNodeInfo
 
 Get information about an IRI node.
-
-**Note:** The neighbors are temporary, and will be removed if the IRI restarts.
 
 ### Examples
 --------------------
@@ -954,7 +950,7 @@ curl http://localhost:14265
 |Return field| Description |
 |--|--|
 | `hashes` | Array of current tip transaction hashes |
-| `duration` | The time it took to process the request in milliseconds |
+| `duration` | Number of milliseconds it took to complete the request |
 
 ## getTransactionsToApprove
 
@@ -1052,7 +1048,7 @@ curl http://localhost:14265
 
 ## getTrytes
 
-Get a transaction's data in trytes.
+Get a transaction's contents in trytes.
 
 ### Parameters
 
@@ -1236,7 +1232,7 @@ Temporarily removes a list of neighbors from an IRI node.
 
 ### Parameters
 
-The URI (unique resource identification) formet for adding neighbors is `"udp://IPADDRESS:PORT"`.
+The URI (unique resource identification) format for adding neighbors is `"udp://IPADDRESS:PORT"`.
 
 |Parameter | Required or Optional|Description | Type|
 |--|--|--|--|
@@ -1329,7 +1325,7 @@ Store transactions in an IRI node's local storage.
 
 ### Parameters
 
-The value of the `trytes` parameter must be valid. Valid trytes are returned by the `attachToTangle` endpoint.
+The value of the `trytes` parameter must be valid. Valid trytes are returned by the [`attachToTangle`](#attachToTangle) endpoint.
 
 |Parameter | Required or Optional|Description |Type
 |--|--|--|--|
@@ -1427,7 +1423,7 @@ If an address has a pending transaction, it's also considered spent.
 
 |Parameter | Required or Optional|Description |Type
 |--|--|--|--|
-| `addresses` |Required| addresses to check (without checksum) | array of strings
+| `addresses` |Required| addresses to check (do not include the checksum) | array of strings
 
 ### Examples
 --------------------
