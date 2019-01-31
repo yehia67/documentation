@@ -247,7 +247,3 @@ Here's a table of the variables that are used in these methods:
 |`depth` | number|The number of milestone transactions that the IRI node will walk back to start the [tip selection](root://the-tangle/0.1/concepts/tip-selection.md) process |
 |`mwm` |number | This field specifies the [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) that is required for your transaction to be validated. On the Devnet, this field must have a value of at least 9|
 | `transfers`| array|This array contains the value, address, and message of your transaction. You can specify multiple transfers with different addresses, and they'll be converted to transactions and put in a bundle |
-
-## Next steps
-
-Why not [run your own IRI node](root://iri/0.1/introduction/overview.md)?.
