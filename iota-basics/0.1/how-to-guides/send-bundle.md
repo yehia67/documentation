@@ -38,9 +38,6 @@ To complete this guide, your computer must have [Node JS (8+)](https://nodejs.or
 
     var recipientAddress2 = "CYJV9DRIE9NCQJYLOYOJOGKQGOOELTWXVWUYGQSWCNODHJAHACADUAAHQ9ODUICCESOIVZABA9LTMM9RW";
 
-    // Get the time
-    var now = new Date();
-
     // Store the trytes that are returned from prepareTransfers function
     var storedTrytes;
 
@@ -48,14 +45,14 @@ To complete this guide, your computer must have [Node JS (8+)](https://nodejs.or
     var transfer1 = {
     'address': recipientAddress1, //81 trytes long address
     'value': 0,
-    'message': Converter.asciiToTrytes('Hello, I created this first message at: ' + now),
+    'message': Converter.asciiToTrytes('Hello, this is my first message'),
     'tag': 'SENDABUNDLEOFTRANSACTIONS' //Up to 27 trytes
     };
 
     var transfer2 = {
     'address': recipientAddress2, //81 trytes long address
     'value': 0,
-    'message': Converter.asciiToTrytes('Hello, I created this second message at: ' + now),
+    'message': Converter.asciiToTrytes('Hello, this is my second message'),
     'tag': 'SENDABUNDLEOFTRANSACTIONS' //Up to 27 trytes
     };
 
@@ -71,7 +68,7 @@ To complete this guide, your computer must have [Node JS (8+)](https://nodejs.or
     .then(results => console.log(JSON.stringify(results)));
     ```
 
-    In the output, you should see something like the following. To find out what each field means, view the [structure of a transaction](../references/structure-of-a-transaction.md).
+    In the output, you should see something like the following. Because these transactions don't transfer tokens, no signature is required. Therefore, instead of a signature, the [`signatureMessageFragment` fields](../references/structure-of-a-transaction.md) contain your messages.
 
     ```json
     [{"hash":"OTMXFMZEE9J9NSJDDJQMCXMZNFKATWSCJHFOLQEEBZIMC9BMKCYYJETOIVV9YLPB9GWCHJVJEGKZ99999","signatureMessageFragment":"RBTC9D9DCDQAEASBEARCFDTCPCHDTCSCEAHDWCXCGDEAUCXCFDGDHDEAADTCGDGDPCVCTCEAPCHDDBEAWBCDBDEATBPCBDEAWAVAEAWAUAVACBEAUACBDBZAABDBXAVAEAQBWBCCPAUAUAUAUAEAMAQBFDTCTCBDKDXCRCWCEAWBTCPCBDEACCXCADTCNA99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999","address":"CXDUYK9XGHC9DTSPDMKGGGXAIARSRVAFGHJOCDDHWADLVBBOEHLICHTMGKVDOGRU9TBESJNHAXYPVJ9R9",
@@ -97,13 +94,14 @@ To complete this guide, your computer must have [Node JS (8+)](https://nodejs.or
     "nonce":"POWSRVIO9ND99999FVPEGPKMMMM"
     }]
     ```
-5. Copy the hash of the first transaction and paste it into [thetangle.org](https://thetangle.org/)
-    You should see details about your transaction. These details have been sourced from IRI nodes that the website is connected to.
+5. To see details about your first transaction, copy the hash of the first transaction and paste it into [thetangle.org](https://thetangle.org/)
+    These details have been sourced from IRI nodes that the website is connected to.
 
     ![Transaction in a Tangle explorer](../tangle-explorer.PNG)
-6. Scroll down to 'Parent transactions' and click the Trunk hash
+6. To see details about your second transaction, scroll down to 'Parent transactions' and click the Trunk hash .
 
-    You should see details about your second transaction.
+    Trunk and branch transactions are called parent transactions.
+    [All transactions in a bundle are connected through the value of their `trunkTransaction` fields](../references/structure-of-a-bundle.md). 
 
 
 
