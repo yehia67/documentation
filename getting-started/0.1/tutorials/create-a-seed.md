@@ -47,7 +47,3 @@ You must keep your seed safe and back it up. If you lose your seed, you can't re
     * Also include the following characters: 9
     
 7. Click **OK** to save your seed
-
-## Next steps
-
-Now that you've got a seed, you can use it to [send your first data transaction with the Trinity wallet](../tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md).
