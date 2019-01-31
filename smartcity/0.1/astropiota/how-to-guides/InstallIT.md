@@ -83,8 +83,7 @@ $ sudo apt-get remove nodejs nodejs-legacy -y
   };
 
   var options = {
-    url: 'https://nodes.devnet.iota.org:443'
-  ',
+    url: 'https://nodes.devnet.iota.org:443',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
