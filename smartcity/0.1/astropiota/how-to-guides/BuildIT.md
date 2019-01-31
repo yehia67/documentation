@@ -1,5 +1,7 @@
 # Build your own AstroPiOTA
 
+**Before you can run AstroPiOTA, you must have the correct hardware components and an operating system for the Raspberry Pi.**
+
 ![Photo of Sense Hat that looks like a slightly smaller circuit board with LED light panel](../RasSenseHat.png)
 
 [Sense HAT version 1.0](https://thepihut.com/products/raspberry-pi-sense-hat-astro-pi)
