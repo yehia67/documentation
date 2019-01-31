@@ -83,7 +83,7 @@ To complete this guide, your computer must have [Node JS (8+)](https://nodejs.or
     "trunkTransaction":"RYDEZRHWGRCALNBUN9IXMPFYVLRLFVMYGVHNLUVBR9GOXWIJJCXNJZSBMXBKEYEQDFXOVDFBIWIGZ9999",
     "branchTransaction":"SE9ZOTYSXWSEYLCNUE9ZUPBMGDGUHLJQDCBBIAOJWMTFXGVMEBQWVPVBZF9MYEDMOVTZYOEJAISIZ9999",
         "tag":"SENDABUNDLEOFTRANSACTIONS99",
-        "attachmentTimestamp":1548064653746,]
+        "attachmentTimestamp":1548064653746,
         "attachmentTimestampLowerBound":0,
         "attachmentTimestampUpperBound":3812798742493,
         "nonce":"POWSRVIO9KD99999LPMKPEKMMMM"
