@@ -16,6 +16,8 @@
 
 [References/Structure of a transaction](/references/structure-of-a-transaction.md)
 
+[References/Structure of a bundle](/references/structure-of-a-bundle.md)
+
 [References/Security levels of addresses](/references/security-levels-of-addresses.md)
 
 [References/Tryte alphabet](/references/tryte-alphabet.md)
