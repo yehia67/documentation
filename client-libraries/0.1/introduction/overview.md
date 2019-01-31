@@ -13,7 +13,7 @@ The official JavaScript client library. This library includes the official API a
 
 ---
 
-#### **Java ibrary** ####
+#### **Java library** ####
 [Link](root://iota-java/0.1/README.md)
 
 The official Java client library. This library includes the official API and additional features. Currently in beta.
