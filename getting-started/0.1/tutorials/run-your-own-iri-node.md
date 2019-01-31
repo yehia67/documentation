@@ -77,8 +77,8 @@ To complete this tutorial, you need the following:
     $ docker run --name iri iotaledger/iri:latest --remote -p 14265
     ```
     
-Your IRI node is now running and you can interact with it through the IRI API at the following URL:
-http://localhost.com:14265
+    Your IRI node is now running and you can interact with it through the IRI API at the following URL:
+    http://localhost.com:14265
 
 5. Use cURL to send a request to the [`getNodeInfo` endpoint](root://iri/0.1/references/api-reference.md#getNodeInfo)
     ```bash
