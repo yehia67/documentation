@@ -67,6 +67,7 @@ To complete this guide, your computer must have [Node JS (8+)](https://nodejs.or
 
     .then(results => console.log(JSON.stringify(results)));
     ```
+    **Note:** The `asciiToTrytes` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
 
     In the output, you should see something like the following. Because these transactions don't transfer tokens, no signature is required. Therefore, instead of a signature, the [`signatureMessageFragment` fields](../references/structure-of-a-transaction.md) contain your messages.
 
