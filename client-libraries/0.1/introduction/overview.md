@@ -52,14 +52,8 @@ A C# .NET 4.6 client library. This library includes core and extended functional
 
 ## IoT experiments
 
-### High Mobility
-
-High Mobility develop a standardized API platform for vehicles. This API can be combined with IOTA to created connected vehicle applications on the Tangle.
-
 - [Smart Charging](https://github.com/iotaledger/high-mobility-blueprints) your electric vehicle (EV) and paying with iota tokens
 
 - [MAM - High Mobility-Porsche](https://github.com/iotaledger/high-mobility-blueprints) securely sending data from onboard a Porsche EV to the Tangle
-
-### Smart city
 
 - [Smart City - AstroPiOTA](root://smartcity/0.1/astropiota/introduction/overview.md) publishing local environment sensor data to the Tangle
