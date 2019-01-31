@@ -34,7 +34,7 @@ To complete this guide, your computer must have [Node JS (8+)](https://nodejs.or
     'PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
 
     // Generate an address
-    iota.getNewAddress(seed, 0 /*index */, 2/*security level*/)
+    iota.getNewAddress(seed, {index: 0, security: 2})
     .then(address => console.log(address));
     ```
 
@@ -44,6 +44,4 @@ An address (81 trytes) will be displayed in the console.
 
 If you execute the script again, you'll see the same address in the console.
 
-Try changing the index and security level arguments in the `getNewAddress` function to generate a different address for this seed.
-
-Or, put your own seed in the `seed` variable to generate a new address for your seed.
+Try changing the index and security level arguments in the `getNewAddress` method to generate a different address for this seed. Or, put your own seed in the `seed` variable to generate a new address for your seed.
