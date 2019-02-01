@@ -9,8 +9,8 @@
 [Bundles and transactions](/0.1/concepts/bundles-and-transactions.md)
 ## Learn the details of bundles and transactions
 
-[Generate an address](/0.1/how-to-guides/generate-an-address.md)
-## Use the JavaScript client library to generate a new address
+[Create an address](/0.1/how-to-guides/create-an-address.md)
+## Use the JavaScript client library to create a new address
 
 [Send a bundle](/0.1/how-to-guides/send-bundle.md)
 ## Use the JavaScript client library to send a bundle of transactions
