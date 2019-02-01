@@ -6,18 +6,21 @@ Any code that uses a seed is executed on the client side. Your seed is never sen
 
 ## Prerequisites
 
-To complete this guide, your computer must have [Node JS (8+)](https://nodejs.org/en/) installed.
+To complete this guide, you must have [Node JS (8+)](https://nodejs.org/en/).
 
 <hr>
 
 1. Create a new directory called iota-basics
+
 2. In the command line, change into the iota-basics directory, and install the [IOTA Core library](https://github.com/iotaledger/iota.js/tree/next/packages/core)
 
     ```bash
     $ cd iota-basics
     $ npm install --save @iota/core
     ```
+
 3. In the iota-basics directory, create a new file called send-bundle.js
+
 4. Copy and paste the following code into the file:
 
     ```javascript
@@ -110,14 +113,16 @@ To complete this guide, your computer must have [Node JS (8+)](https://nodejs.or
     "nonce":"POWSRVIO9ND99999FVPEGPKMMMM"
     }]
     ```
+
 5. To see details about your first transaction, copy the hash of the first transaction and paste it into [thetangle.org](https://thetangle.org/)
     These details have been sourced from IRI nodes that the website is connected to.
 
     ![Transaction in a Tangle explorer](../tangle-explorer.PNG)
+
 6. To see details about your second transaction, scroll down to 'Parent transactions' and click the Trunk hash .
 
-    Trunk and branch transactions are called parent transactions.
-    [All transactions in a bundle are connected through the value of their `trunkTransaction` fields](../references/structure-of-a-bundle.md). 
+Trunk and branch transactions are called parent transactions.
+[All transactions in a bundle are connected through the value of their `trunkTransaction` fields](../references/structure-of-a-bundle.md). 
 
 
 

@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-To complete this guide, your computer must have [Node JS (8+)](https://nodejs.org/en/) installed.
+To complete this guide, you must have [Node JS (8+)](https://nodejs.org/en/).
 
 <hr>
 

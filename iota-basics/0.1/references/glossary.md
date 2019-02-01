@@ -94,7 +94,7 @@ Terms are listed in alphabetical order by category
 
 <dl><dt>solid</dt><dd>State of a transaction when an IRI node has its entire history (all directly and indirectly referenced transactions) in its ledger</dd></dl>
 
-<dl><dt>tail transaction</dt><dd>Last transaction (index 0) in a bundle. <a href="#iota-terms">IRI nodes</a> contruct and validate bundles by traversing the trunk transaction of each tail transaction.</dd></dl>
+<dl><dt>tail transaction</dt><dd>Transaction 0 in a bundle. <a href="#iota-terms">IRI nodes</a> contruct and validate bundles by traversing the trunk transaction of each tail transaction.</dd></dl>
 
 <dl><dt>tip selection</dt><dd>Process whereby an <a href="#iota-terms">IRI node</a> selects two <a href="#tip-transaction">tip transactions</a> and returns them to a client for use as a new transaction's <a href="#branch">branch transaction</a> and <a href="#trunk">trunk transaction</a></dd></dl>
 
@@ -108,12 +108,9 @@ Terms are listed in alphabetical order by category
 
 ## Trinary
 
-Trinary is a Base-3 numeral system.  Binary has "bits" and "bytes".  Trinary has "trits" and "trytes".
-
 <dl><dt>trinary</dt><dd>Base-3 numeral system</dd></dl>
 
-<dl><dt>trit</dt><dd>Digits in a trinary number system.  Trits are often represented by
-:  1, 0, -1</dd></dl>
+<dl><dt>trit</dt><dd>Digits in a trinary number system. Trits are often represented by 1, 0, -1</dd></dl>
 
 <dl><dt>tryte</dt><dd>A tryte is 3 trits which can represent 27 values. Thus, 27 characters are needed: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ9'
 </dd></dl>

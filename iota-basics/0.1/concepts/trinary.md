@@ -6,7 +6,9 @@ In binary, data can be represented as either 1 or 0. These values are called bit
 
 In trinary, data can be represented as 1, 0, or -1. These values are called trits. Three trits is equal to one tryte, which can have 27 (3^3) possible values.
 
+**Note:** The values 1, 0, and -1 are known as balanced trinary, which is used in IOTA. The values 0, 1, and 2 are known as unbalanced trinary.
+
 IOTA represents data as tryte-encoded characters, according to the [tryte alphabet](../references/tryte-alphabet.md) where each of the 27 characters consists of one tryte.
 
-Luckily, you don't have to convert data from bytes to trytes yourself. The [IOTA client libraries](root://client-libraries/0.1/introduction/overview.md) have built in functions for converting data. Or, you can use a service such as [IOTA tools](https://laurencetennant.com/iota-tools/index.html).
+Luckily, you don't have to convert data from bytes to trytes yourself. The [IOTA client libraries](root://client-libraries/0.1/introduction/overview.md) have built-in functions for converting data. Or, you can use a service such as [IOTA tools](https://laurencetennant.com/iota-tools/index.html).
 
