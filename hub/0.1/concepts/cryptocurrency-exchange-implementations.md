@@ -7,7 +7,7 @@ In this guide, we discuss two possible scenarios:
 - **Scenario A:** Multiple user accounts for generating deposit addresses, but funds are manually moved out of these upon deposit into a central hot or Hub account.
 - **Scenario B:** Multiple user accounts with individual balances.
 
-<hr>
+---
 
 ## Scenario A
 

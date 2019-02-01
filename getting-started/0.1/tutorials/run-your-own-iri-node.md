@@ -24,7 +24,7 @@ To complete this tutorial, you need the following:
 * Access to a terminal
 * An Internet connection
 
-<hr>
+---
 
 1. [Install Docker](https://docs.docker.com/install/#supported-platforms). If you're running a version of Mac or Windows that's older than the system requirements, install the [Docker toolbox](https://docs.docker.com/toolbox/overview/) instead.
 

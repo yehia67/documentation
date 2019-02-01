@@ -9,7 +9,7 @@ Trinity allows you to do the following:
 
 <img src="../trinity-home.jpg" alt="Trinity" width="600">
 
-<hr>
+---
 
 1. [Download and install Trinity](https://trinity.iota.org/)
 2. Open Trinity

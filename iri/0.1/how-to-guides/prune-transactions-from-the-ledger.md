@@ -13,7 +13,7 @@ current milestone index - ([`LOCAL_SNAPSHOTS_DEPTH`](../references/iri-configura
 
 You must stop the IRI before making changes to the configuration options.
 
-<hr>
+---
 
 1. Make sure that the `LOCAL_SNAPSHOTS_ENABLED` and the `LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration options are set to `true`
 2. Change the value of the `LOCAL_SNAPSHOTS_PRUNING_DELAY` and the `LOCAL_SNAPSHOTS_DEPTH` configuration options

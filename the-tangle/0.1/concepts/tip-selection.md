@@ -56,7 +56,7 @@ When this endpoint is called, the IRI node starts the tip selection algorithm, w
 2. Rating calculation
 3. Weighted random walk
 
-<hr>
+---
 
 ### Preparation
 
