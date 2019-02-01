@@ -1,14 +1,14 @@
 # The Tangle overview
 
-**The Tangle is the data structure that's formed by the connections among transactions in the distributed ledger. The Tangle allows IRI nodes to traverse transactions through their connections and validate each one.**
+**The Tangle is the data structure that's formed by the connections among transactions in the distributed ledger. The connections allows an IRI node to traverse transactions and validate each one.**
 
-This data stucture is a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG). The Tangle was formally introduced in the whitepaper by Professor Serguei Popov and published in 2015.
+The data structure that forms the Tangle is a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), and it was formally introduced in the IOTA whitepaper by Professor Serguei Popov in 2015.
 
-Transactions are connected to each other in the Tangle by reference. Each transaction references two previous transactions, which are chosen by IRI nodes during [tip selection](../concepts/tip-selection.md).
+In the Tangle, transactions are connected to each other by reference in their [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md). References form a hierarchy, whereby if one transaction is a **child**, the branch and trunk transactions are its **parents**.
 
-References can be direct or indirect. A direct reference is one in which a transaction references another transaction. An indirect reference is one in which a referenced transactions references another transaction.
+A reference can be direct or indirect. A direct reference is one that exists between a child and its parents. An indirect reference is one that exists between a child and any of its grandparents.
 
-The more direct or indirect references that a transaction has, the more likely it is to be both chosen during tip selection and confirmed. A transaction is considered confirmed when it's referenced by a [Coordinator](../concepts/the-coordinator.md)-issued milestone transaction
+The more direct or indirect references that a transaction has, the more likely it is to be chosen during [tip selection](../concepts/tip-selection.md). A transaction is considered confirmed when it's chosen during tip selection and one of it's parents is a milestone, which was created by the [Coordinator](../concepts/the-coordinator.md).
 
 ## Further Research
 
