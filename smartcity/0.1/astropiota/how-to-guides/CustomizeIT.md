@@ -1,12 +1,12 @@
-## Customize Your AstroPiOTA
+# Customize Your AstroPiOTA
+
+**The AstroPiOTA sender gathers sensor data from Sense HAT, publishes it to the scrolling marquee, and sends it in JSON format to a MAM channel on the Tangle. The ASTROPiOTA receiver listens to the MAM channel and reports the sensor data. You can customize both of these files to change how ASTROPiOTA publishes and reports data.**
 
 This sample code was inspired by [Dave de Fijter's High Mobilty MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam).
 
-AstroPiOTA sender.js periodically gathers sensor data from Sense HAT. It publishes temperature and humidity to the scrolling marquee and sends all the sensor data in json format through a public MAM message to the Tangle.  Receiver.js listens to the AstroPiOTA MAM channel and reports sensor data published to the Tangle. You can customize these to report a subset of sensor data, to change led colors for the scrolling marquee, to change the address of the IOTA node, or any other changes.
+## AstroPiOTA sender
 
-### AstroPiOTA Sender
-
-First, sender.js imports the MAM client and the IOTA trytes converter.  Next, it imports the sense-hat-led package to enable the scrolling marquee.  Finally, it imports the IMU package used to sense IMU data.
+First, the sender.js file imports the MAM client and the IOTA trytes converter.  Next, it imports the sense-hat-led package to enable the scrolling marquee.  Finally, it imports the IMU package used to sense IMU data.
 
 ```javascript
 const Mam = require('../external/mam.client.js');
@@ -123,7 +123,7 @@ sense.clear(0,100,0)
 ```
 
 
-### AstroPiOTA Receiver
+## AstroPiOTA receiver
 
 Like the sender, receiver.js imports the MAM client and the trytes convertor.  Mode is set to "public".  A placeholder, mamSecret, is available for use with a "private" or "restricted" message type.
 
