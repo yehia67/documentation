@@ -9,7 +9,7 @@
     * 64-bit processor
     * A public IP address: Either a static IP address or a dynamic IP address that's connected to a dynamic DNS such as [noip.com](https://www.noip.com/remote-access)
 
-* By default, the IRI uses the following ports. You must forward these ports to your computer's public IP address.
+* By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must forward these ports to your computer's public IP address.
 
     * **UDP neighbor peering port:** 14600
     * **TCP neighbor peering port:** 14600

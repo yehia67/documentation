@@ -142,7 +142,7 @@ Before you run the IRI, you need to set up some Java variables and set the IRI c
     $ nano /home/jake/node/config.ini
     ```
 
-    Leave the file empty for now, as the default [IRI configuration options](../references/iri-configuration-options.md) are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the configuration options that you want to change. 
+    Leave the file empty for now. The default [IRI configuration options](../references/iri-configuration-options.md) are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the configuration options that you want to change. 
 
     **Note:** If you want to run a permanode (keep all transactions in the ledger), set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](../references/iri-configuration-options.md#local-snapshots-enabled) to `false`.
 
@@ -178,7 +178,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     $ sudo apt install curl jq
     ```
 
-4. Call the [getNodeInfo](https://iota.readme.io/v1.5.5/reference#getnodeinfo) endpoint to request general information about the IRI node
+4. Call the [getNodeInfo](../references/api-reference.md#getNodeInfo) endpoint to request general information about the IRI node
 
     ```bash
     $ curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
