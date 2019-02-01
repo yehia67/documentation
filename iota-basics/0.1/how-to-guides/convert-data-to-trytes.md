@@ -6,7 +6,7 @@
 
 To complete this guide, your computer must have [Node JS (8+)](https://nodejs.org/en/) installed.
 
-<hr>
+---
 
 1. Create a new directory called iota-basics
 2. In the command line, change into the iota-basics directory, and install the [IOTA Converter library](https://github.com/iotaledger/iota.js/tree/next/packages/converter)

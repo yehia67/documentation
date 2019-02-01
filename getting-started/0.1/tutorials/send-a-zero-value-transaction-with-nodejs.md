@@ -11,7 +11,7 @@ To complete this tutorial, you need the following:
 * Access to a terminal
 * An Internet connection
 
-<hr>
+---
 
 In IOTA, transactions must be sent to [IRI nodes](root://iri/0.1/introduction/overview.md).
 
@@ -205,7 +205,7 @@ The value of the `seed` constant is the seed that is used to generate an address
 
 **Note:** Seeds and address must both contain 81 tryte-encoded characters. If a seed consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters. 
 
-<hr>
+---
 
 ```javascript
 const transfers = [
@@ -219,7 +219,7 @@ const transfers = [
 The `transfers` array lets you specify transfers you want to make from
 an address. In this case, you send a transfer with no value to an address and you include the tryte-encoded message 'Hello World!'.
 
-<hr>
+---
 
 ```javascript
     iota.prepareTransfers(seed, transfers)

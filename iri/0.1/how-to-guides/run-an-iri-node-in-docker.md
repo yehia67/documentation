@@ -15,7 +15,7 @@
     * **TCP neighbor peering port:** 14600
     * **TCP API port:** 14265
 
-<hr>
+---
 
 The IRI Docker container is suitable for the following operating systems:
 * Linux
