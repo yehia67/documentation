@@ -8,7 +8,7 @@ To transfer IOTA tokens, a bundle must contain a least one input transaction and
 
 The fate of each transaction in a bundle depends on the rest. Either all transactions in the bundle are valid or none of them are.
 
-**Important:** You must not spend from an address more than once. Therefore, a bundle may require an extra output transaction to transfer the remaining balance of a spent address to a new address.
+**Important:** [You must not spend from an address more than once](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). Therefore, a bundle may require an extra output transaction to transfer the remaining balance of a spent address to a new address.
 
 ## Example of a bundle that transfers IOTA tokens
 
@@ -26,5 +26,5 @@ To send 100Mi to recipient A, you must create the following transactions and sen
 * **Output transaction:** Credit 100Mi to the recipient's address
 * **Output transaction:** To avoid spending from address 2 again, transfer the remaining 5Mi from address 2 to address 3
 
-[Learn more about bundles](root://iota-basics/concepts/bundles-and-transactions.md).
+[Learn more about bundles](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
 

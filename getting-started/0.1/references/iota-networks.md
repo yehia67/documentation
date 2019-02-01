@@ -2,7 +2,7 @@
 
 **An IOTA network consists of IRI nodes that are mutually connected to neighbor IRI nodes.**
 
-IOTA has the following [permissionless networks](concepts/what-is-dlt.md) that anyone can use:
+IOTA has the following [permissionless networks](../introduction/what-is-dlt.md) that anyone can use:
 * **Mainnet:** IOTA token
 * **Devnet:** Devnet token (free)
 * **Spamnet:** Spamnet token (free)
@@ -17,7 +17,7 @@ When you buy IOTA tokens from a cryptocurrency exchange, you can send those toke
 
 Transactions on the Mainnet network must use a MWM (minimum weight magnitude) of 14 to be valid.
 
-![Mainnet configuration](https://i.imgur.com/HK4S62N.png)
+![Mainnet configuration](../mainnet-configuration.png)
 
 ## Devnet
 
@@ -27,7 +27,7 @@ On this network, you can test your applications and build proof of concepts that
 
 Transactions on the Devnet network must use a MWM (minimum weight magnitude) of 9 to be valid. Compared to the Mainnet network, this MWM vastly reduces the time it takes for the Proof of Work (PoW) to be completed.
 
-![Devnet Configuration](https://i.imgur.com/w2kGDKw.png)
+![Devnet Configuration](../devnet-configuration.png)
 
 ### IRI nodes
 
@@ -65,7 +65,7 @@ On this network, you can test your applications and build proof of concepts that
 
 Transactions on the Devnet network must use a MWM (minimum weight magnitude) of 7 to be valid. Compared to the Mainnet network, this MWM vastly reduces the time it takes for the Proof of Work (PoW) to be completed.
 
-![Topology of the Spamnet](https://i.imgur.com/VpEsA6i.png)
+![Topology of the Spamnet](../spamnet-topology.png)
 
 ### IRI nodes
 

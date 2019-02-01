@@ -1,6 +1,6 @@
 # Send your first zero-value transaction (Trinity)
 
-**Trinity is a mobile and desktop application with a user interface that allows you to transfer data and IOTA tokens in an IOTA network.**
+**Trinity is a mobile and desktop application with a user interface that allows you to transfer data and IOTA tokens in an IOTA network. A zero-value transaction can be sent using a random seed that doesn't contain IOTA tokens. These transactions are useful for sending and storing immutible messages on the Tangle.**
 
 Trinity allows you to do the following:
 * Create a password-protected account to store and access your seeds
@@ -13,7 +13,7 @@ Trinity allows you to do the following:
 
 1. [Download and install Trinity](https://trinity.iota.org/)
 2. Open Trinity
-3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you [created a seed outside of Trinity](../tutorials/creating-a-seed.md), click **No, I have one**.
+3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you [created a seed outside of Trinity](../tutorials/create-a-seed.md), click **No, I have one**.
 
 <img src="../trinity-seed.png" alt="Seed options" width="600">
 

@@ -1,4 +1,4 @@
-# Hub Overview
+# Hub overview
 
 **Hub is a multi-user-wallet that offers you an easy way to manage deposits and withdrawals of IOTA tokens.**
 

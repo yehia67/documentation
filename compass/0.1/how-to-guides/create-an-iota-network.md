@@ -1,14 +1,14 @@
-# Create a permissioned network
+# Create an IOTA network
 
-**If you want to test your application in a permissioned IOTA network, you can run Compass. A permissioned IOTA network is one in which IRI nodes must gain permission before joining an IOTA network. All IRI nodes in a permissioned network must be set up to recognize Compass transactions as trusted milestones.**
+**If you want to test your application in your own IOTA network, you can run Compass. All IRI nodes in the network must be set up to recognize your Compass transactions as trusted milestones.**
 
-For this basic setup, you'll install both the IRI node and Compass on the same server or virtual machine. You can also install an optional signing server for increased security.
+For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine. You can also install an optional signing server for increased security.
 
 A signing server reduces the attack surface of Compass by moving sensitive operations to an external service. Compass interacts with the signing server through gRPC.
 
 ![System diagram of the Compass](../compass.png)
 
-To create a permissioned IOTA network, you must complete the following tasks in order:
+To create your own IOTA network, you must complete the following tasks in order:
 
 1. [Install the dependencies](#install-the-dependencies)
 2. [Calculate the Merkle tree](#calculate-the-merkle-tree)
@@ -18,7 +18,9 @@ To create a permissioned IOTA network, you must complete the following tasks in 
 
 ## Prerequisites
 
-To complete these tasks, your computer will need the following:
+If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
+
+To complete these tasks, your Linux server will need the following:
 
 * A new installation of an Ubuntu 18.04 Server / Virtual Machine
 * At least 8GB RAM
@@ -28,6 +30,7 @@ To complete these tasks, your computer will need the following:
 ## Install the dependencies
 
 Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.docker.com/) to run, so we need to make sure both are installed.
+
 1. Install the dependencies for Bazel
 	```bash
 	$ sudo apt-get install pkg-config zip g++ zlib1g-dev unzip python
@@ -47,6 +50,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 	```bash
 	$ ./bazel-0.18.0-installer-linux-x86_64.sh --user
 	```
+	You may need to restart your computer after you install Bazel.
 
 5. Install Docker
 	```bash
@@ -56,6 +60,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 	$ sudo apt update
 	$ sudo apt install docker-ce
 	```
+	
 6. Install the `jq` tool for formatting JSON data
 	```bash
 	$ sudo add-apt-repository universe
@@ -64,7 +69,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 
 ## Calculate the Merkle tree
 
-For this guide, we use a [Merkle tree](concepts/about-compass.md#merkle-tree-generation) with a depth of 16, which allows us to run compass for 45 days in a row at 1-minute-milestone intervals.
+For this guide, we use a [Merkle tree](../concepts/about-compass.md#merkle-tree-generation) with a depth of 16, which allows us to run compass for 45 days in a row at 1-minute-milestone intervals.
 
 The Compass repository includes a tool to generate a Merkle tree and save it in a data folder for Compass to use later on. 
 
@@ -73,11 +78,18 @@ The Compass repository includes a tool to generate a Merkle tree and save it in 
 	$ git clone https://github.com/iotaledger/compass.git
 	$ cd compass
 	```
+
 2. Build the layers_calculator tool that will generate the Merkle tree
 	```bash
 	$ bazel run //docker:layers_calculator
 	```
-3. Generate a seed for Compass:
+	This process can take some time. You should see something like the following in the console:
+	```
+	INFO: SHA256 (https://github.com/grpc/grpc-java/archive/fe7f043504d66e1b3f674c0514ce794c8a56884e.zip) = 19c51698d4837d1978a10ed7a01f4e45a0b15bcbd3db44de2a2a1c3bdd1cf234
+	Analyzing: target //docker:layers_calculator (8 packages loaded)
+	```
+
+3. Create a seed for Compass
 	```bash
 	$ cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1 
 	```
@@ -93,6 +105,7 @@ The Compass repository includes a tool to generate a Merkle tree and save it in 
 	```bash
 	$ cp config.example.json config.json
 	```
+
 7. Open the `config.json` file and replace the value of the `seed` field with the seed you generated in step 3
 	```bash
 	$ nano config.json
@@ -119,11 +132,24 @@ The Compass repository includes a tool to generate a Merkle tree and save it in 
 	```bash
 	$ sudo ../../bazel-bin/docker/layers_calculator
 	```
+	If the command was not found, do step 2 again.
 
-10. Generate the Merkle tree by executing the script in the docs/private_tangle directory:
+	You should see something like the following in the console:
+
+	```
+	668afdbd4462: Loading layer  18.39MB/18.39MB
+	6189abe095d5: Loading layer  1.966MB/1.966MB
+	55b77d5f2576: Loading layer    100MB/100MB
+	b439be5d084f: Loading layer  16.15MB/16.15MB
+	Loaded image ID: sha256:164cc0fbec2cd2b1821d0442d7f63e52f0f34250c2b9af12f1dcddde12d7df56
+	Tagging 164cc0fbec2cd2b1821d0442d7f63e52f0f34250c2b9af12f1dcddde12d7df56 as iota/compass/docker:layers_calculator
+	```
+
+10. Create the Merkle tree by executing the script in the `docs/private_tangle` directory
 	```bash
 	$ sudo ./01_calculate_layers.sh
 	```
+
 This process will take a while (with a 4 core virtual machine it takes around 15 minutes). After the process finishes, the root of the Merkle tree is output to the console:
 
 ```shell
@@ -132,38 +158,40 @@ This process will take a while (with a 4 core virtual machine it takes around 15
 [main] INFO org.iota.compass.LayersCalculator - Successfully wrote Merkle Tree with root: JMRTYHMGNZGNOLPSSBVLWRPMGIAMOXPLURNDIBKXIFTCJCLOYKH9FMVNKPBVFVMGSUFEYVUUIEARFQXAK
 ```
 
-The Merkle tree is stored in the data directory, so Compass can use it when it starts running.
+The Merkle tree of addresses is stored in the data directory, so Compass can use it when it starts running.
 
 ## Run an IRI node
 
 Compass must send milestones to an IRI Node. Compass sends milestones to an IRI node through an HTTP RPC API on the default `14265` port or on whichever port is passed during initialization.
 
-To make running the IRI easier, we created a script that uses the default IRI Docker container with some additional parameters.
+To make the IRI node recognize Compass transactions as trusted milestones, we created a script that uses the default IRI Docker container with some additional parameters.
 
-The IRI node works with a snapshot file to set the initial state of the ledger.
+The IRI node must use a snapshot.txt file to set the initial state of the ledger.
 
-To keep things simple, put the total IOTA supply of 2.7Pi in the first address that's generated by the following client seed:
-`SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`.
+The snapshot.example.txt file puts the total IOTA supply of 2.7Pi in the first address that's generated by the following client seed:
+`SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`. The first address (index 0) of this seed is  `FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOXX` (excluding the checksum). 
 
-The first address is  `FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOXX` (excluding the checksum). 
-
-1. Open a new file called `snapshot.txt` in an editor
+1. Create a snapshot.txt file
 	```bash
+	$ touch snapshot.txt
 	$ nano snapshot.txt
 	```
 
-2. Add the following line, which puts 2.7Pi into the address on the left of the semicolon:
+2. Add the following line to the snapshot.txt file:
 	```shell
 	FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOXX;2779530283277761
 	```
 
-**Note:** Do not exceed the maximum supply of 2.7Pi.
+	**Note:** Do not exceed the maximum supply of 2.7Pi.
 
 3. Run the IRI
 	```bash
 	$ sudo ./02_run_iri.sh
 	```
-Use `CTRL+C` in the console to go back to your shell session, and IRI will continue to run in the background.
+
+	**Note:** If you see a `malformed snapshot state file` error, check the snapshot.txt file and make sure that you didn't include a line break at the end of the line. If you see a `NumberFormatException` error or an `IllegalArgumentException` error, check that no space characters are either side of the semicolon.
+
+4. Press `CTRL+C` in the console to go back to your shell session. IRI will continue to run in the background.
 
 ## Run Compass
 
@@ -179,8 +207,13 @@ After you've generated the Merkle tree and you're running an IRI node, you can r
 	```bash
 	$ sudo ../../bazel-bin/docker/coordinator
 	```
+	
+3. Change into the directory that contains the scripts for setting up and running Compass
+	```bash
+	$ cd docs/private_tangle
+	```
 
-3. Run Compass
+4. Run Compass
 	```bash
 	$ sudo ./03_run_coordinator.sh -bootstrap -broadcast
 	```
@@ -194,8 +227,9 @@ Compass is sending milestones :tada:
 You can connect to your IRI node on port 14265, using Trinity or a client library.
 
 1. Connect to your IRI node
+
 2. Enter the `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999` seed
 
-Your balance should be 2.7Pi (you might have to attach the first address, depending on what client library you use).
+Your balance should be 2.7Pi (you may have to attach the first address, depending on what client library or wallet you use).
 
 Feel free to send test transactions and see them confirmed by Compass milestones.

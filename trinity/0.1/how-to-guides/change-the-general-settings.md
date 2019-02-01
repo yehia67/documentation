@@ -29,11 +29,3 @@ The current value of the token is displayed in the currency that is selected in 
 Trinity has been translated into different languages. Select one to change the language that's displayed.
 
 ![photo of languages](../language.jpg)
-
-### Connect to a custom node
-
-Trinity provides a built-in node-balancing service for optimal performance. Every time you open your wallet, Trinity selects a healthy node with a low load.
-
-You may want to select a custom node to connect to. For example, if you run your own IRI node.
-
-To do so, go to **Settings** > **Node**, and enter the URL or IP address of an IRI node.

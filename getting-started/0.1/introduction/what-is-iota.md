@@ -24,7 +24,7 @@ At its most basic level, the IOTA token is a record of ownership that's held by 
 
 These characters might look cryptic, but let's break it down. On the left of the semicolon is an address. These are unique to each client in the network. On the right of the semicolon is an amount of IOTA tokens that belong to that address, in this case 1,000 tokens.
 
-You own IOTA tokens only when all IRI nodes [validate the transaction](root://iri/concepts/transaction-validation.md) that sent the tokens to you, and when it's referenced by a milestone.
+You own IOTA tokens only when all IRI nodes [validate the transaction](root://iri/0.1/concepts/transaction-validation.md) that sent the tokens to you, and when it's referenced by a milestone.
 
 ## What makes the IOTA token valuable?
 
@@ -56,8 +56,6 @@ IOTA is free to use. You don't need to pay a subscription, or sign a contract. E
 ### Scalable
 
 For each transaction that's appended to the ledger, two previous transactions are validated. This process makes IOTA incredibly scalable because the more new transactions that propagate through the network, the faster other transactions are validated.
-
-This process forms a data structure called a directed acyclic graph (DAG), which we call [the Tangle](introduction/what-is-the-tangle.md).
 
 ## For what industries is IOTA useful?
 Many industries such as the following could benefit from using IOTA:

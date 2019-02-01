@@ -1,6 +1,6 @@
  # Hub configuration options
 
- **This table contains the configuration options for Hub.**
+ **This table contains some common configuration options for Hub.**
 
  For a full list of configuration options, see the [GitHub repository](https://github.com/iotaledger/rpchub#command-line-arguments).
  
