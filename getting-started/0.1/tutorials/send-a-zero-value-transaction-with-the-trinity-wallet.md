@@ -9,17 +9,19 @@ Trinity allows you to do the following:
 
 <img src="../trinity-home.jpg" alt="Trinity" width="600">
 
-<hr>
+---
 
 1. [Download and install Trinity](https://trinity.iota.org/)
+
 2. Open Trinity
+
 3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you [created a seed outside of Trinity](../tutorials/create-a-seed.md), click **No, I have one**.
 
-<img src="../trinity-seed.png" alt="Seed options" width="600">
+    <img src="../trinity-seed.png" alt="Seed options" width="600">
 
 4. Enter an account name for your seed
 
-<img src="../trinity-account-name.png" alt="Account name" width="600">
+    <img src="../trinity-account-name.png" alt="Account name" width="600">
 
 5. Select an option to record your seed and enter a login password
 
@@ -33,7 +35,7 @@ Trinity allows you to do the following:
 
 8. Enter 'Hello world!' in the MESSAGE field
 
-<img src="../trinity-hello-world.png" alt="Hello world message" width="600">
+    <img src="../trinity-hello-world.png" alt="Hello world message" width="600">
 
 9.  Make sure that the AMOUNT field is 0 and click **Send**
 

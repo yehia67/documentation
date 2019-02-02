@@ -4,9 +4,9 @@
 
 ## Prerequisites
 
-To complete this guide, your computer must have [Node JS (8+)](https://nodejs.org/en/) installed.
+To complete this guide, you must have [Node JS (8+)](https://nodejs.org/en/).
 
-<hr>
+---
 
 1. Create a new directory called iota-basics
 2. In the command line, change into the iota-basics directory, and install the [IOTA Converter library](https://github.com/iotaledger/iota.js/tree/next/packages/converter)
@@ -36,3 +36,5 @@ To complete this guide, your computer must have [Node JS (8+)](https://nodejs.or
 5. Execute this script
 
 The converted strings will be displayed in the console.
+
+**Note:** The `asciiToTrytes` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.

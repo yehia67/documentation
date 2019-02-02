@@ -15,7 +15,7 @@
     * **TCP neighbor peering port:** 14600
     * **TCP API port:** 14265
 
-<hr>
+---
 
 The IRI is Java software, so it must be run in a Java runtime environment (JRE).
 

@@ -2,7 +2,7 @@
 
 **This table displays the structure of a bundle.**
 
-All transactions in a bundle are indexed and linked to each other through the [`trunkTransaction` field](..references/structure-of-a-transaction.md). These links allow IRI nodes to find all transactions in the same bundle and validate them.
+All transactions in a bundle are indexed and linked to each other through the [`trunkTransaction` field](../references/structure-of-a-transaction.md). These links allow IRI nodes to find all transactions in the same bundle and validate them.
 
 | Transaction index                         |`trunkTransaction` field| `branchTransaction` field| Description   |
 | :----------------------------- | :------ |:---|:---|
