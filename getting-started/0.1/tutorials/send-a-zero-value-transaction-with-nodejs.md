@@ -96,10 +96,10 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
 5. At the end of the index.js file, add the following:
     ```js
     const address =
-    'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+    'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD';
     const seed =
-    'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX'
-    const message = Converter.asciiToTrytes('Hello World!')
+    'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
+    const message = Converter.asciiToTrytes('Hello World!');
 
     const transfers = [
     {
@@ -107,7 +107,7 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
         address: address,
         message: message
     }
-    ]
+    ];
 
     iota.prepareTransfers(seed, transfers)
         .then(trytes => {
@@ -139,6 +139,56 @@ Your transaction will propgate through the IOTA network until all the IRI nodes 
 To confirm that your bundle in on the network, copy the value of the `bundle` field from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
 **Note:** Zero-value transactions don't need to be confirmed, only value transactions do.
+
+## Code walkthrough
+
+```javascript
+const address =
+'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
+const seed =
+'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX'
+const message = Converter.asciiToTrytes('Hello World!')
+```
+
+The value of the `message` variable is converted to trytes because IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages.
+The value of the `address` variable is the [address](../introduction/what-is-a-seed.md) that the message is sent to.
+The value of the `seed` variable is the [seed](../introduction/what-is-a-seed.md) that is used to generate an address to send the message from.
+
+**Note:** Seeds must contain 81 tryte-encoded characters. If a seed consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters. 
+
+---
+
+```javascript
+const transfers = [
+{
+    value: 0,
+    address: address,
+    message: message
+}];
+```
+
+The `transfers` array lets you specify transfers you want to make from
+an address. In this case, you send a transfer with no value to an address and you include the tryte-encoded message 'Hello World!'.
+
+---
+
+```javascript
+    iota.prepareTransfers(seed, transfers)
+    .then(trytes => {
+        return iota.sendTrytes(trytes, 3/*depth*/, 9 /*mwm*/)
+    })
+    .then(bundle => {
+    console.log(`Published transaction with tail hash: ${bundle[0].hash}`);
+    var JSONBundle = JSON.stringify(bundle);
+    console.log(`Bundle: ${JSONBundle}`);
+})
+.catch(err => {
+        // Catch any errors
+    console.log(err);
+});
+```
+
+The [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method constructs a [bundle](../introduction/what-is-a-bundle.md) on the client side. The [`sendTrytes()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes)  method sends the bundle to the [IRI node](../introduction/what-is-an-iri-node.md).
 
 ## Final Code
 
@@ -186,68 +236,3 @@ const transfers = [
     console.log(err);
 });
 ```
-
-### Code breakdown
-
-```javascript
-const address =
-'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
-const seed =
-'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX'
-const message = Converter.asciiToTrytes('Hello World!')
-```
-
-The `address` and `message` constants are used in the `transfers` object that's passed to the [`prepareTransfer()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method.
-
-The value of the `message` constant is converted to trytes because IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages.
-The value of the `address` constant is the address that the message is sent to.
-The value of the `seed` constant is the seed that is used to generate an address to send the message from.
-
-**Note:** Seeds and address must both contain 81 tryte-encoded characters. If a seed consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters. 
-
----
-
-```javascript
-const transfers = [
-{
-    value: 0,
-    address: address,
-    message: message
-}]
-```
-
-The `transfers` array lets you specify transfers you want to make from
-an address. In this case, you send a transfer with no value to an address and you include the tryte-encoded message 'Hello World!'.
-
----
-
-```javascript
-    iota.prepareTransfers(seed, transfers)
-    .then(trytes => {
-        return iota.sendTrytes(trytes, 3/*depth*/, 9 /*mwm*/)
-    })
-    .then(bundle => {
-    console.log(`Published transaction with tail hash: ${bundle[0].hash}`);
-    var JSONBundle = JSON.stringify(bundle);
-    console.log(`Bundle: ${JSONBundle}`);
-})
-.catch(err => {
-        // Catch any errors
-    console.log(err);
-});
-```
-
-The [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method constructs a bundle on the client side. The [`sendTrytes()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes)  method sends the bundle to the IRI node.
-
-Here's a table of the variables that are used in these methods:
-
-|Field|Type|Description|
-|:---:|:--:|:---------:|
-|`seed` | string|This is the secret password that generates an address for you to send a transaction from. With **zero** value transactions, you don't need to have any IOTA tokens on an address, so this field can be 81 random trytes. |
-|`depth` | number|The number of milestone transactions that the IRI node will walk back to start the [tip selection](root://the-tangle/0.1/concepts/tip-selection.md) process |
-|`mwm` |number | This field specifies the [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) that is required for your transaction to be validated. On the Devnet, this field must have a value of at least 9|
-| `transfers`| array|This array contains the value, address, and message of your transaction. You can specify multiple transfers with different addresses, and they'll be converted to transactions and put in a bundle |
-
-## Next steps
-
-Why not [run your own IRI node](root://iri/0.1/introduction/overview.md)?.

@@ -1,6 +1,6 @@
 # Bundles and transactions
 
-**A transaction is a single instruction to credit IOTA tokens (output), debit IOTA tokens (input), or send a message. To transfer IOTA tokens, you need both input and outputs transactions, which are packaged together in a bundle.**
+**A transaction is a single instruction to credit IOTA tokens, debit IOTA tokens, or send a message. To transfer IOTA tokens, you need both input and outputs transactions, which are packaged together in a bundle.**
 
 Each transaction that's sent to an IRI node, even individual zero-value ones, must be packaged in a bundle.
 
@@ -16,9 +16,9 @@ A bundle can consist of any number of input and output transactions. We recommen
 
 ### Input transaction
 
-Input transactions debit IOTA tokens from addresses. Bundles can contain multiple input transactions, and each one must be signed. The length of the signature depends on the [security level](../concepts/addresses-and-signatures.md#how-addresses-are-generated) of the address.
+Input transactions debit IOTA tokens from addresses. Bundles can contain multiple input transactions, and each one must include a signature. The length of the signature depends on the [security level](../references/security-levels.md) of the address.
 
-**Important:** [Addresses must not be spent from more than once](../concepts/addresses-and-signatures.md#address-reuse). Therefore, input transactions must debit all IOTA tokens from an address even if the sender does not want to transfer all of them to the recipient. The remaining IOTA tokens can be transferred to another address (usually the sender's address) in an output transaction.
+**Important:** [Addresses must not be debited from more than once](../concepts/addresses-and-signatures.md#address-reuse). Therefore, input transactions must debit all IOTA tokens from an address even if the sender does not want to transfer all of them to the recipient. The remaining IOTA tokens can be credited to another address (usually the sender's address) in an output transaction.
 
 ### Output transaction
 
@@ -31,9 +31,9 @@ Transactions that credit IOTA tokens can also contain a message because they don
 
 ## How bundles are validated
 
-After you send a bundle to an [IRI node](root://iri/0.1/introduction/overview.md), it validates each transaction and appends each one to the ledger.
+After you send a bundle to an [IRI node](root://iri/0.1/introduction/overview.md), it validates each transaction and appends each one to its ledger.
 
-During [tip selection](root://the-tangle/0.1/introduction/overview.md), an IRI node finds and [validates each transaction in your bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the IRI node has validated all transactions up to the [`lastIndex` field](../references/structure-of-a-transaction.md), your bundle is considered valid. When a bundle is validated, one of the transactions in it is selected as a tip transaction to be referenced and approved by another transaction.
+During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), an IRI node finds and [validates each transaction in your bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the IRI node has validated all transactions up to the [`lastIndex` field](../references/structure-of-a-transaction.md), your bundle is considered valid.
 
 Bundles are atomic, meaning that the fate of each transaction in a bundle depends on the rest. Either all transactions are valid or none of them are.
 

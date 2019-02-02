@@ -4,7 +4,7 @@
 
 IOTA uses a [trinary](../concepts/trinary.md) numeric system. As such, data, such as addresses, seeds, and signatures, is converted to trytes. To make the trytes easy to read, these trytes are represented as one of 27 possible tryte-encoded characters.
 
-|Tryte-encoded character| Trits| Decimal number|
+|Tryte-encoded character| Trit value| Decimal value|
 |:----|:---------|:-------------------------|
 |9|0, 0, 0 |0|
 |A| 1, 0, 0 |1|
