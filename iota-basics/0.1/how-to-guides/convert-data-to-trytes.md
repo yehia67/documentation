@@ -9,13 +9,16 @@ To complete this guide, you must have [Node JS (8+)](https://nodejs.org/en/).
 ---
 
 1. Create a new directory called iota-basics
+
 2. In the command line, change into the iota-basics directory, and install the [IOTA Converter library](https://github.com/iotaledger/iota.js/tree/next/packages/converter)
 
     ```bash
-    $ cd iota-basics
-    $ npm install --save @iota/converter
+    cd iota-basics
+    npm install --save @iota/converter
     ```
+
 3. In the iota-basics directory, create a new file called convert-to-trytes.js
+
 4. Copy and paste the following code into the file:
     ```javascript
     // Require the IOTA library

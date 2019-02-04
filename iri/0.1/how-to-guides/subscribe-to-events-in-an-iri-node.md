@@ -35,14 +35,14 @@ To use the code samples in this guide, your computer must have the following:
 1. Create a working directory called zmq-example
 
     ```bash
-    $ mkdir zmq-example
-    $ cd zmq-example
+    mkdir zmq-example
+    cd zmq-example
     ```
 
 2. In the zmq-example directory, install the zeromq library
 
     ```bash
-    $ npm install zeromq --save
+    npm install zeromq --save
     ```
 
 3. Create a file called index.js in the zmq-example directory
