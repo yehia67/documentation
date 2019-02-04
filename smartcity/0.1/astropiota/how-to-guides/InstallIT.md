@@ -47,10 +47,10 @@ Raspbian Jessie comes with NodeRed, which must be removed.
 
 1. Remove NodeRed and legacy nodejs modules
 
-```bash
-sudo apt-get remove nodered -y
-sudo apt-get remove nodejs nodejs-legacy -y
-```
+    ```bash
+    sudo apt-get remove nodered -y
+    sudo apt-get remove nodejs nodejs-legacy -y
+    ```
 
 2. Reboot the Raspberry Pi
 
@@ -112,11 +112,11 @@ You should see statistics about the node, including `appName`, `appVersion`, `la
 
 1. Install Sense Hat in the AstroPiOTA package. Sense HAT requires that Python drivers be installed manually:
 
-```bash
-sudo apt-get update
-sudo apt-get install sense-hat
-sudo pip-3.2 install pillow
-```
+    ```bash
+    sudo apt-get update
+    sudo apt-get install sense-hat
+    sudo pip-3.2 install pillow
+    ```
 
 **Note:** See the [Driver documentation](https://pythonhosted.org/sense-hat/) for more information
 
