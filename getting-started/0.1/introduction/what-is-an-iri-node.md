@@ -2,13 +2,11 @@
 
 **An IRI node is a computer that's responsible for validating transactions and storing an immutible record of them in a ledger.**
 
-When a client sends a bundle to an IRI node, it makes sure that the transactions are valid (for example, that the sender owns the IOTA tokens). If the transactions are valid, they're appended to the IRI node's ledger.
+When a client sends a bundle to an IRI node, it makes sure that the transactions are valid (for example, that the sender owns the IOTA tokens). If the transactions are valid, they're appended to the IRI node's ledger. After validating a transaction, the IRI node sends it to its neighbor IRI nodes so that the whole network can validate and store the same transaction.
 
-When a transaction is confirmed, it can't ever be changed. A confirmed transaction has been validated by all IRI nodes and approved by a milestone. You can't change past transactions because they form the immutible data structure called [the Tangle](../introduction/what-is-the-tangle.md).
+A confirmed transaction is one that has been validated by all IRI nodes and approved by a milestone. You can't change past transactions because they form the immutible data structure called [the Tangle](../introduction/what-is-the-tangle.md).
 
-All IRI nodes send their valid transactions to each other so that each of them has the same view of the Tangle (transactions in the ledger).
-
-To use any IOTA network, you can interact with an IRI node through the API (application programming interface). Many IOTA applications, such as [Trinity](root://trinity/0.1/introduction/overview.md), use the API behind the scenes.
+To use any IOTA network, you can interact with an IRI node through the [client libraries](root://client-libraries/0.1/introduction/overview.md) or the [IRI API](root://iri/0.1/references/api-reference.md) (application programming interface). Many IOTA applications, such as [Trinity](root://trinity/0.1/introduction/overview.md), use one of the client libraries behind the scenes.
 
 IRI nodes can be run by anyone, including individuals and businesses. While these groups run IRI nodes, they often don't open them to the public because a high volume of API calls can be costly to the owner. Therefore, we suggest that you run your own IRI node for direct access to an IOTA network.
 

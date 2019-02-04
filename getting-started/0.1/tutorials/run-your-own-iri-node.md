@@ -24,7 +24,7 @@ To complete this tutorial, you need the following:
 * Access to a terminal
 * An Internet connection
 
-<hr>
+---
 
 1. [Install Docker](https://docs.docker.com/install/#supported-platforms). If you're running a version of Mac or Windows that's older than the system requirements, install the [Docker toolbox](https://docs.docker.com/toolbox/overview/) instead.
 
@@ -77,10 +77,10 @@ To complete this tutorial, you need the following:
     $ docker run --name iri iotaledger/iri:latest --remote -p 14265
     ```
     
-Your IRI node is now running and you can interact with it through the IRI API at the following URL:
-http://localhost.com:14265
+    Your IRI node is now running and you can interact with it through the IRI API at the following URL:
+    http://localhost.com:14265
 
-5. Use cURL to send a request to the [`getNodeInfo` endpoint](https://iota.readme.io/reference#getnodeinfo)
+5. Use cURL to send a request to the [`getNodeInfo` endpoint](root://iri/0.1/references/api-reference.md#getNodeInfo)
     ```bash
     $ curl http://localhost:14265 -X POST -H 'Content-Type: application/json' -H 'X-IOTA-API-Version: 1' -d '{"command": "getNodeInfo"}'
     ```

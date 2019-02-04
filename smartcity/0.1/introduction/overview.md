@@ -4,7 +4,7 @@ This repository consists of examples implementing IOTA for Smart Cities
 
 ### **OFFICIAL SUPPORT** ###
 
-Example 1: [AstroPiOTA](0.1/README.md)
+Example 1: [AstroPiOTA](../astropiota/introduction/overview.md)
 
 AstroPiOTA is a clone of AstroPi from the International Space Station hooked to MAM for keeping track of local environment data using the Tangle. Here on earth, AstroPiOTA helps us understand and report local weather and may aid in earthquake prediction. 
 
