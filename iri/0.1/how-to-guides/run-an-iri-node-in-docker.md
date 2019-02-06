@@ -107,21 +107,22 @@ Instead of downloading the pre-built Docker container, you may want to build the
     git checkout ${TAG}
     docker build -t iri .
     ```
+
 ## Run the IRI
 
 You can configure the IRI by passing in [IRI configuration options](../references/iri-configuration-options.md) as flags.
 
-1. Run the IRI with the default configuration options as flags
+1. Run the IRI with the `-p` flag to specify the API port
 
     ```bash
     docker run --name iri iotaledger/iri:latest --remote -p 14265
     ```
 
-    If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a config.iri file in the `/path/to/conf/config.ini` on your docker host, then add `-c /path/to/conf/config.ini` to docker run arguments.
+    If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a config.ini file in the `/path/to/conf/config.ini` on your Docker host, then add `-c /path/to/conf/config.ini` to the DOCKER RUN command.
 
     **Notes:**
     * If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`
-    * To have the IRI Docker container restart on every boot, add the `--restart=always` flag to the Docker RUN command
+    * To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the DOCKER RUN command
 
 2. Call the [getNodeInfo](https://iota.readme.io/v1.5.5/reference#getnodeinfo) endpoint to request general information about the IRI node
 

@@ -39,7 +39,7 @@ The pre-built IRI Java file is available on the IOTA GitHub repository.
     ```bash
     mkdir /home/jake/node
     ```
-    **Note:** If you see 'mkdir: cannot create directory...' in the console, you probably copy and pasted the command without changing `jake` to your Linux username.
+    **Note:** If you see 'mkdir: cannot create directory...' in the console, you probably copied and pasted the command without changing `jake` to your Linux username.
 
 3. Download and install the Java 8 JRE
 
@@ -215,6 +215,8 @@ When you've downloaded, and configured the IRI, it's time to run it.
     You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to [neighbor IRI nodes](../concepts/neighbor-iri-node.md).
 
 5. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.ini file
+
+    **Note:** We recommend [setting up a reverse proxy](../how-to-guides/set-up-a-reverse-proxy.md) for your IRI node so that you can have more control over the requests that are made to it.
 
 Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
 
