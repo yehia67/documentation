@@ -26,14 +26,14 @@ To use the code samples in this guide, your computer must have the following:
 1. Create a working directory called node-info-example
 
     ```bash
-    $ mkdir node-info-example
-    $ cd node-info-example
+    mkdir node-info-example
+    cd node-info-example
     ```
 
 2. In the node-info-example directory, install the [request module](https://github.com/request/request) and the IOTA library by doing the following:
     ```bash
-    $ npm install request --save
-    $ npm install iota.lib.js --save
+    npm install request --save
+    npm install iota.lib.js --save
     ```
 3. Create a file called index.js in the node-info-example directory
 4. In the index.js file, copy and paste the following code:

@@ -40,7 +40,7 @@ To build the IRI Docker container, Docker 17.05+ (for multi-stage build support)
 2. Make sure that Docker is installed
 
     ```bash
-    $ docker run hello-world
+    docker run hello-world
     ```
 
     You should see some Docker information like the following:
@@ -65,7 +65,7 @@ To build the IRI Docker container, Docker 17.05+ (for multi-stage build support)
         to your terminal.
 
     To try something more ambitious, you can run an Ubuntu container with:
-    $ docker run -it ubuntu bash
+    docker run -it ubuntu bash
 
     Share images, automate workflows, and more with a free Docker ID:
     https://hub.docker.com/
@@ -79,7 +79,7 @@ To build the IRI Docker container, Docker 17.05+ (for multi-stage build support)
 The Docker container for the pre-built IRI Java file is available on the IOTA GitHub repository.
 
 ```bash
-$ docker pull iotaledger/iri:latest
+docker pull iotaledger/iri:latest
 ```
 
 ## Build the IRI Docker container from the source code
@@ -93,7 +93,7 @@ Instead of downloading the pre-built Docker container, you may want to build the
 2. Make sure that Git is installed
 
     ```bash
-    $ git --version
+    git --version
     ```
 
     You should see the version number of your Git installation.
@@ -101,32 +101,33 @@ Instead of downloading the pre-built Docker container, you may want to build the
 3. Build the latest version of the IRI
 
     ```bash
-    $ git clone https://github.com/iotaledger/iri.git
-    $ cd iri
-    $ export TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
-    $ git checkout ${TAG}
-    $ docker build -t iri .
+    git clone https://github.com/iotaledger/iri.git
+    cd iri
+    export TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
+    git checkout ${TAG}
+    docker build -t iri .
     ```
+
 ## Run the IRI
 
 You can configure the IRI by passing in [IRI configuration options](../references/iri-configuration-options.md) as flags.
 
-1. Run the IRI with the default configuration options as flags
+1. Run the IRI with the `-p` flag to specify the API port
 
     ```bash
-    $ docker run --name iri iotaledger/iri:latest --remote -p 14265
+    docker run --name iri iotaledger/iri:latest --remote -p 14265
     ```
 
-    If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a config.iri file in the `/path/to/conf/config.ini` on your docker host, then add `-c /path/to/conf/config.ini` to docker run arguments.
+    If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a config.ini file in the `/path/to/conf/config.ini` on your Docker host, then add `-c /path/to/conf/config.ini` to the DOCKER RUN command.
 
     **Notes:**
     * If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`
-    * To have the IRI Docker container restart on every boot, add the `--restart=always` flag to the Docker RUN command
+    * To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the DOCKER RUN command
 
 2. Call the [getNodeInfo](https://iota.readme.io/v1.5.5/reference#getnodeinfo) endpoint to request general information about the IRI node
 
     ```bash
-    $ curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
+    curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
     ```
 
     You'll see something like the following in the console:
@@ -180,7 +181,7 @@ The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are a
 2. To check these fields for your IRI node, call the `getNodeInfo` API endpoint
 
     ```bash
-    $ curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}'
+    curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}'
     ```
 
 **Note:** It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
