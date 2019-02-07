@@ -41,7 +41,7 @@ To run a Linux server on a Windows or Mac operating system, you must install a v
 
 Congratulations :tada: You've got a Linux server running on your computer!
 
-Our guides always require the use of a terminal, so navigate to the Terminal application and open it.
+Our guides always require the use of a command prompt, so navigate to the Terminal application and open it.
 
 ## Connect to your Linux server
 

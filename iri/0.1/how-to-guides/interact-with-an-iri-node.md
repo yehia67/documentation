@@ -18,10 +18,10 @@ For more endpoints, see the [API reference](../references/api-reference.md).
 
 To use the code samples in this guide, your computer must have the following:
 
-* Node JS (8+)
-* A code editor
-* Access to a terminal
-* An Internet Connection
+* [Node JS (8+)](https://nodejs.org/en/)
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+* Access to a command prompt
+* An Internet connection
 
 1. Create a working directory called node-info-example
 

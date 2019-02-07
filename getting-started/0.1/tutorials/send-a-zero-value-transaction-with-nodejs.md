@@ -7,8 +7,8 @@
 To complete this tutorial, you need the following:
 
 * [Node JS (8+)](https://nodejs.org/en/)
-* A code editor
-* Access to a terminal
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+* Access to a command prompt
 * An Internet connection
 
 ---
@@ -17,7 +17,7 @@ In IOTA, transactions must be sent to [IRI nodes](root://iri/0.1/introduction/ov
 
 If you know the URL of an IRI node, you can send it a transaction. In this example we use the URL of an IRI node on the IOTA Devnet network and use the [`getNodeInfo()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo) method to check that the IRI node is online.
 
-1. In the terminal, create a working directory called iota-example
+1. In the command prompt, create a working directory called iota-example
 
     ```bash
     mkdir iota-example
@@ -67,7 +67,7 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
     node index.js
     ```
 
-    Some information about the IRI node that you're connected to is displayed in the console:
+    Some information about the IRI node that you're connected to should be displayed in the output:
 
     ```json
     {
@@ -136,7 +136,7 @@ You'll see information about the IRI node and the bundle that you've just sent.
 
 Your transaction will propgate through the IOTA network until all the IRI nodes have it in their ledgers.
 
-To confirm that your bundle in on the network, copy the value of the `bundle` field from the console output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
+To confirm that your bundle in on the network, copy the value of the `bundle` field from the output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
 **Note:** Zero-value transactions don't need to be confirmed, only value transactions do.
 

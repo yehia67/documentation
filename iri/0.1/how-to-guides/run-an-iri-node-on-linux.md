@@ -39,7 +39,7 @@ The pre-built IRI Java file is available on the IOTA GitHub repository.
     ```bash
     mkdir /home/jake/node
     ```
-    **Note:** If you see 'mkdir: cannot create directory...' in the console, you probably copied and pasted the command without changing `jake` to your Linux username.
+    **Note:** If you see 'mkdir: cannot create directory...' in the output, you probably copied and pasted the command without changing `jake` to your Linux username.
 
 3. Download and install the Java 8 JRE
 
@@ -62,7 +62,7 @@ The pre-built IRI Java file is available on the IOTA GitHub repository.
 
     **Note:** Replace the ${VERSION} variable with the [latest version](https://github.com/iotaledger/iri/releases) of the IRI. Make sure that you include the whole version, for example 1.6.0-RELEASE.
 
-The download may take some time. You should see something like the following in the console if everything went well:
+The download may take some time. You should see something like the following in the output if everything went well:
 
 ```
 HTTP request sent, awaiting response ... 200 OK
@@ -162,7 +162,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     ```bash
     java ${JAVA_OPTIONS} -Xms${JAVA_MIN_MEMORY} -Xmx${JAVA_MAX_MEMORY} -Djava.net.preferIPv4Stack=true -jar /home/jake/node/iri-${VERSION}.jar
     ```
-    The IRI will start to output logs to the console.
+    The IRI should start to log its activity.
 
     To make the IRI read your config.ini file, add the path to it after the `-c` flag. For example:
 
@@ -184,7 +184,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
     ```
 
-    You'll see something like the following in the console:
+    You should see something like the following in the output:
 
     ```json
     {

@@ -161,7 +161,7 @@ sudo npm install
     npm run sender
     ```
 
-    You will see a command on the console output similar to this:
+    You should see a command in the output:
 
     ```
     npm run receiver ADDRESSXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

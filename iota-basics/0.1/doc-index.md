@@ -12,7 +12,11 @@
 
 [How-to Guides/Create an address](/how-to-guides/create-an-address.md)
 
-[How-to Guides/Send a bundle](/how-to-guides/send-bundle.md)
+[How-to Guides/Create addresses from private keys](/how-to-guides/create-addresses-from-private-keys.md)
+
+[How-to Guides/Send a bundle of zero-value transactions](/how-to-guides/send-bundle.md)
+
+[How-to Guides/Check if a transaction is confirmed](/how-to-guides/check-transaction-confirmation.md)
 
 [References/Structure of a transaction](/references/structure-of-a-transaction.md)
 
