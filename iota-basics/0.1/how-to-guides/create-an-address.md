@@ -15,8 +15,8 @@ To complete this guide, you must have [Node JS (8+)](https://nodejs.org/en/).
 2. In the command line, change into the iota-basics directory, and install the [IOTA Core library](https://github.com/iotaledger/iota.js/tree/next/packages/core)
 
     ```bash
-    $ cd iota-basics
-    $ npm install --save @iota/core
+    cd iota-basics
+    npm install --save @iota/core
     ```
 
 3. In the iota-basics directory, create a new file called generate-address.js
