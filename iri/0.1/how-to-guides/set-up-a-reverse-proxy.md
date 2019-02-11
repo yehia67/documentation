@@ -29,7 +29,7 @@ When Nginx receives a request, it sends the request to your IRI node, fetches th
     ```bash
     systemctl status nginx
     ```
-    You should see something like the following in the console:
+    You should see something like the following in the output:
 
     ```shell
     nginx.service - A high performance web server and a reverse proxy server

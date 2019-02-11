@@ -3,17 +3,17 @@
 **This table contains the configuration options for the IRI.**
 
 You can choose to configure the IRI by specifying the configuration options in the following ways:
-* As flags in the command line
+* As flags in the command prompt
 * As parameters in a file with the .ini extension (IRI configuration file)
 
 ### Command line flags
 
 | **Configuration options** |   **Description**| **Accepted values** | **Default values**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|
-|<a name="alpha"></a>`--alpha`| Randomness of the tip selection process             |   number between 0 and infinity  |  0.001     | The number 0 is the most random and infinity is the most deterministic|
+|<a name="alpha"></a>`--alpha`| Randomness of the tip selection process             |   number between 0 and infinity  |  0.001     | Number 0 is the most random and infinity is the most deterministic|
 |<a name="api-host"></a> `--api-host`| Host to which the API will listen| string|localhost | Set this parameter to 0.0.0.0 to accept any host|
 |<a name="cache-size"></a>`--cache-size` |Size of the network cache in bytes | |150,000 | |
-|<a name="db"></a>`--db` |The database that's used to store transactions  | string | rocksdb | Currently, the only supported database is RocksDB|
+|<a name="db"></a>`--db` |Database that's used to store transactions  | string | rocksdb | Currently, the only supported database is RocksDB|
 |<a name="db-cache-size"></a>`--db-cache-size` |Size of the database cache in kilobytes | |100,000 | |
 |<a name="db-log-path"></a>`--db-log-path` |File where the database logs are saved | string |mainnet.log| |
 |<a name="db-path"></a> `--db-path`| Folder where the database is saved|string |mainnetdb | |
