@@ -15,7 +15,7 @@ To complete this tutorial, you need the following:
 
 In IOTA, transactions must be sent to [IRI nodes](root://iri/0.1/introduction/overview.md).
 
-If you know the URL of an IRI node, you can send it a transaction. In this example we use the URL of an IRI node on the IOTA Devnet network and use the [`getNodeInfo()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo) method to check that the IRI node is online.
+If you know the URL of an IRI node, you can send it a transaction. In this example we use the URL of an IRI node on the IOTA Devnet and use the [`getNodeInfo()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo) method to check that the IRI node is online.
 
 1. In the command prompt, create a working directory called iota-example
 
