@@ -1,11 +1,11 @@
 # Setting up an IOTA full-node on an SBC (Single-board computer)
 
 #### Warning: 
-Ths guide uses cIRI. CIRI is still under development. Do not except a stable full-node.
+Ths guide uses cIRI. cIRI is still under development. Do not except a stable full-node.
 You should not use cIRI in production!
 
 This guide describes how to setup a full-node on a small SBC. Since SBCs usually have restricted resources, 
-we recommend to use cIRI. CIRI is designed to be more memory- & storage-efficient than [IRI](root://iri/0.1/home.md).. 
+we recommend to use cIRI. cIRI is designed to be more memory- & storage-efficient than [IRI](root://iri/0.1/home.md).. 
 If you want to use the most recent features & extensions, you should use [IRI](root://iri/0.1/home.md).
 IRI requires at least 4 GB of memory. Therefore it is not possible to use IRI on all SBCs.
 
@@ -103,7 +103,7 @@ bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool
 
 ## Copy the files to your device
 
-GROUP_NAME: You can create a special group for ciri. So every user in this group is able to run ciri. 
+GROUP_NAME: You can create a special group for cIRI. So every user in this group is able to run cIRI. 
 You can also just set it to your user.
 
 ### SCP & IPv6
@@ -197,11 +197,11 @@ You need the NUM_KEYS_IN_MILESTONE variable from [conf.bzl](https://raw.githubus
 You need the following variables from [snapshot.json](https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.json):
 signature.index, signature.depth, signature.pubkey
 
-Replace the variables with their values in the ciri execution command.
+Replace the variables with their values in the cIRI execution command.
 
 ## Run cIRI
 
-*_Note:_* We recommend to run ciri in [tmux](https://github.com/tmux/tmux).
+*_Note:_* We recommend to run cIRI in [tmux](https://github.com/tmux/tmux).
 
 ```bash
 .app \
