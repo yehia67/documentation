@@ -20,7 +20,7 @@ In this diagram, transaction 5 is a **parent** of transaction 6. Because transac
 
 ## Bundle approvers
 
-Each [bundle](root://iota-basics/0.1/concepts/bundles-and-transactions.md) of transactions directly references two new transactions from an IRI node's ledger. These transactions are called tip transactions because they don't yet have any children.
+Each [bundle](root://iota-basics/0.1/concepts/structure-of-a-bundle.md) of transactions directly references two new transactions from an IRI node's ledger. These transactions are called tip transactions because they don't yet have any children.
 
 An IRI node selects tip transactions by starting from an old transaction and traversing its children until it finds a tip transaction with no children. As a result, transactions in a bundle are **approvers** for the tip transactions that they reference.
 
