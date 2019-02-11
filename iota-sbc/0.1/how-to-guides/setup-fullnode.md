@@ -62,9 +62,9 @@ You can change the tangle network with
 ``
 The value can be set to mainnet or testnet
 
-### Trit conversion optimization
+### Trit encoding
 
-You can change the trit conversion optimization with
+You can change the trit encoding with
 ```bash
 --define trit_encoding=value
 ```
