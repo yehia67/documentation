@@ -17,7 +17,7 @@ I cover ARMv7 & Aarch64 (32-Bit & 64-Bit). It should be possible to use this gui
 
 ### Host-system:
 
-- Linux (Ubuntu is used in this guide) MacOS should also work.
+- Linux, MacOS (BSD based OS should also work)
 
 *_Note:_* If you use Windows, you should use [a Linux VM.](https://www.windowscentral.com/how-run-linux-distros-windows-10-using-hyper-v)
 Windows 10 also supports the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10) 
