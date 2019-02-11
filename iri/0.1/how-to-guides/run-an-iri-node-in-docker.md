@@ -130,7 +130,7 @@ You can configure the IRI by passing in [IRI configuration options](../reference
     curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
     ```
 
-    You'll see something like the following in the console:
+    You should see something like the following in the output:
 
     ```json
     {

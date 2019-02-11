@@ -27,9 +27,9 @@ You can subscribe to the `sn` event on the ZMQ of the IRI to listen for recently
 
 To use the code samples in this guide, your computer must have the following:
 
-* Node JS (8+)
-* A code editor
-* Access to a terminal
+* [Node JS (8+)](https://nodejs.org/en/)
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+* Access to a command prompt
 * An Internet connection
 
 1. Create a working directory called zmq-example

@@ -83,7 +83,7 @@ The Compass repository includes a tool to generate a Merkle tree and save it in 
 	```bash
 	bazel run //docker:layers_calculator
 	```
-	This process can take some time. You should see something like the following in the console:
+	This process can take some time. You should see something like the following in the output:
 	```
 	INFO: SHA256 (https://github.com/grpc/grpc-java/archive/fe7f043504d66e1b3f674c0514ce794c8a56884e.zip) = 19c51698d4837d1978a10ed7a01f4e45a0b15bcbd3db44de2a2a1c3bdd1cf234
 	Analyzing: target //docker:layers_calculator (8 packages loaded)
@@ -134,7 +134,7 @@ The Compass repository includes a tool to generate a Merkle tree and save it in 
 	```
 	If the command was not found, do step 2 again.
 
-	You should see something like the following in the console:
+	You should see something like the following in the output:
 
 	```
 	668afdbd4462: Loading layer  18.39MB/18.39MB
@@ -150,7 +150,7 @@ The Compass repository includes a tool to generate a Merkle tree and save it in 
 	sudo ./01_calculate_layers.sh
 	```
 
-This process will take a while (with a 4 core virtual machine it takes around 15 minutes). After the process finishes, the root of the Merkle tree is output to the console:
+This process will take a while (with a 4 core virtual machine it takes around 15 minutes). After the process finishes, the root of the Merkle tree is displayed in the output:
 
 ```shell
 [main] INFO org.iota.compass.LayersCalculator - Calculating 65536 addresses.
@@ -191,7 +191,7 @@ The snapshot.example.txt file puts the total IOTA supply of 2.7Pi in the first a
 
 	**Note:** If you see a `malformed snapshot state file` error, check the snapshot.txt file and make sure that you didn't include a line break at the end of the line. If you see a `NumberFormatException` error or an `IllegalArgumentException` error, check that no space characters are either side of the semicolon.
 
-4. Press `CTRL+C` in the console to go back to your shell session. IRI will continue to run in the background.
+4. Press `CTRL+C` in the command prompt. IRI will continue to run in the background.
 
 ## Run Compass
 

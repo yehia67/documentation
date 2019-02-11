@@ -21,7 +21,7 @@ If you're using a Linux operating system, add `sudo` before all the commands in 
 
 To complete this tutorial, you need the following:
 
-* Access to a terminal
+* Access to a command prompt
 * An Internet connection
 
 ---
@@ -85,7 +85,7 @@ To complete this tutorial, you need the following:
     curl http://localhost:14265 -X POST -H 'Content-Type: application/json' -H 'X-IOTA-API-Version: 1' -d '{"command": "getNodeInfo"}'
     ```
 
-    You'll see something like the following in the console:
+    You should see something like the following in the output:
     ```json
     {
     "appName":"IRI",
