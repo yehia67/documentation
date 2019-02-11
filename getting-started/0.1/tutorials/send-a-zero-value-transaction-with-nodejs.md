@@ -54,7 +54,7 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
     // Call the `getNodeInfo()` method for information about the IRI node
     iota.getNodeInfo()
     // Convert the returned object to JSON to make the output more readable
-    .then(info => console.log(JSON.stringify(info)))
+    .then(info => console.log(JSON.stringify(info, null, 1)))
     .catch(err => {
         // Catch any errors
         console.log(err);
@@ -71,23 +71,26 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
 
     ```json
     {
-    "appName":"IRI Testnet",
-    "appVersion":"1.5.5",
-    "jreAvailableProcessors":8,
-    "jreFreeMemory":25013138032,
-    "jreVersion":"1.8.0_181",
-    "jreMaxMemory":51469877248,
-    "jreTotalMemory":31622422528,"latestMilestone":"WB9YXQQTVHNPWXHBCVEWVPWZNJAFSGPVYWPEJXVPGJIFJFFHLFAIFPAWEHJGKEIHMYAUHXOPIUGZOA999",
-    "latestMilestoneIndex":1014730,"latestSolidSubtangleMilestone":"WB9YXQQTVHNPWXHBCVEWVPWZNJAFSGPVYWPEJXVPGJIFJFFHLFAIFPAWEHJGKEIHMYAUHXOPIUGZOA999",
-    "latestSolidSubtangleMilestoneIndex":1014730,
-    "milestoneStartIndex":434525,
-    "neighbors":7,
-    "packetsQueueSize":0,
-    "time":1545903340781,
-    "tips":4995,
-    "transactionsToRequest":0,
-    "features":["addNeighbors", "getNeighbors", "removeNeighbors", "attachToTangle", "interruptAttachToTangle"],
-    "duration":0
+     "appName": "IRI Testnet",
+     "appVersion": "1.5.6-RELEASE",
+     "jreAvailableProcessors": 8,
+     "jreFreeMemory": 12052395632,
+     "jreVersion": "1.8.0_181",
+     "jreMaxMemory": 22906667008,
+     "jreTotalMemory": 16952328192,
+     "latestMilestone": "FPRSBTMKOP9JTTQSHWRGMPT9PBKYWFCCFLZLNWQDFRCXDDHZEFIEDXRIJYIMVGCXYQRHSZQYCTWXJM999",
+     "latestMilestoneIndex": 1102841,
+     "latestSolidSubtangleMilestone": "FPRSBTMKOP9JTTQSHWRGMPT9PBKYWFCCFLZLNWQDFRCXDDHZEFIEDXRIJYIMVGCXYQRHSZQYCTWXJM999",
+     "latestSolidSubtangleMilestoneIndex": 1102841,
+     "milestoneStartIndex": 434525,
+     "neighbors": 3,
+     "packetsQueueSize": 0,
+     "time": 1549482118137,
+     "tips": 153,
+     "transactionsToRequest": 0,
+     "features": ["snapshotPruning", "dnsRefresher", "testnet", "zeroMessageQueue", "tipSolidification", "RemotePOW"],
+     "coordinatorAddress": "EQQFCZBIHRHWPXKMTOLMYUYPCN9XLMJPYZVFJSAY9FQHCCLWTOLLUGKKMXYFDBOOYFBLBI9WUEILGECYM",
+     "duration": 0
     }
     ```
 
@@ -115,7 +118,7 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
         })
         .then(bundle => {
         console.log(`Published transaction with tail hash: ${bundle[0].hash}`)
-        console.log(`Bundle: ${bundle}`)
+        console.log(`Bundle: ${JSON.stringify(bundle, null, 1)}`)
     })
     .catch(err => {
             // Catch any errors
