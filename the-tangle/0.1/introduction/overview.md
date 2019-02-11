@@ -12,6 +12,12 @@ References form a hierarchy, whereby if a transaction is a **child**, the branch
 
 A reference can be direct or indirect. A direct reference is one that exists between a child and its parents. An indirect reference is one that exists between a child and any of its grandparents.
 
+![A directed acyclic graph](../dag.png)
+
+In this diagram, transaction 5 is a **parent** of transaction 6. Because transaction 5 directly references transaction 3, transaction 3 is a **grandparent** of transaction 6.
+
+**Note:** Transaction 0 is the genesis transaction, which is the very first transaction in the Tangle.
+
 ## Bundle approvers
 
 Each [bundle](root://iota-basics/0.1/concepts/bundles-and-transactions.md) of transactions directly references two new transactions from an IRI node's ledger. These transactions are called tip transactions because they don't yet have any children.
