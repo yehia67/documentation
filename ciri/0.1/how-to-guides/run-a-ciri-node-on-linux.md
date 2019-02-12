@@ -49,5 +49,5 @@ port: 14265
 ## Run cIRI with Bazel
 
 ```bash
- bazel run --define network=mainnet|testnet -- ciri <optional flags>
+bazel run --define network=mainnet|testnet -- ciri <optional flags>
 ```
