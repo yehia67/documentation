@@ -1,4 +1,4 @@
-# Security levels of addresses
+# Security levels
 
 **This table displays the possible security levels of a private key and address pair. The higher the security level, the larger and more secure the signature of a reused address is against brute force attacks.**
 
