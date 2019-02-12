@@ -27,7 +27,7 @@ If you are an advanced user, you can also use the Windows equivalent tools.
 
 - Ubuntu (or other Linux based OS, BSD should also work) with enabled SSH & configured network
 
-- At least 256 MB memory. Better: 512 MB or 1 GB. 
+- At least 512 MB memory. Better: 1 MB or 2 GB. 
 
 - Ubuntu (Other Linux distribution should also work. BSD based OS might also work.) 
 
@@ -54,6 +54,13 @@ Follow the [installation guide](https://docs.bazel.build/versions/master/install
 
 ## Cross compile cIRI
 
+### Check the architecture of your SBC
+
+You can check your architecture with:
+```bash
+uname -m
+```
+
 ### Tangle Network
 
 You can change the tangle network with
@@ -64,15 +71,8 @@ The value can be set to mainnet or testnet
 
 ### Trit encoding
 
-You can change the trit encoding with
-```bash
---define trit_encoding=value
-```
-
-The value can be set to 3 or 5
-
-- 5 => optimized mode, for production
-- 3 => debugging option
+You should read the [trit encoding documentation](root://ciri/0.1/references/ciri-configuration-options.md
+), if you want to optimize your cIRI node. 
 
 ### Compiler
 
@@ -82,20 +82,17 @@ If you want to use another compiler, you can change the compiler with
 ```
 The default compiler is gcc
 
-### Check your architecture
+### Start cross compiling
 
-You can check your architecture with:
-```bash
-uname -m
-```
+You need to execute one the following commands on your host machine:
 
-### Compiling command for Aarch64 (64-Bit)
+#### Command for Aarch64 (64-Bit)
 
 ```bash
 bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool_top=@iota_toolchains//tools/aarch64--glibc--bleeding-edge-2018.07-1:toolchain --cpu=aarch64 --compiler='gcc' --host_crosstool_top=@bazel_tools//tools/cpp:toolchain //ciri
 ```
 
-### Compiling command for ARMv7 (32-Bit)
+#### Command for ARMv7 (32-Bit)
 
 ```bash
 bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool_top=@iota_toolchains//tools/armv7-eabihf--glibc--bleeding-edge-2018.07-1:toolchain --cpu='armeabi-v7a' --compiler='gcc' --host_crosstool_top=@bazel_tools//tools/cpp:toolchain //ciri
@@ -154,7 +151,7 @@ Yaml has the following structure:
 ```yaml
 KEY: VALUE
 ```
-You should add your neighbors into the conf.yaml.
+You should add your neighbors to the conf.yaml. The [IRI guide](root://iri/0.1/how-to-guide/find-neighbor-iri-node.md) describes how you can find neighbors.
 
 An example conf.yaml:
 
@@ -201,10 +198,11 @@ Replace the variables with their values in the cIRI execution command.
 
 ## Run cIRI
 
-*_Note:_* We recommend to run cIRI in [tmux](https://github.com/tmux/tmux).
+*_Note:_* You should run cIRI in [tmux](https://github.com/tmux/tmux). 
+With tmux the execution of the program continues, even if you logout.
 
 ```bash
-.app \
+./app \
 --snapshot-file="external/snapshot_mainnet/file/downloaded" \
 --snapshot-signature-file="external/snapshot_sig_mainnet/file/downloaded" \
 --snapshot-signature-index=signature.index \
