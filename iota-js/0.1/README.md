@@ -140,7 +140,7 @@ iota.prepareTransfers(seed, transfers)
     })
     .then(bundle => {
         console.log(`Published transaction with tail hash: ${bundle[0].hash}`)
-        console.log(`Bundle: ${bundle}`)
+        console.log(`Bundle: ${JSON.stringify(bundle, null, 1)}`)
     })
     .catch(err => {
         // handle errors here
