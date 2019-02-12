@@ -8,7 +8,7 @@
 
 *_Note:_* This guide uses Ubuntu. If you are a beginner, you should stick to Ubuntu.
 
-- At least 256 MB memory. Recommendation: 512 MB - 1 GB
+- At least 512 MB memory. Recommendation: 1 MB - 2 GB
 
 - At least 50 GB of free storage
 
@@ -36,18 +36,20 @@ sqlite3 ciri/db/ciri-mainnet.db < common/storage/sql/schema.sql
 
 ## Create a configuration file
 
-Create the configuration file in ciri/conf.yml with at least the following content
-
-To find neighbors, use the IRI guide.
+Take a look into the [IRI guide](root://iri/0.1/how-to-guide/find-neighbor-iri-node.md) to find neighbors.
+Create the configuration file in ``ciri/conf.yml`` with at least the following content:
 
 ```yaml
-log-level: debug
+log-level: info
 neighbors: "udp://148.148.148.148:14265"
 port: 14265
 ```
 
 ## Run cIRI with Bazel
 
+You should read more about [trit encoding](root://ciri/0.1/references/trit-encoding.md), if you want to optimize ciri.
+We also provide an overview of all [cIRI configuration flags](root://ciri/0.1/references/ciri-configuration-options.md).
+
 ```bash
-bazel run --define network=mainnet|testnet -- ciri <optional flags>
+bazel run --define trit_encoding=5 --define network=mainnet|testnet -- ciri <configuration flags>
 ```
