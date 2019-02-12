@@ -1,6 +1,6 @@
 # Trit encoding
 
-Since IOTA uses trinary based computing and our current processors only understand binary, 
+Since IOTA uses [trinary](root://iota-basics/0.1/concepts/trinary.md) based computing and our current processors only understand binary, 
 we need to encode trinary logic in binary logic. 
 The encoding options gives you the freedom to choose which trade-off you want to choose to encode trinary logic in binary.
 cIRI has different options for the encoding. 
