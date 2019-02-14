@@ -1,6 +1,6 @@
 # Create an account
 
-**An account is a client library module that makes it easier to send and receive transactions without worrying about reusing addresses or promoting and reattaching pending transactions.**
+**An account is a stateful client library that makes it easier to send and receive transactions without worrying about reusing addresses or promoting and reattaching pending transactions.**
 
 You can use accounts to do the following:
 
