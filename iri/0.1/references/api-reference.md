@@ -76,10 +76,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "addNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}'
 ```
 --------------------
@@ -173,12 +173,12 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{ 
-"command": "attachToTangle", 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{ \
+"command": "attachToTangle", \
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI", "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P", "minWeightMagnitude": "18", "trytes": ["HOHZUBAFSGNYMOOYGPCKANKOR ... FUTOGUCOHUYBSKIAERDFMIGEY", "IOELDJYWAZBKWBTQZYLPTPLIT ... SMUXQPHLBTESISIVOJOLSPSIY"]}'
 ```
 --------------------
@@ -268,10 +268,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "broadcastTransactions", "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}'
 ```
 --------------------
@@ -360,12 +360,12 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{ 
-"command": "checkConsistency", 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{ \
+"command": "checkConsistency", \
 "tails": ["SHHXOGUUYSCCFVMCZYCNBJIMGEEIBEPCCEUXKXF9ROYQNJFFGEHOOHDLNDN9XAWXYBVYYARTPRAFFOJN9", "QMMDUXSUOSITO9JVPCJWHIQRVDBPKKZGTSYOKLUNMSM9WIXLLJLFEMKUPEO9MOFDYRDC9GMRRETRGAWJD"]}'
 ```
 --------------------
@@ -462,10 +462,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "findTransactions", "addresses": ["RVORZ9SIIP9RCYMREUIXXVPQIPHVCNPQ9HZWYKFWYWZRE9JQKG9REPKIASHUUECPSQO9JT9XNMVKWYGVA"]}'
 ```
 --------------------
@@ -556,10 +556,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "getBalances", "addresses": ["DE9DVSOWIIIKEBAAHCKBWNXGXTOKVLZPLRAGKZG9GXKFRFWERKBFYMPRLAGVZTRVYPEPHBMUPDMRQ9DPZ"],"threshold": 100};'
 ```
 --------------------
@@ -649,10 +649,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "getInclusionStates", "transactions": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"], "tips": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}'
 ```
 --------------------
@@ -731,10 +731,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "getNeighbors"}'
 ```
 --------------------
@@ -824,10 +824,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "getNodeInfo"}'
 ```
 --------------------
@@ -924,10 +924,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "getTips"}'
 ```
 --------------------
@@ -1013,10 +1013,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "getTransactionsToApprove", "depth": "15", "references": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}'
 ```
 --------------------
@@ -1106,12 +1106,12 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{ 
-"command": "getTrytes", 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{ \
+"command": "getTrytes", \
 "hashes": ["NGDFRIHOOS9J9YBQCDSFJZJKNSAJTNFKSXXEZWPZQSLRTYQDNX9UCGJHU9OZGFATCCQSGSFUZLLET9LID", "MUIYDLYHCAYGYK9IPVQX9GIHIWWCATAJ9BNFPVKZHZOSXAWVHEHHMSVEVTNRJVGCGEMSNI9ATUXFKPZRQ"]}'
 ```
 --------------------
@@ -1195,10 +1195,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "interruptAttachingToTangle"}'
 ```
 --------------------
@@ -1288,10 +1288,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "removeNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}'
 ```
 --------------------
@@ -1381,12 +1381,12 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{ 
-"command": "storeTransactions", 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{ \
+"command": "storeTransactions", \
 "trytes": ["RKDQGFBD9W9VKDEJDEXUNJBAG ... EWYCHEPCOSP9RPKLBERYVDZAM", "VBOMOUQIAIGKEJWJKDXZTWVEC ... DROZAYSJLDWLMHTXEOHYV9ML9"]}'
 ```
 --------------------
@@ -1477,12 +1477,12 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{ 
-"command": "wereAddressesSpentFrom", 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{ \
+"command": "wereAddressesSpentFrom", \
 "addresses": ["BKDEARVZVOWC9LZKTAB9AUSJSHCGVDQQGJUVNWHV9XNICMDFHEZOVLYRJYMHXKZZXSNRZRPYFSUFAFIP9", "JKPNBVXIFLISXOXLSGHFCYIY9WJHHMORXAOWUXTLGCCHCCKEBHVBWSEEMBIYXMIEZ9FCRHFOHJRANSGB9"]}'
 ```
 --------------------
