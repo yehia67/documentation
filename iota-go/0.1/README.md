@@ -10,6 +10,12 @@ This is the **official** Go client library, which allows you to do the following
 This is beta software, so there may be performance and stability issues.
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.go/issues/new).
 
+## Audience
+
+This documentation is designed for people who are familiar with the Go programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://iota-basics/0.1/bundles-and-transactions.md).
+
+This guide is designed to let you quickly start exploring and developing applications with IOTA.
+
 ## Prerequisites
 
 To download the IOTA Go client library and its dependencies, we recommend that you use [vgo modules](https://github.com/golang/go/wiki/Modules) 

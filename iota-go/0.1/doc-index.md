@@ -1,5 +1,6 @@
 # Index
 
 [Introduction](README.md)
-[How-to Guides/Create accounts](/how-to-guides/create-accounts-in-go.md)
-[How-to Guides/Work with conditional deposit requests](/how-to-guides/work-with-conditional-deposit-requests-in-go.md)
+[How-to Guides/Create an account](/how-to-guides/create-account.md)
+[How-to Guides/Create and manage conditional deposit addresses](/how-to-guides/create-and-manage-cda.md)
+[References/Conditional deposit address FAQ](/references/cda-faq.md)
