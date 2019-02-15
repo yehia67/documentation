@@ -68,13 +68,13 @@ Terms are listed in alphabetical order by category
 
 <dl><dt>bundle</dt><dd>Group of transactions that are sent together to an IRI node.  Bundles are atomic. Either all transactions inside the bundle are accepted or none of them are.</dd></dl>
 
-<dl><dt>confirmed</dt><dd>State of a transaction when it's been directly or indirectly referenced by a milestone</dd></dl>
+<dl><dt>confirmed</dt><dd>State of a transaction when it's been approved by a milestone</dd></dl>
 
 <dl><dt>cumulative weight</dt><dd>Rating that an <a href="#iota-terms">IRI node</a> gives to a <a href="#transactions">transaction</a></dd></dl>
 
 <dl><dt>depth</dt><dd>Entrypoint <a href="#milestone">milestone</a> that's used to start a weighted random walk through a <a href="#subgraph">subgraph</a>. The higher the value, the farther back in the subgraph the weighted random walk starts. A typical depth that wallets use is 3, which causes the weighted random walk to start 3 milestones in the past.</dd></dl>
 
-<dl><dt>future set</dt><dd>Group of transactions that directly or indirectly reference the same transaction</dd></dl>
+<dl><dt>future set</dt><dd>Group of transactions that approve the same transaction</dd></dl>
 
 <dl><dt>inconsistent</dt><dd>State of a transaction when it leads to withdrawing non-available funds</dd></dl>
 

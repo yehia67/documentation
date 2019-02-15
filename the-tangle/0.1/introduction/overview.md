@@ -4,29 +4,23 @@
 
 The data structure that forms the Tangle is a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), and it was formally introduced in the IOTA whitepaper by Professor Serguei Popov in 2015.
 
-## Transaction hierarchy
-
 In the Tangle, transactions are connected to each other by reference through their [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md). These fields contain the transaction hash of either a transaction in the same bundle or a tip transaction that was returned during [tip selection](../concepts/tip-selection.md).
 
-References form a hierarchy, whereby if a transaction is a **child**, the branch and trunk transactions are its **parents**.
-
-A reference can be direct or indirect. A direct reference is one that exists between a child and its parents. An indirect reference is one that exists between a child and any of its grandparents.
+References form a family tree, whereby if a transaction is a **child**, the branch and trunk transactions are its **parents**.
 
 ![A directed acyclic graph](../dag.png)
 
-In this diagram, transaction 5 is a **parent** of transaction 6. Because transaction 5 directly references transaction 3, transaction 3 is a **grandparent** of transaction 6.
+In this diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. On the other hand, transaction 6 indirectly references transaction 3, so, transaction 3 is a **grandparent** of transaction 6.
+
+Because tip selection causes IRI nodes to validate bundles, any transaction that directly or indirectly references other transactions approves them and their entire history.
 
 **Note:** Transaction 0 is the genesis transaction, which is the very first transaction in the Tangle.
 
-## Bundle approvers
+## Consensus
 
-Each [bundle](root://iota-basics/0.1/concepts/structure-of-a-bundle.md) of transactions directly references two new transactions from an IRI node's ledger. These transactions are called tip transactions because they don't yet have any children.
+In IOTA, the nodes must reach consensus about when a transaction can be considered confirmed before they can update the balances of addresses.
 
-An IRI node selects tip transactions by starting from an old transaction and traversing its children until it finds a tip transaction with no children. As a result, transactions in a bundle are **approvers** for the tip transactions that they reference.
-
-## Transaction confirmation
-
-A transaction is considered confirmed when it's approved by a [Coordinator](../concepts/the-coordinator.md)-issued milestone. Therefore, to be approved by a milestone, a transaction must first be selected during tip selection and added to a milestone's `branchTransaction` field or `trunkTransaction` field.
+A transaction is considered confirmed when it's approved by a [Coordinator](../concepts/the-coordinator.md)-issued milestone.
 
 ## Further Research
 
