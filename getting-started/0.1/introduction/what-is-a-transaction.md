@@ -1,6 +1,6 @@
 # What is a transaction?
 
-**A transaction is an packet that sends messages, withdraws IOTA tokens from an address, or deposits IOTA tokens to an address.**
+**A transaction is a packet that sends messages, withdraws IOTA tokens from an address, or deposits IOTA tokens to an address.**
 
 Transactions are sent to IRI nodes in [bundles](../introduction/what-is-a-bundle.md).
 
