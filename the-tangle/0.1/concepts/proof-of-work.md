@@ -19,7 +19,7 @@ Clients may want to use remote PoW if the device they're using to create transac
 To calculate the PoW for a transaction, the following contents of the transaction are converted from trytes to trits, then those trits are hashed to form a transaction hash:
 
 * **Bundle hash:** Hash that's calculated using the `address`, `obsoleteTag`, `timestamp`, `value`, `currentIndex`, and `lastindex` fields of all transactions in a bundle
-* **Signature:** Signature of the transaction (if it debits IOTA tokens)
+* **Signature:** Signature of the transaction (if it withdraws IOTA tokens)
 * **Trunk transaction and branch transaction:** Two transactions that the transaction references and approves
 
 If the hash ends in the correct amount of 9s ([minimum weight magnitude](#minimum-weight-magnitude)), it's considered valid.

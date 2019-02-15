@@ -39,4 +39,4 @@ During a [weighted random walk](root://the-tangle/0.1/concepts/tip-selection.md)
 
 The ledger validator makes sure that double-spends are never confirmed
 
-During a [weighted random walk](root://the-tangle/0.1/concepts/tip-selection.md), the ledger validator checks that each bundle does not lead to a double spend by checking the values of all addresses in a bundle. If a double-spend is found, the weighted random walk steps back one transaction and finds another route to a tip transaction.
+During a [weighted random walk](root://the-tangle/0.1/concepts/tip-selection.md), the ledger validator checks that each bundle does not lead to a double-spend by checking the values of all addresses in a bundle. If a double-spend is found, the weighted random walk steps back one transaction and finds another route to a tip transaction.

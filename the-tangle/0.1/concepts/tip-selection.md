@@ -230,7 +230,7 @@ A transaction is considered invalid if any of the following occur:
 
 * It references a transaction that's too far in the past, namely beyond `latestSolidMilestone - maxDepth`.
 
-* The ledger state is not consistent, such as trying to spend missing funds or double-spending.
+* The ledger state is not consistent, such as trying to withdraw or deposit missing funds or double-spending.
 
 * The validator maintains a list of transactions that have been checked for validity. Every time a new transaction is validated, it is also checked against these.
 
