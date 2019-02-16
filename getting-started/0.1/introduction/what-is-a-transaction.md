@@ -1,6 +1,6 @@
 # What is a transaction?
 
-**A transaction is a packet that sends messages, withdraws IOTA tokens from an address, or deposits IOTA tokens to an address.**
+**A transaction is a single operation that can stand alone or be packaged with other transactions. Stand-alone transactions are those that contain no value, for example to send only data. Muliple transactions can be complex operations, for example withdrawing IOTA tokens from one address and depositing them into another.**
 
 Transactions are sent to IRI nodes in [bundles](../introduction/what-is-a-bundle.md).
 
