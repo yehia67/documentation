@@ -14,11 +14,11 @@ Nodes are like a cross between a post office and a bank. They keep a ledger of e
 
 ## Trust
 
-You might be wondering how you can trust a node. After all, it's responsible for protecting the balance of your addresses.
+You might be wondering how you can trust a node. After all, connecting to a node is the only way to read from and write to the Tangle.
 
 Well, IOTA is a [distributed ledger technology](root://getting-started/0.1/introduction/what-is-dlt.md). The word _distributed_ is the key. When a node receives a transaction, validates it, and appends it to its ledger, it doesn't stop there. The IOTA protocol states that all nodes must forward transactions onto other nodes, called their neighbors. This way, all nodes receive and validate all transactions, and all nodes hold a consistent, distributed ledger, removing the need to trust any individual.
 
-## immutability
+## Immutability
 
 So, what stops a node from being able to change a transaction? The IOTA protocol defines rules that make transactions immutable.
 
