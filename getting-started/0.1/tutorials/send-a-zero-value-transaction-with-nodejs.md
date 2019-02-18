@@ -1,6 +1,6 @@
 # Send your first zero-value transaction (Node.js)
 
-**A zero-value transaction can be sent using a random seed that doesn't contain IOTA tokens. These transactions are useful for applications that want to send and store immutible messages on the Tangle.**
+**A zero-value transaction can be sent using a random seed that doesn't contain IOTA tokens. These transactions are useful for applications that want to send and store immutable messages on the Tangle.**
 
 ## Prerequisites
 

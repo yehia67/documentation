@@ -2,7 +2,7 @@
 
 **The Tangle is the data structure that's formed by the connections among transactions in the distributed ledger on all IRI nodes.**
 
-One of the validation critera of a transaction is that each one must directly reference two previous transactions (tip transactions). 
+One of the validation critera of a transaction is that each one must directly reference two previous transactions. 
 
 This referencing model forms a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), in which each transaction represents a vertex.
 

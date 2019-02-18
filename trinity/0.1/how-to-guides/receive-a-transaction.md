@@ -2,7 +2,7 @@
 
 **Trinity has a user interface that allows you to receive transactions and generate new addresses at the click of a button.**
 
-**Important:** If you send a transaction that spends IOTA tokens from one of your addresses, you can't reuse that address. Instead, you must generate a new address.
+**Important:** If you send a transaction that withdraws IOTA tokens from one of your addresses, you can't reuse that address. Instead, you must generate a new address.
 
 1. Click **Receive**
 2. Click **Sync address** (**Generate address** on a mobile device) to generate a new address
