@@ -18,9 +18,7 @@ To create your own IOTA network, you must complete the following tasks in order:
 
 ## Prerequisites
 
-If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
-
-To complete these tasks, your Linux server will need the following:
+A Linux server with the following minimum requirements. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
 
 * A new installation of an Ubuntu 18.04 Server / Virtual Machine
 * At least 8GB RAM

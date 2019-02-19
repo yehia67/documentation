@@ -8,7 +8,7 @@ You can choose to configure the IRI by specifying the configuration options in t
 
 ### Command line flags
 
-| **Configuration options** |   **Description**| **Accepted values** | **Default values**|**Notes** |
+| **Flag** |   **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|
 |<a name="alpha"></a>`--alpha`| Randomness of the tip selection process             |   number between 0 and infinity  |  0.001     | Number 0 is the most random and infinity is the most deterministic|
 |<a name="api-host"></a> `--api-host`| Host to which the API will listen| string|localhost | Set this parameter to 0.0.0.0 to accept any host|
@@ -50,8 +50,9 @@ You can choose to configure the IRI by specifying the configuration options in t
 |<a name="zmq-ipc"></a>`--zmq-ipc` |Path that is used to communicate with ZMQ in IPC| string|  ipc://iri|
 |<a name="zmq-port"></a> `--zmq-port `|Port that is used to connect to the ZMQ feed |string | 5556|
 
-### IRI Configuration file
-| **Configuration options** |   **Description**| **Accepted values** | **Default values**|**Notes** |
+### Configuration file parameters
+
+| **Parameter** |   **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|
 |<a name="local-snapshots-enabled"></a>`LOCAL_SNAPSHOTS_ENABLED`   | Enable [local snapshots](../concepts/local-snapshot.md) |boolean  | true  | This parameter must be set to `true` for the IRI to read any other `LOCAL_SNAPSHOTS` parameters|
 |<a name="local-snapshots-pruning-enabled"></a>`LOCAL_SNAPSHOTS_PRUNING_ENABLED`  |  Enable the deletion of transactions from the ledger  | true | Transactions are deleted if they were confirmed by a milestone with an index that is older than the result of the following calculation: current milestone index - (`LOCAL_SNAPSHOTS_DEPTH` + `LOCAL_SNAPSHOTS_PRUNING_DELAY`).  |
