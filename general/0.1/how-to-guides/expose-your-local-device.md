@@ -6,13 +6,15 @@ Before you can create port forwarding rules, you need a static IP address. If yo
 
 ## Prerequisites
 
-In this guide, you must have a Linux Ubuntu 18.04 server. If you don't have a Linux server and you're running a Windows or Mac operating system, you can [run one in a virtual machine](../how-to-guides/set-up-virtual-machine.md).
+To complete this guide, you must have a Linux Ubuntu 18.04 server. If you don't have a Linux server and you're running a Windows or Mac operating system, you can [run one in a virtual machine](../how-to-guides/set-up-virtual-machine.md).
 
-## Get a static IP address
+## Get a static IP address in your local network
 
 Whenever a new device connects to a local network, it's assigned an internal IP address from a DHCP (dynamic host configuration protocol) server, which is usually your router.
 
 Before you can create port forwarding rules, you need the internal IP address of your local device to stay the same. Otherwise, you'd need to update your port forwarding rules every time your IP address changed.
+
+**Note:** Many ways exists to get a static IP in your local network, and this guide is just one way of doing so.
 
 1. Find your gateway IP address (router's IP address) and make a note of it
 
@@ -23,12 +25,10 @@ Before you can create port forwarding rules, you need the internal IP address of
 2. Find both the current internal IP address of your Linux server and the netmask length, and make a note of them
 
     ```bash
-    ifconfig | grep inet.*192
+    ifconfig | grep netmask
     ```
 
-    ![Example Linux output of an IP address and netmask](../ip-address-and-netmask.png)
-
-    **Note:** In the netmask, 255 represents 8 bits. Therefore the netmask length in this example is 3*8, which results in a length of 24.
+    **Note:** In the output, the internal IP address is next to `inet`. Ignore the 127.0.0.1 IP address, this is your localhost. For the netmask, 255 represents 8 bits. Therefore the netmask length in this example is 3*8, which results in a length of 24.
 
 3. Open the network configuration file
 
@@ -64,6 +64,8 @@ Before you can create port forwarding rules, you need the internal IP address of
 
 Now that you're Linux server has a static IP address, you can [create port forwarding rules](#create-port-forwarding-rules).
 
+**Important:** If your network configuration changes, for example you change your router, you may lose connection to your device. In this case, you should physically connect to your device and update the 01-netcfg.yaml file with a new static IP address.
+
 **Note:** If you want your Linux server to have a public domain name and your public IP address is not static, you can use a dynamic domain name server (DDNS) such as [DuckDNS](https://www.duckdns.org/).
 
 ## Create a port forwarding rule
@@ -72,7 +74,7 @@ To expose a local device to the Internet, you must create port forwarding rules,
 
 ### Prerequisites
 
-You need administrator access to your router and a [static IP address](#get-a-static-ip-address).
+You need administrator access to your router and a [static IP address in your local network](#get-a-static-ip-address).
 
 ---
 
