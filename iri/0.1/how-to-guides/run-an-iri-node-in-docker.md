@@ -120,7 +120,7 @@ You can configure the IRI by passing in [IRI configuration options](../reference
     * If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`
     * To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the DOCKER RUN command
 
-2. Call the [getNodeInfo](https://iota.readme.io/v1.5.5/reference#getnodeinfo) endpoint to request general information about the IRI node
+2. Call the [getNodeInfo](../references/api-reference.md#getnodeinfo) endpoint to request general information about the IRI node
 
     ```bash
     curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
