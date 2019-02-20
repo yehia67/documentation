@@ -1,6 +1,6 @@
 # What is IOTA?
 
-**IOTA is a distributed ledger technology (DLT) that allows computers in an IOTA network to transfer immutible data and value (IOTA tokens) among each other.**
+**IOTA is a distributed ledger technology (DLT) that allows computers in an IOTA network to transfer immutable data and value (IOTA tokens) among each other.**
 
 IOTA aims to improve efficiency, increase production, and ensure data integrity in a machine-to-machine economy.
 
@@ -39,9 +39,11 @@ IOTA is an open-source technology that can streamline, secure, and automate any 
 
 ### Trust
 
-All transactions in the ledger are immutible and transparent.
-
 Each IRI node in an IOTA network validates and stores transactions in its ledger, then sends its contents to other IRI nodes that do the same. As a result, all valid transactions are agreed on by all nodes, removing the need to trust a single one in the network.
+
+### Immutability
+
+All transactions in the ledger are immutable and transparent.
 
 ### Security
 
@@ -53,7 +55,7 @@ IOTA networks are peer-to-peer networks. No central authority controls the ledge
 
 IOTA is free to use. You don't need to pay a subscription, or sign a contract. Even transactions are free to send.
 
-### Scalable
+### Scalability
 
 For each transaction that's appended to the ledger, two previous transactions are validated. This process makes IOTA incredibly scalable because the more new transactions that propagate through the network, the faster other transactions are validated.
 

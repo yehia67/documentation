@@ -31,7 +31,7 @@ Terms are listed in alphabetical order by category
 <dl><dt>Kerl</dt><dd>Keccek-384 hash function that includes the additional conversion of its input and output from/to 243 trits to 48 bytes, using <a href="https://en.wikipedia.org/wiki/Two%27s_complement">two's complement</a>.
 </dd></dl>
 
-<dl><dt>Winternitz one-time signature (W-OTS)</dt><dd>Post-quantum signature scheme that's used to sign transactions that spend IOTA tokens.
+<dl><dt>Winternitz one-time signature (W-OTS)</dt><dd>Post-quantum signature scheme that's used to sign input transactions that withdraw IOTA tokens.
 </dd></dl>
 
 ## General terms
@@ -68,15 +68,15 @@ Terms are listed in alphabetical order by category
 
 <dl><dt>bundle</dt><dd>Group of transactions that are sent together to an IRI node.  Bundles are atomic. Either all transactions inside the bundle are accepted or none of them are.</dd></dl>
 
-<dl><dt>confirmed</dt><dd>State of a transaction when it's been directly or indirectly referenced by a milestone</dd></dl>
+<dl><dt>confirmed</dt><dd>State of a transaction when it's been approved by a milestone</dd></dl>
 
 <dl><dt>cumulative weight</dt><dd>Rating that an <a href="#iota-terms">IRI node</a> gives to a <a href="#transactions">transaction</a></dd></dl>
 
 <dl><dt>depth</dt><dd>Entrypoint <a href="#milestone">milestone</a> that's used to start a weighted random walk through a <a href="#subgraph">subgraph</a>. The higher the value, the farther back in the subgraph the weighted random walk starts. A typical depth that wallets use is 3, which causes the weighted random walk to start 3 milestones in the past.</dd></dl>
 
-<dl><dt>future set</dt><dd>Group of transactions that directly or indirectly reference the same transaction</dd></dl>
+<dl><dt>future set</dt><dd>Group of transactions that approve the same transaction</dd></dl>
 
-<dl><dt>inconsistent</dt><dd>State of a transaction when it leads to spending non-available funds</dd></dl>
+<dl><dt>inconsistent</dt><dd>State of a transaction when it leads to withdrawing non-available funds</dd></dl>
 
 <dl><dt>inclusion state</dt><dd>Process that an <a href="#iota-terms">IRI node</a> performs to check either the acceptance of a transaction or the confirmation of a transaction. Given a transaction and a list of tip transactions, the inclusion state is true if the tip transactions reference that transaction.</dd></dl>
 
