@@ -130,9 +130,11 @@ The IRI runs in a Java virtual machine. Therefore, before you run the IRI, you n
     export JAVA_MAX_MEMORY=4G
     ```
 
-    * **JAVA_OPTIONS:** Commands that optimise the Java virtual machine
-    * **JAVA_MIN_MEMORY:** The initial memory allocation for the Java virtual machine
-    * **JAVA_MAX_MEMORY:** the maximum memory allocation for the Java virtual machine
+    **JAVA_OPTIONS:** Commands that optimise the Java virtual machine
+
+    **JAVA_MIN_MEMORY:** The initial memory allocation for the Java virtual machine
+    
+    **JAVA_MAX_MEMORY:** the maximum memory allocation for the Java virtual machine
     
 2. Create an IRI configuration file in the same directory as your IRI Java file. Change `jake` to your Linux username.
 
