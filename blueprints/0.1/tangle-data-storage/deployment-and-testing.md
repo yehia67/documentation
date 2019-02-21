@@ -1,6 +1,6 @@
-# Deployment and testing
+# Deploy and test Tangle data storage
 
-**The section below describes how this blueprint can be tested, deployed or modified (open source repositories are available).**
+**The section below describes how you can test, deploy and modify this blueprint (open source repositories are available).**
 
 Please see a [demo of this app](https://iota-poc-ipfs.dag.sh/).
 
@@ -24,7 +24,7 @@ In order to reproduce this PoC there is no requirement to deploy dedicated hardw
 
     ![Upload File for IOTA IPFS Data Storage PoC - Populated](../data-storage-upload2.png)
 
-1. Once you click the Upload button the file and metadata will be sent to the API and stored on IPS and the Tangle. After this operation has beeen successfully performed you should get a confirmation.
+3. Once you click the Upload button the file and metadata will be sent to the API and stored on IPS and the Tangle. After this operation has beeen successfully performed you should get a confirmation.
 
     ![Uploaded File for IOTA IPFS Data Storage PoC](../data-storage-upload-finished.png)
 

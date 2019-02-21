@@ -1,8 +1,10 @@
+# Architecture
+
 **This page describes an example architecture that can be used for solving the Tangle data storage use case.**
 
 **Disclaimer:** Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss with IOTA community.
 
-## Prerequesites for creating the project
+## Prerequesites
 
 This projects asumes some level of programming knowledge, specifically in: Javascript, React and NodeJS.
 
