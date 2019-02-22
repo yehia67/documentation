@@ -7,13 +7,9 @@
 * To run the IRI, your computer must meet the following minimum requirements:
     * 4GB RAM
     * 64-bit processor
-    * A public IP address: Either a static IP address or a dynamic IP address that's connected to a dynamic DNS such as [noip.com](https://www.noip.com/remote-access)
+    * A [public IP address](root://general/0.1/expose-your-local-device.md) that's either static or connected to a dynamic DNS such as [duckdns.org](https://www.duckdns.org)
 
-* By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must forward these ports to your computer's public IP address.
-
-    * **UDP neighbor peering port:** 14600
-    * **TCP neighbor peering port:** 14600
-    * **TCP API port:** 14265
+* By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/expose-your-local-device.md).
 
 ---
 
@@ -124,7 +120,7 @@ You can configure the IRI by passing in [IRI configuration options](../reference
     * If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`
     * To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the DOCKER RUN command
 
-2. Call the [getNodeInfo](https://iota.readme.io/v1.5.5/reference#getnodeinfo) endpoint to request general information about the IRI node
+2. Call the [getNodeInfo](../references/api-reference.md#getnodeinfo) endpoint to request general information about the IRI node
 
     ```bash
     curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq

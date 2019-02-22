@@ -99,23 +99,23 @@ When Nginx receives a request, it sends the request to your IRI node, fetches th
 
 Congratulations :tada: Nginx is now controlling the requests to your IRI node.
 
-9. To test that Nginx is limiting the API requests, make 20 consecutive requests to the `getNodeInfo` endpoint
+To test that Nginx is limiting the API requests, make 20 consecutive requests to the `getNodeInfo` endpoint
 
-    ```bash
-    for i in {0..20}; do (curl  http://localhost:5000 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}') 2>/dev/null; done
-    ```
+```bash
+for i in {0..20}; do (curl  http://localhost:5000 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}') 2>/dev/null; done
+```
 
-    You should see a mixture of JSON responses and 503 errors, which are returned when too many requests are made from one IP address.
+You should see a mixture of JSON responses and 503 errors, which are returned when too many requests are made from one IP address.
 
-    ```shell
-    {"appName":"IRI","appVersion":"1.6.0-RELEASE","jreAvailableProcessors":2,"jreFreeMemory":1139498432,"jreVersion":"1.8.0_201","jreMaxMemory":4294967296,"jreTotalMemory":2147483648,"latestMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999","latestMilestoneIndex":933210,"latestSolidSubtangleMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999","latestSolidSubtangleMilestoneIndex":933210,"milestoneStartIndex":-1,"lastSnapshottedMilestoneIndex":933210,"neighbors":0,"packetsQueueSize":0,"time":1549447256071,"tips":0,"transactionsToRequest":0,"features":["snapshotPruning","dnsRefresher","tipSolidification"],"coordinatorAddress":"KPWCHICGJZXKE9GSUDXZYUAPLHAKAHYHDXNPHENTERYMMBQOPSQIDENXKLKCEYCPVTZQLEEJVYJZV9BWU","duration":0}<html>
-    <head><title>503 Service Temporarily Unavailable</title></head>
-    <body bgcolor="white">
-    <center><h1>503 Service Temporarily Unavailable</h1></center>
-    <hr><center>nginx/1.14.0 (Ubuntu)</center>
-    </body>
-    </html>
-    ```
+```shell
+{"appName":"IRI","appVersion":"1.6.0-RELEASE","jreAvailableProcessors":2,"jreFreeMemory":1139498432,"jreVersion":"1.8.0_201","jreMaxMemory":4294967296,"jreTotalMemory":2147483648,"latestMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999","latestMilestoneIndex":933210,"latestSolidSubtangleMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999","latestSolidSubtangleMilestoneIndex":933210,"milestoneStartIndex":-1,"lastSnapshottedMilestoneIndex":933210,"neighbors":0,"packetsQueueSize":0,"time":1549447256071,"tips":0,"transactionsToRequest":0,"features":["snapshotPruning","dnsRefresher","tipSolidification"],"coordinatorAddress":"KPWCHICGJZXKE9GSUDXZYUAPLHAKAHYHDXNPHENTERYMMBQOPSQIDENXKLKCEYCPVTZQLEEJVYJZV9BWU","duration":0}<html>
+<head><title>503 Service Temporarily Unavailable</title></head>
+<body bgcolor="white">
+<center><h1>503 Service Temporarily Unavailable</h1></center>
+<hr><center>nginx/1.14.0 (Ubuntu)</center>
+</body>
+</html>
+```
 
 ## Block requests from certain IP addresses
 
