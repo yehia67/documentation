@@ -2,19 +2,19 @@
 
 **To connect a device to those outside of your local network, you can create port forwarding rules to forward requests from your public IP address to your device. A common reason to expose your local device to the Internet is to connect your IOTA node to neighbors.**
 
-Before you can create port forwarding rules, you need a static IP address. If you already have one, [go straight to port forwarding](#create-a-port-forwarding-rule).
+Before you can create port forwarding rules, you need a static IP address on your local network. If you already have one, [go straight to port forwarding](#create-a-port-forwarding-rule).
 
 ## Prerequisites
 
 To complete this guide, you must have a Linux Ubuntu 18.04 server. If you don't have a Linux server and you're running a Windows or Mac operating system, you can [run one in a virtual machine](../how-to-guides/set-up-virtual-machine.md).
 
-## Get a static IP address from your local network
+## Get a static IP address on your local network
 
 Whenever a new device connects to a local network, it's assigned an internal IP address from a DHCP (dynamic host configuration protocol) server, which is usually your router.
 
 Before you can create port forwarding rules, you need the internal IP address of your local device to stay the same. Otherwise, you'd need to update your port forwarding rules every time your IP address changed.
 
-**Note:** Many ways exists to get a static IP from your local network, and this guide is just one way of doing so.
+**Note:** Many ways exists to get a static IP on your local network, and this guide is just one way of doing so.
 
 1. Find your gateway IP address (router's IP address) and make a note of it
 
@@ -74,7 +74,7 @@ To expose a local device to the Internet, you must create port forwarding rules,
 
 ### Prerequisites
 
-You need administrator access to your router and a [static IP address from your local network](#get-a-static-ip-address-from-your-local-network).
+You need administrator access to your router and a [static IP address on your local network](#get-a-static-ip-address-on-your-local-network).
 
 ---
 
