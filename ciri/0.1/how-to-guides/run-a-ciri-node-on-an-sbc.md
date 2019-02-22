@@ -4,42 +4,34 @@
 Ths guide uses cIRI. cIRI is still under development. Do not except a stable full-node.
 You should not use cIRI in production!
 
-This guide describes how to setup a full-node on a small SBC. Since SBCs usually have restricted resources, 
-we recommend to use cIRI. cIRI is designed to be more memory- & storage-efficient than [IRI](root://iri/0.1/home.md).. 
-If you want to use the most recent features & extensions, you should use [IRI](root://iri/0.1/home.md).
+This guide describes how to set up a full-node on a small SBC. Since SBCs usually have restricted resources, 
+we recommend to use cIRI. cIRI is designed to be more memory- and storage-efficient than [IRI](root://iri/0.1/introduction/overview.md).. 
+If you want to use the most recent features and extensions, you should use [IRI](root://iri/0.1/introduction/overview.md).
 IRI requires at least 4 GB of memory. Therefore it is not possible to use IRI on all SBCs.
 
-*_Note:_* I use an Orange Pi Zero & Zero Plus for this guide, but I try to keep it as general as possible.
+*__Note:__* The Orange Pi Zero and Zero Plus for this guide, but I try to keep it as general as possible.
 It should be possible to follow this guide with any common Cortex-A based SBC.
-I cover ARMv7 & Aarch64 (32-Bit & 64-Bit). It should be possible to use this guide for any Cortex-A based platform.
+I cover ARMv7 and Aarch64 (32-Bit and 64-Bit). It should be possible to use this guide for any Cortex-A based platform.
 
-## Requirements
+## Prerequisites
 
-### Host-system:
+### Host-system
 
 - Linux, MacOS (BSD based OS should also work)
 
-*_Note:_* If you use Windows, you should use [a Linux VM.](https://www.windowscentral.com/how-run-linux-distros-windows-10-using-hyper-v)
-Windows 10 also supports the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10) 
+*__Note:__* If you use Windows, you should use [a Linux VM.](root://general/0.1/how-to-guides/set-up-virtual-machine.md)
+Windows 10 also supports the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 If you are an advanced user, you can also use the Windows equivalent tools.
 
-### SBC:
+### SBC
 
-- Ubuntu (or other Linux based OS, BSD should also work) with enabled SSH & configured network
-
-- At least 512 MB memory. Better: 1 MB or 2 GB. 
-
+- Ubuntu (or other Linux based OS, BSD should also work) with enabled SSH and configured network
+- At least 512 MB memory.
 - Ubuntu (Other Linux distribution should also work. BSD based OS might also work.) 
-
-- At least 16 GB storage (for testing purposes), to run the main-tangle: at least 64 GB.
-
-## Before you start with this guide
-
-- You might want to check our ["Setting up an SBC for IOTA guide"](root://iota-sbc/0.1/how-to-guises/setup-sbc.md).
-
+- At least 64 GB storage (or 16 GB if the node is only for testing purposes)
+- You might want to check our ["Setting up an SBC for IOTA guide"](root://iota-sbc/0.1/how-to-guides/setup-sbc.md).
 - It is recommended to disable PoW on small SBCs. 
 Outsourcing the workload to a faster server might be also a good option for small SBCs.
-
 - The guide uses Ubuntu. We recommend to stick to Ubuntu if you consider yourself as beginner
 
 ## Clone the git repository
@@ -103,7 +95,7 @@ bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool
 GROUP_NAME: You can create a special group for cIRI. So every user in this group is able to run cIRI. 
 You can also just set it to your user.
 
-### SCP & IPv6
+### SCP and IPv6
 
 If you want to use SCP with IPv6, you need to use the -6 flag and the URL notation with escaping.
 For example:
@@ -134,7 +126,7 @@ Check out our ["Setting up an SBC for IOTA guide"](root://iota-sbc/0.1/how-to-gu
 ssh USERNAME@IP_ADDRESS
 ```
 
-## Create snapshot & config directories
+## Create snapshot and config directories
 
 ```bash
 cd /etc/iota/ciri && \
@@ -198,7 +190,7 @@ Replace the variables with their values in the cIRI execution command.
 
 ## Run cIRI
 
-*_Note:_* You should run cIRI in [tmux](https://github.com/tmux/tmux). 
+*__Note:__* You should run cIRI in [tmux](https://github.com/tmux/tmux). 
 With tmux the execution of the program continues, even if you logout.
 
 ```bash
