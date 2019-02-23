@@ -2,7 +2,7 @@
 
 **When you download Trinity Desktop, you may want to verify its authenticity to make sure that you downloaded the correct one from the IOTA Foundation GitHub repository.**
 
-You can verify the authenticity of Trinity Desktop you can either use the SHA256 hash or the code signature. Instructions for both of these options differ, depending on your operating system.
+To verify the authenticity of Trinity Desktop, you can use the SHA256 hash and code signature. Instructions for both of these steps differ, depending on your operating system.
 
 ## Windows operating system
 
