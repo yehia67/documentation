@@ -3,9 +3,6 @@
 [Trinity overview](/0.1/introduction/overview.md)
 ## Learn about the functions, limitations, and security of Trinity
 
-[Verify your Trinity Desktop download](/0.1/how-to-guides/desktop-build-verification.md)
-## Learn how to verify the authenticity and integrity of your Trinity Desktop download
-
 [Hardware wallet](/0.1/concepts/hardware-wallet.md)
 ## Learn what a hardware wallet is and how to use one with Trinity
 
