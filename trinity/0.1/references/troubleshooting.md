@@ -6,7 +6,7 @@
 
 If Trinity can't connect to an IRI node, it may have an outdated view of transactions on the network. This view can cause Trinity to display an incorrect balance. Therefore, Trinity retains a list of locally generated addresses so it can be manually re-synchronized.
 
-If you think you're balance is wrong (and a [global snapshot](../how-to-guides/perform-a-snapshot-transition.md) hasn't occurred), you can manually sycnhronize it by going to **Settings** > **Account** > **Account management** > **Tools** > **Sync account**.
+If you think you're balance is wrong (and a [global snapshot](../how-to-guides/perform-a-snapshot-transition.md) hasn't occurred), you can manually synchronize it by going to **Settings** > **Account** > **Account management** > **Tools** > **Sync account**.
 
 ![Manual update](../sync.jpg) 
 
