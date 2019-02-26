@@ -1,6 +1,6 @@
 # Set up a reverse proxy server
 
-**Clients can abuse the open API port of an IRI node by making multiple spam API requests. To restrict requests by IP address or to limit the number of permitted requests, you can connect your IRI node to a reverse proxy server.**
+**Clients can abuse the open API port of an IRI node by making spam API requests to it. To restrict API requests by IP address or to limit the number of permitted API requests, you can connect your IRI node to a reverse proxy server.**
 
 Many [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy) exist. In this guide, you'll install [Nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) on the same Linux server as your IRI node.
 
@@ -112,7 +112,7 @@ You should see a mixture of JSON responses and 503 errors, which are returned wh
 <head><title>503 Service Temporarily Unavailable</title></head>
 <body bgcolor="white">
 <center><h1>503 Service Temporarily Unavailable</h1></center>
-<hr><center>nginx/1.14.0 (Ubuntu)</center>
+<center>nginx/1.14.0 (Ubuntu)</center>
 </body>
 </html>
 ```
