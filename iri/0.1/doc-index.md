@@ -17,7 +17,6 @@
 [References/Troubleshooting](/references/troubleshooting.md)
 [References/API reference](/references/api-reference.md)
 [References/API errors](/references/api-errors.md)
-[References/Devnet nodes](/references/devnet-nodes.md)
 [References/Data in the ledger](/references/data-in-the-ledger.md)
 [References/Data in the snapshot metadata file](/references/data-in-the-snapshot-metadata-file.md)
 [References/IRI configuration options](/references/iri-configuration-options.md)
