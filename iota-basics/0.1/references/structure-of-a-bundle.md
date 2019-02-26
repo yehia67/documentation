@@ -2,7 +2,7 @@
 
 **This table displays the structure of a bundle.**
 
-All transactions in a bundle, except the last one, are connected to each other through the [`trunkTransaction` field](..references/structure-of-a-transaction.md). These connections allow IRI nodes to find all transactions in the same bundle and validate them.
+All transactions in a bundle, except the last one, are connected to each other through the [`trunkTransaction` field](../references/structure-of-a-transaction.md). These connections allow IRI nodes to find all transactions in the same bundle and validate them.
 
 ![Connections in a bundle](../bundle-structure.png)
 
