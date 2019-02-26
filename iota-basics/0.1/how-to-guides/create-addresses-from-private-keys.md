@@ -46,7 +46,7 @@ To complete this guide, you need the following:
     var subseed = Sign.subseed(Converter.trytesToTrits(seed), 0 /*index*/);
     ```
 
-6. Create one private key for each of the three [security levels](./references/security-levels.md) by passing the same subseed and a different security level to the `key()` method
+6. Create one private key for each of the three [security levels](../references/security-levels.md) by passing the same subseed and a different security level to the `key()` method
 
     ```js
     var privateKey1 = Sign.key(subseed, 1 /*security level*/);
