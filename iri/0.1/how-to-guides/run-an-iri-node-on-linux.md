@@ -204,7 +204,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     ```bash
     java ${JAVA_OPTIONS} -Xms${JAVA_MIN_MEMORY} -Xmx${JAVA_MAX_MEMORY} -Djava.net.preferIPv4Stack=true -jar /home/jake/node/iri-${VERSION}.jar
     ```
-    The IRI should start to log its activity.
+    The IRI should start to log its activity to the output.
 
     To make the IRI read your config.ini file, add the path to it after the `-c` flag. For example:
 
