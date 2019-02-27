@@ -4,8 +4,9 @@
 Ths guide uses cIRI. cIRI is still under development. Do not except a stable full-node.
 You should not use cIRI in production!
 
-This guide describes how to set up a full-node on a small SBC. Since SBCs usually have restricted resources, 
-we recommend to use cIRI. cIRI is designed to be more memory- and storage-efficient than [IRI](root://iri/0.1/introduction/overview.md).. 
+This guide describes how to set up a full-node on a small SBC. 
+If you SBC has restriced resources, less than 4 GB memory, we recommend to use cIRI.
+cIRI is designed to be more memory- and storage-efficient than [IRI](root://iri/0.1/introduction/overview.md).. 
 If you want to use the most recent features and extensions, you should use [IRI](root://iri/0.1/introduction/overview.md).
 IRI requires at least 4 GB of memory. Therefore it is not possible to use IRI on all SBCs.
 
