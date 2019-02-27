@@ -48,7 +48,8 @@ Make sure to buy one with at least 2A. Better: 3A.
 
 ### Username is not in the sudoers file. This incident will be reported
 
-This happens when the user has no rights to use sudo. Just follow [this article](https://www.tecmint.com/fix-user-is-not-in-the-sudoers-file-the-incident-will-be-reported-ubuntu/) to fix this.
+This message is displayed when the user does not has the right to use sudo.
+Just follow [this article](https://www.tecmint.com/fix-user-is-not-in-the-sudoers-file-the-incident-will-be-reported-ubuntu/) to fix this.
 
 ### Unable to locally verify the issuer's authority.
 

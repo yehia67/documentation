@@ -23,7 +23,7 @@ I cover ARMv7 and Aarch64 (32-Bit and 64-Bit). It should be possible to use this
 Windows 10 also supports the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 If you are an advanced user, you can also use the Windows equivalent tools.
 
-### SBC
+### To complete this guide, you need [an SBC](root://general/0.1/how-to-guides/setup-sbc.md) with the following minimum requirements:
 
 - Ubuntu (or other Linux based OS, BSD should also work) with enabled SSH and configured network
 - At least 512 MB memory.
@@ -34,17 +34,17 @@ If you are an advanced user, you can also use the Windows equivalent tools.
 Outsourcing the workload to a faster server might be also a good option for small SBCs.
 - The guide uses Ubuntu. We recommend to stick to Ubuntu if you consider yourself as beginner
 
-## Clone the git repository
+## 1. Clone the git repository
 
 ```bash
 git clone https://github.com/iotaledger/entangled.git && cd entangled
 ```
 
-## Install Bazel
+## 2. Install Bazel
 
 Follow the [installation guide](https://docs.bazel.build/versions/master/install.html) for your OS in the Bazel documentation.
 
-## Cross compile cIRI
+## 3. Cross compile cIRI
 
 ### Check the architecture of your SBC
 
@@ -90,7 +90,7 @@ bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool
 bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool_top=@iota_toolchains//tools/armv7-eabihf--glibc--bleeding-edge-2018.07-1:toolchain --cpu='armeabi-v7a' --compiler='gcc' --host_crosstool_top=@bazel_tools//tools/cpp:toolchain //ciri
 ```
 
-## Copy the files to your device
+## 4. Copy the files to your device
 
 GROUP_NAME: You can create a special group for cIRI. So every user in this group is able to run cIRI. 
 You can also just set it to your user.
@@ -118,7 +118,7 @@ ssh -t USERNAME@IP_ADDRESS "sudo mkdir -p /etc/iota/ciri && sudo chown -R USERNA
 scp -r bazel-out/aarch64-opt/bin/ciri/ USERNAME@IP_ADDRESS:/etc/iota/
 ```
 
-## SSH to your device
+## 5. SSH to your device
 
 Check out our ["Setting up an SBC for IOTA guide"](root://iota-sbc/0.1/how-to-guises/setup-sbc.md#3.5.-connect-via-ssh-to-your-sbc) for ssh connection with IPv6. 
 
@@ -126,7 +126,7 @@ Check out our ["Setting up an SBC for IOTA guide"](root://iota-sbc/0.1/how-to-gu
 ssh USERNAME@IP_ADDRESS
 ```
 
-## Create snapshot and config directories
+## 6. Create snapshot and config directories
 
 ```bash
 cd /etc/iota/ciri && \
@@ -137,7 +137,7 @@ mv ciri app && \
 mkdir -p ciri
 ```
 
-## Create config file
+## 7. Create config file
 
 Yaml has the following structure:
 ```yaml
@@ -155,7 +155,7 @@ port: 14265 \n\
 " >> ciri/conf.yml
 ```
 
-## Setup the database
+## 8. Setup the database
 
 ### Install sqlite3
 
@@ -171,7 +171,7 @@ wget https://raw.githubusercontent.com/iotaledger/entangled/develop/common/stora
 sqlite3 db/mainnet.db < schema.sql
 ```
 
-## Get the snapshot files
+## 9. Get the snapshot files
 
 ```bash
 wget https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.json -O external/snapshot_conf_mainnet/file/downloaded
@@ -179,7 +179,7 @@ wget https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181
 wget https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.txt -O external/snapshot_mainnet/file/downloaded
 ```
 
-## Get the configuration information by conf.bzl
+## 10. Get the configuration information by conf.bzl
 
 You need the NUM_KEYS_IN_MILESTONE variable from [conf.bzl](https://raw.githubusercontent.com/iotaledger/entangled/develop/consensus/conf.bzl)
 
@@ -188,7 +188,7 @@ signature.index, signature.depth, signature.pubkey
 
 Replace the variables with their values in the cIRI execution command.
 
-## Run cIRI
+## 11. Run cIRI
 
 *__Note:__* You should run cIRI in [tmux](https://github.com/tmux/tmux). 
 With tmux the execution of the program continues, even if you logout.
