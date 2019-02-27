@@ -30,7 +30,7 @@ It is way simpler to detect problems with a display.
 If not possible, use an USB-to-UART adapter to connect to your SBC.
 - Is the SD-Card broken? Check the SD-Card with something different. e.g. Smartphone or PC.
 - Is SSH activated for your device? 
-Some devices require an additional setup or activation of SSH. 
+Some devices require an additional set up or activation of SSH. 
 You should take a look into the documentation of your device or ask in a forum.
 
 ### I am getting non ascii character with my USB-to-UART adapter
