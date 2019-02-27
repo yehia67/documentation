@@ -1,6 +1,6 @@
 # Create addresses from private keys
 
-**Seeds are used to create private keys, and in turn, private keys are used to create addresses and signatures. By creating addresses from private keys, you gain a better understanding of how addresses are created under the hood.**
+**Seeds are used to create private keys, and in turn, private keys are used to create addresses and signatures. By creating addresses from private keys, you can gain a better understanding of how addresses are created from an index and security level.**
 
 If you're unfamilar with the terms private key, subseed, and key digest, we recommend that you [read about addresses and signatures](../concepts/addresses-and-signatures.md).
 
@@ -46,7 +46,7 @@ To complete this guide, you need the following:
     var subseed = Sign.subseed(Converter.trytesToTrits(seed), 0 /*index*/);
     ```
 
-6. Create one private key for each of the three security levels by passing the same subseed and a different security level to the `key()` method
+6. Create one private key for each of the three [security levels](../references/security-levels.md) by passing the same subseed and a different security level to the `key()` method
 
     ```js
     var privateKey1 = Sign.key(subseed, 1 /*security level*/);
@@ -122,7 +122,7 @@ To complete this guide, you need the following:
         Address with security level 3: LJGSYD9N9JEAQ9AVN9BJCAOW9LFVZGFHOXFVFVLQEBKVZFGBIDJJIRK9FBJUKRS9VMUXTCXBRIOOEMQJ9
         ```
 
-9. To check that the same addresses would be created from the Core IOTA JavaScript library, do the following:
+9. To check that the same addresses would be created from the IOTA core library, do the following:
 
     ```js
     console.log(Iota.generateAddress(seed, 0 /*index*/, 1 /*security level*/));
@@ -130,7 +130,7 @@ To complete this guide, you need the following:
     console.log(Iota.generateAddress(seed, 0 /*index*/, 3 /*security level*/));
     ```
 
-    You should see the same addresses in the output as those from step 9.
+    You should see the same addresses in the output as those from step 8.
     
 Congratulations :tada: You've proven that, under the hood of the IOTA core library, addresses are created from private keys with a certain index and security level.
 

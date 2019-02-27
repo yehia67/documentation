@@ -2,8 +2,6 @@
 
 **Hub allows you to create new users, manage their seeds, and action deposits and withdrawals by using any programming language that supports gRPC.**
 
-For this guide, you'll use a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
-
 ![IOTA Hub architecture](../iota_hub.png)
 
 To get started with Hub, do the following:
@@ -14,6 +12,10 @@ To get started with Hub, do the following:
 4. Create the database
 5. Run Hub
 6. Test Hub
+
+## Prerequisites
+
+A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
 
 ## Install the dependencies
 
