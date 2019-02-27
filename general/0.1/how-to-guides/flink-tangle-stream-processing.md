@@ -111,7 +111,7 @@ object App {
         val zeroMQHost = "HOSTNAME|IP"
         val zeroMQPort = 5556
         val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
-        val stream = env.addSource(new TagleSource(zeroMQHost, zeroMQPort, ""))
+        val stream = env.addSource(new TangleSource(zeroMQHost, zeroMQPort, ""))
     }
 }
 ```
@@ -131,14 +131,14 @@ Let's start with the setup of the stream.
     val zeroMQPort = config.getInt(ConfigurationKeys.ZeroMQ.port)
     val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
 
-    val stream = env.addSource(new TagleSource(zeroMQHost, zeroMQPort, ""))
+    val stream = env.addSource(new TangleSource(zeroMQHost, zeroMQPort, ""))
 ```
 
 We simply get the ZMQ data stream by a defined hostname and port. We can also subscribe one specific topic
 Since we are only using the UnconfirmedTransactionMessage, we could use [tx](root://iri/references/zmq-events.md).
 
 ```scala
-val stream = env.addSource(new TagleSource(zeroMQHost, zeroMQPort, "tx"))
+val stream = env.addSource(new TangleSource(zeroMQHost, zeroMQPort, "tx"))
 ```
 
 Since we get a stream of GeneratedMessage, we need to filter with the [protobuf descriptor](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.descriptor). 
