@@ -8,9 +8,9 @@
 
 *_Note:_* This guide uses Ubuntu. If you are a beginner, you should stick to Ubuntu.
 
-- At least 512 MB memory. Recommendation: 1 MB - 2 GB
-
+- At least 512 MB memory
 - At least 50 GB of free storage
+- A public IP address: Either a static IP address or a dynamic IP address that's connected to a dynamic DNS such as noip.com
 
 ## Install Bazel
 
