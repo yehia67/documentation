@@ -2,7 +2,7 @@
 
 **The section below describes how you can test, deploy and modify this blueprint (open source repositories are available).**
 
-Please see a [demo of this app](https://iota-poc-ipfs.dag.sh/).
+Please see a [demo of this app](https://ipfs.iota.org/).
 
 For the source code and deployment instructions, see:
 
