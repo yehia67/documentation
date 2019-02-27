@@ -10,7 +10,7 @@
 
 - At least 512 MB memory
 - At least 50 GB of free storage
-- A public IP address: Either a static IP address or a dynamic IP address that's connected to a dynamic DNS such as noip.com
+- A public IP address: Either a static IP address or a dynamic IP address that's connected to a dynamic DNS such as [noip.com](https://www.noip.com/remote-access)
 
 ## Install Bazel
 
