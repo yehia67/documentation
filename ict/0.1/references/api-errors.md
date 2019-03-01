@@ -1,6 +1,6 @@
 # Troubleshooting
 
-**You may find some of these common issues while sending requests to the ICT REST API.**
+**Use this reference guide to resolve issues related to sending requests to the ICT REST API.**
 
 ## 500 server error
 
