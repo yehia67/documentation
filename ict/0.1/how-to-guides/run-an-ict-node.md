@@ -101,6 +101,8 @@ Click **Log** and check that you are receiving transactions from your neighbors.
 
 Congratulations :tada: You're Ict node is running, connected to neighbors, and sending and receiving transactions.
 
+Go to [ictreport.com](https://www.ictreport.com/) or [ictge.economic-clustering.com](https://ictge.economic-clustering.com/) and search for the name of your node, for example JakeC[IF]. You should see your node and the connections among your neighbors.
+
 ## Stop and restart the Ict
 
 For easier management, the installation script runs the Ict as a **systemd** service. As a result, you can safely close the command prompt or the SSH connection and the Ict will continue running.
