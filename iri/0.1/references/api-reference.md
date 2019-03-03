@@ -261,11 +261,11 @@ Broadcast transaction trytes to an IRI node.
 
  ### Parameters
 
-The `trytes2` parameter for this call is returned from the [`attachToTangle`](#attachToTangle) endpoint.
+The `trytes` parameter for this call is returned from the [`attachToTangle`](#attachToTangle) endpoint.
 	
 |Parameters |Required or Optional |Description |Type
 |--|--|--|--|
-| `trytes2` |Required| Valid transaction trytes | string
+| `trytes` |Required| Valid transaction trytes | string
 
 ### Examples
 --------------------
@@ -276,7 +276,7 @@ import json
 
 command = {
   "command": "broadcastTransactions",
-  "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
 }
 
 stringified = json.dumps(command)
@@ -300,7 +300,7 @@ var request = require('request');
 
 var command = {
   "command": "broadcastTransactions",
-  "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
   }
 
 var options = {
@@ -329,7 +329,7 @@ curl http://localhost:14265 \
 -H 'X-IOTA-API-Version: 1' \
 -d '{
   "command": "broadcastTransactions",
-  "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
   }'
 ```
 --------------------
