@@ -8,10 +8,9 @@
 
 *_Note:_* This guide uses Ubuntu. If you are a beginner, you should stick to Ubuntu.
 
-- At least 512 MB memory. Recommendation: 1 MB - 2 GB
-
+- At least 512 MB memory
 - At least 50 GB of free storage
-
+- [A public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md)
 ## Install Bazel
 
 Follow the [installation guide](https://docs.bazel.build/versions/master/install.html) for your OS in the Bazel documentation.
