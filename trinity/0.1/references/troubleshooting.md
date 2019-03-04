@@ -22,8 +22,8 @@ If a transaction is pending for a long time, make sure that the [Auto-promotion 
 
 Trinity may stop you from sending a transaction for any of the following reasons:
 
-* For security reasons IOTA addresses should be spent from only once. If you have funds on an address that has already been spent from, Trinity stops you withdrawing from that address to protect your funds.
-* If the address you are sending to has been spent from before, Trinity will prevent you sending to that address to protect the funds. In this case, ask your recipient for a new address.
+* For security reasons IOTA addresses should be withdrawn from only once. If you have funds on an address that has already been withdrawn from, Trinity stops you withdrawing from that address to protect your funds.
+* If the address you are sending to has been withdrawn from before, Trinity will prevent you sending to that address to protect the funds. In this case, ask your recipient for a new address.
 * If you are making multiple transactions, you may need to wait for your first transaction to be confirmed before making another transaction
   
 Please get in touch with us on the #help channel in the official IOTA Discord for further help.

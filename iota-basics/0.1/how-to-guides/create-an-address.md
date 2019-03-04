@@ -1,6 +1,6 @@
 # Create an address
 
-**Addresses must not be spent from more than once. If you spend from an address, you must create a new one by incrementing the index or using a different security level.**
+**Addresses must not be withdrawn from more than once. If you withdraw IOTA tokens from an address, you must create a new one by incrementing the index or using a different security level.**
 
 Any code that uses a seed is executed on the client side. Your seed is never sent anywhere.
 

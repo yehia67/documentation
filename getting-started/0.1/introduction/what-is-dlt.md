@@ -14,15 +14,9 @@ DLT can have two types of ledger:
 
 ## What problems does DLT solve?
 
-### Problem
-
 When data is stored in proprietary databases, it's difficult to share that data with others without it becoming changed and lost in other databases.
 
-### Solution
-
-DLT creates a single source of truth that all participants can trust.
-
-When data is added to a distributed ledger, anyone with an internet connection can access it by connecting to any node in the network.
+DLT creates a single source of truth that all participants can trust. When data is added to a distributed ledger, anyone with an internet connection can access it by connecting to any node in the network.
 
 ## Next steps
 
