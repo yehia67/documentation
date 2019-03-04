@@ -1,10 +1,10 @@
-# Setting up an IOTA full-node on an SBC (Single-board computer)
+# Setting up an IOTA node on an SBC (Single-board computer)
 
 #### Warning: 
-Ths guide uses cIRI. cIRI is still under development. Do not except a stable full-node.
+Ths guide uses cIRI. cIRI is still under development. Do not except a stable node.
 You should not use cIRI in production!
 
-This guide describes how to set up a full-node on a small SBC. 
+This guide describes how to set up a node on a small SBC. 
 If you SBC has restriced resources, less than 4 GB memory, we recommend to use cIRI.
 cIRI is designed to be more memory- and storage-efficient than [IRI](root://iri/0.1/introduction/overview.md).. 
 If you want to use the most recent features and extensions, you should use [IRI](root://iri/0.1/introduction/overview.md).
