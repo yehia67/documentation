@@ -10,7 +10,7 @@ cIRI is designed to be more memory- and storage-efficient than [IRI](root://iri/
 If you want to use the most recent features and extensions, you should use [IRI](root://iri/0.1/introduction/overview.md).
 IRI requires at least 4 GB of memory. Therefore it is not possible to use IRI on all SBCs.
 
-*__Note:__* The Orange Pi Zero and Zero Plus for this guide, but I try to keep it as general as possible.
+**Note:** The Orange Pi Zero and Zero Plus for this guide, but I try to keep it as general as possible.
 It should be possible to follow this guide with any common Cortex-A based SBC.
 I cover ARMv7 and Aarch64 (32-Bit and 64-Bit). It should be possible to use this guide for any Cortex-A based platform.
 
@@ -20,7 +20,7 @@ I cover ARMv7 and Aarch64 (32-Bit and 64-Bit). It should be possible to use this
 
 - Linux, MacOS (BSD based OS should also work)
 
-*__Note:__* If you use Windows, you should use [a Linux VM.](root://general/0.1/how-to-guides/set-up-virtual-machine.md)
+**Note:** If you use Windows, you should use [a Linux VM.](root://general/0.1/how-to-guides/set-up-virtual-machine.md)
 Windows 10 also supports the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 If you are an advanced user, you can also use the Windows equivalent tools.
 
@@ -191,7 +191,7 @@ Replace the variables with their values in the cIRI execution command.
 
 ## 11. Run cIRI
 
-*__Note:__* You should run cIRI in [tmux](https://github.com/tmux/tmux). 
+**Note:** You should run cIRI in [tmux](https://github.com/tmux/tmux). 
 With tmux the execution of the program continues, even if you logout.
 
 ```bash
