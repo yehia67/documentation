@@ -2,7 +2,7 @@
 
 #### Warning: cIRI is still under development. You should not use cIRI in a production environment.
 
-## Requirements:
+## Prerequisites:
 
 - Ubuntu (or another Linux based OS. MacOS or an BSD based OS should also work)
 
