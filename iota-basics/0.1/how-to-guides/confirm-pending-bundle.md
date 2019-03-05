@@ -12,7 +12,7 @@ To complete these guides, you need the following:
 * An Internet connection
 * A tail transaction hash (`currentIndex` 0) from any pending bundle. You can create one by following the ['Send a bundle of zero-value transactions' article](../how-to-guides/send-bundle.md)
 
-## Reattach and promote a pending bundle until it's confirmed
+---
 
 A bundle can be stuck in a pending state for many reasons, for example if it's too old to be selected during tip selection or if it's attached to a part of the Tangle that leads to an invalid state such as a double-spend (inconsistent subtangle).
 
@@ -23,7 +23,7 @@ In this guide, you'll create a script that does the following every 30 seconds:
 * Check if the tail transaction has been confirmed
 * If the transaction is still pending, promote or reattach it
 
-### Create the file and directory
+## Create the file and directory
 
 The sample code for this guide uses the IOTA core library. To use this library, you must create a working directory and install it using the `npm` package manager.
 
@@ -38,7 +38,7 @@ The sample code for this guide uses the IOTA core library. To use this library, 
 
 3. In the `iota-basics` directory, create a new file called pending-to-confirmed.js
 
-### Create a timer function
+## Create a timer function
 
 If you want to know how long it took for a bundle to be confirmed, create a timer function.
 
@@ -69,7 +69,7 @@ If you want to know how long it took for a bundle to be confirmed, create a time
     }
     ```
 
-### Create a function to auto-promote and auto-reattach bundles
+## Create a function to auto-promote and auto-reattach bundles
 
 To promote and reattach a bundle, you need to pass its tail transaction hash to the relevant function in the client library.
 
@@ -103,7 +103,7 @@ function autoPromoteReattach (tail) {
 }
 ```
 
-### Create a function to check for confirmation at regular intervals
+## Create a function to check for confirmation at regular intervals
 
 To be able to check the array of tail transactions for confirmation at regular intervals, you need a function that can be passed to a `setInterval()` function.
 
@@ -142,7 +142,7 @@ console.log(tails);
 ```
 
 
-### Final code
+## Final code
 
 Before you run this sample code, find a pending tail transaction hash and store it in the `tails` array.
 
