@@ -1,6 +1,6 @@
 # Confirm a pending bundle
 
-**Transactions in a bundle remain in a pending state until they are approved by a milestone transaction. To be approved, transactions must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a transaction is stuck in a pending state, the less likely it is to be confirmed. To increase the chances of a transaction being confirmed, you can reattach and promote it, depending on the circumstances.**
+**Before IOTA tokens can be transferred, the bundle that transfers them must be confirmed. Transactions in a bundle remain in a pending state until the tail transaction is approved by a milestone. To be approved, a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a bundle is stuck in a pending state, the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote it, depending on the circumstances.**
 
 ## Prerequisites
 
