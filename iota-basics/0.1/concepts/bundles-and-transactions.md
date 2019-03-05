@@ -8,7 +8,7 @@ When a transaction is packaged in a bundle, it's given both a `currentIndex` fie
 
 Bundles are atomic, meaning that if any of the transactions in the bundle change, the bundle hash of each transaction would be invalid.
 
-To explain why bundles need to be atomic, let's take an example.
+To explain why bundles need to be atomic, take this example.
 
 You're at an online checkout and the total to pay is 10Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5Mi. So, you create three transactions: One input transaction to withdraw 5Mi from address 0, another input transaction to withdraw 5Mi from address 1, and one output transaction to deposit 10Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.)
 
