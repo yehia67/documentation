@@ -1,10 +1,10 @@
 # Bundles and transactions
 
-**A transaction is a single operation that you can send to an IRI node. Transactions can withdraw/deposit IOTA tokens or send data. To send an IRI node one or more transactions, you must package them in a bundle before sending them.**
+**A transaction is a single operation that you can send to a node. Transactions can withdraw/deposit IOTA tokens or send data. To send a node one or more transactions, you must package them in a bundle.**
 
 Each transaction in a bundle must be [structured](../references/structure-of-a-transaction.md) according to the IOTA protocol and contain valid values for all the transaction fields.
 
-When a transaction is packaged in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the end of the bundle. Next, each transaction in the bundle, except the last one, is [connected to each other](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. Then, the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields are absorbed and squeezed by a cryptographic sponge function to produce an 81-tryte bundle hash. This bundle hash is included in each transaction's `bundle` field to seal the package.
+When a transaction is packaged in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the end of the bundle (head). Next, each transaction in the bundle, except the head, is [connected to each other](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. Then, the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields are absorbed and squeezed by a cryptographic sponge function to produce an 81-tryte bundle hash. This bundle hash is included in each transaction's `bundle` field to seal the package.
 
 Bundles are atomic, meaning that if any of the transactions in the bundle change, the bundle hash of each transaction would be invalid.
 
@@ -41,9 +41,9 @@ Bundles can contain multiple output transactions. If a message in an output tran
 
 ## How bundles are validated
 
-After you send a bundle to an [IRI node](root://iri/0.1/introduction/overview.md), it validates each transaction and appends each one to its ledger.
+After you send a bundle to a [node](root://iri/0.1/introduction/overview.md), it validates each transaction and appends each one to its ledger.
 
-During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), an IRI node finds and [validates each transaction in your bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the IRI node has validated all transactions up to the [`lastIndex` field](../references/structure-of-a-transaction.md), your bundle is considered valid.
+During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the node has validated all transactions up to the head (or [`lastIndex` field](../references/structure-of-a-transaction.md)), your bundle is considered valid.
 
 ![Example of a bundle of 4 transactions](../bundle.png)
 

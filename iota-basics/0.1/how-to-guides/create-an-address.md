@@ -32,7 +32,7 @@ To complete this guide, you need the following:
     const Iota = require('@iota/core');
     ```
 
-5. Create an instance of the IOTA object and use the `provider` field to connect to an IRI node
+5. Create an instance of the IOTA object and use the `provider` field to connect to a node
 
     ```js
     const iota = Iota.composeAPI({
