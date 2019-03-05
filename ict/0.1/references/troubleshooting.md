@@ -2,6 +2,8 @@
 
 **Use this reference guide to resolve issues related to installing or running the Ict.**
 
+If you can't find the solution to your issue, search the [IOTA StackExchange](https://iota.stackexchange.com/).
+
 ## 401 Failed to fetch details from Ict REST API
 
 If you see this message in the logs, make sure that the values of the `gui_password` and `REST API PASSWORD` fields are the same.

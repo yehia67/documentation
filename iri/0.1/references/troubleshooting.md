@@ -1,6 +1,8 @@
 # Troubleshooting
 
-**You may find some of these common issues while installing, configuring, or running the IRI.**
+**Use this reference guide to resolve issues related to installing, configuring, or running the IRI.**
+
+If you can't find the solution to your issue, search the [IOTA StackExchange](https://iota.stackexchange.com/).
 
 ## Error - trustAnchors parameter must be non-empty
 

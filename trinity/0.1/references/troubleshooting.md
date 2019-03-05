@@ -1,6 +1,6 @@
 # Troubleshooting
 
-**You may find some of these common issues while using Trinity.**
+**Use this reference guide to resolve issues related to Trinity.**
 
 ## Incorrect balance
 

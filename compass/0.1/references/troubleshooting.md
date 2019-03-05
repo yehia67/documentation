@@ -1,6 +1,8 @@
 # Troubleshooting
 
-**You may find some of these issues while creating an IOTA network with Compass.**
+**Use this reference guide to resolve issues related to creating an IOTA network with Compass.**
+
+If you can't find the solution to your issue, search the [IOTA StackExchange](https://iota.stackexchange.com/).
 
 ## Got permission denied while trying to connect to the Docker daemon socket
 
