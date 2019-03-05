@@ -1,6 +1,6 @@
 # Create an address
 
-**Addresses must not be spent from more than once. If you spend from an address, you must create a new one by incrementing the index or using a different security level.**
+**Addresses must not be withdrawn from more than once. If you withdraw IOTA tokens from an address, you must create a new one by incrementing the index or using a different security level.**
 
 Any code that uses a seed is executed on the client side. Your seed is never sent anywhere.
 
@@ -32,7 +32,7 @@ To complete this guide, you need the following:
     const Iota = require('@iota/core');
     ```
 
-5. Create an instance of the IOTA object and use the `provider` field to connect to an IRI node
+5. Create an instance of the IOTA object and use the `provider` field to connect to a node
 
     ```js
     const iota = Iota.composeAPI({

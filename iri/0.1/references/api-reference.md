@@ -1659,9 +1659,9 @@ curl http://localhost:14265 \
 
 ## wereAddressesSpentFrom
 
-Check if an address was ever spent from, either in the current epoch or in any previous epochs.
+Check if an address was ever withdrawn from, either in the current epoch or in any previous epochs.
 
-If an address has a pending transaction, it's also considered spent.
+If an address has a pending transaction, it's also considered 'spent'.
 
 ### Parameters
 

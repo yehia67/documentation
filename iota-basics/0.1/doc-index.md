@@ -6,6 +6,8 @@
 
 [Concepts/Bundles and transactions](/concepts/bundles-and-transactions.md)
 
+[Concepts/Reattach, rebroadcast, and promote](/concepts/reattach-rebroadcast-promote.md)
+
 [Concepts/Trinary](/concepts/trinary.md)
 
 [How-to Guides/Convert data to trytes](/how-to-guides/convert-data-to-trytes.md)
@@ -17,6 +19,8 @@
 [How-to Guides/Send a bundle of zero-value transactions](/how-to-guides/send-bundle.md)
 
 [How-to Guides/Check if a transaction is confirmed](/how-to-guides/check-transaction-confirmation.md)
+
+[How-to Guides/Confirm a pending bundle](/how-to-guides/confirm-pending-bundle.md)
 
 [References/Structure of a transaction](/references/structure-of-a-transaction.md)
 
