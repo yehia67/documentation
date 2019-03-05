@@ -90,10 +90,11 @@ To expose a local device to the Internet, you must create port forwarding rules,
 
 ### Prerequisites
 
-You need the following:
-Administrator access to your router
-A [static IP address on your local network](#get-a-static-ip-address-on-your-local-network).
-A static IP address for your router, or if it has a dynamic IP address, a [domain name from a dynamic DNS service](#get-a-domain-name-for-your-router)
+To complete this guide, you need the following:
+
+* Administrator access to your router
+* A [static IP address on your local network](#get-a-static-ip-address-on-your-local-network).
+* A static IP address for your router, or if it has a dynamic IP address, a [domain name from a dynamic DNS service](#get-a-domain-name-for-your-router)
 
 ---
 
