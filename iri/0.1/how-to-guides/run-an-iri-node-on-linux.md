@@ -15,17 +15,15 @@
     * **TCP neighbor peering port:** 14600
     * **TCP API port:** 14265
 
----
-
-The IRI is Java software, so it must be run in a Java runtime environment (JRE).
+## Download the IRI
 
 You have two options for downloading the latest IRI software:
 * Download the pre-built Java file from GitHub (quickest option)
 * Build the Java file from the source code on GitHub 
 
-## Download the pre-built IRI Java file
+### Download the pre-built IRI Java file
 
-The pre-built IRI Java file is available on the IOTA GitHub repository.
+The pre-built IRI Java file is available on the [IOTA GitHub repository](https://github.com/iotaledger/iri/releases). Downloading this file is the quickest and simplest way to install the IRI.
 
 1. Install the latest security patches for your system
 
@@ -70,7 +68,7 @@ HTTP request sent, awaiting response ... 200 OK
 ```
 Now that the IRI Java file is saved on your server, [configure the IRI](#configure-the-iri) before running it.
 
-## Build the IRI Java file from the source code
+### Build the IRI Java file from the source code
 
 Instead of downloading the pre-built IRI Java file, you may want to build the file from the source code the any of the following reasons:
 * You want to be sure that the code you run is the same as the source code
@@ -288,5 +286,3 @@ The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are a
 ## Next steps
 
 * [Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
-
-
