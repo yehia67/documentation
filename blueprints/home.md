@@ -1,7 +1,7 @@
-# App blueprints are documents that explain how the IOTA technology can be used to solve real-world problems and to support well-defined business needs.
+# Application blueprints are documents that explain how the IOTA technology can be used to solve real-world problems and to support well-defined business needs.
 
 [Tangle data storage](/0.1/tangle-data-storage/overview.md)
 ## Learn how to use IOTA to store an immutable record of events
 
 [Track and trace](/0.1/track-and-trace/overview.md)
-## Learn how to use IOTA to track and trace assets
+## Learn how to use IOTA to track and trace assets in the supply chain
