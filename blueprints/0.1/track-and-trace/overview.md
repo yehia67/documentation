@@ -1,6 +1,6 @@
 # Track and trace overview
 
-**Due to the lack of due diligence and the lack of a vendor-neutral data source, returnable assets that are used within distribution networks and are seldom returned to their original owners. This blueprint describes how a track and trace system for recovery of returnable assets has been implemented by the IBCS Group, using the IOTA Tangle and other IOTA technologies.**
+**Due to the lack of due diligence and the lack of a vendor-neutral data source, returnable assets that are used within distribution networks are seldom returned to their original owners. This blueprint describes how a track and trace system for recovery of returnable assets has been implemented by the IBCS Group, using the IOTA Tangle and other IOTA technologies.**
 
 ![Track and Trace](../intro_track_trace.png)
 
