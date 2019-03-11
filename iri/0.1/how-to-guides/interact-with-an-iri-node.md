@@ -16,7 +16,7 @@ For more endpoints, see the [API reference](../references/api-reference.md).
 
 ### Prerequisites
 
-To use the code samples in this guide, your computer must have the following:
+To use the sample code in this guide, your computer must have the following:
 
 * [Node JS (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)

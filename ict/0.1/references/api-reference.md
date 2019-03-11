@@ -1,8 +1,10 @@
-# API reference
+# Ict REST API reference
 
-**This list contains the endpoints for communicating with an Ict node through the REST API.**
+**This reference article contains the endpoints for communicating with an Ict node through the REST API.**
 
-**Important:** This API is in beta, and is subject to change. We recommend that you don't use this API in production applications.
+:::warning:Warning
+This API is in beta, and is subject to change. We don't recommend using this API in production applications.
+::: 
 
 ## Headers
 
@@ -242,7 +244,7 @@ print(json.dumps(results, indent=2, sort_keys=True))
 |`success`|Object|`true` if the action was successful, `false` if there was an error.|
 ### getInfo
 
-Get general information about a node, including whether updates are available, the current version of the Ict that it's running, and the default configuration settings.
+Get general information about a node, including whether updates are available, the current version of the Ict software that it's running, and the default configuration settings.
 
 ```
 POST /getInfo/

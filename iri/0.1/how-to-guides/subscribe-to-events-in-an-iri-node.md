@@ -25,7 +25,7 @@ You can subscribe to the `sn` event on the ZMQ of the IRI to listen for recently
 
 ### Prerequisites
 
-To use the code samples in this guide, your computer must have the following:
+To use the sample code in this guide, your computer must have the following:
 
 * [Node JS (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)

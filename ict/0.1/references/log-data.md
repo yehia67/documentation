@@ -1,8 +1,8 @@
 # Data in the Ict logs
 
-**This table contains the descriptions of the Ict log data.**
+**Nodes write messages to logs that include data about received and requested transactions. This table contains the descriptions for the transaction data in the logs.**
 
-Each row contains data about transaction statistics for one neighbor.
+Each row contains data about transaction statistics for one mutually connected neighbor.
 
 |**Column** |**Description** | **Notes**|
 |:----------|:---------------|:---------|

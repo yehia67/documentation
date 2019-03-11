@@ -2,6 +2,8 @@
 
 **Use this reference guide to resolve issues related to Trinity.**
 
+If you can't find the solution to your issue, search the [IOTA StackExchange](https://iota.stackexchange.com/).
+
 ## Incorrect balance
 
 If Trinity can't connect to an IRI node, it may have an outdated view of transactions on the network. This view can cause Trinity to display an incorrect balance. Therefore, Trinity retains a list of locally generated addresses so it can be manually re-synchronized.
