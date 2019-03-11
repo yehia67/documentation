@@ -15,7 +15,7 @@ The above image shows how the different echelons of this hierarchy are intertwin
 
 ## Business case
 
-Over the next next decade, there will be more than 75 billion connected devices that interact in different manners. This will give rise to a machine economy where devices will trade everything from storage to electricity and sensor data. The data trade in this pilot project will highlight and explore the potential of these developments. With the prospect of tens of billions of devices generating data, we will see a proliferation of data that is unmatched in history.
+Over the next decade, there will be more than 75 billion connected devices that interact in different manners. This will give rise to a machine economy where devices will trade everything from storage to electricity and sensor data. The data trade in this pilot project will highlight and explore the potential of these developments. With the prospect of tens of billions of devices generating data, we will see a proliferation of data that is unmatched in history.
 
 ![IoT devices](../data-marketplace-iot-stats.png)
 
@@ -71,7 +71,7 @@ MAM - Masked Authentication Messaging is a second layer data communication proto
 
 ## Additional resources
 
-- Data Marketplace Repository - https://github.com/iotaledger/data-marketplace
-- Data Marketplace API documentation - https://data.iota.org/static/docs
-- MAM Repository - https://github.com/iotaledger/mam.client.js
-- iota.js Repository - https://github.com/iotaledger/iota.js
+- [Data Marketplace repository](https://github.com/iotaledger/data-marketplace)
+- [Data Marketplace API documentation](https://data.iota.org/static/docs)
+- [MAM repository](https://github.com/iotaledger/mam.client.js)
+- [iota.js repository](https://github.com/iotaledger/iota.js)

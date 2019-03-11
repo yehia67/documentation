@@ -8,7 +8,7 @@ To submit sensor data to the Data Marketplace, you must have the following.
 
 ### Hardware
 
-* Sensor or device that generates data such as
+* A sensor or device that generates data such as the following:
     * [Netatmo Weather Station](https://www.netatmo.com/en-us/weather)
     * [Bosch XDK](https://xdk.bosch-connectivity.com/) 
     * [Nordic Semiconductor Thingy:52](https://www.nordicsemi.com/Software-and-Tools/Development-Kits/Nordic-Thingy-52)
@@ -16,31 +16,31 @@ To submit sensor data to the Data Marketplace, you must have the following.
 
 ### Software
 
-* Data Marketplace - https://github.com/iotaledger/data-marketplace
+* [Data Marketplace](https://github.com/iotaledger/data-marketplace)
 
-* NodeJS - https://nodejs.org/
+* [NodeJS](https://nodejs.org/)
 
-* MAM - https://github.com/iotaledger/mam.client.js
+* [MAM (masked authenticated messaging)](https://github.com/iotaledger/mam.client.js)
 
 Choose from one of the following cloud services:
 
 * Google Cloud
-    * Web Server - https://firebase.google.com/docs/hosting/ serving static site
-    * Authentication service - https://firebase.google.com/docs/auth/
-    * NoSQL Database - https://firebase.google.com/docs/firestore/
-    * Background Tasks & API Server - https://firebase.google.com/docs/functions/
+    * [Web server](https://firebase.google.com/docs/hosting/)
+    * [Authentication service](https://firebase.google.com/docs/auth/)
+    * [NoSQL database](https://firebase.google.com/docs/firestore/)
+    * [Background tasks and API server](https://firebase.google.com/docs/functions/)
 
 * Amazon
-    * Web Server - [https://aws.amazon.com/s3/​serving static site](https://aws.amazon.com/s3/​serving static site)
-    * API Server - https://aws.amazon.com/api-gateway/
-    * NoSQL Database - [https://aws.amazon.com/dynamodb/](https://aws.amazon.com/dynamodb/]
-    * Background Tasks - https://aws.amazon.com/lambda/
+    * [Web server](https://aws.amazon.com/s3/)
+    * [API server](https://aws.amazon.com/api-gateway/)
+    * [NoSQL database](https://aws.amazon.com/dynamodb/)
+    * [Background tasks](https://aws.amazon.com/lambda/)
 
 * Azure
-    * Web Server - https://azure.microsoft.com/en-us/services/storage/​serving static site
-    * API Server - https://azure.microsoft.com/en-us/services/app-service/
-    * NoSQL Database - https://azure.microsoft.com/en-us/services/cosmos-db/
-    * Background Tasks - https://azure.microsoft.com/en-us/services/functions/
+    * [Web server](https://azure.microsoft.com/en-us/services/storage/)
+    * [API server](https://azure.microsoft.com/en-us/services/app-service/)
+    * [NoSQL database](https://azure.microsoft.com/en-us/services/cosmos-db/)
+    * [Background tasks](https://azure.microsoft.com/en-us/services/functions/)
 
 ### Programming knowledge
 
