@@ -67,6 +67,10 @@ As a result, the following benefits are envisioned:
 While this solution already solves the track and trace problem, in future scenarios the use of the IOTA token (and Qubic smart contracts) could allow you to create incentives to reward custodians who participate in tracking and tracing returnable assets, despite the country and the currency in which the assets are handled.
 :::
 
+## Demo
+
+See this website for a [demonstration of the application](http://tradedemo.iota.org/).
+
 ## Abbreviations 
  
 - IF - IOTA Foundation
