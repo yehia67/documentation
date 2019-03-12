@@ -1,6 +1,6 @@
 # Data Marketplace overview
 
-**Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses IOTA MAM streams to to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.**
+**Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses IOTA MAM channels to to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.**
 
 Data is one of the most fundamental ingredients in the machine economy and the connected world. It is the foundation upon which the other strata of the **D**ata — **I**nformation — **K**nowledge — **W**isdom (**DIKW**) pyramid are dependent. Without this primary substrate, nothing can be established about the world. A datum (plural: data) is the raw value of a qualitative or quantitative variable: A pure unfiltered input from reality. Data sets that are structured and thus have had meaning extracted from them constitute what we consider to be information. Information tells us something concrete and coherent about the world through context. Contextualized information thus makes up what we know as knowledge, which in turn gives rise to our (and our machines’) ability to make wise decisions. Wisdom is knowledge applied.
 
@@ -15,7 +15,7 @@ The above image shows how the different echelons of this hierarchy are intertwin
 
 ## Business case
 
-Over the next decade, there will be more than 75 billion connected devices that interact in different manners. This will give rise to a machine economy where devices will trade everything from storage to electricity and sensor data. The data trade in this pilot project will highlight and explore the potential of these developments. With the prospect of tens of billions of devices generating data, we will see a proliferation of data that is unmatched in history.
+Over the next decade, more than 75 billion connected devices will be interacting in different manners. These devices will give rise to a machine economy where they will trade everything from storage to electricity and sensor data. The data trade in this pilot project will highlight and explore the potential of these developments. With the prospect of tens of billions of devices generating data, we will see a proliferation of data that is unmatched in history.
 
 ![IoT devices](../data-marketplace-iot-stats.png)
 

@@ -7,4 +7,4 @@
 ## Learn how to use IOTA to track and trace assets in the supply chain
 
 [Data Marketplace](/0.1/data-marketplace/overview.md)
-## Learn how to buy and sell data through MAM streams on the Tangle
+## Learn how to buy and sell data through MAM channels on the Tangle

@@ -50,18 +50,16 @@ Choose from one of the following cloud services:
 * Required third-party licenses
 * Cloud service
 
-### IOTA Knowledge
+### IOTA knowledge
 
-An understanding of how MAM channels work
+An understanding of MAM channels.
 
 ## Deploy the Data Marketplace app
 
-The software configuration and deployment for all the entities is documented in the series of blog posts:
+To deploy your own data marketplace, follow the instructions in these blog posts:
 
-1. https://medium.com/@lexerr/d54b29774f1a
-2. https://medium.com/@lexerr/eea5cbcd1eb7
-3. https://medium.com/@lexerr/47b608c527c9
-4. https://medium.com/@lexerr/b33d9856c852
+1. https://medium.com/@lexerr/47b608c527c9
+2. https://medium.com/@lexerr/b33d9856c852
 
 ## Test the Data Marketplace app
 
@@ -111,9 +109,11 @@ Instead of deploying your own data marketplace, you can test our demo app by add
 
 ### Create and fund a new wallet
 
-You can fund a device's wallet with free IOTA tokens. We usually transfer between 100000i and 1000000i for free to your new device's wallet.
+You can fund a device's wallet with free IOTA tokens. We usually transfer between 100000i and 1000000i of Devnet tokens for free to your new device's wallet.
 
-Please note that Devnet tokens can not be used on the mMainnet or exchanged on any cryptocurrency exchange.
+:::info:
+Devnet tokens can't be used on the Mainnet or exchanged on any cryptocurrency exchange.
+:::
 
 1. Select a sensor or device for which you want to purchase a data stream
 
@@ -125,19 +125,21 @@ Alternatively, you can [use the API to fund a wallet](https://data.iota.org/stat
 
 ### Fund an existing wallet
 
-If your wallet balance is low, you can fund it again using the IOTA Faucet. We usually transfer between 100000 and 1000000i for free to your new wallet.
+If your wallet balance is low, you can fund it with more Devnet tokens by using the IOTA faucet.
 
-Please note that devnet tokens can not be used on the mainnet or exchanged on any cryptocurrency exchange platform.
+:::info:
+Devnet tokens can't be used on the Mainnet or exchanged on any cryptocurrency exchange platform.
+:::
 
-Proceed to the Faucet ​page, enter your wallet address, that you can get by calling the [`getUser`](https://data.iota.org/static/docs#get-user) API endpoint. You also need to solve the captcha.
+Go to the Faucet ​page, enter your wallet address, that you can get by calling the [`getUser`](https://data.iota.org/static/docs#get-user) endpoint. You also need to solve the captcha.
 
 ### Query a data stream
 
-When you buy a data stream you can query the data that's published to the MAM stream on the Tangle.
+When you buy a data stream you can query the data that's published to the MAM channel on the Tangle.
 
 1. Go to the Sensor page
 
-    If you already purchased the stream, data will be automatically loaded in chunks (20 packets per request). 
+    If you've already purchased the stream, data will be automatically loaded in chunks (20 packets per request). 
     
 2. Scroll to the bottom of the page to automatically query the following 20 packets.
 
@@ -145,7 +147,7 @@ Alternatively, you can [use the API to query a data stream](https://data.iota.or
 
 ### Buy a data stream
 
-You can buy a device's data stream using the balance of the wallet. When you buy a data stream, you're given access to the MAM stream's root so that you can find the data on the Tangle.
+You can buy a device's data stream using the balance of the wallet. When you buy a data stream, you're given access to the MAM channel's root so that you can find the data on the Tangle.
 
 1. Go to the Sensor ​page
 

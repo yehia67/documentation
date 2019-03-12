@@ -1,22 +1,27 @@
 # Application architecture
 
-**The Data Marketplace application uses sensors, a cloud backend, and the IOTA Tangle to publish data to MAM streams.**
+**The Data Marketplace application uses sensors, a cloud backend, and the IOTA Tangle to publish data to MAM channels.**
 
 :::warning:Disclaimer
 Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community.
 :::
 
-The action of submitting sensor data to the Data Marketplace is intended to be lightweight and capable of being done by embedded devices. The application needs to perform Tangle operations, such as producing and consuming MAM channels, and communicate with Web APIs. The data consuming part of the application is more complex and needs the ability to transfer IOTA tokens for purchased data streams. Therefore, an access-rights management add-on is implemented.
+The architecture of our PoC (shown in the image below) follows a pattern, where the sensor or any other device, cloud backend, and distributed ledger (DLT) are interconnected.
+
+![Data Marketplace architecture](../data-marketplace-architecture.png)
+
+Submitting sensor data to the Data Marketplace is intended to be a lightweight operation that can be done by embedded devices. To submit sensor data, a device needs to perform Tangle operations, such as producing and consuming MAM channels, and communicating with web APIs. The data consuming part of the application is more complex and needs the ability to transfer IOTA tokens in exchange for access to the device's data streams. Therefore, an access-rights management add-on is implemented.
 
 This table displays a list of all the main components of the application:
 
-**User authentication** | **OAuth with Google account, other types of authentication, like email/password can be enabled. Provides a unique API token and userID that are used for API communication and user identification.**
---- | ---
+**Component**|**Description**
+:-----|:------|
+User authentication | OAuth with Google account, other types of authentication, like email/password can be enabled. Provides a unique API token and userID that are used for API communication and user identification.|
 Database | NoSQL cloud database, provides a permanent storage mechanism. 
 Cloud functions | Cloud functions (Lambda functions in AWS), that are triggered by an event or API call. Perform IOTA Tangle-related operations such as walled funding, token transfer for device stream purchase. Also perform Database-related operations such as creating used or device, managing device stream purchases. 
 Hosting | Cloud hosting for the Web portal. 
 Error logging | Provides access to error logs including request and response details to simplify issue investigations. 
-Web Portal | A web UI that allows easy device management and data stream fetching. 
+Web portal | A web UI that allows easy device management and data stream fetching. 
 API | Set of APIs to perform all main functionality from a script or console. 
 Data submission template | Small NodeJS project with pre-filled device ID and API interface to Cloud backend. Provides examples for sensor data submission using different techniques. 
 
