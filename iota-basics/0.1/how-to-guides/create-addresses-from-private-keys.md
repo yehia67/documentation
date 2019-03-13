@@ -2,7 +2,7 @@
 
 **Seeds are used to create private keys, and in turn, a private key is used to create addresses and sign bundles. By using the cryptography library to create addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
 
-If you're unfamilar with the terms private key, subseed, and key digest, we recommend [reading about addresses and signatures](../concepts/addresses-and-signatures.md).
+If you're unfamiliar with the terms private key, subseed, and key digest, we recommend [reading about addresses and signatures](../concepts/addresses-and-signatures.md).
 
 Any code that uses a seed is executed on the client side. Your seed is never sent anywhere.
 

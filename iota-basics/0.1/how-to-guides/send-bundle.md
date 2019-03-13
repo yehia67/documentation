@@ -2,7 +2,7 @@
 
 **Transactions must be grouped in a bundle before being sent to an IRI node. The IOTA client libraries have built-in functions that create bundles from transfer objects.**
 
-If you're unfamilar with the terms bundle or transaction, we recommend that you [read about bundles and transactions](../concepts/bundles-and-transactions.md).
+If you're unfamiliar with the terms bundle or transaction, we recommend that you [read about bundles and transactions](../concepts/bundles-and-transactions.md).
 
 Any code that uses a seed is executed on the client side. Your seed is never sent anywhere.
 
