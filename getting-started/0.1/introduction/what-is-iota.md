@@ -30,7 +30,7 @@ You own IOTA tokens only when all nodes [validate the transaction](root://iri/0.
 
 The IOTA token is valuable for the following reasons:
 
-* **It's finite:** All nodes agree that a mamimum of 2,779,530,283 277,761 tokens exist in the network. This maximum number is built into the network and can't ever be changed.
+* **It's finite:** All nodes agree that a maximum of 2,779,530,283 277,761 tokens exist in the network. This maximum number is built into the network and can't ever be changed.
 * **It's useful:** To transfer value in an IOTA network, you must use the IOTA token. 
 
 ## What are the benefits of IOTA?
@@ -49,7 +49,7 @@ All transactions in the ledger are immutable and transparent.
 
 IOTA uses quantum-resistant cryptography to secure the network and prevent attackers from stealing IOTA tokens.
 
-IOTA networks are peer-to-peer networks. No central authority controls the ledger of transactions, instead all nodes hold a copy and run the software that contains the IOTA protcol to automate the agreement on its contents.
+IOTA networks are peer-to-peer networks. No central authority controls the ledger of transactions, instead all nodes hold a copy and run the software that contains the IOTA protocol to automate the agreement on its contents.
 
 ### Cost saving
 
