@@ -532,6 +532,10 @@ async function reportError(data, err) {
 
     if (err) {
         await fsPromises.appendFile(reportFile, `ERROR: ${err.message}\n`);
+
+        if (consoleDetail) {
+            console.error(chalk.red(err.message));
+        }
     }
 }
 
@@ -546,6 +550,10 @@ async function reportWarning(data, err) {
 
     if (err) {
         await fsPromises.appendFile(reportFile, `WARN: ${err.message}\n`);
+
+        if (consoleDetail) {
+            console.error(chalk.cyan(err.message));
+        }
     }
 }
 
