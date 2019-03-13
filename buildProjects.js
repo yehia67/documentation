@@ -7,11 +7,14 @@ const emoji = require('node-emoji');
 const emojiRegex = require('emoji-regex');
 const emojiUnicode = require('emoji-unicode');
 const chalk = require('chalk');
+var exec = require('child_process').exec;
 
-const { rootFolder, reportFile, projectsFile, checkRemotePages, consoleDetail, exitWithError } = require('./buildProjects.config.json');
+
+const { rootFolder, reportFile, projectsFile, checkRemotePages, checkSpelling, consoleDetail, exitWithError } = require('./buildProjects.config.json');
 
 let errorCount = 0;
 let warningCount = 0;
+
 
 async function buildProjects(docsFolder) {
     try {
@@ -243,6 +246,7 @@ async function extractTocAndValidateAssets(docsFolder, projectFolder, version, d
             await italic(doc, docName);
             await img(doc, docName);
             await emojiChars(doc, docName);
+            await spellCheck(doc, docName);
         } else {
             await reportError(`'${docIndexFile}' referenced '${docName}' but the file does not exist`);
         }
@@ -419,6 +423,36 @@ async function htmlLinks(markdown, docPath) {
 async function separators(markdown, docPath) {
     if (/<hr/gmi.test(markdown)) {
         await reportWarning(`HTML Separators <hr> should be converted to Markdown ---: in '${docPath}'`);
+    }
+}
+
+async function spellCheck(markdown, docPath){
+
+    if(checkSpelling){
+        var spellingReport = 'spellingReport.md';
+        var dictionary ='dictionary.json';
+        var command = `yaspeller ${docPath} -l en --ignore-capitalization
+        --ignore-digits --ignore-urls --flag-latin --find-repeat-words`
+
+        if((fs.existsSync(dictionary))){
+            command = `yaspeller --dictionary ${dictionary} ${docPath} -l en --ignore-capitalization
+            --ignore-digits --ignore-urls --flag-latin --find-repeat-words` 
+        }
+
+        exec(command,
+        function (error, stdout, stderr) {
+            fs.appendFile(spellingReport, `${stderr}`, function (error, result) {
+                if(!error) {
+                    chalk.green(`Spelling errors written to ${spellingReport}`);
+                }
+                else {
+                    chalk.red(error);
+                }
+            });
+            if(error !== null) {
+                chalk.red('Error while spell checking: ' + error);
+            }
+        });
     }
 }
 

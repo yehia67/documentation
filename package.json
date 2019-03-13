@@ -17,5 +17,8 @@
     "emoji-regex": "^7.0.3",
     "emoji-unicode": "^1.0.10",
     "node-emoji": "^1.8.1"
+  },
+  "scripts": {
+    "preinstall": "npm i -g yaspeller"
   }
 }
