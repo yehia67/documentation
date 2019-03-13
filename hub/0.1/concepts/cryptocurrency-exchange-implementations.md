@@ -7,7 +7,7 @@ In this guide, we discuss two possible scenarios:
 - **Scenario A:** Multiple user accounts for generating deposit addresses, but funds are manually moved out of these upon deposit into a central hot or Hub account.
 - **Scenario B:** Multiple user accounts with individual balances.
 
-<hr>
+---
 
 ## Scenario A
 
@@ -39,9 +39,9 @@ Exchange creates new Hub user, passing in a userid.
 
 ### Cold wallet topup
 
-Exchange issues withdrawal from hot to cold wallet address that wasn't spent from (`UserWithdraw`)
+Exchange issues withdrawal from hot to cold wallet address that wasn't withdrawn from (`UserWithdraw`)
 
-  **Note:** Hub doesn't check whether a payout address was already spent from! This has to happen on the exchange side.*
+  **Note:** Hub doesn't check whether an address was already withdrawn from! This has to happen on the exchange side.*
 
 ### Hot wallet topup
 

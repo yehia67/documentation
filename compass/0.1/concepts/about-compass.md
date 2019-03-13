@@ -1,10 +1,10 @@
 # About Compass
 
-**Compass acts as a temporary safety mechanism until the majority transactions in a permissioned IOTA network are honest. To protect the network, IRI nodes are set up to recognize any transaction as confirmed if it's referenced by a trusted Compass milestone.**
+**Compass is an open-source Coordinator that acts as a temporary safety mechanism until the majority transactions in an IOTA network are honest. To protect the network, IRI nodes are set up to recognize any transaction as confirmed if it's referenced by a trusted Compass milestone.**
 
 An IOTA network relies on clients sending a majority of honest transactions to IRI nodes. However, the fewer transactions that are sent in an IOTA network, the easier it is for an attacker to send a majority of dishonest transactions to IRI nodes. As a result, an attacker may be able to double spend tokens, and carry out network-splitting attacks.
  
-To protect the network against these attacks, Compass sends bundles of honest transactions to IRI nodes at regular intervals. These bundles include a signed zero-value transaction called a milestone. The IRI nodes in an IOTA network consider a transaction as confirmed only if it's directly or indirectly referenced by a milestone.
+To protect the network against these attacks, Compass sends bundles of honest transactions to IRI nodes at regular intervals. These bundles include a signed zero-value transaction called a milestone. The IRI nodes in an IOTA network consider a transaction as confirmed only if it's approved by a milestone.
 
 ## How Compass works
 

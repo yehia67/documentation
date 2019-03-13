@@ -7,6 +7,7 @@
 [Concepts/Zero message queue](/concepts/zero-message-queue.md)
 [Concepts/Local snapshot](/concepts/local-snapshot.md)
 [How-to Guides/Run an IRI node on a Linux server](/how-to-guides/run-an-iri-node-on-linux.md)
+[How-to Guides/Set up a reverse proxy server](/how-to-guides/set-up-a-reverse-proxy.md)
 [How-to Guides/Run an IRI node in Docker](/how-to-guides/run-an-iri-node-in-docker.md)
 [How-to Guides/Find neighbor IRI nodes](/how-to-guides/find-neighbor-iri-nodes.md)
 [How-to Guides/Update the IRI](/how-to-guides/update-the-iri.md)

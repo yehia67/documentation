@@ -47,12 +47,14 @@ To connect to a local IRI node, do the following:
 import { composeAPI } from '@iota/core'
 
 const iota = composeAPI({
+    // replace with your IRI node address 
+    // or connect to a Devnet node for testing: 'https://nodes.devnet.iota.org:443'
     provider: 'http://localhost:14265'
 })
 
 iota.getNodeInfo()
     .then(info => console.log(info))
-    .catch(err => {
+    .catch(error => {
         console.log(`Request error: ${error.message}`)
     })
 ```
@@ -107,7 +109,9 @@ This example shows you how to create and send a transaction to an IRI node by ca
 import { composeAPI } from '@iota/core'
 
 const iota = composeAPI({
-    provider: 'http://localhost:14265' // replace with your IRI node.
+    // replace with your IRI node address 
+    // or connect to a Devnet node for testing: 'https://nodes.devnet.iota.org:443'
+    provider: 'http://localhost:14265'
 })
 
 // Must be truly random & 81-trytes long.
@@ -125,7 +129,7 @@ const transfers = [{
 const depth = 3 
 
 // Difficulty of Proof-of-Work required to attach transaction to tangle.
-// Minimum value on mainnet & spamnet is `14`, `9` on devnet and other testnets.
+// Minimum value on mainnet is `14`, `7` on spamnet and `9` on devnet and other testnets.
 const minWeightMagnitude = 14
 
 // Prepare a bundle and signs it.
@@ -140,7 +144,7 @@ iota.prepareTransfers(seed, transfers)
     })
     .then(bundle => {
         console.log(`Published transaction with tail hash: ${bundle[0].hash}`)
-        console.log(`Bundle: ${bundle}`)
+        console.log(`Bundle: ${JSON.stringify(bundle, null, 1)}`)
     })
     .catch(err => {
         // handle errors here
@@ -162,6 +166,8 @@ iota.prepareTransfers(seed, transfers)
     import { createGetNodeInfo } from '@iota/core'
 
     const client = createHttpClient({
+        // replace with your IRI node address 
+        // or connect to a Devnet node for testing: 'https://nodes.devnet.iota.org:443'
         provider: 'http://localhost:14265'
     })
 
