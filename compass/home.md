@@ -1,16 +1,13 @@
-# Learn about the basic ideas and concepts behind IOTA Compass
+# Compass is a client application that protects IOTA networks against attacks by sending honest, zero-value transactions to IRI nodes at regular intervals.
 
-[Overview](/0.1/overview.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+[Compass overview](/0.1/introduction/overview.md)
+## Learn what Compass is and how you can use it
 
-[What is a "Coordinator"](/0.1/concepts/background.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+[About Compass](/0.1/concepts/about-compass.md)
+## Learn how Compass works under the hood
 
-[Setup a Private Tangle](/0.1/how-to-guides/simple-install.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+[Security considerations](/0.1/concepts/security-considerations.md)
+## Learn how to protect Compass from possible attack scenarios
 
-[Security Considerations](/0.1/concepts/security.md)
-## Learn about the basic ideas and concepts around IOTA and etc
-
-[Compass Functions](/0.1/concepts/functions.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+[Create an IOTA network](/0.1/how-to-guides/create-an-iota-network.md)
+## Create your own IOTA network

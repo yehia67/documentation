@@ -16,9 +16,9 @@ IRI nodes communicate with their neighbors through a gossip protocol.
 
 ## Non-solid transactions
 
-As well as sending transactions to neighbors, IRI nodes request non-solid transactions from its neighbors.
+As well as sending transactions to neighbors, IRI nodes request non-solid transactions from its neighbors in order to become synchronized.
 
 A non-solid transaction is one that is referenced by a transaction in an IRI node's ledger, but that the IRI has not yet validated.
 
-If an IRI node sees a non-solid transaction during [validation](concepts/transaction-validation.md) or [tip selection](concepts/tip-selection.md), the IRI node asks its neighbors for it, and if its neighbors are missing the information, those neighbors will ask their neighbors, and so on.
+If an IRI node sees a non-solid transaction during [validation](../concepts/transaction-validation.md) or [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), the IRI node asks its neighbors for it, and if its neighbors are missing the information, those neighbors will ask their neighbors, and so on.
 

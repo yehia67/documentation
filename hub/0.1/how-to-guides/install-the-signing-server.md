@@ -1,8 +1,6 @@
 # Install the signing server
 
-**In this guide, you'll create a signing server that stores sensitive information that's used by Hub. After you complete this guide you'll be able to connect your signing server to Hub.**
-
-## Run the signing server
+**Hub stores sensitive information such as seeds. To add an extra layer of security, you can move sensitive operations and data to a signing server that only Hub can connect to.**
 
 For this guide, you'll use a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
 
@@ -23,49 +21,49 @@ The signing server needs to be compiled from source using the dependencies.
 1. Make sure that the local apt repository is up to date and contains the multiverse repository
 
 	```bash
-	$ sudo apt update
+	sudo apt update
 	```
 
 2. Install a compiler, such as GCC, Clang, or a toolchain from [@iota_toolchains](https://github.com/iotaledger/toolchains)
 
 	```bash
-	$ sudo apt install gcc-7
+	sudo apt install gcc-7
 	```
 
 3. Install the dependencies for the Bazel binary installer
 
 	```bash
-	$ sudo apt install pkg-config zip g++ zlib1g-dev unzip python
+	sudo apt install pkg-config zip g++ zlib1g-dev unzip python
 	```
 
 4. Download the binary installer for the [latest version of Bazel](https://github.com/bazelbuild/bazel/releases)
 
 	```bash
-	$ wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
+	wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
 	```
 
 5. Make sure that you can execute the installer script
 
 	```bash
-	$ chmod +x bazel-0.18.0-installer-linux-x86_64.sh
+	chmod +x bazel-0.18.0-installer-linux-x86_64.sh
 	```
 
 6. Install Bazel under your active user using the `--user` flag:
 
 	```bash
-	$ ./bazel-0.18.0-installer-linux-x86_64.sh --user
+	./bazel-0.18.0-installer-linux-x86_64.sh --user
 	```
 
 7. Install the `pyparsing` package for Python
 
 	```bash
-	$ sudo apt install python-pyparsing
+	sudo apt install python-pyparsing
 	```
 
 8. Install Git
 
 	```bash
-	$ sudo apt install git
+	sudo apt install git
 	```
 
 ## Build the signing server
@@ -73,19 +71,19 @@ The signing server needs to be compiled from source using the dependencies.
 Clone the GitHub repository
 
 	```bash
-	$ git clone https://github.com/iotaledger/rpchub.git
+	git clone https://github.com/iotaledger/rpchub.git
 	```
 
 2. Change into the `hub` directory
 
 	```bash
-	$ cd hub
+	cd hub
 	```
 
 3. Build Hub from the source code:
 
 	```bash
-	$ bazel build -c opt //signing_server
+	bazel build -c opt //signing_server
 	```
 
 This process can take a while, depending on the hardware or virtual machine.

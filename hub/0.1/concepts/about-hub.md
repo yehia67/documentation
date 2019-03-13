@@ -1,6 +1,8 @@
 # About Hub
 
-**Hub has many functions that facilitate the interation of IOTA into existing applications.**
+**Hub has many functions, such as seed generation, that facilitate the integration of IOTA into existing applications.**
+
+Each of these functions is exposed through [gRPC](../references/api-reference.md).
 
 ## Seed generation
 
@@ -12,9 +14,9 @@ Deposit addresses are generated using a user's seed. Hub keeps track of the addr
  
 ## Deposit address management
 
-IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, addresses can be spent from only once because each signature exposes some of the private key.
+IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, addresses can be withdrawn from only once because each signature exposes some of the private key.
 
-To prevent address reuse, Hub ensures that each user is assigned a unique address for every deposit. To do so, Hub tracks whether address indices were already spent from and increments the index to generate a new deposit address.
+To prevent address reuse, Hub ensures that each user is assigned a unique address for every deposit. To do so, Hub tracks whether address indices were already withdrawn from and increments the index to generate a new deposit address.
 
 ## Transaction monitoring
  

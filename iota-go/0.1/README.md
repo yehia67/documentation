@@ -10,45 +10,35 @@ This is the **official** Go client library, which allows you to do the following
 This is beta software, so there may be performance and stability issues.
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.go/issues/new).
 
-|Table of contents|
-|:----|
-| [Prerequisites](#prerequisites)
-| [Downloading the library](#downloading-the-library)|
-| [Getting started](#getting-started) |
-| [API reference](#api-reference)|
-| [Examples](#examples)|
-|[Supporting the project](#supporting-the-project)|
-|[Joining the discussion](#joining-the-discussion)|
-
 ## Prerequisites
 
 To download the IOTA Go client library and its dependencies, we recommend that you use [vgo modules](https://github.com/golang/go/wiki/Modules) 
 (since Go 1.11) to manage dependencies in your project.
 
-## Downloading the library
+## Download the library
 
 To download the IOTA Go client library and its dependencies, do the following:
 
-1. In any directory outside of GOPATH, initiate your project:
+1. In any directory outside of GOPATH, initiate your project
 
 	```bash
-	$ go mod init <your-module-path>
+	go mod init <your-module-path>
 	```
 
 **Note:** Change the <your-module-path> placeholder to your chosen path such as github.com/me/awesome-project.
 
-2. Download the library:
+2. Download the library
 
 	```bash
-	$ go get github.com/iotaledger/iota.go/api
+	go get github.com/iotaledger/iota.go/api
 	```
 
 This command downloads the latest version of the IOTA Go client library and writes the version into
 the `go.mod` file (vgo is `go get` agnostic).
 
-## Getting started
+## Get started
 
-After you've [downloaded the library](#downloading-the-library), you can connect to an IRI node to send transactions to it and interact with the ledger.
+After you've [downloaded the library](#download-the-library), you can connect to an IRI node to send transactions to it and interact with the ledger.
 
 1. To connect to a local IRI node, do the following:
 
@@ -81,13 +71,13 @@ After you've [downloaded the library](#downloading-the-library), you can connect
 	```
 ## API reference
 
-For details on all available API methods, see the [API folder](api/).
+For details on all available API methods, see the [API folder](https://github.com/iotaledger/iota.go/tree/master/api).
 	
 ## Examples
 
-As well as the following examples, you can take a look at our [examples folder](api/.examples) for more.
+As well as the following examples, you can take a look at our [examples folder](https://github.com/iotaledger/iota.go/tree/master/api/.examples) for more.
 
-### Creating and broadcasting transactions
+### Create and broadcast transactions
 
 This example shows you how to create and send a transaction to an IRI node by calling the `PrepareTransfers()` method and piping the prepared bundle to the `SendTrytes()` method.
 
@@ -213,7 +203,7 @@ Certain PoW implementations are enabled if the correct flags are passed while co
 PoW implementation in Go is always available.
 If you want to use local PoW, make sure you define `LocalProofOfWorkFunc` in your provider settings such as `HTTPClientSettings`. 
 
-## Supporting the project
+## Support the project
 
 We thank everyone for their contributions. In order for your pull requests to be accepted, 
 they must fulfill the following criteria:
@@ -221,28 +211,28 @@ they must fulfill the following criteria:
 - You must write example code that desribes the parameters and the functionality of your additions 
 - Your pull request must pass the continuous integration configuration
 
-### Writing tests with Ginkgo
+### Write tests with Ginkgo
 
 Before your pull requests can be accepted, you must test your code in Ginkgo.
 
-1. Download Ginkgo:
+1. Download Ginkgo
 
 	```bash
-	$ go get github.com/onsi/ginkgo/ginkgo
-	$ go get github.com/onsi/gomega/...
+	go get github.com/onsi/ginkgo/ginkgo
+	go get github.com/onsi/gomega/...
 	```
 
-2. If you've written a new package, generate a corresponding test-suite file:
+2. If you've written a new package, generate a corresponding test-suite file
 
 	```bash
-	$ cd <dir-of-your-package>
-	$ ginkgo bootstrap
+	cd <dir-of-your-package>
+	ginkgo bootstrap
 	```
 
-3. Generate a new testing file:
+3. Generate a new testing file
 
 	```bash
-	$ ginkgo generate <package-name>
+	ginkgo generate <package-name>
 	```
 
 After creating a testing file, you'll have following two files:
@@ -253,9 +243,9 @@ After creating a testing file, you'll have following two files:
 **Note:** You can use the existing tests as a reference on how to write Ginkgo tests or
 you can [read the documentation](https://onsi.github.io/ginkgo/).
 
-4. Run your tests:
+4. Run your tests
 	```bash
-	$ go test -v
+	go test -v
 	=== RUN   TestAddress
 	Running Suite: Address Suite
 	============================
@@ -270,7 +260,7 @@ you can [read the documentation](https://onsi.github.io/ginkgo/).
 	ok  	github.com/iotaledger/iota.go/address	0.264s
 	```
 
-### Writing documentation and example code
+### Write documentation and example code
 
 While godoc.org gives a good enough documentation of the package already, the IOTA Foundation's
 documentation portal needs additional information, such as parameter description, examples and so on.
@@ -281,32 +271,32 @@ documentation portal needs additional information, such as parameter description
 the `.examples` directory
 
 3. Write examples in the following schema:
-```
-// i req: s, The ASCII string to convert to Trytes.
-// o: Trytes, The Trytes representation of the input ASCII string.
-// o: error, Returned for non ASCII string inputs.
-func ExampleASCIIToTrytes() {
-	trytes, err := converter.ASCIIToTrytes("IOTA")
-	if err != nil {
-		// handle error
-		return
+	```
+	// i req: s, The ASCII string to convert to Trytes.
+	// o: Trytes, The Trytes representation of the input ASCII string.
+	// o: error, Returned for non ASCII string inputs.
+	func ExampleASCIIToTrytes() {
+		trytes, err := converter.ASCIIToTrytes("IOTA")
+		if err != nil {
+			// handle error
+			return
+		}
+		fmt.Println(trytes) // output: "SBYBCCKB"
 	}
-	fmt.Println(trytes) // output: "SBYBCCKB"
-}
-```
+	```
 
-| Symbol     | Description |
-|:---------------|:--------|
-| i req | Describes a parameter to the function. |
-| i | Describes an optional parameter to the function. |
-| o | Describes a return value of the function. |
+	| Symbol     | Description |
+	|:---------------|:--------|
+	| i req | Describes a parameter to the function. |
+	| i | Describes an optional parameter to the function. |
+	| o | Describes a return value of the function. |
 
-Syntax:
+	Syntax:
 
-- For parameters: `<symbol>: <parameter_name>, <description>.`  
-- For return values: `<symbol>: <type>, <description>.`
-- Example function: `Example<OriginFunctionName>`
+	- For parameters: `<symbol>: <parameter_name>, <description>.`  
+	- For return values: `<symbol>: <type>, <description>.`
+	- Example function: `Example<OriginFunctionName>`
 
-## Joining the discussion
+## Join the discussion
 
 If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss blockchain, distributed ledgers, and IoT with other people, feel free to join our [Discord](https://discordapp.com/invite/fNGZXvh).  

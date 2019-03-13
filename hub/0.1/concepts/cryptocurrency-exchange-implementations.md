@@ -7,7 +7,7 @@ In this guide, we discuss two possible scenarios:
 - **Scenario A:** Multiple user accounts for generating deposit addresses, but funds are manually moved out of these upon deposit into a central hot or Hub account.
 - **Scenario B:** Multiple user accounts with individual balances.
 
-<hr>
+---
 
 ## Scenario A
 
@@ -39,9 +39,9 @@ Exchange creates new Hub user, passing in a userid.
 
 ### Cold wallet topup
 
-Exchange issues withdrawal from hot to cold wallet address that wasn't spent from (`UserWithdraw`)
+Exchange issues withdrawal from hot to cold wallet address that wasn't withdrawn from (`UserWithdraw`)
 
-  **Note:** Hub doesn't check whether a payout address was already spent from! This has to happen on the exchange side.*
+  **Note:** Hub doesn't check whether an address was already withdrawn from! This has to happen on the exchange side.*
 
 ### Hot wallet topup
 
@@ -56,7 +56,7 @@ Exchange issues withdrawal from hot to cold wallet address that wasn't spent fro
 
 No action happens on Hub, all accounting is done internally on the Exchange side.
 
-### Discussion of Pros & Cons
+### Discussion of the pros and cons
 
 - (+) Easy management of cold / hot funds
 - (+) Likely to be easier to integrate on exchange side.
@@ -124,7 +124,7 @@ Exchange creates new Hub user, passing in a per-user userid.
 1. If not already exists, User B is created on Hub (`CreateUser`)
 2. As part of next batch, exchange issues a transfer between the two users (`ProcessTransfers`)
 
-### Discussion of Pros & Cons
+### Discussion of the pros and cons
 
 - (+) Balances are tracked on a per-user level and thus Hub can do a sanity check on the requests the exchange sends.
 - (+) Exchange can easily do a sanity check that its backend is tracking the same `(user, balance)` values as Hub.

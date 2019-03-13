@@ -1,10 +1,10 @@
-# Reference on JS, Golang, Java, Python, and C# Libraries
+# Creating, sending, and receiving transactions requires an in-depth understanding of the IOTA protocol. The IOTA client libraries abstract the complexity of the protocol into simple functions.
 
-[Overview](/0.1/overview.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+[Client libraries overview](/0.1/introduction/overview.md)
+## Learn what client libraries are, why they're useful, and which projects are using them
 
-[IOTA.js](/0.1/overview.md)
-## Learn about the basic ideas and concepts around IOTA and etc
+[iota.js](root://iota-js/0.1/README.md)
+## Familiarize yourself with the IOTA JavaScript client library
 
-[Libraries](/0.1/overview.md)
-## Learn about language implementation for [JS](root://iota-js/0.1/README.md), [GoLang](root://iota-go/0.1/README.md), [JS](root://iota-java/0.1/README.md)
+[Libraries](/0.1/introduction/overview.md)
+## Learn about the official client libraries for [JavaScript](root://iota-js/0.1/README.md), [GoLang](root://iota-go/0.1/README.md), [Java](root://iota-java/0.1/README.md)
