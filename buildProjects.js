@@ -13,7 +13,7 @@ const cheerio = require('cheerio');
 
 const { rootFolder, reportFile, projectsFile, checkRemotePages, checkSpelling, spellingFile, consoleDetail, exitWithError } = require('./buildProjects.config.json');
 
-let dictionary = [];
+let dictionary = {};
 
 let errorCount = 0;
 let warningCount = 0;
