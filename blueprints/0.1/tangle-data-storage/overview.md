@@ -13,7 +13,7 @@ A common requirement for nearly all use cases or applications is that data must 
 * **Supply chain:** Shipping documents or images must be stored to form a permanent record of events
 * **Digital twin of a vehicle:** All data such as the odometer readings, maintenance record, and ownership change should be stored to form a permanent record of the entire lifecycle of the vehicle
 
-Although the IOTA Foundation (IF) are developing the functionality that allows the network to retain the full transaction history (permanode), it's not recommended to store data in the Tangle because it's not a database and it's not designed to store data. If you want to permanently store even a moderate amount of data, you should store only a hash of the data in the Tangle, and store the actual data in a third-party storage solution.
+To clarify, the Tangle is not a database designed to store data.  The Tangle is an immutable, distributed ledger where a hash of data can be stored along with a pointer to third-party data storage.  The IOTA Foundation (IF) are developing a network to retain a full transaction history called a "Permanode".  A permanode can be used to store a permanent record of supply chain events, a permanent record of vehicle maintenance and ownership, or other similar use cases.
 
 ### Solution
 
