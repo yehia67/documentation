@@ -1,86 +1,70 @@
-# Setting up an SBC (Single-board computer) for IOTA
+# Set up a single-board computer
 
-## Requirements
+**A single board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable and much more power efficient then multi-board computers such as desktops. You can set up an SBC for s purpose-built embedded application that uses IOTA technology.**
 
-### Host-system
+## Prerequisites
 
-- Linux based host system. (Ubuntu is used in this guide) MacOS should also work.
-Note: If you use Windows, you should use [a Linux VM.](https://www.windowscentral.com/how-run-linux-distros-windows-10-using-hyper-v)
-Windows 10 also supports the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10) 
-With it you are able to run Linux without the overhead of a VM.
-If you are an advanced user, you can also replace the Linux tools with the Windows equivalent.
+To complete this guide, you need the following:
 
-### SBC
+- A Linux-based operating system (OS) with SSH enabled and a configured network. In this guide, we use Ubuntu, however other Linux distributions as well as MacOS should work.
 
-- Ubuntu (or other Linux based OS, BSD might also work) with enabled SSH & configured network
-*_Note:_* You might want to check our "Setting up an SBC for IOTA guide"
+:::info:Windows users
+You can use [a virtual machine (VM)](../how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10). With the subsystem, you can run Linux without the overhead of a VM. If you are an advanced user, you can also replace the Linux tools with the Windows equivalents.
+:::
 
-- Memory: This depends on your use-case. Recommendation: At least 256 MB.
+- If possible, you should use a display and a keyboard to set up your device.
 
-- Ubuntu (Other Linux distribution should also work. BSD based OS might also work.)
-*_Note:_* The guide uses Ubuntu. We recommend to stick to Ubuntu if you consider yourself as beginner
+- If your device has an Ethernet port and you have access to your router, connect your SBC to it.
 
-- Storage: This also depends on your use-case. Recommendation: At least 16 GB.
-
-
-## Before you start using this guide:
-
-- If possible you should use a display & keyboard to setup your device.
-
-- If your device has Ethernet and you have access to your router, connect your SBC to it.
-
-- For worst case scenarios: Use a USB-to-UART adapter. (Wi-Fi only SBC)
-
-*_Note:_* The [CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) 
-is a well-known and inexpensive chip. Ready to use USB-to-UART adapters are available for 1-$2.
-Your SBC might have an integrated adapter. You should take a look into the documentation of your SBC.
-
+- For worst case scenarios, use a USB-to-UART adapter. (Wi-Fi only SBC). The [CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) 
+is a well-known and inexpensive adapter, but your SBC might have an integrated one. To find out, look at the documentation for your SBC.
 
 ## 1. Install/Flash an Operation System to a SD-Card.
 
-*_Note:_* This process is similar for other SBCs like the Orange Pi. 
-If there is a special guide for your SBC, you should stick to that guide. 
-[Armbian](https://www.armbian.com/download/) supports different development boards. 
-If Armbian is available for your SBC, you should use it.
+:::info:
+This process is similar for other SBCs such as the Orange Pi. 
+If you have a separate guide for your SBC, you should follow that. Otherwise, use [Armbian](https://www.armbian.com/download/) because it supports many development boards.
+:::
 
-Just follow [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) 
-to flash an OS to the SD Card.
+Follow [this guide](https://www.raspberrypi.org/documentation/installation/installing-images/) 
+to flash an OS to your SD Card.
 
 ## 2. Plugin your SD card and start your SBC.
 
 ## 3. Setup your network for your SBC & get the IP address
 
-*_Note:_* IPv6 is the preferred IP version. 
-(If you consider yourself as beginner, you should use IPv4. IPv6 is a bit more complicated to understand.)
-
+:::info:
+Although, IPv6 is the preferred IP version, if you consider yourself a beginner, you should use IPv4.
+:::
 
 ### 3.1 Use keyboard & display to find the SBCs IP address
 				
 #### 3.1.1. Connect keyboard & display to your SBC. Login with the default user & password. 
 
-*_Note:_* If you do not know the username & password, just take a look onto the distributions' website.
+:::info:
+If you don't know the username or password, search the website of your Linux distribution.
+:::
 		
 #### 3.1.2. Get the IP address (Skip if your SBC does not have Ethernet or if it is not connected)
 
-Execute the command ```ifconfig```. The program returns all network interfaces and the given IP addresses.
-The interfaces starting with eth are Ethernet network interfaces. 
-The ones starting with wl are the Wi-Fi network interfaces.
+Execute the `ifconfig` command. The program returns all network interfaces and their given IP addresses.
+The interfaces starting with `eth` are Ethernet network interfaces, and the ones starting with `wl` are the Wi-Fi network interfaces.
 
 #### 3.1.4. Setup Wi-Fi
 
-If you want to use Wi-Fi or your SBC has only Wi-Fi, continue with 3.4. 
-After configuring the Wi-Fi network interface you are able
-to get your IP address with ```ifconfig```.
+If you want to connect to the Internet through Wi-Fi, continue to [step 3.4](#3.4.-optional:-configure-the-wi-fi-network-interface).
 
+After configuring the Wi-Fi network interface, you can use the `ifconfig` command to get your IP address.
 
 ### 3.2 Find your SBCs IP address via network-scans (IPv4 only, Ethernet connected)
 
-You must execute these commands on your host-system.
+You must execute the following commands on your host system.
 
 #### 3.2.1 Find IP addresses in your local network
 
 The subnet bytes to be set to zero and the netmask must be set in nmap.
-So, in my case:
+
+For example:
 Internal IP address: 10.197.0.57
 Netmask: 255.255.255.0
 
@@ -100,19 +84,16 @@ So, now it is just 2x8=16. So, you need to use 16 instead of 24.
 nmap -sn 10.197.0.0/16
 ```
 
-Depending on the subnet, this process can take some time, since nmap needs to scan all IP addresses within the network. 
-For a small subnet (netmask=24) is just takes some seconds, since nmap just need to scan 256 addresses.
-In a bigger network that can take more time. For example netmask=16: nmap needs to scan 256*256 addresses. 
-In my test-case this took 2944.17 seconds. If you are in a huge local network, you should consider using another variant.
+Depending on the subnet, this process can take some time because the `nmap` command scans all IP addresses in the network. For a small subnet (`netmask=24`), this process takes only seconds. In a large network (`netmask=16`), this process takes longer because the `nmap` command scans 256*256 addresses. Therefore, if you're in a large local network, you should consider using another variant.
 
 #### 3.2.2. Continue with 3.5. (Even if you found more than one IP address)
 
-	
 ### 3.3. Setup of an USB-to-UART adapter (No Ethernet, No HDMI/VGA)
 
-You must execute these commands on your host-system.
+You must execute the following commands on your host system.
 
 #### 3.3.1. Install PlatformIO
+
 You need additional software to connect to the serial port. 
 We recommend [PlatformIO](https://docs.platformio.org/en/latest/userguide/cmd_device.html?highlight=monitor#platformio-device-monitor).
 PlatformIO provides a simple command tool to interact with your SBC.
@@ -121,18 +102,23 @@ PlatformIO provides a simple command tool to interact with your SBC.
 
 #### 3.3.3. Find the right USB port
 
-USB ports are available at /dev/ttyUSBX. X stands for the number (0 - AMOUNT_OF_PORTS).
-The simplest way to find the right USB port is to plug out the USB-Adapter, check for the USB SBCs with
-```ls /dev/ttyUSB*```, plugin the USB-Adapter and check again. The new added USB-port is the one you are looking for.
+USB ports are available in the `/dev/ttyUSBX` directory. `X` stands for the result of the following calculation: 0 - AMOUNT_OF_PORTS.
+
+The simplest way to find the correct USB port is to unplug the USB-Adapter, check for the USB SBCs with the 
+`ls /dev/ttyUSB*` command, plug in the USB-Adapter and check again. The newly added USB port is the one you're looking for.
 
 #### 3.3.4. Change rights on connected USB SBC. 
 
-Some adapters have an unexpected behavior with their access rights. Just in case, change it with:
-```sudo chmod 777 /dev/ttyUSBX```
+Some adapters have an unexpected behavior with their access rights. Just in case, change it with the following command:
+
+```bash
+sudo chmod 777 /dev/ttyUSBX
+```
 
 #### 3.3.5. Connect to your USB port
 
-Take a look into the documentation of your SBC to find the baud rate. In case of the Orange Pi Zero it is 115200.
+To find the baud rate for your SBC, search its documentation. For example, for the Orange Pi Zero, the baud rate is 115200.
+
 ```bash
 platformio SBC monitor -b BAUD_RATE -p /dev/ttyUSBX
 ```
@@ -160,12 +146,14 @@ You can now get your IP address with  ```ifconfig```.
 
 ### 3.5. Connect via SSH to your SBC
 
-At this point you only need to use your host-system. It is not necessary to interact with the SBC.
+At this point, you don't need to interact with the SBC. Instead, use your host system.
 
 ##### IPv4
 
-If you found your IP address, you should connect to your SBC via SSH. 
-Use the following command on your host-system:
+If you found your IP address, you should connect to your SBC through SSH.
+
+Use the following command on your host system:
+
 ```bash
 ssh USERNAME@IP_ADRESS
 ```
@@ -176,21 +164,20 @@ If you use IPv6, you must add the command line argument -6 to the ssh program.
 You must also add the network interface name.
 Without the name the client cannot find the SBC.
 
-My case:
+For example:
 Host-system Wi-Fi interface name: wlp3s0
 The SBCs' local IPv6 address: fe80::c0a2:76c6:4ed5:a44
 
-My host-system & the SBC are both connected via Wi-Fi to my router. 
-You must use the interface which is connected to the right router. 
-Otherwise there is no route to your SBC.
+In this example, the host system and the SBC are both connected to the router through Wi-Fi. 
+You must use the interface which is connected to the correct router.
 
+As a result, this is the command to execute for the example:
 
-This is the command I need to execute:
 ```bash
 ssh -6 USERNAME@fe80::c0a2:76c6:4ed5:a442%wlp3s0
 ```
 
-If you found more than one IP address, you should every IP address, until you find the right one.
-If you are able to login with the your username & password, this is probably your SBC.
-If you want to make sure if this your SBC, just check it with ```cat /proc/cpuinfo```. 
+If you found more than one IP address, you should check every IP address until you find the right one.
+If you can log in with the your username and password, this IP address is probably your SBC.
+If you want to make sure that this IP address is your SBC, just check it with the `cat /proc/cpuinfo` command. 
 	
