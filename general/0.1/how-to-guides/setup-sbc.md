@@ -127,7 +127,7 @@ Although, IPv6 is the preferred IP version, if you consider yourself a beginner,
     ssh -6 USERNAME@fe80::c0a2:76c6:4ed5:a442%wlp3s0
     ```
 
-    If you found more than one IP address, you should check every IP address until you find the right one.
+    If you found more than one IP address, you should check every IP address until you find the correct one.
     If you can log in with the your username and password, this IP address is probably your SBC.
     If you want to make sure that this IP address is your SBC, just check it with the `cat /proc/cpuinfo` command.
 
@@ -149,7 +149,7 @@ If your SBC doesn't have an Ethernet port, you can connect to it from a host sys
 
 2. Plug in your USB-UART adapter
 
-3. Find the right USB port
+3. Find the correct USB port
 
     USB ports are available in the `/dev/ttyUSBX` directory. `X` stands for the result of the following calculation: 0 - AMOUNT_OF_PORTS.
 
