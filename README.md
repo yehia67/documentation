@@ -37,6 +37,7 @@ The spell checker uses [Hunspell](https://en.wikipedia.org/wiki/Hunspell
 
 To enhance the spell checker, you can add words to the dictionary.json file, which supports regular expressions. For example:
 
+```
 {
     "global": [
         "(P|p)ermission(less|ed)"
@@ -45,3 +46,4 @@ To enhance the spell checker, you can add words to the dictionary.json file, whi
         "AstroPi"
     ]
 }
+```
