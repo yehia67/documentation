@@ -1,6 +1,6 @@
 # Run an IRI node on a Linux server
 
-**When you run the IRI on a Linux server, it becomes an IRI node that gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.**
+**When you run the IRI on a Linux server, it becomes a node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
 
 ## Prerequisites
 
@@ -16,6 +16,10 @@
     * **TCP API port:** 14265
 
 ---
+
+:::info:
+If your server has limited resources such as less than 4 GB of RAM, we recommend to running the cIRI instead of the IRI.
+:::
 
 The IRI is Java software, so it must be run in a Java runtime environment (JRE).
 
