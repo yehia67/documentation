@@ -2,7 +2,7 @@
 
 **Hub stores sensitive information such as seeds. To add an extra layer of security, you can move sensitive operations and data to a signing server that only Hub can connect to.**
 
-For this guide, you'll use a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
+For this guide, you'll need a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
 
 ![IOTA Hub architecture](../iota_hub.png)
 
@@ -108,7 +108,7 @@ SSL certificates are used for secure communication between your Hub and the sign
 	nano docs/ssl/01_generate_ca.sh
 	```
 
-The validity for the CA certificate is set to 365 days. Let's upgrade that to 9999 days so it won't expire anytime soon:
+	The validity for the CA certificate is set to 365 days. Let's upgrade that to 9999 days so it won't expire anytime soon:
 
 2. To increase the expiry date of the certificate, replace `-days 365` with `-days 9999`. Save the file
 
@@ -124,7 +124,7 @@ The validity for the CA certificate is set to 365 days. Let's upgrade that to 99
 
 6. Change the `-subj` parameter so that the `CN=localhost` part contains the hostname of the signing server, for example `CN=signer`. Save the file.
 
-The `openssl req` command should output something like the following:
+	The `openssl req` command should output something like the following:
 
 	openssl req -passin pass:1234 -new -key server.key -out server.csr -subj "/C=DE/ST=Berlin/L=Berlin/O=HUB/OU=Server/CN=signer"
 
@@ -175,7 +175,9 @@ Before you can run the binary file, you need to configure it.
 	--listenAddress 0.0.0.0:50051
 	```
 
-**Note:** Use the same salt as the salt you used in the Hub configuration.
+	:::warning:Warning
+	Use the same salt as the salt you used in the Hub configuration.
+	:::
 
 3. Make the start.sh file executable
 
@@ -189,11 +191,13 @@ Before you can run the binary file, you need to configure it.
 	./start.sh
 	```
 
-Congratulations :tada: The signing server is now running on your computer!
+	:::success:Congratulations
+	:tada: The signing server is now running on your computer!
+	:::
 
-**Note:** You are currently running the signing server in your shell session. If you close this session, the server will stop. Therefore, you might want to consider running the signing server in a screen/tmux session, a system-wide service, or a supervised process.
+	You are currently running the signing server in your shell session. If you close this session, the server will stop. Therefore, you might want to consider running the signing server in a screen/tmux session, a system-wide service, or a supervised process.
 
-For this tutorial, you'll use supervisor to make sure the signing server always runs and automatically restarts after a reboot or a crash.
+	For this tutorial, you'll use supervisor to make sure the signing server always runs and automatically restarts after a reboot or a crash.
 
 5. Install supervisor (press `CTRL+C` to exit the current shell session):
 
@@ -207,7 +211,7 @@ For this tutorial, you'll use supervisor to make sure the signing server always 
 	sudo nano /etc/supervisor/conf.d/signing.conf
 	```
 
-7. Add the following lines to the signing.conf file:
+7. Add the following lines to the signing.conf file. Change the value of the `user` field, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` field are correct.
 
 	```shell
 	[program:hub]
@@ -220,15 +224,13 @@ For this tutorial, you'll use supervisor to make sure the signing server always 
 	stdout_logfile=/home/dave/hub/info.log
 	```
 
-**Note:** Change the value of the `user` parameter, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` parameters are correct.
-
 8. Save the signing.conf file and reload supervisor
 
 	```bash
 	sudo supervisorctl reload
 	```
 
-The signing server should now be running in the background and should automatically start again after a server reboot or a crash.
+	The signing server should now be running in the background and should automatically start again after a server reboot or a crash.
 
 9. Check the supervisor status
 
@@ -248,21 +250,19 @@ Now, you need to connect Hub to the signing server.
 
 In the Hub server, you need to import the generated SSL certificates and edit the start.sh script to use them.
 
-1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the hub server. You can do this in any way you prefer. For this example, send them over SSH, using the `scp` command
+1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the hub server. You can do this in any way you prefer. For this example, send them over SSH, using the `scp` command. Change 192.168.2.212 to the URL or IP address of your Hub server. Change the `/home/dave/hub/` directory to the path where your Hub is installed.
 
 	```bash
 	scp client.crt client.key ca.crt 192.168.2.212:/home/dave/hub/
+	``` 
+
+	The output should display something like the following:
+
+	```shell
+	client.crt                                                                    100% 1887     1.6MB/s   00:00    
+	client.key                                                                    100% 3243     3.0MB/s   00:00    
+	ca.crt                                                                        100% 2029     1.9MB/s   00:00  
 	```
-
-**Note:** Change 192.168.2.212 to the URL or IP address of your Hub server. Change the `/home/dave/hub/` directory to the path where your Hub is installed.
-
-The output should display something like the following:
-
-```shell
-client.crt                                                                    100% 1887     1.6MB/s   00:00    
-client.key                                                                    100% 3243     3.0MB/s   00:00    
-ca.crt                                                                        100% 2029     1.9MB/s   00:00  
-```
 
 2. Create a new file
 
@@ -270,13 +270,11 @@ ca.crt                                                                        10
 	sudo nano /etc/hosts
 	```
 
-3. In this file, map the hostname of the signing server to its IP address
+3. In this file, map the hostname of the signing server to its IP address. Change 192.168.2.210 to the IP address of your signing server. Change signer to the hostname of your signing server.
 
 	```shell
 	192.168.2.210   signer
 	```
-
-**Note:** Change 192.168.2.210 to the IP address of your signing server. Change signer to the hostname of your signing server.
 
 4. Open the  `start.sh` file
 
@@ -309,9 +307,11 @@ ca.crt                                                                        10
 	sudo supervisorctl restart hub
 	```
 
+:::success:Success
 If everything went well, you should have Hub and a signing server ready for action. The salt is no longer on the same server as your Hub!
+:::
 
 ## Next steps
 
-Make sure that your signing server has a firewall whitelist. The fewer external services you expose, the less vulnerable you are. General server security rules apply.
+Make sure that your signing server has a firewall whitelist. The fewer external services you expose, the less vulnerable you are.
 
