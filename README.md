@@ -37,7 +37,7 @@ The spell checker uses [Hunspell](https://en.wikipedia.org/wiki/Hunspell
 
 To enhance the spell checker, you can add words to the dictionary.json file, which supports regular expressions. For example:
 
-```
+```json
 {
     "global": [
         "(P|p)ermission(less|ed)"
@@ -46,4 +46,12 @@ To enhance the spell checker, you can add words to the dictionary.json file, whi
         "AstroPi"
     ]
 }
+```
+
+If you want to validate just a single project you can run the script with a command line option of the specific folder name.
+
+e.g.
+
+```shell
+node buildProjects getting-started
 ```
