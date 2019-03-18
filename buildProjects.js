@@ -455,7 +455,8 @@ function isValidWord(projectFolder, word) {
 async function spellCheck(projectFolder, markdown, docPath) {
     if (checkSpelling) {
         let noCode = markdown.replace(/```([\s\S])*?```/g, '');
-        let noHtml = noCode.replace(/<(?:.*?)>(.*?)<\/(?:.*?)>/g, ' $1 ');
+        let noObjects = noCode.replace(/¬¬¬([\s\S])*?¬¬¬/g, '');
+        let noHtml = noObjects.replace(/<(?:.*?)>(.*?)<\/(?:.*?)>/g, ' $1 ');
 
         const html = md({ html: true }).render(noHtml);
         const dom = cheerio.load(html);
