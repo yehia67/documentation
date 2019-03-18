@@ -18,7 +18,7 @@ let dictionary = {};
 let errorCount = 0;
 let warningCount = 0;
 
-async function buildProjects(docsFolder) {
+async function buildProjects(docsFolder, singleProject) {
     try {
         await fsPromises.unlink(reportFile);
     } catch (err) {
@@ -31,7 +31,10 @@ async function buildProjects(docsFolder) {
     await reportEntry(`Reading Project Dir: '${docsFolder}'`);
     await reportEntry('');
 
-    const projects = await readProjects(docsFolder);
+    let projects = await readProjects(docsFolder);
+    if (singleProject) {
+        projects = projects.filter(p => p.folder === singleProject);
+    }
     console.log(`Found ${projects.length} Projects.`);
 
     for (let i = 0; i < projects.length; i++) {
@@ -678,7 +681,7 @@ function loadDictionary() {
     }
 }
 
-async function run() {
+async function run(singleProject) {
     if (checkSpelling && spellingFile) {
         if (fs.existsSync(spellingFile)) {
             fs.unlinkSync(spellingFile);
@@ -686,7 +689,7 @@ async function run() {
         fs.appendFileSync(spellingFile, "# Spelling Summary\n");
         loadDictionary();
     }
-    const projects = await buildProjects(rootFolder);
+    const projects = await buildProjects(rootFolder, singleProject);
 
     if (projectsFile) {
         await fsPromises.writeFile(projectsFile, JSON.stringify(projects, undefined, '\t'));
@@ -712,9 +715,9 @@ async function run() {
 
 console.log(chalk.green.underline.bold('Build Projects'));
 
-const docsFolder = process.argv[2] || 'docs';
+const singleProject = process.argv[2] || '';
 
-run(docsFolder)
+run(singleProject)
     .then(() => console.log(chalk.green(`\n${emoji.get('smile')}  Completed Successfully`)))
     .catch((err) => {
         console.error(chalk.red(`\n${emoji.get('frown')}  Building failed with the following error:`));
