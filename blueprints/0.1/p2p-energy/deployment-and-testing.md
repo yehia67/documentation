@@ -58,24 +58,24 @@ An understanding of MAM channels.
 
 ## Deploy the P2P energy grid app
 
-The software configuration and deployment for all the entities is documented in the [GitHub repository](https://github.com/iotaledger/p2p-energy-poc).
+The software configuration and deployment for all the entities is documented in the [GitHub repository](https://github.com/iotaledger/poc-p2p-energy).
 
 Sources running on RPi need the following:
-* Local area network (LAN) or wide area network (WAN) connectivity to the grid
+* Local area network (LAN) or wide area network (WAN) connection to the grid
 * Connection to an IOTA Node
-* NodeJS - https://github.com/audstanley/NodeJs-Raspberry-Pi
+* [NodeJS](https://github.com/audstanley/NodeJs-Raspberry-Pi)
 
 Producers running on RPi need the following:
-* Network connectivity to the grid
-* Connection to an IOTA node (Can be internal)
-* NodeJS - https://github.com/audstanley/NodeJs-Raspberry-Pi
+* Network connection to the grid
+* Connection to an IOTA node (can be internal)
+* [NodeJS](https://github.com/audstanley/NodeJs-Raspberry-Pi)
 
 Consumers running on RPi need the following:
-* LAN or WAN connectivity to the grid
+* LAN or WAN connection to the grid
 * Connection to an IOTA node
-* NodeJS - https://github.com/audstanley/NodeJs-Raspberry-Pi
+* [NodeJS](https://github.com/audstanley/NodeJs-Raspberry-Pi)
 
 Grids running in the cloud or on a local server need the following:
-* WAN connectivity
-* WAN connectivity to the Tangle
+* WAN connection
+* Connection to the Tangle
 * Connection to an IOTA node (optional if other entities have access to WAN)
