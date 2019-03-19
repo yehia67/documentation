@@ -4,7 +4,7 @@
 
 Zero-value transactions can still be confirmed, but they don't need to be because they don't transfer value.
 
-If you're unfamilar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://the-tangle/0.1/introduction/overview.md).
+If you're unfamiliar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://the-tangle/0.1/introduction/overview.md).
 
 This guide uses the `getLatestInclusion()` method in the IOTA core JavaScript client library. This method checks if a transaction is approved by an IRI node's latest solid subtangle milestone.
 

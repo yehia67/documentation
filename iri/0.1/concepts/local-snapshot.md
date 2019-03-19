@@ -17,7 +17,7 @@ If an IRI node isn't synchronized, it creates snapshot files at the milestone in
 At each interval, the snapshot file is overwritten.
 
 Local snapshots create the following snapshot files:
-* **snapshot.meta:** [A list of transaction data that the IRI uses to start synchonizing its ledger with neighbor IRI nodes](../references/data-in-the-snapshot-metadata-file.md)
+* **snapshot.meta:** [A list of transaction data that the IRI uses to start synchronizing its ledger with neighbor IRI nodes](../references/data-in-the-snapshot-metadata-file.md)
 * **snapshot.state:** A list of all addresses that have a balance greater than 0 at the time of the local snapshot.
 
 **Note:** These files are located in the path of the [`LOCAL_SNAPSHOTS_BASE_PATH`](../references/iri-configuration-options.md#local-snapshots-base-path) configuration option.

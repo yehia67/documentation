@@ -2,7 +2,7 @@
 
 **The Tangle is the data structure that's formed by the connections among a node's transactions. Transactions in the Tangle can be in one of two states: Pending or confirmed.**
 
-One of the validation critera of a transaction is that each one must directly reference two previous transactions. It's these references that connect transactions and _attach_ them to the Tangle.
+One of the validation criteria of a transaction is that each one must directly reference two previous transactions. It's these references that connect transactions and _attach_ them to the Tangle.
 
 This referencing model forms a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), in which each transaction represents a vertex.
 
