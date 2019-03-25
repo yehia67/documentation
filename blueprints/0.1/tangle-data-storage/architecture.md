@@ -1,6 +1,6 @@
 # Application architecture
 
-**The Tangle data storage application consists of two parts: a graphical user interface (GUI), written in React and a back-end API, written in NodeJS.**
+**The Tangle data storage application consists of two parts: A graphical user interface (GUI), written in React and a back-end API, written in NodeJS.**
 
 This application consists of the following:
 

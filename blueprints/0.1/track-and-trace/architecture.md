@@ -1,6 +1,6 @@
 # Application architecture
 
-**The track-and-trace application uses the IOTA MAM protocol to give returnable assets an ID and to track those assets in streams of transactions called MAM streams.**
+**The track-and-trace application uses the IOTA MAM protocol to give returnable assets an ID and to track those assets in streams of transactions called MAM channels.**
 
 :::warning:Disclaimer
 Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community.
@@ -200,4 +200,4 @@ export const updateItem = (eventBody, mam, newItemData, user) => {
 };
 ```
 
-In the `updateItem()` function above, first the Firebase Object Repository is searched for an existing asset, through its itemId and subsequently information are updated with the new MAM channel or message details.
+In the `updateItem()` function, first the Firebase Object Repository is searched for an existing asset by the 'itemId' field, then any information for that object is updated with the new MAM channel or message details.
