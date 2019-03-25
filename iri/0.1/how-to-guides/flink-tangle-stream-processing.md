@@ -1,4 +1,4 @@
-# Near real-time transaction stream processing with Apache Flink
+# Process big data transaction stream in near real-time with Apache Flink
 **Learn how to process IOTA transaction streams in near real-time, 
 while diving into the big data stream processing framework Apache Flink.**
 
