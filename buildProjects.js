@@ -385,6 +385,8 @@ async function markdownLinks(markdown, docPath) {
                 } else {
                     await reportWarning(`Remote page errors: '${match[2]}' in '${docPath}' with '${response}'`);
                 }
+            } else if (isMail(match[2])) {
+                // Don't do anything with mail links
             } else if (isRoot(match[2])) {
                 let rootUrl = stripAnchor(stripRoot(match[2]));
                 const docFilename = path.resolve(path.join(rootFolder, rootUrl));
@@ -576,6 +578,10 @@ function isRoot(link) {
 
 function isRemote(link) {
     return link.startsWith('http://') || link.startsWith('https://');
+}
+
+function isMail(link) {
+    return link.startsWith('mailto:');
 }
 
 function rootToDocs(content, docsFolder) {
