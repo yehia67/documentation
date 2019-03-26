@@ -1,26 +1,38 @@
 # The Tangle overview
 
-**The Tangle is the data structure that's formed by the connections among transactions in the ledger. These connections allow an IRI node to traverse transactions and validate them.**
+**The Tangle is the data structure that's formed by the connections among transactions in a node's ledger. Nodes use these connections to traverse transactions in the ledger, validate them, and reach a consensus on which ones are confirmed.**
 
-The data structure that forms the Tangle is a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), and it was formally introduced in the IOTA whitepaper by Professor Serguei Popov in 2015.
+In 2015, Professor Serguei Popov introduced the Tangle in the [IOTA whitepaper](https://iota.org/IOTA_Whitepaper.pdf) as a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG).
 
-In the Tangle, transactions are connected to each other by reference through their [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md). These fields contain the transaction hash of either a transaction in the same bundle or a tip transaction that was returned during [tip selection](../concepts/tip-selection.md).
+The Tangle takes the form of a DAG because each transaction must have a connection to two other transactions. These connections are referenced in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md). In each of these fields is the transaction hash of either a transaction in the same bundle or a [tip transaction](../concepts/tip-selection.md). It's these hashes that connect transactions together and **attach them to the Tangle**. If a transaction's fields such as the `value` field were to change, the hashes would change and invalid all transactions that have direct or indirect references to them. This way, transactions that are attached to the Tangle are immutable.
 
-References form a family tree, whereby if a transaction is a **child**, the branch and trunk transactions are its **parents**.
+## Transaction hierarchy
+
+The connections among transactions form a family tree, whereby if one transaction is a **child**, its branch and trunk transactions are its **parents**.
+
+In the Tangle, old transactions are drawn on the left and new ones are attached to them from the right.
+
+:::info:
+Transaction 0 is the genesis transaction, which is the very first transaction in the Tangle.
+:::
 
 ![A directed acyclic graph](../dag.png)
 
-In this diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. On the other hand, transaction 6 indirectly references transaction 3, so, transaction 3 is a **grandparent** of transaction 6.
+In this diagram of the Tangle, transaction 6 has a direct reference to transaction 5, thus transaction 5 is a **parent** of transaction 6.
 
-Because tip selection causes IRI nodes to validate bundles, any transaction that directly or indirectly references other transactions approves them and their entire history.
+Transaction 6 has an indirect reference to transaction 3, thus transaction 3 is a **grandparent** of transaction 6.
 
-**Note:** Transaction 0 is the genesis transaction, which is the very first transaction in the Tangle.
+During tip selection, nodes traverse transactions through their references and validate their bundles. As a result, all children approve their parents and their parents' entire history, which is called a subtangle.
 
-## Consensus
+## Consensus and confirmation
 
-In IOTA, the nodes must reach consensus about when a transaction can be considered confirmed before they can update the balances of addresses.
+Bundles of transactions that withdraw tokens from addresses and deposit them into others are called transfers.
 
-A transaction is considered confirmed when it's approved by a [Coordinator](../concepts/the-coordinator.md)-issued milestone.
+Nodes will never update the balances of addresses in a transfer until all transactions in it are confirmed.
+
+While all nodes validate transactions according to a set of rules, confirmation is the result of consensus, where all nodes accept the valid Tangle, according to a shared critera.
+
+At the moment, nodes consider a transaction as confirmed when it's approved by a [milestone](../concepts/the-coordinator.md).
 
 ## Further Research
 
