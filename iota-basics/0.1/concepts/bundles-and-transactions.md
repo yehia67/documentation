@@ -1,6 +1,6 @@
 # Bundles and transactions
 
-**A transaction is a single operation that you can send to an IRI node. Transactions can withdraw/deposit IOTA tokens or send data. To send an IRI node one or more transactions, you must package them in a bundle before sending them.**
+**A transaction is a single operation that you can send to a node. Transactions can withdraw/deposit IOTA tokens or send data. To send a node one or more transactions, you must package them in a bundle.**
 
 Each transaction in a bundle must be [structured](../references/structure-of-a-transaction.md) according to the IOTA protocol and contain valid values for all the transaction fields.
 
@@ -16,9 +16,11 @@ For the vendor to receive 10Mi, all three of those transactions must be valid. T
 
 **Note:** It's not just multiple transactions that need to be packaged in a bundle, even individual ones do.
 
-## Withdrawals and deposits
+## Withdrawals, deposits, and transfers
 
 A bundle can consist of any number of withdrawals and deposits. However because of the time and resources that are involved during [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), we recommend a maximum of 30 transactions in a bundle.
+
+Bundles of transactions that withdraw tokens (input transactions) from addresses and deposit them into others (output transactions) are called transfers.
 
 ### Input transaction
 

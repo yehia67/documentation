@@ -4,7 +4,13 @@
 
 In 2015, Professor Serguei Popov introduced the Tangle in the [IOTA whitepaper](https://iota.org/IOTA_Whitepaper.pdf) as a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG).
 
-The Tangle takes the form of a DAG because each transaction must have a connection to two other transactions. These connections are referenced in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md). In each of these fields is the transaction hash of either a transaction in the same bundle or a [tip transaction](../concepts/tip-selection.md). It's these hashes that connect transactions together and **attach them to the Tangle**. If a transaction's fields such as the `value` field were to change, the hashes would change and invalid all transactions that have direct or indirect references to them. This way, transactions that are attached to the Tangle are immutable.
+The Tangle takes the form of a DAG because each transaction must have a connection to two other transactions. These connections are referenced in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md).
+
+In each of these fields is the transaction hash of either a transaction in the same bundle or a [tip transaction](../concepts/tip-selection.md). It's these hashes that connect transactions together and **attach them to the Tangle**. If a transaction's fields such as the `value` field were to change, the transaction hashes would change and invalid all transactions that have direct or indirect references to them. This way, transactions that are attached to the Tangle are immutable.
+
+:::info:
+All transaction hashes are subject to [proof of work](../concepts/proof-of-work.md) to protect the network from spam.
+:::
 
 ## Transaction hierarchy
 
@@ -26,11 +32,9 @@ During tip selection, nodes traverse transactions through their references and v
 
 ## Consensus and confirmation
 
-Bundles of transactions that withdraw tokens from addresses and deposit them into others are called transfers.
+Nodes will never update the balances of addresses in a [transfer](root://iota-basics/0.1/concepts/bundles-and-transactions.md) until all transactions in it are confirmed.
 
-Nodes will never update the balances of addresses in a transfer until all transactions in it are confirmed.
-
-While all nodes validate transactions according to a set of rules, confirmation is the result of consensus, where all nodes accept the valid Tangle, according to a shared critera.
+Although all individual nodes validate transactions according to a set of rules, confirmation is the result of a consensus among all nodes. When all nodes accept the valid transaction according to a shared critera, that transaction is confirmed.
 
 At the moment, nodes consider a transaction as confirmed when it's approved by a [milestone](../concepts/the-coordinator.md).
 
