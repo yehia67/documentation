@@ -10,7 +10,7 @@ This referencing model forms a type of [directed acyclic graph](https://en.wikip
 
 In this diagram, transaction 5 is **directly** referenced by transaction 6, and because transaction 5 directly references transaction 3, transaction 3 is **indirectly** referenced by transaction 6.
 
-IOTA tokens can't be transfered until all transactions in a bundle are confirmed. To go from a pending state to a confirmed state, nodes must reach consensus on the state of a transaction. At the moment, transactions reach consensus on confirmed transactions if they're directly or indirectly referenced by a Coordinator-issued milestone transaction.
+IOTA tokens can't be transferred until all transactions in a bundle are confirmed. To go from a pending state to a confirmed state, nodes must reach consensus on the state of a transaction. At the moment, transactions reach consensus on confirmed transactions if they're directly or indirectly referenced by a Coordinator-issued milestone transaction.
 
 [Learn more about the Coordinator, tip selection, and the Tangle](root://the-tangle/0.1/introduction/overview.md).
 
