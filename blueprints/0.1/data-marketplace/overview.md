@@ -67,7 +67,7 @@ See this website for a [demonstration of the application](https://data.iota.org/
 
 ## Abbreviations
 
-MAM - Masked Authentication Messaging is a second layer data communication protocol which adds functionality to emit and access an encrypted data stream, like RSS, over the Tangle [https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822 d50e](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822 d50e)
+MAM - [Masked Authentication Messaging](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e) is a second layer data communication protocol which adds functionality to emit and access an encrypted data stream, like RSS, over the Tangle.
 
 ## Additional resources
 

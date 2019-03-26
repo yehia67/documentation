@@ -10,6 +10,6 @@ Blueprints are designed to do the following:
 
 ## Who should use blueprints?
 
-Anyone who either wants to build real-world applications with IOTA or wants to evaulate IOTA for a specific business case.
+Anyone who either wants to build real-world applications with IOTA or wants to evaluate IOTA for a specific business case.
 
 You can use blueprints as a reference to build and deploy a similar solution into other systems and to test different business models.
