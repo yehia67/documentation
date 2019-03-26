@@ -1,4 +1,6 @@
-# Tangle stream processing with Apache Flink
+# Process big data transaction stream in near real-time with Apache Flink
+**Learn how to process IOTA transaction streams in near real-time, 
+while diving into the big data stream processing framework Apache Flink.**
 
 **_Note:_** The tangle streaming libraries used in this guide are not recommended for production environments.
 Feel free to contribute to the libraries, so that they eventually become production ready.
