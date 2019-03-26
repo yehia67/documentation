@@ -10,8 +10,7 @@ The architecture of our PoC (shown in the image below) follows a pattern, where 
 
 IOTA technologies are advantageous in an architecture such as this as they allow entities to communicate with one another in a secure manner without needing to be always on or connected to each other.
 
-![2P Energy PoC - Architecture Diagram](https://lh3.googleusercontent.com/nEswherNG5SfVkamIf2ide3pJwZ1fi-q-WbKlHIhghxwmkAH0XCbU-7A0VX-IMCCMLl3u9B9w5L7SiKYrgG6AES9eeDaRecw1-cKLY6ghlGjXhmqZBrJX3o0xS7qFHP2uwbBdgk)
-
+![P2P Energy PoC - Architecture Diagram](./p2p_architecture.png)
 
 IOTA technologies are employed as both the communication and payment mechanism between entities, which store the data on the Tangle.
 
@@ -35,7 +34,7 @@ The grid maintains its own IRI node, which enables it to communicate with neighb
 
 The following image shows the communication channels and the sequence of events that occur in the architecture.
 
-![P2P Energy PoC - Sequence Diagram](https://lh6.googleusercontent.com/WDDmI8N_jzzGcweV0hmc6ZBrVsbU6x-Dx-MllGza9lEALLOk6o07qdqHrpCuVoxIlLoMBZpfTI0RjIEGiKMEbM1zVO9zkkyYh-6Csz-iW0onkc2hN7ElNb7BsTK8T3-aboqIkMk)
+![P2P Energy PoC - Sequence Diagram](./p2p_sequence.png)
 
 ## Workflows
 
@@ -45,19 +44,19 @@ The following workflows illustrate how the different entities interact with each
 
 This image shows the sequence of events that occur when a source communicates with a producer and the Tangle.
 
-![P2P energy PoC - source workflow](https://lh6.googleusercontent.com/gILO4dnr5HeGCKjK564m8fK2MaSjcjm8TOA_rc93dnJvCswuuROqV_d3OLdnPJR1lmEZZxFXZbP5w62hbTYhd9-D9WWcGQEW_Hj9sxtd0moZ0XA3EihvEXR9EZtVonKGvXvL9WM)
+![P2P energy PoC - source workflow](./p2p_source.png)
 
 ### Producer to grid
 
 This image shows the sequence of events that occur when a producer communicates with the grid and the Tangle.
 
-![P2P energy PoC - producer workflow](https://lh6.googleusercontent.com/oL-q8TIArPLwdlHvPMzGhoRoruSA990G_efXegvLQUPhYxL73r8OJmADyPzLjanaHTUOla2zfe9ii72JVHdPI5EgAEjRDKneHObJY18wWpgVTw3JL_T5Y7moxbkchGJQkmgpRcU)
+![P2P energy PoC - producer workflow](./p2p_producer.png)
 
 ### Consumer to grid
 
 This image shows the sequence of events that occur when a consumer communicates with the grid and the Tangle.
 
-![P2P energy PoC - consumer workflow](https://lh6.googleusercontent.com/Kc7TM1pOqG2SSpv_qCZIA_LBrsutuQvtttyNVEP6s6dmwK19zK3sTnwuTwR1agg3D3hfIg_WtupG1MBS5abHmW2ZOne1Hi6dgDZxP67HyGPwznDPD-kwu-QOmNf1qptIm1xHbow)
+![P2P energy PoC - consumer workflow](./p2p_consumer.png)
 
 ## Communication
 
@@ -65,7 +64,7 @@ The communication between the different entities is a combination of MAM channel
 
 A tangle transaction is issued whenever a consumer pays its bill to the grid or whenever the grid pays a producer.
 
-![P2P energy PoC - communication](https://lh4.googleusercontent.com/FXR7wm_pBaWTCPLUua3iMjYzn6_WofCpKBldFgQ8Lvb4Cz-lV-DHG51xCvavps8szFrBK74YIMN5zjuVZ40rx_i2MLuqHXq66ZQqhr5nFv68IOEVBwpQtZfdijfL-_za2yVo8eg)
+![P2P energy PoC - communication](./p2p_communication.png)
 
 ### Source MAM output channel
 
