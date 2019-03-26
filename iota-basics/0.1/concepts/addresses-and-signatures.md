@@ -1,6 +1,6 @@
 # Addresses and signatures
 
-**Each client in an IOTA network has a secret password called a seed, which is used to create addresses and signatures. Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address.**
+**Each client in an IOTA network has a secret password called a seed, which is used to create addresses and to sign bundles. Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address.**
 
 A seed is a string of 81 [trytes](../references/tryte-alphabet.md) that gives a client access to addresses. To use an IOTA network, clients must [create a seed and keep it private](root://getting-started/0.1/tutorials/create-a-seed.md) 
 

@@ -1,8 +1,8 @@
 # Create addresses from private keys
 
-**Seeds are used to create private keys, and in turn, private keys are used to create addresses and signatures. By creating addresses from private keys, you gain a better understanding of how addresses are created under the hood.**
+**Seeds are used to create private keys, and in turn, a private key is used to create addresses and sign bundles. By using the cryptography library to create addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
 
-If you're unfamilar with the terms private key, subseed, and key digest, we recommend that you [read about addresses and signatures](../concepts/addresses-and-signatures.md).
+If you're unfamiliar with the terms private key, subseed, and key digest, we recommend [reading about addresses and signatures](../concepts/addresses-and-signatures.md).
 
 Any code that uses a seed is executed on the client side. Your seed is never sent anywhere.
 
@@ -46,7 +46,7 @@ To complete this guide, you need the following:
     var subseed = Sign.subseed(Converter.trytesToTrits(seed), 0 /*index*/);
     ```
 
-6. Create one private key for each of the three security levels by passing the same subseed and a different security level to the `key()` method
+6. Create one private key for each of the three [security levels](../references/security-levels.md) by passing the same subseed and a different security level to the `key()` method
 
     ```js
     var privateKey1 = Sign.key(subseed, 1 /*security level*/);
@@ -62,7 +62,7 @@ To complete this guide, you need the following:
     console.log('Private key length for security level 3: ' + Converter.tritsToTrytes(privateKey3).length);
     ```
 
-    When you execute the file, you should see the length in trytes of each private key:
+    When you execute the file, you should see the length of each private key in trytes:
 
         ```console
         Private key length for security level 1: 2187
@@ -72,7 +72,7 @@ To complete this guide, you need the following:
         Private key length for security level 3: 6561
         ```
 
-7. Create the key digests for each private key by passing each private key to the `digests()` method
+7. Create the key digests for each private key by passing each one to the `digests()` method
 
     ```js
     var privateKey1Digests = Sign.digests(privateKey1);
@@ -122,7 +122,7 @@ To complete this guide, you need the following:
         Address with security level 3: LJGSYD9N9JEAQ9AVN9BJCAOW9LFVZGFHOXFVFVLQEBKVZFGBIDJJIRK9FBJUKRS9VMUXTCXBRIOOEMQJ9
         ```
 
-9. To check that the same addresses would be created from the Core IOTA JavaScript library, do the following:
+9. To check that the same addresses would be created from the IOTA core library, do the following:
 
     ```js
     console.log(Iota.generateAddress(seed, 0 /*index*/, 1 /*security level*/));
@@ -130,7 +130,7 @@ To complete this guide, you need the following:
     console.log(Iota.generateAddress(seed, 0 /*index*/, 3 /*security level*/));
     ```
 
-    You should see the same addresses in the output as those from step 9.
+    You should see the same addresses in the output as those from step 8.
     
 Congratulations :tada: You've proven that, under the hood of the IOTA core library, addresses are created from private keys with a certain index and security level.
 

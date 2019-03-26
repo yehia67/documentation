@@ -1,6 +1,6 @@
 # Convert data to trytes
 
-**The values of transaction fields must be represented in trytes. The IOTA client libraries have built-in converters to convert to/from trytes, trits, and ASCII characters.**
+**The values of transaction fields must be represented in trytes. To facilitate data conversion, the IOTA client libraries have built-in converters to convert data to/from trytes, trits, and ASCII characters.**
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ To complete this guide, you need the following:
     var data = "Hello World!";
     ```
 
-6. Pass the variable to the `asciiToTrytes()` method to convert it to trytes
+6. Pass the `data` variable to the `asciiToTrytes()` method to convert the message to trytes
 
     ```js
     var trytes = Converter.asciiToTrytes(data);
@@ -44,7 +44,7 @@ To complete this guide, you need the following:
     console.log(`${data} converted to trytes: ${trytes}`);
     ```
 
-7. Pass the trytes to the `trytesToAscii()` method to convert them to ASCII characters
+7. Pass the returned trytes to the `trytesToAscii()` method to convert them to ASCII characters
 
     ```js
     var message = Converter.trytesToAscii(trytes);

@@ -7,25 +7,23 @@
 * To run the IRI, your server must meet the following minimum requirements:
     * 4GB RAM
     * 64-bit processor
-    * A public IP address: Either a static IP address or a dynamic IP address that's connected to a dynamic DNS such as [noip.com](https://www.noip.com/remote-access)
+    * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 
-* By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must forward these ports to your computer's public IP address.
+* By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md).
 
     * **UDP neighbor peering port:** 14600
     * **TCP neighbor peering port:** 14600
     * **TCP API port:** 14265
 
----
-
-The IRI is Java software, so it must be run in a Java runtime environment (JRE).
+## Download the IRI
 
 You have two options for downloading the latest IRI software:
 * Download the pre-built Java file from GitHub (quickest option)
 * Build the Java file from the source code on GitHub 
 
-## Download the pre-built IRI Java file
+### Download the pre-built IRI Java file
 
-The pre-built IRI Java file is available on the IOTA GitHub repository.
+The pre-built IRI Java file is available on the [IOTA GitHub repository](https://github.com/iotaledger/iri/releases). Downloading this file is the quickest and simplest way to install the IRI.
 
 1. Install the latest security patches for your system
 
@@ -70,7 +68,7 @@ HTTP request sent, awaiting response ... 200 OK
 ```
 Now that the IRI Java file is saved on your server, [configure the IRI](#configure-the-iri) before running it.
 
-## Build the IRI Java file from the source code
+### Build the IRI Java file from the source code
 
 Instead of downloading the pre-built IRI Java file, you may want to build the file from the source code the any of the following reasons:
 * You want to be sure that the code you run is the same as the source code
@@ -120,9 +118,7 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
 
 ## Configure the IRI
 
-The IRI runs in a Java virtual machine.
-
-Before you run the IRI, you need to set up some Java variables and set the IRI configuration options.
+The IRI runs in a Java virtual machine. Therefore, before you run the IRI, you need to set up some Java variables.
 
 1. Create the Java variables that'll be used to run the IRI in the Java virtual machine. Make sure to change the IRI_JAR_PATH variable to the path of your IRI Java file.
 
@@ -132,9 +128,11 @@ Before you run the IRI, you need to set up some Java variables and set the IRI c
     export JAVA_MAX_MEMORY=4G
     ```
 
-    * **JAVA_OPTIONS:** Commands that optimise the Java virtual machine
-    * **JAVA_MIN_MEMORY:** The initial memory allocation for the Java virtual machine
-    * **JAVA_MAX_MEMORY:** the maximum memory allocation for the Java virtual machine
+    **JAVA_OPTIONS:** Commands that optimise the Java virtual machine
+
+    **JAVA_MIN_MEMORY:** The initial memory allocation for the Java virtual machine
+    
+    **JAVA_MAX_MEMORY:** the maximum memory allocation for the Java virtual machine
     
 2. Create an IRI configuration file in the same directory as your IRI Java file. Change `jake` to your Linux username.
 
@@ -142,9 +140,51 @@ Before you run the IRI, you need to set up some Java variables and set the IRI c
     nano /home/jake/node/config.ini
     ```
 
-    Leave the file empty for now. The default [IRI configuration options](../references/iri-configuration-options.md) are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the configuration options that you want to change. 
+    Leave the file empty for now. The default [IRI configuration options](../references/iri-configuration-options.md) are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the configuration options that you want to change.
 
-    **Note:** If you want to run a permanode (keep all transactions in the ledger), set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](../references/iri-configuration-options.md#local-snapshots-enabled) to `false`.
+### Configure a permanode
+
+If you want to run a permanode (keep all transactions in the ledger), set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](../references/iri-configuration-options.md#local-snapshots-enabled) to `false`.
+
+### Configure a Devnet node
+
+If you want to run a Devnet node, you must set the `TESTNET` configuration option to `true`, and connect to other Devnet nodes.
+
+The following Devnet nodes have autopeering enabled, so they will automatically add you as neighbors:
+
+* udp://p101.testnet.iota.cafe:14666
+
+* udp://p102.testnet.iota.cafe:14666
+
+* udp://p103.testnet.iota.cafe:14666
+
+* udp://p104.testnet.iota.cafe:14666
+
+### Configure a Spamnet node
+
+If you want to run a Spamnet node, you must include only the following configuration parameters in your configuration file:
+
+```
+[IRI]
+ZMQ_ENABLED = TRUE
+TESTNET = TRUE
+DB_PATH = spamnetdb
+DB_LOG_PATH = spamnetdb.log
+MWM = 7
+SNAPSHOT_FILE = spamnet.txt
+COORDINATOR = H9FXUMSYAWNZPVFINVTXOTYKFZXR9OBKA9KSTVWXTWHIZZRISFYZMXIMOQFXDXXQHNAJXAZFP9IHSFXRH
+NUMBER_OF_KEYS_IN_A_MILESTONE = 20
+SNAPSHOT_TIME = 1535760000
+MILESTONE_START_INDEX = 2
+DONT_VALIDATE_TESTNET_MILESTONE_SIG = true
+NEIGHBORS = udp://p101.spamnet.iota.cafe:14600 udp://p102.spamnet.iota.cafe:14600
+```
+
+You must also create a snapshot file to define an address that contains the entire supply of tokens on the Spamnet. The location of this file must be set in the `SNAPSHOT_FILE` configuration parameter.
+
+```
+WYF9OOFCQJRTLTRMREDWPOBQ9KNDMFVZSROZVXACAWKUMXAIYTFQCPAYZHNGKIWZZGKCSHSSTRDHDAJCW;2779530283277761
+```
 
 ## Run the IRI
 
@@ -162,7 +202,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     ```bash
     java ${JAVA_OPTIONS} -Xms${JAVA_MIN_MEMORY} -Xmx${JAVA_MAX_MEMORY} -Djava.net.preferIPv4Stack=true -jar /home/jake/node/iri-${VERSION}.jar
     ```
-    The IRI should start to log its activity.
+    The IRI should start to log its activity to the output.
 
     To make the IRI read your config.ini file, add the path to it after the `-c` flag. For example:
 
@@ -246,5 +286,3 @@ The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are a
 ## Next steps
 
 * [Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
-
-

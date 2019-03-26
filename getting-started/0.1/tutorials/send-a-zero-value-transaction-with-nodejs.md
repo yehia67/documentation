@@ -29,7 +29,7 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
     npm install @iota/core @iota/converter --save
     ```
 
-    If everthing went well, you should see something like the following in the output. You can ignore any 'npm WARN' messages.
+    If everything went well, you should see something like the following in the output. You can ignore any 'npm WARN' messages.
 
     ```shell
     + @iota/converter@1.0.0-beta.8
@@ -137,7 +137,7 @@ You'll see information about the IRI node and the bundle that you've just sent.
 
 ![Content of a bundle](../success.png)
 
-Your transaction will propgate through the IOTA network until all the IRI nodes have it in their ledgers.
+Your transaction will propagate through the IOTA network until all the IRI nodes have it in their ledgers.
 
 To confirm that your bundle in on the network, copy the value of the `bundle` field from the output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
@@ -191,7 +191,7 @@ an address. In this case, you send a transfer with no value to an address and yo
 });
 ```
 
-The [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method constructs a [bundle](../introduction/what-is-a-bundle.md) on the client side. The [`sendTrytes()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes)  method sends the bundle to the [IRI node](../introduction/what-is-an-iri-node.md).
+The [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method constructs a [bundle](../introduction/what-is-a-bundle.md) on the client side. The [`sendTrytes()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes)  method sends the bundle to the [node](../introduction/what-is-a-node.md).
 
 ## Final Code
 

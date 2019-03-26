@@ -1,6 +1,6 @@
 # IOTA networks
 
-**An IOTA network consists of IRI nodes that are mutually connected to neighbor IRI nodes.**
+**An IOTA network consists of nodes that are mutually connected to neighbors.**
 
 IOTA has the following [permissionless networks](../introduction/what-is-dlt.md) that anyone can use:
 * **Mainnet:** IOTA token
@@ -45,7 +45,7 @@ Use the load balancer for sending transactions and requesting information about 
 
 This endpoint gives you access to the [zero message queue](root://iri/0.1/concepts/zero-message-queue.md) of an IRI node on the Devnet.
 
-Use the ZMQ node to subscribe to events in the IRI.
+Use the ZMQ node to subscribe to events in an IRI node.
 
 **URL:** tcp://zmq.testnet.iota.org:5556
 
@@ -83,6 +83,6 @@ Use the load balancer for sending transactions and requesting information about 
 
 This endpoint gives you access to the [zero message queue](root://iri/0.1/concepts/zero-message-queue.md) of an IRI node on the Spamnet.
 
-Use the ZMQ node to subscribe to events in the IRI.
+Use the ZMQ node to subscribe to events in an IRI node.
 
 **URL:** tcp://zmq.spamnet.iota.org:5556 

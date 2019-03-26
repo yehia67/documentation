@@ -1,10 +1,10 @@
 # Check if a transaction is confirmed
 
-**Value transactions aren't considered final until they're approved by a milestone transaction. When this happens, IRI nodes mark those transactions as confirmed. You can use the IOTA client libraries to check if a transaction has been confirmed.**
+**Value transactions aren't considered final until they're approved by a milestone transaction. When this happens, nodes mark those transactions as confirmed. You can use the IOTA client libraries to check if a transaction has been confirmed.**
 
 Zero-value transactions can still be confirmed, but they don't need to be because they don't transfer value.
 
-If you're unfamilar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://the-tangle/0.1/introduction/overview.md).
+If you're unfamiliar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://the-tangle/0.1/introduction/overview.md).
 
 This guide uses the `getLatestInclusion()` method in the IOTA core JavaScript client library. This method checks if a transaction is approved by an IRI node's latest solid subtangle milestone.
 
@@ -46,7 +46,7 @@ To complete this guide, you need the following:
     });
     ```
 
-6. Go to [thetangle.org](https://thetangle.org), click **Live** and find a transaction that's been confirmed
+6. Go to [thetangle.org](https://thetangle.org), click **Live** and find a transaction that's in a confirmed state
 
 7. Pass the transaction hash to the `getLatestInclusion()` method to check if the IRI node's latest solid subtangle milestone approves it
 
@@ -57,7 +57,7 @@ To complete this guide, you need the following:
 
     When you execute the file, you should see an array that contains the `true` boolean, meaning that the transaction is confirmed.
 
-8. Go to [thetangle.org](https://thetangle.org), click **Live** and find a transaction that's pending
+8. Go to [thetangle.org](https://thetangle.org), click **Live** and find a transaction that's in a pending state
 
 9. Pass the transaction hash to the `getLatestInclusion()` method to check if the IRI node's latest solid subtangle milestone approves it
 

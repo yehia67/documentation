@@ -3,5 +3,8 @@
     "reportFile": "projects-summary.log",
     "projectsFile": "",
     "checkRemotePages": true,
-    "consoleDetail": true
+    "checkSpelling": true,
+    "spellingFile": "spelling-summary.md",
+    "consoleDetail": true,
+    "exitWithError": true
 }
