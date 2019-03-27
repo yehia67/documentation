@@ -67,7 +67,7 @@ Because CDAs are descriptive objects, you can serialize them into any format and
 1. To serialize the CDA into a magent link, use the `AsMagnetLink()` method of the CDA object
 
     ```go
-    fmt.Println(cdr.AsMagnetLink())
+    fmt.Println(cda.AsMagnetLink())
     // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?t=1548337187&m=true&am=0
     ```
 
