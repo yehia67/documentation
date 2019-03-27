@@ -11,7 +11,7 @@ You can use accounts to do the following:
 
 In accounts, the terms withdrawal and deposit are used to refer to the use of CDAs in bundles that transfer IOTA tokens.
 
-The term _withdrawal_ is used to refer to the use of CDAs in [input transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md) where IOTA tokens are debited. The term _deposit_ is used to refer to the use of CDAs in outputs transactions where IOTA tokens are credited.
+The term _withdrawal_ is used to refer to the use of CDAs in [input transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md) where IOTA tokens are withdrawn from an address. The term _deposit_ is used to refer to the use of CDAs in outputs transactions where IOTA tokens are deposited into an address.
 
 A withdrawal can involve multiple expired CDAs, depending on total deposit amount and the balance of the CDAs.
 
