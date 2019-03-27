@@ -654,7 +654,7 @@ function listDirs(dir) {
 function fileExistsWithCaseSync(file) {
     const dir = path.dirname(file);
 
-    if (dir === '/' || dir === '.' || dir.indexOf(":") >= 0) {
+    if (dir === '/' || dir === '.' || dir.indexOf(':') >= 0) {
         return true;
     }
 
