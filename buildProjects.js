@@ -7,11 +7,18 @@ const emoji = require('node-emoji');
 const emojiRegex = require('emoji-regex');
 const emojiUnicode = require('emoji-unicode');
 const chalk = require('chalk');
-const md = require('markdown-it');
-const spellchecker = require('spellchecker');
-const cheerio = require('cheerio');
 
 const { rootFolder, reportFile, projectsFile, checkRemotePages, checkSpelling, spellingFile, consoleDetail, exitWithError } = require('./buildProjects.config.json');
+
+let md;
+let spellchecker;
+let cheerio;
+
+if (checkSpelling) {
+    md = require('markdown-it');
+    spellchecker = require('spellchecker');
+    cheerio = require('cheerio');
+}
 
 let dictionary = {};
 
@@ -94,7 +101,7 @@ async function buildHome(docsFolder, project) {
     const homeFile = `${docsFolder}/${project.folder}/home.md`;
 
     try {
-        if (fs.existsSync(homeFile)) {
+        if (fileExistsWithCaseSync(homeFile)) {
             await reportEntry(`\tHome File: '${homeFile}'`);
 
             const home = (await fsPromises.readFile(homeFile)).toString();
@@ -205,7 +212,7 @@ async function extractTocAndValidateAssets(docsFolder, projectFolder, version, d
     const docName = webifyPath(path.join(`${docsFolder}/${projectFolder}/${version}/`, doc));
 
     try {
-        if (fs.existsSync(docName)) {
+        if (fileExistsWithCaseSync(docName)) {
             await reportEntry(`\t\t\tTOC: '${docName}'`);
 
             let doc = (await fsPromises.readFile(docName)).toString();
@@ -325,7 +332,7 @@ async function assetHtmlImage(markdown, docPath, assets) {
                 }
             } else if (match[2].length > 0) {
                 const imgFilename = path.resolve(path.join(path.dirname(docPath), match[2]));
-                if (fs.existsSync(imgFilename)) {
+                if (fileExistsWithCaseSync(imgFilename)) {
                     await reportEntry(`\t\t\tLocal Image: '${match[2]}'`);
                     assets.push(`/${webifyPath(path.relative('.', imgFilename))}`);
                 } else {
@@ -355,7 +362,7 @@ async function assetMarkdownImage(markdown, docPath, assets) {
                 }
             } else if (match[3].length > 0) {
                 const imgFilename = path.resolve(path.join(path.dirname(docPath), match[3]));
-                if (fs.existsSync(imgFilename)) {
+                if (fileExistsWithCaseSync(imgFilename)) {
                     await reportEntry(`\t\t\tLocal Image: '${match[3]}'`);
                     assets.push(`/${webifyPath(path.relative('.', imgFilename))}`);
                 } else {
@@ -379,16 +386,20 @@ async function markdownLinks(markdown, docPath) {
 
         if (match && match.length === 3) {
             if (isRemote(match[2])) {
-                const response = await checkRemote(match[2]);
-                if (!response) {
-                    await reportEntry(`\t\t\tRemote Page: '${match[2]}'`);
+                if (match[2].indexOf('docs.iota.org') >= 0) {
+                    await reportError(`You should not use absolute paths for docs content: '${match[2]}' in '${docPath}'`);
                 } else {
-                    await reportWarning(`Remote page errors: '${match[2]}' in '${docPath}' with '${response}'`);
+                    const response = await checkRemote(match[2]);
+                    if (!response) {
+                        await reportEntry(`\t\t\tRemote Page: '${match[2]}'`);
+                    } else {
+                        await reportWarning(`Remote page errors: '${match[2]}' in '${docPath}' with '${response}'`);
+                    }
                 }
             } else if (isRoot(match[2])) {
                 let rootUrl = stripAnchor(stripRoot(match[2]));
                 const docFilename = path.resolve(path.join(rootFolder, rootUrl));
-                if (!fs.existsSync(docFilename)) {
+                if (!fileExistsWithCaseSync(docFilename)) {
                     await reportError(`Root page does not exist '${match[2]}' in '${docPath}'`);
                 }
             } else if (match[2].startsWith('#') || match[0].startsWith('!')) {
@@ -396,7 +407,7 @@ async function markdownLinks(markdown, docPath) {
             } else if (match[2].length > 0) {
                 let localUrl = stripAnchor(match[2]);
                 const docFilename = path.resolve(path.join(path.dirname(docPath), localUrl));
-                if (!fs.existsSync(docFilename)) {
+                if (!fileExistsWithCaseSync(docFilename)) {
                     await reportError(`Local page does not exist '${match[2]}' in '${docPath}'`);
                 }
             } else {
@@ -434,7 +445,7 @@ async function separators(markdown, docPath) {
 function isValidWord(projectFolder, word) {
     let isValid = false;
 
-    const noPunc = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+    const noPunc = word.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, '');
 
     if (noPunc.length === 0) {
         isValid = true;
@@ -477,13 +488,13 @@ async function spellCheck(projectFolder, markdown, docPath) {
         }
 
         if (misspelled.length > 0) {
-            await reportWarning(`'${misspelled.join("', '")}' possible spelling mistake(s) in '${docPath}'`);
+            await reportWarning(`'${misspelled.join('\', \'')}' possible spelling mistake(s) in '${docPath}'`);
 
             let output = `\n## [${docPath}](${docPath})\n\n`;
 
             for (let i = 0; i < misspelled.length; i++) {
                 output += misspelled[i];
-                const alts = spellchecker.getCorrectionsForMisspelling(misspelled[i])
+                const alts = spellchecker.getCorrectionsForMisspelling(misspelled[i]);
                 if (alts && alts.length > 0) {
                     output += `${' '.repeat(30 - misspelled[i].length)} => ${alts.join(', ')}`;
                 }
@@ -638,6 +649,15 @@ function listDirs(dir) {
     return fs.readdirSync(dir).filter(f => fs.statSync(path.join(dir, f)).isDirectory());
 }
 
+function fileExistsWithCaseSync(file) {
+    var dir = path.dirname(file);
+    const filenames = fs.readdirSync(dir);
+    if (filenames.indexOf(path.basename(file)) === -1) {
+        return false;
+    }
+    return true;
+}
+
 function sanitizeLink(item) {
     return item
         .replace(/^\.?\//, '')
@@ -661,7 +681,7 @@ async function checkRemote(url) {
 function loadDictionary() {
     const dictionaryFile = 'dictionary.json';
 
-    if (fs.existsSync(dictionaryFile)) {
+    if (fileExistsWithCaseSync(dictionaryFile)) {
         try {
             const dic = JSON.parse(fs.readFileSync(dictionaryFile));
 
@@ -671,11 +691,11 @@ function loadDictionary() {
                 const key = keys[k];
                 dictionary[key] = [];
                 for (let i = 0; i < dic[key].length; i++) {
-                    dictionary[key].push(new RegExp(dic[key][i], "i"));
+                    dictionary[key].push(new RegExp(dic[key][i], 'i'));
                 }
             }
         } catch (err) {
-            console.error(chalk.red(`ERROR: Failed loading dictionary.`));
+            console.error(chalk.red('ERROR: Failed loading dictionary.'));
             console.error(chalk.red(err.message));
         }
     }
@@ -686,7 +706,7 @@ async function run(singleProject) {
         if (fs.existsSync(spellingFile)) {
             fs.unlinkSync(spellingFile);
         }
-        fs.appendFileSync(spellingFile, "# Spelling Summary\n");
+        fs.appendFileSync(spellingFile, '# Spelling Summary\n');
         loadDictionary();
     }
     const projects = await buildProjects(rootFolder, singleProject);
