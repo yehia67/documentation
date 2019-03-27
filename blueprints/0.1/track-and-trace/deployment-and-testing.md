@@ -8,7 +8,7 @@ You must know how to do the following:
 
 * [Deploy a Firebase server](https://firebase.google.com/)
 
-* [Connect to an IOTA node](root://iri/0.1/how-to-guides/interact-with-an-iri-node)
+* [Connect to an IOTA node](root://iri/0.1/how-to-guides/interact-with-an-iri-node.md)
 
 * Create a MAM channel and send messages through it using the [JavaScript client library](https://github.com/iotaledger/mam.client.js )
 
