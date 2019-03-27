@@ -137,7 +137,7 @@ Let's start with the setup of the stream.
 ```
 
 We simply get the ZMQ data stream by a defined hostname and port. We can also subscribe one specific topic
-Since we are only using the UnconfirmedTransactionMessage, we could use [tx](root://iri/references/zmq-events.md).
+Since we are only using the UnconfirmedTransactionMessage, we could use [tx](root://iri/0.1/references/zmq-events.md#tx).
 
 ```scala
 val stream = env.addSource(new TangleSource(zeroMQHost, zeroMQPort, "tx"))
