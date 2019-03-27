@@ -10,7 +10,7 @@
         "url": "https://github.com/iotaledger/documentation/issues"
     },
     "scripts": {
-        "validate": "node buildProjects.js"
+        "validate": "node buildProjects.js --no-remote"
     },
     "pre-commit": [ "validate" ],
     "homepage": "https://github.com/iotaledger/documentation#readme",
