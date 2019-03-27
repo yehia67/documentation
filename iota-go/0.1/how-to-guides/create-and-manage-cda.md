@@ -1,18 +1,21 @@
 # Create and manage conditional deposit addresses
 
-**When you want to deposit IOTA tokens to an account, you must use conditional deposit addresses (CDA), which are special addresses that allow you to specify the conditions in which they are active and may be used for withdrawls and deposits.**
+**When you want to deposit IOTA tokens into an account, you must use conditional deposit addresses (CDA), which are special addresses that allow you to specify the conditions in which they are active and may be used for withdrawls and deposits.**
 
-Accounts use CDAs to avoid [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). In a stateless client library without CDAs, depositors have no way of knowing whether a recipient is about to debit an address before they credit it. If this were to happen, the recipient's address would contain IOTA tokens that would be unsafe to use. With CDAs, recipients can create an address that expires after a certain time, allowing a depositor to make a judgement about whether it's safe to make a deposit into it. If depositors aren't sure if a bundle will confirm in time, they can ask the recipient for another CDA.
+Accounts use CDAs to avoid [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). In a stateless client library without CDAs, depositors have no way of knowing whether a recipient is about to withdraw from an address before they deposit into it. If this were to happen, the recipient's address would contain IOTA tokens that would be unsafe to withdraw. With CDAs, recipients can create an address that expires after a certain time, allowing a depositor to make a judgement about whether it's safe to deposit into it. If depositors aren't sure if a bundle will confirm in time, they can ask the recipient for another CDA.
 
-**Note:** CDAs can be used only in an account and not in the stateless client libraries. As a result, both you and the sender must have an account to be able to use CDAs.
+:::info:
+CDAs can be used only in an account and not in the stateless client libraries. As a result, both you and the sender must have an account to be able to use CDAs.
+:::
 
-CDAs can be in either an active or expired state. Active addresses are part of the seed state, so they can't be used in withdrawals, but may be sent deposits. Expired addresses are removed from the seed state, so they may be used in withdrawals, but can't be sent deposits.
+CDAs can be in either an active or expired state. Active CDAs are part of the seed state. You can't withdraw from active CDAs, but depositors may deposit into them. Expired addresses are removed from the seed state. You may withdraw from expired CDAs, but depositors can't deposit tokens into them.
 
-The process of transferring IOTA tokens to a CDA should be something like the following:
+As a recipient, the process of transferring IOTA tokens to a CDA should be something like the following:
 
 1. You create a CDA
 2. You send the CDA to a depositor
-3. Based on the address's state, the depositor must decide whether a bundle will be confirmed in the given timeframe. If depositors decide the timeframe is too small, they should request a new CDA.
+3. The depositor decides whether a bundle will be confirmed in the given CDA's timeframe
+4. The depositor either requests a new CDA from you or deposits tokens into your CDA
 
 ## Create a new CDA
 
