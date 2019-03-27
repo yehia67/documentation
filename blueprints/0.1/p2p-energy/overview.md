@@ -16,7 +16,7 @@ Consumer |Using the power provided by the grid in return for payment|
 Grid| Coordinating the distribution of power from the producers to the consumers, and distributing payments|
  
 
-![P2P Energy PoC - Use Case Picture](https://lh5.googleusercontent.com/aTNrfvsynpHOvfEx4PkTsMt_QOsgzoF6wsbo4Io-72L8qkYu-jsETRVc86XyTGAmMsNWm9zQEwUV-TqdEA0kY9hS36Z9UrUBfDYA6czIrPsMaVKEaio67Oq4mmNM_XNuo4KziVU)
+![P2P Energy PoC - Use Case Picture](./p2p_use_case.png)
 
 :::info:
 Similar benefits in this PoC can be replicated in any scenario where a resource is distributed to consumers in return for payment, for example for water supply.
