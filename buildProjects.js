@@ -379,11 +379,15 @@ async function markdownLinks(markdown, docPath) {
 
         if (match && match.length === 3) {
             if (isRemote(match[2])) {
-                const response = await checkRemote(match[2]);
-                if (!response) {
-                    await reportEntry(`\t\t\tRemote Page: '${match[2]}'`);
+                if (match[2].indexOf("docs.iota.org") >= 0) {
+                    await reportError(`You should not use absolute paths for docs content: '${match[2]}' in '${docPath}'`);
                 } else {
-                    await reportWarning(`Remote page errors: '${match[2]}' in '${docPath}' with '${response}'`);
+                    const response = await checkRemote(match[2]);
+                    if (!response) {
+                        await reportEntry(`\t\t\tRemote Page: '${match[2]}'`);
+                    } else {
+                        await reportWarning(`Remote page errors: '${match[2]}' in '${docPath}' with '${response}'`);
+                    }
                 }
             } else if (isRoot(match[2])) {
                 let rootUrl = stripAnchor(stripRoot(match[2]));
@@ -434,7 +438,7 @@ async function separators(markdown, docPath) {
 function isValidWord(projectFolder, word) {
     let isValid = false;
 
-    const noPunc = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+    const noPunc = word.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, '');
 
     if (noPunc.length === 0) {
         isValid = true;
@@ -477,13 +481,13 @@ async function spellCheck(projectFolder, markdown, docPath) {
         }
 
         if (misspelled.length > 0) {
-            await reportWarning(`'${misspelled.join("', '")}' possible spelling mistake(s) in '${docPath}'`);
+            await reportWarning(`'${misspelled.join('\', \'')}' possible spelling mistake(s) in '${docPath}'`);
 
             let output = `\n## [${docPath}](${docPath})\n\n`;
 
             for (let i = 0; i < misspelled.length; i++) {
                 output += misspelled[i];
-                const alts = spellchecker.getCorrectionsForMisspelling(misspelled[i])
+                const alts = spellchecker.getCorrectionsForMisspelling(misspelled[i]);
                 if (alts && alts.length > 0) {
                     output += `${' '.repeat(30 - misspelled[i].length)} => ${alts.join(', ')}`;
                 }
@@ -671,11 +675,11 @@ function loadDictionary() {
                 const key = keys[k];
                 dictionary[key] = [];
                 for (let i = 0; i < dic[key].length; i++) {
-                    dictionary[key].push(new RegExp(dic[key][i], "i"));
+                    dictionary[key].push(new RegExp(dic[key][i], 'i'));
                 }
             }
         } catch (err) {
-            console.error(chalk.red(`ERROR: Failed loading dictionary.`));
+            console.error(chalk.red('ERROR: Failed loading dictionary.'));
             console.error(chalk.red(err.message));
         }
     }
@@ -686,7 +690,7 @@ async function run(singleProject) {
         if (fs.existsSync(spellingFile)) {
             fs.unlinkSync(spellingFile);
         }
-        fs.appendFileSync(spellingFile, "# Spelling Summary\n");
+        fs.appendFileSync(spellingFile, '# Spelling Summary\n');
         loadDictionary();
     }
     const projects = await buildProjects(rootFolder, singleProject);
