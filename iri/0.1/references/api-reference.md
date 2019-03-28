@@ -153,7 +153,7 @@ command = {
 "command": "attachToTangle", 
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": "14",
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -183,7 +183,7 @@ var command = {
 "command": "attachToTangle", 
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": "14",
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -218,7 +218,7 @@ curl http://localhost:14265 \
 "command": "attachToTangle",
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": "14",
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -261,11 +261,11 @@ Broadcast transaction trytes to an IRI node.
 
  ### Parameters
 
-The `trytes2` parameter for this call is returned from the [`attachToTangle`](#attachToTangle) endpoint.
+The `trytes` parameter for this call is returned from the [`attachToTangle`](#attachToTangle) endpoint.
 	
 |Parameters |Required or Optional |Description |Type
 |--|--|--|--|
-| `trytes2` |Required| Valid transaction trytes | string
+| `trytes` |Required| Valid transaction trytes | string
 
 ### Examples
 --------------------
@@ -276,7 +276,7 @@ import json
 
 command = {
   "command": "broadcastTransactions",
-  "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
 }
 
 stringified = json.dumps(command)
@@ -300,7 +300,7 @@ var request = require('request');
 
 var command = {
   "command": "broadcastTransactions",
-  "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
   }
 
 var options = {
@@ -329,7 +329,7 @@ curl http://localhost:14265 \
 -H 'X-IOTA-API-Version: 1' \
 -d '{
   "command": "broadcastTransactions",
-  "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
   }'
 ```
 --------------------
@@ -1653,9 +1653,9 @@ curl http://localhost:14265 \
 
 ## wereAddressesSpentFrom
 
-Check if an address was ever spent from, either in the current epoch or in any previous epochs.
+Check if an address was ever withdrawn from, either in the current epoch or in any previous epochs.
 
-If an address has a pending transaction, it's also considered spent.
+If an address has a pending transaction, it's also considered 'spent'.
 
 ### Parameters
 
