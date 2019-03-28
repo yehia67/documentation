@@ -2,7 +2,6 @@
     "name": "documentation",
     "version": "1.0.0",
     "description": "Documentation",
-    "main": "validate.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/iotaledger/documentation.git"
@@ -10,6 +9,10 @@
     "bugs": {
         "url": "https://github.com/iotaledger/documentation/issues"
     },
+    "scripts": {
+        "validate": "node buildProjects.js --no-remote"
+    },
+    "pre-commit": [ "validate" ],
     "homepage": "https://github.com/iotaledger/documentation#readme",
     "devDependencies": {
         "axios": "^0.18.0",
@@ -19,6 +22,7 @@
         "emoji-unicode": "^1.0.10",
         "markdown-it": "^8.4.2",
         "node-emoji": "^1.8.1",
+        "pre-commit": "^1.2.2",
         "spellchecker": "^3.5.1"
     }
 }

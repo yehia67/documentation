@@ -7,18 +7,27 @@ const emoji = require('node-emoji');
 const emojiRegex = require('emoji-regex');
 const emojiUnicode = require('emoji-unicode');
 const chalk = require('chalk');
-const md = require('markdown-it');
-const spellchecker = require('spellchecker');
-const cheerio = require('cheerio');
 
 const { rootFolder, reportFile, projectsFile, checkRemotePages, checkSpelling, spellingFile, consoleDetail, exitWithError } = require('./buildProjects.config.json');
+
+let remoteCheck = checkRemotePages;
+
+let md;
+let spellchecker;
+let cheerio;
+
+if (checkSpelling) {
+    md = require('markdown-it');
+    spellchecker = require('spellchecker');
+    cheerio = require('cheerio');
+}
 
 let dictionary = {};
 
 let errorCount = 0;
 let warningCount = 0;
 
-async function buildProjects(docsFolder) {
+async function buildProjects(docsFolder, singleProject) {
     try {
         await fsPromises.unlink(reportFile);
     } catch (err) {
@@ -31,7 +40,10 @@ async function buildProjects(docsFolder) {
     await reportEntry(`Reading Project Dir: '${docsFolder}'`);
     await reportEntry('');
 
-    const projects = await readProjects(docsFolder);
+    let projects = await readProjects(docsFolder);
+    if (singleProject) {
+        projects = projects.filter(p => p.folder === singleProject);
+    }
     console.log(`Found ${projects.length} Projects.`);
 
     for (let i = 0; i < projects.length; i++) {
@@ -91,7 +103,7 @@ async function buildHome(docsFolder, project) {
     const homeFile = `${docsFolder}/${project.folder}/home.md`;
 
     try {
-        if (fs.existsSync(homeFile)) {
+        if (fileExistsWithCaseSync(homeFile)) {
             await reportEntry(`\tHome File: '${homeFile}'`);
 
             const home = (await fsPromises.readFile(homeFile)).toString();
@@ -202,7 +214,7 @@ async function extractTocAndValidateAssets(docsFolder, projectFolder, version, d
     const docName = webifyPath(path.join(`${docsFolder}/${projectFolder}/${version}/`, doc));
 
     try {
-        if (fs.existsSync(docName)) {
+        if (fileExistsWithCaseSync(docName)) {
             await reportEntry(`\t\t\tTOC: '${docName}'`);
 
             let doc = (await fsPromises.readFile(docName)).toString();
@@ -250,7 +262,7 @@ async function extractTocAndValidateAssets(docsFolder, projectFolder, version, d
             await emojiChars(doc, docName);
             await spellCheck(projectFolder, doc, docName);
         } else {
-            await reportError(`'${docIndexFile}' referenced '${docName}' but the file does not exist`);
+            await reportError(`'${docIndexFile}' referenced '${docName}' but the file/folder does not exist or has wrong casing`);
         }
     } catch (err) {
         await reportError(`'${docIndexFile}' referenced '${docName}' but validating content failed see ${projectsFile} for more details`, err);
@@ -322,11 +334,11 @@ async function assetHtmlImage(markdown, docPath, assets) {
                 }
             } else if (match[2].length > 0) {
                 const imgFilename = path.resolve(path.join(path.dirname(docPath), match[2]));
-                if (fs.existsSync(imgFilename)) {
+                if (fileExistsWithCaseSync(imgFilename)) {
                     await reportEntry(`\t\t\tLocal Image: '${match[2]}'`);
                     assets.push(`/${webifyPath(path.relative('.', imgFilename))}`);
                 } else {
-                    await reportError(`Image file does not exist '${match[2]}' in '${docPath}'`);
+                    await reportError(`Image file does not exist or has wrong casing '${match[2]}' in '${docPath}'`);
                 }
             } else {
                 await reportError(`Invalid Image reference: ${match[0]} in '${docPath}'`);
@@ -352,11 +364,11 @@ async function assetMarkdownImage(markdown, docPath, assets) {
                 }
             } else if (match[3].length > 0) {
                 const imgFilename = path.resolve(path.join(path.dirname(docPath), match[3]));
-                if (fs.existsSync(imgFilename)) {
+                if (fileExistsWithCaseSync(imgFilename)) {
                     await reportEntry(`\t\t\tLocal Image: '${match[3]}'`);
                     assets.push(`/${webifyPath(path.relative('.', imgFilename))}`);
                 } else {
-                    await reportError(`Image file does not exist '${match[3]}' in '${docPath}'`);
+                    await reportError(`Image file does not exist or has wrong casing '${match[3]}' in '${docPath}'`);
                 }
             } else {
                 await reportError(`Invalid Image reference: ${match[0]} in '${docPath}'`);
@@ -376,25 +388,29 @@ async function markdownLinks(markdown, docPath) {
 
         if (match && match.length === 3) {
             if (isRemote(match[2])) {
-                const response = await checkRemote(match[2]);
-                if (!response) {
-                    await reportEntry(`\t\t\tRemote Page: '${match[2]}'`);
+                if (match[2].indexOf('docs.iota.org') >= 0) {
+                    await reportError(`You should not use absolute paths for docs content: '${match[2]}' in '${docPath}'`);
                 } else {
-                    await reportWarning(`Remote page errors: '${match[2]}' in '${docPath}' with '${response}'`);
+                    const response = await checkRemote(match[2]);
+                    if (!response) {
+                        await reportEntry(`\t\t\tRemote Page: '${match[2]}'`);
+                    } else {
+                        await reportWarning(`Remote page errors: '${match[2]}' in '${docPath}' with '${response}'`);
+                    }
                 }
             } else if (isRoot(match[2])) {
                 let rootUrl = stripAnchor(stripRoot(match[2]));
                 const docFilename = path.resolve(path.join(rootFolder, rootUrl));
-                if (!fs.existsSync(docFilename)) {
-                    await reportError(`Root page does not exist '${match[2]}' in '${docPath}'`);
+                if (!fileExistsWithCaseSync(docFilename)) {
+                    await reportError(`Root page does not exist or has wrong casing '${match[2]}' in '${docPath}'`);
                 }
             } else if (match[2].startsWith('#') || match[0].startsWith('!')) {
                 // Anchor skip and images skip
             } else if (match[2].length > 0) {
                 let localUrl = stripAnchor(match[2]);
                 const docFilename = path.resolve(path.join(path.dirname(docPath), localUrl));
-                if (!fs.existsSync(docFilename)) {
-                    await reportError(`Local page does not exist '${match[2]}' in '${docPath}'`);
+                if (!fileExistsWithCaseSync(docFilename)) {
+                    await reportError(`Local page does not exist or has wrong casing '${match[2]}' in '${docPath}'`);
                 }
             } else {
                 await reportError(`Invalid html reference: ${match[0]} in '${docPath}'`);
@@ -431,7 +447,7 @@ async function separators(markdown, docPath) {
 function isValidWord(projectFolder, word) {
     let isValid = false;
 
-    const noPunc = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+    const noPunc = word.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, '');
 
     if (noPunc.length === 0) {
         isValid = true;
@@ -454,8 +470,9 @@ function isValidWord(projectFolder, word) {
 
 async function spellCheck(projectFolder, markdown, docPath) {
     if (checkSpelling) {
-        let noCode = markdown.replace(/```([\s\S])*?```/g, '');
-        let noHtml = noCode.replace(/<(?:.*?)>(.*?)<\/(?:.*?)>/g, ' $1 ');
+        let noCode = markdown.replace(/```[\s\S]*?```/g, '');
+        let noObjects = noCode.replace(/¬¬¬[\s\S]*?¬¬¬/g, '');
+        let noHtml = noObjects.replace(/<(?:.*?)>(.*?)<\/(?:.*?)>/g, ' $1 ');
 
         const html = md({ html: true }).render(noHtml);
         const dom = cheerio.load(html);
@@ -473,13 +490,13 @@ async function spellCheck(projectFolder, markdown, docPath) {
         }
 
         if (misspelled.length > 0) {
-            await reportWarning(`'${misspelled.join("', '")}' possible spelling mistake(s) in '${docPath}'`);
+            await reportWarning(`'${misspelled.join('\', \'')}' possible spelling mistake(s) in '${docPath}'`);
 
             let output = `\n## [${docPath}](${docPath})\n\n`;
 
             for (let i = 0; i < misspelled.length; i++) {
                 output += misspelled[i];
-                const alts = spellchecker.getCorrectionsForMisspelling(misspelled[i])
+                const alts = spellchecker.getCorrectionsForMisspelling(misspelled[i]);
                 if (alts && alts.length > 0) {
                     output += `${' '.repeat(30 - misspelled[i].length)} => ${alts.join(', ')}`;
                 }
@@ -634,6 +651,20 @@ function listDirs(dir) {
     return fs.readdirSync(dir).filter(f => fs.statSync(path.join(dir, f)).isDirectory());
 }
 
+function fileExistsWithCaseSync(file) {
+    const dir = path.dirname(file);
+
+    if (dir === '/' || dir === '.' || dir.indexOf(':') >= 0) {
+        return true;
+    }
+
+    const filenames = fs.readdirSync(dir);
+    if (filenames.indexOf(path.basename(file)) === -1) {
+        return false;
+    }
+    return fileExistsWithCaseSync(dir);
+}
+
 function sanitizeLink(item) {
     return item
         .replace(/^\.?\//, '')
@@ -641,7 +672,7 @@ function sanitizeLink(item) {
 }
 
 async function checkRemote(url) {
-    if (checkRemotePages) {
+    if (remoteCheck) {
         try {
             await axios.head(url);
         } catch (err) {
@@ -657,7 +688,7 @@ async function checkRemote(url) {
 function loadDictionary() {
     const dictionaryFile = 'dictionary.json';
 
-    if (fs.existsSync(dictionaryFile)) {
+    if (fileExistsWithCaseSync(dictionaryFile)) {
         try {
             const dic = JSON.parse(fs.readFileSync(dictionaryFile));
 
@@ -667,25 +698,25 @@ function loadDictionary() {
                 const key = keys[k];
                 dictionary[key] = [];
                 for (let i = 0; i < dic[key].length; i++) {
-                    dictionary[key].push(new RegExp(dic[key][i], "i"));
+                    dictionary[key].push(new RegExp(dic[key][i], 'i'));
                 }
             }
         } catch (err) {
-            console.error(chalk.red(`ERROR: Failed loading dictionary.`));
+            console.error(chalk.red('ERROR: Failed loading dictionary.'));
             console.error(chalk.red(err.message));
         }
     }
 }
 
-async function run() {
+async function run(singleProject) {
     if (checkSpelling && spellingFile) {
         if (fs.existsSync(spellingFile)) {
             fs.unlinkSync(spellingFile);
         }
-        fs.appendFileSync(spellingFile, "# Spelling Summary\n");
+        fs.appendFileSync(spellingFile, '# Spelling Summary\n');
         loadDictionary();
     }
-    const projects = await buildProjects(rootFolder);
+    const projects = await buildProjects(rootFolder, singleProject);
 
     if (projectsFile) {
         await fsPromises.writeFile(projectsFile, JSON.stringify(projects, undefined, '\t'));
@@ -711,9 +742,16 @@ async function run() {
 
 console.log(chalk.green.underline.bold('Build Projects'));
 
-const docsFolder = process.argv[2] || 'docs';
+let singleProject = '';
+for (let i = 2; i < process.argv.length; i++) {
+    if (process.argv[i] === '--no-remote') {
+        remoteCheck = false;
+    } else {
+        singleProject = process.argv[i];
+    }
+}
 
-run(docsFolder)
+run(singleProject)
     .then(() => console.log(chalk.green(`\n${emoji.get('smile')}  Completed Successfully`)))
     .catch((err) => {
         console.error(chalk.red(`\n${emoji.get('frown')}  Building failed with the following error:`));
