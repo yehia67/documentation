@@ -1170,9 +1170,7 @@ import json
 command = {
   "command": "getTransactionsToApprove",
   "depth": 15,
-  "reference": [
-    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
-  ]
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
 }
 
 stringified = json.dumps(command)
@@ -1197,9 +1195,7 @@ var request = require('request');
 var command = {
   "command": "getTransactionsToApprove",
   "depth": 15,
-  "reference": [
-    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY999"
-  ]
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY999"
 }
 
 var options = {
@@ -1229,9 +1225,7 @@ curl http://localhost:14265 \
 -d '{
   "command": "getTransactionsToApprove",
   "depth": 15,
-  "reference": [
-    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
-  ]
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
 }'
 ```
 --------------------
