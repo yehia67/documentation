@@ -6,13 +6,7 @@ For this guide, you'll need a new installation of [Ubuntu 18.04 LTS](https://www
 
 ![IOTA Hub architecture](../iota_hub.png)
 
-To get started with Hub, do the following:
-
-1. Install the dependencies
-2. Build the signing server
-3. Generate SSL certificates
-3. Run the signing server
-4. Connect Hub to the signing server
+To get started with Hub, complete the following tasks in order.
 
 ## Install the dependencies
 
@@ -21,19 +15,20 @@ The signing server needs to be compiled from source using the dependencies.
 1. Make sure that the local apt repository is up to date and contains the multiverse repository
 
 	```bash
-	sudo apt update
+	sudo apt update \
+	sudo apt upgrade
 	```
 
 2. Install a compiler, such as GCC, Clang, or a toolchain from [@iota_toolchains](https://github.com/iotaledger/toolchains)
 
 	```bash
-	sudo apt install gcc-7
+	sudo apt install -y gcc-7
 	```
 
 3. Install the dependencies for the Bazel binary installer
 
 	```bash
-	sudo apt install pkg-config zip g++ zlib1g-dev unzip python
+	sudo apt install -y pkg-config zip g++ zlib1g-dev unzip python
 	```
 
 4. Download the binary installer for the [latest version of Bazel](https://github.com/bazelbuild/bazel/releases)
@@ -57,27 +52,27 @@ The signing server needs to be compiled from source using the dependencies.
 7. Install the `pyparsing` package for Python
 
 	```bash
-	sudo apt install python-pyparsing
+	sudo apt install -y python-pyparsing
 	```
 
 8. Install Git
 
 	```bash
-	sudo apt install git
+	sudo apt install -y git
 	```
 
 ## Build the signing server
 
-Clone the GitHub repository
+1. Clone the GitHub repository
 
 	```bash
 	git clone https://github.com/iotaledger/rpchub.git
 	```
 
-2. Change into the `hub` directory
+2. Change into the `rpchub` directory
 
 	```bash
-	cd hub
+	cd rpchub
 	```
 
 3. Build Hub from the source code:
@@ -176,7 +171,7 @@ Before you can run the binary file, you need to configure it.
 	```
 
 	:::warning:Warning
-	Use the same salt as the salt you used in the Hub configuration.
+	Use the same salt as the salt you used in the [Hub configuration](../how-to-guides/install-hub.md#run-hub).
 	:::
 
 3. Make the start.sh file executable
@@ -195,14 +190,14 @@ Before you can run the binary file, you need to configure it.
 	:tada: The signing server is now running on your computer!
 	:::
 
-	You are currently running the signing server in your shell session. If you close this session, the server will stop. Therefore, you might want to consider running the signing server in a screen/tmux session, a system-wide service, or a supervised process.
+	You're running the signing server in your shell session. If you close this session, the server will stop. Therefore, you might want to consider running the signing server in a screen/tmux session, a system-wide service, or a supervised process.
 
 	For this tutorial, you'll use supervisor to make sure the signing server always runs and automatically restarts after a reboot or a crash.
 
 5. Install supervisor (press `CTRL+C` to exit the current shell session):
 
 	```bash
-	sudo apt install supervisor
+	sudo apt install -y supervisor
 	```
 
 6. Create a configuration file for supervisor
@@ -215,13 +210,13 @@ Before you can run the binary file, you need to configure it.
 
 	```shell
 	[program:hub]
-	command=/home/dave/hub/start.sh
-	directory=/home/dave/hub/
+	command=/home/dave/rpchub/start.sh
+	directory=/home/dave/rpchub/
 	user=dave
 	autostart=true
 	autorestart=true
-	stderr_logfile=/home/dave/hub/err.log
-	stdout_logfile=/home/dave/hub/info.log
+	stderr_logfile=/home/dave/rpchub/err.log
+	stdout_logfile=/home/dave/rpchub/info.log
 	```
 
 8. Save the signing.conf file and reload supervisor
@@ -250,10 +245,10 @@ Now, you need to connect Hub to the signing server.
 
 In the Hub server, you need to import the generated SSL certificates and edit the start.sh script to use them.
 
-1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the hub server. You can do this in any way you prefer. For this example, send them over SSH, using the `scp` command. Change 192.168.2.212 to the URL or IP address of your Hub server. Change the `/home/dave/hub/` directory to the path where your Hub is installed.
+1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the hub server. You can do this in any way you prefer. For this example, send them over SSH, using the `scp` command. Change 192.168.2.212 to the URL or IP address of your Hub server. Change the `/home/dave/rpchub/` directory to the path where your Hub is installed.
 
 	```bash
-	scp client.crt client.key ca.crt 192.168.2.212:/home/dave/hub/
+	scp client.crt client.key ca.crt 192.168.2.212:/home/dave/rpchub/
 	``` 
 
 	The output should display something like the following:
@@ -270,7 +265,7 @@ In the Hub server, you need to import the generated SSL certificates and edit th
 	sudo nano /etc/hosts
 	```
 
-3. In this file, map the hostname of the signing server to its IP address. Change 192.168.2.210 to the IP address of your signing server. Change signer to the hostname of your signing server.
+3. In this file, map the hostname of the signing server to its IP address. Change 192.168.2.210 to the IP address of your signing server. Change `signer` to the hostname of your signing server.
 
 	```shell
 	192.168.2.210   signer
@@ -290,8 +285,8 @@ In the Hub server, you need to import the generated SSL certificates and edit th
 	./bazel-bin/hub/hub \
 	--db hub \
 	--dbUser root \
-	--dbPassword testingtesting123 \
-	--apiAddress 192.168.2.71:14265 \
+	--dbPassword myrootpassword \
+	--apiAddress 127.0.0.1:14265 \
 	--minWeightMagnitude 14 \
 	--listenAddress 127.0.0.1:50051 \
 	--signingMode remote \
@@ -308,10 +303,10 @@ In the Hub server, you need to import the generated SSL certificates and edit th
 	```
 
 :::success:Success
-If everything went well, you should have Hub and a signing server ready for action. The salt is no longer on the same server as your Hub!
+If everything went well, Hub will be connected to your signing server. The salt is no longer on the same server as your Hub!
 :::
 
 ## Next steps
 
-Make sure that your signing server has a firewall whitelist. The fewer external services you expose, the less vulnerable you are.
+Make sure that your signing server has a firewall whitelist. The fewer external services you expose, the less vulnerable the signing server is.
 

@@ -18,4 +18,5 @@ Hub prevents the re-use of deposit addresses, **but** doesn't prevent users from
 However, if a user fails to follow instructions correctly, you can [move funds from an address that's been withdrawn from](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md).
 
 ## Repository
-Jump directly to the Hub source code on [Github](https://github.com/iotaledger/rpchub)
+
+Go to the Hub source code on [Github](https://github.com/iotaledger/rpchub)
