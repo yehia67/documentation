@@ -1158,7 +1158,7 @@ Get two consistent tip transaction hashes to use as branch/trunk transactions.
 |Parameter|Required or Optional| Description |Type|
 |--|--|--|--|
 | `depth` |Required| Number of bundles to go back to determine the transactions for approval. |integer|
-| `reference` |Optional| Transaction hash from which to start the weighted random walk. Use this parameter to make sure the returned tip transaction hashes approve a given reference transaction. |array of strings
+| `reference` |Optional| Transaction hash from which to start the weighted random walk. Use this parameter to make sure the returned tip transaction hashes approve a given reference transaction. |string
 
 ### Examples
 --------------------
