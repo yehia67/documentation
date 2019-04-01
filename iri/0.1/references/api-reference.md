@@ -153,7 +153,7 @@ command = {
 "command": "attachToTangle", 
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "14",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -183,7 +183,7 @@ var command = {
 "command": "attachToTangle", 
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "14",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -218,7 +218,7 @@ curl http://localhost:14265 \
 "command": "attachToTangle",
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "14",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -1169,7 +1169,7 @@ import json
 
 command = {
   "command": "getTransactionsToApprove",
-  "depth": 15,
+  "depth": 4,
   "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
 }
 
@@ -1194,7 +1194,7 @@ var request = require('request');
 
 var command = {
   "command": "getTransactionsToApprove",
-  "depth": 15,
+  "depth": 4,
   "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY999"
 }
 
@@ -1224,7 +1224,7 @@ curl http://localhost:14265 \
 -H 'X-IOTA-API-Version: 1' \
 -d '{
   "command": "getTransactionsToApprove",
-  "depth": 15,
+  "depth": 4,
   "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
 }'
 ```
