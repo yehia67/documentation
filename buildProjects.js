@@ -10,6 +10,8 @@ const chalk = require('chalk');
 
 const { rootFolder, reportFile, projectsFile, checkRemotePages, checkSpelling, spellingFile, consoleDetail, exitWithError } = require('./buildProjects.config.json');
 
+let remoteCheck = checkRemotePages;
+
 let md;
 let spellchecker;
 let cheerio;
@@ -402,6 +404,8 @@ async function markdownLinks(markdown, docPath) {
                 if (!fileExistsWithCaseSync(docFilename)) {
                     await reportError(`Root page does not exist or has wrong casing '${match[2]}' in '${docPath}'`);
                 }
+            } else if (isMail(match[2])) {
+                // Skip mail links
             } else if (match[2].startsWith('#') || match[0].startsWith('!')) {
                 // Anchor skip and images skip
             } else if (match[2].length > 0) {
@@ -589,6 +593,10 @@ function isRemote(link) {
     return link.startsWith('http://') || link.startsWith('https://');
 }
 
+function isMail(link) {
+    return link.startsWith('mailto:');
+}
+
 function rootToDocs(content, docsFolder) {
     return content.replace(/root:\/\//g, `/${docsFolder}/`);
 }
@@ -652,7 +660,7 @@ function listDirs(dir) {
 function fileExistsWithCaseSync(file) {
     const dir = path.dirname(file);
 
-    if (dir === '/' || dir === '.' || dir.indexOf(":") >= 0) {
+    if (dir === '/' || dir === '.' || dir.indexOf(':') >= 0) {
         return true;
     }
 
@@ -670,7 +678,7 @@ function sanitizeLink(item) {
 }
 
 async function checkRemote(url) {
-    if (checkRemotePages) {
+    if (remoteCheck) {
         try {
             await axios.head(url);
         } catch (err) {
@@ -740,7 +748,14 @@ async function run(singleProject) {
 
 console.log(chalk.green.underline.bold('Build Projects'));
 
-const singleProject = process.argv[2] || '';
+let singleProject = '';
+for (let i = 2; i < process.argv.length; i++) {
+    if (process.argv[i] === '--no-remote') {
+        remoteCheck = false;
+    } else {
+        singleProject = process.argv[i];
+    }
+}
 
 run(singleProject)
     .then(() => console.log(chalk.green(`\n${emoji.get('smile')}  Completed Successfully`)))
