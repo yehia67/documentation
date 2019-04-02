@@ -20,11 +20,11 @@ To do a sweep, Hub does the following at regular intervals that are defined by t
 
 - Create a new address for the Hub owner
 
-- Create a bundle that allows users to withdraw tokens and sends the remaining balance to the Hub owner's addresses. The number of deposits and withdrawals that can be actioned in a single bundle is limited by the [`--sweep_max_deposit` and `--sweep_max_withdrawal`](../references/command-line-flags.md#sweepLimits) flags.
+- Create a bundle that actions withdrawal requests and sends the remaining balance to the Hub owner's addresses. The number of deposits and withdrawals that can be actioned in a single bundle is limited by the [`--sweep_max_deposit` and `--sweep_max_withdrawal`](../references/command-line-flags.md#sweepLimits) flags.
 
 - Check the inclusion state of the tail transaction in the sweep's bundle to determine if it's been confirmed. Hub will [reattach and promote](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md) the tail transaction until the transactions in the sweep's bundle are confirmed.
 
-- Update the users' balances in the database tables when the transactions in the sweep bundle are confirmed
+- Update the users' balances in the database tables when the transactions in the sweep's bundle are confirmed
 
 :::info:Want to learn more about inclusion states?
 Find out how to [check if a transaction is confirmed](root://iota-basics/0.1/how-to-guides/check-transaction-confirmation.md).
