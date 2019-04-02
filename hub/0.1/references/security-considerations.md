@@ -6,7 +6,7 @@
 
 For security purposes, deposit addresses may only be withdrawn from once. Therefore, Hub conducts periodic _sweeps_ to transfer funds from deposit addresses to a hot wallet.      
 
-## Salt encryption
+## Salt
 
 To add an extra layer of security, improve the strength of your seed encryption algortithm by setting the [`salt`](../references/hub-configuration-options.md) configuration option. A salt removes the ability for an attacker to check the Hub's UUIDs against a pre-computed dictionary attack. 
 
@@ -14,7 +14,7 @@ To add an extra layer of security, improve the strength of your seed encryption 
 
 To help prevent theft, Hub offers two servers:
 
-* **Hub:** Performs [key functions for managing deposits and withdrawals](../concepts/about-hub.md)
+* **Hub:** Does [key functions for managing deposits and withdrawals](../concepts/about-hub.md)
 * **Signing server:** Stores security data, such as UUIDs and the salt
 
 For maximum security, run the signing server in a remote location so that, if Hub is compromised, attackers can't steal IOTA tokens without access to the signing server.

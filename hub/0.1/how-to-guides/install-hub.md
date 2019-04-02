@@ -80,7 +80,9 @@ To compile Hub, you need to install the dependencies.
 
 ## Install the database server
 
-Hub needs a database (MariaDB 10.2.1+), in which to store data such as user IDs, addresses, and balances.
+Hub needs a database, in which to store data such as user IDs, addresses, and balances.
+
+By default, Hub uses [MariaDB 10.2.1+](https://mariadb.com/) because it supports CHECK constraints. A CHECK constraint restricts the data you can add to the table. If you attempt to insert invalid data in a column, MariaDB throws an error.
 
 The default repositories for Ubuntu 18.04 LTS don't provide a package that can be used for the database. Instead, you can install a custom Personal Package Archive (PPA) for the official MariaDB repository.
 
@@ -200,7 +202,7 @@ Before you can run the binary file, you need to configure it.
 	nano start.sh
 	```
 
-2. In the start.sh file, add the command for running hub with the configuration options
+2. In the start.sh file, add the command for running hub with any [command line flags](../references/command-line-flags.md) that you want to use:
 
 	```shell
 	#!/bin/bash
@@ -216,14 +218,16 @@ Before you can run the binary file, you need to configure it.
 	```
 
 	:::warning:Warning
-	Change the value of the `salt` flag to a private string of at least 20 characters. This value is used by Hub to generate seeds.
+	Change the value of the `salt` flag to a private string of at least 20 characters. This value is used by Hub to create seeds.
 
-	This example assumes that you have a local IRI node connected to port `14265`. We recommend this option. If you want to connect to a trusted remote node, replace the value of the `apiAddress` field with the URL or IP address of the node that you want to connect to.
-	
-	Hub can't connect to nodes that use the HTTPS protocol. [View a list of available nodes](https://iota.dance/).
+	You must keep the value of your salt safe to secure your users' tokens. For security, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md) to keep secure information such as salts separate from Hub.
 	:::
 
 	:::info:
+	This example assumes that you have a local IRI node connected to port `14265`. We recommend this option. If you want to connect to a trusted remote node, replace the value of the `apiAddress` field with the URL or IP address of the node that you want to connect to.
+	
+	Hub can't connect to nodes that use the HTTPS protocol. [View a list of available nodes](https://iota.dance/).
+	
 	To view the available [configuration options](../references/hub-configuration-options.md), do the following:
 
 	```bash
@@ -244,7 +248,7 @@ Before you can run the binary file, you need to configure it.
 	```
 
 	:::success:Congratulations
-	:tada: Hub is now running on your computer!
+	:tada: Hub is now running!
 	:::
 
 	:::important:json.exception.parse_error.101
@@ -262,7 +266,7 @@ Before you can run the binary file, you need to configure it.
 	sudo apt install -y supervisor
 	```
 
-6. Create a configuration file for supervisor
+6. Create a configuration file for the supervised process
 
 	```bash
 	sudo nano /etc/supervisor/conf.d/hub.conf
@@ -325,15 +329,15 @@ You can communicate with Hub through any programming language that supports [gRP
 	python3 -m venv env
 	```
 
-	:::info:
-	To exit the virtual environment, use the `deactivate` command.
-	:::
-
 3. Activate the virtual environment in a shell session
 
 	```bash
 	. env/bin/activate
 	```
+
+	:::info:
+	To exit the virtual environment, use the `deactivate` command.
+	:::
 
 4. Install the dependencies
 
@@ -353,7 +357,7 @@ You can communicate with Hub through any programming language that supports [gRP
 	New user with id 'user-1' created!
 	```
 
-6. Generate a new deposit address for the user
+6. Create a new deposit address for the user
 
 	```bash
 	python examples/get_address.py
@@ -379,8 +383,8 @@ events {
 }
 ```
 
-If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into a hot wallet (address where funds are aggregated until a user requests a withdrawl). This process is called a sweep.
+If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into a another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a sweep.
 
 ## Next steps
 
-**Optional:** Improve the security of Hub by connecting it to a [signing server](../how-to-guides/install-the-signing-server.md).
+To improve the security of your Hub, connect it to a [signing server](../how-to-guides/install-the-signing-server.md).

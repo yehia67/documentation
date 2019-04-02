@@ -1,6 +1,6 @@
 # Install the signing server
 
-**Hub stores sensitive information such as seeds. To add an extra layer of security, you can move sensitive operations and data to a signing server that only Hub can connect to.**
+**To add an extra layer of security to Hub, you can move the bundle signing operation and the salt (used to create seeds) to a signing server that only Hub can connect to. In this guide, you'll install and run a signing server that connects to Hub over an SSL encrypted connection.**
 
 For this guide, you'll need a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
 
@@ -136,9 +136,9 @@ SSL certificates are used for secure communication between your Hub and the sign
 10. Execute all three scripts
 
 	```bash
-	docs/ssl/01_generate_ca.sh
-	docs/ssl/02_generate_server.sh
-	docs/ssl/03_generate_client.sh
+	./docs/ssl/01_generate_ca.sh
+	./docs/ssl/02_generate_server.sh
+	./docs/ssl/03_generate_client.sh
 	```
 
 You should now have some SSL server and client certificates ready to use!
@@ -155,7 +155,7 @@ Before you can run the binary file, you need to configure it.
 	nano start.sh
 	```
 
-2. In the start.sh file, add the command for running the signing server with the configuration options
+2. In the start.sh file, add the command for running the signing server with any [command line flags](../references/command-line-flags.md) that you want to use:
 
 	```shell
 	#!/bin/bash
@@ -163,15 +163,14 @@ Before you can run the binary file, you need to configure it.
 	./bazel-bin/signing_server/signing_server \
 	--salt CHANGETHIS \
 	--authMode ssl \
-	--authMode=ssl \
-	--sslKey server.key \
-	-sslCert server.crt \
-	--sslCA ca.crt \
+	--sslKey docs/ssl/server.key \
+	--sslCert docs/ssl/server.crt \
+	--sslCA docs/ssl/ca.crt \
 	--listenAddress 0.0.0.0:50051
 	```
 
 	:::warning:Warning
-	Use the same salt as the salt you used in the [Hub configuration](../how-to-guides/install-hub.md#run-hub).
+	Use the same salt as the one you used in the [Hub configuration](../how-to-guides/install-hub.md#run-hub).
 	:::
 
 3. Make the start.sh file executable
@@ -188,6 +187,7 @@ Before you can run the binary file, you need to configure it.
 
 	:::success:Congratulations
 	:tada: The signing server is now running on your computer!
+	Whenever Hub creates a sweep, it will ask the signing server to sign the bundle and return the signature.
 	:::
 
 	You're running the signing server in your shell session. If you close this session, the server will stop. Therefore, you might want to consider running the signing server in a screen/tmux session, a system-wide service, or a supervised process.
