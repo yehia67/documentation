@@ -16,7 +16,7 @@ You can use Hub by calling methods from the [gRPC](../references/api-reference.m
 
 IOTA is a distributed network of nodes that validate transactions and reach a consensus on those that are considered confirmed. Before a withdrawal or a deposit is accepted by the network, the corresponding [bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md) must be confirmed.
 
-To avoid delays in confirmation, Hub [rettaches and promotes](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md) transactions until they're confirmed.
+To avoid delays in confirmation, Hub [reattaches and promotes](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md) transactions until they're confirmed.
 
 :::info:Want to learn more about consensus?
 Read about [the Tangle](root://the-tangle/0.1/introduction/overview.md).
@@ -46,7 +46,7 @@ To stop address reuse, Hub has the following features:
 
 **Withdrawal management:** Before withdrawing tokens from a user's address, Hub makes sure that no deposit transactions are pending for that same address, and that all previous deposit transactions have been confirmed. To keep track of which addresses have been withdrawn from, Hub stores the addresses in a database. When an address has been withdrawn from, Hub stops users from withdrawing from that address again.
  
-**Deposit address management:** Hub creates a new address for every deposit, using a user's seed. To do so, Hub uses the withdrawl management to check whether an address was already withdrawn from. If an address has been withdrawn from, Hub increments the index to create a new deposit address.
+**Deposit address management:** Hub creates a new address for every deposit, using a user's seed. To do so, Hub uses the withdrawal management to check whether an address was already withdrawn from. If an address has been withdrawn from, Hub increments the index to create a new deposit address.
 
 **Sweeps:** When actioning a user withdrawal, Hub creates a bundle that also moves funds from users' deposit addresses to one of the Hub owner's addresses.
 

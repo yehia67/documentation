@@ -73,7 +73,7 @@ Request for creating a new user.
 
 The generic Error that will be used to return an error code on, e.g. Status::CANCELLED. 	
 
-The error will be serialised and stored in the Status' detail field.
+The error will be serialized and stored in the Status' detail field.
 
 | Field | Type                            | Label | Description |
 | ----- | ------------------------------- | ----- | ----------- |
@@ -412,6 +412,6 @@ Error codes that can be returned by the hub.
 | <a name="sfixed32" /> sfixed32 | Always four bytes.                                           | int32    | int        | int         |
 | <a name="sfixed64" /> sfixed64 | Always eight bytes.                                          | int64    | long       | int/long    |
 | <a name="bool" /> bool         |                                                              | bool     | boolean    | boolean     |
-| <a name="string" /> string     | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string   | String     | str/unicode |
+| <a name="string" /> string     | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string   | String     | str/Unicode |
 | <a name="bytes" /> bytes       | May contain any arbitrary sequence of bytes.                 | string   | ByteString | str         |
 
