@@ -1,12 +1,20 @@
 # Sweeps
 
-**A sweep is a bundle that transfers IOTA tokens from users' deposit addresses to one of the Hub owner's addresses. Sweeps are an optional safety feature that reduce the likelihood of an attacker stealing tokens from a used address.**
+**A sweep is a bundle that transfers IOTA tokens from users' deposit addresses to one of the Hub owner's addresses. Sweeps are an optional safety feature that reduces the likelihood of an attacker stealing tokens from a used address.**
 
 IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, each signature exposes around half of the private key. Signing a bundle once with the a private key is safe. Signing a different bundle with the same private key may allow attackers to brute force the private key and steal IOTA tokens from the address. So, when a user withdraws from an address, that address is considered 'used' and must never be withdrawn from again.
 
-:::info:
-Addresses that have already been withdrawn from are also known as used addresses or spent addresses.
+If a user deposits to a used address, the tokens in that address are at risk of being stolen.
 
+Hub reduces this risk by transferring IOTA tokens from users' deposit address at regular intervals.
+
+:::important:Important
+You shouldn't rely on sweeps to protect used addresses. An attacker could steal the funds before Hub can do a sweep.
+
+So, it's important that you inform users never to deposit tokens into a used address.
+:::
+
+:::info:
 [Discover the details about address reuse and why you must never do it](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse).
 :::
 

@@ -10,7 +10,7 @@ Hub is the fastest and easiest way to integrate IOTA because it automates key pr
 * [Seed creation](#seed-creation)
 * [Token protection](#token-protection)
 
-You can use Hub by calling methods from the [gRPC](../references/api-reference.md) API.
+You can use Hub by [calling methods in the gRPC API](../how-to-guides/get-started-with-the-api.md).
 
 ## Transaction monitoring
 
@@ -30,31 +30,36 @@ Hub creates seeds for each deposit address in a secure way, using the following:
 * A universally unique identifier (UUID)
 * Data that you can define in a `salt` flag
 
-As well as user seeds, Hub creates a seed for the Hub owner (you). This seed is used during a [sweep](../concepts/sweeps.md), where user funds are deposited into addresses that are created from the Hub owner's seed.
+These values is used in the [Argon2](https://www.argon2.com/) hashing function to create a seed.
+
+:::info:
+The salt is optional, but recommended.
+For extra security you should [install a signing server](../how-to-guides/install-the-signing-server.md) to store the salt and handle the signing of bundles.
+:::
+
+Each deposit address is derived from a unique seed with a new, randomly generated UUID (`seeduuid`).
 
 ## Token protection
 
-IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, each signature exposes around half of the private key. Signing a bundle once with the a private key is safe. Signing a different bundle again with the same private key may allow attackers to brute force the private key and steal token from the address. Therefore, addresses should be withdrawn from only once.
+IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, each signature exposes around half of the private key. Signing a bundle once with the a private key is safe. Signing a different bundle with the same private key may allow attackers to brute force the private key and steal IOTA tokens from the address. So, when a user withdraws from an address, that address is considered 'used' and must never be withdrawn from again.
 
 :::info:
-Addresses that have already been withdrawn from also known as used addresses or spent addresses.
-
 [Discover the details about address reuse and why you must never do it](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse).
 :::
 
-To stop address reuse, Hub has the following features:
+To help stop address reuse, Hub has the following features:
 
 **Withdrawal management:** Before withdrawing tokens from a user's address, Hub makes sure that no deposit transactions are pending for that same address, and that all previous deposit transactions have been confirmed. To keep track of which addresses have been withdrawn from, Hub stores the addresses in a database. When an address has been withdrawn from, Hub stops users from withdrawing from that address again.
  
 **Deposit address management:** Hub creates a new address for every deposit, using a user's seed. To do so, Hub uses the withdrawal management to check whether an address was already withdrawn from. If an address has been withdrawn from, Hub increments the index to create a new deposit address.
 
-**Sweeps:** When actioning a user withdrawal, Hub creates a bundle that also moves funds from users' deposit addresses to one of the Hub owner's addresses.
+**Sweeps:** When actioning a user withdrawal, Hub creates a bundle, called a [sweep's bundle](../concepts/sweeps.md), that also moves funds from users' deposit addresses to one of the Hub owner's addresses.
 
 ## Limitations
 
-Hub prevents address reuse, but it doesn't prevent users from sending tokens to a used address.
+Hub helps to stop address reuse, but it doesn't stop users from sending tokens to a used address.
 
-If a user deposits tokens to a used address, you can [create a bundle to move funds from that address](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md).
+If a user deposits tokens to a used address, you can use the gRPC API to [create a bundle that transfers those tokens from the used address](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md).
 
 ## Repository
 
