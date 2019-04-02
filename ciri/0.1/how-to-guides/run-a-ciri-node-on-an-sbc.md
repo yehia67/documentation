@@ -1,198 +1,207 @@
-# Setting up an IOTA node on an SBC (Single-board computer)
+# Run a cIRI node on a single-board computer
 
-#### Warning: 
-Ths guide uses cIRI. cIRI is still under development. Do not except a stable node.
-You should not use cIRI in production!
+**When you run the cIRI on an SBC (single-board computer), it becomes a cIRI node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
 
-This guide describes how to set up a node on a small SBC. 
-If you SBC has restriced resources, less than 4 GB memory, we recommend to use cIRI.
-cIRI is designed to be more memory- and storage-efficient than [IRI](root://iri/0.1/introduction/overview.md).. 
+:::warning:Warning
+cIRI is still under development. You shouldn't use cIRI in a production environment.
+:::
+
 If you want to use the most recent features and extensions, you should use [IRI](root://iri/0.1/introduction/overview.md).
-IRI requires at least 4 GB of memory. Therefore it is not possible to use IRI on all SBCs.
 
-**Note:** The Orange Pi Zero and Zero Plus for this guide, but I try to keep it as general as possible.
-It should be possible to follow this guide with any common Cortex-A based SBC.
-I cover ARMv7 and Aarch64 (32-Bit and 64-Bit). It should be possible to use this guide for any Cortex-A based platform.
+:::info:
+This guide was tested on an Orange Pi Zero and Zero Plus for ARMv7 and Aarch64 (32-Bit and 64-Bit) architectures, but the instructions should be the same for any common Cortex-A-based SBC.
+:::
+
+We recommended disabling proof of work (PoW) on small SBCs. Outsourcing the workload to a faster server might be also a good option for small SBCs.
 
 ## Prerequisites
 
-### Host-system
+To complete this guide, you need [an SBC](root://general/0.1/how-to-guides/setup-sbc.md) with the following minimum requirements:
 
-- Linux, MacOS (BSD based OS should also work)
-
-**Note:** If you use Windows, you should use [a Linux VM.](root://general/0.1/how-to-guides/set-up-virtual-machine.md)
-Windows 10 also supports the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-If you are an advanced user, you can also use the Windows equivalent tools.
-
-### To complete this guide, you need [an SBC](root://general/0.1/how-to-guides/setup-sbc.md) with the following minimum requirements:
-
-- Ubuntu (or other Linux based OS, BSD should also work) with enabled SSH and configured network
-- At least 512 MB memory.
-- Ubuntu (Other Linux distribution should also work. BSD based OS might also work.) 
+- Ubuntu (or other Linux based OS, BSD should also work) with SSH enabled and a configured network. This guide uses Ubuntu. We recommend using Ubuntu if you consider yourself a beginner.
+- At least 512 MB of RAM
 - At least 64 GB storage (or 16 GB if the node is only for testing purposes)
-- You might want to check our ["Setting up an SBC for IOTA guide"](root://iota-sbc/0.1/how-to-guides/setup-sbc.md).
-- It is recommended to disable PoW on small SBCs. 
-Outsourcing the workload to a faster server might be also a good option for small SBCs.
-- The guide uses Ubuntu. We recommend to stick to Ubuntu if you consider yourself as beginner
 
-## 1. Clone the git repository
+## Download the cIRI
+
+The cIRI is hosted in the [`iotaledger` GiHub repository](https://github.com/iotaledger/entangled).
+
+1. [Install Bazel](https://docs.bazel.build/versions/master/install.html)
+
+2. Install Git
+
+     ```bash
+    sudo apt-get install -y git
+    ```
+    :::info:
+    To make sure that Git is installed, do the following: `git --version`. You should see a version number. If not, try installing Git again.
+    :::
+
+3. Clone the repository
 
 ```bash
 git clone https://github.com/iotaledger/entangled.git && cd entangled
 ```
 
-## 2. Install Bazel
+## Cross compile the cIRI
 
-Follow the [installation guide](https://docs.bazel.build/versions/master/install.html) for your OS in the Bazel documentation.
+To execute the cIRI, you need to cross compile it for your platform.
 
-## 3. Cross compile cIRI
+To cross compile the cIRI, you need to execute one the following commands, depending on the architecture of your SBC. To check the architecture of your SBC, do the following:
 
-### Check the architecture of your SBC
-
-You can check your architecture with:
 ```bash
 uname -m
 ```
 
-### Tangle Network
+* Command for Aarch64 (64-bit):
 
-You can change the tangle network with
-``bash
---define network=value
-``
-The value can be set to mainnet or testnet
+    ```bash
+    bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool_top=@iota_toolchains//tools/aarch64--glibc--bleeding-edge-2018.07-1:toolchain --cpu=aarch64 --compiler='gcc' --host_crosstool_top=@bazel_tools//tools/cpp:toolchain //ciri
+    ```
 
-### Trit encoding
+* Command for ARMv7 (32-bit):
 
-You should read the [trit encoding documentation](root://ciri/0.1/references/ciri-configuration-options.md
-), if you want to optimize your cIRI node. 
+    ```bash
+    bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool_top=@iota_toolchains//tools/armv7-eabihf--glibc--bleeding-edge-2018.07-1:toolchain --cpu='armeabi-v7a' --compiler='gcc' --host_crosstool_top=@bazel_tools//tools/cpp:toolchain //ciri
+    ```
 
-### Compiler
+You can customize these commands by editing the build flags.
 
-If you want to use another compiler, you can change the compiler with
-```bash
---compiler='value'
-```
-The default compiler is gcc
 
-### Start cross compiling
+1. Choose which [IOTA network](root://getting-started/0.1/references/iota-networks.md) you want your node to run on. Replace `value` with `mainnet` or `testnet`.
 
-You need to execute one the following commands on your host machine:
 
-#### Command for Aarch64 (64-Bit)
+    ```bash
+    --define network=value
+    ```
 
-```bash
-bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool_top=@iota_toolchains//tools/aarch64--glibc--bleeding-edge-2018.07-1:toolchain --cpu=aarch64 --compiler='gcc' --host_crosstool_top=@bazel_tools//tools/cpp:toolchain //ciri
-```
+2. Choose which [trit encoding](root://ciri/0.1/references/ciri-configuration-options.md) to use to optimize your node
 
-#### Command for ARMv7 (32-Bit)
+    ```bash
+    --define trit_encoding=5
+    ```
+    The default encoding is 2.
 
-```bash
-bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool_top=@iota_toolchains//tools/armv7-eabihf--glibc--bleeding-edge-2018.07-1:toolchain --cpu='armeabi-v7a' --compiler='gcc' --host_crosstool_top=@bazel_tools//tools/cpp:toolchain //ciri
-```
+3. Choose which compiler to use
 
-## 4. Copy the files to your device
+    ```bash
+    --compiler='value'
+    ```
+    The default compiler is GCC.
 
-GROUP_NAME: You can create a special group for cIRI. So every user in this group is able to run cIRI. 
-You can also just set it to your user.
+4. After running one of the commands, copy the compiled files to your SBC
 
-### SCP and IPv6
+## Connect to your device
 
-If you want to use SCP with IPv6, you need to use the -6 flag and the URL notation with escaping.
-For example:
-IPv6 address: fe80::3fdc:53f0:949a:72b9
-Network interface: wlp4s0
+After compiling the cIRI and copying the files to your SBC, you can remotely connect to it through SCP or SSH.
 
-```bash
-scp -r -6 SOURCE USERNAME@\[fe80::3fdc:53f0:949a:72b9%wlp4s0\]:TARGET
-```
+### Connect through SSH
 
-### ARMv7
-```bash
-ssh -t USERNAME@IP_ADDRESS "sudo mkdir -p /etc/iota/ciri && sudo chown -R USERNAME:GROUP_NAME /etc/iota/ciri" && \
-scp -r bazel-out/armeabi-v7a-opt/bin/ciri/ USERNAME@IP_ADDRESS:/etc/iota/
-```
-
-### Aarch64
-```bash
-ssh -t USERNAME@IP_ADDRESS "sudo mkdir -p /etc/iota/ciri && sudo chown -R USERNAME:GROUP_NAME /etc/iota/ciri"  && \
-scp -r bazel-out/aarch64-opt/bin/ciri/ USERNAME@IP_ADDRESS:/etc/iota/
-```
-
-## 5. SSH to your device
-
-Check out our ["Setting up an SBC for IOTA guide"](root://iota-sbc/0.1/how-to-guises/setup-sbc.md#3.5.-connect-via-ssh-to-your-sbc) for ssh connection with IPv6. 
+Check out our ["Setting up an SBC for IOTA guide"](root://iota-sbc/0.1/how-to-guises/setup-sbc.md#3.5.-connect-via-ssh-to-your-sbc) for SSH connection with IPv6. 
 
 ```bash
 ssh USERNAME@IP_ADDRESS
 ```
 
-## 6. Create snapshot and config directories
+### Connect through SCP
+
+:::info:
+You can create a special group for cIRI so that every user in this group can run the cIRI. 
+If you decide to create a group, replace `GROUP_NAME` with the name of your group.
+:::
+
+If you want to use SCP with IPv6, you need to use the -6 flag and URL encoding with escaped characters.
+
+For example:
+```
+IPv6 address: fe80::3fdc:53f0:949a:72b9
+Network interface: wlp4s0
+```
 
 ```bash
-cd /etc/iota/ciri && \
-mkdir -p external/snapshot_conf_mainnet/file/ && \
-mkdir -p external/snapshot_sig_mainnet/file/ && \
-mkdir -p external/snapshot_mainnet/file/ && \
-mv ciri app && \
-mkdir -p ciri
+scp -r -6 SOURCE USERNAME@\[fe80::3fdc:53f0:949a:72b9%wlp4s0\]:TARGET
 ```
 
-## 7. Create config file
-
-Yaml has the following structure:
-```yaml
-KEY: VALUE
-```
-You should add your neighbors to the conf.yaml. The [IRI guide](root://iri/0.1/how-to-guide/find-neighbor-iri-node.md) describes how you can find neighbors.
-
-An example conf.yaml:
-
+**ARMv7**
 ```bash
-printf "\
-log-level: debug \n\
-neighbors: \"NEIGHBORS\" \n\
-port: 14265 \n\
-" >> ciri/conf.yml
+ssh -t USERNAME@IP_ADDRESS "sudo mkdir -p /etc/iota/ciri && sudo chown -R USERNAME:GROUP_NAME /etc/iota/ciri" && \
+scp -r bazel-out/armeabi-v7a-opt/bin/ciri/ USERNAME@IP_ADDRESS:/etc/iota/
 ```
 
-## 8. Setup the database
-
-### Install sqlite3
-
+**Aarch64**
 ```bash
-sudo apt-get install sqlite3
+ssh -t USERNAME@IP_ADDRESS "sudo mkdir -p /etc/iota/ciri && sudo chown -R USERNAME:GROUP_NAME /etc/iota/ciri"  && \
+scp -r bazel-out/aarch64-opt/bin/ciri/ USERNAME@IP_ADDRESS:/etc/iota/
 ```
 
-### Initialize the database
+## Configure the cIRI
 
-```bash
-mkdir -p db
-wget https://raw.githubusercontent.com/iotaledger/entangled/develop/common/storage/sql/schema.sql -O schema.sql
-sqlite3 db/mainnet.db < schema.sql
-```
+Before you run the cIRI, you need to configure it so that your node can connect to neighbors.
 
-## 9. Get the snapshot files
+1. Create snapshot and configuration directories
 
-```bash
-wget https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.json -O external/snapshot_conf_mainnet/file/downloaded
-wget https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.sig -O external/snapshot_sig_mainnet/file/downloaded
-wget https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.txt -O external/snapshot_mainnet/file/downloaded
-```
+    ```bash
+    cd /etc/iota/ciri && \
+    mkdir -p external/snapshot_conf_mainnet/file/ && \
+    mkdir -p external/snapshot_sig_mainnet/file/ && \
+    mkdir -p external/snapshot_mainnet/file/ && \
+    mv ciri app && \
+    mkdir -p ciri
+    ```
 
-## 10. Get the configuration information by conf.bzl
+2. Find some neighbors
 
-You need the NUM_KEYS_IN_MILESTONE variable from [conf.bzl](https://raw.githubusercontent.com/iotaledger/entangled/develop/consensus/conf.bzl)
+    :::info:
+    Read the [IRI guide](root://iri/0.1/how-to-guide/find-neighbor-iri-node.md) for help finding neighbors.
+    :::
 
-You need the following variables from [snapshot.json](https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.json):
-signature.index, signature.depth, signature.pubkey
+3. Create a configuration file called conf.yaml in the `ciri` directory and add the following settings. In the `neighbors` field, add the IP addresses or URLs of your neighbors.
 
-Replace the variables with their values in the cIRI execution command.
+    ```yaml
+    log-level: info
+    neighbors: "udp://148.148.148.148:14265"
+    port: 14265
+    ```
 
-## 11. Run cIRI
+    Find out more about the possible [cIRI configuration settings](root://ciri/0.1/references/ciri-configuration-options.md).
 
-**Note:** You should run cIRI in [tmux](https://github.com/tmux/tmux). 
-With tmux the execution of the program continues, even if you logout.
+
+## Set up the database
+
+Your node stores the transactions that it receives in the database.
+
+1. Install sqlite3
+
+    ```bash
+    sudo apt-get install sqlite3
+    ```
+
+2. Initialize the database
+
+    ```bash
+    mkdir -p db
+    wget https://raw.githubusercontent.com/iotaledger/entangled/develop/common/storage/sql/schema.sql -O schema.sql
+    sqlite3 db/mainnet.db < schema.sql
+    ```
+
+3. Download the snapshot files
+
+    ```bash
+    wget https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.json -O external/snapshot_conf_mainnet/file/downloaded
+    wget https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.sig -O external/snapshot_sig_mainnet/file/downloaded
+    wget https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.txt -O external/snapshot_mainnet/file/downloaded
+    ```
+
+## Run the cIRI
+
+Replace the values in the flags with the ones from these files:
+* [conf.bzl](https://raw.githubusercontent.com/iotaledger/entangled/develop/consensus/conf.bzl)
+* [snapshot.json](https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.json)
+
+:::info:
+You should run the cIRI in [tmux](https://github.com/tmux/tmux). 
+With tmux, the execution of the program continues even if you log out.
+:::
 
 ```bash
 ./app \

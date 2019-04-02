@@ -1,8 +1,10 @@
 # Troubleshooting
 
-### Broadcasting transaction failed
+**Use this reference article to resolve issues related to running a node.**
 
-There are a lot of these kind of messages:
+## Broadcasting transaction failed
+
+You may see messages like the following in the output:
 
 ```bash
 2019-02-13 11:04:46:    broadcaster:WARNING: Broadcasting transaction failed
