@@ -4,7 +4,7 @@
 
 IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, each signature exposes around half of the private key. Signing a bundle once with the a private key is safe. Signing a different bundle with the same private key may allow attackers to brute force the private key and steal IOTA tokens from the address. So, when a user withdraws from an address, that address is considered 'used' and must never be withdrawn from again.
 
-If a user deposits IOTA tokens into a used address, the tokens in that address are at risk of being stolen.
+If a user deposits IOTA tokens into a used address such as one involved in a sweep, the tokens in that address are at risk of being stolen.
 
 Hub reduces this risk by transferring IOTA tokens from users' deposit addresses to a Hub owner's address at regular intervals.
 
