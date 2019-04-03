@@ -6,14 +6,14 @@
 | **Table**      | **Description**|
 |:-----------|:------------|
 | `hub_address`          | Information about the Hub owner's addresses. These addresses are where remainder tokens are sent during sweeps.|
-| `hub_address_balance`  |Information about updates to the balance of the Hub owner's addresses|
+| `hub_address_balance`  |Information about updates to the balance of the Hub owner's addresses. Hub updates this table whenever it completes an action that involves one of the addresses.|
 | `signed_uuids`         |A record of the seed UUIDs for addresses that have been withdrawn from (also known as used or spent) |
 | `sweep`                | Information about confirmed and pending sweeps|
 | `sweep_tails`          |Information about a sweep's bundle. Hub uses this table to check if a sweep's bundle is confirmed. |
 | `user_account`         |Information about users' Hub accounts |
 | `user_account_balance` | Information about the balances of users' Hub accounts|
 | `user_address`         |Information about the users' deposit addresses |
-| `user_address_balance` |Information about the balance of users' deposit addresses |
+| `user_address_balance` |Information about the balance of users' deposit addresses. Hub updates this table whenever it completes an action that involves one of the addresses. |
 | `withdrawal`           | Information about the balance of users' withdrawal requests|
 
 
