@@ -6,7 +6,7 @@ IOTA uses the Winternitz one-time signature scheme to create signatures. As a re
 
 If a user deposits IOTA tokens into a used address, the tokens in that address are at risk of being stolen.
 
-Hub reduces this risk by transferring IOTA tokens from users' deposit address at regular intervals.
+Hub reduces this risk by transferring IOTA tokens from users' deposit addresses to a Hub owner's address at regular intervals.
 
 :::important:Important
 You shouldn't rely on sweeps to protect used addresses. An attacker could steal the funds before Hub can do a sweep.
