@@ -35,7 +35,7 @@ You must have [installed Hub](../how-to-guides/install-hub.md) and it must be ru
     ```bash
     grpcc -i -a  localhost:50051 -p proto/hub.proto
     ```
-    :::success:
+    
     You should see something like the following:
 
     ```bash
@@ -105,11 +105,13 @@ You must have [installed Hub](../how-to-guides/install-hub.md) and it must be ru
 
 :::success:Congratulations!
 :tada: You've successfully used two gRPC methods to create a new user with two different deposit addresses.
+Each of these deposit addresses was derived from a unique seed.
 :::
 
 ## Next steps
 
-Use the [API reference](../references/api-reference.md) to do more with Hub. For example, you could use the [`sweepSubscription`](./references/api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place.
+* Use the [API reference](../references/api-reference.md) to do more with Hub. For example, you could use the [`sweepSubscription`](./references/api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place.
+* [Query the database to find out the seed UUID](../how-to-guides/query-the-database.md) that was used to create the seed for each deposit address.
 
 
 
