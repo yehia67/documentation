@@ -1,6 +1,6 @@
 # Transaction validation
 
-**Each IRI node in an IOTA network is responsible for validating transactions to make sure that conterfeit transactions are never confirmed.**
+**Each IRI node in an IOTA network is responsible for validating transactions to make sure that counterfeit transactions are never confirmed.**
 
 To protect the integrity of the ledger, IRI nodes append only valid transaction to their [ledgers](../concepts/the-ledger.md).
 

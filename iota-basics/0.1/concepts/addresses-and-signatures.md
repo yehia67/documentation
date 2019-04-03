@@ -1,6 +1,6 @@
 # Addresses and signatures
 
-**Each client in an IOTA network has a secret password called a seed, which is used to create addresses and signatures. Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address.**
+**Each client in an IOTA network has a secret password called a seed, which is used to create addresses and to sign bundles. Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address.**
 
 A seed is a string of 81 [trytes](../references/tryte-alphabet.md) that gives a client access to addresses. To use an IOTA network, clients must [create a seed and keep it private](root://getting-started/0.1/tutorials/create-a-seed.md) 
 
@@ -48,7 +48,7 @@ Signatures are created using the Winternitz one-time signature scheme. This sign
 
 To create a signature, the bundle hash of a transaction is normalized to make sure that only half of the private key is revealed in the signature.
 
-<a name="address-reuse"></a>**Note on address reuse:** This step is necessary because of the Winternitz one-time signature scheme. If the bundle hash weren't normalized, the scheme would reveal an unknown amount of the private key. By revealing half of the private key, an address can safely be withdrawn from once. If an address is withdrawn from more than once, more of the private key is revealed, so a sophisticated attacker could brute force its signature and steal the IOTA tokens.
+<a name="address-reuse"></a>**Note on address reuse:** This step is necessary because of the Winternitz one-time signature scheme. If the bundle hash weren't normalized, the scheme would reveal an unknown amount of the private key. By revealing half of the private key, **an address can safely be withdrawn from only once**. If an address is withdrawn from more than once, more of the private key is revealed, so a sophisticated attacker could brute force its signature and steal the IOTA tokens.
 
 Depending on the number of key fragments that a private key has, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of segments in a key fragment.
 

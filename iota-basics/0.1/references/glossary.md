@@ -14,13 +14,13 @@ Terms are listed in alphabetical order by category.
 
 <dl><dt>address</dt><dd>Account that owns IOTA tokens. Addresses can send and receive data and IOTA tokens</dd></dl>
 
-<dl><dt>multi-signature address (multi-sig address)</dt><dd>Address that needs multiple parties to sign a transaction before their IOTA tokens can be spent</dd></dl>
+<dl><dt>multi-signature address (multi-sig address)</dt><dd>Address that needs multiple parties to sign a transaction before IOTA tokens can be withdrawn from it</dd></dl>
 
 <dl><dt>security level</dt><dd>An integer (1, 2, or 3) that affects the length of a signature. The higher the security level, the longer the signature, and the stronger the security of the address.</dd></dl>
 
 <dl><dt>seed</dt><dd>81-tryte password used to generate addresses and signatures</dd></dl>
 
-<dl><dt>signature</dt><dd>Cryptograhic proof of ownership of an address. IOTA tokens can't be spent from an address without a valid signature.</dd></dl>
+<dl><dt>signature</dt><dd>Cryptograhic proof of ownership of an address. IOTA tokens can't be withdrawn from an address without a valid signature.</dd></dl>
 
 ### Cryptography
 
