@@ -86,7 +86,7 @@ By default, Hub uses [MariaDB 10.2.1+](https://mariadb.com/) because it supports
 
 The default repositories for Ubuntu 18.04 LTS don't provide a package that can be used for the database. Instead, you can install a custom Personal Package Archive (PPA) for the official MariaDB repository.
 
-1. Request the a GNU Privacy Guard (GPG) key to download the PPA
+1. Request a GNU Privacy Guard (GPG) key to download the PPA
 
 	```bash
 	sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
