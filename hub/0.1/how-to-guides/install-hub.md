@@ -138,7 +138,7 @@ After setting up all these dependencies it's time to install Hub.
 	git clone https://github.com/iotaledger/rpchub.git
 	```
 
-2. Change into the `hub` directory
+2. Change into the `rpchub` directory
 
 	```bash
 	cd rpchub
