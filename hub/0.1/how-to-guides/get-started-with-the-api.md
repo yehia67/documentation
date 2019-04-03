@@ -33,7 +33,7 @@ You must have [installed Hub](../how-to-guides/install-hub.md) and it must be ru
 3. Start the gRPC client
 
     ```bash
-    grpcc -i -a  localhost:50051 -p proto/hub.proto
+    grpcc -i -a localhost:50051 -p proto/hub.proto
     ```
     
     You should see something like the following:
@@ -110,8 +110,10 @@ Each of these deposit addresses was derived from a unique seed.
 
 ## Next steps
 
-* Use the [API reference](../references/api-reference.md) to do more with Hub. For example, you could use the [`sweepSubscription`](./references/api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place.
-* [Query the database to find out the seed UUID](../how-to-guides/query-the-database.md) that was used to create the seed for each deposit address.
+1. Send funds to one of the deposit addresses
+2. Use the [`sweepSubscription()`](./references/api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. 
+3. [Query the database to find out the seed UUID](../how-to-guides/query-the-database.md) that was used to create the seed for each deposit address.
+4. Use the [`userWithdraw()`](../references/api-reference.md#hub.rpc.UserWithdrawRequest) method to make a withdrawal request from the deposit address
 
 
 
