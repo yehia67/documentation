@@ -23,8 +23,8 @@ To create a CDA, you specify the following conditions to determine whether it's 
 
 * **address (required):** An address
 * **timeout_at (required):** The time at which the address expires
-**multi_use (optional):** A boolean that specifies if the address may be sent more than one deposit
-**expected_amount (optional):** The amount of IOTA tokens that the address is expected to contain. When this amount is reached, the address is considered expired.
+* **multi_use (optional):** A boolean that specifies if the address may be sent more than one deposit
+* **expected_amount (recommended):** The amount of IOTA tokens that the address is expected to contain. When this amount is reached, the address is considered expired. We highly recommend using this condition.
 
 The combination of fields that you use to create a CDA determines if it can be used in withdrawals.
 
@@ -35,7 +35,7 @@ The combination of fields that you use to create a CDA determines if it can be u
 |`timeout_at` and `expected_amount`| The CDA can be used in withdrawals as soon as it contain the expected amount|
 |`timeout_at`, `multi_use`, and `expected_amount` (recommended) |The CDA can be used in withdrawals as soon as it contains the expected amount (or more) of IOTA tokens |
 
-**Important:** If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. Therefore, to avoid address reuse, we recommend creating CDAs with the `multi use` field, even if only one deposit is expected to arrive at an address.
+**Important:** If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. Therefore, to avoid address reuse, we recommend creating CDAs with the `multi_use` field, even if only one deposit is expected to arrive at an address.
 
 
 1. Store the current time from your account's timesource object
@@ -65,13 +65,13 @@ The combination of fields that you use to create a CDA determines if it can be u
 
 ## Distribute a CDA
 
-Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, where the `t` parameter is the `timeout_at` field, the `m` parameter is the `multi_use` field and the `am` parameter is the `expected_amount` field.
+Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with the `timeout_at`, `multi_use`, and `expected_amount` parameters.
 
 1. To serialize the CDA into a magent link, use the `AsMagnetLink()` method of the CDA object
 
     ```go
     fmt.Println(cda.AsMagnetLink())
-    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?t=1548337187&m=true&am=0
+    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true&expected_amount=0
     ```
 
 2. To parse the magnet link into a CDA, use the `ParseMagnetLink()` method of the `deposit` object
