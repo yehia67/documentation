@@ -40,11 +40,19 @@ If a CDA was created with only the `timeout_at` field, it can be used in withdra
 To avoid address reuse, we recommend creating CDAs with the `multi_use` field, even if only one deposit is expected to arrive at an address.
 :::
 
-1. 
+1. Define an expiration time for the CDA
+  
+    ```java
+    // define the time after which the CDA expires
+    // (in this case after 1 hour)
+    Date hour = new Date(System.currentTimeMillis() + 1000 * 60 * 60);
+    ```
 
+2. Create a new multi-use CDA with an expiration time
 
-
-## Create a CDA
+    ```java
+    Future<ConditionalDepositAddress> dep = account.newDepositAddress(hour, true, 1000);
+    ```
 
 ## Distribute a CDA
 
@@ -52,4 +60,13 @@ Because CDAs are descriptive objects, you can serialize them into any format and
 
 ```json
 iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true&expected_amount=0
+```
+
+```java
+String magnet = DepositFactory.get().build(dep.get(), MagnetMethod.class);
+ 
+System.out.println(magnet);
+// iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000
+
+account.shutdown();
 ```

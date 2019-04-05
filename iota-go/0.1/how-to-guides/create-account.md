@@ -69,7 +69,7 @@ If you have never created an account before, you must create a new seed. Existin
     In storage, each account has a unique ID, which is created from a hash of an address with index 0 and security level 2.
     :::
 
-4. Use the timesrc package to create an NTP (network time protocol) timesource object that will be used to calculate CDA timeouts and timeouts during API requests to the node. In this example, the time source is a Google NTP server. For better performance, we recommend setting up your own NTP server.
+4. Use the `timesrc` package to create a `timesource` object that will be used to calculate CDA timeouts and timeouts during API requests to the node. In this example, the time source is a Google NTP (network time protocol) server. For better performance, we recommend setting up your own NTP server.
 
      ```go
     // create an accurate time source (in this case Google's NTP server).
