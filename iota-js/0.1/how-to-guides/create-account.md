@@ -5,15 +5,19 @@
 You can use accounts to do the following:
 
 * Create and manage conditional deposit addresses (CDAs), which specify whether they're active and may used in withdrawals or deposits.
-* Store the state of a seed
+* Store the state of a seed in a database
 
 ## Withdrawls and deposits
 
-In accounts, the terms withdrawal and deposit are used to refer to the use of CDAs in bundles that transfer IOTA tokens.
+Accounts are made up of many addresses that are in either an active or expired state. The state of an address determines whether it can be used in a withdrawal or a deposit.
 
-The term _withdrawal_ is used to refer to the use of CDAs in [input transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md) where IOTA tokens are withdrawn from an address. The term _deposit_ is used to refer to the use of CDAs in outputs transactions where IOTA tokens are deposited into an address.
+The term _withdrawal_ is used to refer to the use of CDAs in [input transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md) where IOTA tokens are withdrawn from an address. A withdrawal can involve multiple expired CDAs, depending on total deposit amount and the balance of the CDAs.
 
-A withdrawal can involve multiple expired CDAs, depending on total deposit amount and the balance of the CDAs.
+The term _deposit_ is used to refer to the use of CDAs in outputs transactions where IOTA tokens are deposited into an address.
+
+You can't withdraw tokens from an active address, but depositors can deposit tokens into them.
+
+You can withdraw tokens from an expired addresses, but depositors can't deposit tokens into them.
 
 ## Seed state
 
@@ -25,7 +29,7 @@ A withdrawal can involve multiple expired CDAs, depending on total deposit amoun
 
 You can create multiple accounts, and each one can manage the state of only one unique seed.
 
-:::important:Important:
+:::important:Important
 You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
 
 If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
@@ -33,7 +37,15 @@ If you have never created an account before, you must create a new seed. Existin
 
 ## Create a new account
 
-1. Create an `account` object with a new seed and connect to a node
+1. Install the libraries
+
+    ```bash
+    npm install @iota/account
+    npm install @iota/persistence-adapter-level
+    npm install @iota/converter
+    ```
+
+2. Create an `account` object with a new seed and connect to a node
    
    ```js
    import { createAccount } from '@iota/account';
@@ -49,8 +61,6 @@ If you have never created an account before, you must create a new seed. Existin
          provider
    });
    ```
-    :::info:
-    If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `WithSeed()` method in step 5.
 
     If you want to connect to a different node, you can pass the `account` object a custom `api` object
 
@@ -69,13 +79,14 @@ If you have never created an account before, you must create a new seed. Existin
     ```
     :::
 
-2. Pass a **`persistenceAdapater`** object to your account. This adapter creates a storage object to which the account can save the seed state.
+3. **Optional:** Pass a **`persistenceAdapater`** object to your account. This adapter creates a storage object to which the account can save the seed state. By default, the seed state database is created in the root of the project.
 
    ```JS
    import { persistenceAdapter } from '@iota/persistence-adapter-level';
 
    const account = createAccount({
          seed,
+         api,
          persistenceAdapter
    });
    ```
@@ -86,7 +97,7 @@ If you have never created an account before, you must create a new seed. Existin
     You can't use one store instance for multiple accounts at the same time. A private adapter is instantiated for each account instance.
     :::
 
-3. (optional) Pass a `timeSource` method that outputs the current time in milliseconds to your `account` object
+4. **Optional** Pass a `timeSource` method that outputs the current time in milliseconds to your `account` object
 
    ```js
    const account = createAccount({
@@ -101,7 +112,3 @@ If you have never created an account before, you must create a new seed. Existin
 :::success:Congratulations!
 :tada: You've created an account that will automate promoting and reattaching transactions as well as manage your CDAs.
 :::
-
-## Import existing seed state
-
-To import an existing seed state into an account, ... By default the seed state is the project's root. When importing state a new db is created.. The seed state must be in the correct format.

@@ -1,14 +1,14 @@
 # Create and manage conditional deposit addresses
 
-**To send and receive transactions in an account, you must use conditional deposit addresses (CDA), which are special addresses that allow you to specify the conditions in which they are active and may be used for withdrawls and deposits.**
+**To send and receive transactions in an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawls and deposits.**
 
-Accounts use CDAs to avoid address reuse. Without CDAs, recipients have no way of knowing whether a sender is about to debit an address before they credit it. With CDAs, recipients can create an address that expires after a certain time, allowing senders to make a judgement about whether to make a deposit. If senders aren't sure if a bundle will confirm in time, they can ask the recipient for another CDA.
+Accounts use CDAs to avoid address reuse. Without CDAs, recipients have no way of knowing whether a sender is about to withdraw tokens from an address before they deposit tokens into it. With CDAs, recipients can create an address that expires after a certain time, allowing senders to make a judgement about whether to deposit tokens into it. If senders aren't sure if a bundle will confirm in time, they can ask the recipient for another CDA.
 
 :::info:
 CDAs can be used only in an account and not in the generic [client library methods](root://client-libraries/0.1/introduction/overview.md). As a result, both you and the sender must have an account to be able to use CDAs.
 :::
 
-CDAs can be in either an active or expired state. Active addresses are part of the seed state, so they may not be used in withdrawals, but may be sent deposits. Expired addresses are removed from the seed state, so they may be used in withdrawals, but may not be sent deposits.
+CDAs can be in either an active or expired state. Active addresses are part of the seed state, so you can't withdraw tokens from them, but depositors can deposit tokens into them. Expired addresses are removed from the seed state, so you can withdraw tokens from them, but depositors can't deposit tokens into them.
 
 The workflow of a CDA should be the following:
 
@@ -40,23 +40,25 @@ If a CDA was created with only the `timeoutAt` field, it can be used in withdraw
 To avoid address reuse, we recommend creating CDAs with the `multiUse` field, even if only one deposit is expected to arrive at an address.
 :::
 
----
+* Pass the CDA fields to the `generateCDA()` method
 
-Pass the CDA fields to the `generateCDA()` method
+    ```js
+    const account = createAccount({
+        provider: 'http://localhost:14265',
+    });
 
-```js
-const account = createAccount({
-    provider: 'http://localhost:14265',
-});
+    account.generateCDA({
+        // Date in seconds
+        timeoutAt: new Date('7-16-2186').getTime() / 1000,
+        multiUse: true,
+        expectedAmount: 10000000,
+        security: 2
+    });
+    ```
 
-account.generateCDA({
-    // Date in seconds
-    timeoutAt: new Date('7-16-2186').getTime() / 1000,
-    multiUse: true,
-    expectedAmount: 10000000,
-    security: 2
-});
-```
+:::info:
+If you created an account with a `timeSource` method, you can set the `timeoutAt` field.
+:::
 
 ## Distribute a CDA
 
@@ -70,30 +72,30 @@ iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true
 The `generateCDA()` method returns a serialized CDA as a magent link in a `magnetLink` field
 :::
 
-To parse a magnet link into a CDA, use the `parseCDAMagnet()` method
+* To parse a magnet link into a CDA, use the `parseCDAMagnet()` method
 
-```js
-const { address, timeoutAt, expectedAmount } = account.parseCDAMagnet(
-    'iota://AT9GOVPQD...ADFA9IRSV?timeout_at=6833278800&multi_use=1&expected_amount:100000000'
-);
-```
+    ```js
+    const { address, timeoutAt, expectedAmount } = account.parseCDAMagnet(
+        'iota://AT9GOVPQD...ADFA9IRSV?timeout_at=6833278800&multi_use=1&expected_amount:100000000'
+    );
+    ```
 
 ## Deposit IOTA tokens into a CDA
 
-After making sure that the CDA is still active, you can use the `sendToCDA()` method to deposit IOTA tokens into it
+* After making sure that the CDA is still active, you can use the `sendToCDA()` method to deposit IOTA tokens into it
 
-```js
-account.sendToCDA({
-    address: 'AT9GOVPQDDKAJ...ADFA9IRSV' // must include the checksum
-    timeoutAt: new Date('7-16-2186').getTime() / 1000,
-    expectedAmount: 10000000
-});
-```
+    ```js
+    account.sendToCDA({
+        address, // must include the checksum
+        timeoutAt,
+        expectedAmount
+    });
+    ```
 
-You can also use a magnet link with the `sendToCDA()` method
+* You can also use a magnet link with the `sendToCDA()` method
 
-```js
-account.sendToCDA({
-    magnetLink: magnetLink
-});
-```
+    ```js
+    account.sendToCDA({
+        magnetLink: magnetLink
+    });
+    ```

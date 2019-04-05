@@ -5,15 +5,19 @@
 You can use accounts to do the following:
 
 * Create and manage conditional deposit addresses (CDAs), which specify whether they're active and may used in withdrawals or deposits.
-* Store the state of a seed
+* Store the state of a seed in a database
 
 ## Withdrawls and deposits
 
-In accounts, the terms withdrawal and deposit are used to refer to the use of CDAs in bundles that transfer IOTA tokens.
+Accounts are made up of many addresses that are in either an active or expired state. The state of an address determines whether it can be used in a withdrawal or a deposit.
 
-The term _withdrawal_ is used to refer to the use of CDAs in [input transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md) where IOTA tokens are withdrawn from an address. The term _deposit_ is used to refer to the use of CDAs in outputs transactions where IOTA tokens are deposited into an address.
+The term _withdrawal_ is used to refer to the use of CDAs in [input transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md) where IOTA tokens are withdrawn from an address. A withdrawal can involve multiple expired CDAs, depending on total deposit amount and the balance of the CDAs.
 
-A withdrawal can involve multiple expired CDAs, depending on total deposit amount and the balance of the CDAs.
+The term _deposit_ is used to refer to the use of CDAs in outputs transactions where IOTA tokens are deposited into an address.
+
+You can't withdraw tokens from an active address, but depositors can deposit tokens into them.
+
+You can withdraw tokens from an expired addresses, but depositors can't deposit tokens into them.
 
 ## Seed state
 
@@ -25,7 +29,7 @@ A withdrawal can involve multiple expired CDAs, depending on total deposit amoun
 
 You can create multiple accounts, and each one can manage the state of only one unique seed.
 
-:::important:Important:
+:::important:Important
 You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
 
 If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
@@ -48,9 +52,9 @@ If you have never created an account before, you must create a new seed. Existin
     seed := "ASFITGPSD9ASDFKRWE..."
     ```
 
-     :::info:
-     If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `WithSeed()` method in step 5.
-     :::
+    :::info:
+    If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `WithSeed()` method in step 5.
+    :::
 
 3. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a BadgerDB database.
 
@@ -92,7 +96,13 @@ If you have never created an account before, you must create a new seed. Existin
     handleErr(acc.Start())
     ```
 
-    Every 30 seconds, the `transfer-poller` plugin will check whether withdrawals have been confirmed or whether any deposits to one of the account's CDAs  are pending. Every 30 seconds, the `promoter-reattacher` plugin will promote or reattach pending withdrawal transactions. If you want to have more control over the behavior of the plugins, you can use `WithPlugin()` method.
+    :::info:
+    Every 30 seconds, the `transfer-poller` plugin will check whether withdrawals have been confirmed or whether any deposits to one of the account's CDAs are pending.
+    
+    Every 30 seconds, the `promoter-reattacher` plugin will promote or reattach pending withdrawal transactions.
+    
+    If you want to have more control over the behavior of the plugins, you can use `WithPlugin()` method.
+    :::
 
 :::success:Congratulations!
 :tada: You've created an account that will automate promoting and reattaching transactions as well as manage your CDAs.

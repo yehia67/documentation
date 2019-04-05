@@ -1,14 +1,14 @@
 # Create and manage conditional deposit addresses
 
-**To send and receive transactions in an account, you must use conditional deposit addresses (CDA), which are special addresses that allow you to specify the conditions in which they are active and may be used for withdrawls and deposits.**
+**To send and receive transactions in an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawls and deposits.**
 
-Accounts use CDAs to avoid address reuse. Without CDAs, recipients have no way of knowing whether a sender is about to debit an address before they credit it. With CDAs, recipients can create an address that expires after a certain time, allowing senders to make a judgement about whether to make a deposit. If senders aren't sure if a bundle will confirm in time, they can ask the recipient for another CDA.
+Accounts use CDAs to avoid address reuse. Without CDAs, recipients have no way of knowing whether a sender is about to withdraw tokens from an address before they deposit tokens into it. With CDAs, recipients can create an address that expires after a certain time, allowing senders to make a judgement about whether to deposit tokens into it. If senders aren't sure if a bundle will confirm in time, they can ask the recipient for another CDA.
 
 :::info:
 CDAs can be used only in an account and not in the generic [client library methods](root://client-libraries/0.1/introduction/overview.md). As a result, both you and the sender must have an account to be able to use CDAs.
 :::
 
-CDAs can be in either an active or expired state. Active addresses are part of the seed state, so they may not be used in withdrawals, but may be sent deposits. Expired addresses are removed from the seed state, so they may be used in withdrawals, but may not be sent deposits.
+CDAs can be in either an active or expired state. Active addresses are part of the seed state, so you can't withdraw tokens from them, but depositors can deposit tokens into them. Expired addresses are removed from the seed state, so you can withdraw tokens from them, but depositors can't deposit tokens into them.
 
 The workflow of a CDA should be the following:
 
@@ -39,6 +39,12 @@ If a CDA was created with only the `timeout_at` field, it can be used in withdra
 
 To avoid address reuse, we recommend creating CDAs with the `multi_use` field, even if only one deposit is expected to arrive at an address.
 :::
+
+1. 
+
+
+
+## Create a CDA
 
 ## Distribute a CDA
 
