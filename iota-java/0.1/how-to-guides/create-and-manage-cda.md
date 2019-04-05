@@ -67,6 +67,4 @@ String magnet = DepositFactory.get().build(dep.get(), MagnetMethod.class);
  
 System.out.println(magnet);
 // iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000
-
-account.shutdown();
 ```
