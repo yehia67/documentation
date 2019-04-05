@@ -25,15 +25,19 @@ A withdrawal can involve multiple expired CDAs, depending on total deposit amoun
 
 You can create multiple accounts, and each one can manage the state of only one unique seed.
 
-**Important:** You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
+:::important:Important:
+You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
 
-**Important:** If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
+If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
+:::
 
 ## Create a new account
 
 To create an account, you need to create an `IotaAPI` object to connect to an IOTA network and an `IotaAccount` object to manage a seed.
 
-**Important:** Although the `IotaAccount` object has default settings, we recommend that you provide at least a seed and a storage provider such as MongoDB. Otherwise, the seed state will not be saved after the code stops running.
+:::important:Important:
+Although the `IotaAccount` object has default settings, we recommend that you provide at least a seed and a storage provider such as MongoDB. Otherwise, the seed state will not be saved after the code stops running.
+:::
 
 1. Create an `IotaAPI` object that connects to a node
    
@@ -56,7 +60,9 @@ To create an account, you need to create an `IotaAPI` object to connect to an IO
     String mySeed = "ASFITGPSD9ASDFKRWE...";
     ```
 
-    **Note:** If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `Builder()` constructor in step 4.
+    :::info:
+    If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `Builder()` constructor in step 4.
+    :::
 
 3. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a Memory Store database.
 
@@ -64,7 +70,9 @@ To create an account, you need to create an `IotaAPI` object to connect to an IO
     AccountStore store = new AccountStoreImpl(new MemoryStore());
     ```
 
-    **Note:** You can use the same storage object for multiple accounts at the same time. In storage, each account has a unique ID, which is created from a hash of address 0 with security level 2.
+    :::info:
+    You can use the same storage object for multiple accounts at the same time. In storage, each account has a unique ID, which is created from a hash of an address with index 0 and security level 2.
+    :::
 
 4. Create the account using your custom settings
    
@@ -76,7 +84,9 @@ To create an account, you need to create an `IotaAPI` object to connect to an IO
                     .build();
     ```
 
-Congratulations :tada: You've created an account that will automate promoting and reattaching transactions as well as manage your CDAs.
+:::success:Congratulations!
+:tada: You've created an account that will automate promoting and reattaching transactions as well as manage your CDAs.
+:::
 
 ### Connect to multiple IRI nodes
 
@@ -95,11 +105,11 @@ Connection node = new HttpConnector(
 // Or create a custom node defined by a class
 Connection customNode = new MyCustomNodeClass();
 
-// Now feed that into the builder
+// Pass that to the builder
 IotaAPI api = new IotaAPI.Builder()
                 // Enable local proof of work
                 .localPoW(new PearlDiverLocalPoW())
-                // And add our created nodes!
+                // And add the extra nodes
                 .addNode(node)
                 .addNode(customNode)
                 .build();

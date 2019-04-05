@@ -25,9 +25,11 @@ A withdrawal can involve multiple expired CDAs, depending on total deposit amoun
 
 You can create multiple accounts, and each one can manage the state of only one unique seed.
 
-**Important:** You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
+:::important:Important:
+You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
 
-**Important:** If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
+If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
+:::
 
 ## Create a new account
 
@@ -46,7 +48,9 @@ You can create multiple accounts, and each one can manage the state of only one 
     seed := "ASFITGPSD9ASDFKRWE..."
     ```
 
-     **Note:** If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `WithSeed()` method in step 5.
+     :::info:
+     If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `WithSeed()` method in step 5.
+     :::
 
 3. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a BadgerDB database.
 
@@ -55,7 +59,11 @@ You can create multiple accounts, and each one can manage the state of only one 
     handleErr(err)
     ```
 
-    **Note:** You can use the same storage object for multiple accounts at the same time. In storage, each account has a unique ID, which is created from a hash of address 0 with security level 2.
+    :::info:
+    You can use the same storage object for multiple accounts at the same time.
+    
+    In storage, each account has a unique ID, which is created from a hash of an address with index 0 and security level 2.
+    :::
 
 4. Use the timesrc package to create an NTP (network time protocol) timesource object that will be used to calculate CDA timeouts and timeouts during API requests to the node. In this example, the time source is a Google NTP server. For better performance, we recommend setting up your own NTP server.
 
@@ -86,7 +94,9 @@ You can create multiple accounts, and each one can manage the state of only one 
 
     Every 30 seconds, the `transfer-poller` plugin will check whether withdrawals have been confirmed or whether any deposits to one of the account's CDAs  are pending. Every 30 seconds, the `promoter-reattacher` plugin will promote or reattach pending withdrawal transactions. If you want to have more control over the behavior of the plugins, you can use `WithPlugin()` method.
 
-Congratulations :tada: You've created an account that will automate promoting and reattaching transactions as well as manage your CDAs.
+:::success:Congratulations!
+:tada: You've created an account that will automate promoting and reattaching transactions as well as manage your CDAs.
+:::
 
 ## Import existing seed state
 
