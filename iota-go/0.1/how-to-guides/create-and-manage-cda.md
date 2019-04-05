@@ -102,22 +102,28 @@ sendOracle := oracle.New(timeDecider)
 
 ### Call an oracle
 
-To call an oracle, pass the CDA to the `OkToSend()` method of the `sendOracle` object
+1. To call an oracle, pass the CDA to the `OkToSend()` method of the `sendOracle` object
 
-```go
-// Ask the SendOracle whether we should make a deposit
-ok, info, err := sendOracle.OkToSend(CDA)
-handleErr(err)
-if !ok {
-    logger.Error("won't send transaction:", info)
-    return
-}
+    ```go
+    // Ask the SendOracle whether we should make a deposit
+    ok, info, err := sendOracle.OkToSend(CDA)
+    handleErr(err)
+    if !ok {
+        logger.Error("won't send transaction:", info)
+        return
+    }
+    ```
 
-// Send the bundle that makes the deposit
-// In thid case, we assume that an expected amount was set in the CDA
-// and therefore the transfer is initialized with that amount.
-bndl, err = acc.Send(cda.AsTransfers())
-handleErr(err)
+## Deposit IOTA tokens into a CDA
 
-fmt.Printf("Made deposit into %s in the bundle with the following tail transaction hash %s\n", cda.Address, bndl[0].Hash)
-```
+1. After making sure that the CDA is still active, you can use the `Send()` method to deposit IOTA tokens into it
+
+    ```go
+    // Send the bundle that makes the deposit
+    // In this case, we assume that an expected amount was set in the CDA
+    // and therefore the transfer is initialized with that amount.
+    bndl, err = acc.Send(cda.AsTransfers())
+    handleErr(err)
+
+    fmt.Printf("Made deposit into %s in the bundle with the following tail transaction hash %s\n", cda.Address, bndl[0].Hash)
+    ```

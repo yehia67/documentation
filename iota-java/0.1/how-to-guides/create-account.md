@@ -94,31 +94,31 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
 
 ### Connect to multiple IRI nodes
 
-If you want to connect to multiple nodes, you can either create a `HttpConnector` object, or define a custom class.
+1. If you want to connect to multiple nodes, you can either create a `HttpConnector` object, or define a custom class.
 
-```java
-// Create an HTTP node using the default settings
-Connection node = new HttpConnector(
-                "http",
-                "localhost",
-                1337, 
-                // Optional connection timeout
-                500
-            );
-                
-// Or create a custom node defined by a class
-Connection customNode = new MyCustomNodeClass();
+    ```java
+    // Create an HTTP node using the default settings
+    Connection node = new HttpConnector(
+                    "http",
+                    "localhost",
+                    1337, 
+                    // Optional connection timeout
+                    500
+                );
+                    
+    // Or create a custom node defined by a class
+    Connection customNode = new MyCustomNodeClass();
 
-// Pass that to the builder
-IotaAPI api = new IotaAPI.Builder()
-                // Enable local proof of work
-                .localPoW(new PearlDiverLocalPoW())
-                // And add the extra nodes
-                .addNode(node)
-                .addNode(customNode)
-                .build();
+    // Pass that to the builder
+    IotaAPI api = new IotaAPI.Builder()
+                    // Enable local proof of work
+                    .localPoW(new PearlDiverLocalPoW())
+                    // And add the extra nodes
+                    .addNode(node)
+                    .addNode(customNode)
+                    .build();
 
-```
+    ```
 
 ## Import existing seed state
 
