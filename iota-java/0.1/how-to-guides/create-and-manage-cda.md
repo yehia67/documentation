@@ -51,7 +51,7 @@ To avoid address reuse, we recommend creating CDAs with the `multi_use` field, e
 2. Create a new multi-use CDA with an expiration time
 
     ```java
-    Future<ConditionalDepositAddress> dep = account.newDepositAddress(hour, true, 1000);
+    Future<ConditionalDepositAddress> cda = account.newDepositAddress(hour, true, 1000);
     ```
 
 ## Distribute a CDA
@@ -59,12 +59,27 @@ To avoid address reuse, we recommend creating CDAs with the `multi_use` field, e
 Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with the `timeout_at`, `multi_use`, and `expected_amount` parameters.
 
 ```json
-iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true&expected_amount=0
+iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true&expected_amount=10000000
 ```
 
+1. To serialize a CDA to a magnet link, do the following:
+
 ```java
-String magnet = DepositFactory.get().build(dep.get(), MagnetMethod.class);
+String magnet = DepositFactory.get().build(cda.get(), MagnetMethod.class);
  
 System.out.println(magnet);
-// iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000
+// iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=10000000
+```
+
+## Deposit IOTA tokens into a CDA
+
+1. After making sure that the CDA is still active, you can use the `sendToCDA()` method to deposit IOTA tokens into it
+
+```java
+String addressWithChecksum = "SEED...99999";
+Long expectedAmount = 10000000;
+Future<Bundle> bundle = account.send(
+        addressWithChecksum, 
+        expectedAmount, 
+        Optional.of("Hello world!"), Optional.of("AWESOME9TAG"));
 ```

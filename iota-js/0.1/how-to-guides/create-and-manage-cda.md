@@ -40,62 +40,80 @@ If a CDA was created with only the `timeoutAt` field, it can be used in withdraw
 To avoid address reuse, we recommend creating CDAs with the `multiUse` field, even if only one deposit is expected to arrive at an address.
 :::
 
-* Pass the CDA fields to the `generateCDA()` method
+1. Pass the CDA fields to the `generateCDA()` method
 
     ```js
-    const account = createAccount({
-        provider: 'http://localhost:14265',
-    });
-
     account.generateCDA({
-        // Date in seconds
-        timeoutAt: new Date('7-16-2186').getTime() / 1000,
-        multiUse: true,
-        expectedAmount: 10000000,
-        security: 2
-    });
+    timeoutAt: new Date('7-16-2186').getTime() / 1000, // Date in seconds
+    multiUse: true,
+    expectedAmount: 10000000,
+    security: 2,
+    })
+        .then(cda => {
+            // Do something with the CDA
+        })
+        .catch(err => {
+            // Handle errors here...
+        })
     ```
 
 :::info:
 If you created an account with a `timeSource` method, you can set the `timeoutAt` field.
 :::
 
+The `generateCDA()` method returns a CDA object with the following fields:
+```js
+{
+   address: 'AT9GOVPQDDKAJ...ADFA9IRSV', // The last 9 trytes are the checksum
+   timeoutAt: 6833278800,
+   multiUse: true,
+   expectedAmount: 10000000,
+   magnetLink: 'iota://AT9GOVPQD...ADFA9IRSV?timeout_at=6833278800&multi_use=1&expected_amount:10000000'
+}
+```
+
 ## Distribute a CDA
 
-Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with the `timeout_at`, `multi_use`, and `expected_amount` parameters.
+Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, the `generateCDA()` method returns a serialized CDA as a magent link in a `magnetLink` field:
 
 ```json
 iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true&expected_amount=0
 ```
 
-:::info:
-The `generateCDA()` method returns a serialized CDA as a magent link in a `magnetLink` field
-:::
-
 * To parse a magnet link into a CDA, use the `parseCDAMagnet()` method
 
     ```js
     const { address, timeoutAt, expectedAmount } = account.parseCDAMagnet(
-        'iota://AT9GOVPQD...ADFA9IRSV?timeout_at=6833278800&multi_use=1&expected_amount:100000000'
+        cda.magnetLink
     );
     ```
 
 ## Deposit IOTA tokens into a CDA
 
-* After making sure that the CDA is still active, you can use the `sendToCDA()` method to deposit IOTA tokens into it
+1. After making sure that the CDA is still active, use the `sendToCDA()` method to deposit IOTA tokens into it
 
-    ```js
-    account.sendToCDA({
-        address, // must include the checksum
-        timeoutAt,
-        expectedAmount
+```js
+account.sendToCDA({
+address: 'AT9GOVPQDDKAJ...ADFA9IRSV' // must include the checksum
+multiUse: true,
+timeoutAt: 6833278800,
+expectedAmount: 10000000,
+})
+    .then((transactions) => {
+        const tailHash = transactions[0].hash
+        console.log('Successfully attached a bundle with tail hash:', tailHash)
+    })
+    .catch(err => {
+        // Handle errors here...
     });
-    ```
+```
 
-* You can also use a magnet link with the `sendToCDA()` method
+2. **Optional:** To use a magnet link, pass it to the `sendToCDA()` method
 
-    ```js
-    account.sendToCDA({
-        magnetLink: magnetLink
-    });
-    ```
+```js
+account.sendToCDA({
+    magnetLink: magnetLink
+})
+    .then()
+    .catch();
+```
