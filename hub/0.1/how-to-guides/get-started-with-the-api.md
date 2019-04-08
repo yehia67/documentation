@@ -111,7 +111,7 @@ Each of these deposit addresses was derived from a unique seed.
 ## Next steps
 
 1. Send funds to one of the deposit addresses
-2. Use the [`sweepSubscription()`](./references/api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. 
+2. Use the [`sweepSubscription()`](../references/api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. 
 3. [Query the database to find out the seed UUID](../how-to-guides/query-the-database.md) that was used to create the seed for each deposit address.
 4. Use the [`userWithdraw()`](../references/api-reference.md#hub.rpc.UserWithdrawRequest) method to make a withdrawal request from the deposit address
 
