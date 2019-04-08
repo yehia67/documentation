@@ -16,7 +16,7 @@ Running an open source project, like any human endeavor, involves uncertainty an
 
 ## Prerequisites
 
-To test, edit, and deploy this application, you need some level of programming knowledge in JavaScript, React, and NodeJS.
+To test, edit, and deploy this application, you need programming knowledge in JavaScript, React, and NodeJS.
 
 ## API
 
