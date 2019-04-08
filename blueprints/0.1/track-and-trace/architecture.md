@@ -2,7 +2,7 @@
 
 **The track-and-trace application uses the IOTA MAM protocol to give returnable assets an ID and to track those assets in streams of transactions called MAM channels.**
 
-:::info:
+:::warning:Disclaimer
 Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community.
 :::
 
@@ -10,7 +10,7 @@ This application uses the IOTA MAM [JavaScript libraries](https://github.com/iot
 
 ## Prerequisites
 
-To test, edit, and deploy this application, you need some level of knowledge in JavaScript, React, NodeJS, and database management systems.
+To test, edit, and deploy this application, you need programming knowledge in JavaScript, React, NodeJS, and database management systems.
 
 ## Masked authenticated messaging
 
@@ -19,7 +19,7 @@ The track and trace of a given returnable asset consists of a series of events. 
 ![Track and Trace](../track-and-trace-architecture.png)
 
 A tracker interacts with the architecture to report asset ownership and change of custody. Authorized tracers 
-connects to the architecture to fetch information about a given asset, e.g. its last custodian. 
+connect to the architecture to fetch information about a given asset, e.g. its last custodian. 
 
 A new IOTA MAM channel is created once a new returnable asset is first registered by its owner. A digital twin for the returnable asset is created with the following information: `<assetUniqueID, assetOwnerID, assetCustodianID, location, time, status>`. 
 
@@ -200,4 +200,4 @@ export const updateItem = (eventBody, mam, newItemData, user) => {
 };
 ```
 
-In the `updateItem()` function above, first the Firebase Object Repository is searched for an existing asset, through its itemId and subsequently information are updated with the new MAM channel or message details.
+In the `updateItem()` function, first the Firebase Object Repository is searched for an existing asset by the 'itemId' field, then any information for that object is updated with the new MAM channel or message details.

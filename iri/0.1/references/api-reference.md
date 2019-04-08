@@ -108,7 +108,7 @@ curl http://localhost:14265 \
 ```json
 {
   "addedNeighbors": "802",
-  "duration": "125"
+  "duration": 125
 }
 ```
 ---
@@ -153,7 +153,7 @@ command = {
 "command": "attachToTangle", 
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -183,7 +183,7 @@ var command = {
 "command": "attachToTangle", 
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -218,7 +218,7 @@ curl http://localhost:14265 \
 "command": "attachToTangle",
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -819,8 +819,8 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-  "states": ["true", "true"],
-  "duration": "726"
+  "states": [true, true],
+  "duration": 726
 }
 ```
 ---
@@ -1169,7 +1169,7 @@ import json
 
 command = {
   "command": "getTransactionsToApprove",
-  "depth": 15,
+  "depth": 4,
   "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
 }
 
@@ -1194,7 +1194,7 @@ var request = require('request');
 
 var command = {
   "command": "getTransactionsToApprove",
-  "depth": 15,
+  "depth": 4,
   "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY999"
 }
 
@@ -1224,7 +1224,7 @@ curl http://localhost:14265 \
 -H 'X-IOTA-API-Version: 1' \
 -d '{
   "command": "getTransactionsToApprove",
-  "depth": 15,
+  "depth": 4,
   "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
 }'
 ```
@@ -1633,7 +1633,7 @@ curl http://localhost:14265 \
 ```json
 {
 "trytes": ["JJSLJFJD9HMHHMKAJNRODFHUN ..."],
-"duration":982
+"duration": 982
 }
 ```
 ---
@@ -1744,8 +1744,8 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-"states": ["true", "false"],
-"duration":982
+"states": [true, false],
+"duration": 982
 }
 ```
 ---
