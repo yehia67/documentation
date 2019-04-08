@@ -35,11 +35,11 @@ In single-board computers, the operating system must be flashed onto an SD card.
 
 ## Continue with the setup for your specific device
 
-- If you can use a display and keyboard at your device, follow the ["Setup for devices with keyboard and display"](#setup-for-devices-with-keyboard-and-display) guide
-- If you do not have display and keyboard, but an USB-to-UART-Adapter, follow the ["Setup your device via USB-to-UART adapter"](#setup-your-device-via-usb-to-uart-adapter) guide
-- If you only have Ethernet, follow the ["Setup for Ethernet devices"](#setup-for-ethernet-devices) guide
+- If you can use a display and keyboard at your device, follow the ["Set up devices with keyboard and display"](#set-up-devices-with-keyboard-and-display) guide
+- If you do not have display and keyboard, but an USB-to-UART-Adapter, follow the ["Set up your device via USB-to-UART adapter"](#set-up-your-device-via-usb-to-uart-adapter) guide
+- If you only have Ethernet, follow the ["Set up Ethernet devices"](#set-up-ethernet-devices) guide
 
-## Setup for devices with keyboard and display
+## Set up devices with keyboard and display
 
 1. Connect keyboard and display to your SBC.
 
@@ -103,7 +103,7 @@ In single-board computers, the operating system must be flashed onto an SD card.
 :::
 
 
-## Setup your device via USB-to-UART adapter
+## Set up your device via USB-to-UART adapter
 
 You must execute these commands on your host-system.
 
@@ -113,13 +113,13 @@ You must execute these commands on your host-system.
     We recommend [PlatformIO](https://docs.platformio.org/en/latest/userguide/cmd_device.html?highlight=monitor#platformio-device-monitor).
     PlatformIO provides a simple command tool to interact with your SBC.
 
-2. Plugin your USB-to-UART adapter
+2. Plug in your USB-to-UART adapter
 
 3. Find the right USB port
 
     USB ports are available at /dev/ttyUSBX. X is the number of the USB port.
     The simplest way to find the right USB port is to plug out the USB-Adapter, check for the USB SBCs with
-    ```ls /dev/ttyUSB*```, plugin the USB-Adapter and check again. The new added USB-port is the one you are looking for.
+    ```ls /dev/ttyUSB*```, plug in the USB-Adapter and check again. The new added USB-port is the one you are looking for.
 
 4. Change rights on connected USB. 
 
@@ -180,7 +180,7 @@ You must execute these commands on your host-system.
 :tada: You're connected to your SBC through SSH. Now you can run commands on your SBC.
 :::
 
-## Setup for Ethernet devices
+## Set up Ethernet devices
 :::warning:
 This way works only for IPv4 networks!
 :::
