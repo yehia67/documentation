@@ -238,7 +238,7 @@ UserIds must be unique.
 
 | Field      | Type              | Label | Description             |
 | ---------- | ----------------- | ----- | ----------------------- |
-| bundleHash | [string](#string) |       | Sweep's bundle hash |
+| bundleHash | [string](#string) |       | Bundle hash of the sweep |
 
 <a name="hub.rpc.SweepEvent"></a>
 
@@ -257,7 +257,7 @@ UserIds must be unique.
 | Field          | Type              | Label | Description                |
 | -------------- | ----------------- | ----- | -------------------------- |
 | withdrawalUUID | [string](#string) |       | Withdrawal UUID to look up |
-| bundleHash     | [string](#string) |       | Sweep's bundle hash    |
+| bundleHash     | [string](#string) |       | Bundle hash of the sweep |
 
 <a name="hub.rpc.SweepSubscriptionRequest"></a>
 

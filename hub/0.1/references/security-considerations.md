@@ -6,12 +6,12 @@
 
 For [security purposes](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse), deposit addresses may only be withdrawn from once.
 
-Hub reduces this risk by transferring IOTA tokens from users' deposit addresses to a Hub owner's address at regular intervals. This process happens during a [sweep](../concepts/sweeps.md).
+Hub reduces this risk by transferring IOTA tokens from users' deposit addresses to a Hub owner's address at regular intervals. This process happens in a [sweep](../concepts/sweeps.md).
 
- :::important:Important
+:::important:Important
 You shouldn't rely on sweeps to protect used addresses. An attacker could steal the funds before Hub can do a sweep.
 
- So, it's important that you inform users never to deposit tokens into a used address.
+So, it's important that you inform users never to deposit tokens into a used address.
 :::
 
 ## Salt
