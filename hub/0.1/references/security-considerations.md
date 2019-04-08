@@ -22,7 +22,7 @@ To add an extra layer of security, improve the strength of your seed encryption 
 
 To help prevent theft, Hub offers two servers:
 
-* **Hub:** Does [key functions for managing deposits and withdrawals](../concepts/about-hub.md)
+* **Hub:** Manages accounts and addresses
 * **Signing server:** Stores the salt and signs bundles for sweeps.
 
 For maximum security, run the signing server in a remote location so that, if Hub is compromised, attackers can't steal IOTA tokens without access to the signing server.
