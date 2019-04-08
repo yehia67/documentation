@@ -1,6 +1,6 @@
 # Command line flags
 
-**When you start Hub or the signing server, you can pass the following commands to customize how they function.**
+**When you start Hub or the signing server, you can customize how they function by passing the run command one or more of the following flags.**
 
 ## Flags from `common/flags/flags.h` (for both hub/signing_server binaries)
  

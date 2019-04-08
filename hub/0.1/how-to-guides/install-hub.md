@@ -218,9 +218,9 @@ Before you can run the binary file, you need to configure it.
 	```
 
 	:::warning:Warning
-	Change the value of the `salt` flag to a private string of at least 20 characters. This value is used by Hub to create seeds.
+	Change the value of the `salt` flag to a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
 
-	You must keep the value of your salt safe to secure your users' tokens. For security, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md) to keep secure information such as salts separate from Hub.
+	To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md).
 	:::
 
 	:::info:
@@ -228,7 +228,7 @@ Before you can run the binary file, you need to configure it.
 	
 	Hub can't connect to nodes that use the HTTPS protocol. [View a list of available nodes](https://iota.dance/).
 	
-	To view the available [configuration options](../references/hub-configuration-options.md), do the following:
+	To view the available [command line flags](../references/command-line-flags.md), do the following:
 
 	```bash
 	./bazel-bin/hub/hub --help
@@ -252,7 +252,7 @@ Before you can run the binary file, you need to configure it.
 	:::
 
 	:::important:json.exception.parse_error.101
-	If you see the following error message, make sure that the node you're connected to uses the HTTP protocol instead of HTTPS. You can check the address of your node in the `apiAddress` field of the [configuration options](../references/hub-configuration-options.md).
+	If you see the following error message, make sure that the node you're connected to uses the HTTP protocol instead of HTTPS. You can check the address of your node in the `apiAddress` field of the [command line flags](../references/command-line-flags.md).
 	E0328 10:57:54.417129 13906 beast.cc:65] [json.exception.parse_error.101] parse error at 1: syntax error - invalid literal; last read: '<'
 	:::
 
