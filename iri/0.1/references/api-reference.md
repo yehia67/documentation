@@ -108,7 +108,7 @@ curl http://localhost:14265 \
 ```json
 {
   "addedNeighbors": "802",
-  "duration": "125"
+  "duration": 125
 }
 ```
 ---
@@ -820,7 +820,7 @@ curl http://localhost:14265 \
 ```json
 {
   "states": ["true", "true"],
-  "duration": "726"
+  "duration": 726
 }
 ```
 ---
