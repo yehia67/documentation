@@ -58,7 +58,7 @@ An understanding of MAM channels.
 
 ## Deploy the P2P energy grid app
 
-The software configuration and deployment for all the entities is documented in the [GitHub repository](https://github.com/iotaledger/poc-p2p-energy).
+The software configuration and deployment for all the entities is documented in the [GitHub repository](https://github.com/iotaledger/poc-p2p-energy) (ETA Start of May).
 
 Sources running on RPi need the following:
 * Local area network (LAN) or wide area network (WAN) connection to the grid
