@@ -108,7 +108,7 @@ curl http://localhost:14265 \
 ```json
 {
   "addedNeighbors": "802",
-  "duration": "125"
+  "duration": 125
 }
 ```
 ---
@@ -153,7 +153,7 @@ command = {
 "command": "attachToTangle", 
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -183,7 +183,7 @@ var command = {
 "command": "attachToTangle", 
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -218,7 +218,7 @@ curl http://localhost:14265 \
 "command": "attachToTangle",
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -469,7 +469,7 @@ curl http://localhost:14265 \
 
 |Return field | Description |
 |--|--|
-| `state` | States of the specified transactions in the same order as the values in the `tails` parameter. A `true` value means that the transaction is consistent. |
+| `state` | State of the given transactions in the `tails` parameter. A `true` value means that all given transactions are consistent. A `false` value means that one or more of the given transactions aren't consistent. |
 | `info` | If the `state` field is false, this field contains information about why the transaction is inconsistent |
 | `duration` | Number of milliseconds it took to complete the request |
 
@@ -819,8 +819,8 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-  "states": ["true", "true"],
-  "duration": "726"
+  "states": [true, true],
+  "duration": 726
 }
 ```
 ---
@@ -1158,7 +1158,7 @@ Get two consistent tip transaction hashes to use as branch/trunk transactions.
 |Parameter|Required or Optional| Description |Type|
 |--|--|--|--|
 | `depth` |Required| Number of bundles to go back to determine the transactions for approval. |integer|
-| `references` |Optional| Transaction hashes from which to start the weighted random walk. Use this parameter to make sure the returned tip transaction hashes approve a given transaction. |array of strings
+| `reference` |Optional| Transaction hash from which to start the weighted random walk. Use this parameter to make sure the returned tip transaction hashes approve a given reference transaction. |string
 
 ### Examples
 --------------------
@@ -1169,10 +1169,8 @@ import json
 
 command = {
   "command": "getTransactionsToApprove",
-  "depth": 15,
-  "references": [
-    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
-  ]
+  "depth": 4,
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
 }
 
 stringified = json.dumps(command)
@@ -1196,10 +1194,8 @@ var request = require('request');
 
 var command = {
   "command": "getTransactionsToApprove",
-  "depth": 15,
-  "references": [
-    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY999"
-  ]
+  "depth": 4,
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY999"
 }
 
 var options = {
@@ -1228,10 +1224,8 @@ curl http://localhost:14265 \
 -H 'X-IOTA-API-Version: 1' \
 -d '{
   "command": "getTransactionsToApprove",
-  "depth": 15,
-  "references": [
-    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
-  ]
+  "depth": 4,
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
 }'
 ```
 --------------------
@@ -1639,7 +1633,7 @@ curl http://localhost:14265 \
 ```json
 {
 "trytes": ["JJSLJFJD9HMHHMKAJNRODFHUN ..."],
-"duration":982
+"duration": 982
 }
 ```
 ---
@@ -1750,8 +1744,8 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-"states": ["true", "false"],
-"duration":982
+"states": [true, false],
+"duration": 982
 }
 ```
 ---
