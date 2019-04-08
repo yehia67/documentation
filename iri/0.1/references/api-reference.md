@@ -819,7 +819,7 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-  "states": ["true", "true"],
+  "states": [true, true],
   "duration": 726
 }
 ```
@@ -1633,7 +1633,7 @@ curl http://localhost:14265 \
 ```json
 {
 "trytes": ["JJSLJFJD9HMHHMKAJNRODFHUN ..."],
-"duration":982
+"duration": 982
 }
 ```
 ---
@@ -1744,8 +1744,8 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-"states": ["true", "false"],
-"duration":982
+"states": [true, false],
+"duration": 982
 }
 ```
 ---
