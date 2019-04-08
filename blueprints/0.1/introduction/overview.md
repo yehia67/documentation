@@ -4,7 +4,7 @@
 
 Blueprints are designed to do the following:
 
-* Describe a problem, any challenges, and a solution that uses IOTA
+* Describe a problem and a solution that uses IOTA
 * Present an architecture that shows how to solve the problem by integrating IOTA into your existing systems
 * Explain how you can test, edit, and deploy the blueprint
 
