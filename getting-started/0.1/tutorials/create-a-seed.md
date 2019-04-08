@@ -30,17 +30,17 @@ As well as the following ways of creating a seed, you can also [create a seed in
 
 1. [Download the KeePass installer](https://keepass.info/)
 
-    Keepass is a password manager that stores passwords in highly-encrypted databases, which can be unlocked with one master password or key file.
+    KeePass is a password manager that stores passwords in highly-encrypted databases, which can be unlocked with one master password or key file.
 
 2. Open the installer and follow the on-screen instructions
 
 3. Open KeePass and click **New**
 
-    <img src="../keypass-new.png" alt="A new Keepass database" width="600">
+    <img src="../keypass-new.png" alt="A new KeePass database" width="600">
 
 4. After you've followed the instructions and saved the KeePass file on your computer, right click the empty space and click **Add entry**
 
-    <img src="../keepass-add-entry.png" alt="A new Keepass entry" width="600">
+    <img src="../keepass-add-entry.png" alt="A new KeePass entry" width="600">
 
 5. Click **Generate a password**
 

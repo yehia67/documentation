@@ -4,5 +4,7 @@
     "projectsFile": "",
     "checkRemotePages": true,
     "consoleDetail": true,
-    "exitWithError": true
+    "exitWithError": true,
+    "checkSpelling": true,
+    "spellingFile": "spelling-summary.md"
 }

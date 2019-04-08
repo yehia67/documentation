@@ -1,6 +1,6 @@
 # Run an IRI node on a Linux server
 
-**When you run the IRI on a Linux server, it becomes an IRI node that gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.**
+**When you run the IRI on a Linux server, it becomes a node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
 
 ## Prerequisites
 
@@ -14,8 +14,14 @@
     * **UDP neighbor peering port:** 14600
     * **TCP neighbor peering port:** 14600
     * **TCP API port:** 14265
+    
+---
 
-## Download the IRI
+:::info:
+If your server has limited resources such as less than 4 GB of RAM, we recommend running the cIRI instead of the IRI.
+:::
+
+The IRI is Java software, so it must be run in a Java runtime environment (JRE).
 
 You have two options for downloading the latest IRI software:
 * Download the pre-built Java file from GitHub (quickest option)
@@ -37,7 +43,9 @@ The pre-built IRI Java file is available on the [IOTA GitHub repository](https:/
     ```bash
     mkdir /home/jake/node
     ```
-    **Note:** If you see 'mkdir: cannot create directory...' in the output, you probably copied and pasted the command without changing `jake` to your Linux username.
+    :::info:
+    If you see 'mkdir: cannot create directory...' in the output, you probably copied and pasted the command without changing `jake` to your Linux username.
+    :::
 
 3. Download and install the Java 8 JRE
 
@@ -52,13 +60,15 @@ The pre-built IRI Java file is available on the [IOTA GitHub repository](https:/
 
 4. Accept the Oracle terms and conditions
 
-5. Download the latest IRI Java file into your `node` directory. Change `jake` to your Linux username.
+5. Download the latest IRI Java file into your `node` directory. Change `jake` to your Linux username and replace the ${VERSION} variable with the [latest version](https://github.com/iotaledger/iri/releases) of the IRI. 
 
     ```bash
     sudo wget -O /home/jake/node/iri-${VERSION}.jar https://github.com/iotaledger/iri/releases/download/v${VERSION}/iri-${VERSION}.jar
     ```
 
-    **Note:** Replace the ${VERSION} variable with the [latest version](https://github.com/iotaledger/iri/releases) of the IRI. Make sure that you include the whole version, for example 1.6.0-RELEASE.
+    :::info:
+    Make sure that you include the whole version, for example 1.6.0-RELEASE.
+    :::
 
 The download may take some time. You should see something like the following in the output if everything went well:
 
@@ -74,7 +84,7 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
 * You want to be sure that the code you run is the same as the source code
 * You want to modify the code before you run it
 
-1. Install the [Maven](https://maven.apache.org/what-is-maven.html) build tool
+1. Install the [Maven](https://maven.apache.org/what-is-maven.html) build tool. Change the USER_HOME_DIR variable to your chosen path.
 
     ```bash
     export MAVEN_VERSION=3.5.4
@@ -94,8 +104,6 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
     export MAVEN_CONFIG="${USER_HOME_DIR}/.m2"
     ```
 
-**Note:** Change the USER_HOME_DIR variable to your chosen path.
-
 2. Install Git
 
     ```bash
@@ -114,7 +122,9 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
     git checkout ${TAG}
     mvn clean package
     ```
+    :::info:
     The IRI Java file is built in a directory called `target`.
+    :::
 
 ## Configure the IRI
 
@@ -256,7 +266,9 @@ When you've downloaded, and configured the IRI, it's time to run it.
 
 5. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.ini file
 
-    **Note:** We recommend [setting up a reverse proxy](../how-to-guides/set-up-a-reverse-proxy.md) for your IRI node so that you can have more control over the requests that are made to it.
+    :::info:
+    We recommend [setting up a reverse proxy](../how-to-guides/set-up-a-reverse-proxy.md) for your IRI node so that you can have more control over the requests that are made to it.
+    :::
 
 Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
 
@@ -281,7 +293,9 @@ The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are a
     curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
     ```
 
-**Note:** It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
+:::info:
+It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
+:::
 
 ## Next steps
 
