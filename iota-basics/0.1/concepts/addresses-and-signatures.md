@@ -1,4 +1,4 @@
- # Addresses and signatures
+# Addresses and signatures
 
 **Each client in an IOTA network has a secret password called a seed, which is used to derive addresses and to sign bundles. Addresses are the accounts that hold IOTA tokens and signatures prove ownership of an address.**
 

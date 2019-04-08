@@ -1,6 +1,6 @@
 # What is a node?
 
-**A node is a computer that's responsible for validating transactions to make sure that conterfeit ones are never confirmed. Clients in an IOTA network must send their bundles to nodes so that the transactions can be validated and attached to the Tangle.**
+**A node is a computer that's responsible for validating transactions to make sure that counterfeit ones are never confirmed. Clients in an IOTA network must send their bundles to nodes so that the transactions can be validated and attached to the Tangle.**
 
 When a client sends a bundle to a node, the node does some basic checks to make sure that the transactions within it are valid, for example that the values of transactions don't exceed the total global supply. At this point, the transactions are considered 'attached' to a data structure called [the Tangle](../introduction/what-is-the-tangle.md).
 

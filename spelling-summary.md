@@ -778,6 +778,12 @@ PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
 
 ## [blueprints/0.1/tangle-data-storage/architecture.md](blueprints/0.1/tangle-data-storage/architecture.md)
 
+Prerequesites                  => Prerequisites, Prerequisite's, Prerequisites'
+asumes                         => assumes
+Javascript                     => JavaScript
+PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
+PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
+InterPlanetary                 => Interplanetary
 storeFile                      => store File
 retrieveFile                   => retrieve File
 ipfs                           => if's, impf's, if, pigs, pits, imps, pies, impf, pins, pips
@@ -785,6 +791,11 @@ storeFile                      => store File
 ipfs                           => if's, impf's, if, pigs, pits, imps, pies, impf, pins, pips
 Cloudflare                     => Cloud flare
 distrbuted                     => distributed
+
+## [blueprints/0.1/tangle-data-storage/deployment-and-testing.md](blueprints/0.1/tangle-data-storage/deployment-and-testing.md)
+
+PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
+PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
 
 ## [blueprints/0.1/track-and-trace/architecture.md](blueprints/0.1/track-and-trace/architecture.md)
 

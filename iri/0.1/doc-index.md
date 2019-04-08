@@ -14,6 +14,7 @@
 [How-to Guides/Prune transactions from the ledger](/how-to-guides/prune-transactions-from-the-ledger.md)
 [How-to Guides/Interact with an IRI node](/how-to-guides/interact-with-an-iri-node.md)
 [How-to Guides/Subscribe to events in an IRI node](/how-to-guides/subscribe-to-events-in-an-iri-node.md)
+[How-to Guides/Process big data transaction stream in near real-time](/how-to-guides/flink-tangle-stream-processing.md)
 [References/Troubleshooting](/references/troubleshooting.md)
 [References/API reference](/references/api-reference.md)
 [References/API errors](/references/api-errors.md)

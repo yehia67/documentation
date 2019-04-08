@@ -1,4 +1,4 @@
-## AstroPiOTA
+# AstroPiOTA
 
 **AstroPiOTA is a clone of [AstroPi](https://www.nasa.gov/mission_pages/station/research/experiments/2429.html), which is a project that used Raspberry Pis on the International Space Station (ISS) to keep astronauts up to date about their environment.  AstroPi was made with a Raspberry Pi computer and a Sense HAT sensor for sensing temperature, humidity, and other data.**
 
@@ -44,12 +44,12 @@ AstroPiOTA is written in JavaScript and sends Sense HAT data to the Tangle in th
 
 ## Build Your Own AstroPiOTA
 
-[Build AstroPiOTA](../how-to-guides/BuildIT.md)
+[Build AstroPiOTA](../how-to-guides/build.md)
 
-[Install software](../how-to-guides/InstallIT.md)
+[Install the software and run it](../how-to-guides/run.md)
 
-[Run using Headless mode](../how-to-guides/Headless.md)
+[Run using Headless mode](../how-to-guides/connect.md)
 
-[Customize AstroPiOTA](../how-to-guides/CustomizeIT.md) - AstroPiOTA sample code was inspired by [Dave de Fijter's High Mobility MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam).
+[Customize AstroPiOTA](../how-to-guides/customize.md) - AstroPiOTA sample code was inspired by [Dave de Fijter's High Mobility MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam).
 
-[Sense Hat Specifications](../references/SenseHatSpecs.md)
+[Sense Hat specifications](../references/sensehat-specs.md)

@@ -1,17 +1,15 @@
 # Application blueprints
 
-**Blueprints are documents explaining how the IOTA technology is used to solve real problems and to support well-defined business needs.**
+**Application blueprints are documents that explain how the IOTA technology can be used to solve real-world problems and to support well-defined business needs.**
 
-Blueprints are designed to be generally easy to read and understand but also go into enough depth on how to integrate the described solution into other systems. At the same time, bluenprints link to more technical resources available for developers, such as GitHub repositories.
+Blueprints are designed to do the following:
+
+* Describe a problem and a solution that uses IOTA
+* Present an architecture that shows how to solve the problem by integrating IOTA into your existing systems
+* Explain how you can test, edit, and deploy the blueprint
 
 ## Who should use blueprints?
 
-Anyone interested in building real-world applications on top of the IOTA technology. As well as anyone evaluating the applicability of the IOTA technology to a specific business case.
+Anyone who either wants to build real-world applications with IOTA or wants to evaluate IOTA for a specific business case.
 
-You can use blueprints as a reference to replicate and deploy the developed solution into similar systems and to test different business models.
-
-## How are blueprints organized? 
-
-- We first describe the problem that needs to be solved, underpinning the technical as well as the business challenges associated with it and the benefits deriving from developing a solution;
-- We then present a technical architecture showing how a solution leveraging IOTA Tangle and other IOTA technologies can be built and integrated with existing systems. The architecture aims to highlight how easy it is to integrate IOTA with existing legacy systems.
-- We finally describe source code showing implementation patterns used and replicable for the integration of IOTA in a similar context. We also provide links to accessible resources useful to simplify deployment of the presented solution.
+You can use blueprints as a reference to build and deploy a similar solution into other systems and to test different business models.

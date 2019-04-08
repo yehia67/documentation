@@ -13,7 +13,11 @@ To deploy the P2P energy grid app, you must have the following:
 
 ### Software
 
+<<<<<<< HEAD
 * [Node.js](https://nodejs.org/)
+=======
+* [NodeJS](https://nodejs.org/)
+>>>>>>> 52c02ef3a722209b98b834ba23d2cca1563ca41a
 
 * [MAM (masked authenticated messaging)](https://github.com/iotaledger/mam.client.js)
 
@@ -23,7 +27,11 @@ Choose from one of the following cloud services or a local server:
     * [Web server](https://firebase.google.com/docs/hosting/)
     * [Authentication service](https://firebase.google.com/docs/auth/)
     * [NoSQL database](https://firebase.google.com/docs/firestore/)
+<<<<<<< HEAD
     * [Background tasks and API server](https://firebase.google.com/docs/functions)
+=======
+    * [Background tasks and API server](https://firebase.google.com/docs/functions/)
+>>>>>>> 52c02ef3a722209b98b834ba23d2cca1563ca41a
 
 * Amazon
     * [Web server](https://aws.amazon.com/s3/)

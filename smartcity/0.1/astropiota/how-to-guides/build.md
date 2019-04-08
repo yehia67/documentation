@@ -6,7 +6,7 @@
 
 [Sense HAT version 1.0](https://thepihut.com/products/raspberry-pi-sense-hat-astro-pi)
 
-![Photo of Raspberry Pi 3 B computer that looks like a ~4x3 circuit board](../Raspberry Pi.png)
+![Photo of Raspberry Pi 3 B computer that looks like a ~4x3 circuit board](../RasPi.png)
 
 ## Prerequisites
 
@@ -36,4 +36,4 @@ Permission to use diagram requested from Raspberry Pi
 
 >When you plug in the power cord, Raspberry Pi will power on
 
-[Install AstroPiOTA Software](../how-to-guides/InstallIT.md)
+[Run AstroPiOTA](../how-to-guides/run.md)
