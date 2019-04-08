@@ -14,7 +14,7 @@ You could also use the `getInclusionStates()` method to check if a transaction i
 
 To complete this guide, you need the following:
 
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection

@@ -6,15 +6,15 @@
 
 ## Prerequesites
 
-This projects asumes some level of programming knowledge, specifically in: Javascript, React and NodeJS.
+This projects asumes some level of programming knowledge, specifically in: Javascript, React and Node.js.
 
 ## Instructions and technical concepts 
 
 - [PoC source code](https://github.com/iotaledger/poc-ipfs/blob/master/README.md) - 
-Consists of two parts a front-end GUI written in React and a back-end written as a NodeJS API.
+Consists of two parts a front-end GUI written in React and a back-end written as a Node.js API.
 In order to reproduce this PoC there is no requirement to deploy dedicated hardware.
 - [Front-end deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/client/DEPLOYMENT.md)
-- [NodeJS API deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md)
+- [Node.js API deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md)
 
 The presented infrastructure makes use of the IOTA Tangle and an `InterPlanetary File System` (IPFS) node that you run yourself. The following image shows the main architecture components.
 

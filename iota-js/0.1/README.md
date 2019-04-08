@@ -14,8 +14,8 @@ Please report any issues in our [issue tracker](https://github.com/iotaledger/io
 ## Prerequisites
 
 To use the library, your computer must have one of the following [supported](https://github.com/iotaledger/iota.js/blob/next/.travis.yml#L5) versions of [Node.js](https://nodejs.org):
-- Node JS 10 or higher. Recommended version is [latest LTS](https://nodejs.org/en/download/).
-- Node JS 8
+- Node.js 10 or higher. Recommended version is [latest LTS](https://nodejs.org/en/download/).
+- Node.js 8
 
 To install [library packages](https://www.npmjs.com/org/iota), your computer must have one of the following package managers:
 

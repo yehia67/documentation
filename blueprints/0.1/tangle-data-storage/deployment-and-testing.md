@@ -7,10 +7,10 @@ Please see a [demo of this app](https://ipfs.iota.org/).
 For the source code and deployment instructions, see:
 
 - [PoC source code](https://github.com/iotaledger/poc-ipfs/blob/master/README.md) - 
-Consists of two parts a front-end GUI written in React and a back-end written as a NodeJS API.
+Consists of two parts a front-end GUI written in React and a back-end written as a Node.js API.
 In order to reproduce this PoC there is no requirement to deploy dedicated hardware.
 - [Front-end deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/client/DEPLOYMENT.md)
-- [NodeJS API deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md)
+- [Node.js API deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md)
 
 **After deploying the application:**
 

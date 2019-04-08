@@ -14,7 +14,7 @@
 
 [How-to Guides/Create an address](/how-to-guides/create-an-address.md)
 
-[How-to Guides/Create addresses from private keys](/how-to-guides/create-addresses-from-private-keys.md)
+[How-to Guides/Derive addresses from private keys](/how-to-guides/derive-addresses-from-private-keys.md)
 
 [How-to Guides/Send a bundle of zero-value transactions](/how-to-guides/send-bundle.md)
 

@@ -33,5 +33,5 @@ You can now continue to [Architecture](architecture.md).
 
 - PoC Repository - https://github.com/iotaledger/poc-ipfs
 - iota.js Repository - https://github.com/iotaledger/iota.js 
-- NodeJS - https://nodejs.org/
+- Node.js - https://nodejs.org/
 - IPFS - https://ipfs.io/

@@ -16,7 +16,7 @@ To get started with Trinity development, do the following:
 ## Prerequisites
 
 To develop Trinity, your computer must have the following:
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/)
 * [Yarn](https://yarnpkg.com/lang/en/docs/install/)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 

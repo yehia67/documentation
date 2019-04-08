@@ -8,9 +8,9 @@ The following prerequisites are pre-installed on Raspbian Jessie:
 
 - Python3
 - Pip3.2
-- Node JS (8+)
+- Node.js (8+)
 - [AstroPiOTA package](https://github.com/NelsonPython/AstroPiOTA.git)
-- [Sense HAT NodeJS package](https://www.npmjs.com/package/node-sense-hat)
+- [Sense HAT Node.js package](https://www.npmjs.com/package/node-sense-hat)
 - [IOTA Javascript Library](https://github.com/iotaledger/iota.lib.js)
 
 
@@ -41,7 +41,7 @@ The easiest way to configure Raspberry Pi is by directly interacting with it. Pl
 
     ![Window for enabling SSH as described in text](../SSH.png)
 
-## Install Node JS
+## Install Node.js
 
 Raspbian Jessie comes with NodeRed, which must be removed.
 
@@ -54,7 +54,7 @@ Raspbian Jessie comes with NodeRed, which must be removed.
 
 2. Reboot the Raspberry Pi
 
-3. Install Node JS 8
+3. Install Node.js 8
 
     ```bash
     curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
