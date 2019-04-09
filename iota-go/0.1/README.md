@@ -250,8 +250,8 @@ Before your pull requests can be accepted, you must test your code in Ginkgo.
 
 After creating a testing file, you'll have following two files:
 
-- <package-name>_suite_test.go
-- <package-name>_test.go
+- `<package-name>_suite_test.go`
+- `<package-name>_test.go`
 
 **Note:** You can use the existing tests as a reference on how to write Ginkgo tests or
 you can [read the documentation](https://onsi.github.io/ginkgo/).
