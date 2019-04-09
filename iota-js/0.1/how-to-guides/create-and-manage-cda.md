@@ -21,23 +21,25 @@ The workflow of a CDA should be the following:
 To create a CDA you specify the following conditions, which are used to determine if it's active or expired:
 
 * **address (required):** An address
-* **timeoutAt (required):** The time at which the address expires
-* **multiUse (recommended):** A boolean that specifies if the address may be sent more than one deposit
-* **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to contain. When this amount is reached, the address is considered expired. We highly recommend using this condition.
+* **timeout_at (required):** The time at which the address expires
 
-The combination of fields that you use to create a CDA determines if it can be used in withdrawals.
+And one of the following, recommended fields:
+
+* **multi_use (recommended):** A boolean that specifies if the address may be sent more than one deposit. Cannot be used in combination with `expected_amount` in the same CDA.
+* **expected_amount (recommended):** The amount of IOTA tokens that the address is expected to contain. When this amount is reached, the address is considered expired. We highly recommend using this condition. Cannot be used in combination with `multi_use` in the same CDA.
+
+The combination of fields that you use to create a CDA determines if it can be used in withdrawals. Note that the combination of both `expected_amount` and `multi_use` in the same CDA is not supported. Both fields are designed for different scenarios. Please refer to the [CDA FAQ](../references/cda-faq.md) for more information.
 
 |  **Combination of fields** | **Withdrawal conditions**
 | :----------| :----------|
-|`timeoutAt` |The CDA can used in withdrawals as long as it contains IOTA tokens|
-|`timeoutAt` and `multiUse` |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it. |
-|`timeoutAt` and `expectedAmount`| The CDA can be used in withdrawals as soon as it contain the expected amount|
-|`timeoutAt`, `multiUse`, and `expectedAmount` (recommended) |The CDA can be used in withdrawals as soon as it contains the expected amount (or more) of IOTA tokens |
+|`timeout_at` |The CDA can used in withdrawals as long as it contains IOTA tokens|
+|`timeout_at` and `multi_use` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it. See the [CDA FAQ](../references/cda-faq.md) on when to use addressess with the `multi_use` field set. |
+|`timeout_at` and `expected_amount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount. See the [CDA FAQ](../references/cda-faq.md) on when to use addressess with the `multi_use` field set.|
 
 :::warning:Warning
-If a CDA was created with only the `timeoutAt` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired.
+If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. 
 
-To avoid address reuse, we recommend creating CDAs with the `multiUse` field, even if only one deposit is expected to arrive at an address.
+To avoid address reuse, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible.
 :::
 
 1. Pass the CDA fields to the `generateCDA()` method
