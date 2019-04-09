@@ -1,15 +1,25 @@
 # IOTA JS Library
 
 This is the **official** JavaScript client library, which allows you to do the following:
-- Create transactions
-- Sign transactions
-- Generate addresses
+- Create, import, export, and manage accounts
+- Send transactions
+- Promote and reattach pending transactions
+- Request deposits into conditional deposit addresses (CDA)
 - Interact with an IRI node
 
 [IOTA JS GitHub repository](https://github.com/iotaledger/iota.js).
 
-This is beta software, so there may be performance and stability issues.
+:::warning:Beta software
+The client libraries are currently in beta. Their use in production is not supported.
+:::
+
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.js/issues/new).
+
+## Audience
+
+This documentation is designed for people who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse),  [bundles, and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
+
+This guide is designed to let you quickly start exploring and developing applications with IOTA.
 
 ## Prerequisites
 
@@ -47,12 +57,14 @@ To connect to a local IRI node, do the following:
 import { composeAPI } from '@iota/core'
 
 const iota = composeAPI({
+    // replace with your IRI node address 
+    // or connect to a Devnet node for testing: 'https://nodes.devnet.iota.org:443'
     provider: 'http://localhost:14265'
 })
 
 iota.getNodeInfo()
     .then(info => console.log(info))
-    .catch(err => {
+    .catch(error => {
         console.log(`Request error: ${error.message}`)
     })
 ```
@@ -107,7 +119,9 @@ This example shows you how to create and send a transaction to an IRI node by ca
 import { composeAPI } from '@iota/core'
 
 const iota = composeAPI({
-    provider: 'http://localhost:14265' // replace with your IRI node.
+    // replace with your IRI node address 
+    // or connect to a Devnet node for testing: 'https://nodes.devnet.iota.org:443'
+    provider: 'http://localhost:14265'
 })
 
 // Must be truly random & 81-trytes long.
@@ -125,7 +139,7 @@ const transfers = [{
 const depth = 3 
 
 // Difficulty of Proof-of-Work required to attach transaction to tangle.
-// Minimum value on mainnet & spamnet is `14`, `9` on devnet and other testnets.
+// Minimum value on mainnet is `14`, `7` on spamnet and `9` on devnet and other testnets.
 const minWeightMagnitude = 14
 
 // Prepare a bundle and signs it.
@@ -140,7 +154,7 @@ iota.prepareTransfers(seed, transfers)
     })
     .then(bundle => {
         console.log(`Published transaction with tail hash: ${bundle[0].hash}`)
-        console.log(`Bundle: ${bundle}`)
+        console.log(`Bundle: ${JSON.stringify(bundle, null, 1)}`)
     })
     .catch(err => {
         // handle errors here
@@ -162,6 +176,8 @@ iota.prepareTransfers(seed, transfers)
     import { createGetNodeInfo } from '@iota/core'
 
     const client = createHttpClient({
+        // replace with your IRI node address 
+        // or connect to a Devnet node for testing: 'https://nodes.devnet.iota.org:443'
         provider: 'http://localhost:14265'
     })
 

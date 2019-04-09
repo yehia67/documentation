@@ -1,14 +1,27 @@
-# IOTA GO Library
+# IOTA Go Library
 
 This is the **official** Go client library, which allows you to do the following:
-- Create transactions
-- Sign transactions
+- Create, import, export, and manage accounts
+- Send transactions
+- Promote and reattach pending transactions
+- Request deposits into conditional deposit addresses (CDA)
+- Listen to events
+- Extend the library functionality with plug-ins
 - Interact with an IRI node
 
 [IOTA GO GitHub repository](https://github.com/iotaledger/iota.go).
 
-This is beta software, so there may be performance and stability issues.
+:::warning:Beta software
+The client libraries are currently in beta. Their use in production is not supported.
+:::
+
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.go/issues/new).
+
+## Audience
+
+This documentation is designed for people who are familiar with the Go programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
+
+This guide is designed to let you quickly start exploring and developing applications with IOTA.
 
 ## Prerequisites
 
@@ -22,7 +35,7 @@ To download the IOTA Go client library and its dependencies, do the following:
 1. In any directory outside of GOPATH, initiate your project
 
 	```bash
-	$ go mod init <your-module-path>
+	go mod init <your-module-path>
 	```
 
 **Note:** Change the <your-module-path> placeholder to your chosen path such as github.com/me/awesome-project.
@@ -30,7 +43,7 @@ To download the IOTA Go client library and its dependencies, do the following:
 2. Download the library
 
 	```bash
-	$ go get github.com/iotaledger/iota.go/api
+	go get github.com/iotaledger/iota.go/api
 	```
 
 This command downloads the latest version of the IOTA Go client library and writes the version into
@@ -218,34 +231,34 @@ Before your pull requests can be accepted, you must test your code in Ginkgo.
 1. Download Ginkgo
 
 	```bash
-	$ go get github.com/onsi/ginkgo/ginkgo
-	$ go get github.com/onsi/gomega/...
+	go get github.com/onsi/ginkgo/ginkgo
+	go get github.com/onsi/gomega/...
 	```
 
 2. If you've written a new package, generate a corresponding test-suite file
 
 	```bash
-	$ cd <dir-of-your-package>
-	$ ginkgo bootstrap
+	cd <dir-of-your-package>
+	ginkgo bootstrap
 	```
 
 3. Generate a new testing file
 
 	```bash
-	$ ginkgo generate <package-name>
+	ginkgo generate <package-name>
 	```
 
 After creating a testing file, you'll have following two files:
 
-- <package-name>_suite_test.go
-- <package-name>_test.go
+- `<package-name>_suite_test.go`
+- `<package-name>_test.go`
 
 **Note:** You can use the existing tests as a reference on how to write Ginkgo tests or
 you can [read the documentation](https://onsi.github.io/ginkgo/).
 
 4. Run your tests
 	```bash
-	$ go test -v
+	go test -v
 	=== RUN   TestAddress
 	Running Suite: Address Suite
 	============================
