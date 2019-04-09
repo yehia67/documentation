@@ -4,7 +4,7 @@ This is the **official** JavaScript client library, which allows you to do the f
 - Create, import, export, and manage accounts
 - Send transactions
 - Promote and reattach pending transactions
-- Request deposits via Conditional deposit addresses
+- Request deposits into conditional deposit addresses (CDA)
 - Interact with an IRI node
 
 [IOTA JS GitHub repository](https://github.com/iotaledger/iota.js).

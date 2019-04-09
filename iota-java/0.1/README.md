@@ -4,7 +4,7 @@ This is the **official** Java client library, which allows you to do the followi
 - Create, import, export, and manage accounts
 - Send transactions
 - Promote and reattach pending transactions
-- Request deposits via Conditional deposit addresses
+- Request deposits into conditional deposit addresses (CDA)
 - Listen to events
 - Extend the library functionality with plug-ins
 - Interact with an IRI node
