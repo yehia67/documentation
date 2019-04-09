@@ -38,7 +38,7 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
     found 0 vulnerabilities
     ```
 
-    You now have a package.json file and a node_modules folder, which contains the IOTA library and its dependencies.
+    You now have a package.json file and a `node_modules` directory, which contains the IOTA library and its dependencies.
 
 3. In the `iota-example` directory, create a new file called `index.js` and add the following to it:
 
