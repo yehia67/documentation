@@ -104,8 +104,8 @@ If you have never created an account before, you must create a new seed. Existin
     If you want to have more control over the behavior of the plugins, you can use `WithPlugin()` method.
     :::
 
-:::success:Congratulations!
-:tada: You've created an account that will automate promoting and reattaching transactions as well as manage your CDAs.
+:::success:Congratulations! :tada:
+You've created an account that will automatically promote and reattach transactions as well as manage the state your CDAs.
 :::
 
 ## Import existing seed state

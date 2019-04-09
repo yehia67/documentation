@@ -1,10 +1,12 @@
-# Conditional deposit addresss FAQ
+# Conditional deposit address FAQ
 
 ## How long should I specify in a CDA's timeout?
 
 The value that you specify in the `timeout_at` field depends on how fast you expect the depositor to make a deposit. If you are in direct contact with the depositor and you are both waiting to settle the transfer, you can specify a shorter timeout.
 
-**Important:** If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. Therefore, to avoid address reuse, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible.
+:::important:Important
+If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. So, to avoid address reuse, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible.
+:::
 
 ## When should I create a multi-use CDA?
 
