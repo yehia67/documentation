@@ -7,7 +7,12 @@ This is the **official** JavaScript client library, which allows you to do the f
 - Request deposits into conditional deposit addresses (CDA)
 - Interact with an IRI node
 
-[IOTA JS GitHub repository](https://github.com/iotaledger/iota.js).
+To learn more about how the library works:
+
+- See how you can [work with accounts](/how-to-guides/create-account.md).
+- See how you can [send and receive](/how-to-guides/create-and-manage-cda.md) transactions.
+
+Get the library at the [IOTA JS  GitHub repository](https://github.com/iotaledger/iota.js).
 
 :::warning:Beta software
 The client libraries are currently in beta. Their use in production is not supported.
