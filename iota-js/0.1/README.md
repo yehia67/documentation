@@ -1,8 +1,9 @@
 # IOTA JS Library
 
 This is the **official** JavaScript client library, which allows you to do the following:
+- Create, import, export, and manage accounts
 - Send transactions
-- Promote and reattach transactions
+- Promote and reattach pending transactions
 - Request deposits via Conditional deposit addresses
 - Interact with an IRI node
 
