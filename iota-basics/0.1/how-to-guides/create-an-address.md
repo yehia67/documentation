@@ -24,7 +24,7 @@ To complete this guide, you need the following:
     npm install --save @iota/core
     ```
 
-3. In the `iota-basics` directory, create a new file called create-address.js
+3. In the `iota-basics` directory, create a new file called `create-address.js`
 
 4. In the create-address.js file, require the IOTA libraries
 

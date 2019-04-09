@@ -36,7 +36,7 @@ The sample code for this guide uses the IOTA core library. To use this library, 
     npm install --save @iota/core
     ```
 
-3. In the `iota-basics` directory, create a new file called pending-to-confirmed.js
+3. In the `iota-basics` directory, create a new file called `pending-to-confirmed.js`
 
 ## Create a timer function
 

@@ -196,7 +196,7 @@ To run Hub, you need to execute the binary file that was created during the buil
 
 Before you can run the binary file, you need to configure it.
 
-1. Create a shell script file called start.sh
+1. Create a shell script file called `start.sh`
 
 	```bash
 	nano start.sh

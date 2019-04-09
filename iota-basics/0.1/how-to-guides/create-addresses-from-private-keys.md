@@ -28,7 +28,7 @@ To complete this guide, you need the following:
     npm install --save @iota/signing
     ```
 
-3. In the `iota-basics` directory, create a new file called create-private-key-address.js
+3. In the `iota-basics` directory, create a new file called `create-private-key-address.js`
 
 4. In the create-private-key-address.js file, require the IOTA libraries
 
