@@ -1,11 +1,17 @@
 # IOTA Java client library
 
 This is the **official** Java client library, which allows you to do the following:
-* Create transactions
-* Sign transactions
-* Interact with an IRI node
+- Send transactions
+- Promote and reattach transactions
+- Request deposits via Conditional deposit addresses
+- Listen to events
+- Extend the library functionality with plug-ins
+- Interact with an IRI node
 
-This is beta software, so there may be performance and stability issues.
+:::warning:Beta software
+The client libraries are currently in beta. Their use in production is not supported.
+:::
+
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota-java/issues/new-issue).
 
 ## Audience
@@ -52,7 +58,7 @@ To download the IOTA Java client library and its dependencies, you can use one o
     }
     ```
 
-2. Add the iotaledger dependency to your module `build.gradle` file
+1. Add the iotaledger dependency to your module `build.gradle` file
 
     ```gradle
     dependencies {

@@ -1,14 +1,17 @@
 # IOTA JS Library
 
 This is the **official** JavaScript client library, which allows you to do the following:
-- Create transactions
-- Sign transactions
-- Generate addresses
+- Send transactions
+- Promote and reattach transactions
+- Request deposits via Conditional deposit addresses
 - Interact with an IRI node
 
 [IOTA JS GitHub repository](https://github.com/iotaledger/iota.js).
 
-This is beta software, so there may be performance and stability issues.
+:::warning:Beta software
+The client libraries are currently in beta. Their use in production is not supported.
+:::
+
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.js/issues/new).
 
 ## Audience
