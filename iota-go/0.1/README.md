@@ -1,13 +1,20 @@
-# IOTA GO Library
+# IOTA Go Library
 
 This is the **official** Go client library, which allows you to do the following:
-- Create transactions
-- Sign transactions
+- Create, import, export, and manage accounts
+- Send transactions
+- Promote and reattach pending transactions
+- Request deposits into conditional deposit addresses (CDA)
+- Listen to events
+- Extend the library functionality with plug-ins
 - Interact with an IRI node
 
 [IOTA GO GitHub repository](https://github.com/iotaledger/iota.go).
 
-This is beta software, so there may be performance and stability issues.
+:::warning:Beta software
+The client libraries are currently in beta. Their use in production is not supported.
+:::
+
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.go/issues/new).
 
 ## Audience
