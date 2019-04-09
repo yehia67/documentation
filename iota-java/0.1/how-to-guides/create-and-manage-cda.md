@@ -48,14 +48,15 @@ To avoid address reuse, we recommend creating CDAs with either the `multi_use` f
   
     ```java
     // define the time after which the CDA expires
-    // (in this case after 1 hour)
-    Date hour = new Date(System.currentTimeMillis() + 1000 * 60 * 60);
+    // (in this case after 72 hours)
+    Date hour = new Date(System.currentTimeMillis() + 72000 * 60 * 60);
+    
     ```
 
-2. Create a new multi-use CDA with an expiration time
+2. Create a new CDA with an expiration time and expected amount
 
     ```java
-    Future<ConditionalDepositAddress> cda = account.newDepositAddress(hour, true, 1000);
+    Future<ConditionalDepositAddress> cda = account.newDepositAddress(hour, false, account.usableBalance()).get();
     ```
 
 ## Distribute a CDA
@@ -63,7 +64,7 @@ To avoid address reuse, we recommend creating CDAs with either the `multi_use` f
 Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with the `timeout_at`, `multi_use`, and `expected_amount` parameters.
 
 ```json
-iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true&expected_amount=10000000
+iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=false&expected_amount=1000
 ```
 
 1. To serialize a CDA to a magnet link, do the following:
@@ -72,18 +73,32 @@ iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true
     String magnet = DepositFactory.get().build(cda.get(), MagnetMethod.class);
     
     System.out.println(magnet);
-    // iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=10000000
+    // iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000
     ```
 
 ## Deposit IOTA tokens into a CDA
 
-1. After making sure that the CDA is still active, you can use the `sendToCDA()` method to deposit IOTA tokens into it
+1. After making sure that the CDA is still active, you can use the `send()` method to deposit IOTA tokens into it
 
     ```java
-    String addressWithChecksum = "SEED...99999";
-    Long expectedAmount = 10000000;
+    String magnet = "";
+    ConditionalDepositAddress cda = DepositFactory.get().parse(magnet, MagnetMethod.class);
     Future<Bundle> bundle = account.send(
-            addressWithChecksum, 
-            expectedAmount, 
-            Optional.of("Hello world!"), Optional.of("AWESOME9TAG"));
+            cda.getDepositAddress().getHashCheckSum(),
+            cda.getRequest().getExpectedAmount(),
+            Optional.of("Thanks for that pizza!"), Optional.of("OMNOMNOM"));
+    ```
+
+## Deposit the entire account balance into one CDA
+1. You can also sweep the entire account into one CDA
+
+    ```java
+	Date n = new Date(System.currentTimeMillis() + 10000 * 60 * 60);
+    ConditionalDepositAddress address = account.newDepositAddress(n, false, account.usableBalance()).get();
+
+    Future<Bundle> bundle = account.send(
+            address.getDepositAddress().getHashCheckSum(), 
+            address.getRequest().getExpectedAmount(), 
+            Optional.of("Sweep of all addresses"), Optional.of("IOTA9SWEEP"));
+    bundle.get();
     ```

@@ -70,9 +70,9 @@ The `generateCDA()` method returns a CDA object with the following fields:
 {
    address: 'AT9GOVPQDDKAJ...ADFA9IRSV', // The last 9 trytes are the checksum
    timeoutAt: 6833278800,
-   multiUse: true,
-   expectedAmount: 10000000,
-   magnetLink: 'iota://AT9GOVPQD...ADFA9IRSV?timeout_at=6833278800&multi_use=1&expected_amount:10000000'
+   multiUse: false,
+   expectedAmount: 1000,
+   magnetLink: 'iota://AT9GOVPQD...ADFA9IRSV?timeout_at=6833278800&multi_use=false&expected_amount:1000'
 }
 ```
 
@@ -99,7 +99,7 @@ iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true
     ```js
     account.sendToCDA({
     address: 'AT9GOVPQDDKAJ...ADFA9IRSV' // must include the checksum
-    multiUse: true,
+    multiUse: false,
     timeoutAt: 6833278800,
     expectedAmount: 10000000,
     })

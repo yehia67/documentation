@@ -57,8 +57,8 @@ To avoid address reuse, we recommend creating CDAs with either the `multi_use` f
 
     ```go
     // define the time after which the CDA expires
-    // (in this case after 2 hours)
-    now = now.Add(time.Duration(2) * time.Hour)
+    // (in this case after 72 hours)
+    now = now.Add(time.Duration(72) * time.Hour)
     ```
 
 3. Create a new multi-use CDA with an expiration time
