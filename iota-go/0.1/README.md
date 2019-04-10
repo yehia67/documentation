@@ -1,13 +1,25 @@
-# IOTA GO Library
+# IOTA Go Library
 
 This is the **official** Go client library, which allows you to do the following:
-- Create transactions
-- Sign transactions
+- Create, import, export, and manage accounts
+- Send transactions
+- Promote and reattach pending transactions
+- Request deposits into conditional deposit addresses (CDA)
+- Listen to events
+- Extend the library functionality with plug-ins
 - Interact with an IRI node
 
-[IOTA GO GitHub repository](https://github.com/iotaledger/iota.go).
+To learn more about how the library works:
 
-This is beta software, so there may be performance and stability issues.
+- See how you can [work with accounts](root://iota-go/0.1/how-to-guides/create-account.md).
+- See how you can [send and receive](root://iota-go/0.1/how-to-guides/create-and-manage-cda.md) transactions.
+
+Get the library at the [IOTA Go GitHub repository](https://github.com/iotaledger/iota.go).
+
+:::warning:Beta software
+The client libraries are currently in beta. Their use in production is not supported.
+:::
+
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.go/issues/new).
 
 ## Audience
@@ -243,8 +255,8 @@ Before your pull requests can be accepted, you must test your code in Ginkgo.
 
 After creating a testing file, you'll have following two files:
 
-- <package-name>_suite_test.go
-- <package-name>_test.go
+- `<package-name>_suite_test.go`
+- `<package-name>_test.go`
 
 **Note:** You can use the existing tests as a reference on how to write Ginkgo tests or
 you can [read the documentation](https://onsi.github.io/ginkgo/).

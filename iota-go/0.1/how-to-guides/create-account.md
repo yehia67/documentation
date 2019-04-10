@@ -29,7 +29,7 @@ You can withdraw tokens from an expired addresses, but depositors can't deposit 
 
 You can create multiple accounts, and each one can manage the state of only one unique seed.
 
-:::important:Important
+:::danger:Important
 You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
 
 If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
@@ -104,8 +104,8 @@ If you have never created an account before, you must create a new seed. Existin
     If you want to have more control over the behavior of the plugins, you can use `WithPlugin()` method.
     :::
 
-:::success:Congratulations!
-:tada: You've created an account that will automate promoting and reattaching transactions as well as manage your CDAs.
+:::success:Congratulations! :tada:
+You've created an account that will automatically promote and reattach transactions as well as manage the state your CDAs.
 :::
 
 ## Import existing seed state

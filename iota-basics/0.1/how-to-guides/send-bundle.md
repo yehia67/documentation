@@ -26,7 +26,7 @@ To complete this guide, you need the following:
     npm install --save @iota/core
     ```
 
-3. In the `iota-basics` directory, create a new file called send-bundle.js
+3. In the `iota-basics` directory, create a new file called `send-bundle.js`
 
 4. In the send-bundle.js file, require the IOTA libraries
 

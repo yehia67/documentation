@@ -29,7 +29,7 @@ You can withdraw tokens from an expired addresses, but depositors can't deposit 
 
 You can create multiple accounts, and each one can manage the state of only one unique seed.
 
-:::important:Important
+:::danger:Important
 You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
 
 If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
@@ -40,9 +40,7 @@ If you have never created an account before, you must create a new seed. Existin
 1. Install the libraries
 
     ```bash
-    npm install @iota/account
-    npm install @iota/persistence-adapter-level
-    npm install @iota/converter
+    npm install @iota/account @iota/converter
     ```
 
 2. Create an `account` object with a new seed and connect to a node
@@ -61,33 +59,19 @@ If you have never created an account before, you must create a new seed. Existin
          provider
    });
    ```
-
-    If you want to connect to a different node, you can pass the `account` object a custom `api` object
-
-    ```js
-    import { composeAPI } from '@iota/core';
-
-    const api = composeAPI({
-            // Local node to connect to;
-            provider: 'http://<node-url>:14265';
-    });
-
-    const account = createAccount({
-            seed,
-            api
-    });
-    ```
     :::
 
-3. **Optional:** Pass a **`persistenceAdapater`** object to your account. This adapter creates a storage object to which the account can save the seed state. By default, the seed state database is created in the root of the project.
+3. **Optional:** Pass a **`persistenceAdapater`** factory to your account. This adapter creates a storage object to which the account can save the seed state. By default, the seed state database is created in the root of the project. You can change the path with `persistencePath` option.
 
    ```JS
-   import { persistenceAdapter } from '@iota/persistence-adapter-level';
+   import { createPersistenceAdapter } from '@iota/persistence-adapter-level';
 
    const account = createAccount({
          seed,
-         api,
-         persistenceAdapter
+         provider,
+         persistencePath: './',
+         stateAdapter: createPersistenceAdapter,
+         historyAdapter: createPersistenceAdapter
    });
    ```
 
@@ -101,6 +85,8 @@ If you have never created an account before, you must create a new seed. Existin
 
    ```js
    const account = createAccount({
+         seed,
+         provider,
          timeSource: () => {
                // Get time with NTP
                // const time = ...
@@ -109,6 +95,6 @@ If you have never created an account before, you must create a new seed. Existin
    })
    ```
 
-:::success:Congratulations!
-:tada: You've created an account that will automate promoting and reattaching transactions as well as manage your CDAs.
+:::success:Congratulations! :tada:
+You've created an account that will automatically promote and reattach transactions as well as manage the state your CDAs.
 :::
