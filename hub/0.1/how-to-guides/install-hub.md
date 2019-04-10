@@ -251,7 +251,7 @@ Before you can run the binary file, you need to configure it.
 	:tada: Hub is now running!
 	:::
 
-	:::important:json.exception.parse_error.101
+	:::danger:json.exception.parse_error.101
 	If you see the following error message, make sure that the node you're connected to uses the HTTP protocol instead of HTTPS. You can check the address of your node in the `apiAddress` field of the [command line flags](../references/command-line-flags.md).
 	E0328 10:57:54.417129 13906 beast.cc:65] [json.exception.parse_error.101] parse error at 1: syntax error - invalid literal; last read: '<'
 	:::

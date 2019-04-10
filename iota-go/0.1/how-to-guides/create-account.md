@@ -29,7 +29,7 @@ You can withdraw tokens from an expired addresses, but depositors can't deposit 
 
 You can create multiple accounts, and each one can manage the state of only one unique seed.
 
-:::important:Important
+:::danger:Important
 You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
 
 If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
