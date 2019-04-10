@@ -9,6 +9,13 @@ This is the **official** Java client library, which allows you to do the followi
 - Extend the library functionality with plug-ins
 - Interact with an IRI node
 
+To learn more about how the library works:
+
+- See how you can [work with accounts](root://iota-java/0.1/how-to-guides/create-account.md).
+- See how you can [send and receive](root://iota-java/0.1/how-to-guides/create-and-manage-cda.md) transactions.
+
+Get the library at the [IOTA Java GitHub repository](https://github.com/iotaledger/iota-java).
+
 :::warning:Beta software
 The client libraries are currently in beta. Their use in production is not supported.
 :::
