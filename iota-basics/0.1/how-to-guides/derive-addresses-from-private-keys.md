@@ -132,7 +132,9 @@ To complete this guide, you need the following:
 
     You should see the same addresses in the output as those from step 8.
     
-Congratulations :tada: You've proven that, under the hood of the IOTA core library, addresses are derived from private keys with a certain index and security level.
+:::success:Congratulations :tada:
+You've proven that, under the hood of the IOTA core library, addresses are derived from private keys with a certain index and security level.
+:::
 
 ## Final code
 
