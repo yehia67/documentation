@@ -6,7 +6,7 @@ This application consists of the following:
 
 ## Prerequisites
 
-This projects asumes some level of programming knowledge, specifically in: Javascript, React and Node.js.
+This projects assumes some level of programming knowledge, specifically in: Javascript, React and Node.js.
 
 ## Instructions and technical concepts 
 
