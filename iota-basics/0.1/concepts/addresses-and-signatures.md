@@ -59,7 +59,7 @@ Signatures are created using the Winternitz one-time signature scheme (W-OTS). T
 To sign a bundle hash, first it's normalized to make sure that only half of the private key is revealed in the signature.
 <a id="address-reuse"></a>
 
-:::important:Address reuse
+:::danger:Address reuse
 If the bundle hash weren't normalized, the W-OTS would reveal an unknown amount of the private key. By revealing half of the private key, an address can safely be withdrawn from once. If an address is withdrawn from more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens.
 :::
 
