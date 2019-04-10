@@ -2,9 +2,9 @@
 
 **Seeds are used to derive private keys, and in turn, a private key is used to derive addresses and sign bundles. By using the cryptography library to derive addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
 
+:::info:
 If you're unfamiliar with the terms private key, subseed, and key digest, we recommend [reading about addresses and signatures](../concepts/addresses-and-signatures.md).
-
-Any code that uses a seed is executed on the client side. Your seed is never sent anywhere.
+:::
 
 ## Prerequisites
 
@@ -45,6 +45,10 @@ To complete this guide, you need the following:
 
     var subseed = Sign.subseed(Converter.trytesToTrits(seed), 0 /*index*/);
     ```
+
+    :::info:
+    Any code that uses a seed is executed on the client side. Your seed never leaves your device.
+    :::
 
 6. Derive one private key for each of the three [security levels](../references/security-levels.md) by passing the same subseed and a different security level to the `key()` method
 
