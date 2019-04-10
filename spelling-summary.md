@@ -778,7 +778,6 @@ PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
 
 ## [blueprints/0.1/tangle-data-storage/architecture.md](blueprints/0.1/tangle-data-storage/architecture.md)
 
-Prerequesites                  => Prerequisites, Prerequisite's, Prerequisites'
 asumes                         => assumes
 Javascript                     => JavaScript
 PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
@@ -853,10 +852,13 @@ WithStore                      => With Store
 
 ## [iota-go/0.1/how-to-guides/create-and-manage-cda.md](iota-go/0.1/how-to-guides/create-and-manage-cda.md)
 
-withdrawls                     => withdrawals, withdraws, with drawls, withdrawal's, withdrawals'
 boolean                        => Boolean
 expected_amount                => expected amount
 expected_amount                => expected amount
+expected_amount                => expected amount
+addressess                     => addresses
+expected_amount                => expected amount
+addressess                     => addresses
 expected_amount                => expected amount
 expected_amount                => expected amount
 magent                         => magnet, magenta, agent, magneto, magnets, maxent
@@ -868,18 +870,18 @@ sendOracle                     => send Oracle
 
 ## [iota-go/0.1/references/cda-faq.md](iota-go/0.1/references/cda-faq.md)
 
-addresss                       => address, address's, addresses
+expected_amount                => expected amount
+expected_amount                => expected amount
 expected_amount                => expected amount
 
 ## [iota-java/0.1/README.md](iota-java/0.1/README.md)
 
-jitpack                        => jetpack
 Facade                         => Façade
-jitpack                        => jetpack
+JitPack                        => Jetpacks, Jetpack, Jetpack's, Jetpacked, Jetpacks'
 build.gradle
 build.gradle
-jitpack                        => jetpack
-Jitpack                        => Jetpack, Jetpacks
+JitPack                        => Jetpacks, Jetpack, Jetpack's, Jetpacked, Jetpacks'
+JitPack                        => Jetpacks, Jetpack, Jetpack's, Jetpacked, Jetpacks'
 mvn                            => man, men, maven, myna
 broadcastAndStore
 getNewAddress
@@ -897,17 +899,20 @@ HttpConnector                  => HTTP Connector
 
 ## [iota-java/0.1/how-to-guides/create-and-manage-cda.md](iota-java/0.1/how-to-guides/create-and-manage-cda.md)
 
-withdrawls                     => withdrawals, withdraws, with drawls, withdrawal's, withdrawals'
 boolean                        => Boolean
 expected_amount                => expected amount
 expected_amount                => expected amount
 expected_amount                => expected amount
+addressess                     => addresses
 expected_amount                => expected amount
-sendToCDA
+addressess                     => addresses
+expected_amount                => expected amount
+expected_amount                => expected amount
 
 ## [iota-java/0.1/references/cda-faq.md](iota-java/0.1/references/cda-faq.md)
 
-addresss                       => address, address's, addresses
+expected_amount                => expected amount
+expected_amount                => expected amount
 expected_amount                => expected amount
 
 ## [iota-js/0.1/README.md](iota-js/0.1/README.md)
@@ -946,28 +951,33 @@ npm                            => nap, name, numb, p.m., naps, mph, nape, mom, n
 
 stateful                       => tasteful, shameful, stately, crateful
 Withdrawls                     => Withdrawals, Withdraws, With drawls, Withdrawal's, Withdrawals'
-api                            => ape, apo, apt, pay, aped, apes, apex, aping, apish
 persistenceAdapater
+persistencePath                => persistence Path
 
 ## [iota-js/0.1/how-to-guides/create-and-manage-cda.md](iota-js/0.1/how-to-guides/create-and-manage-cda.md)
 
-withdrawls                     => withdrawals, withdraws, with drawls, withdrawal's, withdrawals'
 boolean                        => Boolean
-expectedAmount                 => expected Amount
-expectedAmount                 => expected Amount
-expectedAmount                 => expected Amount
+expected_amount                => expected amount
+expected_amount                => expected amount
+expected_amount                => expected amount
+addressess                     => addresses
+expected_amount                => expected amount
+addressess                     => addresses
+expected_amount                => expected amount
 generateCDA                    => generated
 generateCDA                    => generated
-generateCDA                    => generated
+serializeCDAMagnet
+cda                            => cad, coda, cads
 magent                         => magnet, magenta, agent, magneto, magnets, maxent
-magnetLink                     => magnet Link
 parseCDAMagnet
 sendToCDA
-sendToCDA
+parseCDAMagnet
+thesendToCDA
 
 ## [iota-js/0.1/references/cda-faq.md](iota-js/0.1/references/cda-faq.md)
 
-addresss                       => address, address's, addresses
+expected_amount                => expected amount
+expected_amount                => expected amount
 expected_amount                => expected amount
 
 ## [general/0.1/how-to-guides/expose-your-local-device.md](general/0.1/how-to-guides/expose-your-local-device.md)
@@ -986,18 +996,26 @@ PuTTy                          => Putty, Puttee, Puttie, Putt
 
 ## [general/0.1/how-to-guides/setup-sbc.md](general/0.1/how-to-guides/setup-sbc.md)
 
+Rasperry                       => Raspberry
 Armbian                        => Arabian, Armband, Ambien, Rambin, Arabians
-Armbian                        => Arabian, Armband, Ambien, Rambin, Arabians
+Wifi                           => WIFI, Wife, Wi-Fi, Wii, Waif
+Wifi                           => WIFI, Wife, Wi-Fi, Wii, Waif
+Wifi                           => WIFI, Wife, Wi-Fi, Wii, Waif
+mySSID                         => mysid
+myPassword                     => my Password
+wl                             => awl, owl, wall, well, will, we
+PlatformIO                     => Platform, Platformer, Platformed
+PlatformIO                     => Platform, Platformer, Platformed
+PlatformIO                     => Platform, Platformer, Platformed
+ttyUSBX
+mySSID                         => mysid
+myPassword                     => my Password
+WiFi                           => WIFI, Wi-Fi, Wii, Wife
 wl                             => awl, owl, wall, well, will, we
 nmap                           => nap, neap, map, knap, nape, naps, name
 nmap                           => nap, neap, map, knap, nape, naps, name
 nmap                           => nap, neap, map, knap, nape, naps, name
 nmap                           => nap, neap, map, knap, nape, naps, name
-PlatformIO                     => Platform, Platformer, Platformed
-PlatformIO                     => Platform, Platformer, Platformed
-PlatformIO                     => Platform, Platformer, Platformed
-ttyUSBX
-ssh                            => sash, shh, ash, sushi
 
 ## [smartcity/0.1/introduction/overview.md](smartcity/0.1/introduction/overview.md)
 

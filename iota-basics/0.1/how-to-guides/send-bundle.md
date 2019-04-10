@@ -2,9 +2,9 @@
 
 **Transactions must be grouped in a bundle before being sent to an IRI node. The IOTA client libraries have built-in functions that create bundles from transfer objects.**
 
+:::info:
 If you're unfamiliar with the terms bundle or transaction, we recommend that you [read about bundles and transactions](../concepts/bundles-and-transactions.md).
-
-Any code that uses a seed is executed on the client side. Your seed is never sent anywhere.
+:::
 
 ## Prerequisites
 
@@ -54,6 +54,10 @@ To complete this guide, you need the following:
     var recipientAddress2 = "CYJV9DRIE9NCQJYLOYOJOGKQGOOELTWXVWUYGQSWCNODHJAHACADUAAHQ9ODUICCESOIVZABA9LTMM9RW";
     ```
 
+    :::info:
+    Any code that uses a seed is executed on the client side. Your seed never leaves your device.
+    :::
+
 7. Create one `transfer` object for each transaction that you want to send. The `address` field contains the address to which the transaction will be sent.
 
     ```js
@@ -85,12 +89,16 @@ To complete this guide, you need the following:
     .then(results => console.log(JSON.stringify(results, ['hash', 'currentIndex', 'lastIndex', 'bundle', 'trunkTransaction', 'branchTransaction'], 1)));
     ```
 
-    **Note:** To be able to reattach a transaction, you should save the trytes that are returned from the `prepareTransfers()` method.
-
     In this example, the resulting array is converted to JSON and filtered so that only the transaction hash, bundle information, and parent transactions are displayed in the output.
 
-    **Note:** Trunk and branch transactions are called parent transactions.
-[All transactions in a bundle are connected through the value of their `trunkTransaction` fields](../references/structure-of-a-bundle.md). You should see that the `trunkTransaction` hash of transaction 0 is the same as the transaction hash (`hash`) of transaction 1.
+    :::info:
+    To be able to reattach a transaction, you should save the trytes that are returned from the `prepareTransfers()` method.
+    :::
+
+    Trunk and branch transactions are called parent transactions.
+    
+    [All transactions in a bundle are connected through the value of their `trunkTransaction` fields](../references/structure-of-a-bundle.md). You should see that the `trunkTransaction` hash of transaction 0 is the same as the transaction hash (`hash`) of transaction 1.
+
 
     ```json
     [

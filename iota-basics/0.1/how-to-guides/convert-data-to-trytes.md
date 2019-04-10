@@ -2,6 +2,10 @@
 
 **The values of transaction fields must be represented in trytes. To facilitate data conversion, the IOTA client libraries have built-in converters to convert data to/from trytes, trits, and ASCII characters.**
 
+:::info:
+If you're unfamiliar with the terms trytes, trits, or trinary, we recommend that you [read about these concepts](../concepts/trinary.md).
+:::
+
 ## Prerequisites
 
 To complete this guide, you need the following:
@@ -59,7 +63,9 @@ To complete this guide, you need the following:
     RBTC9D9DCDEAFCCDFD9DSCFA converted back to ASCII: Hello World!
     ```
 
-**Note:** The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
+:::info:
+The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
+:::
 
 ## Final code
 
