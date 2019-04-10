@@ -27166,7 +27166,7 @@ var USE_NATIVE = !!function () {
     var FakePromise = (promise.constructor = {})[__webpack_require__(9)('species')] = function (exec) {
       exec(empty, empty);
     };
-    // unhandled rejections tracking support, NodeJS Promise without it fails @@species test
+    // unhandled rejections tracking support, Node.js Promise without it fails @@species test
     return (isNode || typeof PromiseRejectionEvent == 'function') && promise.then(empty) instanceof FakePromise;
   } catch (e) { /* empty */ }
 }();
@@ -27237,7 +27237,7 @@ var onUnhandled = function (promise) {
           console.error('Unhandled promise rejection', value);
         }
       });
-      // Browsers should not trigger `rejectionHandled` event if it was handled here, NodeJS - should
+      // Browsers should not trigger `rejectionHandled` event if it was handled here, Node.js - should
       promise._h = isNode || isUnhandled(promise) ? 2 : 1;
     } promise._a = undefined;
     if (unhandled && result.e) throw result.v;

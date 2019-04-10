@@ -13,7 +13,7 @@ To deploy the P2P energy grid app, you must have the following:
 
 ### Software
 
-* [NodeJS](https://nodejs.org/)
+* [Node.js](https://nodejs.org/)
 
 * [MAM (masked authenticated messaging)](https://github.com/iotaledger/mam.client.js)
 
@@ -23,7 +23,7 @@ Choose from one of the following cloud services or a local server:
     * [Web server](https://firebase.google.com/docs/hosting/)
     * [Authentication service](https://firebase.google.com/docs/auth/)
     * [NoSQL database](https://firebase.google.com/docs/firestore/)
-    * [Background tasks and API server](https://firebase.google.com/docs/functions/)
+    * [Background tasks and API server](https://firebase.google.com/docs/functions)
 
 * Amazon
     * [Web server](https://aws.amazon.com/s3/)
@@ -40,9 +40,9 @@ Choose from one of the following cloud services or a local server:
 * Local server
     * Storage: local file system
     * Web server: Nginx
-    * API server: NodeJS with Express
+    * API server: Node.js with Express
     * NoSQL database: MongoDB
-    * Background tasks: Task scheduler running NodeJS tasks
+    * Background tasks: Task scheduler running Node.js tasks
 
 ### Programming knowledge
 
@@ -62,20 +62,19 @@ The software configuration and deployment for all the entities is documented in 
 
 Sources running on RPi need the following:
 * Local area network (LAN) or wide area network (WAN) connection to the grid
-* Connection to an IOTA Node
-* [NodeJS](https://github.com/audstanley/NodeJs-Raspberry-Pi)
+* Connection to an IOTA node (can be internal)
+* [Node.js](https://github.com/audstanley/NodeJs-Raspberry-Pi)
 
 Producers running on RPi need the following:
-* Network connection to the grid
+* Local area network (LAN) or wide area network (WAN) connection to the grid
 * Connection to an IOTA node (can be internal)
-* [NodeJS](https://github.com/audstanley/NodeJs-Raspberry-Pi)
+* [Node.js](https://github.com/audstanley/NodeJs-Raspberry-Pi)
 
 Consumers running on RPi need the following:
-* LAN or WAN connection to the grid
-* Connection to an IOTA node
-* [NodeJS](https://github.com/audstanley/NodeJs-Raspberry-Pi)
+* Local area network (LAN) or wide area network (WAN) connection to the grid
+* Connection to an IOTA node (can be internal)
+* [Node.js](https://github.com/audstanley/NodeJs-Raspberry-Pi)
 
 Grids running in the cloud or on a local server need the following:
 * WAN connection
-* Connection to the Tangle
-* Connection to an IOTA node (optional if other entities have access to WAN)
+* Connection to an IOTA node
