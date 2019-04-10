@@ -21,6 +21,8 @@ If you are creating or editing an article, please follow our writing guide to he
 * Make our documentation straightforward to read for non-native English readers
 * Make sure that our documentation educates our readers
 
+If you have a question about writing that we don't cover in this guide, use the [Google style guide](https://developers.google.com/style/).
+
 ### File format
 
 We use markdown for documentation files. Please refer to these [tips](https://help.github.com/articles/basic-writing-and-formatting-syntax/) if you haven't used markdown before.
@@ -39,7 +41,7 @@ These general rules make information easier to understand and translate.
 |If it's possible to remove a word, always remove it | 'This method is ~~exactly~~ the same as the previous one'
 | Always use the active voice where possible | '~~The active voice must always be used where possible~~.' 'You must always use the active voice where possible'
 | Never use a foreign phrase, a scientific word or a jargon word if you can think of an everyday English equivalent | ~~E.g~~ For example |
-| Place the one-word modifiers 'only' and 'not' immediately in front of whatever they're modifying| 'For security reasons, IOTA addresses should ~~only~~ be spent from **only** once'|
+| Place the one-word modifiers 'only' and 'not' immediately in front of whatever they're modifying| 'For security reasons, IOTA addresses should ~~only~~ be withdrawn from **only** once'|
 |Don't use (s) to form plural nouns| 'Select the ~~item(s)~~ **items** that you want to remove'|
 
 Research shows that the above holds true even for very technical audience. See the [GOV.UK style guide](https://www.gov.uk/guidance/content-design/writing-for-gov-uk) for examples.

@@ -6,7 +6,7 @@ An IRI node always accepts REST API requests from computers on the same network.
 
 **Note:** If the [`REMOTE` configuration parameter](../references/iri-configuration-options.md#remote) is set to `true`, anyone can connect to the IRI through its public URL or its public IP address.
 
-In the following how-to guide we use NodeJS and the IOTA JavaScript client library to interact with an IRI node on the Devnet.
+In the following how-to guide we use Node.js and the IOTA JavaScript client library to interact with an IRI node on the Devnet.
 
 ## Request information about the IRI
 
@@ -18,7 +18,7 @@ For more endpoints, see the [API reference](../references/api-reference.md).
 
 To use the code samples in this guide, your computer must have the following:
 
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection

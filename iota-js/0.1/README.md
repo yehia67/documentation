@@ -1,21 +1,36 @@
 # IOTA JS Library
 
 This is the **official** JavaScript client library, which allows you to do the following:
-- Create transactions
-- Sign transactions
-- Generate addresses
+- Create, import, export, and manage accounts
+- Send transactions
+- Promote and reattach pending transactions
+- Request deposits into conditional deposit addresses (CDA)
 - Interact with an IRI node
 
-[IOTA JS GitHub repository](https://github.com/iotaledger/iota.js).
+To learn more about how the library works:
 
-This is beta software, so there may be performance and stability issues.
+- See how you can [work with accounts](root://iota-js/0.1/how-to-guides/create-account.md).
+- See how you can [send and receive](root://iota-js/0.1/how-to-guides/create-and-manage-cda.md) transactions.
+
+Get the library at the [IOTA JS  GitHub repository](https://github.com/iotaledger/iota.js).
+
+:::warning:Beta software
+The client libraries are currently in beta. Their use in production is not supported.
+:::
+
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.js/issues/new).
+
+## Audience
+
+This documentation is designed for people who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse),  [bundles, and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
+
+This guide is designed to let you quickly start exploring and developing applications with IOTA.
 
 ## Prerequisites
 
 To use the library, your computer must have one of the following [supported](https://github.com/iotaledger/iota.js/blob/next/.travis.yml#L5) versions of [Node.js](https://nodejs.org):
-- Node JS 10 or higher. Recommended version is [latest LTS](https://nodejs.org/en/download/).
-- Node JS 8
+- Node.js 10 or higher. Recommended version is [latest LTS](https://nodejs.org/en/download/).
+- Node.js 8
 
 To install [library packages](https://www.npmjs.com/org/iota), your computer must have one of the following package managers:
 
@@ -47,6 +62,8 @@ To connect to a local IRI node, do the following:
 import { composeAPI } from '@iota/core'
 
 const iota = composeAPI({
+    // replace with your IRI node address 
+    // or connect to a Devnet node for testing: 'https://nodes.devnet.iota.org:443'
     provider: 'http://localhost:14265'
 })
 
@@ -107,7 +124,9 @@ This example shows you how to create and send a transaction to an IRI node by ca
 import { composeAPI } from '@iota/core'
 
 const iota = composeAPI({
-    provider: 'http://localhost:14265' // replace with your IRI node.
+    // replace with your IRI node address 
+    // or connect to a Devnet node for testing: 'https://nodes.devnet.iota.org:443'
+    provider: 'http://localhost:14265'
 })
 
 // Must be truly random & 81-trytes long.
@@ -140,7 +159,7 @@ iota.prepareTransfers(seed, transfers)
     })
     .then(bundle => {
         console.log(`Published transaction with tail hash: ${bundle[0].hash}`)
-        console.log(`Bundle: ${bundle}`)
+        console.log(`Bundle: ${JSON.stringify(bundle, null, 1)}`)
     })
     .catch(err => {
         // handle errors here
@@ -162,6 +181,8 @@ iota.prepareTransfers(seed, transfers)
     import { createGetNodeInfo } from '@iota/core'
 
     const client = createHttpClient({
+        // replace with your IRI node address 
+        // or connect to a Devnet node for testing: 'https://nodes.devnet.iota.org:443'
         provider: 'http://localhost:14265'
     })
 

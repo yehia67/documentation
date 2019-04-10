@@ -1,8 +1,8 @@
 # The Coordinator and its milestones
 
-**The Coordinator is a client that sends signed bundles called milestones to a node at regular intervals. Nodes confirm transactions when they're chosen by the tip selection algorithm and approved by a milestone.**
+**The Coordinator is a client that sends a signed transaction called a milestone to a node at regular intervals. Nodes confirm transactions when they're chosen by the tip selection algorithm and approved by a milestone.**
 
-The Coordinator acts as a temporary safety mechanism until the majority of transactions in the network are honest.
+The Coordinator is a temporary safety mechanism that will protect the network until the majority of transactions in it are honest.
 
 An IOTA network relies on clients to send a majority of honest transactions to nodes. But, the fewer transactions in a network, the easier it is for an attacker to overwhelm it with dishonest transactions. As a result, an attacker may be able to double spend tokens, and carry out network-splitting attacks.
 

@@ -2,6 +2,10 @@
 
 **Creating, sending, and receiving transactions requires an in-depth understanding of the IOTA protocol. The IOTA client libraries abstract the complexity of the protocol into simple functions.**
 
+:::warning:Beta software
+The client libraries are currently in beta. Their use in production is not supported.
+:::
+
 ### **Official support** ###
 
 ---------------
@@ -56,4 +60,4 @@ A C# .NET 4.6 client library. This library includes core and extended functional
 
 - [MAM - High Mobility](https://github.com/iotaledger/high-mobility-blueprints) securely sending data from onboard an EV to the Tangle
 
-- [Smart City - AstroPiOTA](root://smartcity/0.1/astropiota/introduction/overview.md) publishing local environment sensor data to the Tangle
+- [Smart City - AstroPiOTA](root://smartcity/0.1/introduction/overview.md) publishing local environment sensor data to the Tangle

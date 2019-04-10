@@ -1,14 +1,12 @@
 # Create an address
 
-**Addresses must not be spent from more than once. If you spend from an address, you must create a new one by incrementing the index or using a different security level.**
-
-Any code that uses a seed is executed on the client side. Your seed is never sent anywhere.
+**Addresses must not be withdrawn from more than once. If you withdraw IOTA tokens from an address, you must create a new one by incrementing the index or using a different security level.**
 
 ## Prerequisites
 
 To complete this guide, you need the following:
 
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
@@ -24,7 +22,7 @@ To complete this guide, you need the following:
     npm install --save @iota/core
     ```
 
-3. In the `iota-basics` directory, create a new file called create-address.js
+3. In the `iota-basics` directory, create a new file called `create-address.js`
 
 4. In the create-address.js file, require the IOTA libraries
 
@@ -32,7 +30,7 @@ To complete this guide, you need the following:
     const Iota = require('@iota/core');
     ```
 
-5. Create an instance of the IOTA object and use the `provider` field to connect to an IRI node
+5. Create an instance of the IOTA object and use the `provider` field to connect to a node
 
     ```js
     const iota = Iota.composeAPI({
@@ -46,6 +44,10 @@ To complete this guide, you need the following:
     const seed =
     'PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
     ```
+
+    :::info:
+    Any code that uses a seed is executed on the client side. Your seed never leaves your device.
+    :::
 
 7. Pass the `seed` variable to the `getNewAddress()` method to create an address
 
