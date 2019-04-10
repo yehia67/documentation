@@ -4,7 +4,7 @@
 
 This application consists of the following:
 
-## Prerequesites
+## Prerequisites
 
 This projects asumes some level of programming knowledge, specifically in: Javascript, React and Node.js.
 
