@@ -4,7 +4,7 @@
 
 Python 3 comes pre-installed on Raspberry Pi.
 
-1. In your home folder, create a new file called SenseIP.py
+1. In your home folder, create a new file called `senseIP.py`
          ```bash
         sudo nano senseIP.py
         ```
@@ -60,11 +60,11 @@ Python 3 comes pre-installed on Raspberry Pi.
 
     ![Screen capture of crontab file update described in text](../RasCron.png)
 
-7. Reboot Raspberry Pi to start the cron job. Wait a second or two, then see its IP address scrolling across the Sense HAT LED panel.
+7. Restart Raspberry Pi to start the cron job. Wait a second or two, then see its IP address scrolling across the Sense HAT LED panel.
 
 8. Open an SSH connection and connect to the IP address of your Raspberry Pi
 
-To shutdown the Raspberry Pi, do the following:
+To shut down the Raspberry Pi, do the following:
 
 ```bash
 sudo shutdown now

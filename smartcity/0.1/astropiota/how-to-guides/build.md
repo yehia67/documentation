@@ -36,4 +36,4 @@ Permission to use diagram requested from Raspberry Pi
 
 >When you plug in the power cord, Raspberry Pi will power on
 
-[Install AstroPiOTA Software](../how-to-guides/InstallIT.md)
+[Run AstroPiOTA](../how-to-guides/run.md)

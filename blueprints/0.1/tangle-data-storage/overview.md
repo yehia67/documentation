@@ -13,7 +13,11 @@ A common requirement for nearly all use cases or applications is that data must 
 * **Supply chain:** Shipping documents or images must be stored to form a permanent record of events
 * **Digital twin of a vehicle:** All data such as the odometer readings, maintenance record, and ownership change should be stored to form a permanent record of the entire lifecycle of the vehicle
 
-Although the IOTA Foundation (IF) are developing the functionality that allows the network to retain the full transaction history (permanode), it's not recommended to store data in the Tangle because it's not a database and it's not designed to store data. If you want to permanently store even a moderate amount of data, you should store only a hash of the data in the Tangle, and store the actual data in a third-party storage solution.
+However, the Tangle is not a database. The Tangle is an immutable, distributed ledger which allows you to store a hash of data and a pointer to its location in third-party data storage.
+
+:::info:
+Although permanent storage on the Tangle isn't currently possible, the IOTA Foundation (IF) are developing a solution that will allow permanodes to retain a full transaction history. These permanodes could retain the history for a number of reasons for example, to store a permanent record of supply chain events or a permanent record of vehicle maintenance and ownership.
+:::
 
 ### Solution
 
@@ -36,7 +40,7 @@ See this website for a [demonstration of the application](https://ipfs.iota.org/
 
 ## Additional Resources
 
-- [PoC Repository](https://github.com/iotaledger/poc-ipfs)
-- [iota.js Repository](https://github.com/iotaledger/iota.js)
-- [NodeJS](https://nodejs.org/)
-- [IPFS](https://ipfs.io/)
+- PoC Repository - https://github.com/iotaledger/poc-ipfs
+- iota.js Repository - https://github.com/iotaledger/iota.js 
+- Node.js - https://nodejs.org/
+- IPFS - https://ipfs.io/

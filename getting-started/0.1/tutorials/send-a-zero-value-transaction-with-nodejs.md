@@ -6,7 +6,7 @@
 
 To complete this tutorial, you need the following:
 
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
@@ -17,13 +17,13 @@ In IOTA, transactions must be sent to [IRI nodes](root://iri/0.1/introduction/ov
 
 If you know the URL of an IRI node, you can send it a transaction. In this example we use the URL of an IRI node on the IOTA Devnet and use the [`getNodeInfo()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo) method to check that the IRI node is online.
 
-1. In the command prompt, create a working directory called iota-example
+1. In the command prompt, create a working directory called `iota-example`
 
     ```bash
     mkdir iota-example
     ```
 
-2. Change into the iota-example directory and install the required Node.js libraries
+2. Change into the `iota-example` directory and install the required Node.js libraries
     ```bash
     cd iota-example
     npm install @iota/core @iota/converter --save
@@ -38,9 +38,9 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
     found 0 vulnerabilities
     ```
 
-    You now have a package.json file and a node_modules folder, which contains the IOTA library and its dependencies.
+    You now have a package.json file and a `node_modules` directory, which contains the IOTA library and its dependencies.
 
-3. In the iota-example directory, create a new file called index.js and add the following to it:
+3. In the `iota-example` directory, create a new file called `index.js` and add the following to it:
 
     ```js
     // Require the IOTA libraries
@@ -96,7 +96,7 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
 
     Now that you've confirmed your connection to an IRI node, send a transaction to it.
 
-5. At the end of the index.js file, add the following:
+5. At the end of the `index.js` file, add the following:
     ```js
     const address =
     'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD';

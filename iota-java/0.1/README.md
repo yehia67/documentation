@@ -1,12 +1,32 @@
 # IOTA Java client library
 
 This is the **official** Java client library, which allows you to do the following:
-* Create transactions
-* Sign transactions
-* Interact with an IRI node
+- Create, import, export, and manage accounts
+- Send transactions
+- Promote and reattach pending transactions
+- Request deposits into conditional deposit addresses (CDA)
+- Listen to events
+- Extend the library functionality with plug-ins
+- Interact with an IRI node
 
-This is beta software, so there may be performance and stability issues.
+To learn more about how the library works:
+
+- See how you can [work with accounts](root://iota-java/0.1/how-to-guides/create-account.md).
+- See how you can [send and receive](root://iota-java/0.1/how-to-guides/create-and-manage-cda.md) transactions.
+
+Get the library at the [IOTA Java GitHub repository](https://github.com/iotaledger/iota-java).
+
+:::warning:Beta software
+The client libraries are currently in beta. Their use in production is not supported.
+:::
+
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota-java/issues/new-issue).
+
+## Audience
+
+This documentation is designed for people who are familiar with the Java programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
+
+This guide is designed to let you quickly start exploring and developing applications with IOTA.
 
 ## Prerequisites
 
@@ -16,7 +36,7 @@ To use the IOTA Java client library, your computer must have the following minim
 
 ## Download the library
 
-The IOTA Java client library is available on [**jitpack.io**][jitpack].
+The IOTA Java client library is available on [JitPack][https://jitpack.io/].
 
 ### Dependencies
 
@@ -36,7 +56,7 @@ To download the IOTA Java client library and its dependencies, you can use one o
 
 ### Download the library with Gradle
 
- 1. Add the jitpack repository to your root `build.gradle` file
+ 1. Add the JitPack repository to your root `build.gradle` file
 
     ```gradle
     allprojects {
@@ -46,7 +66,7 @@ To download the IOTA Java client library and its dependencies, you can use one o
     }
     ```
 
-2. Add the iotaledger dependency to your module `build.gradle` file
+1. Add the iotaledger dependency to your module `build.gradle` file
 
     ```gradle
     dependencies {
@@ -56,7 +76,7 @@ To download the IOTA Java client library and its dependencies, you can use one o
     
 ### Download the library with Maven
 
-1. Add the jitpack repository to your root `pom.xml` file
+1. Add the JitPack repository to your root `pom.xml` file
     ```xml
     <repositories>
         <repository>
@@ -79,7 +99,7 @@ To download the IOTA Java client library and its dependencies, you can use one o
 3. Change the value of the `<version>` tag to either a release number or the first 10 characters of a Git commit hash:
 `<version>a98de8ea50</version>` or `<version>1.0.0-beta3</version>`
 
-**Note:** Find the latest version on the [Jitpack](https://jitpack.io/#iotaledger/iota-java) page.
+**Note:** Find the latest version on the [JitPack](https://jitpack.io/#iotaledger/iota-java) page.
 
 ### Download the library manually
 
@@ -131,7 +151,7 @@ iota.node.port=14265
 
 Most API calls are **synchronous**. Therefore, we recommend that you call the API from a background thread or a worker thread to stop the API from blocking other threads such as the UI or the main thread.
 
-## API Reference
+## API reference
 
 For a full list of API commands for the IOTA Java client library, go to the [GitHub page](https://iotaledger.github.io/iota-java/javadoc/jota/IotaAPICommands.html#enum.constant.summary).
 

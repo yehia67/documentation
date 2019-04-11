@@ -1,4 +1,4 @@
-# Customize Your AstroPiOTA
+# Customize AstroPiOTA
 
 **The AstroPiOTA sender gathers sensor data from Sense HAT, publishes it to the scrolling marquee, and sends it in JSON format to a MAM channel on the Tangle. The ASTROPiOTA receiver listens to the MAM channel and reports the sensor data. You can customize both of these files to change how ASTROPiOTA publishes and reports data.**
 

@@ -15,7 +15,7 @@ You can subscribe to events in the ZMQ by doing the following:
 
 3. Subscribe to events on the ZMQ
 
-In the following how-to guide we use NodeJS, but you could use any [programming language that is supported by the ZMQ library](http://zguide.zeromq.org/page:all).
+In the following how-to guide we use Node.js, but you could use any [programming language that is supported by the ZMQ library](http://zguide.zeromq.org/page:all).
 
 ## Listen for recently confirmed transactions
 
@@ -27,7 +27,7 @@ You can subscribe to the `sn` event on the ZMQ of the IRI to listen for recently
 
 To use the code samples in this guide, your computer must have the following:
 
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection

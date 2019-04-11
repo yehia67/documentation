@@ -1,16 +1,16 @@
-# Create addresses from private keys
+# Derive addresses from private keys
 
-**Seeds are used to create private keys, and in turn, a private key is used to create addresses and sign bundles. By using the cryptography library to create addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
+**Seeds are used to derive private keys, and in turn, a private key is used to derive addresses and sign bundles. By using the cryptography library to derive addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
 
+:::info:
 If you're unfamiliar with the terms private key, subseed, and key digest, we recommend [reading about addresses and signatures](../concepts/addresses-and-signatures.md).
-
-Any code that uses a seed is executed on the client side. Your seed is never sent anywhere.
+:::
 
 ## Prerequisites
 
 To complete this guide, you need the following:
 
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
@@ -28,7 +28,7 @@ To complete this guide, you need the following:
     npm install --save @iota/signing
     ```
 
-3. In the `iota-basics` directory, create a new file called create-private-key-address.js
+3. In the `iota-basics` directory, create a new file called `create-private-key-address.js`
 
 4. In the create-private-key-address.js file, require the IOTA libraries
 
@@ -38,7 +38,7 @@ To complete this guide, you need the following:
     const Converter = require('@iota/converter');
     ```
 
-5. Create a subseed by passing a seed in trits and an index to the `subseed()` method
+5. Derive a subseed by passing a seed in trits and an index to the `subseed()` method
 
     ```js
     const seed = "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
@@ -46,7 +46,11 @@ To complete this guide, you need the following:
     var subseed = Sign.subseed(Converter.trytesToTrits(seed), 0 /*index*/);
     ```
 
-6. Create one private key for each of the three [security levels](../references/security-levels.md) by passing the same subseed and a different security level to the `key()` method
+    :::info:
+    Any code that uses a seed is executed on the client side. Your seed never leaves your device.
+    :::
+
+6. Derive one private key for each of the three [security levels](../references/security-levels.md) by passing the same subseed and a different security level to the `key()` method
 
     ```js
     var privateKey1 = Sign.key(subseed, 1 /*security level*/);
@@ -72,7 +76,7 @@ To complete this guide, you need the following:
         Private key length for security level 3: 6561
         ```
 
-7. Create the key digests for each private key by passing each one to the `digests()` method
+7. Derive the key digests for each private key by passing each one to the `digests()` method
 
     ```js
     var privateKey1Digests = Sign.digests(privateKey1);
@@ -98,7 +102,7 @@ To complete this guide, you need the following:
     Total key digests for security level 3: 3
     ```
 
-8. Create an address for each private key by passing the digests to the `address()` method
+8. Derive an address for each private key by passing the digests to the `address()` method
 
     ```js
     var privateKey1Address = Sign.address(privateKey1Digests);
@@ -122,7 +126,7 @@ To complete this guide, you need the following:
         Address with security level 3: LJGSYD9N9JEAQ9AVN9BJCAOW9LFVZGFHOXFVFVLQEBKVZFGBIDJJIRK9FBJUKRS9VMUXTCXBRIOOEMQJ9
         ```
 
-9. To check that the same addresses would be created from the IOTA core library, do the following:
+9. To check that the same addresses would be returned from the IOTA core library, do the following:
 
     ```js
     console.log(Iota.generateAddress(seed, 0 /*index*/, 1 /*security level*/));
@@ -132,7 +136,9 @@ To complete this guide, you need the following:
 
     You should see the same addresses in the output as those from step 8.
     
-Congratulations :tada: You've proven that, under the hood of the IOTA core library, addresses are created from private keys with a certain index and security level.
+:::success:Congratulations :tada:
+You've proven that, under the hood of the IOTA core library, addresses are derived from private keys with a certain index and security level.
+:::
 
 ## Final code
 
@@ -143,14 +149,14 @@ const Sign = require('@iota/signing');
 const Converter = require('@iota/converter');
 
 //=========================================================
-// Create a subseed by passing a seed in trits and an index to the `subseed()` method
+// Derive a subseed by passing a seed in trits and an index to the `subseed()` method
 
 const seed = "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
 
 var subseed = Sign.subseed(Converter.trytesToTrits(seed), 0 /*index*/);
 
 //===========================================================
-// Create one private key for each of the three security levels by passing the same subseed and a different security level to the `key()` method
+// Derive one private key for each of the three security levels by passing the same subseed and a different security level to the `key()` method
 
 var privateKey1 = Sign.key(subseed, 1 /*security level*/);
 
@@ -165,7 +171,7 @@ var privateKey3 = Sign.key(subseed, 3 /*security level*/);
 console.log('Private key length for security level 3: ' + Converter.tritsToTrytes(privateKey3).length);
 
 //===========================================================
-// Create the key digests for each private key by passing each private key to the `digests()` method
+// Derive the key digests for each private key by passing each private key to the `digests()` method
 
 var privateKey1Digests = Sign.digests(privateKey1);
 
@@ -180,7 +186,7 @@ var privateKey3Digests = Sign.digests(privateKey3);
 console.log(`Total key digests for security level 3: ` + Converter.tritsToTrytes(privateKey3Digests).length/81);
 
 //=================================================================
-// Create an address for each private key by passing the digests to the `address()` method
+// Derive an address for each private key by passing the digests to the `address()` method
 
 var privateKey1Address = Sign.address(privateKey1Digests);
 

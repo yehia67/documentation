@@ -4,9 +4,19 @@
 
 This application consists of the following:
 
-- [An IPFS node](https://github.com/iotaledger/poc-ipfs/blob/master/README.md)
-- [A ReactJS graphical user interface (GUI)](https://github.com/iotaledger/poc-ipfs/blob/master/client/DEPLOYMENT.md)
-- [A NodeJS API that connects a client to the IPFS node and the IOTA Tangle](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md)
+## Prerequisites
+
+This projects assumes some level of programming knowledge, specifically in: Javascript, React and Node.js.
+
+## Instructions and technical concepts 
+
+- [PoC source code](https://github.com/iotaledger/poc-ipfs/blob/master/README.md) - 
+Consists of two parts a front-end GUI written in React and a back-end written as a Node.js API.
+In order to reproduce this PoC there is no requirement to deploy dedicated hardware.
+- [Front-end deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/client/DEPLOYMENT.md)
+- [Node.js API deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md)
+
+The presented infrastructure makes use of the IOTA Tangle and an `InterPlanetary File System` (IPFS) node that you run yourself. The following image shows the main architecture components.
 
 ![Data Storage PoC - IOTA/IPFS - Architecture](../data-storage-ipfs.png)
 
@@ -16,7 +26,7 @@ Running an open source project, like any human endeavor, involves uncertainty an
 
 ## Prerequisites
 
-To test, edit, and deploy this application, you need some level of programming knowledge in JavaScript, React, and NodeJS.
+To test, edit, and deploy this application, you need programming knowledge in JavaScript, React, and NodeJS.
 
 ## API
 
