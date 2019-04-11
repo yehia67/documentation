@@ -97,9 +97,11 @@ When Nginx receives a request, it sends the request to your IRI node, fetches th
     curl -s http://localhost:5000 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
     ```
 
-Congratulations :tada: Nginx is now controlling the requests to your IRI node.
+:::success:Congratulations! :tada:
+Nginx is now controlling the requests to your IRI node.
+:::
 
-To test that Nginx is limiting the API requests, make 20 consecutive requests to the `getNodeInfo` endpoint
+To test that Nginx is limiting the rate of API requests, make 20 consecutive requests to the `getNodeInfo` endpoint
 
 ```bash
 for i in {0..20}; do (curl  http://localhost:5000 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}') 2>/dev/null; done
@@ -108,7 +110,7 @@ for i in {0..20}; do (curl  http://localhost:5000 -X POST -H 'X-IOTA-API-Version
 You should see a mixture of JSON responses and 503 errors, which are returned when too many requests are made from one IP address.
 
 ```shell
-{"appName":"IRI","appVersion":"1.6.0-RELEASE","jreAvailableProcessors":2,"jreFreeMemory":1139498432,"jreVersion":"1.8.0_201","jreMaxMemory":4294967296,"jreTotalMemory":2147483648,"latestMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999","latestMilestoneIndex":933210,"latestSolidSubtangleMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999","latestSolidSubtangleMilestoneIndex":933210,"milestoneStartIndex":-1,"lastSnapshottedMilestoneIndex":933210,"neighbors":0,"packetsQueueSize":0,"time":1549447256071,"tips":0,"transactionsToRequest":0,"features":["snapshotPruning","dnsRefresher","tipSolidification"],"coordinatorAddress":"KPWCHICGJZXKE9GSUDXZYUAPLHAKAHYHDXNPHENTERYMMBQOPSQIDENXKLKCEYCPVTZQLEEJVYJZV9BWU","duration":0}<html>
+{"appName":"IRI","appVersion":"1.7.0-RELEASE","jreAvailableProcessors":8,"jreFreeMemory":1832921952,"jreVersion":"1.8.0_191","jreMaxMemory":20997734400,"jreTotalMemory":4073869600,"latestMilestone":"CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999","latestMilestoneIndex":1050373,"latestSolidSubtangleMilestone":"CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999","latestSolidSubtangleMilestoneIndex":1050373,"milestoneStartIndex":1050101,"lastSnapshottedMilestoneIndex":1050264,"neighbors":7,"packetsQueueSize":0,"time":1554971201776,"tips":7335,"transactionsToRequest":0,"features":["snapshotPruning","dnsRefresher","tipSolidification"],"coordinatorAddress":"EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9","duration":0}<html>
 <head><title>503 Service Temporarily Unavailable</title></head>
 <body bgcolor="white">
 <center><h1>503 Service Temporarily Unavailable</h1></center>
@@ -127,7 +129,8 @@ If requests from certain IP addresses are causing issues for your IRI node, you 
     sudo nano /etc/nginx/sites-enabled/iri.conf
     ```
 
-2. Add the IP addresses to the `server` block directive
+2. Add the IP addresses to the `server` block directive. Change `ipaddress` to the IP address that you want to restrict.
+
 
     ```shell
     # Denies access from an IP address
@@ -136,9 +139,7 @@ If requests from certain IP addresses are causing issues for your IRI node, you 
     allow all;
     ```
 
-    **Note:** Change ipaddress to the IP address that you want to restrict.
-
-Now when Nginx receives requests from those IP addresses, it wont forward those requests to your IRI node.
+Now when Nginx receives requests from those IP addresses, it won't forward those requests to your IRI node.
 
 ## Add load balancing
 
@@ -169,11 +170,9 @@ If you have more than one IRI node, you can add load balancing to evenly distrib
     }
     ```
 
-4. In the `server` block directive, change the value of the `proxy_pass` simple directive to http://iri.
+4. In the `server` block directive, change the value of the `proxy_pass` simple directive to http://iri. Change `iri` to the name of your `upstream` block directive.
 
-    **Note:** Change iri to the name of your `upstream` block directive.
-
-Now when Nginx receives multiple requests, it evenly distributes them among your IRI nodes.
+Now, when Nginx receives multiple requests, it evenly distributes them among your IRI nodes that are listed in the `upstream` block directive.
 
 See the Nginx documentation to [learn more about the `upstream` directive](http://nginx.org/en/docs/http/ngx_http_upstream_module.html#upstream).
 

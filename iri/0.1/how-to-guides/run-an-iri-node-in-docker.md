@@ -130,27 +130,27 @@ You can configure the IRI by passing in [IRI configuration options](../reference
 
     ```json
     {
-    "appName":"IRI",
-    "appVersion":"1.6.0-RELEASE",
-    "jreAvailableProcessors":1,
-    "jreFreeMemory":1037385664,
-    "jreVersion":"1.8.0_201",
-    "jreMaxMemory":4294967296,
-    "jreTotalMemory":2147483648,
-    "latestMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999",
-    "latestMilestoneIndex":933210,
-    "latestSolidSubtangleMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999",
-    "latestSolidSubtangleMilestoneIndex":933210,
-    "milestoneStartIndex":-1,
-    "lastSnapshottedMilestoneIndex":933210,
+    "appName": "IRI",
+    "appVersion": "1.7.0-RELEASE",
+    "jreAvailableProcessors": 8,
+    "jreFreeMemory": 2115085674,
+    "jreVersion": "1.8.0_191",
+    "jreMaxMemory": 20997734400,
+    "jreTotalMemory": 4860129502,
+    "latestMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
+    "latestMilestoneIndex": 1050373,
+    "latestSolidSubtangleMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
+    "latestSolidSubtangleMilestoneIndex": 1050373,
+    "milestoneStartIndex": -1,
+    "lastSnapshottedMilestoneIndex": 1039138,
     "neighbors":0,
     "packetsQueueSize":0,
     "time":1548407444641,
     "tips":0,
     "transactionsToRequest":0,
     "features":["snapshotPruning","dnsRefresher","tipSolidification"],
-    "coordinatorAddress":"KPWCHICGJZXKE9GSUDXZYUAPLHAKAHYHDXNPHENTERYMMBQOPSQIDENXKLKCEYCPVTZQLEEJVYJZV9BWU",
-    "duration":26
+    "coordinatorAddress": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
+    "duration": 0
     }
     ```
     
