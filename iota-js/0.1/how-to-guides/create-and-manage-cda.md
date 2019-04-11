@@ -21,27 +21,27 @@ The workflow of a CDA should be the following:
 To create a CDA you specify the following conditions, which are used to determine if it's active or expired:
 
 * **address (required):** An address
-* **timeout_at (required):** The time at which the address expires
+* **timeoutAt (required):** The time at which the address expires
 
 And one of the following, recommended fields:
 
-* **multi_use (recommended):** A boolean that specifies if the address may be sent more than one deposit. Cannot be used in combination with `expected_amount` in the same CDA.
-* **expected_amount (recommended):** The amount of IOTA tokens that the address is expected to contain. When this amount is reached, the address is considered expired. We highly recommend using this condition. Cannot be used in combination with `multi_use` in the same CDA.
+* **multiUse (recommended):** A boolean that specifies if the address may be sent more than one deposit. Cannot be used in combination with `expectedAmount` in the same CDA.
+* **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to contain. When this amount is reached, the address is considered expired. We highly recommend using this condition. Cannot be used in combination with `multiUse` in the same CDA.
 
 :::info:
-The combination of both `expected_amount` and `multi_use` in the same CDA is not supported. Both fields are designed for different scenarios. Please refer to the [CDA FAQ](../references/cda-faq.md) for more information.
+The combination of both `expectedAmount` and `multiUse` in the same CDA is not supported. Both fields are designed for different scenarios. Please refer to the [CDA FAQ](../references/cda-faq.md) for more information.
 :::
 
 |  **Combination of fields** | **Withdrawal conditions**
 | :----------| :----------|
-|`timeout_at` |The CDA can used in withdrawals as long as it contains IOTA tokens|
-|`timeout_at` and `multi_use` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it. See the [CDA FAQ](../references/cda-faq.md) on when to use addressess with the `multi_use` field set. |
-|`timeout_at` and `expected_amount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount. See the [CDA FAQ](../references/cda-faq.md) on when to use addressess with the `multi_use` field set.|
+|`timeoutAt` |The CDA can used in withdrawals as long as it contains IOTA tokens|
+|`timeoutAt` and `multiUse` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it. See the [CDA FAQ](../references/cda-faq.md) on when to use addressess with the `multiUse` field set. |
+|`timeoutAt` and `expectedAmount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount. See the [CDA FAQ](../references/cda-faq.md) on when to use addressess with the `multi_use` field set.|
 
 :::warning:Warning
-If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. 
+If a CDA was created with only the `timeoutAt` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. 
 
-To avoid address reuse, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible.
+To avoid address reuse, we recommend creating CDAs with either the `multiUse` field or with the `expectedAmount` field whenever possible.
 :::
 
 1. Pass the CDA fields to the `generateCDA()` method
@@ -50,48 +50,42 @@ To avoid address reuse, we recommend creating CDAs with either the `multi_use` f
     account.generateCDA({
         timeoutAt: Math.floor(new Date('7-16-2186').getTime() / 1000), // Date in seconds
         multiUse: true,
-        expectedAmount: 10000000,
-        security: 2,
+        security: 2
     })
         .then(cda => {
             // Do something with the CDA
+            console.log(JSON.stringify(cda, null, 1));
         })
-        .catch(err => {
-            // Handle errors here...
+        .catch(error => {
+            // Handle errors here
+            console.log(error);
         })
     ```
 
 :::info:
-If you created an account with a `timeSource` method, you can set the `timeoutAt` field.
+If you created an account with a `timeSource()` method, you can call that method in the `timeoutAt` field.
 :::
-
-The `generateCDA()` method returns a CDA object with the following fields:
-```js
-{
-   address: 'AT9GOVPQDDKAJ...ADFA9IRSV', // The last 9 trytes are the checksum
-   timeoutAt: 6833278800,
-   multiUse: false,
-   expectedAmount: 1000
-}
-```
 
 ## Distribute a CDA
 
-Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, the `serializeCDAMagnet(cda)` method returns a serialized CDA as a magent link:
+The `generateCDA()` method returns a CDA object with the following fields. You can serialize a CDA into any format before distributing it to senders:
 
-```json
-iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0
+```js
+{
+   address, // The last 9 trytes are the checksum
+   timeoutAt,
+   multiUse,
+   expectedAmount
+}
 ```
 
-1. To parse a magnet link into a CDA, use the `parseCDAMagnet()` method
+1. To serialize a CDA into a magnet link, use the `serializeCDAMagnet()` method in the `@iota/cda` module
 
     ```js
-    import { parseMagnetLink } from '@iota/cda'
-        
-    const magnetLink = 'iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0'
-    const { address, timeoutAt, multiUse, expectedAmount } = parseCDAMagnet(
-        magnetLink
-    );
+    const CDA = require('@iota/cda');
+    
+    const magnetLink = CDA.serializeCDAMagnet(cda);
+    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1
     ```
 
 ## Deposit IOTA tokens into a CDA
@@ -113,15 +107,15 @@ iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&ex
             // Handle errors here...
         });
 
-    // start attachments of transactions
+    // Start attaching transactions to the Tangle
     account.startAttaching({
         depth: 3,
-        minWeightMagnitude(9),
-        delay: 30 * 1000 // 30s
-    })
+        minWeightMagnitude(14),
+        delay: 30 * 1000 // 30 second delay
+    });
     
-    // or stop
-    account.stopAttaching()
+    // Or stop attaching
+    account.stopAttaching();
     ```
 
 2. **Optional:** To use a magnet link, use `parseCDAMagnet()` and pass the results to the`sendToCDA()` method
@@ -137,8 +131,22 @@ iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&ex
         timeoutAt,
         multiUse,
         expectedAmount,
-        value: 1 // value to send to the CDA
+        value: 1 // Value to send to the CDA
     })
-        .then()
-        .catch();
+        .then((trytes) => {
+            console.log('Successfully prepared transaction trytes:', trytes)
+        })
+        .catch(err => {
+            // Handle errors here...
+        });
+
+    // Start attaching transactions to the Tangle
+    account.startAttaching({
+        depth: 3,
+        minWeightMagnitude(14),
+        delay: 30 * 1000 // 30 second delay
+    });
+    
+    // Or stop attaching
+    account.stopAttaching();
     ```

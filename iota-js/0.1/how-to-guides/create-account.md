@@ -1,6 +1,10 @@
 # Create an account
 
-**An account is a stateful client library that makes it easier to send and receive transactions without worrying about reusing addresses or promoting and reattaching pending transactions.**
+**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
+
+Accounts 
+
+Addresses in accounts are also more than simple IOTA addresses. All addresses in accounts are actually conditional deposit addresses.
 
 You can use accounts to do the following:
 
@@ -30,9 +34,9 @@ You can withdraw tokens from an expired addresses, but depositors can't deposit 
 You can create multiple accounts, and each one can manage the state of only one unique seed.
 
 :::danger:Important
-You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
+You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state could be overwritten.
 
-If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
+Existing seeds can't be used in an account because their states are unknown. You must create a new seed for each new account.
 :::
 
 ## Create a new account
@@ -61,7 +65,7 @@ If you have never created an account before, you must create a new seed. Existin
    ```
     :::
 
-3. **Optional:** Pass a **`persistenceAdapater`** factory to your account. This adapter creates a storage object to which the account can save the seed state. By default, the seed state database is created in the root of the project. You can change the path with `persistencePath` option.
+3. **Optional:** Pass a **`persistenceAdapater`** factory to your account. This adapter creates a database object to which the account can save the seed state and its history. By default, the seed state database is created in the root of the project. You can change the path in the `persistencePath` field.
 
    ```JS
    import { createPersistenceAdapter } from '@iota/persistence-adapter-level';
@@ -76,9 +80,9 @@ If you have never created an account before, you must create a new seed. Existin
    ```
 
    :::info:
-    The [`@iota/persistence-adapter-level`](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level) adapter is the default adapter, but you could edit it for your needs.
+    The [@iota/persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level) adapter is the default. This adapter stores the seed state and seed history in the `leveldown` flavor of the [LevelDB database](http://leveldb.org/). You can customize this adapter to use a different database.
 
-    You can't use one store instance for multiple accounts at the same time. A private adapter is instantiated for each account instance.
+    You can't use one adapter instance for multiple accounts at the same time. A private adapter is created for each new account.
     :::
 
 4. **Optional** Pass a `timeSource` method that outputs the current time in milliseconds to your `account` object
@@ -96,5 +100,5 @@ If you have never created an account before, you must create a new seed. Existin
    ```
 
 :::success:Congratulations! :tada:
-You've created an account that will automatically promote and reattach transactions as well as manage the state your CDAs.
+You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
 :::
