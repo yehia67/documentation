@@ -81,15 +81,17 @@ iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=fals
 1. After making sure that the CDA is still active, you can use the `send()` method to deposit IOTA tokens into it
 
     ```java
-    String magnet = "";
+    String magnet = "iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000";
     ConditionalDepositAddress cda = DepositFactory.get().parse(magnet, MagnetMethod.class);
     Future<Bundle> bundle = account.send(
             cda.getDepositAddress().getHashCheckSum(),
             cda.getRequest().getExpectedAmount(),
             Optional.of("Thanks for that pizza!"), Optional.of("OMNOMNOM"));
+    bundle.get();
     ```
 
 ## Deposit the entire account balance into one CDA
+
 1. You can also sweep the entire account into one CDA
 
     ```java
