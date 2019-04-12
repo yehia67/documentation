@@ -16,7 +16,7 @@ Clients may want to use remote PoW if the device they're using to create transac
 
 ## How proof of work is calculated
 
-To calculate the PoW for a transaction, the following [contents of the transaction](root://iota-basics/0.1/structure-of-a-transaction.md) are converted from trytes to trits, then those trits are hashed to result in a transaction hash:
+To calculate the PoW for a transaction, the following [contents of the transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) are converted from trytes to trits, then those trits are hashed to result in a transaction hash:
 
 * **Bundle hash:** Hash that's calculated using the `address`, `obsoleteTag`, `timestamp`, `value`, `currentIndex`, and `lastindex` fields of all transactions in a bundle. These fields are called the **bundle essence**.
 * **Signature:** Signature of the transaction (if it withdraws IOTA tokens from an address)
