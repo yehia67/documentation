@@ -2,12 +2,14 @@
 
 **An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
 
+Addresses in accounts are also more than simple IOTA addresses. All addresses in accounts are actually conditional deposit addresses.
+
 You can use accounts to do the following:
 
 * Create and manage conditional deposit addresses (CDAs), which specify whether they're active and may used in withdrawals or deposits.
 * Store the state of a seed in a database
 
-## Withdrawls and deposits
+## Withdrawals and deposits
 
 Accounts are made up of many addresses that are in either an active or expired state. The state of an address determines whether it can be used in a withdrawal or a deposit.
 
