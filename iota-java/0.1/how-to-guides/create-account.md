@@ -1,52 +1,18 @@
 # Create an account
 
-<<<<<<< HEAD
-**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a local database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
-=======
-**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
->>>>>>> 8fd7e314f01cb40910050fd5fafde15ae38f4101
+**An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
 
-In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a bundle.
-
-* **address (required):** An address
-* **timeout_at (required):** The time at which the address expires
-
-And one of the following, recommended fields:
-
-* **multi_use (recommended):** A boolean that specifies if the address may be sent more than one deposit. Cannot be used in combination with `expected_amount` in the same CDA.
-* **expected_amount (recommended):** The amount of IOTA tokens that the address is expected to contain. When this amount is reached, the address is considered expired. We highly recommend using this condition. Cannot be used in combination with `multi_use` in the same CDA.
-
-:::info:
-The combination of both `expected_amount` and `multi_use` in the same CDA is not supported. Both fields are designed for different scenarios. Please refer to the [CDA FAQ](../references/cda-faq.md) for more information.
-:::
-
-## Withdrawals and deposits
-
-Accounts are made up of many addresses that are in either an active or expired state. The state of an address determines whether it can be used in a withdrawal or a deposit.
-
-The term _withdrawal_ is used to refer to the use of CDAs in [input transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md) where IOTA tokens are withdrawn from an address. A withdrawal can involve multiple expired CDAs, depending on total deposit amount and the balance of the CDAs.
-
-The term _deposit_ is used to refer to the use of CDAs in outputs transactions where IOTA tokens are deposited into an address.
-
-You can't withdraw tokens from an active address, but depositors can deposit tokens into them.
-
-You can withdraw tokens from an expired addresses, but depositors can't deposit tokens into them.
+In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a [transfer bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md).
 
 ## Seed state
+
+The data that accounts store in a local database is called the seed state. Accounts use this data to keep a history of activity and to avoid making unnecessary API calls to nodes.
 
 |**Data**| **Purpose**|
 |:-----------------|:----------|
 |The last key index that was used to create a CDA| Create a new CDA that has never been used before|
 |All active CDAs|Stop withdrawals from CDAs that may receive deposits|
 |Pending transfers| Monitor pending transactions and rebroadcast or reattach them if necessary|
-
-You can create multiple accounts, and each one can manage the state of only one unique seed.
-
-:::danger:Important
-You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
-
-If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
-:::
 
 ## Create a new account
 
@@ -88,7 +54,7 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
     ```
 
     :::info:
-    You can use the same storage object for multiple accounts at the same time. In storage, each account has a unique ID, which is created from a hash of an address with index 0 and security level 2.
+    You can use the same storage object for multiple accounts at the same time. In storage, each account has a unique ID, which is a hash of an address with index 0 and security level 2.
     :::
 
 4. Create the account using your custom settings
@@ -101,8 +67,18 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
                     .build();
     ```
 
+:::info:
+You can create multiple accounts, and each one can manage the state of only one unique seed.
+:::
+
+:::danger:Important
+You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
+
+If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
+:::
+
 :::success:Congratulations! :tada:
-You've created an account that will automatically promote and reattach transactions as well as manage the state your CDAs.
+You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
 :::
 
 ### Connect to multiple IRI nodes

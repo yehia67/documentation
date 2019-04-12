@@ -742,9 +742,6 @@ getUser                        => get User
 
 PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
 PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
-PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
-PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
-PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
 
 ## [blueprints/0.1/p2p-energy/architecture.md](blueprints/0.1/p2p-energy/architecture.md)
 
@@ -778,7 +775,6 @@ PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
 
 ## [blueprints/0.1/tangle-data-storage/architecture.md](blueprints/0.1/tangle-data-storage/architecture.md)
 
-asumes                         => assumes
 Javascript                     => JavaScript
 PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
 PoC                            => Pock, Pooch, Poke, Poky, Puce, Puck, Pocks
@@ -843,8 +839,7 @@ parameter_name                 => parameter name
 
 ## [iota-go/0.1/how-to-guides/create-account.md](iota-go/0.1/how-to-guides/create-account.md)
 
-stateful                       => tasteful, shameful, stately, crateful
-Withdrawls                     => Withdrawals, Withdraws, With drawls, Withdrawal's, Withdrawals'
+unneccesary                    => unnecessary
 BadgerDB                       => Badger DB, Badged, Badger
 poller                         => puller, pollera, polled, pooler, polar, pollen, paler, pollex, polder, pole
 poller                         => puller, pollera, polled, pooler, polar, pollen, paler, pollex, polder, pole
@@ -856,9 +851,6 @@ boolean                        => Boolean
 expected_amount                => expected amount
 expected_amount                => expected amount
 expected_amount                => expected amount
-addressess                     => addresses
-expected_amount                => expected amount
-addressess                     => addresses
 expected_amount                => expected amount
 expected_amount                => expected amount
 magent                         => magnet, magenta, agent, magneto, magnets, maxent
@@ -893,14 +885,12 @@ src                            => sac, sic, scry, arc, orc, sir, sirs, sect, ser
 
 ## [iota-java/0.1/how-to-guides/create-account.md](iota-java/0.1/how-to-guides/create-account.md)
 
-stateful                       => tasteful, shameful, stately, crateful
-Withdrawls                     => Withdrawals, Withdraws, With drawls, Withdrawal's, Withdrawals'
+unneccesary                    => unnecessary
 HttpConnector                  => HTTP Connector
 
 ## [iota-java/0.1/how-to-guides/create-and-manage-cda.md](iota-java/0.1/how-to-guides/create-and-manage-cda.md)
 
 boolean                        => Boolean
-expected_amount                => expected amount
 expected_amount                => expected amount
 expected_amount                => expected amount
 addressess                     => addresses
@@ -949,27 +939,25 @@ npm                            => nap, name, numb, p.m., naps, mph, nape, mom, n
 
 ## [iota-js/0.1/how-to-guides/create-account.md](iota-js/0.1/how-to-guides/create-account.md)
 
-stateful                       => tasteful, shameful, stately, crateful
-Withdrawls                     => Withdrawals, Withdraws, With drawls, Withdrawal's, Withdrawals'
-persistenceAdapater
+unneccesary                    => unnecessary
+persistenceAdapter             => persistence Adapter
 persistencePath                => persistence Path
+leveldown                      => level down
+LevelDB                        => Level DB, Level, Leveed
 
 ## [iota-js/0.1/how-to-guides/create-and-manage-cda.md](iota-js/0.1/how-to-guides/create-and-manage-cda.md)
 
 boolean                        => Boolean
-expected_amount                => expected amount
-expected_amount                => expected amount
-expected_amount                => expected amount
+expectedAmount                 => expected Amount
+expectedAmount                 => expected Amount
 addressess                     => addresses
-expected_amount                => expected amount
+expectedAmount                 => expected Amount
 addressess                     => addresses
-expected_amount                => expected amount
+expectedAmount                 => expected Amount
 generateCDA                    => generated
 generateCDA                    => generated
 serializeCDAMagnet
 cda                            => cad, coda, cads
-magent                         => magnet, magenta, agent, magneto, magnets, maxent
-parseCDAMagnet
 sendToCDA
 parseCDAMagnet
 thesendToCDA

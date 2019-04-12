@@ -1,44 +1,18 @@
 # Create an account
 
-<<<<<<< HEAD
-**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a local database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
+**An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
 
-Accounts remove the need to call nodes for information like address state or balances. They are also resilient to snapshots. The libraries now:
-
-Store the account information and settings locally. You can also export and import existing accounts.
-Store pending transactions locally.
-Handle the promotion and reattachment of pending transactions via a predefined strategy. You can also define your own strategy. The reattachment and promotion functionality is supported via a plug-in and you can develop your own plug-ins that extend the library functionality.
-Have a notion of which addresses from your account have been deposited to and spent from, and which should be used for input selection. So whenever you request a deposit, you are doing so in a safe manner.
-Provide event handling functionality. You can now listen out for different events, for example every new deposit, or every confirmed, outgoing transaction.
-Introduce a concept of Conditional Deposit Addresses (CDAs), which are now the primary means of communicating with depositors. This is a very important feature which we will expand on in the next post. 
-=======
-**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
->>>>>>> 8fd7e314f01cb40910050fd5fafde15ae38f4101
-
-You can use accounts to do the following:
-
-* Create and manage conditional deposit addresses (CDAs), which specify whether they're active and may used in withdrawals or deposits.
-* Store the state of a seed in a database
-
-## Withdrawals and deposits
-
-Accounts are made up of many addresses that are in either an active or expired state. The state of an address determines whether it can be used in a withdrawal or a deposit.
-
-The term _withdrawal_ refers to the use of CDAs in [input transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md) where IOTA tokens are withdrawn from an address. A withdrawal can involve multiple expired CDAs, depending on the total deposit amount.
-
-The term _deposit_ refers to the use of CDAs in outputs transactions where IOTA tokens are deposited into an address.
-
-You can't withdraw tokens from an active address, but depositors can deposit tokens into them.
-
-You can withdraw tokens from an expired addresses, but depositors can't deposit tokens into them.
+In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a [transfer bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md).
 
 ## Seed state
+
+The data that accounts store in a local database is called the seed state. Accounts use this data to keep a history of activity and to avoid making unnecessary API calls to nodes.
 
 |**Data**| **Purpose**|
 |:-----------------|:----------|
 |The last key index that was used to create a CDA| Create a new CDA that has never been used before|
-|All active CDAs|Prevent withdrawals from CDAs that may still receive deposits|
-|Pending transfers| Monitor pending transactions and promote or reattach them if necessary|
+|All active CDAs|Stop withdrawals from CDAs that may receive deposits|
+|Pending transfers| Monitor pending transactions and rebroadcast or reattach them if necessary|
 
 ## Create a new account
 
@@ -71,7 +45,7 @@ You can withdraw tokens from an expired addresses, but depositors can't deposit 
     :::info:
     You can use the same storage object for multiple accounts at the same time.
     
-    In storage, each account has a unique ID, which is created from a hash of an address with index 0 and security level 2.
+    In storage, each account has a unique ID, which is a hash of an address with index 0 and security level 2.
     :::
 
 4. Use the `timesrc` package to create a `timesource` object that will calculate CDA timeouts and timeouts during API requests to the node. In this example, the time source is a Google NTP (network time protocol) server. For better performance, we recommend setting up your own NTP server.
