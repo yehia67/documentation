@@ -40,7 +40,7 @@ See this website for a [demonstration of the application](https://ipfs.iota.org/
 
 ## Additional Resources
 
-- [PoC Repository](https://github.com/iotaledger/poc-ipfs)
-- [iota.js Repository](https://github.com/iotaledger/iota.js)
-- [NodeJS](https://nodejs.org/)
-- [IPFS](https://ipfs.io/)
+- PoC Repository - https://github.com/iotaledger/poc-ipfs
+- iota.js Repository - https://github.com/iotaledger/iota.js 
+- Node.js - https://nodejs.org/
+- IPFS - https://ipfs.io/
