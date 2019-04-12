@@ -8,7 +8,7 @@ The Ict allows you to have a maximum of three neighbors.
 
 The community often discusses Ict-related topics in the `ict-help` and `ict-discussion` channels. Here, you can find users who are also looking for neighbors and connect to them.
 
-1. Go to Discord, and in the`ict-help` channel, say that you're looking for Ict neighbors
+1. Go to [Discord](https://discordapp.com/invite/fNGZXvh), and in the`ict-help` channel, say that you're looking for Ict neighbors
 
     :::warning:Keep your IP address secret
     Don't share your node's IP address or URL in the channel. Wait until someone direct messages you, then you can both exchange details.
@@ -79,5 +79,5 @@ To download the IcTinder module, your node must have version 0.6-SNAPSHOT of the
 
 :::Success:
 The IcTinder module is monitoring your neighbors and will replace them with new ones if they're unreliable.
-When the IXI module has chosen neighbors for you, you'll be notified on Discord. To delete a neighbor, you can use the `!delnode <address>:<port>` command. To list registered nodes, use the `!listnodes` command.
+When the module has chosen neighbors for you, you'll be notified on Discord. To delete a neighbor, you can use the `!delnode <address>:<port>` command. To list registered nodes, use the `!listnodes` command.
 :::
