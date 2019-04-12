@@ -24,7 +24,7 @@ To send 100Mi to recipient A, you must create the following transactions and sen
 * **Output transaction:** Deposit 100Mi to the recipient's address
 * **Output transaction:** Deposit the remaining 5Mi from address 2 into address 3
 
-:::important:
+:::danger:
 [You must not withdraw from an address more than once](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). So, a transfer bundle may require an extra output transaction to deposit the remaining balance of a withdrawn address into a new address.
 :::
 
