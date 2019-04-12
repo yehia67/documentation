@@ -10,7 +10,10 @@ To complete this guide, you need the following:
 In this guide, we use Ubuntu, however other Linux distributions as well as MacOS should work.
 
     :::info:Windows users
-    You can use [a virtual machine (VM)](../how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10). With the subsystem, you can run Linux without the overhead of a VM. If you are an advanced user, you can also replace the Linux tools with the Windows equivalents.
+    You can use [a virtual machine (VM)](../how-to-guides/set-up-virtual-machine.md) 
+    or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10). 
+    With the subsystem, you can run Linux without the overhead of a VM. 
+    If you are an advanced user, you can also replace the Linux tools with the Windows equivalents.
     :::
 
 - An SBC. Our recommendation: Rasperry Pi Zero W
@@ -53,11 +56,11 @@ In single-board computers, the operating system must be flashed onto an SD card.
 
     If you have Ethernet, just connect your SBC to your router. 
     If you want to use Wifi or your device only has Wifi, you need to connect to your router via Wifi.
-    Do the following and replace ``<mySSID>`` with the name of your network and ``<myPassword>`` with the password
+    Do the following and replace ``MY_SSID`` with the name of your network and ``MY_PASSWORD`` with the password
     of your network:
     
     ```bash
-    nmcli dev wifi connect <mySSID> password <myPassword>
+    nmcli dev wifi connect MY_SSID password MY_PASSWORD
     ```
     
 4. Check if your SBC has a connection to the Internet
@@ -150,11 +153,11 @@ You must execute these commands on your host-system.
 9. If available and needed: Configure the Wi-Fi network interface 
 
     If you want to connect to the Internet through Wi-Fi, 
-    do the following and replace `<mySSID>` with the name of your network and replace `<myPassword>` 
+    do the following and replace `MY_SSID` with the name of your network and replace `MY_PASSWORD` 
     with your WiFi password:
     
     ```bash
-    nmcli dev wifi connect <mySSID> password <myPassword>
+    nmcli dev wifi connect MY_SSID password MY_PASSWORD
     ```
     
     Check if your SBC is connected to the Internet
