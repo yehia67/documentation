@@ -1,16 +1,20 @@
 # Confirm a pending bundle
 
-**Before IOTA tokens can be transferred, the bundle that transfers them must be confirmed. Transactions in a bundle remain in a pending state until the tail transaction is approved by a milestone, at which point the bundle is confirmed. To be approved by a milestone, a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a bundle is stuck in a pending state, the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote it, depending on the circumstances.**
+**To be approved by a milestone, a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a bundle is stuck in a pending state, the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote it, depending on the circumstances.**
+
+:::info:
+If you're unfamiliar with the terms reattach, rebroadcast, or promote, we recommend that you [read about these concepts](../concepts/reattach-rebroadcast-promote.md).
+:::
 
 ## Prerequisites
 
 To complete these guides, you need the following:
 
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
-* A tail transaction hash (`currentIndex` 0) from any pending bundle. You can create one by following the ['Send a bundle of zero-value transactions' article](../how-to-guides/send-bundle.md)
+* A tail transaction hash ([`currentIndex` 0](../references/structure-of-a-bundle.md)) from any pending bundle. You can create one by following the ['Send a bundle of zero-value transactions' article](../how-to-guides/send-bundle.md)
 
 ---
 

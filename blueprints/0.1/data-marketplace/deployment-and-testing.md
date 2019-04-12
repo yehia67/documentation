@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-To submit sensor data to the Data Marketplace, you must have the following.
+To submit sensor data to the Data Marketplace, you must have the following:
 
 ### Hardware
 
@@ -18,7 +18,7 @@ To submit sensor data to the Data Marketplace, you must have the following.
 
 * [Data Marketplace](https://github.com/iotaledger/data-marketplace)
 
-* [NodeJS](https://nodejs.org/)
+* [Node.js](https://nodejs.org/)
 
 * [MAM (masked authenticated messaging)](https://github.com/iotaledger/mam.client.js)
 
@@ -28,7 +28,7 @@ Choose from one of the following cloud services:
     * [Web server](https://firebase.google.com/docs/hosting/)
     * [Authentication service](https://firebase.google.com/docs/auth/)
     * [NoSQL database](https://firebase.google.com/docs/firestore/)
-    * [Background tasks and API server](https://firebase.google.com/docs/functions/)
+    * [Background tasks and API server](https://firebase.google.com/docs/functions)
 
 * Amazon
     * [Web server](https://aws.amazon.com/s3/)

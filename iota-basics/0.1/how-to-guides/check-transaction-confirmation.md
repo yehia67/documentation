@@ -1,20 +1,16 @@
 # Check if a transaction is confirmed
 
-**Value transactions aren't considered final until they're approved by a milestone transaction. When this happens, nodes mark those transactions as confirmed. You can use the IOTA client libraries to check if a transaction has been confirmed.**
+**Before IOTA tokens can be transferred, the bundle that transfers them must be confirmed. Transactions in a bundle remain in a pending state until the tail transaction is approved by a milestone.**
 
-Zero-value transactions can still be confirmed, but they don't need to be because they don't transfer value.
-
+:::info:
 If you're unfamiliar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://the-tangle/0.1/introduction/overview.md).
-
-This guide uses the `getLatestInclusion()` method in the IOTA core JavaScript client library. This method checks if a transaction is approved by an IRI node's latest solid subtangle milestone.
-
-You could also use the `getInclusionStates()` method to check if a transaction is approved by an array of your own chosen transactions.
+:::
 
 ## Prerequisites
 
 To complete this guide, you need the following:
 
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
@@ -48,7 +44,7 @@ To complete this guide, you need the following:
 
 6. Go to [thetangle.org](https://thetangle.org), click **Live** and find a transaction that's in a confirmed state
 
-7. Pass the transaction hash to the `getLatestInclusion()` method to check if the IRI node's latest solid subtangle milestone approves it
+7. Pass the transaction hash to the [`getLatestInclusion()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getLatestInclusion) method to check if the IRI node's latest solid subtangle milestone approves it
 
     ```js
     iota.getLatestInclusion(['TRANSACTION HASH'])
@@ -56,6 +52,10 @@ To complete this guide, you need the following:
     ```
 
     When you execute the file, you should see an array that contains the `true` boolean, meaning that the transaction is confirmed.
+
+    :::info:
+    You could also use the `getInclusionStates()` method to check if a transaction is approved by an array of your own chosen transactions.
+    :::
 
 8. Go to [thetangle.org](https://thetangle.org), click **Live** and find a transaction that's in a pending state
 

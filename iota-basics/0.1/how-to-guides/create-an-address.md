@@ -2,13 +2,11 @@
 
 **Addresses must not be withdrawn from more than once. If you withdraw IOTA tokens from an address, you must create a new one by incrementing the index or using a different security level.**
 
-Any code that uses a seed is executed on the client side. Your seed is never sent anywhere.
-
 ## Prerequisites
 
 To complete this guide, you need the following:
 
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
@@ -46,6 +44,10 @@ To complete this guide, you need the following:
     const seed =
     'PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
     ```
+
+    :::info:
+    Any code that uses a seed is executed on the client side. Your seed never leaves your device.
+    :::
 
 7. Pass the `seed` variable to the `getNewAddress()` method to create an address
 

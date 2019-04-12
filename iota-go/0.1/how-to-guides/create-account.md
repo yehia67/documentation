@@ -1,5 +1,6 @@
 # Create an account
 
+<<<<<<< HEAD
 **An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a local database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
 
 Accounts remove the need to call nodes for information like address state or balances. They are also resilient to snapshots. The libraries now:
@@ -10,6 +11,9 @@ Handle the promotion and reattachment of pending transactions via a predefined s
 Have a notion of which addresses from your account have been deposited to and spent from, and which should be used for input selection. So whenever you request a deposit, you are doing so in a safe manner.
 Provide event handling functionality. You can now listen out for different events, for example every new deposit, or every confirmed, outgoing transaction.
 Introduce a concept of Conditional Deposit Addresses (CDAs), which are now the primary means of communicating with depositors. This is a very important feature which we will expand on in the next post. 
+=======
+**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
+>>>>>>> 8fd7e314f01cb40910050fd5fafde15ae38f4101
 
 You can use accounts to do the following:
 
