@@ -1,6 +1,6 @@
 # Create an account
 
-**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
+**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a local database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
 
 Addresses in accounts are also more than simple IOTA addresses. All addresses in accounts are actually conditional deposit addresses.
 
@@ -23,11 +23,11 @@ You can withdraw tokens from an expired addresses, but depositors can't deposit 
 
 ## Seed state
 
-|**Data**| **Function**|
+|**Data**| **Purpose**|
 |:-----------------|:----------|
-|The last key index that was used to create a CDA| To be able to create a new CDA that has never been used before|
-|All active CDAs|To stop withdrawals from CDAs that may receive deposits|
-|Pending transfers| To be able to monitor pending transactions and rebroadcast or reattach them if necessary|
+|The last key index that was used to create a CDA| Create a new CDA that has never been used before|
+|All active CDAs|Stop withdrawals from CDAs that may receive deposits|
+|Pending transfers| Monitor pending transactions and rebroadcast or reattach them if necessary|
 
 You can create multiple accounts, and each one can manage the state of only one unique seed.
 

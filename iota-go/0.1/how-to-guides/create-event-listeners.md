@@ -1,0 +1,1 @@
+Provide event handling functionality. You can now listen out for different events, for example every new deposit, or every confirmed, outgoing transaction.

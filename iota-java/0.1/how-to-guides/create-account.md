@@ -1,13 +1,20 @@
 # Create an account
 
-**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
+**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a local database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
 
-Addresses in accounts are also more than simple IOTA addresses. All addresses in accounts are actually conditional deposit addresses.
+In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a bundle.
 
-You can use accounts to do the following:
+* **address (required):** An address
+* **timeout_at (required):** The time at which the address expires
 
-* Create and manage conditional deposit addresses (CDAs), which specify whether they're active and may used in withdrawals or deposits.
-* Store the state of a seed in a database
+And one of the following, recommended fields:
+
+* **multi_use (recommended):** A boolean that specifies if the address may be sent more than one deposit. Cannot be used in combination with `expected_amount` in the same CDA.
+* **expected_amount (recommended):** The amount of IOTA tokens that the address is expected to contain. When this amount is reached, the address is considered expired. We highly recommend using this condition. Cannot be used in combination with `multi_use` in the same CDA.
+
+:::info:
+The combination of both `expected_amount` and `multi_use` in the same CDA is not supported. Both fields are designed for different scenarios. Please refer to the [CDA FAQ](../references/cda-faq.md) for more information.
+:::
 
 ## Withdrawals and deposits
 
@@ -23,11 +30,11 @@ You can withdraw tokens from an expired addresses, but depositors can't deposit 
 
 ## Seed state
 
-|**Data**| **Function**|
+|**Data**| **Purpose**|
 |:-----------------|:----------|
-|The last key index that was used to create a CDA| To be able to create a new CDA that has never been used before|
-|All active CDAs|To stop withdrawals from CDAs that may receive deposits|
-|Pending transfers| To be able to monitor pending transactions and rebroadcast or reattach them if necessary|
+|The last key index that was used to create a CDA| Create a new CDA that has never been used before|
+|All active CDAs|Stop withdrawals from CDAs that may receive deposits|
+|Pending transfers| Monitor pending transactions and rebroadcast or reattach them if necessary|
 
 You can create multiple accounts, and each one can manage the state of only one unique seed.
 

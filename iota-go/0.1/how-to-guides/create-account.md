@@ -1,8 +1,15 @@
 # Create an account
 
-**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
+**An account is an object that makes it easier to send and receive transactions. Accounts store information such as addresses and pending bundle hashes in a local database. This stored information allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
 
-Addresses in accounts are also more than simple IOTA addresses. All addresses in accounts are actually conditional deposit addresses.
+Accounts remove the need to call nodes for information like address state or balances. They are also resilient to snapshots. The libraries now:
+
+Store the account information and settings locally. You can also export and import existing accounts.
+Store pending transactions locally.
+Handle the promotion and reattachment of pending transactions via a predefined strategy. You can also define your own strategy. The reattachment and promotion functionality is supported via a plug-in and you can develop your own plug-ins that extend the library functionality.
+Have a notion of which addresses from your account have been deposited to and spent from, and which should be used for input selection. So whenever you request a deposit, you are doing so in a safe manner.
+Provide event handling functionality. You can now listen out for different events, for example every new deposit, or every confirmed, outgoing transaction.
+Introduce a concept of Conditional Deposit Addresses (CDAs), which are now the primary means of communicating with depositors. This is a very important feature which we will expand on in the next post. 
 
 You can use accounts to do the following:
 
@@ -13,9 +20,9 @@ You can use accounts to do the following:
 
 Accounts are made up of many addresses that are in either an active or expired state. The state of an address determines whether it can be used in a withdrawal or a deposit.
 
-The term _withdrawal_ is used to refer to the use of CDAs in [input transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md) where IOTA tokens are withdrawn from an address. A withdrawal can involve multiple expired CDAs, depending on total deposit amount and the balance of the CDAs.
+The term _withdrawal_ refers to the use of CDAs in [input transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md) where IOTA tokens are withdrawn from an address. A withdrawal can involve multiple expired CDAs, depending on the total deposit amount.
 
-The term _deposit_ is used to refer to the use of CDAs in outputs transactions where IOTA tokens are deposited into an address.
+The term _deposit_ refers to the use of CDAs in outputs transactions where IOTA tokens are deposited into an address.
 
 You can't withdraw tokens from an active address, but depositors can deposit tokens into them.
 
@@ -23,19 +30,11 @@ You can withdraw tokens from an expired addresses, but depositors can't deposit 
 
 ## Seed state
 
-|**Data**| **Function**|
+|**Data**| **Purpose**|
 |:-----------------|:----------|
-|The last key index that was used to create a CDA| To be able to create a new CDA that has never been used before|
-|All active CDAs|To stop withdrawals from CDAs that may receive deposits|
-|Pending transfers| To be able to monitor pending transactions and rebroadcast or reattach them if necessary|
-
-You can create multiple accounts, and each one can manage the state of only one unique seed.
-
-:::danger:Important
-You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
-
-If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
-:::
+|The last key index that was used to create a CDA| Create a new CDA that has never been used before|
+|All active CDAs|Prevent withdrawals from CDAs that may still receive deposits|
+|Pending transfers| Monitor pending transactions and promote or reattach them if necessary|
 
 ## Create a new account
 
@@ -71,7 +70,7 @@ If you have never created an account before, you must create a new seed. Existin
     In storage, each account has a unique ID, which is created from a hash of an address with index 0 and security level 2.
     :::
 
-4. Use the `timesrc` package to create a `timesource` object that will be used to calculate CDA timeouts and timeouts during API requests to the node. In this example, the time source is a Google NTP (network time protocol) server. For better performance, we recommend setting up your own NTP server.
+4. Use the `timesrc` package to create a `timesource` object that will calculate CDA timeouts and timeouts during API requests to the node. In this example, the time source is a Google NTP (network time protocol) server. For better performance, we recommend setting up your own NTP server.
 
      ```go
     // create an accurate time source (in this case Google's NTP server).
@@ -103,11 +102,21 @@ If you have never created an account before, you must create a new seed. Existin
     
     Every 30 seconds, the `promoter-reattacher` plugin will promote or reattach pending withdrawal transactions.
     
-    If you want to have more control over the behavior of the plugins, you can use `WithPlugin()` method.
+    If you want to have more control over the behavior of the plugins, you can customize them in the `WithPlugin()` method.
     :::
 
+:::info:
+You can create multiple accounts, and each one can manage the state of only one unique seed.
+:::
+
+:::danger:Important
+You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
+
+If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
+:::
+
 :::success:Congratulations! :tada:
-You've created an account that will automatically promote and reattach transactions as well as manage the state your CDAs.
+You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
 :::
 
 ## Import existing seed state
