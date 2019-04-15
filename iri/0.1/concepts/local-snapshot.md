@@ -18,7 +18,7 @@ If an IRI node isn't synchronized, it creates snapshot files at the milestone in
 At each interval, the snapshot file is overwritten.
 :::
 
-Local snapshots create the following snapshot files:
+Local snapshots result in the following snapshot files:
 * **snapshot.meta:** [Transaction data that the IRI uses to start synchronizing its ledger with neighbor IRI nodes](../references/data-in-the-snapshot-metadata-file.md)
 * **snapshot.state:** A list of all addresses that have a balance greater than 0 at the time of the local snapshot.
 
@@ -47,13 +47,13 @@ In this scenario, the IRI node is synchronized. So, at milestone 990, 110, the n
 
 When the IRI node restarts, it can use the snapshot files as the entry point to [synchronize its ledger](../concepts/the-ledger.md#ledger-synchronization).
 
-## Pruning of old transactions
+## Transaction pruning
 
 During a local snapshot, an IRI node can prune transactions from its ledger if they were confirmed by an old milestone.
 
 An old milestone is one that has an index greater than the combined value of the [`LOCAL_SNAPSHOTS_DEPTH`](../references/iri-configuration-options.md#local-snapshots-depth) and [`LOCAL_SNAPSHOTS_PRUNING_DELAY`](../references/iri-configuration-options.md#local-snapshots-pruning-delay) configuration options.
 
-## Example scenario of pruning old transactions
+## Example scenario of transaction pruning
 
 **Configuration parameters:**
 
@@ -64,7 +64,7 @@ An old milestone is one that has an index greater than the combined value of the
 
 * 990, 100
 
-In this scenario, the sum of `LOCAL_SNAPSHOTS_PRUNING_DELAY` + `LOCAL_SNAPSHOTS_DEPTH` is 50, 100. Therefore, an IRI node will prune transactions that were confirmed by any milestone before 940, 000 (990, 100 - 50,100). As a result all transactions between milestones 940, 000 and 990, 100 will be kept in the ledger.
+In this scenario, the sum of `LOCAL_SNAPSHOTS_PRUNING_DELAY` + `LOCAL_SNAPSHOTS_DEPTH` is 50, 100. Therefore, an IRI node will prune transactions that were confirmed by any milestone with an index lower than 940, 000 (990, 100 - 50,100). As a result all transactions between milestones 940, 000 and 990, 100 will be kept in the ledger.
 
 
 
