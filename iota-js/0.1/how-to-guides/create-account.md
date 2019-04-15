@@ -27,10 +27,10 @@ The data that accounts store in a local database is called the seed state. Accou
       ```js
       import { createAccount } from '@iota/account';
 
-      const seed = 'ASFITGPSD9ASDFKRWE...';
+      const seed = 'PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
 
       // Local node to connect to;
-      const provider = 'http://<node-url>:14265';
+      const provider = 'https://nodes.devnet.iota.org:443';
 
       const account = createAccount({
             seed,
