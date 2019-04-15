@@ -19,16 +19,15 @@ The data that accounts store in a local database is called the seed state. Accou
 1. Install the libraries
 
       ```bash
-      npm install @iota/account @iota/converter
+      npm install @iota/account
       ```
 
 2. Create an `account` object with a new seed and connect to a node
    
       ```js
       import { createAccount } from '@iota/account';
-      import { trytesToTrits } from '@iota/converter';
 
-      const seed = trytesToTrits('ASFITGPSD9ASDFKRWE...');
+      const seed = 'ASFITGPSD9ASDFKRWE...';
 
       // Local node to connect to;
       const provider = 'http://<node-url>:14265';
