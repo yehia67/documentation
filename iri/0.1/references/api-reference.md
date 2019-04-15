@@ -1004,25 +1004,31 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-  "appName":"IRI Testnet",
-  "appVersion":"1.5.6-RELEASE",
-  "jreAvailableProcessors":8,
-  "jreFreeMemory":12537798504,
-  "jreVersion":"1.8.0_181",
-  "jreMaxMemory":51469877248,
-  "jreTotalMemory":51469877248,"latestMilestone":"LADAAQL9DV9MLVJKSMVVITNGOO9IEYZXURSKGXQJUUHTQEQWQXMSBMCZKCWXYKVOHJJQZUGCSQNCQC999",
-  "latestMilestoneIndex":1084938,
-  "latestSolidSubtangleMilestone":"LADAAQL9DV9MLVJKSMVVITNGOO9IEYZXURSKGXQJUUHTQEQWQXMSBMCZKCWXYKVOHJJQZUGCSQNCQC999",
-  "latestSolidSubtangleMilestoneIndex":1084938,
-  "milestoneStartIndex":434525,
-  "neighbors":7,
-  "packetsQueueSize":0,
-  "time":1548758921513,
-  "tips":1477,
-  "transactionsToRequest":0,
-  "features":["snapshotPruning","dnsRefresher","testnet","zeroMessageQueue","tipSolidification","RemotePOW"],
-  "coordinatorAddress":"EQQFCZBIHRHWPXKMTOLMYUYPCN9XLMJPYZVFJSAY9FQHCCLWTOLLUGKKMXYFDBOOYFBLBI9WUEILGECYM",
-  "duration":0
+ "appName": "IRI",
+ "appVersion": "1.7.0-RELEASE",
+ "jreAvailableProcessors": 8,
+ "jreFreeMemory": 2115085674,
+ "jreVersion": "1.8.0_191",
+ "jreMaxMemory": 20997734400,
+ "jreTotalMemory": 4860129502,
+ "latestMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
+ "latestMilestoneIndex": 1050373,
+ "latestSolidSubtangleMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
+ "latestSolidSubtangleMilestoneIndex": 1050373,
+ "milestoneStartIndex": 1050101,
+ "lastSnapshottedMilestoneIndex": 1039138,
+ "neighbors": 7,
+ "packetsQueueSize": 0,
+ "time": 1554970558971,
+ "tips": 9018,
+ "transactionsToRequest": 0,
+ "features": [
+  "snapshotPruning",
+  "dnsRefresher",
+  "tipSolidification"
+ ],
+ "coordinatorAddress": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
+ "duration": 0
 }
 ```
 ---
@@ -1036,11 +1042,11 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** | **Description** |
 |--|--|
 | `appName` | Name of the IRI network |
 | `appVersion` | Version of the IRI |
-| `jreAvailableProcessors` | Available CPU cores on the IRI node |
+| `jreAvailableProcessors` | Available CPU cores on the node |
 | `jreFreeMemory` | Amount of free memory in the Java virtual machine |
 | `jreMaxMemory` | Maximum amount of memory that the Java virtual machine can use |
 | `jreTotalMemory` | Total amount of memory in the Java virtual machine|
@@ -1048,14 +1054,15 @@ curl http://localhost:14265 \
 | `latestMilestone` | Transaction hash of the latest milestone |
 | `latestMilestoneIndex` | Index of the latest milestone |
 | `latestSolidSubtangleMilestone` | Transaction hash of the latest solid milestone |
-| `latestSolidSubtangleMilestoneIndex` | Index of the latest solid milestone. |
-| `milestoneStartIndex` | Entrypoint milestone for the current version of the IRI |
-| `neighbors` | Total number of connected neighbor IRI nodes  |
+| `latestSolidSubtangleMilestoneIndex` | Index of the latest solid milestone |
+| `milestoneStartIndex` | Start milestone for the current version of the IRI |
+|`lastSnapshottedMilestoneIndex`|Index of the last milestone that triggered a [local snapshot](../concepts/local-snapshot.md) on the node |
+| `neighbors` | Total number of connected neighbor nodes  |
 | `packetsQueueSize` | Size of the packet queue |
 | `time` | Current UNIX timestamp |
 | `tips` | Number of tips in the network |
-| `transactionsToRequest` | Total number of transactions that the IRI node is missing in its ledger|
-| `features` | Enabled commands|
+| `transactionsToRequest` | Total number of transactions that the node is missing in its ledger|
+| `features` | Enabled configuration options|
 | `coordinatorAddress` | Address of the Coordinator|
 | `duration` | Number of milliseconds it took to complete the request |
 

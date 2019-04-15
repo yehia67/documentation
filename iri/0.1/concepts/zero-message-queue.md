@@ -6,7 +6,9 @@ In the ZMQ, IRI nodes act as the publisher by adding messages to the queue when 
 
 When client applications subscribe to a ZMQ event, the IRI node notifies them when it happens, allowing you to create applications that harness real-time data in an IOTA network.
 
-**Note:** Clients can subscribe to the ZMQ only if the IRI node that they're connected to has the [`ZMQ-ENABLED` configuration parameter](../references/iri-configuration-options.md#zmq-enabled) set to `true`.
+:::info:
+Clients can subscribe to the ZMQ only if the IRI node that they're connected to has the [`ZMQ-ENABLED` configuration parameter](../references/iri-configuration-options.md#zmq-enabled) set to `true`.
+:::
 
 ## Example use cases
 
