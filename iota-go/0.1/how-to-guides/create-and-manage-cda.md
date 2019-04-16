@@ -85,7 +85,7 @@ Because CDAs are descriptive objects, you can serialize them into any format and
 
     ```go
     fmt.Println(cda.AsMagnetLink())
-    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true&expected_amount=0
+    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0
     ```
 
 2. To parse the magnet link into a CDA, use the `ParseMagnetLink()` method of the `deposit` object
@@ -101,7 +101,7 @@ A CDA may expire during the time it takes for a bundle to be created, sent, and 
 
 ### Create an oracle
 
-In this example, the `sendOracle` object will return true only if the current time is at least 30 minutes before the end of the CDA's expiration time. These 30 minutes give the bundle time to be sent and confirmed.
+In this example, the `sendOracle` object will return `true` only if the current time is at least 30 minutes before the end of the CDA's expiration time. These 30 minutes give the bundle time to be sent and confirmed.
 
 ```go
 threshold := time.Duration(30)*time.Minute
@@ -111,16 +111,20 @@ timeDecider := oracle_time.NewTimeDecider(timesource, threshold)
 sendOracle := oracle.New(timeDecider)
 ```
 
+:::info:
+To avoid conflicts with the `time` package, you must add a prefix to the `"github.com/iotaledger/iota.go/account/oracle"` import. In this example, we used the `oracle_time` prefix.
+:::
+
 ### Call an oracle
 
 1. To call an oracle, pass the CDA to the `OkToSend()` method of the `sendOracle` object
 
     ```go
     // Ask the SendOracle whether we should make a deposit
-    ok, info, err := sendOracle.OkToSend(CDA)
+    ok, info, err := sendOracle.OkToSend(cda)
     handleErr(err)
     if !ok {
-        logger.Error("won't send transaction:", info)
+        log.Fatal("won't send transaction:", info)
         return
     }
     ```
@@ -133,7 +137,7 @@ sendOracle := oracle.New(timeDecider)
     // Send the bundle that makes the deposit
     // In this case, we assume that an expected amount was set in the CDA
     // and therefore the transfer is initialized with that amount.
-    bundle, err := acc.Send(cda.AsTransfers())
+    bundle, err := account.Send(cda.AsTransfer())
     handleErr(err)
 
     fmt.Printf("Made deposit into %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[0].Hash)
