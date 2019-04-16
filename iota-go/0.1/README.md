@@ -37,7 +37,7 @@ To download the IOTA Go client library and its dependencies, we recommend that y
 
 To download the IOTA Go client library and its dependencies, do the following:
 
-1. In any directory outside of GOPATH, initiate your project. Change the <your-module-path> placeholder to your chosen path such as github.com/me/awesome-project.
+1. In any directory outside of GOPATH, initiate your project. Change the `<your-module-path>` placeholder to your chosen path such as `github.com/me/awesome-project`.
 
 
 	```bash
