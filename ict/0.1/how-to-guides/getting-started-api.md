@@ -2,13 +2,17 @@
 
 **The Ict REST API allows you to programatically configure a node, download the latest Ict Java file, update IXI modules, as well as access data from neighbors, log messages, and IXI modules.**
 
-In the following guide, you'll use Node JS to send an HTTP POST request to a node's [`getInfo`](../references/api-reference.md#getInfo) endpoint. This endpoint returns the version of the Ict software that a node is running, the default values of the configuration parameters, and, if a newer version of the Ict is available, the newer version number.
+In the following guide, you'll use Node.js to send an HTTP POST request for the following:
+
+* The version of the Ict software that a node is running
+* The default values of the configuration parameters
+* If a newer version of the Ict is available, the newer version number.
 
 ## Prerequisites
 
 To use the sample code in this guide, you must have the following:
 
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node,js (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
@@ -65,7 +69,7 @@ Just want the code? [See the final code](#final-code).
     If you've forgotten your password, [find it in the configuration file](../references/troubleshooting.md).
     :::
 
-6. Create an `options` object for the `request()` function to send a `POST` request to the `getInfo` endpoint and authenticate the request with the password. Replace `http:localhost:2187` with the URL and REST API port of your node, and replace `change_me_now` with your password.
+6. Create an `options` object to authenticate the request with your password. Replace `http:localhost:2187` with the URL and REST API port of your node, and replace `change_me_now` with your password.
 
     ```js
     var options = {
@@ -78,7 +82,7 @@ Just want the code? [See the final code](#final-code).
     };
     ```
 
-7. Call the `request()` function and pass it the `option` object
+7. Call the `request()` function and pass it the `options` object
 
     ```js
     request(options, function (error, response, data) {
@@ -146,4 +150,4 @@ if (!error && response.statusCode == 200) {
 
 ## Next steps
 
-Try using this endpoint to [update your node](../how-to-guides/update-ict-with-api.md).
+Try using this endpoint to find out the latest Ict version and [update your node](../how-to-guides/update-ict-with-api.md).
