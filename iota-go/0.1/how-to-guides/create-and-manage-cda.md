@@ -101,7 +101,7 @@ A CDA may expire during the time it takes for a bundle to be created, sent, and 
 
 ### Create an oracle
 
-In this example, the `sendOracle` object will return true only if the current time is at least 30 minutes before the end of the CDA's timeout. These 30 minutes give the bundle time to be sent and confirmed.
+In this example, the `sendOracle` object will return true only if the current time is at least 30 minutes before the end of the CDA's expiration time. These 30 minutes give the bundle time to be sent and confirmed.
 
 ```go
 threshold := time.Duration(30)*time.Minute
