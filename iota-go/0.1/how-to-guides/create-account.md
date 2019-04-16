@@ -26,7 +26,7 @@ This guide assumes that you've followed our [Getting started guide](../README.md
     ```
 
     :::info:
-    If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `WithSeed()` method in step 5.
+    If you want to use a seed from a particular location, for example a hardware wallet, create a custom `SeedProvider` object, and pass it to the `WithSeed()` method in step 5.
     :::
 
 2. Create an API object that connects to a node
