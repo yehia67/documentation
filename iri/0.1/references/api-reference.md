@@ -16,7 +16,9 @@ All the following commands must include an HTTP header.
 
 Add a list of temporary neighbors to an IRI node.
 
-**Note:** The neighbors are removed if the IRI restarts. If you want to permanently add the neighbors to your own IRI node, add their URIs to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option.
+:::info:
+The neighbors are removed if the IRI restarts. If you want to permanently add the neighbors to your own IRI node, add their URIs to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option.
+:::
 
  ### Parameters
 
@@ -930,7 +932,9 @@ curl http://localhost:14265 \
 
 ### Results
 
-**Note:** The activity is accumulative until an IRI node restarts.
+:::info:
+The activity accumulates until the IRI node restarts.
+:::
 
 |Return field| Description |
 |--|--|
@@ -1063,7 +1067,7 @@ curl http://localhost:14265 \
 | `tips` | Number of tips in the network |
 | `transactionsToRequest` | Total number of transactions that the node is missing in its ledger|
 | `features` | Enabled configuration options|
-| `coordinatorAddress` | Address of the Coordinator|
+| `coordinatorAddress` | Address (Merkle root) of the Coordinator|
 | `duration` | Number of milliseconds it took to complete the request |
 
 ## getTips
@@ -1153,7 +1157,7 @@ curl http://localhost:14265 \
 
 |Return field| Description |
 |--|--|
-| `hashes` | Array of current tip transaction hashes |
+| `hashes` | Array of tip transaction hashes |
 | `duration` | Number of milliseconds it took to complete the request |
 
 ## getTransactionsToApprove
@@ -1372,8 +1376,12 @@ You can convert the returned trytes to ASCII characters by using the client libr
 
 |Return field | Description |
 |--|--|
-| `trytes` | The raw transaction data (trytes) of the specified transactions |
+| `trytes` | Array of transaction trytes for the given transaction hashes (in the same order as the parameters) |
 | `duration` | Number of milliseconds it took to complete the request |
+
+:::info:
+If a node doesn't have the trytes for a given transaction hash in its ledger, the value at the index of that transaction hash is either `null` or a string of 9s.
+:::
 
 ## interruptAttachingToTangle
 
@@ -1464,7 +1472,9 @@ curl http://localhost:14265 \
 
 Temporarily removes a list of neighbors from an IRI node.
 
-**Note:** The neighbors are added again if the IRI restarts. If you want to permanently remove the neighbors from your own IRI node, remove their URIs from the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option. 
+:::info:
+The neighbors are added again if the IRI restarts. If you want to permanently remove the neighbors from your own IRI node, remove their URIs from the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option. 
+:::
 
 ### Parameters
 
