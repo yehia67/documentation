@@ -27,9 +27,9 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
     ```java
     IotaAPI api = new IotaAPI.Builder()
                     
-                    .host("nodes.devnet.iota.org")
+                    .host(network)
                     
-                    .port(443)
+                    .port(port)
                     
                     .protocol("https")
                     
@@ -40,7 +40,7 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
 2. Create a variable to hold a seed
 
     ```java
-    String mySeed = "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
+    String mySeed = "ASFITGPSD9ASDFKRWE...";
     ```
 
     :::info:

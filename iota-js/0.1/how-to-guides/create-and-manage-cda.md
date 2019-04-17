@@ -43,7 +43,7 @@ If a CDA was created with only the `timeoutAt` field, it can be used in withdraw
 To avoid address reuse, we recommend creating CDAs with either the `multiUse` field or with the `expectedAmount` field whenever possible.
 :::
 
-## Create a new CDA
+## Create a CDA
 
 1. Pass the CDA fields to the `generateCDA()` method
 

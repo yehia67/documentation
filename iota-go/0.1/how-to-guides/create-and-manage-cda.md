@@ -8,15 +8,7 @@ Accounts use CDAs to avoid address reuse. When you request IOTA tokens from a so
 CDAs can be used only in an account and not in the generic [client library methods](root://client-libraries/0.1/introduction/overview.md). As a result, both you and the sender must have an account to be able to use CDAs.
 :::
 
-## State of a CDA
-
-CDAs can be in either an active or expired state. The state of a CDA determines whether you can withdraw from it or deposit into it:
-
-**Active CDA:** You can deposit IOTA tokens into an active address. You can't withdraw tokens from an active address.
-
-**Expired CDA:** You can withdraw tokens from an expired address. You can't deposit tokens into an expired address.
-
-## Conditions of a CDA
+## Create a CDA
 
 To create a CDA, specify the following condition, which defines whether it's active or expired:
 
@@ -34,8 +26,8 @@ The combination of both `expected_amount` and `multi_use` in the same CDA is not
 |  **Combination of fields** | **Withdrawal conditions**
 | :----------| :----------|
 |`timeout_at` |The CDA can used in withdrawals as long as it contains IOTA tokens|
-|`timeout_at` and `multi_use` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it. See the [CDA FAQ](../references/cda-faq.md) on when to use addressess with the `multi_use` field set. |
-|`timeout_at` and `expected_amount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount. See the [CDA FAQ](../references/cda-faq.md) on when to use addressess with the `multi_use` field set.|
+|`timeout_at` and `multi_use` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it. See the [CDA FAQ](../references/cda-faq.md) on when to use addresses with the `multi_use` field set. |
+|`timeout_at` and `expected_amount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount. See the [CDA FAQ](../references/cda-faq.md) on when to use addresses with the `multi_use` field set.|
 
 :::warning:Warning
 If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. 
@@ -43,18 +35,10 @@ If a CDA was created with only the `timeout_at` field, it can be used in withdra
 To avoid address reuse, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible.
 :::
 
-## Prerequisites
-
-You must have an account to complete this guide. if you don't have one, [create a new account](../how-to-guides/create-account.md).
-
-## Create a new CDA
-
-This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [vgo modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
-
 1. Store the current time from your account's timesource object
 
     ```go
-    // get the current time
+    // get current time
     now, err := timesource.Time()
     handleErr(err)
     ```
@@ -70,10 +54,9 @@ This guide assumes that you've followed our [Getting started guide](../README.md
 3. Create a new multi-use CDA with an expiration time
 
     ```go
-    // allocate a new deposit address with conditions
-    conditions := &deposit.Conditions{TimeoutAt: &now, MultiUse: true}
-
-    cda, err := account.AllocateDepositAddress(conditions)
+    // allocate a new deposit address with timeout conditions.
+    conditions := &deposit.Request{TimeoutAt: &now, MultiUse: true}
+    cda, err := acc.AllocateDepositRequest(conditions)
     handleErr(err)
     ```
 
@@ -133,8 +116,8 @@ sendOracle := oracle.New(timeDecider)
     // Send the bundle that makes the deposit
     // In this case, we assume that an expected amount was set in the CDA
     // and therefore the transfer is initialized with that amount.
-    bundle, err := acc.Send(cda.AsTransfers())
+    bndl, err = acc.Send(cda.AsTransfers())
     handleErr(err)
 
-    fmt.Printf("Made deposit into %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[0].Hash)
+    fmt.Printf("Made deposit into %s in the bundle with the following tail transaction hash %s\n", cda.Address, bndl[0].Hash)
     ```
