@@ -43,6 +43,14 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
     String mySeed = "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
     ```
 
+    :::danger:Important
+    If you have never created an account before you must create a new seed because existing seed states are unknown.
+    :::
+
+    :::danger:Important
+    You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
+    :::
+
     :::info:
     If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `Builder()` constructor in step 4.
     :::
@@ -54,7 +62,9 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
     ```
 
     :::info:
-    You can use the same storage object for multiple accounts at the same time. In storage, each account has a unique ID, which is a hash of an address with index 0 and security level 2.
+    In storage, each account has a unique ID, which is a hash of an address with index 0 and security level 2.
+
+    As a result, you can use the same storage object for multiple accounts at the same time.
     :::
 
 4. Create the account using your custom settings
@@ -66,16 +76,6 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
                     .api(api)
                     .build();
     ```
-
-:::info:
-You can create multiple accounts, and each one can manage the state of only one unique seed.
-:::
-
-:::danger:Important
-You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
-
-If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
-:::
 
 :::success:Congratulations! :tada:
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
@@ -112,3 +112,7 @@ You've created an account that will automatically promote and reattach transacti
 ## Import existing seed state
 
 To import an existing seed state into an account, pass the storage object to the `store()` method. The seed state must be in the correct format.
+
+## Next steps
+
+[Create a CDA so that you can send and receive transactions](../how-to-guides/create-and-manage-cda.md).

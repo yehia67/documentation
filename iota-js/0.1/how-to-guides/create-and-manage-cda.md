@@ -28,14 +28,14 @@ And one of the following, recommended fields:
 * **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to contain. When the address contains this amount, it's considered expired. We highly recommend using this condition.
 
 :::info:
-The combination of both `expectedAmount` and `multiUse` in the same CDA is not supported. Both fields are designed for different scenarios. See the [FAQ](../references/cda-faq.md) for more information.
+You can't specify the `expected_amount` and `multi_use` fields in the same CDA. Please refer to the [FAQ](../references/cda-faq.md) for more information.
 :::
 
 |  **Combination of fields** | **Withdrawal conditions**
 | :----------| :----------|
 |`timeoutAt` |The CDA can used in withdrawals as long as it contains IOTA tokens|
-|`timeoutAt` and `multiUse` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it. See the [CDA FAQ](../references/cda-faq.md) on when to use addressess with the `multiUse` field set. |
-|`timeoutAt` and `expectedAmount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount. See the [CDA FAQ](../references/cda-faq.md) on when to use addressess with the `multi_use` field set.|
+|`timeoutAt` and `multiUse` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it. See the [CDA FAQ](../references/cda-faq.md) on when to use addresses with the `multiUse` field set. |
+|`timeoutAt` and `expectedAmount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount. See the [CDA FAQ](../references/cda-faq.md) on when to use addresses with the `multi_use` field set.|
 
 :::warning:Warning
 If a CDA was created with only the `timeoutAt` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. 
@@ -67,31 +67,9 @@ To avoid address reuse, we recommend creating CDAs with either the `multiUse` fi
 If you created an account with a `timeSource()` method, you can call that method in the `timeoutAt` field.
 :::
 
-## Distribute a CDA
-
-The `generateCDA()` method returns a CDA object with the following fields. You can serialize a CDA into any format before distributing it to senders:
-
-```js
-{
-   address, // The last 9 trytes are the checksum
-   timeoutAt,
-   multiUse,
-   expectedAmount
-}
-```
-
-1. To serialize a CDA into a magnet link, use the `serializeCDAMagnet()` method in the `@iota/cda` module
-
-    ```js
-    const CDA = require('@iota/cda');
-    
-    const magnetLink = CDA.serializeCDAMagnet(cda);
-    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1
-    ```
-
 ## Deposit IOTA tokens into a CDA
 
-1. After making sure that the CDA is still active, use the `sendToCDA()` method to deposit IOTA tokens into it
+1. After making sure that the CDA is still active, use the `account.sendToCDA()` method to deposit IOTA tokens into it
 
     ```js   
     account.sendToCDA({
@@ -111,7 +89,7 @@ The `generateCDA()` method returns a CDA object with the following fields. You c
     // Start attaching transactions to the Tangle
     account.startAttaching({
         depth: 3,
-        minWeightMagnitude(14),
+        minWeightMagnitude(9),
         delay: 30 * 1000 // 30 second delay
     });
     
@@ -119,7 +97,7 @@ The `generateCDA()` method returns a CDA object with the following fields. You c
     account.stopAttaching();
     ```
 
-2. **Optional:** To use a magnet link, use `parseCDAMagnet()` and pass the results to the`sendToCDA()` method
+2. **Optional:** To use a CDA as a magnet link, pass it to the `parseCDAMagnet()` method, then and pass the result to the`sendToCDA()` method
 
     ```js
      const magnetLink = 'iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0'
@@ -144,10 +122,32 @@ The `generateCDA()` method returns a CDA object with the following fields. You c
     // Start attaching transactions to the Tangle
     account.startAttaching({
         depth: 3,
-        minWeightMagnitude(14),
+        minWeightMagnitude(9),
         delay: 30 * 1000 // 30 second delay
     });
     
     // Or stop attaching
     account.stopAttaching();
+    ```
+
+## Distribute a CDA
+
+The `generateCDA()` method returns a CDA object with the following fields. You can serialize a CDA into any format before distributing it to senders:
+
+```js
+{
+   address, // The last 9 trytes are the checksum
+   timeoutAt,
+   multiUse,
+   expectedAmount
+}
+```
+
+1. To serialize a CDA into a magnet link, use the `serializeCDAMagnet()` method in the `@iota/cda` module
+
+    ```js
+    const CDA = require('@iota/cda');
+    
+    const magnetLink = CDA.serializeCDAMagnet(cda);
+    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1
     ```
