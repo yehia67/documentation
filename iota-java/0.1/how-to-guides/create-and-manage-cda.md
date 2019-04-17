@@ -43,7 +43,7 @@ If a CDA was created with only the `timeout_at` field, it can be used in withdra
 To avoid address reuse, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible.
 :::
 
-## Create a new CDA
+## Create a CDA
 
 1. Define an expiration time for the CDA
   

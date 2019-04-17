@@ -8,15 +8,7 @@ Accounts use CDAs to avoid address reuse. When you request IOTA tokens from a so
 CDAs can be used only in an account and not in the generic [client library methods](root://client-libraries/0.1/introduction/overview.md). As a result, both you and the sender must have an account to be able to use CDAs.
 :::
 
-## State of a CDA
-
-CDAs can be in either an active or expired state. The state of a CDA determines whether you can withdraw from it or deposit into it:
-
-**Active CDA:** You can deposit IOTA tokens into an active address. You can't withdraw tokens from an active address.
-
-**Expired CDA:** You can withdraw tokens from an expired address. You can't deposit tokens into an expired address.
-
-## Conditions of a CDA
+## Create a CDA
 
 To create a CDA, specify the following condition, which defines whether it's active or expired:
 
@@ -52,7 +44,7 @@ To avoid address reuse, we recommend creating CDAs with either the `multi_use` f
 1. Store the current time from your account's timesource object
 
     ```go
-    // get the current time
+    // get current time
     now, err := timesource.Time()
     handleErr(err)
     ```
@@ -68,10 +60,9 @@ To avoid address reuse, we recommend creating CDAs with either the `multi_use` f
 3. Create a new multi-use CDA with an expiration time
 
     ```go
-    // allocate a new deposit address with conditions
-    conditions := &deposit.Conditions{TimeoutAt: &now, MultiUse: true}
-
-    cda, err := account.AllocateDepositAddress(conditions)
+    // allocate a new deposit address with timeout conditions.
+    conditions := &deposit.Request{TimeoutAt: &now, MultiUse: true}
+    cda, err := acc.AllocateDepositRequest(conditions)
     handleErr(err)
     ```
 

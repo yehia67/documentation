@@ -16,7 +16,14 @@ The data that accounts store in a local database is called the seed state. Accou
 
 ## Prerequisites
 
-This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [vgo modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
+1. Create an API object that connects to a node
+   
+    ```go
+    // API object that connects to a node
+    apiSettings := api.HTTPClientSettings{URI: "https://<node-url>:14265"}
+    iotaAPI, err := api.ComposeAPI(apiSettings)
+    handleErr(err)
+    ```
 
 ## Create a new account
 
@@ -25,8 +32,7 @@ This guide assumes that you've followed our [Getting started guide](../README.md
 2. Create two variables: One for your seed and another for the node that the account connects to
 
     ```go
-    var node = "https://nodes.devnet.iota.org:443"
-    var seed = "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX"
+    seed := "ASFITGPSD9ASDFKRWE..."
     ```
 
     :::danger:Important
@@ -53,7 +59,7 @@ This guide assumes that you've followed our [Getting started guide](../README.md
 4. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a BadgerDB database. Change `db` to the path that you want the database diretory to be saved.
 
     ```go
-    store, err := badger.NewBadgerStore("db")
+    store, err = badger.NewBadgerStore("<data-dir>")
     handleErr(err)
     ```
 

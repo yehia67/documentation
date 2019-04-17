@@ -39,10 +39,11 @@ To download the IOTA Go client library and its dependencies, do the following:
 
 1. In any directory outside of GOPATH, initiate your project. Change the `<your-module-path>` placeholder to your chosen path such as `github.com/me/awesome-project`.
 
-
 	```bash
 	go mod init <your-module-path>
 	```
+
+**Note:** Change the <your-module-path> placeholder to your chosen path such as github.com/me/awesome-project.
 
 2. Download the library
 
@@ -279,7 +280,8 @@ you can [read the documentation](https://onsi.github.io/ginkgo/).
 
 ### Write documentation and example code
 
-While godoc.org gives a good enough documentation of the package already, the IOTA Foundation's documentation portal needs additional information, such as parameter description, examples and so on.
+While godoc.org gives a good enough documentation of the package already, the IOTA Foundation's
+documentation portal needs additional information, such as parameter description, examples and so on.
 
 1. If non existent, add a `.examples` directory in your newly created package
 
