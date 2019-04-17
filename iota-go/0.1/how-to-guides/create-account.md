@@ -16,29 +16,32 @@ The data that accounts store in a local database is called the seed state. Accou
 
 ## Create a new account
 
-1. Create an API object that connects to a node
-   
-    ```go
-    // API object that connects to a node
-    apiSettings := api.HTTPClientSettings{URI: "https://<node-url>:14265"}
-    iotaAPI, err := api.ComposeAPI(apiSettings)
-    handleErr(err)
-    ```
+This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [vgo modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
 
-2. Create a variable to hold a seed
+1. Create two variables: One for your seed and another for the node that the account connects to
 
     ```go
-    seed := "ASFITGPSD9ASDFKRWE..."
+    var node = "https://nodes.devnet.iota.org:443"
+    var seed = "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX"
     ```
 
     :::info:
     If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `WithSeed()` method in step 5.
     :::
 
-3. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a BadgerDB database.
+2. Create an API object that connects to a node
+   
+    ```go
+    // API object that connects to a node
+    apiSettings := api.HTTPClientSettings{URI: node}
+    iotaAPI, err := api.ComposeAPI(apiSettings)
+    handleErr(err)
+    ```
+
+3. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a BadgerDB database. Change `db` to the path that you want the database diretory to be saved.
 
     ```go
-    store, err = badger.NewBadgerStore("<data-dir>")
+    store, err := badger.NewBadgerStore("db")
     handleErr(err)
     ```
 
@@ -48,7 +51,7 @@ The data that accounts store in a local database is called the seed state. Accou
     In storage, each account has a unique ID, which is a hash of an address with index 0 and security level 2.
     :::
 
-4. Use the `timesrc` package to create a `timesource` object that will calculate CDA timeouts and timeouts during API requests to the node. In this example, the time source is a Google NTP (network time protocol) server. For better performance, we recommend setting up your own NTP server.
+4. Use the [`timesrc` package](https://github.com/iotaledger/iota.go/tree/master/account/timesrc) to create a `timesource` object that will calculate CDA timeouts and timeouts during API requests to the node. In this example, the time source is a Google NTP (network time protocol) server. For better performance, we recommend setting up your own NTP server.
 
      ```go
     // create an accurate time source (in this case Google's NTP server).
@@ -58,21 +61,26 @@ The data that accounts store in a local database is called the seed state. Accou
 5. Create the account using both your custom settings and the `WithDefaultPlugins()` method. This method adds the default `transfer poller` and `promoter-reattacher` plugins to the account.
 
     ```go
-    acc, err = builder.NewBuilder()
+    account, err = builder.NewBuilder().
         // the underyling iota API to use.
         WithAPI(iotaAPI).
         // the underlying store to use.
-        WithStore(badgerStore).
+        WithStore(store).
         // the seed of the account.
         WithSeed(seed).
+        // the minimum weight magnitude for the Devnet
+        WithMWM(9).
         // the time source to use during input selection.
         WithTimeSource(timesource).
         // plugins which enhance the functionality of the account.
         WithDefaultPlugins().
         Build()
     handleErr(err)
-    // make sure to call Start() so the account can initialize itself.
-    handleErr(acc.Start())
+
+6. Start the account and the plugins
+
+    ```go
+    handleErr(account.Start())
     ```
 
     :::info:
@@ -82,6 +90,17 @@ The data that accounts store in a local database is called the seed state. Accou
     
     If you want to have more control over the behavior of the plugins, you can customize them in the `WithPlugin()` method.
     :::
+
+7. Close the database and shut down the account along with all plugins, which run in their own goroutine threads.
+
+    ```go
+    // close the database
+	store.Close()
+	// shut down all the plugins
+	// the promoter and transfer poller run in their own goroutine
+	// so you need to shut them down
+    account.Shutdown()
+    ```
 
 :::info:
 You can create multiple accounts, and each one can manage the state of only one unique seed.
