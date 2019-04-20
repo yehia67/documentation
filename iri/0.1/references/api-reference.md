@@ -1478,11 +1478,11 @@ The neighbors are added again if the IRI restarts. If you want to permanently re
 
 ### Parameters
 
-The URI (unique resource identification) format for adding neighbors is `"udp://IPADDRESS:PORT"`.
+The URI (unique resource identification) format for removing neighbors is `"udp://IPADDRESS:PORT"`.
 
 |Parameter | Required or Optional|Description | Type|
 |--|--|--|--|
-| `uris` | Required|Strings of neighbor URIs to add | array of strings|
+| `uris` | Required|Strings of neighbor URIs to remove | array of strings|
 
 ### Examples
 --------------------
