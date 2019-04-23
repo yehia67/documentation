@@ -8,7 +8,7 @@ If Trinity can't connect to an IRI node, it may have an outdated view of transac
 
 If you think you're balance is wrong (and a [global snapshot](../how-to-guides/perform-a-snapshot-transition.md) hasn't occurred), you can manually synchronize it by going to **Settings** > **Account** > **Account management** > **Tools** > **Sync account**.
 
-![Manual update](../sync.jpg) 
+![Manual update](../images/sync.jpg) 
 
 ## Pending transaction
 
@@ -32,4 +32,6 @@ Please get in touch with us on the #help channel in the official IOTA Discord fo
 
 Don’t worry, nobody can access your seed or balance without your password. You can access your funds by installing Trinity on another device and entering your seed backup during the setup.
 
-**Note:** For extra protection in the case of a lost device, please create a new seed and transfer your funds to an address from that seed.
+:::info:
+For extra protection in the case of a lost device, please create a new seed and transfer your funds to an address from that seed.
+:::

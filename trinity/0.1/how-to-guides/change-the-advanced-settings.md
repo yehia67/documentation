@@ -14,4 +14,6 @@ To make sure that transactions are confirmed, it may be necessary to auto-promot
 
 To stop Trinity from auto-promoting transactions, change this setting to **Disabled**.
 
-**Note:** Trinity does not auto-promote transactions if it's minimized (not open).
+:::warning:
+Trinity does not auto-promote transactions if it's minimized (not open).
+:::

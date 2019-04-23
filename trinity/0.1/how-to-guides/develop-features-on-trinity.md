@@ -2,39 +2,44 @@
 
 **As well as an application, Trinity is an open-source platform on which you can develop new features.**
 
-Trinity desktop is written in React and built on Electron, whereas Trinity mobile is written in React Native.
-
-Developers are encouraged to contribute to the [GitHub issues](https://github.com/iotaledger/trinity-wallet/issues).
-
 To get started with Trinity development, do the following:
 
 1. Install the shared dependencies
 2. Install the desktop development environment or the mobile development environment
 3. Contribute to the code
-4. Submit a pull request
+4. Submit a pull 
+
+Trinity desktop is written in React and built on Electron, whereas Trinity mobile is written in React Native.
+
+Developers are encouraged to contribute to the [GitHub issues](https://github.com/iotaledger/trinity-wallet/issues).
 
 ## Prerequisites
 
-To develop Trinity, your computer must have the following:
+To develop on Trinity, your computer must have the following:
 * [Node.js (8+)](https://nodejs.org/en/)
 * [Yarn](https://yarnpkg.com/lang/en/docs/install/)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-**Note:** Restart your computer after installing these programs.
+:::info:
+Restart your computer after installing these programs.
+:::
 
 ## Install the shared dependencies
 
 1. Clone the Trinity repository
+
     ```bash
     git clone https://github.com/iotaledger/trinity-wallet.git
     ```
 
 2. Change into the `trinity-wallet` directory
+
     ```bash
     cd trinity-wallet
     ```
 
 3. Install the shared dependencies
+
     ```bash
     yarn deps:shared
     ```
@@ -44,16 +49,19 @@ Now, you can install either the desktop or the mobile development environment.
 ## Install the desktop development environment
 
 1. Install Electron
+
     ```bash
     npm install electron -g
     ```
 
-2. 
-    * If you're using the Windows operating system, install the Windows build tools to compile the native modules
+2. If you're using the Windows operating system, install the Windows build tools to compile the native modules
+
         ```bash
         npm install --global windows-build-tools
         ```
-    * If you're using the Linux operating system, install the following packages to compile the native modules
+
+3. If you're using the Linux operating system, install the following packages to compile the native modules
+
         ```bash
         sudo apt install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev
         sudo apt install gcc-4.8 g++-4.8 && export CXX=g++-4.8
@@ -67,24 +75,29 @@ Now, you can install either the desktop or the mobile development environment.
     ```
 
 4. Change into the `desktop` directory
+
     ```bash  
     cd src/desktop
     ```
 
 5. Build Trinity desktop
+
     ```bash
     npm run build
     ```
 
-6. 
-    * If you want an executable file, compile Trinity
+6. If you want an executable file, compile Trinity
 
         ```bash
         npm run compile:mac
         ```
 
-        **Note:** Change `mac` to your operating system: mac, win, or linux.
-    * Or, run Trinity in development mode
+        :::info:
+        Change `mac` to your operating system: mac, win, or linux.
+        :::
+
+7. If you want to run Trinity in development mode, start the app
+
         ```bash
         npm start
         ```
@@ -92,7 +105,11 @@ Now, you can install either the desktop or the mobile development environment.
 ## Install the mobile development environment
 
 1. [Install the React Native dependencies](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-2)
-    **Note:** If you are targeting iOS and are using Xcode 10+, enable the legacy build system.
+
+    :::info:
+    If you are targeting iOS and are using Xcode 10+, enable the legacy build system.
+    :::
+
 2. If you are targeting the iOS operating system, [install CocoaPods](https://cocoapods.org/#install).
 
 3. Install the mobile dependencies
@@ -105,8 +122,8 @@ Now, you can install either the desktop or the mobile development environment.
     cd src/mobile
     ```
 
-5. 
-    * If you are targeting the iOS operating system, do the following:
+5. If you are targeting the iOS operating system, do the following:
+
         1. Install the additional dependencies with CocoaPods
             ```bash
             cd ios && pod install && cd ..
@@ -122,7 +139,8 @@ Now, you can install either the desktop or the mobile development environment.
             yarn log:ios
             ```
 
-    * If you are targeting the Android operating system, do the following:
+6. If you are targeting the Android operating system, do the following:
+
         1. Run the application
             ```bash
             yarn android:dev
@@ -135,12 +153,15 @@ Now, you can install either the desktop or the mobile development environment.
 
 ## Contribute to the code
 
-Create a new Git branch from the `develop` branch
+1. Create a new Git branch from the `develop` branch
+
     ```bash
     git checkout -b feature/my-awesome-new-feature
     ```
 
-**Note:** Use a prefix to name your branches (for example, `feature/my-awesome-new-feature` or `bugfix/something-not-working`).
+:::info:
+Use a prefix to name your branches (for example, `feature/my-awesome-new-feature` or `bugfix/something-not-working`).
+:::
 
 Make all your changes to this branch.
 
@@ -157,8 +178,6 @@ A theme consists of a color scheme used by the UI of the mobile and desktop wall
 4. Go to `src/shared/locales/en/translation.json`, and add the name of your theme to the `themes` object. If you miss this step, the name of your theme will not be correct in Trinity.
 
 ### Localize new strings
-
-The IOTA community is very large and diverse. Therefore, it's important that users can use Trinity in their native language. The i18next and react-i18next libraries are used to make localization easier.
 
 If you are making a contribution that includes adding or changing text, follow these localization instructions.
 
@@ -182,7 +201,7 @@ If you are making a contribution that includes adding or changing text, follow t
     export translate(‘myContainer’)(MyContainer);
     ```
 
-5. Add the transaction for your keys to the translation.json file in the `src/shared/locales/en/` directory
+5. Add the translations for your keys to the translation.json file in the `src/shared/locales/en/` directory
     ```json
     "myContainer":{
         "helloWorld": "Hello world!"

@@ -9,7 +9,7 @@ To access security settings on a mobile device, go to **Settings** > **Security 
 
 To access security settings on a desktop, go to **Settings** > **Two-factor authentication**.
 
-![Security settings](../2fa.jpg)
+![Security settings](../images/2fa.jpg)
 
 ## Set up two-factor authentication
 
