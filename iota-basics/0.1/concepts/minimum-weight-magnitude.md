@@ -8,7 +8,7 @@ If a transaction ends in fewer 0 trits, the nodes in that network will reject it
 
 For example, on the Mainnet, the MWM is 14. So, all transaction hashes must end in that number of 0 trits.
 
-If you were to send a transaction whose hash ends in 9 (the MWM on the Devnet) 0 trits, no nodes on the Mainnet would accept it.  
+If you were to send a transaction whose hash ends in 9 (the MWM on the Devnet) or 7 (the MWM on the Spamnet) 0 trits, no nodes on the Mainnet would accept it.
 
 :::info:
 Every increment of the MWM triples the difficulty of the PoW.
