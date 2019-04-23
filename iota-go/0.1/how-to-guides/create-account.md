@@ -128,7 +128,7 @@ The data that accounts store in a local database is called the seed state. Accou
     If you want to have more control over the behavior of the plugins, you can customize them in the `WithPlugin()` method.
     :::
 
-8. Check that you're connected to a [synchronized node](root:iri/0.1/how-to-guides/run-an-iri-node-on-linux#check-that-the-iri-is-synchronized)
+8. Check that you're connected to a [synchronized node](root://iri/0.1/how-to-guides/run-an-iri-node-on-linux.md#check-that-the-iri-is-synchronized)
 
     ```go
     nodeInfo, err := iotaAPI.GetNodeInfo()

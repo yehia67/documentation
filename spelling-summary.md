@@ -90,20 +90,14 @@ Golang                         => Golan, Gobang, Gollan, Ogling, Gosling, Golam,
 
 RocksDB                        => Rocks DB, Rocked, Rocks, Rockside
 entrypoint                     => entry point
-entrypoint                     => entry point
 getNodeInfo
 
 ## [iri/0.1/concepts/local-snapshot.md](iri/0.1/concepts/local-snapshot.md)
 
-entrypoint                     => entry point
-entrypoint                     => entry point
 snapshot.meta
 snapshot.state                 => snapshot. State
-entrypoint                     => entry point
 snapshot.meta
-entrypoints                    => entry points
 snapshot.state                 => snapshot. State
-entrypoint                     => entry point
 
 ## [iri/0.1/how-to-guides/run-an-iri-node-on-linux.md](iri/0.1/how-to-guides/run-an-iri-node-on-linux.md)
 
@@ -114,18 +108,18 @@ autopeering                    => auto peering
 getNodeInfo
 getNodeInfo
 
+## [iri/0.1/how-to-guides/run-an-iri-node-in-docker.md](iri/0.1/how-to-guides/run-an-iri-node-in-docker.md)
+
+sudo                           => sudor, suds, soda, udo, judo, side, sudoku, sundog, suede
+getNodeInfo
+getNodeInfo
+
 ## [iri/0.1/how-to-guides/set-up-a-reverse-proxy.md](iri/0.1/how-to-guides/set-up-a-reverse-proxy.md)
 
 getNodeInfo
 getNodeInfo
 ipaddress                      => iPad dress, padres
 proxy_pass                     => proxy pass
-
-## [iri/0.1/how-to-guides/run-an-iri-node-in-docker.md](iri/0.1/how-to-guides/run-an-iri-node-in-docker.md)
-
-sudo                           => sudor, suds, soda, udo, judo, side, sudoku, sundog, suede
-getNodeInfo
-getNodeInfo
 
 ## [iri/0.1/how-to-guides/interact-with-an-iri-node.md](iri/0.1/how-to-guides/interact-with-an-iri-node.md)
 
@@ -203,7 +197,6 @@ jreFreeMemory
 jreMaxMemory
 jreTotalMemory
 jreVersion                     => reversion
-Entrypoint                     => Entry point
 packetsQueueSize
 coordinatorAddress             => coordinator Address
 removeNeighbors                => remove Neighbors
@@ -839,9 +832,15 @@ parameter_name                 => parameter name
 
 ## [iota-go/0.1/how-to-guides/create-account.md](iota-go/0.1/how-to-guides/create-account.md)
 
-unneccesary                    => unnecessary
+myAccount.go
 BadgerDB                       => Badger DB, Badged, Badger
+db                             => db., dB, dBs, dab, dub, dib, dbs., do, ds
+diretory                       => directory
+store.Close                    => store. Close
 poller                         => puller, pollera, polled, pooler, polar, pollen, paler, pollex, polder, pole
+AddrGen+PrepareTransfers
+EventMachine                   => Event Machine
+account.Shutdown               => account. Shutdown
 poller                         => puller, pollera, polled, pooler, polar, pollen, paler, pollex, polder, pole
 WithStore                      => With Store
 
@@ -852,13 +851,26 @@ expected_amount                => expected amount
 expected_amount                => expected amount
 expected_amount                => expected amount
 expected_amount                => expected amount
+OkToSend                       => Octogen
+sendOracle                     => send Oracle
+account.Send                   => account. Send
 expected_amount                => expected amount
 magent                         => magnet, magenta, agent, magneto, magnets, maxent
 AsMagnetLink
 ParseMagnetLink
-sendOracle                     => send Oracle
-OkToSend                       => Octogen
-sendOracle                     => send Oracle
+
+## [iota-go/0.1/how-to-guides/listen-to-events.md](iota-go/0.1/how-to-guides/listen-to-events.md)
+
+EventMachine                   => Event Machine
+vgo                            => go, vigor, ego, vow, ago, Vigo, goo, viol
+EventMachine                   => Event Machine
+CallbackEventListener
+
+## [iota-go/0.1/how-to-guides/create-plugin.md](iota-go/0.1/how-to-guides/create-plugin.md)
+
+eventLogger.go
+EventMachine                   => Event Machine
+myAccount.go
 
 ## [iota-go/0.1/references/cda-faq.md](iota-go/0.1/references/cda-faq.md)
 
@@ -885,7 +897,6 @@ src                            => sac, sic, scry, arc, orc, sir, sirs, sect, ser
 
 ## [iota-java/0.1/how-to-guides/create-account.md](iota-java/0.1/how-to-guides/create-account.md)
 
-unneccesary                    => unnecessary
 HttpConnector                  => HTTP Connector
 
 ## [iota-java/0.1/how-to-guides/create-and-manage-cda.md](iota-java/0.1/how-to-guides/create-and-manage-cda.md)
@@ -893,10 +904,10 @@ HttpConnector                  => HTTP Connector
 boolean                        => Boolean
 expected_amount                => expected amount
 expected_amount                => expected amount
-addressess                     => addresses
 expected_amount                => expected amount
-addressess                     => addresses
 expected_amount                => expected amount
+account.send                   => account. Send
+account.send                   => account. Send
 expected_amount                => expected amount
 
 ## [iota-java/0.1/references/cda-faq.md](iota-java/0.1/references/cda-faq.md)
@@ -939,7 +950,6 @@ npm                            => nap, name, numb, p.m., naps, mph, nape, mom, n
 
 ## [iota-js/0.1/how-to-guides/create-account.md](iota-js/0.1/how-to-guides/create-account.md)
 
-unneccesary                    => unnecessary
 persistenceAdapter             => persistence Adapter
 persistencePath                => persistence Path
 leveldown                      => level down
@@ -949,18 +959,16 @@ LevelDB                        => Level DB, Level, Leveed
 
 boolean                        => Boolean
 expectedAmount                 => expected Amount
+expected_amount                => expected amount
 expectedAmount                 => expected Amount
-addressess                     => addresses
-expectedAmount                 => expected Amount
-addressess                     => addresses
 expectedAmount                 => expected Amount
 generateCDA                    => generated
+account.sendToCDA
+parseCDAMagnet
+thesendToCDA
 generateCDA                    => generated
 serializeCDAMagnet
 cda                            => cad, coda, cads
-sendToCDA
-parseCDAMagnet
-thesendToCDA
 
 ## [iota-js/0.1/references/cda-faq.md](iota-js/0.1/references/cda-faq.md)
 
@@ -986,20 +994,24 @@ PuTTy                          => Putty, Puttee, Puttie, Putt
 
 Rasperry                       => Raspberry
 Armbian                        => Arabian, Armband, Ambien, Rambin, Arabians
-Wifi                           => WIFI, Wife, Wi-Fi, Wii, Waif
-Wifi                           => WIFI, Wife, Wi-Fi, Wii, Waif
-Wifi                           => WIFI, Wife, Wi-Fi, Wii, Waif
-mySSID                         => mysid
-myPassword                     => my Password
+WiFi                           => WIFI, Wi-Fi, Wii, Wife
+WiFi                           => WIFI, Wi-Fi, Wii, Wife
+WiFi                           => WIFI, Wi-Fi, Wii, Wife
+ifconfig                       => ipconfig
 wl                             => awl, owl, wall, well, will, we
+WiFi                           => WIFI, Wi-Fi, Wii, Wife
+WiFi                           => WIFI, Wi-Fi, Wii, Wife
+WiFi                           => WIFI, Wi-Fi, Wii, Wife
 PlatformIO                     => Platform, Platformer, Platformed
 PlatformIO                     => Platform, Platformer, Platformed
 PlatformIO                     => Platform, Platformer, Platformed
 ttyUSBX
-mySSID                         => mysid
-myPassword                     => my Password
 WiFi                           => WIFI, Wi-Fi, Wii, Wife
+WiFi                           => WIFI, Wi-Fi, Wii, Wife
+WiFi                           => WIFI, Wi-Fi, Wii, Wife
+ifconfig                       => ipconfig
 wl                             => awl, owl, wall, well, will, we
+WiFi                           => WIFI, Wi-Fi, Wii, Wife
 nmap                           => nap, neap, map, knap, nape, naps, name
 nmap                           => nap, neap, map, knap, nape, naps, name
 nmap                           => nap, neap, map, knap, nape, naps, name
