@@ -278,7 +278,7 @@ After you've created the Merkle tree and you're running an IRI node, you can run
 	:::info:
 	Compass enters an indefinite `while` loop and starts sending milestones.
 
-	When the `--bootstrap` flag is passed during setup, Compass creates a chain of four milestones that sequentially reference the previous milestone.
+	When the `-bootstrap` flag is passed during setup, Compass creates a chain of four milestones that sequentially reference the previous milestone.
 
 	Then, Compass sends milestones by doing the following:
 	* Ask the IRI node for tip transactions ([tip selection](root://the-tangle/0.1/concepts/tip-selection.md))
