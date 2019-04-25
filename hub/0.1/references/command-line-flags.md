@@ -41,7 +41,7 @@
 |`--authProvider`| Provider to use to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method. This value can be "non" or "hmac"| "none"|
 |`--depth`|Value to use for the `depth` parameter of the [`getTransactionsToApprove` (GTTA)](root://iri/0.1/references/api-reference.md#getTransactionsToApprove) endpoint| 3|
 |`--hmacKeyPath` |Path to the HMAC key used to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method|"/dev/null"|
-|`--minWeightMagnitude`| [Minimum weight magnitude (MWM)](root://the-tangle/0.1/concepts/proof-of-work.md) to use for proof of work. To use Hub on the Mainnet, you must use a MWM of 14.| 9|
+|`--minWeightMagnitude`| [Minimum weight magnitude (MWM)](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) to use for proof of work. To use Hub on the Mainnet, you must use a MWM of 14.| 9|
 |<a name="monitorInterval"></a>`--monitorInterval`|Interval in milliseconds that Hub checks deposit addresses and updates the [`user_address` and `user_address_balance` tables](../references/database-tables.md). Those that contain tokens are included in the next sweep. 0=disabled.|60000|
 |`--signingMode`|Method to use to sign bundles. This value can be "local" or "remote" (if you run a signing server) |"local"|
 |`--signingProviderAddress`|URL or IP address of the signing server. Where you have the "remote" value for the `--signingMode`, you must also use this flag.|"0.0.0.0:50052"|

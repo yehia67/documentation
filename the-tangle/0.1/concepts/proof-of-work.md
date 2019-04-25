@@ -22,7 +22,7 @@ To calculate the PoW for a transaction, the following [contents of the transacti
 * **Signature:** Signature of the transaction (if it withdraws IOTA tokens from an address)
 * **Trunk transaction and branch transaction:** Two transactions that the transaction references and approves
 
-If the transaction hash ends in the correct number of 0 trits ([minimum weight magnitude](#minimum-weight-magnitude)), it's considered valid.
+If the transaction hash ends in the correct number of 0 trits ([minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)), it's considered valid.
 
 :::info:
 [Three 0 trits are encoded to a 9 in trytes](root://iota-basics/0.1/references/tryte-alphabet.md).
@@ -47,14 +47,4 @@ Because the the contents of the transaction are hashed, if any of the contents c
 
 :::info:
 The function that calculates PoW is called the [PearlDiver](https://github.com/iotaledger/iri/blob/fcf2d105851ee891b093e2857592fa05258ec5be/src/main/java/com/iota/iri/crypto/PearlDiver.java).
-:::
-
-### Minimum weight magnitude
-
-The minimum weight magnitude (MWM) is a variable that defines the number of 0 trits that a transaction hash must end in.
-
-Although the MWM is set in the node software ([IRI](root://iri/0.1/introduction/overview.md)) of each node in an IOTA network, clients and nodes can choose to change the MWM. However, if each node were to use a different MWM, transactions would be valid only for those nodes with the same MWM. This situation would decrease the rate of transaction confirmations.
-
-:::info:
-Every increment of the MWM increases the difficulty of the PoW by 3 times.
 :::
