@@ -82,15 +82,18 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 
 ## Calculate the Merkle tree
 
-For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) with a depth of 16, which allows us to run compass for 45 days at 1-minute-milestone intervals.
+For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) with a depth of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. The interval between milestones depends on two factors:
+
+* The `tick` interval that Compass waits between creating, signing, and sending a bundle
+* The length of time it takes to create, sign and send a bundle
 
 :::info:
-The higher the depth, the longer the Merkle tree generation takes.
+The higher the depth, the longer it takes to create the Merkle tree.
 
-So, a depth of 24 would allow Compass to send milestones for over 31 years, but it would take a long time to generate the Merkle tree. A depth of 8 would allow Compass to send milestones for only a couple of hours, but it would take only seconds to generate the Merkle tree.
+So, a depth of 24 would allow Compass to send milestones for over 31 years, but it would take a long time to create the Merkle tree. A depth of 8 would allow Compass to send milestones for only a couple of hours, but it would take only seconds to create the Merkle tree.
 :::
 
-The Compass repository includes a tool to generate a Merkle tree and save it in a `data` directory for Compass to use later on. 
+The Compass repository includes a tool to create a Merkle tree and save it in a `data` directory for Compass to use later on. 
 
 1. Clone the Compass GitHub repository
 
@@ -99,7 +102,7 @@ The Compass repository includes a tool to generate a Merkle tree and save it in 
 	cd compass
 	```
 
-2. Build the `layers_calculator` tool that will generate the Merkle tree
+2. Build the `layers_calculator` tool that will create the Merkle tree
 
 	```bash
 	bazel run //docker:layers_calculator
@@ -136,7 +139,7 @@ The Compass repository includes a tool to generate a Merkle tree and save it in 
 	cp config.example.json config.json
 	```
 
-7. Open the `config.json` file and replace the value of the `seed` field with the seed you generated in step 3
+7. Open the `config.json` file and replace the value of the `seed` field with the seed you created in step 3
 
 	```bash
 	nano config.json
@@ -178,7 +181,7 @@ The Compass repository includes a tool to generate a Merkle tree and save it in 
 	Tagging 164cc0fbec2cd2b1821d0442d7f63e52f0f34250c2b9af12f1dcddde12d7df56 as iota/compass/docker:layers_calculator
 	```
 
-10. Generate the Merkle tree by executing the script in the `docs/private_tangle` directory
+10. Create the Merkle tree by executing the script in the `docs/private_tangle` directory
 
 	```bash
 	sudo ./01_calculate_layers.sh
@@ -245,7 +248,7 @@ If the IRI node that Compass is connected to is compromised, an attacker could m
 
 ## Run Compass
 
-After you've generated the Merkle tree and you're running an IRI node, you can run Compass.
+After you've created the Merkle tree and you're running an IRI node, you can run Compass.
 
 1. Go back to your `compass` directory and run Bazel
 
