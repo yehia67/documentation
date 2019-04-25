@@ -36,7 +36,7 @@ To calculate the Coordinator's address, the public keys are hashed in pairs:
 Node 1 is a hash of the result of hashing both the public key of leaf 1 and the public key of leaf 2. Node 2 is a hash of the result of hashing both the public key of leaf 3 and the public key of leaf 4. The Coordinator's address is a hash of the result of hashing the hash of node 1 and node 2.
 
 :::info:
-The Coordinator's private keys are derived from a seed, an index, and a security level like any other client in the network. Unlike these clients, the private key is used to derive a public key that's used in leaves in the Merkle tree instead of an address.
+The Coordinator's private keys are derived from a seed, an index, and a security level. Unlike normal clients, the private key is used to derive a public key that's used in leaves in the Merkle tree instead of an address.
 
 These private keys are security level 2. As a result, the milestone signature is too large to fit in one transaction and must be fragmented across two.
 
