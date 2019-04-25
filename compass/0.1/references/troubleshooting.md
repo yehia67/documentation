@@ -7,11 +7,12 @@
 You may see this error when you run any command that includes `bazel run //docker`.
 
 1. Add your current user to the docker group. Change the `$USER` variable to your username.
+
     ```bash
     sudo usermod -a -G docker $USER
     ```
 
-2. Reboot your Linux server and try again
+2. Restart your Linux server and try again
 
 ## Malformed snapshot state file
 

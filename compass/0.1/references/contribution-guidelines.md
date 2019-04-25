@@ -6,10 +6,6 @@
 
 Issues and feature requests can be created on the [Github Issue](https://github.com/iotaledger/compass/issues) page.
 
-## Code contributions
-
-Code contributions are not being accepted at this time
-
 
 
 

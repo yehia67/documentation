@@ -6,7 +6,7 @@
 | :-------------------: |  :---------------------------------------: | :----------------------------------------
 | `transaction`     |Transaction hash     | The transaction bytes of this transaction|
 | `transaction-metadata` | Transaction hash|This transaction's data and additional metadata that's added by the IRI|
-|`milestone`      |Milestone index      | Both the tail transaction hash and the index of the milestone transaction in the milestone bundle that approves this transaction                |
+|`milestone`      |Milestone index      | Both the tail transaction hash and the index of the transaction in the milestone bundle that approves this transaction                |
 | `stateDiffs`        |Milestone hash          |  The changes to the address's balance that a milestone confirmed on the ledger   |
 | `address`          | Address hash         | List of transaction hashes that changed the balance of this address|
 |`approvees`       |Transaction hash | The transaction hashes of the transactions that directly reference this transaction|
