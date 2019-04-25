@@ -1,6 +1,6 @@
 # Compass overview
 
-**Compass is the open-source code for the [Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md). You can use Compass to run your own IOTA network for testing and development purposes by configuring your IRI nodes to reach a consensus on any transaction that's referenced by a Compass milestone.**
+**Compass is an open-source implementation of the [Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md). You can use Compass to run your own IOTA network for testing and development purposes by configuring your IRI nodes to reach a consensus on any transaction that's referenced by a Compass milestone.**
 
 At regular intervals, Compass sends a bundle of a signed zero-value milestones to an IRI node.
 
