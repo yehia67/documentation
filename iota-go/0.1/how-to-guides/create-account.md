@@ -27,7 +27,7 @@ The data that accounts store in a local database is called the seed state. Accou
 
 ## Create a new account
 
-1. Create a new file called `myAccount.go`
+1. Create a new file called `my_account.go`
 
 2. Create two variables: One for your seed and another for the node that the account connects to
 
@@ -64,13 +64,13 @@ The data that accounts store in a local database is called the seed state. Accou
     ```
 
     :::danger:Important
-    Make sure that you the database can always close, otherwise it may become locked.
+    Make sure that you always close the database, otherwise it may become locked.
 
     For example, you may want to add the following line `defer store.Close()`.
     :::
 
     :::info:
-    In storage, each account has a unique ID, which is a hash of an address with index 0 and security level 2.
+    In storage, each account has a unique ID, which is the hash of the first address of the account at index 0 and security level 2.
 
     As a result, you can use the same storage object for multiple accounts at the same time.
     :::

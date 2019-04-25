@@ -8,12 +8,12 @@
 
 ## Create a plugin that prints events to the screen
 
-1. Create a new file called `eventLogger.go`
+1. Create a new file called `event_logger.go`
 
 2. Create a function that takes an `EventMachine` object as an argument and returns an `account.Plugin` object
 
     ```go
-    //NewEventLoggerPlugin ...
+    // NewEventLoggerPlugin ...
     func NewEventLoggerPlugin(em event.EventMachine) account.Plugin {
         return &logplugin{em: em, exit: make(chan struct{})}
     }
