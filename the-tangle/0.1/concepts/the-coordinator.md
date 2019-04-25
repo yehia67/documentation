@@ -1,12 +1,12 @@
 # The Coordinator
 
-**The Coordinator is a client application that creates, signs, and sends bundles of transactions to the same address at regular intervals. These bundles contain transactions called milestones that nodes use to reach a consensus. When milestones directly or indirectly reference and approve a transaction in the Tangle, nodes mark the state of that transaction and its entire history as confirmed.**
+**The Coordinator is a client application that creates, signs, and sends bundles of transactions from the same address at regular intervals. These bundles contain transactions called milestones that nodes use to reach a consensus. When milestones directly or indirectly reference and approve a transaction in the Tangle, nodes mark the state of that transaction and its entire history as confirmed.**
 
 ## Milestones
 
 To determine which transactions are milestones, all nodes in the same IOTA network know the address of the Coordinator.
 
-When nodes see a transaction that's been sent to the Coordinator's address, they validate it by doing the following:
+When nodes see a transaction that's been sent from the Coordinator's address, they validate it by doing the following:
 
 * Make sure that it doesn't lead to a double-spend
 * Verify its signature
@@ -21,7 +21,7 @@ A Merkle tree is a data structure that starts by hashing data at the leaves and 
 
 The Coordinator can sign and send one signed bundle for each leaf in its Merkle tree.
 
-In this example, we have four leaves, which each represent one of the Coordinator's public/private key pairs. These key pairs are created in advance. The total number of key pairs in a Merkle tree depends on its depth in this formula: 2<sup>depth</sup>. In this example, the Merkle tree's depth is 2.
+In this example, we have four leaves, which each represent one of the Coordinator's public/private key pairs. These key pairs are created in advance and used to calculate the the Coordinator's address. The total number of key pairs in a Merkle tree depends on its depth in this formula: 2<sup>depth</sup>. In this example, the Merkle tree's depth is 2.
 
 :::info:
 On the Mainnet, the Coordinator's Merkle tree has a depth of 23. So, the Coordinator has 2<sup>23</sup> (8,388,608) public/private key pairs and can send the same number of milestones.
@@ -31,7 +31,7 @@ To calculate the Coordinator's address, the public keys are hashed in pairs:
 
 * **Node 1:** Hash(Hash(public key of leaf 1) Hash(public key of leaf 2))
 * **Node 2:** Hash(Hash(public key of leaf 3) Hash(public key of leaf 4))
-* **Coordinator's address:** Hash(Hash(node 1) Hash node 2)
+* **Coordinator's address:** Hash(Hash(node 1) Hash(node 2))
 
 Node 1 is a hash of the result of hashing both the public key of leaf 1 and the public key of leaf 2. Node 2 is a hash of the result of hashing both the public key of leaf 3 and the public key of leaf 4. The Coordinator's address is a hash of the result of hashing the hash of node 1 and node 2.
 
