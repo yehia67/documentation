@@ -167,25 +167,7 @@ The Compass repository includes a tool to create a Merkle tree and save it in a 
 	Compass will stop sending milestones if the Merkle tree runs out of leaves (public/private keys). To avoid this problem, use an 	appropriate value for the `depth` field.
 	:::
 
-9. Make sure Docker is aware of the `layers_calculator` image
-
-	```bash
-	sudo ../../bazel-bin/docker/layers_calculator
-	```
-	If the command was not found, do step 2 again.
-
-	You should see something like the following in the output:
-
-	```
-	668afdbd4462: Loading layer  18.39MB/18.39MB
-	6189abe095d5: Loading layer  1.966MB/1.966MB
-	55b77d5f2576: Loading layer    100MB/100MB
-	b439be5d084f: Loading layer  16.15MB/16.15MB
-	Loaded image ID: sha256:164cc0fbec2cd2b1821d0442d7f63e52f0f34250c2b9af12f1dcddde12d7df56
-	Tagging 164cc0fbec2cd2b1821d0442d7f63e52f0f34250c2b9af12f1dcddde12d7df56 as iota/compass/docker:layers_calculator
-	```
-
-10. Create the Merkle tree by executing the script in the `docs/private_tangle` directory
+9. Create the Merkle tree by executing the script in the `docs/private_tangle` directory
 
 	```bash
 	sudo ./01_calculate_layers.sh
@@ -199,7 +181,7 @@ This process will take a while (with a 4 core virtual machine it takes around 15
 [main] INFO org.iota.compass.LayersCalculator - Successfully wrote Merkle Tree with root: JMRTYHMGNZGNOLPSSBVLWRPMGIAMOXPLURNDIBKXIFTCJCLOYKH9FMVNKPBVFVMGSUFEYVUUIEARFQXAK
 ```
 
-The Merkle tree of addresses is stored in the data directory, so Compass can use it when it starts running.
+The Merkle tree is stored in the data directory, so Compass can use the private keys when it starts running.
 
 ## Run an IRI node
 
@@ -260,20 +242,14 @@ After you've created the Merkle tree and you're running an IRI node, you can run
 	cd ~/compass/
 	bazel run //docker:coordinator
 	```
-
-2. Run the Docker container
-
-	```bash
-	sudo ../../bazel-bin/docker/coordinator
-	```
 	
-3. Change into the directory that contains the scripts for setting up and running Compass
+2. Change into the directory that contains the scripts for setting up and running Compass
 
 	```bash
 	cd docs/private_tangle
 	```
 
-4. Run Compass
+3. Run Compass
 
 	```bash
 	sudo ./03_run_coordinator.sh -bootstrap -broadcast
