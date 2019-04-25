@@ -6,6 +6,8 @@ After a global snapshot, all transaction data is deleted and only addresses with
 
 If you don't see your correct balance, go to Account management > **Tools** > **Transition**.
 
-**Note:** To access Account management on a mobile device, go to **Settings** > **Account management**. To access Account management on a desktop, go to the burger menu >  **Account** > **Account management**.
+:::info:
+To access Account management on a mobile device, go to **Settings** > **Account management**. To access Account management on a desktop, go to the burger menu >  **Account** > **Account management**.
+:::
 
-![photo of snapshot transition](../transition.jpg)
+![photo of snapshot transition](../images/transition.jpg)

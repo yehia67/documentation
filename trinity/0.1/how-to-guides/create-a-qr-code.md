@@ -15,4 +15,4 @@ To send to an address in Trinity, it must include the 9-tryte checksum. If you g
 
 When the sender scans the QR code in Trinity, the transaction fields will be auto-populated with the ones from the QR code.
 
-![Example QR code](../qr-code.png)
+![Example QR code](../images/qr-code.png)
