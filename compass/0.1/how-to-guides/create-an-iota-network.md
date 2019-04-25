@@ -2,7 +2,7 @@
 
 **If you want to test your application in your own IOTA network, you can run Compass and connect it to an IRI node.**
 
-For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine.
+For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine. But, you could run multiple IRI nodes and connect them to each other as neighbors.
 
 :::info:
 You could also install a signing server for increased security.
@@ -88,7 +88,7 @@ For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordi
 * The length of time it takes to create, sign and send a bundle
 
 :::info:
-The higher the depth, the longer it takes to create the Merkle tree.
+The higher the depth, the longer it takes to create the Merkle tree, but the more bundles Compass can sign and send.
 
 So, a depth of 24 would allow Compass to send milestones for over 31 years, but it would take a long time to create the Merkle tree. A depth of 8 would allow Compass to send milestones for only a couple of hours, but it would take only seconds to create the Merkle tree.
 :::
@@ -115,7 +115,7 @@ The Compass repository includes a tool to create a Merkle tree and save it in a 
 	Analyzing: target //docker:layers_calculator (8 packages loaded)
 	```
 
-3. Create a seed for Compass
+3. Create a seed for Compass. Compass will use this seed to derive public/private keys for signing bundles.
 
 	```bash
 	cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1 
@@ -162,6 +162,10 @@ The Compass repository includes a tool to create a Merkle tree and save it in a 
 		"host": "http://localhost:14265"
 	}
 	```
+	
+	:::info:
+	Compass will stop sending milestones if the Merkle tree runs out of leaves (public/private keys). To avoid this problem, use an 	appropriate value for the `depth` field.
+	:::
 
 9. Make sure Docker is aware of the `layers_calculator` image
 
@@ -284,14 +288,10 @@ After you've created the Merkle tree and you're running an IRI node, you can run
 	* Ask the IRI node for tip transactions ([tip selection](root://the-tangle/0.1/concepts/tip-selection.md))
 	* Ask the IRI node to broadcast the milestone
 	* Sleep until the next tick interval
-
 	:::
 
-:::success:Compass is sending milestones! :tada:
-:::
-
-:::info:
-Compass will stop sending milestones if the Merkle tree runs out of branches. To avoid this problem, use an appropriate value for the `depth` field of the Merkle tree configuration file.
+:::success:Compass is sending milestones in your own IOTA network! :tada:
+If you restart Compass, you don't need to pass it the `-bootstrap` flag (Compass won't start if you do). But, you should pass it 	the `-broadcast` flag as a security measure so that Compass broadcasts its milestones to the IRI node.
 :::
 
 ## Test your network
