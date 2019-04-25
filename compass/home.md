@@ -1,4 +1,4 @@
-# Compass is the open-source code for the Coordinator, which is a client application that allows nodes in an IOTA network to reach a consensus.
+# Compass is an open-source implementation of the Coordinator, which is a client application that allows nodes in an IOTA network to reach a consensus.
 
 [Compass overview](/0.1/introduction/overview.md)
 ## Learn what Compass is and how you can use it
