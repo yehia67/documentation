@@ -20,7 +20,7 @@ And one of the following, recommended fields:
 * **expected_amount (recommended):** The amount of IOTA tokens that the address is expected to contain. When the address contains this amount, it's considered expired. We highly recommend using this condition.
 
 :::info:
-The combination of both `expected_amount` and `multi_use` in the same CDA is not supported. Both fields are designed for different scenarios. Please refer to the [FAQ](../references/cda-faq.md) for more information.
+You can't specify the `expected_amount` and `multi_use` fields in the same CDA. Please refer to the [FAQ](../references/cda-faq.md) for more information.
 :::
 
 |  **Combination of fields** | **Withdrawal conditions**
@@ -34,6 +34,12 @@ If a CDA was created with only the `timeout_at` field, it can be used in withdra
 
 To avoid address reuse, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible.
 :::
+
+## Prerequisites
+
+[Create a new account](../how-to-guides/create-account.md).
+
+## Create a new CDA
 
 1. Store the current time from your account's timesource object
 
@@ -60,6 +66,53 @@ To avoid address reuse, we recommend creating CDAs with either the `multi_use` f
     handleErr(err)
     ```
 
+### Create an oracle
+
+A CDA may expire during the time it takes for a bundle to be created, sent, and confirmed. So, you need to make a decision about whether to deposit into a CDA, depending on its conditions. To automate this decision-making process, you can create an [oracle](https://github.com/iotaledger/iota.go/tree/master/account/oracle) that returns a decision (true or false) about whether to deposit into it.
+
+Oracles take an oracle source as an argument and return `true` if the oracle source decides that you may deposit into the CDA.
+
+1. Use the [`TimeDecider` oracle source](https://github.com/iotaledger/iota.go/tree/master/account/oracle/time) to check if the CDA's expiration time is at least 30 minutes away. These 30 minutes give the bundle time to be sent and confirmed.
+
+    ```go
+    threshold := time.Duration(30)*time.Minute
+    // timeDecider is an OracleSource
+    timeDecider := oracle_time.NewTimeDecider(timesource, threshold)
+    // Create a new SendOracle with the given OracleSources
+    sendOracle := oracle.New(timeDecider)
+    ```
+
+    :::info:
+    To avoid conflicts with the `time` package, you must add a prefix to the `"github.com/iotaledger/iota.go/account/oracle"` import. In this example, we use the `oracle_time` prefix.
+    :::
+
+2. To call the oracle, pass the CDA to the `OkToSend()` method of the `sendOracle` object
+
+    ```go
+    // Ask the SendOracle whether we should make a deposit
+    ok, rejectionInfo, err := sendOracle.OkToSend(cda)
+    handleErr(err)
+    if !ok {
+        fmt.Println("Won't send transaction: ", rejectionInfo)
+        return
+    }
+    ```
+
+## Deposit IOTA tokens into a CDA
+
+1. When a CDA contains an expected amount, you can deposit that amount into it by passing the object to the `account.Send()` method.
+    
+    ```go
+    bundle, err := account.Send(cda.AsTransfer())
+    handleErr(err)
+
+    fmt.Printf("Made deposit into %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[0].Hash)
+    ```
+
+:::info:
+If you're testing your account on the Devnet and you don't have enough balance, use the [Devnet faucet](https://faucet.devnet.iota.org/) to request Devnet tokens.
+:::
+
 ## Distribute a CDA
 
 Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with the `timeout_at`, `multi_use`, and `expected_amount` parameters.
@@ -68,7 +121,7 @@ Because CDAs are descriptive objects, you can serialize them into any format and
 
     ```go
     fmt.Println(cda.AsMagnetLink())
-    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true&expected_amount=0
+    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0
     ```
 
 2. To parse the magnet link into a CDA, use the `ParseMagnetLink()` method of the `deposit` object
@@ -78,46 +131,6 @@ Because CDAs are descriptive objects, you can serialize them into any format and
     handleErr(err)
     ```
 
-## Decide whether to make a deposit into a CDA
+## Next steps
 
-A CDA may expire during the time it takes for a bundle to be created, sent, and confirmed. Therefore, before making a deposit into a CDA, you may want to create an oracle that can return a decision about whether to deposit into it.
-
-### Create an oracle
-
-In this example, the `sendOracle` object will return true only if the current time is at least 30 minutes before the end of the CDA's expiration time. These 30 minutes give the bundle time to be sent and confirmed.
-
-```go
-threshold := time.Duration(30)*time.Minute
-// timeDecider is an OracleSource
-timeDecider := oracle_time.NewTimeDecider(timesource, threshold)
-// we create a new SendOracle with the given OracleSources
-sendOracle := oracle.New(timeDecider)
-```
-
-### Call an oracle
-
-1. To call an oracle, pass the CDA to the `OkToSend()` method of the `sendOracle` object
-
-    ```go
-    // Ask the SendOracle whether we should make a deposit
-    ok, info, err := sendOracle.OkToSend(CDA)
-    handleErr(err)
-    if !ok {
-        logger.Error("won't send transaction:", info)
-        return
-    }
-    ```
-
-## Deposit IOTA tokens into a CDA
-
-1. After making sure that the CDA is still active, you can use the `Send()` method to deposit IOTA tokens into it
-
-    ```go
-    // Send the bundle that makes the deposit
-    // In this case, we assume that an expected amount was set in the CDA
-    // and therefore the transfer is initialized with that amount.
-    bndl, err = acc.Send(cda.AsTransfers())
-    handleErr(err)
-
-    fmt.Printf("Made deposit into %s in the bundle with the following tail transaction hash %s\n", cda.Address, bndl[0].Hash)
-    ```
+[Listen to events in your account](../how-to-guides/listen-to-events.md).

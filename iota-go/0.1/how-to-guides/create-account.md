@@ -14,7 +14,7 @@ The data that accounts store in a local database is called the seed state. Accou
 |All active CDAs|Stop withdrawals from CDAs that may receive deposits|
 |Pending transfers| Monitor pending transactions and rebroadcast or reattach them if necessary|
 
-## Create a new account
+## Prerequisites
 
 1. Create an API object that connects to a node
    
@@ -25,55 +25,100 @@ The data that accounts store in a local database is called the seed state. Accou
     handleErr(err)
     ```
 
-2. Create a variable to hold a seed
+## Create a new account
+
+1. Create a new file called `my_account.go`
+
+2. Create two variables: One for your seed and another for the node that the account connects to
 
     ```go
     seed := "ASFITGPSD9ASDFKRWE..."
     ```
 
-    :::info:
-    If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `WithSeed()` method in step 5.
+    :::danger:Important
+    You should never hard code a seed as we do here. Instead, we recommend that you read the seed from a protected file.
+
+    If you have never created an account before, you must create a new seed because existing seed states are unknown.
+
+    You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
     :::
 
-3. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a BadgerDB database.
+    :::info:
+    If you want to use a seed from a particular location, for example a hardware wallet, create a custom `SeedProvider` object, and pass it to the `WithSeedProvider()` method.
+    :::
+
+3. Create an API object that connects to a node
+   
+    ```go
+    // API object that connects to a node
+    apiSettings := api.HTTPClientSettings{URI: node}
+    iotaAPI, err := api.ComposeAPI(apiSettings)
+    handleErr(err)
+    ```
+
+4. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a BadgerDB database. Change `db` to the path that you want the database diretory to be saved.
 
     ```go
     store, err = badger.NewBadgerStore("<data-dir>")
     handleErr(err)
     ```
 
-    :::info:
-    You can use the same storage object for multiple accounts at the same time.
-    
-    In storage, each account has a unique ID, which is a hash of an address with index 0 and security level 2.
+    :::danger:Important
+    If the given `Store` object is closeable, you must close it, otherwise the database may become locked.
+
+    For example, if you use BadgerDB, you may want to add the following line `defer store.Close()`.
     :::
 
-4. Use the `timesrc` package to create a `timesource` object that will calculate CDA timeouts and timeouts during API requests to the node. In this example, the time source is a Google NTP (network time protocol) server. For better performance, we recommend setting up your own NTP server.
+    :::info:
+    In storage, each account has a unique ID, which is the hash of the first address of the account at index 0 and security level 2.
+
+    As a result, you can use the same storage object for multiple accounts at the same time.
+    :::
+
+5. Use the [`timesrc` package](https://github.com/iotaledger/iota.go/tree/master/account/timesrc) to create an object that returns an accurate time. In this example, the time source is a Google NTP (network time protocol) server.
 
      ```go
     // create an accurate time source (in this case Google's NTP server).
     timesource := timesrc.NewNTPTimeSource("time.google.com")
     ```
 
-5. Create the account using both your custom settings and the `WithDefaultPlugins()` method. This method adds the default `transfer poller` and `promoter-reattacher` plugins to the account.
+6. Build the account using both your custom settings and the `WithDefaultPlugins()` method. This method adds the default `transfer poller` and `promoter-reattacher` plugins to the account.
 
     ```go
-    acc, err = builder.NewBuilder()
-        // the underyling iota API to use.
+    account, err = builder.NewBuilder().
+        // the IOTA API to use
         WithAPI(iotaAPI).
-        // the underlying store to use.
-        WithStore(badgerStore).
-        // the seed of the account.
+        // the database onject to use
+        WithStore(store).
+        // the seed of the account
         WithSeed(seed).
-        // the time source to use during input selection.
+        // the minimum weight magnitude for the Devnet
+        WithMWM(9).
+        // the time source to use during input selection
         WithTimeSource(timesource).
-        // plugins which enhance the functionality of the account.
+        // load the default plugins that enhance the functionality of the account
         WithDefaultPlugins().
         Build()
     handleErr(err)
-    // make sure to call Start() so the account can initialize itself.
-    handleErr(acc.Start())
     ```
+
+    :::info:
+    The `WithDefaultPlugins()` method must be called after the following settings have been initialized: API, Store, MWM, Depth, SeedProvider or AddrGen+PrepareTransfers, TimeSource and EventMachine.
+
+    Where a method isn't called to initialize these settings, the account uses the [defaults](https://github.com/iotaledger/iota.go/blob/master/account/settings.go).
+    :::
+
+7. Start the account and the plugins
+
+    ```go
+    handleErr(account.Start())
+    ```
+
+    :::danger:Important
+    Make sure that the account can always shut down, otherwise you may see unexpected results.
+
+    For example, you may want to add the following line `defer account.Shutdown()`.
+    :::
 
     :::info:
     Every 30 seconds, the `transfer-poller` plugin will check whether withdrawals have been confirmed or whether any deposits to one of the account's CDAs are pending.
@@ -83,20 +128,20 @@ The data that accounts store in a local database is called the seed state. Accou
     If you want to have more control over the behavior of the plugins, you can customize them in the `WithPlugin()` method.
     :::
 
-:::info:
-You can create multiple accounts, and each one can manage the state of only one unique seed.
-:::
+8. Check that you're connected to a [synchronized node](root://iri/0.1/how-to-guides/run-an-iri-node-on-linux.md#check-that-the-iri-is-synchronized)
 
-:::danger:Important
-You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
+    ```go
+    nodeInfo, err := iotaAPI.GetNodeInfo()
+    handleErr(err)
 
-If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
-:::
+    fmt.Println("latest milestone index:", nodeInfo.LatestMilestoneIndex)
+    fmt.Println("latest milestone index:", nodeInfo.LatestSolidSubtangleMilestone)
+    ```
 
 :::success:Congratulations! :tada:
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
 :::
 
-## Import existing seed state
+## Next steps
 
-To import an existing seed state into an account, pass the storage object to the `WithStore()` method. The seed state must be in the correct format.
+[Create a CDA so that you can send and receive transactions](../how-to-guides/create-and-manage-cda.md).

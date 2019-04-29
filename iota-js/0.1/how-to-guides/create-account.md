@@ -37,14 +37,12 @@ The data that accounts store in a local database is called the seed state. Accou
             provider
       });
       ```
-      :::info:
-      You can create multiple accounts, and each one can manage the state of only one unique seed.
+      :::danger:Important
+      If you have never created an account before you must create a new seed because existing seed states are unknown.
       :::
 
       :::danger:Important
       You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
-
-      If you have never created an account before, you must create a new seed. Existing seeds can't be used in an account because their states are unknown.
       :::
 
 3. **Optional:** Pass a **`persistenceAdapter`** factory to your account. This adapter creates a local database object to which the account can save the seed state and its history. By default, the local databases are saved in the root of the project. You can change the path to the local database in the `persistencePath` field.
@@ -67,7 +65,7 @@ The data that accounts store in a local database is called the seed state. Accou
       You can't use one adapter instance for multiple accounts at the same time. A private adapter is created for each new account.
       :::
 
-4. **Optional** Pass a `timeSource` method that outputs the current time in milliseconds to your `account` object
+4. **Optional** Create a `timeSource` method that outputs the current time in milliseconds, and pass it to your `account` object
 
       ```js
       const account = createAccount({
@@ -84,3 +82,7 @@ The data that accounts store in a local database is called the seed state. Accou
 :::success:Congratulations! :tada:
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
 :::
+
+## Next steps
+
+[Create a CDA so that you can send and receive transactions](../how-to-guides/create-and-manage-cda.md).

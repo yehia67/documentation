@@ -37,13 +37,11 @@ To download the IOTA Go client library and its dependencies, we recommend that y
 
 To download the IOTA Go client library and its dependencies, do the following:
 
-1. In any directory outside of GOPATH, initiate your project
+1. In any directory outside of $GOPATH, create a directory for your project and initialize it. Change the `<your-module-path>` placeholder to the path of your project such as `github.com/me/awesome-project`.
 
 	```bash
 	go mod init <your-module-path>
 	```
-
-**Note:** Change the <your-module-path> placeholder to your chosen path such as github.com/me/awesome-project.
 
 2. Download the library
 
@@ -51,8 +49,7 @@ To download the IOTA Go client library and its dependencies, do the following:
 	go get github.com/iotaledger/iota.go/api
 	```
 
-This command downloads the latest version of the IOTA Go client library and writes the version into
-the `go.mod` file (vgo is `go get` agnostic).
+This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file.
 
 ## Get started
 
