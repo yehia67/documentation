@@ -10,7 +10,7 @@ If you're interesting in using a channel listener, see our guide for [creating a
 
 ## Prerequisites
 
-This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [vgo modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
+This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
 
 ---
 

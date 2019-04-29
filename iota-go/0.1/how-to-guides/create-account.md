@@ -36,10 +36,10 @@ The data that accounts store in a local database is called the seed state. Accou
     ```
 
     :::danger:Important
-    If you have never created an account before you must create a new seed because existing seed states are unknown.
-    :::
+    You should never hard code a seed as we do here. Instead, we recommend that you read the seed from a protected file.
 
-    :::danger:Important
+    If you have never created an account before, you must create a new seed because existing seed states are unknown.
+
     You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
     :::
 
@@ -64,9 +64,9 @@ The data that accounts store in a local database is called the seed state. Accou
     ```
 
     :::danger:Important
-    Make sure that you always close the database, otherwise it may become locked.
+    If the given `Store` object is closeable, you must close it, otherwise the database may become locked.
 
-    For example, you may want to add the following line `defer store.Close()`.
+    For example, if you use BadgerDB, you may want to add the following line `defer store.Close()`.
     :::
 
     :::info:
@@ -75,7 +75,7 @@ The data that accounts store in a local database is called the seed state. Accou
     As a result, you can use the same storage object for multiple accounts at the same time.
     :::
 
-5. Use the [`timesrc` package](https://github.com/iotaledger/iota.go/tree/master/account/timesrc) to create an object that will calculate CDA timeouts and API request timeouts. In this example, the time source is a Google NTP (network time protocol) server. For better performance, we recommend setting up your own NTP server.
+5. Use the [`timesrc` package](https://github.com/iotaledger/iota.go/tree/master/account/timesrc) to create an object that returns an accurate time. In this example, the time source is a Google NTP (network time protocol) server.
 
      ```go
     // create an accurate time source (in this case Google's NTP server).
@@ -141,10 +141,6 @@ The data that accounts store in a local database is called the seed state. Accou
 :::success:Congratulations! :tada:
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
 :::
-
-## Import existing seed state
-
-To import an existing seed state into an account, pass the storage object to the `WithStore()` method. The seed state must be in the correct format.
 
 ## Next steps
 
