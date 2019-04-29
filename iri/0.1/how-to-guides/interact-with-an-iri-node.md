@@ -1,10 +1,12 @@
 # Interact with the IRI
 
-**IRI nodes wait to receive transactions from clients on the API port that's set in the `PORT` configuration parameter.**
+**IRI nodes wait to receive transactions from clients on the API port that's set in the `PORT` configuration parameter. You can send HTTP requests to this port to interact with a node's REST API, which allows you to read/write data to the Tangle.**
 
 An IRI node always accepts REST API requests from computers on the same network.
 
-**Note:** If the [`REMOTE` configuration parameter](../references/iri-configuration-options.md#remote) is set to `true`, anyone can connect to the IRI through its public URL or its public IP address.
+:::warning:
+If the [`REMOTE` configuration parameter](../references/iri-configuration-options.md#remote) is set to `true`, anyone can connect to the IRI through its public URL or its public IP address.
+:::
 
 In the following how-to guide we use Node.js and the IOTA JavaScript client library to interact with an IRI node on the Devnet.
 

@@ -116,9 +116,12 @@ You can configure the IRI by passing in [IRI configuration options](../reference
 
     If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a config.ini file in the `/path/to/conf/config.ini` on your Docker host, then add `-c /path/to/conf/config.ini` to the DOCKER RUN command.
 
-    **Notes:**
-    * If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`
-    * To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the DOCKER RUN command
+    :::info:
+    If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`.
+    :::
+    :::info:
+    To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the DOCKER RUN command.
+    :::
 
 2. Call the [getNodeInfo](../references/api-reference.md#getnodeinfo) endpoint to request general information about the IRI node
 
@@ -172,7 +175,7 @@ The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are a
 
 1. To check the actual `latestMilestoneIndex` field, go to our [Discord](https://discordapp.com/invite/fNGZXvh) and enter **!milestone** in one of the channels
 
-    ![Entering !milestone on Discord](../discord-milestone-check.PNG)
+    ![Entering !milestone on Discord](../images/discord-milestone-check.PNG)
 
 2. To check these fields for your IRI node, call the `getNodeInfo` API endpoint
 
@@ -180,7 +183,9 @@ The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are a
     curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}'
     ```
 
-**Note:** It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
+:::info:
+It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
+:::
 
 ## Next steps
 
