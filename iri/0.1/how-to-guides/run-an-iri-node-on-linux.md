@@ -76,7 +76,11 @@ The download may take some time. You should see something like the following in 
 HTTP request sent, awaiting response ... 200 OK
 '/home/jake/node/iri-1.6.0-RELEASE.jar' saved [175441686/175441686]
 ```
-Now that the IRI Java file is saved on your server, [configure the IRI](#configure-the-iri) before running it.
+
+6. If you are starting a node from scratch, you will not have a `spent-addresses-db` folder. You need to download the DB folder either from the (IOTA Partners website)[] or the (IOTA Playbook)[]. You can also use [](our website)[https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/] to download the Mainnet files. You need to unpack the files in the same folder in which you `.jar` files lives. In the case of the below example, it will be `/home/jake/node/`.
+
+
+Now that the IRI Java file and the spent-addresses-db is saved on your server, [configure the IRI](#configure-the-iri) before running it.
 
 ### Build the IRI Java file from the source code
 
