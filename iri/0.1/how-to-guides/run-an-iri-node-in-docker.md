@@ -11,6 +11,10 @@
 
 * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md).
 
+    * **UDP neighbor peering port:** 14600
+    * **TCP neighbor peering port:** 14600
+    * **TCP API port:** 14265
+
 ---
 
 The IRI Docker container is suitable for the following operating systems:
@@ -114,11 +118,12 @@ You can configure the IRI by passing in [IRI configuration options](../reference
     docker run --name iri iotaledger/iri:latest --remote -p 14265
     ```
 
-    If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a config.ini file in the `/path/to/conf/config.ini` on your Docker host, then add `-c /path/to/conf/config.ini` to the DOCKER RUN command.
+    If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a `config.ini` file in the `/path/to/conf/config.ini` on your Docker host, then add `-c /path/to/conf/config.ini` to the DOCKER RUN command.
 
     :::info:
     If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`.
     :::
+
     :::info:
     To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the DOCKER RUN command.
     :::
