@@ -79,7 +79,7 @@ After you've dowloaded the directory, extract it into the same directory as you 
 :::
 
 
-Now that the IRI Java file and the `spent-addresses-db` direcory are saved on your server, [configure the IRI](#configure-the-iri) before running it.
+Now that the IRI Java file and the `spent-addresses-db` directory are saved on your server, [configure the IRI](#configure-the-iri) before running it.
 
 ### Build the IRI Java file from the source code
 
