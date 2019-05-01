@@ -49,7 +49,7 @@ This table contains the seed UUIDs for addresses that have been withdrawn from (
 
 | **Field**       | **Description**          | **Default**|
 |:----------------|:--------------------------|:--------|
-|`uuid`|Seed UUID for the used address| NULL|
+|`uuid`|Seed UUID for the spent address| NULL|
 
 ## Sweep
 

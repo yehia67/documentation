@@ -10,10 +10,10 @@ Each private key is unique to a seed, index, and security level, and can be used
 
 Each pair of private keys and addresses has its own index and [security level](../references/security-levels.md). The security level affects the length of the private key. The higher the security level, the longer the private key, and the more secure a transaction's signature.
 
-In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level.
+In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from (spent) only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level.
 
 :::info:
-The higher the security level of a private key and address pair, the more difficult it is for an attacker to brute force the signature of a reused address.
+The higher the security level of a private key and address pair, the more difficult it is for an attacker to brute force the signature of a spent address.
 :::
 
 :::warning:Keep seeds and private keys secure
@@ -57,10 +57,12 @@ By signing the bundle hash, it's impossible for attackers to intercept a bundle 
 Signatures are created using the Winternitz one-time signature scheme (W-OTS). This signature scheme is quantum resistant, meaning that signatures are resistant to attacks from [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing).
 
 To sign a bundle hash, first it's normalized to make sure that only half of the private key is revealed in the signature.
+
+If the bundle hash weren't normalized, the W-OTS would reveal an unknown amount of the private key. By revealing half of the private key, an address can safely be withdrawn from once.
 <a id="address-reuse"></a>
 
-:::danger:Address reuse
-If the bundle hash weren't normalized, the W-OTS would reveal an unknown amount of the private key. By revealing half of the private key, an address can safely be withdrawn from once. If an address is withdrawn from more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens.
+:::danger:Spent addresses
+If an address is withdrawn from (spent) more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens.
 :::
 
 Depending on the number of key fragments that a private key has, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of segments in a key fragment.
