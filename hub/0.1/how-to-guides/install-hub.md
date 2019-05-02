@@ -126,7 +126,7 @@ The output should display something like the following:
 mysql  Ver 15.1 Distrib 10.3.10-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2
 ```
  
-Here, you can see that MariaDB 10.3.10 is installed, which is a higher version than the minimum of 10.2.1.
+Here, you can see that MariaDB 10.3.10 is installed, which is a later version than the minimum of 10.2.1.
 
 ## Build Hub
 

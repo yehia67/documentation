@@ -13,7 +13,7 @@ You can choose to configure cIRI by specifying the configuration options in the 
 |<a name="--db-path"></a>`--db-path`| Path to the database file. | string  | ciri/db/ciri-mainnet.db | |
 |<a name="--help"></a>`--help`| Displays the usage. | none  | | |
 |<a name="--log-level"></a>`--log-level`| Valid log levels: "debug", "info", "notice", "warning", "error", "critical", "alert" and "emergency". | string  | info | |
-|<a name="--mwm"></a>`--mwm`| Number of trailing ternary 0s that must appear at the end of a transaction hash. Difficulty can be described as 3^mwm. | number  | 14 | |
+|<a name="--mwm"></a>`--mwm`| Number of trailing ternary 0s that must appear at the end of a transaction hash. Difficulty can be described as 3<sup>mwm</sup>. | number  | 14 | |
 |<a name="--neighbors"></a>`--neighbors`| URIs of neighbouring nodes, separated by a space. | string  | | |
 |<a name="--p-propagate-request"></a>`--p-propagate-request`| Probability of propagating the request of a transaction to a neighbor node if it can't be found. This should be low since we don't want to propagate non-existing transactions that spam the network. | float, must be in [0,1].  | 0.01 | |
 |<a name="--p-remove-request"></a>`--p-remove-request`| Probability of removing a transaction from the request queue without requesting it. | float, must be in [0,1] | 0.01 | |
@@ -46,7 +46,7 @@ You can choose to configure cIRI by specifying the configuration options in the 
 | :------------------------ | :--------------- | :--------- | :--------| :------------|
 |<a name="db-path"></a>`db-path`| Path to the database file. | string  | ciri/db/ciri-mainnet.db | |
 |<a name="log-level"></a>`log-level`| Valid log levels: "debug", "info", "notice", "warning", "error", "critical", "alert" and "emergency". | string | info | |
-|<a name="mwm"></a>`mwm`| Number of trailing ternary 0s that must appear at the end of a transaction hash. Difficulty can be described as 3^mwm. | number  | 14 | |
+|<a name="mwm"></a>`mwm`| Number of trailing ternary 0s that must appear at the end of a transaction hash. Difficulty can be described as 3<sup>mwm</sup>. | number  | 14 | |
 |<a name="neighbors"></a>`neighbors`| URIs of neighbouring nodes, separated by a space. | string  | | |
 |<a name="p-propagate-request"></a>`p-propagate-request`| Probability of propagating the request of a transaction to a neighbor node if it can't be found. This should be low since we don't want to propagate non-existing transactions that spam the network. | float, must be in [0,1].  | 0.01 | |
 |<a name="p-remove-request"></a>`p-remove-request`| Probability of removing a transaction from the request queue without requesting it. | float, must be in [0,1] | 0.01 | |

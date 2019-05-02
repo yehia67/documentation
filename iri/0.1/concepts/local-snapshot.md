@@ -3,7 +3,7 @@
 **A local snapshot is the process in which an IRI node records the state of its ledger in snapshot files. When an IRI node starts running, it must synchronize its ledger with its neighbors, starting from a particular milestone. Each version of the IRI has a hard-coded milestone that nodes can start from. To synchronize faster, an IRI node can choose to use local snapshot files.**
 
 :::info:
-Local snapshots are available only in version 1.6.0 and higher of the IRI.
+Local snapshots are available only in version 1.6.0 and later of the IRI.
 :::
 
 ## Snapshot files

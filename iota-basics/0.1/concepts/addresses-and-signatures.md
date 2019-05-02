@@ -8,16 +8,18 @@ Seeds are the master keys to the cryptographic hashing function in the IOTA prot
 
 Each private key is unique to a seed, index, and security level, and can be used to derive one corresponding address. A private key and an address can be thought of as a pair. Addresses are public and clients can send IOTA tokens and messages to them using the [`address` field] of a transaction. A private key is private and is used to sign bundles that withdraw IOTA tokens from the address.
 
-Each pair of private keys and addresses has its own index and [security level](../references/security-levels.md). The security level affects the length of the private key. The higher the security level, the longer the private key, and the more secure a transaction's signature.
+Each pair of private keys and addresses has its own index and [security level](../references/security-levels.md). The security level affects the length of the private key. The greater the security level, the longer the private key, and the more secure a transaction's signature.
 
 In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from (spent) only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level.
 
 :::info:
-The higher the security level of a private key and address pair, the more difficult it is for an attacker to brute force the signature of a spent address.
+The greater the security level of a private key and address pair, the more difficult it is for an attacker to brute force the signature of a spent address.
 :::
 
 :::warning:Keep seeds and private keys secure
-A seed is the key to all your private keys and addresses, whereas a private key is the key to one address. You must keep your seeds and private keys secure.
+A seed is the key to all your private keys and addresses. And, a private key is the key to one address.
+
+You must keep your seeds and private keys secure.
 :::
 
 ### How private keys are derived
@@ -73,7 +75,7 @@ The selected trytes of the normalized bundle hash are [converted to their decima
 
 The result of this calculation is the number of times that each of the 27 segments in the key fragment must be hashed to derive the signature fragment. Each signature fragment contains 2,187 trytes.
 
-Because a transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) can contain only 2187 trytes, any input address with a security level higher than 1 must fragment the rest of the signature over zero-value output transactions.
+Because a transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) can contain only 2187 trytes, any input address with a security level greater than 1 must fragment the rest of the signature over zero-value output transactions.
 
 ### How nodes verify signatures
 

@@ -4,6 +4,8 @@
 
 ## Milestones
 
+The Coordinator sends milestones to nodes at regular intervals. Nodes use these milestones to reach a consensus. 
+
 To determine which transactions are milestones, all nodes in the same IOTA network know the address of the Coordinator.
 
 When nodes see a transaction that's been sent from the Coordinator's address, they validate it by doing the following:
@@ -24,7 +26,7 @@ The Coordinator can sign and send one signed bundle for each leaf in its Merkle 
 In this example, we have four leaves, which each represent one of the Coordinator's public/private key pairs. These key pairs are created in advance and used to calculate the the Coordinator's address. The total number of key pairs in a Merkle tree depends on its depth in this formula: 2<sup>depth</sup>. In this example, the Merkle tree's depth is 2.
 
 :::info:
-On the Mainnet, the Coordinator's Merkle tree has a depth of 23. So, the Coordinator has 2<sup>23</sup> (8,388,608) public/private key pairs and can send the same number of milestones.
+On the Mainnet, the Coordinator's Merkle tree has a depth of 23. So, the Coordinator has 8,388,608 public/private key pairs and can send the same number of milestones.
 :::
 
 To calculate the Coordinator's address, the public keys are hashed in pairs:
