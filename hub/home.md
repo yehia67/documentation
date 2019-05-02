@@ -4,7 +4,7 @@
 ## Learn what Hub can do and where to get started
 
 [Sweeps](/0.1/concepts/sweeps.md)
-## Learn how sweeps add a layer of security to protect used addresses
+## Learn how sweeps add a layer of security to protect spent addresses
 
 [Install Hub](/0.1/how-to-guides/install-hub.md)
 ## Create a multi-user wallet, connect it to an IRI node, and test it
