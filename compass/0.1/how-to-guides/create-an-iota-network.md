@@ -88,7 +88,7 @@ For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordi
 * The length of time it takes to create, sign and send a bundle
 
 :::info:
-The higher the depth, the longer it takes to create the Merkle tree, but the more bundles Compass can sign and send.
+The greater the depth, the longer it takes to create the Merkle tree, but the more bundles Compass can sign and send.
 
 So, a depth of 24 would allow Compass to send milestones for over 31 years, but it would take a long time to create the Merkle tree. A depth of 8 would allow Compass to send milestones for only a couple of hours, but it would take only seconds to create the Merkle tree.
 :::

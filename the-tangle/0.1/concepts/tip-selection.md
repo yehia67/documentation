@@ -23,7 +23,7 @@ For the tip selection process, the milestone transaction for the subgraph is def
 The result of this calculation is equal to the index of the milestone transaction that is used to form the subgraph.
 
 :::info:
-The higher the value of the `depth` parameter, the more computations the node must do. To restrict the value of the `depth` parameter, nodes can change the [`MAX-DEPTH`](root://iri/0.1/references/iri-configuration-options.md#max-depth) configuration option.
+The greater the value of the `depth` parameter, the more computations the node must do. To restrict the value of the `depth` parameter, nodes can change the [`MAX-DEPTH`](root://iri/0.1/references/iri-configuration-options.md#max-depth) configuration option.
 :::
 
 ### Weighted random walk
