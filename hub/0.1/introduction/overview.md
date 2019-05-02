@@ -35,13 +35,13 @@ For extra security you should [install a signing server](../how-to-guides/instal
 
 ## Token protection
 
-IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, each signature exposes around half of the private key. Signing a bundle once with the a private key is safe. So, when a user withdraws from an address, that address is considered 'used' and must never be withdrawn from again.
+IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, each signature exposes around half of the private key. Signing a bundle once with the a private key is safe. So, when a user withdraws from an address, that address is considered 'spent' and must never be withdrawn from again.
 
 :::info:
-[Discover the details about address reuse and why you must never do it](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse).
+[Discover the details about spent addresses and why you must never withdraw from an address more than once](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse).
 :::
 
-To help stop address reuse, Hub has the following features:
+To help users not to withdraw from spent addresses, Hub has the following features:
 
 **Withdrawal management:** Before withdrawing tokens from a user's address, Hub makes sure that no deposit transactions are pending for that same address, and that all previous deposit transactions have been confirmed. To keep track of which addresses have been withdrawn from, Hub stores the addresses in the database. When an address has been withdrawn from, Hub stops users from withdrawing from that address again.
  
@@ -51,9 +51,9 @@ To help stop address reuse, Hub has the following features:
 
 ## Limitations
 
-Hub helps to stop address reuse, but it doesn't stop users from depositing into a used address.
+Hub helps to stop users from withdrawing from spent addresses, but it doesn't stop users from depositing into them.
 
-If a user deposits tokens into a used address, you can use the gRPC API to [create a bundle that withdraws those tokens](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md).
+If a user deposits tokens into a spent address, you can use the gRPC API to [create a bundle that withdraws those tokens](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md).
 
 ## Repository
 
