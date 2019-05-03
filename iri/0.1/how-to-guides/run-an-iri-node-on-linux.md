@@ -73,9 +73,9 @@ HTTP request sent, awaiting response ... 200 OK
 ```
 
 :::info:Is this your first node?
-If you are starting a node from scratch, you need to download the `spent-addresses-db` directory from the [IOTA Partners website](https://iota.partners/#database), the [IOTA Playbook](https://iri-playbook.readthedocs.io/en/master/faq.html#where-can-i-get-a-fully-synced-database-to-help-kick-start-my-node), or [our website](https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/).
+If you are starting a node from scratch, you need to download the `spent-addresses-db` directory from [our website](https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/), [the IOTA Partners website](https://iota.partners/#database), or the [IOTA Playbook](https://iri-playbook.readthedocs.io/en/master/faq.html#where-can-i-get-a-fully-synced-database-to-help-kick-start-my-node).
 
-After you've dowloaded the directory, extract it into the same directory as you IRI Java file from step 4. For this example, the file is in the `/home/jake/node/` directory.
+After you've downloaded the directory, extract it into the same directory as you IRI Java file from step 4. For this example, the file is in the `/home/jake/node/` directory.
 :::
 
 
