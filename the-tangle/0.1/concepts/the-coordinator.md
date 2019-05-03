@@ -38,9 +38,9 @@ To calculate the Coordinator's address, the public keys are hashed in pairs:
 Node 1 is a hash of the result of hashing both the public key of leaf 1 and the public key of leaf 2. Node 2 is a hash of the result of hashing both the public key of leaf 3 and the public key of leaf 4. The Coordinator's address is a hash of the result of hashing the hash of node 1 and node 2.
 
 :::info:
-The Coordinator's private keys are derived from a seed, an index, and a security level. Unlike normal clients, the private key is used to derive a public key that's used in leaves in the Merkle tree instead of an address.
+The Coordinator's private keys are derived from a seed, an index, and a security level.
 
-These private keys are security level 2. As a result, the milestone signature is too large to fit in one transaction and must be fragmented across two.
+On the Mainnet, these private keys are security level 2. As a result, the milestone signature is too large to fit in one transaction and must be fragmented across two.
 
 [Learn more about how private keys are derived](root://iota-basics/0.1/concepts/addresses-and-signatures.md).
 :::
@@ -72,3 +72,7 @@ To help us calculate the Merkle root, the third milestone in the bundle contains
 Now, we hash the public keys of leaves 1 and 2 to find the hash of node 1. Then we hash the hash of nodes 1 and 2 to find the Merkle root.
 
 If the Merkle root is the same as the Coordinator's address, the bundle was signed with one of the private keys in the Coordinator's Merkle tree.
+
+:::info:
+You can explore the structure of a milestone's bundle in the [Tangle.org under **Latest milestones**](https://thetangle.org/).
+:::
