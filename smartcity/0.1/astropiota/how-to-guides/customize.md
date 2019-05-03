@@ -2,7 +2,7 @@
 
 **The AstroPiOTA sender gathers sensor data from Sense HAT, publishes it to the scrolling marquee, and sends it in JSON format to a MAM channel on the Tangle. The ASTROPiOTA receiver listens to the MAM channel and reports the sensor data. You can customize both of these files to change how ASTROPiOTA publishes and reports data.**
 
-This sample code was inspired by [Dave de Fijter's High MobilIty MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam).
+This sample code was inspired by [Dave de Fijter's High Mobility MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam).
 
 ## AstroPiOTA sender
 
