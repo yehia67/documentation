@@ -95,7 +95,7 @@ For every transaction included in our sorted subgraph, a future set is created, 
 ```java
 entryPoint = latestSolidMilestone - depth
 
-entryPointTrunk = entry point
+entryPointTrunk = entryPoint
 
 entryPointBranch = reference or entry point 
 
