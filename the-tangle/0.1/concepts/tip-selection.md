@@ -83,23 +83,23 @@ The rating calculation is performed only once, and used to select both tip trans
 To allow you to create different rating algorithms, we created a generic interface to which every rating calculator should adhere.
 
 ```java
-Map<TxId -> Integer> calculate(TxId entryPoint)
+Map<TxId -> Integer> calculate(TxId entry point)
 ```
 
-Every rating calculator, being invoked with an `entryPoint` transaction, should return a mapping of transaction IDs with their corresponding rating value expressed as integers.
+Every rating calculator, being invoked with an `entry point` transaction, should return a mapping of transaction IDs with their corresponding rating value expressed as integers.
 
 #### Future set creation
 
 For every transaction included in our sorted subgraph, a future set is created, containing direct and indirect approvers. The rating of each transaction is the size of its future set + 1 (the transaction's own weight).
 
 ```java
-entryPoint = latestSolidMilestone - depth
+entry point = latestSolidMilestone - depth
 
-entryPointTrunk = entryPoint
+entry pointTrunk = entry point
 
-entryPointBranch = reference or entryPoint 
+entry pointBranch = reference or entry point 
 
-ratings = CumulativeWeightCalculator.calculate(entryPointTrunk)
+ratings = CumulativeWeightCalculator.calculate(entry pointTrunk)
 
 class CumulativeWeightCalculator(RatingCalculator):
 
@@ -134,7 +134,7 @@ After the transactions' ratings have been computed, the weighted random walk sta
 To allow you to create different weighted random walk algorithms, we created a generic interface to which every implementation should adhere.
 
 ```java
-TxId walk(TxId entryPoint, Map<TxId -> Integer> ratings, WalkValidator validator)
+TxId walk(TxId entry point, Map<TxId -> Integer> ratings, WalkValidator validator)
 ```
 
 This function should return the selected tip transaction.
@@ -146,9 +146,9 @@ Ratings are normalized and transformed into `weights` with the help of the `alph
 ```python
 class WalkerAlpha(Walker):
 
-    def walk(entryPoint, ratings, validator):
+    def walk(entry point, ratings, validator):
 
-        step = entryPoint
+        step = entry point
 
         prevStep = None
 

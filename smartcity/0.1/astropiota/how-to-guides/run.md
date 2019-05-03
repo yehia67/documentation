@@ -11,7 +11,7 @@ The following prerequisites are pre-installed on Raspbian Jessie:
 - Node.js (8+)
 - [AstroPiOTA package](https://github.com/NelsonPython/AstroPiOTA.git)
 - [Sense HAT Node.js package](https://www.npmjs.com/package/node-sense-hat)
-- [IOTA Javascript Library](https://github.com/iotaledger/iota.lib.js)
+- [IOTA JavaScript Library](https://github.com/iotaledger/iota.lib.js)
 
 
 ## Configure Raspberry Pi

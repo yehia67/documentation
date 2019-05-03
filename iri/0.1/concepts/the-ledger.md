@@ -10,7 +10,7 @@ The ledger is the primary data source for an IRI node. The data in the ledger is
 
 When an IRI node starts running, it synchronizes its ledger by solidifying every transaction that approves each milestone, starting from an **entry point milestone** and ending at the latest milestone.
 
-The older the entrypoint milestone, the longer synchronization takes.
+The older the entry point milestone, the longer synchronization takes.
 
 <dl><dt>solidify</dt><dd>Request transactions from neighbor IRI nodes until all transactions and their history are stored in the ledger.</dd></dl>
 

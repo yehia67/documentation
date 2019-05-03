@@ -6,7 +6,7 @@ This application consists of the following:
 
 ## Prerequisites
 
-This projects assumes some level of programming knowledge, specifically in: Javascript, React and Node.js.
+This projects assumes some level of programming knowledge, specifically in: JavaScript, React and Node.js.
 
 ## Instructions and technical concepts 
 
@@ -173,7 +173,7 @@ if (ipfsSha256 === payload.sha256) {
 
 ## Data security
 
-Because the IPFS is a distrbuted web, anyone who has the IPFS hash can download and read the contents of the file. 
+Because the IPFS is a distributed web, anyone who has the IPFS hash can download and read the contents of the file. 
 
 To prevent unauthorized entities from reading the data, you could encrypt it before uploading it to the IPFS node.
 
