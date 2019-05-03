@@ -97,7 +97,7 @@ entryPoint = latestSolidMilestone - depth
 
 entryPointTrunk = entryPoint
 
-entryPointBranch = reference or entryPoint 
+entryPointBranch = reference or entry point 
 
 ratings = CumulativeWeightCalculator.calculate(entryPointTrunk)
 

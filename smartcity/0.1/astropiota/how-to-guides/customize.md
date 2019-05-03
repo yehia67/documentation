@@ -2,7 +2,7 @@
 
 **The AstroPiOTA sender gathers sensor data from Sense HAT, publishes it to the scrolling marquee, and sends it in JSON format to a MAM channel on the Tangle. The ASTROPiOTA receiver listens to the MAM channel and reports the sensor data. You can customize both of these files to change how ASTROPiOTA publishes and reports data.**
 
-This sample code was inspired by [Dave de Fijter's High Mobilty MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam).
+This sample code was inspired by [Dave de Fijter's High Mobility MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam).
 
 ## AstroPiOTA sender
 
@@ -30,7 +30,7 @@ const mamSecret = 'DONTSHARETHIS';
 mamState = Mam.changeMode(mamState, mamType, mamSecret);
 ```
 
-Sender.js configures the Sense Hat scrolling marquee to post humidity and temperature data in centigrade or Celsius and Farenheit.  To speed up the marquee, this data was rounded.  
+Sender.js configures the Sense Hat scrolling marquee to post humidity and temperature data in centigrade or Celsius and Fahrenheit.  To speed up the marquee, this data was rounded.  
 
 > Raw temperature data is shown.  However, the Sense Hat temperature sensor is near Raspberry Pi which heats up during use.  Calibration tests indicate that the Sense Hat temperature is about 13 degrees above local temperature.  You can calibrate to your location by comparing Sense Hat temperature to local temperature.  You may want to change the data being reported in your MAM message. 
 

@@ -42,7 +42,7 @@ On startup, IRI nodes can use the snapshot files as an entry point to synchroniz
 In this scenario, the IRI node is synchronized. So, at milestone 990, 110, the node will do the following:
 
 * Take the previous 100 milestones and add them to the snapshot.meta file as [seen milestones](../references/data-in-the-snapshot-metadata-file.md#seen-milestone)
-* Find the solid transactions and add them as [solid entry points](../references/data-in-the-snapshot-metadata-file.md#solid-entrypoint)
+* Find the solid transactions and add them as [solid entry points](../references/data-in-the-snapshot-metadata-file.md#solid-entry-point)
 * In the snapshot.state file, add a list of all addresses and their balances
 
 When the IRI node restarts, it can use the snapshot files as the entry point to [synchronize its ledger](../concepts/the-ledger.md#ledger-synchronization).

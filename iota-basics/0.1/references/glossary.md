@@ -4,7 +4,7 @@
 
 Terms are listed in alphabetical order by category.
 
-### Acronymns
+### Acronyms
 
 <dl><dt>CTPS</dt><dd>Number of Confirmed Transactions Per Second</dd></dl>
 
@@ -20,7 +20,7 @@ Terms are listed in alphabetical order by category.
 
 <dl><dt>seed</dt><dd>81-tryte password used to generate addresses and signatures</dd></dl>
 
-<dl><dt>signature</dt><dd>Cryptograhic proof of ownership of an address. IOTA tokens can't be withdrawn from an address without a valid signature.</dd></dl>
+<dl><dt>signature</dt><dd>Cryptographic proof of ownership of an address. IOTA tokens can't be withdrawn from an address without a valid signature.</dd></dl>
 
 ### Cryptography
 
@@ -73,7 +73,7 @@ Terms are listed in alphabetical order by category.
 
 <dl><dt>cumulative weight</dt><dd>Rating that an [IRI node](#iota-terms) gives to a [transaction](#transactions)</dd></dl>
 
-<dl><dt>depth</dt><dd>Entrypoint [milestone](#milestone) that's used to start a weighted random walk through a [subgraph](#subgraph). The higher the value, the farther back in the subgraph the weighted random walk starts. A typical depth that wallets use is 3, which causes the weighted random walk to start 3 milestones in the past.</dd></dl>
+<dl><dt>depth</dt><dd>Entry point [milestone](#milestone) that's used to start a weighted random walk through a [subgraph](#subgraph). The higher the value, the farther back in the subgraph the weighted random walk starts. A typical depth that wallets use is 3, which causes the weighted random walk to start 3 milestones in the past.</dd></dl>
 
 <dl><dt>future set</dt><dd>Group of transactions that approve the same transaction</dd></dl>
 
@@ -95,7 +95,7 @@ Terms are listed in alphabetical order by category.
 
 <dl><dt>solid</dt><dd>State of a transaction when an IRI node has its entire history (all directly and indirectly referenced transactions) in its ledger</dd></dl>
 
-<dl><dt>tail transaction</dt><dd>Transaction 0 in a bundle. [IRI nodes](#iota-terms) recontruct and validate bundles by traversing the trunk transaction of each tail transaction.</dd></dl>
+<dl><dt>tail transaction</dt><dd>Transaction 0 in a bundle. [IRI nodes](#iota-terms) reconstruct and validate bundles by traversing the trunk transaction of each tail transaction.</dd></dl>
 
 <dl><dt>tip selection</dt><dd>Process whereby an [IRI node](#iota-terms) selects two [tip transactions](#tip-transaction) and returns them to a client for use as a new transaction's [branch transaction](#branch) and [trunk transaction](#trunk)</dd></dl>
 
