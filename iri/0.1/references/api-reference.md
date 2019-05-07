@@ -483,13 +483,13 @@ Find transactions that contain the given values in their transaction fields.
 
  ### Parameters
 	
-|Parameters | |Description | Type
-|--|--|--|--|
-| request| |Transaction fields to search for |array of objects |
- || `bundles`|Bundle hashes to search for|array of strings| 
- ||`addresses`|Addresses to search for (do not include the checksum)|array of strings|
- || `tags`|Tags to search for |array of strings |
- || `approvees`|Child transactions to search for| array of strings|
+|Parameters |Description | Type
+|--|--|--|
+| request|Transaction fields to search for, including `bundles`, `addresses`, `tags`, and `approvees` |array of objects |
+ |`bundles`|Bundle hashes to search for|array of strings| 
+ |`addresses`|Addresses to search for (do not include the checksum)|array of strings|
+ | `tags`|Tags to search for |array of strings |
+ | `approvees`|Child transactions to search for| array of strings|
 
 ### Examples
 --------------------
