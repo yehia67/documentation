@@ -1,6 +1,6 @@
 # API reference
 
-**This list contains the commands for communicating with an IRI node through the HTTP API.**
+**This list contains the commands for communicating with a node through the HTTP API.**
 
 All the following commands must include an HTTP header.
 
@@ -14,10 +14,10 @@ All the following commands must include an HTTP header.
 
 ## addNeighbors
 
-Add a list of temporary neighbors to an IRI node.
+Add a list of temporary neighbors to a node.
 
 :::info:
-The neighbors are removed if the IRI restarts. If you want to permanently add the neighbors to your own IRI node, add their URIs to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option.
+The neighbors are removed if the node restarts. If you want to permanently add the neighbors to your own node, add their URIs to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option.
 :::
 
  ### Parameters
@@ -109,7 +109,7 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-  "addedNeighbors": "802",
+  "addedNeighbors": 2,
   "duration": 125
 }
 ```
@@ -131,7 +131,7 @@ curl http://localhost:14265 \
 
 ## attachToTangle
 
-Do proof of work on an IRI node for the given transaction trytes.
+Do [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) on a node for the given transaction trytes.
 
  ### Parameters
 
@@ -139,9 +139,9 @@ Do proof of work on an IRI node for the given transaction trytes.
 	
 |Parameter |Required or Optional |Description |Type|
 |--|--|--|--|
-| `trunkTransaction` |Required| Trunk transaction hash | string|
-| `branchTransaction` |Required| Branch transaction hash | string|
-| `minWeightMagnitude` |Required| Minimum weight magnitute | integer|
+| `trunkTransaction` |Required| [Trunk transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
+| `branchTransaction` |Required| [Branch transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
+| `minWeightMagnitude` |Required| [Minimum weight magnitute](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) | integer|
 | `trytes` |Required| String of transaction trytes |array of strings|
 
 ### Examples
@@ -259,15 +259,15 @@ The last 243 trytes of the return value consist of the following:
 
 ## broadcastTransactions
 
-Broadcast transaction trytes to an IRI node. 
+Broadcast transaction trytes to a node. 
 
  ### Parameters
 
-The `trytes` parameter for this call is returned from the [`attachToTangle`](#attachToTangle) endpoint.
+The `trytes` parameter for this endpoint must include proof of work, which is done by the [`attachToTangle`](#attachToTangle) endpoint.
 	
 |Parameters |Required or Optional |Description |Type
 |--|--|--|--|
-| `trytes` |Required| Valid transaction trytes | string
+| `trytes` |Required| Valid transaction trytes | array of strings
 
 ### Examples
 --------------------
@@ -479,17 +479,17 @@ curl http://localhost:14265 \
 
 Find transactions that contain the given values in their transaction fields. 
 
-**Using multiple transaction fields returns transactions hashes at the intersection of those values.** 
+**Using multiple transaction fields, returns transactions hashes at the intersection of those values.** 
 
  ### Parameters
 	
-|Parameters | |Description | Type
-|--|--|--|--|
-| request| |Transaction fields to search for |array of objects |
- || `bundles`|Bundle hashes to search for|array of strings| 
- ||`addresses`|Addresses to search for (do not include the checksum)|array of strings|
- || `tags`|Tags to search for |array of strings |
- || `approvees`|Child transactions to search for| array of strings|
+|Parameters |Description | Type
+|--|--|--|
+| request|Transaction fields to search for, including `bundles`, `addresses`, `tags`, and `approvees` |array of objects |
+ |`bundles`|Bundle hashes to search for|array of strings| 
+ |`addresses`|Addresses to search for (do not include the checksum)|array of strings|
+ | `tags`|Tags to search for |array of strings |
+ | `approvees`|Child transactions to search for| array of strings|
 
 ### Examples
 --------------------
@@ -843,7 +843,7 @@ curl http://localhost:14265 \
 
 ## getNeighbors
 
-Get an IRI node's neighbors and their activity.
+Get a node's neighbors and their activity.
 
 ### Examples
 --------------------
@@ -933,7 +933,7 @@ curl http://localhost:14265 \
 ### Results
 
 :::info:
-The activity accumulates until the IRI node restarts.
+The activity accumulates until the node restarts.
 :::
 
 |Return field| Description |
@@ -943,7 +943,7 @@ The activity accumulates until the IRI node restarts.
 
 ## getNodeInfo
 
-Get information about an IRI node.
+Get information about a node.
 
 ### Examples
 --------------------
@@ -1072,7 +1072,7 @@ curl http://localhost:14265 \
 
 ## getTips
 
-Get tip transaction hashes from an IRI node.
+Get tip transaction hashes from a node.
 
 ### Examples
 --------------------
@@ -1470,10 +1470,10 @@ curl http://localhost:14265 \
 
 ## removeNeighbors
 
-Temporarily removes a list of neighbors from an IRI node.
+Temporarily removes a list of neighbors from a node.
 
 :::info:
-The neighbors are added again if the IRI restarts. If you want to permanently remove the neighbors from your own IRI node, remove their URIs from the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option. 
+The neighbors are added again if the node restarts. If you want to permanently remove the neighbors from your own node, remove their URIs from the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option. 
 :::
 
 ### Parameters
@@ -1567,7 +1567,7 @@ curl http://localhost:14265 \
 
 ## storeTransactions
 
-Store transactions in an IRI node's local storage.
+Store transactions in a node's local storage.
 
 ### Parameters
 
