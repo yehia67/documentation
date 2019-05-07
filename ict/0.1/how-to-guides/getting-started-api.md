@@ -1,4 +1,4 @@
-# Getting started with the Ict REST API
+# Get started with the Ict REST API
 
 **The Ict REST API allows you to programatically configure a node, download the latest Ict Java file, update IXI modules, as well as access data from neighbors, log messages, and IXI modules.**
 
@@ -12,7 +12,7 @@ In the following guide, you'll use Node.js to send an HTTP POST request for the 
 
 To use the sample code in this guide, you must have the following:
 
-* [Node,js (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
@@ -119,8 +119,8 @@ The output should display something like the following:
 }
 ```
 
-:::success:Success
-Congratulations :tada: You've just sent your first successful HTTP request to a node.
+:::success:Congratulations :tada:
+You've just sent your first successful HTTP request to a node.
 :::
 
 ### Final code
