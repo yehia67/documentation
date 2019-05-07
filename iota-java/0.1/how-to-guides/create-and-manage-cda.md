@@ -86,13 +86,18 @@ If you're testing your account on the Devnet and you don't have enough balance, 
     ConditionalDepositAddress address = account.newDepositAddress(n, false, account.usableBalance()).get();
     ```
 
+    :::info:
+    Usable balance is the total balance of all expired CDAs.
+    :::
+
 2. Deposit your total usable balance into the CDA by passing the object to the `account.send()` method
 
     ```java
     Future<Bundle> bundle = account.send(
             address.getDepositAddress().getHashCheckSum(), 
             address.getRequest().getExpectedAmount(), 
-            Optional.of("Sweep of all addresses"), Optional.of("IOTA9SWEEP"));
+            Optional.of("Sweep of all addresses"),
+            Optional.of("IOTA9SWEEP"));
     bundle.get();
     ```
 
