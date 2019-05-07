@@ -10,17 +10,19 @@ Many [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy) exist.
     sudo apt-get update
     sudo apt-get install nginx
     ```
-    At the end of the installation process, Ubuntu starts Nginx. If you don't want Nginx to automatically start on boot, do the following:
+    :::info:
+    At the end of the installation process, Ubuntu starts Nginx. If you don't want Nginx to start automatically on every restart, do the following:
     
     ```bash
     sudo systemctl disable nginx
     ```
 
-    To re-enable Nginx to start on boot, do the following:
+    To re-enable Nginx to start, do the following:
 
     ```bash    
     sudo systemctl enable nginx
     ```
+    :::
 
 2. Check that the Nginx server is running
 
@@ -43,50 +45,48 @@ Many [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy) exist.
 
     You'll see the Nginx webpage. This page is included with Nginx to show you that the server is running. Now, you need to configure Nginx as a reverse proxy for your IRI node.
 
-4. Open the main Nginx configuration file
-
-    ```bash
-    sudo nano /etc/nginx/nginx.conf
-    ```
-
-5. Create a custom configuration file called iri.conf
+4. Create a custom configuration file called iri.conf
 
     ```bash
     sudo nano /etc/nginx/sites-enabled/iri.conf
     ```
 
-6. Add the following to the iri.conf file:
+5. Add the following to the `iri.conf` file:
 
     ```shell
+    # Limit the amount of requests that'll be forwarded from a single IP address to the IRI node (5 per second)
+    limit_req_zone              $binary_remote_addr zone=iri:10m rate=5r/s;
 
-        # Limit the amount of requests that'll be forwarded from a single IP address to the IRI node (5 per second)
-        limit_req_zone              $binary_remote_addr zone=iri:10m rate=5r/s;
+    server {
 
-        server {
-            # Port that Nginx will listen on
-            listen                    5000 default_server deferred;
+        server_name _;
+        # Port that Nginx will listen on
+        listen                    5000 default_server deferred;
 
-            location / {
-            # Tell Nginx to drop requests to the server if more than 5 are queued from the same IP address
-            limit_req               zone=iri burst=5 nodelay;
-            
-            # IP address of your IRI node. In this case the IRI node is running on the same machine as Nginx
-            proxy_pass http://127.0.0.1:14265;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header Host $http_host;
-            }
+        location / {
+        # Tell Nginx to drop requests to the server if more than 5 are queued from the same IP address
+        limit_req               zone=iri burst=5 nodelay;
+        
+        # IP address of your IRI node. In this case the IRI node is running on the same machine as Nginx
+        proxy_pass http://127.0.0.1:14265;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
         }
     }
     ```
 
-7. Restart Nginx to allow the changes to take effect
+    :::info:Want to connect to Nginx from outside localhost?
+    Open port 5000 on your Nginx server.
+    :::
+
+6. Restart Nginx to allow the changes to take effect
 
     ```bash
     sudo systemctl restart nginx
     ```
     
-8. Start your IRI node, and call the `getNodeInfo` API endpoint on the Nginx port
+7. Start your IRI node, and call the `getNodeInfo` API endpoint on the Nginx port
 
     ```bash
     sudo apt install curl jq
@@ -120,7 +120,7 @@ You should see a mixture of JSON responses and 503 errors, which are returned wh
 
 If requests from certain IP addresses are causing issues for your IRI node, you can block them.
 
-1. Open the iri.conf file
+1. Open the `iri.conf` file
 
     ```bash
     sudo nano /etc/nginx/sites-enabled/iri.conf
@@ -142,7 +142,7 @@ Now when Nginx receives requests from those IP addresses, it won't forward those
 
 If you have more than one IRI node, you can add load balancing to evenly distribute the API requests among them.
 
-1. Open the iri.conf file
+1. Open the `iri.conf` file
 
     ```bash
     sudo nano /etc/nginx/sites-enabled/iri.conf

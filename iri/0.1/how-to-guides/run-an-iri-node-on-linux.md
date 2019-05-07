@@ -50,10 +50,16 @@ The pre-built IRI Java file is available on the [IOTA GitHub repository](https:/
 3. Download and install the Java 8 OpenJDK
 
     ```bash
+    sudo add-apt-repository universe
     sudo apt-get install -y software-properties-common --no-install-recommends
     sudo apt-get install openjdk-8-jdk
     sudo apt-get update
     ```
+
+    :::info:
+    To check that Java is installed, do `java -version`. You should see a version number in the output.
+    :::
+
 
 4. Download the latest IRI Java file into your `node` directory. Change `jake` to your Linux username and replace the `${VERSION}` variable with the [latest version](https://github.com/iotaledger/iri/releases) of the IRI. 
 
@@ -75,7 +81,7 @@ HTTP request sent, awaiting response ... 200 OK
 :::info:Is this your first node?
 If you are starting a node from scratch, you need to download the `spent-addresses-db` directory from [our website](https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/), [the IOTA Partners website](https://iota.partners/#database), or the [IOTA Playbook](https://iri-playbook.readthedocs.io/en/master/faq.html#where-can-i-get-a-fully-synced-database-to-help-kick-start-my-node).
 
-After you've downloaded the directory, extract it into the same directory as you IRI Java file from step 4. For this example, the file is in the `/home/jake/node/` directory.
+After you've downloaded the directory, extract it into the same directory as your IRI Java file from step 4. For this example, the file is in the `/home/jake/node/` directory.
 :::
 
 
@@ -150,7 +156,7 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
 
 The IRI runs in a Java virtual machine. Therefore, before you run the IRI, you need to set up some Java variables.
 
-1. Create the Java variables that'll be used to run the IRI in the Java virtual machine. Make sure to change the `IRI_JAR_PATH` variable to the path of your IRI Java file.
+1. Create the Java variables that'll be used to run the IRI in the Java virtual machine
 
     ```bash
     export JAVA_OPTIONS="-XX:+UnlockExperimentalVMOptions -XX:+DisableAttachMechanism -XX:InitiatingHeapOccupancyPercent=60 -XX:G1MaxNewSizePercent=75 -XX:MaxGCPauseMillis=10000 -XX:+UseG1GC"
@@ -227,14 +233,14 @@ When you've downloaded, and configured the IRI, it's time to run it.
     cd /home/jake/node/data
     ```
 
-2. Run the IRI. Change `jake` to your Linux username.
+2. Run the IRI. Change `jake` to your Linux username and `$VERSION` to the version of the IRI that you downloaded.
 
     ```bash
     java ${JAVA_OPTIONS} -Xms${JAVA_MIN_MEMORY} -Xmx${JAVA_MAX_MEMORY} -Djava.net.preferIPv4Stack=true -jar /home/jake/node/iri-${VERSION}.jar
     ```
     The IRI should start to log its activity to the output.
 
-    To make the IRI read your config.ini file, add the path to it after the `-c` flag. For example:
+    To make the IRI read your `config.ini` file, add the path to it after the `-c` flag. For example:
 
     ```bash
     java ${JAVA_OPTIONS} -Xms${JAVA_MIN_MEMORY} -Xmx${JAVA_MAX_MEMORY} -Djava.net.preferIPv4Stack=true -jar /home/jake/node/iri-${VERSION}.jar -c /home/jake/node/config.ini
@@ -250,7 +256,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     sudo apt install curl jq
     ```
 
-4. Call the [getNodeInfo](../references/api-reference.md#getNodeInfo) endpoint to request general information about the IRI node
+4. Call the [`getNodeInfo`](../references/api-reference.md#getNodeInfo) API endpoint to request general information about the IRI node
 
     ```bash
     curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq

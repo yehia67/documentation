@@ -6,12 +6,12 @@ When a new version of the [IRI is released on GitHub](https://github.com/iotaled
 
 1. Stop the IRI
 
-2. Delete the mainnetdb folder, the mainnet.log file, and your current IRI .jar file
+2. Delete the `mainnetdb` directory, the `mainnet.log` file, and your current IRI .jar file
 
     :::warning:
     Do **not** delete your `spent-address-db` directory.
     :::
 
-4. Download the latest IRI
+4. [Download the latest IRI](../how-to-guides/run-an-iri-node-on-linux.md#download-the-pre-built-iri-java-file)
 
-5. Run the IRI
+5. [Run the IRI](../how-to-guides/run-an-iri-node-on-linux.md#run-the-iri)
