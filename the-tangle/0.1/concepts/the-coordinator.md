@@ -73,6 +73,6 @@ Now, we hash the public keys of leaves 1 and 2 to find the hash of node 1. Then 
 
 If the Merkle root is the same as the Coordinator's address, the bundle was signed with one of the private keys in the Coordinator's Merkle tree.
 
-:::info:
-You can explore the structure of a milestone's bundle in the [thetangle.org under 'Latest milestones'](https://thetangle.org/).
+:::info:Want to run your own Coordinator?
+Use Compass to create, sign, and send milestones in your own IOTA network.
 :::
