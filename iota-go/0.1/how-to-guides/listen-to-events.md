@@ -5,7 +5,7 @@
 We have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use a callback listener. 
 
 :::info:
-If you're interesting in using a channel listener, see our guide for [creating an event listener plugin](../how-to-guides/create-plugin.md).
+If you're interesting in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md).
 :::
 
 ## Prerequisites
@@ -102,4 +102,4 @@ You're account is now emitting events that you can listen to and act on.
 
 ## Next steps
 
-[Create an event listener plugin](../how-to-guides/create-plugin.md).
+[Create an event-listener plugin](../how-to-guides/create-plugin.md).

@@ -1,6 +1,6 @@
 # Create an account
 
-**An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about reusing addresses or promoting and reattaching pending transactions.**
+**An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about reusing spent addresses or promoting and reattaching pending transactions.**
 
 In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a [transfer bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md).
 
@@ -37,11 +37,15 @@ The data that accounts store in a local database is called the seed state. Accou
             provider
       });
       ```
-      :::danger:Important
-      If you have never created an account before you must create a new seed because existing seed states are unknown.
+      :::danger:Protect your seed
+      You should never hard code a seed as we do here. Instead, we recommend that you read the seed from a protected file.
       :::
 
-      :::danger:Important
+      :::danger:Use a new seed
+      If you have never created an account before, you must create a new seed because existing seed states are unknown.
+      :::
+
+      :::danger:Create one account per seed
       You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
       :::
 
