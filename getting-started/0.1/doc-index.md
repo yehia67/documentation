@@ -14,7 +14,7 @@
 
 [Introduction/What is a node?](/introduction/what-is-a-node.md)
 
-[Tutorials/First steps](/tutorials/first-steps.md)
+[Tutorials/Get started](/tutorials/first-steps.md)
 
 [Tutorials/Create a seed](/tutorials/create-a-seed.md)
 

@@ -1,6 +1,8 @@
-# First steps
+# Get started
 
-**IOTA is designed to be a lightweight platform on which applications can be built.**
+**IOTA is a lightweight protocol that can be used to build applications that transfer data or IOTA tokens.**
+
+To use any IOTA network as a client, you need to [create a seed](../tutorials/create-a-seed.md). This seed allows you to use applications such as the Trinity wallet to send data or IOTA tokens.
 
 ## Developers
 

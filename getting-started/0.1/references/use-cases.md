@@ -3,7 +3,7 @@
 **This table displays some applications that are already using IOTA.**
 
 
-| Company  | Description |  References |
+| **Company**  | **Description** |  **References** |
 | :-------:| :-------:| :---------: |
 | bIOTAsphere|bIOTAsphere connected a Tesla car to an IOTA network. The car buys dynamic insurance with IOTA tokens |[YouTube video that showcases this use case](https://www.youtube.com/watch?v=2zvrA5KqeYw) |
 | High Mobility| High Mobility develop a standardized API platform for vehicles. This API can be combined with IOTA to create connected vehicle applications on the Tangle.|[High Mobility website](https://high-mobility.com/get-started) |

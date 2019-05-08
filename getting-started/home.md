@@ -9,7 +9,7 @@
 [Use cases](/0.1/references/use-cases.md)
 ## Learn about the products that have already been built using IOTA
 
-[First steps](/0.1/tutorials/first-steps.md)
+[Get started](/0.1/tutorials/first-steps.md)
 ## Get started with IOTA in some hands-on tutorials
 
 [Create a seed](/0.1/tutorials/create-a-seed.md)

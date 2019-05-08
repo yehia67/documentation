@@ -13,9 +13,9 @@ To complete this tutorial, you need the following:
 
 ---
 
-In IOTA, transactions must be sent to [IRI nodes](root://iri/0.1/introduction/overview.md).
+In IOTA, transactions must be sent to [nodes](../introduction/what-is-a-node.md).
 
-If you know the URL of an IRI node, you can send it a transaction. In this example we use the URL of an IRI node on the IOTA Devnet and use the [`getNodeInfo()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo) method to check that the IRI node is online.
+If you know the URL of a node, you can send it a transaction. In this example we use the URL of a node on the IOTA Devnet and use the [`getNodeInfo()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNodeInfo) method to check that it's online.
 
 1. In the command prompt, create a working directory called `iota-example`
 
@@ -23,7 +23,8 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
     mkdir iota-example
     ```
 
-2. Change into the `iota-example` directory and install the required Node.js libraries
+2. Change into the `iota-example` directory and install the IOTA libraries
+
     ```bash
     cd iota-example
     npm install @iota/core @iota/converter --save
@@ -94,7 +95,11 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
     }
     ```
 
-    Now that you've confirmed your connection to an IRI node, send a transaction to it.
+    Now that you've confirmed your connection to a node, send a transaction to it.
+
+    :::info:Want to run your own node?
+    [Run your own node in a Docker container](../tutorials/run-your-own-iri-node.md).
+    :::
 
 5. At the end of the `index.js` file, add the following:
     ```js
@@ -117,7 +122,6 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
             return iota.sendTrytes(trytes, 3, 9)
         })
         .then(bundle => {
-        console.log(`Published transaction with tail hash: ${bundle[0].hash}`)
         console.log(`Bundle: ${JSON.stringify(bundle, null, 1)}`)
     })
     .catch(err => {
@@ -131,17 +135,19 @@ If you know the URL of an IRI node, you can send it a transaction. In this examp
     node index.js
     ```
 
-Congratulations 🎊. You've just sent your first zero-value transaction.
+:::success:Congratulations :tada:
+You've just sent your first zero-value transaction.
+:::
 
-You'll see information about the IRI node and the bundle that you've just sent.
+You'll see information about the IRI node you're connected to and the [bundle](../introduction/what-is-a-bundle.md) that you've just sent.
 
-![Content of a bundle](../success.png)
-
-Your transaction will propagate through the IOTA network until all the IRI nodes have it in their ledgers.
+Your transaction will propagate through the IOTA network until all the nodes have it in their ledgers.
 
 To confirm that your bundle in on the network, copy the value of the `bundle` field from the output, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
-**Note:** Zero-value transactions don't need to be confirmed, only value transactions do.
+:::info:
+Zero-value transactions don't need to be confirmed, only value transactions do.
+:::
 
 ## Code walkthrough
 
@@ -153,11 +159,15 @@ const seed =
 const message = Converter.asciiToTrytes('Hello World!')
 ```
 
-The value of the `message` variable is converted to trytes because IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages.
 The value of the `address` variable is the [address](../introduction/what-is-a-seed.md) that the message is sent to.
-The value of the `seed` variable is the [seed](../introduction/what-is-a-seed.md) that is used to generate an address to send the message from.
 
-**Note:** Seeds must contain 81 tryte-encoded characters. If a seed consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters. 
+The value of the `seed` variable is the [seed](../introduction/what-is-a-seed.md) that is used to derive an address to send the message from.
+
+The value of the `message` variable is converted to trytes because IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages.
+
+:::info:
+Seeds must contain 81 tryte-encoded characters. If a seed consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters. 
+:::
 
 ---
 
@@ -178,11 +188,10 @@ an address. In this case, you send a transfer with no value to an address and yo
 ```javascript
     iota.prepareTransfers(seed, transfers)
     .then(trytes => {
-        return iota.sendTrytes(trytes, 3/*depth*/, 9 /*mwm*/)
+        return iota.sendTrytes(trytes, 3/*depth*/, 9 /*MWM*/)
     })
     .then(bundle => {
-    console.log(`Published transaction with tail hash: ${bundle[0].hash}`);
-    var JSONBundle = JSON.stringify(bundle);
+    var JSONBundle = JSON.stringify(bundle,null,1);
     console.log(`Bundle: ${JSONBundle}`);
 })
 .catch(err => {
@@ -191,51 +200,21 @@ an address. In this case, you send a transfer with no value to an address and yo
 });
 ```
 
-The [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method constructs a [bundle](../introduction/what-is-a-bundle.md) on the client side. The [`sendTrytes()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes)  method sends the bundle to the [node](../introduction/what-is-a-node.md).
+The [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method constructs a [bundle](../introduction/what-is-a-bundle.md) on the client side.
 
-## Final Code
+The [`sendTrytes()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes) method does [tip selection](root://the-tangle/0.1/concepts/tip-selection.md) and [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), then sends the bundle to the [node](../introduction/what-is-a-node.md).
 
-The contents of the index.js file should look like this:
+The `depth`argument affects how far back the node starts tip selection.
 
-```js
-// Require the IOTA libraries
-const Iota = require('@iota/core');
-const Converter = require('@iota/converter');
-// Create a new instance of the IOTA object
-// Use the `provider` field to specify which IRI node to connect to
-const iota = Iota.composeAPI({
-provider: 'https://nodes.devnet.iota.org:443'
-});
-// Call the `getNodeInfo()` method for information about the IRI node
-iota.getNodeInfo()
-    // Convert the returned object to JSON to make the output more readable
-    .then(info => console.log(JSON.stringify(info)))
-    .catch(err => {
-        // Catch any errors
-        console.log(err);
-    });
-const address = 'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD'
-const seed = 'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX'
-const message = Converter.asciiToTrytes('Hello World!');
-const transfers = [
-    {
-    value: 0,
-    address: address,
-    message: message
-    }
-];
+The `MWM` ([minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)) field affect the difficulty of proof of work.
 
- iota.prepareTransfers(seed, transfers)
-    .then(trytes => {
-        return iota.sendTrytes(trytes, 3, 9)
-    })
-    .then(bundle => {
-    console.log(`Published transaction with tail hash: ${bundle[0].hash}`);
-    var JSONBundle = JSON.stringify(bundle);
-    console.log(`Bundle: ${JSONBundle}`)
-})
-.catch(err => {
-        // Catch any errors
-    console.log(err);
-});
-```
+:::info:
+This example uses the MWM for the Devnet, which must be at least 9.
+If you want to test this code on a Mainnet node, change the MWM to 14.
+:::
+
+## Run the code
+
+Click **Run** to run this sample code and see the results in the web browser.
+
+<iframe height="400px" width="100%" src="https://repl.it/@jake91/51-Send-ASCII-Data?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>

@@ -1,11 +1,11 @@
 # Run your own IRI node
 
-**IRI nodes are the core of an IOTA network. Clients must send their transactions to IRI nodes to have them validated and recorded in the ledger.**
+**Nodes are the core of an IOTA network. Clients must send their transactions to nodes to have them validated and recorded in the ledger.**
 
-Without IRI nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom.
+Without nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom.
 
 By running your own IRI node, you have the following benefits:
-* You have your own direct access to a ledger on an IOTA network instead of having to connect to someone else's IRI node
+* You have your own direct access to a ledger on an IOTA network instead of having to connect to someone else's node
 * You help the IOTA network to become more distributed by adding to the number of ledgers and validating other users' transactions
 
 In this tutorial, you're going to run your own IRI node in a [Docker](https://www.docker.com/) container.
@@ -112,10 +112,12 @@ To complete this tutorial, you need the following:
     }
     ```
 
-You'll notice in the output that the value of the neighbors field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to [neighbors](root://iri/0.1/concepts/neighbor-iri-node.md).
+You'll notice in the output that the value of the `neighbors` field is 0. This means that your node is not connected to an IOTA network. To do so, you need to connect to [neighbors](root://iri/0.1/concepts/neighbor-iri-node.md).
 
 For help connecting to neighbors, go to the #help or #nodesharing channel on our [Discord](https://discordapp.com/invite/fNGZXvh).
 
 ## Next steps
 
-Try [sending your first data transaction](../tutorials/send-a-zero-value-transaction-with-nodejs.md) to a node that's connected to the Devnet network.
+[Read more in-depth guides about running a node](root://iri/0.1/introduction/overview.md).
+
+[Send your first data transaction](../tutorials/send-a-zero-value-transaction-with-nodejs.md) to a node that's connected to the Devnet network.
