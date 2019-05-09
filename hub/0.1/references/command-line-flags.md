@@ -13,9 +13,9 @@
 |`--sslCert` |Path to the SSL certificate |"/dev/null"|
 |`--sslCA` |Path to the certificate authority (CA) root |"/dev/null"|
 |`--maxConcurrentArgon2Hash`|Maximum number of concurrent Argon2 hash processes| 4|
-|`--argon2TCost` |Time cost of Argon2. [See this StackExchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.|4|
-|`--argon2MCost`|Memory cost of Argon2 in bytes. [See this StackExchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.| 1 << 17|
-|`--argon2Parallelism`|Number of threads to use in parallel for Argon2. [See this StackExchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.|1|
+|`--argon2TCost` |Time cost of Argon2. [See this Stack Exchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.|4|
+|`--argon2MCost`|Memory cost of Argon2 in bytes. [See this Stack Exchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.| 1 << 17|
+|`--argon2Parallelism`|Number of threads to use in parallel for Argon2. [See this Stack Exchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.|1|
 |`--argon2Mode` |Argon2 mode to use: 1=argon2i, 2=argon2id|2|
 |`--keySecLevel` |[Security level](root://iota-basics/0.1/references/security-levels.md) to use for IOTA [private keys](root://iota-basics/0.1/concepts/addresses-and-signatures.md)|2|
 
