@@ -1,6 +1,6 @@
 # Send a bundle of zero-value transactions
 
-**Transactions must be grouped in a bundle before being sent to an IRI node. The IOTA client libraries have built-in functions that create bundles from transfer objects.**
+**Transactions must be packaged in a bundle before being sent to a node. The IOTA client libraries have built-in functions that create bundles from transfer objects.**
 
 :::info:
 If you're unfamiliar with the terms bundle or transaction, we recommend that you [read about bundles and transactions](../concepts/bundles-and-transactions.md).
@@ -19,7 +19,7 @@ To complete this guide, you need the following:
 
 1. Create a new directory called `iota-basics`
 
-2. In the command prompt, change into the `iota-basics` directory, and install the [IOTA Core library](https://github.com/iotaledger/iota.js/tree/next/packages/core) and the [IOTA converter library](https://github.com/iotaledger/iota.js/tree/next/packages/converter)
+2. In the command prompt, change into the `iota-basics` directory, and install the [IOTA core library](https://github.com/iotaledger/iota.js/tree/next/packages/core) and the [IOTA converter library](https://github.com/iotaledger/iota.js/tree/next/packages/converter)
 
     ```bash
     cd iota-basics
@@ -76,14 +76,16 @@ To complete this guide, you need the following:
     };
     ```
 
-    **Note:** The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
+    :::info:
+    The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
+    :::
 
-8. Use the `prepareTransfers()` method to create a bundle, then pass the returned trytes to the `sendTrytes()` method. This method asks the connected IRI node to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), then broadcasts the bundle to the IRI node.
+8. Pass the `transfers` array to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method to construct a [bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md). This method creates a bundle from the transfer object. Then, pass the bundle's trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](root://getting-started/0.1/introduction/what-is-a-node.md).
 
     ```js
     iota.prepareTransfers(seed, [transfer1, transfer2])
     .then(function(trytes){
-        return iota.sendTrytes(trytes, 3, 14 );
+        return iota.sendTrytes(trytes, 3, 9);
     })
 
     .then(results => console.log(JSON.stringify(results, ['hash', 'currentIndex', 'lastIndex', 'bundle', 'trunkTransaction', 'branchTransaction'], 1)));
@@ -121,58 +123,19 @@ To complete this guide, you need the following:
     ]
     ```
 
-9. To see details about your first transaction, copy the hash of the first transaction and paste it into [thetangle.org](https://thetangle.org/). These details have been sourced from IRI nodes that the website is connected to.
+9. To see details about your first transaction, copy the hash of the first transaction and paste it into [devnet.thetangle.org](https://devnet.thetangle.org/). These details have been sourced from the nodes that the website is connected to.
 
-    ![Transaction in a Tangle explorer](../tangle-explorer.PNG)
+    ![Transaction in a Tangle explorer](../images/tangle-explorer.PNG)
 
 10. To see details about your second transaction, scroll down to 'Parent transactions' and click the Trunk hash
 
-    ![Trunk transaction in a Tangle explorer](../tangle-explorer-trunk.PNG)
+    ![Trunk transaction in a Tangle explorer](../images/tangle-explorer-trunk.PNG)
 
-## Final code
+## Run the code
 
-```js
-// Require the IOTA libraries
-const Iota = require('@iota/core');
-const Converter = require('@iota/converter');
+Click the green button to run the sample code in this guide and see the results in the web browser.
 
-// Create a new instance of the IOTA object
-// Use the `provider` field to specify which IRI node to connect to
-const iota = Iota.composeAPI({
-provider: 'https://nodes.thetangle.org:443'
-});
-
-const seed =
-'PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
-
-var recipientAddress1 = "CXDUYK9XGHC9DTSPDMKGGGXAIARSRVAFGHJOCDDHWADLVBBOEHLICHTMGKVDOGRU9TBESJNHAXYPVJ9R9";
-
-var recipientAddress2 = "CYJV9DRIE9NCQJYLOYOJOGKQGOOELTWXVWUYGQSWCNODHJAHACADUAAHQ9ODUICCESOIVZABA9LTMM9RW";
-
-// Prepare transactions
-var transfer1 = {
-'address': recipientAddress1,
-'value': 0,
-'message': Converter.asciiToTrytes('Hello, this is my first message'),
-'tag': 'SENDABUNDLEOFTRANSACTIONS'
-};
-
-var transfer2 = {
-'address': recipientAddress2,
-'value': 0,
-'message': Converter.asciiToTrytes('Hello, this is my second message'),
-'tag': 'SENDABUNDLEOFTRANSACTIONS'
-};
-
-// Create bundle and return the trytes of the prepared transactions
-iota.prepareTransfers(seed, [transfer1, transfer2])
-.then(function(trytes){
-    // Finalize and broadcast the bundle to the IRI node
-    return iota.sendTrytes(trytes, 3 /*depth*/, 14 /*minimum weight magnitude*/);
-})
-
-.then(results => console.log(JSON.stringify(results, ['hash', 'currentIndex', 'lastIndex', 'bundle', 'trunkTransaction', 'branchTransaction'], 1)));
-```
+<iframe height="400px" width="100%" src="https://repl.it/@jake91/Send-bundle?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 
 

@@ -28,7 +28,7 @@ To complete this guide, you need the following:
 
 3. In the `iota-basics` directory, create a new file called `convert-to-trytes.js`
 
-4. In the convert-to-trytes.js file, require the IOTA libraries
+4. In the `convert-to-trytes.js` file, require the IOTA client library
 
     ```js
     const Iota = require('@iota/converter');
@@ -67,21 +67,8 @@ To complete this guide, you need the following:
 The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
 :::
 
-## Final code
+## Run the code
 
-```js
-// Require the IOTA library
-var Converter = require('@iota/converter');
+Click the green button to run the sample code in this guide and see the results in the web browser.
 
-var data = "Hello World!";
-
-// Convert the data to trytes
-var trytes = Converter.asciiToTrytes(data);
-
-console.log(`${data} converted to trytes: ${trytes}`);
-
-// Convert the trytes back to the original ASCII characters
-var message = Converter.trytesToAscii(trytes);
-
-console.log(`${trytes} converted back to data: ${message}`);
-```
+<iframe height="400px" width="100%" src="https://repl.it/@jake91/Convert-data-to-trytes?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>

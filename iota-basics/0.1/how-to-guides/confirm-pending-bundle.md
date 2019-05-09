@@ -146,82 +146,18 @@ console.log(tails);
 ```
 
 
-## Final code
+## Run the code
+
+Click the green button to run the sample code in this guide and see the results in the web browser.
 
 Before you run this sample code, find a pending tail transaction hash and store it in the `tails` array.
 
-```js
-const Iota = require('@iota/core');
+    :::info:Can't find a pending transaction?
+    Go to [devnet.thetangle.org](https://devnet.thetangle.org) and click a transaction hash in the Latest transactions box. This transaction is a tip, so it is in a pending state.
+    :::
 
-const iota = Iota.composeAPI({
-  provider: 'https://nodes.thetangle.org:443'
-  });
+<iframe height="400px" width="100%" src="https://repl.it/@jake91/Confirm-pending-bundle?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-var tails = ["tail transaction hash"];
-var seconds = 0;
-
-var anonymousMainFunction = autoConfirm.bind(global,tails);
-
-// Run the autoConfirm() function every 30 seconds to check for confirmations
-var interval = setInterval(anonymousMainFunction, 30000);
-
-// Set a timer to measure how long it takes for the bundle to be confirmed
-var timer = setInterval(stopWatch, 1000);
-function stopWatch (){
-  seconds++
-}
-
-console.log("Started autoConfirm() function");
-
-// Create a function that checks if a bundle is attached to a valid subtangle
-// and not older than the last 6 milestone transactions
-// If it is, promote it, if not, try to reattach it.
-function autoPromoteReattach (tail) {
-  iota.isPromotable(tail)
-    .then(promote => promote
-    ? iota.promoteTransaction(tail, 3, 14)
-        .then(()=> {
-            console.log(`Promoted transaction hash: ${tail}`);
-        })
-    : iota.replayBundle(tail, 3, 14)
-        .then(([reattachedTail]) => {
-            const newTailHash = reattachedTail.hash
-
-            console.log(`Reattached transaction hash: ${tail}`);
-
-            // Keep track of all reattached tail transaction hashes to check for confirmation
-            tails.push(newTailHash);
-        })
-    )
-    .catch((error)=>{
-         console.log(error);
-    });
-}
-
-// Create the autoConfirm function
-// that checks if one of the bundles have been confirmed
-// If not, start to promote and reattach the tail transactions until at least one of them is confirmed
-function autoConfirm(tails){
-console.log(tails);
-    iota.getLatestInclusion(tails)
-        .then(states => {
-            // Check that none of the transactions have been confirmed
-            if (states.indexOf(true) === -1) {
-                // Get latest tail hash
-                const tail = tails[tails.length - 1] 
-                autoPromoteReattach(tail);
-            } else {
-                console.log(JSON.stringify(states,null, 1));
-                clearInterval(interval);
-                clearInterval(timer);
-                var minutes = (seconds / 60).toFixed(2);
-                var confirmedTail = tails[states.indexOf(true)];
-                console.log(`Confirmed transaction hash in ${minutes} minutes: ${confirmedTail}`);
-                return;
-            }
-        }).catch(error => {
-            console.log(error);
-        }
-    );
-}
-```
+:::info:
+This sample code may take a few minutes to complete. If you see `Started autoConfirm() function => undefined`, the code is running in the background. Wait until the code finishes. You should see messages appear in the console.
+:::

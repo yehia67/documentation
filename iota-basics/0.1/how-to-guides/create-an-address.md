@@ -24,7 +24,7 @@ To complete this guide, you need the following:
 
 3. In the `iota-basics` directory, create a new file called `create-address.js`
 
-4. In the create-address.js file, require the IOTA libraries
+4. In the `create-address.js` file, require the IOTA libraries
 
     ```js
     const Iota = require('@iota/core');
@@ -34,7 +34,7 @@ To complete this guide, you need the following:
 
     ```js
     const iota = Iota.composeAPI({
-    provider: 'https://nodes.thetangle.org:443'
+    provider: 'https://nodes.devnet.iota.org:443'
     });
     ```
 
@@ -56,26 +56,20 @@ To complete this guide, you need the following:
     .then(address => console.log(address));
     ```
 
-    When you execute the file, you should see an address. If you execute the script again, you'll see the same address.
+    When you execute the file, you should see an address. If you execute the script again, you'll see the same address because its derived from the same seed, index and security level.
 
 Try changing the index and security level arguments in the `getNewAddress()` method to create a different address.
 
-## Final code
+## Run the code
 
-```js
-// Require the IOTA library
-const Iota = require('@iota/core');
+Click the green button to run the sample code in this guide and see the results in the web browser.
 
-// Create a new instance of the IOTA object
-// Use the `provider` field to specify which IRI node to connect to
-const iota = Iota.composeAPI({
-provider: 'https://nodes.thetangle.org:443'
-});
+<iframe height="400px" width="100%" src="https://repl.it/@jake91/Create-an-address?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-const seed =
-'PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
+:::warning:
+If you call the `getNewAddress()` method without the index or security level, the library will return an address from which you haven't yet withdrawn.
 
-// Create an address with index 0 and security level 2
-iota.getNewAddress(seed, {index: 0, security: 2})
-.then(address => console.log(address));
-```
+To do this, the library asks the node to find input transactions that use the address.
+
+We don't recommend omitting the index or security level because some nodes prune transactions from their ledgers. As a result, the library won't always know if an address is spent.
+:::
