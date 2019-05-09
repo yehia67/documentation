@@ -30,7 +30,7 @@ To complete this guide, you need the following:
 
 3. In the `iota-basics` directory, create a new file called `create-private-key-address.js`
 
-4. In the create-private-key-address.js file, require the IOTA libraries
+4. In the `create-private-key-address.js` file, require the IOTA libraries
 
     ```js
     const Iota = require('@iota/core');
