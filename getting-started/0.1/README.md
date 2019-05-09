@@ -1,6 +1,6 @@
 # An introduction to IOTA
 
-This section introduces users to IOTA by giving them a foundation of knowledge that they can build on through each section of the documention site. 
+This section introduces users to IOTA by giving them a foundation of knowledge that they can build on through each section of the documentation portal. 
 
 ## Documentation
 
@@ -12,7 +12,7 @@ This section introduces users to IOTA by giving them a foundation of knowledge t
     - [Introduction/What is a node?](/introduction/what-is-a-node.md)
   
 - Tutorials
-    - [First steps](/tutorials/first-steps.md)
+    - [Get started](/tutorials/first-steps.md)
     - [Create a seed](/tutorials/create-a-seed.md)
     - [Send your first data transaction (Trinity)](/tutorials/send-your-first-data-transaction-with-the-trinity-wallet.md)
     - [Send your first data transaction (Node.js)](/tutorials/send-your-first-data-transaction-with-nodejs.md)

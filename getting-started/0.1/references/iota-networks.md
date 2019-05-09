@@ -17,7 +17,13 @@ If you want to create and test an application on a permissioned (private) networ
 
 When you buy IOTA tokens from a cryptocurrency exchange, those tokens are valid on the Mainnet.
 
-![Mainnet configuration](../mainnet-configuration.png)
+:::info:
+Cryptocurrency exchanges sell IOTA tokens in denominations of Mega IOTA, which is also written as MIOTA (1,000,000).
+
+Learn more about [units of IOTA tokens](root://iota-basics/0.1/references/units-of-iota-tokens.md).
+:::
+
+![Mainnet configuration](../images/mainnet-configuration.png)
 
 ### Minimum weight magnitude
 
@@ -27,9 +33,13 @@ Transactions on the Mainnet must use a [minimum weight magnitude](root://iota-ba
 
 The Devnet is a copy of the Mainnet.
 
-On this network, you can test your applications and build proof of concepts that use [free Devnet tokens](https://faucet.devnet.iota.org). The faucet website will send 1000 Devnet tokens to the specified address.
+On this network, you can test your applications and build proof of concepts that use free Devnet tokens.
 
-![Devnet Configuration](../devnet-configuration.png)
+:::info:Receive free Devnet tokens
+The [faucet website](https://faucet.devnet.iota.org) sends 1Ki (1000) Devnet tokens to your specified address.
+:::
+
+![Devnet Configuration](../images/devnet-configuration.png)
 
 ### Minimum weight magnitude
 
@@ -67,9 +77,13 @@ Use the PoW node to save power on small devices.
 
 The Spamnet is for applications that spam transactions.
 
-On this network, you can test your applications and build proof of concepts that use [free Spamnet tokens](https://faucet.spamnet.iota.org).
+On this network, you can test your applications and build proof of concepts that use free Spamnet tokens.
 
-![Spamnet configuration](../spamnet-topology.png)
+:::info:Receive free Spamnet tokens
+The [faucet website](https://faucet.spamnet.iota.org) sends 1Ki (1000) Spamnet tokens to your specified address.
+:::
+
+![Spamnet configuration](../images/spamnet-topology.png)
 
 ### Minimum weight magnitude
 
