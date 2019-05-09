@@ -64,7 +64,7 @@ Try changing the index and security level arguments in the `getNewAddress()` met
 
 Click the green button to run the sample code in this guide and see the results in the web browser.
 
-<iframe height="400px" width="100%" src="https://repl.it/@jake91/Create-an-address?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/Create-an-address?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 :::warning:
 If you call the `getNewAddress()` method without the index or security level, the library will return an address from which you haven't yet withdrawn.

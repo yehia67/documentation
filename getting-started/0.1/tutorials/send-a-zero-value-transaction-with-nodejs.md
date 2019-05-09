@@ -225,7 +225,7 @@ Your transaction will propagate through the IOTA network until all the nodes hav
 
 Click the green button to run the sample code in this tutorial and see the results in the web browser.
 
-<iframe height="400px" width="100%" src="https://repl.it/@jake91/51-Send-ASCII-Data?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/51-Send-ASCII-Data?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 :::info:Want to know what the transaction fields mean?
 [Take a look at the structure of a transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md).
