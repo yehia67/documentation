@@ -7,7 +7,7 @@
 PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX
 --------------------
 
-A seed can derive an almost unlimited amount of addresses: Enough that you don't need to worry about ever running out!
+A seed has an almost unlimited amount of addresses: Enough that you don't need to worry about ever running out!
 
 [Addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md) are the accounts from which [transactions](../introduction/what-is-a-transaction.md) are sent and received.
 
