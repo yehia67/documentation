@@ -51,7 +51,7 @@ After you send a bundle to a [node](root://iri/0.1/introduction/overview.md), it
 
 During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the node has validated all transactions up to the head (or [`lastIndex` field](../references/structure-of-a-transaction.md)), your bundle is considered valid.
 
-![Example of a bundle of 4 transactions](../bundle.png)
+![Example of a bundle of 4 transactions](../images/bundle.png)
 
 ## Example bundles
 

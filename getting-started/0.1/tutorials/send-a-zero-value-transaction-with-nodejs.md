@@ -84,7 +84,7 @@ You can choose to connect and send bundles to a node on any [IOTA network](../re
     node index.js
     ```
 
-    Some information about the IRI node that you're connected to should be displayed in the output:
+    Some information about the IRI node that you're connected to should be displayed in the output.
 
     ```json
     {
@@ -110,6 +110,10 @@ You can choose to connect and send bundles to a node on any [IOTA network](../re
      "duration": 0
     }
     ```
+
+    :::info:Want to know what these fields mean?
+    [Take a look at the `getNodeInfo()` API reference](root://iri/0.1/references/api-reference.md#getnodeinfo).
+    :::
 
 :::success:
 You've confirmed your connection to the node. Now, you can send a transaction to it.
@@ -155,6 +159,10 @@ When you're connected to a node, you can create a transaction, package it in a [
     IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages.
     :::
 
+    :::info:
+    The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
+    :::
+
 4. Create a transfer object that specifies the value, message to send, and the address to send it to
 
     ```js
@@ -173,7 +181,7 @@ When you're connected to a node, you can create a transaction, package it in a [
     The message is put in the `signatureMessageFragment` field of the transaction.
     :::
 
-5. Pass the `transfers` array to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method to construct a [bundle](../introduction/what-is-a-bundle.md). Then, pass the bundle's trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](../introduction/what-is-a-node.md)
+5. Pass the `transfers` array to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method to construct a [bundle](../introduction/what-is-a-bundle.md). This method creates a bundle from the transfer object. Then, pass the bundle's trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](../introduction/what-is-a-node.md)
 
     ```js
     iota.prepareTransfers(seed, transfers)
@@ -209,15 +217,19 @@ When you're connected to a node, you can create a transaction, package it in a [
 You've just sent your first zero-value transaction.
 :::
 
-In the console, you'll see information about the [bundle](../introduction/what-is-a-bundle.md) that you sent.
+In the console, you'll see information about the transaction in the [bundle](../introduction/what-is-a-bundle.md) that you sent.
 
 Your transaction will propagate through the IOTA network until all the nodes have it in their ledgers.
 
 ## Run the code
 
-Click **run** to run the sample code in this tutorial and see the results in the web browser.
+Click the green button to run the sample code in this tutorial and see the results in the web browser.
 
 <iframe height="400px" width="100%" src="https://repl.it/@jake91/51-Send-ASCII-Data?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+:::info:Want to know what the transaction fields mean?
+[Take a look at the structure of a transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md).
+:::
 
 ## Next steps
 
@@ -226,6 +238,10 @@ To confirm that your bundle in on the network (attached to the Tangle), copy the
 See the Parent transactions field to check which transactions your transaction is attached to in the Tangle.
 
 These transactions were chosen during tip selection and added to the [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md) of your transaction.
+
+:::info:Want to send more transactions in a bundle?
+[Send a bundle of two transaction](root://iota-basics/0.1/how-to-guides/send-bundle.md) and learn how bundles are structured.
+:::
 
 :::info:Interested in running a node?
 [Discover more about node software](root://iri/0.1/introduction/overview.md) and [follow an in-depth guide on running a node](root://iri/0.1/how-to-guides/run-an-iri-node-on-linux.md).

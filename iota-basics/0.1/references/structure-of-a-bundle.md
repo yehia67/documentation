@@ -4,7 +4,7 @@
 
 All transactions in a bundle, except the head, are connected to each other through the [`trunkTransaction` field](../references/structure-of-a-transaction.md). These connections allow nodes to find all transactions in the same bundle and validate them.
 
-![Connections in a bundle](../bundle-structure.png)
+![Connections in a bundle](../images/bundle-structure.png)
 
 | Transaction's current index                         |`trunkTransaction` field| `branchTransaction` field| Description   |
 | :----------------------------- | :------ |:---|:---|

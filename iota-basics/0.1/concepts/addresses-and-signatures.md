@@ -48,7 +48,7 @@ Then, the key digests are combined and hashed once to derive an 81-tryte address
 Use the JavaScript client library to [derive addresses from private keys](../how-to-guides/derive-addresses-from-private-keys.md).
 :::
 
-![Address generation](../address-generation.png)
+![Address generation](../images/address-generation.png)
 
 ### How private keys sign bundles
 

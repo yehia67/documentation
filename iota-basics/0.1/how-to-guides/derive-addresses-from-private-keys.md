@@ -50,7 +50,7 @@ To complete this guide, you need the following:
     Any code that uses a seed is executed on the client side. Your seed never leaves your device.
     :::
 
-6. Derive one private key for each of the three [security levels](../references/security-levels.md) by passing the same subseed and a different security level to the `key()` method
+6. Derive one private key for each of the three security levels by passing the same subseed and a different security level to the `key()` method
 
     ```js
     var privateKey1 = Sign.key(subseed, 1 /*security level*/);
@@ -68,13 +68,17 @@ To complete this guide, you need the following:
 
     When you execute the file, you should see the length of each private key in trytes:
 
-        ```console
-        Private key length for security level 1: 2187
+    ```console
+    Private key length for security level 1: 2187
 
-        Private key length for security level 2: 4374
+    Private key length for security level 2: 4374
 
-        Private key length for security level 3: 6561
-        ```
+    Private key length for security level 3: 6561
+    ```
+
+    :::info:
+    [Find out more about security levels](../references/security-levels.md).
+    :::
 
 7. Derive the key digests for each private key by passing each one to the `digests()` method
 
@@ -102,6 +106,10 @@ To complete this guide, you need the following:
     Total key digests for security level 3: 3
     ```
 
+    :::info:
+    [Find out more about key digests](../concepts/addresses-and-signatures.md).
+    :::
+
 8. Derive an address for each private key by passing the digests to the `address()` method
 
     ```js
@@ -120,11 +128,11 @@ To complete this guide, you need the following:
 
     When you execute the file, you should see the addresses for each security level:
 
-        ```console
-        Address with security level 1: ZWENNY9JOIQRJIRHV9PCQMCHKBXVZTTKMVRSZSKQNQCQCTZMTMUPEWE9DPCVBVZOVGFFI9JYLTIFXGJAX
-        Address with security level 2: ECMHBSFPVUWHSUXZBXTWSKNMBGNTW9GAFVJUUSSJYFBOKHNFJBPEKJNMQMCSAIBXVUJNQKUBFUXPEIY9B
-        Address with security level 3: LJGSYD9N9JEAQ9AVN9BJCAOW9LFVZGFHOXFVFVLQEBKVZFGBIDJJIRK9FBJUKRS9VMUXTCXBRIOOEMQJ9
-        ```
+    ```console
+    Address with security level 1: ZWENNY9JOIQRJIRHV9PCQMCHKBXVZTTKMVRSZSKQNQCQCTZMTMUPEWE9DPCVBVZOVGFFI9JYLTIFXGJAX
+    Address with security level 2: ECMHBSFPVUWHSUXZBXTWSKNMBGNTW9GAFVJUUSSJYFBOKHNFJBPEKJNMQMCSAIBXVUJNQKUBFUXPEIY9B
+    Address with security level 3: LJGSYD9N9JEAQ9AVN9BJCAOW9LFVZGFHOXFVFVLQEBKVZFGBIDJJIRK9FBJUKRS9VMUXTCXBRIOOEMQJ9
+    ```
 
 9. To check that the same addresses would be returned from the IOTA core library, do the following:
 
@@ -140,78 +148,9 @@ To complete this guide, you need the following:
 You've proven that, under the hood of the IOTA core library, addresses are derived from private keys with a certain index and security level.
 :::
 
-## Final code
+## Run the code
 
-```js
-// Require the IOTA libraries
-const Iota = require('@iota/core');
-const Sign = require('@iota/signing');
-const Converter = require('@iota/converter');
+Click the green button to run the sample code in this guide and see the results in the web browser.
 
-//=========================================================
-// Derive a subseed by passing a seed in trits and an index to the `subseed()` method
-
-const seed = "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
-
-var subseed = Sign.subseed(Converter.trytesToTrits(seed), 0 /*index*/);
-
-//===========================================================
-// Derive one private key for each of the three security levels by passing the same subseed and a different security level to the `key()` method
-
-var privateKey1 = Sign.key(subseed, 1 /*security level*/);
-
-console.log('Private key length for security level 1: ' + Converter.tritsToTrytes(privateKey1).length);
-
-var privateKey2 = Sign.key(subseed, 2 /*security level*/);
-
-console.log('Private key length for security level 2: ' + Converter.tritsToTrytes(privateKey2).length);
-
-var privateKey3 = Sign.key(subseed, 3 /*security level*/);
-
-console.log('Private key length for security level 3: ' + Converter.tritsToTrytes(privateKey3).length);
-
-//===========================================================
-// Derive the key digests for each private key by passing each private key to the `digests()` method
-
-var privateKey1Digests = Sign.digests(privateKey1);
-
-console.log(`Total key digests for security level 1: ` + Converter.tritsToTrytes(privateKey1Digests).length/81);
-
-var privateKey2Digests = Sign.digests(privateKey2);
-
-console.log(`Total key digests for security level 2: ` + Converter.tritsToTrytes(privateKey2Digests).length/81);
-
-var privateKey3Digests = Sign.digests(privateKey3);
-
-console.log(`Total key digests for security level 3: ` + Converter.tritsToTrytes(privateKey3Digests).length/81);
-
-//=================================================================
-// Derive an address for each private key by passing the digests to the `address()` method
-
-var privateKey1Address = Sign.address(privateKey1Digests);
-
-// Convert the returned trits to trytes
-console.log('Address with security level 1: ' + Converter.tritsToTrytes(privateKey1Address));
-
-// Check the address by creating it with the same index and security level using the Core JS library
-console.log(Iota.generateAddress(seed, 0, 1));
-
-var privateKey2Address = Sign.address(privateKey2Digests);
-
-// Convert the returned trits to trytes
-console.log('Address with security level 2: ' + Converter.tritsToTrytes(privateKey2Address));
-
-// Check the address by creating it with the same index and security level using the Core JS library
-console.log(Iota.generateAddress(seed, 0, 2));
-
-var privateKey3Address = Sign.address(privateKey3Digests);
-
-// Convert the returned trits to trytes
-console.log('Address with security level 3: ' + Converter.tritsToTrytes(privateKey3Address));
-
-// Check the address by creating it with the same index and security level using the Core JS library
-console.log(Iota.generateAddress(seed, 0, 3));
-
-//===========================================================
-```
+<iframe height="400px" width="100%" src="https://repl.it/@jake91/Derive-addresses-from-private-keys?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
