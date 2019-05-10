@@ -233,14 +233,14 @@ Click the green button to run the sample code in this tutorial and see the resul
 
 ## Next steps
 
-To confirm that your bundle in on the network (attached to the Tangle), copy the value of the `bundle` field from the console, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
+To confirm that your bundle is on the network (attached to the Tangle), copy the value of the `bundle` field from the console, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
 See the Parent transactions field to check which transactions your transaction is attached to in the Tangle.
 
 These transactions were chosen during tip selection and added to the [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md) of your transaction.
 
 :::info:Want to send more transactions in a bundle?
-[Send a bundle of two transaction](root://iota-basics/0.1/how-to-guides/send-bundle.md) and learn how bundles are structured.
+[Send a bundle of two transactions](root://iota-basics/0.1/how-to-guides/send-bundle.md) and learn how bundles are structured.
 :::
 
 :::info:Interested in running a node?
