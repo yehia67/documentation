@@ -13,9 +13,18 @@ You can subscribe to events in the ZMQ by doing the following:
 
 2. Create a ZMQ socket and connect it to an IRI node that has the [`ZMQ-enabled` configuration parameter](../references/iri-configuration-options.md#zmq-enabled) set to `true`
 
-3. Subscribe to events on the ZMQ
+3. Subscribe to events from the ZMQ
 
-In the following how-to guide we use Node.js, but you could use any [programming language that is supported by the ZMQ library](http://zguide.zeromq.org/page:all).
+In the following how-to guide we use Node.js and Python, but you could use any [programming language that is supported by the ZMQ library](http://zguide.zeromq.org/page:all).
+
+## Prerequisites
+
+To use the code samples in this guide, you must have the following:
+
+* [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/)
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+* Access to a command prompt
+* An Internet connection
 
 ## Listen for recently confirmed transactions
 
@@ -23,62 +32,124 @@ You can subscribe to the `sn` event on the ZMQ of the IRI to listen for recently
 * The index of the first milestone that referenced the transaction
 * The transaction hash
 
-### Prerequisites
+1. Install the zeromq library
 
-To use the code samples in this guide, your computer must have the following:
+--------------------
+### Node.js
 
-* [Node.js (8+)](https://nodejs.org/en/)
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
-* An Internet connection
+```bash
+npm install zeromq --save
+```
+---
+### Python
 
-1. Create a working directory called zmq-example
+```bash
+pip install pyzmq
+```
+--------------------
 
-    ```bash
-    mkdir zmq-example
-    cd zmq-example
-    ```
+2. Create a ZMQ subscribe socket
 
-2. In the zmq-example directory, install the zeromq library
+--------------------
+### Node.js
 
-    ```bash
-    npm install zeromq --save
-    ```
+```js
+let zmq = require('zeromq');
+let sock = zmq.socket('sub');
+```
+---
+### Python
 
-3. Create a file called index.js in the zmq-example directory
+```python
+import zmq
 
-4. In the index.js file, copy and paste the following:
+context = zmq.Context()
+socket = context.socket(zmq.SUB)
+```
+--------------------
 
-    ```javascript
-    let zmq = require('zeromq');
-    //Create a zmq socket
-    let sock = zmq.socket('sub');
+3. Connect the socket to the node's address
 
-    //Connect the ZMQ socket to the IRI by passing the `connect` function the URL or the IP address of the IRI and the ZMQ port
-    sock.connect('tcp://zmq.devnet.iota.org:5556');
-    //Subscribe to the confirmed transactions event
-    sock.subscribe('sn');
+--------------------
+### Node.js
 
-    //Create a callback function to process the data that is returned from the ZMQ
-    sock.on('message', msg => {
+```js
+sock.connect('tcp://zmq.devnet.iota.org:5556');
+```
+---
+### Python
+
+```python
+socket.connect('tcp://zmq.devnet.iota.org:5556')
+```
+--------------------
+
+4. Subscribe to the `sn` event. This event is for confirmed transactions.
+
+--------------------
+### Node.js
+
+```js
+sock.subscribe('sn');
+console.log("Socket connected");
+```
+---
+### Python
+```python
+socket.subscribe('sn')
+print ("Socket connected")
+```
+--------------------
+
+5. Process the event data that the node returns
+
+--------------------
+### Node.js
+
+```js
+sock.on('message', msg => {
     //Split the data into an array
     const data = msg.toString().split(' ');
     console.log(`Transaction confirmed by milestone index: ${data[1]}` );
     console.log(`Transaction hash: ${data[2]}` );
-    });
-    ```
+});
+```
+---
+### Python
+```python
+while True:
+    print ("Waiting for events from the node")
+    message = socket.recv()
+    data = message.split()
+    print ("Transaction confirmed by milestone index: ", data[1])
+    print ("Transaction hash: ", data[2])
+```
+--------------------
 
-    The output should display something like the following:
-    ```shell
-    Transaction confirmed by milestone index: 964091
-    Transaction hash: QUU9NXGQBKF9XVIVOGAPEMELTEKANNJPUFCEEFWHQKRASFGDUQNSFMRXULPDSLXUZU9NVQQEBAQLVG999
-    Transaction confirmed by milestone index: 964091
-    Transaction hash: DXFNIOMKEOETZXSMGEDUIY9JFWCFQTGSVJHIUWMQWKCUMCTYZRWAMVURZYJPYGUBZPUELKVZSALNNU999
-    Transaction confirmed by milestone index: 964091
-    Transaction hash: OHRNZFLVXJVHBT9HNOQWIOQHICJ9NVTLKAPYLBUVVGIRTYGUSZKWINSUTSJJGPBBFLNCGUFTVYFNNF999
-    Transaction confirmed by milestone index: 964091
-    Transaction hash: QNCPDSSMPISSVXBENGGNNBTRBSLCBXTVBLTZLH9DFNXUWWPQNAIFJPAQENDUYL9XTWOMNURAGRFNWN999
-    ```
+The output should display something like the following:
+```shell
+Transaction confirmed by milestone index: 964091
+Transaction hash: QUU9NXGQBKF9XVIVOGAPEMELTEKANNJPUFCEEFWHQKRASFGDUQNSFMRXULPDSLXUZU9NVQQEBAQLVG999
+Transaction confirmed by milestone index: 964091
+Transaction hash: DXFNIOMKEOETZXSMGEDUIY9JFWCFQTGSVJHIUWMQWKCUMCTYZRWAMVURZYJPYGUBZPUELKVZSALNNU999
+Transaction confirmed by milestone index: 964091
+Transaction hash: OHRNZFLVXJVHBT9HNOQWIOQHICJ9NVTLKAPYLBUVVGIRTYGUSZKWINSUTSJJGPBBFLNCGUFTVYFNNF999
+Transaction confirmed by milestone index: 964091
+Transaction hash: QNCPDSSMPISSVXBENGGNNBTRBSLCBXTVBLTZLH9DFNXUWWPQNAIFJPAQENDUYL9XTWOMNURAGRFNWN999
+```
+
+## Run the code
+
+Click the green button to run the sample code in this guide and see the results in the web browser.
+
+## Node.js
+
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/ZMQ-example-Nodejs?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+## Python
+
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/ZMQ-example-Python?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
 ## Next steps
 
 Use your knowledge of the ZMQ to build an application that monitors the IRI for other [events](../references/zmq-events.md). 
