@@ -32,7 +32,7 @@ You can subscribe to the `sn` event on the ZMQ of the IRI to listen for recently
 * The index of the first milestone that referenced the transaction
 * The transaction hash
 
-1. Install the zeromq library
+1\. Install the zeromq library
 
 --------------------
 ### Node.js
@@ -48,14 +48,14 @@ pip install pyzmq
 ```
 --------------------
 
-2. Create a ZMQ subscribe socket
+2\. Import the libraries and create a ZMQ subscribe socket
 
 --------------------
 ### Node.js
 
 ```js
-let zmq = require('zeromq');
-let sock = zmq.socket('sub');
+const zmq = require('zeromq');
+const sock = zmq.socket('sub');
 ```
 ---
 ### Python
@@ -68,7 +68,7 @@ socket = context.socket(zmq.SUB)
 ```
 --------------------
 
-3. Connect the socket to the node's address
+3\. Connect the socket to the node's address
 
 --------------------
 ### Node.js
@@ -84,7 +84,7 @@ socket.connect('tcp://zmq.devnet.iota.org:5556')
 ```
 --------------------
 
-4. Subscribe to the `sn` event. This event is for confirmed transactions.
+4\. Subscribe to the `sn` event. This event is for confirmed transactions.
 
 --------------------
 ### Node.js
@@ -101,7 +101,7 @@ print ("Socket connected")
 ```
 --------------------
 
-5. Process the event data that the node returns
+5\. Process the event data that the node returns
 
 --------------------
 ### Node.js
@@ -142,11 +142,11 @@ Transaction hash: QNCPDSSMPISSVXBENGGNNBTRBSLCBXTVBLTZLH9DFNXUWWPQNAIFJPAQENDUYL
 
 Click the green button to run the sample code in this guide and see the results in the web browser.
 
-## Node.js
+### Node.js
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/ZMQ-example-Nodejs?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Python
+### Python
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/ZMQ-example-Python?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
