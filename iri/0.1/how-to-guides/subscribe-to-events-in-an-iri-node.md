@@ -1,6 +1,6 @@
-# Subscribe to events in the IRI
+# Subscribe to events on a node
 
-**If an IRI node has the ZMQ port enabled, you can subscribe to its events such as when it confirms a transaction. These events give you real-time data from an IOTA network.**
+**If a node has the ZMQ port enabled, you can subscribe to its events such as transaction confirmations. These events give you real-time data from an IOTA network.**
 
 You may want to subscribe to events in the [zero message queue (ZMQ)](../concepts/zero-message-queue.md) to do the following:
 
@@ -28,7 +28,8 @@ To use the code samples in this guide, you must have the following:
 
 ## Listen for recently confirmed transactions
 
-You can subscribe to the `sn` event on the ZMQ of the IRI to listen for recently confirmed transactions. The data that is returned from the `sn` event is the following:
+You can subscribe to the `sn` event on the ZMQ of a node to listen for recently confirmed transactions. The following data is returned from the `sn` event:
+
 * The index of the first milestone that referenced the transaction
 * The transaction hash
 
@@ -141,6 +142,12 @@ Transaction hash: QNCPDSSMPISSVXBENGGNNBTRBSLCBXTVBLTZLH9DFNXUWWPQNAIFJPAQENDUYL
 ## Run the code
 
 Click the green button to run the sample code in this guide and see the results in the web browser.
+
+:::info:
+It may take a minute or so for the ZMQ to receive data from the node.
+
+You can ignore any green text.
+:::
 
 ### Node.js
 
