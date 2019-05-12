@@ -477,19 +477,19 @@ curl http://localhost:14265 \
 
 ## findTransactions
 
-Find transactions that contain the given values in their transaction fields. 
+Find transactions that contain the given values in their transaction fields.
+The parameters define the transaction fields to search for, including `bundles`, `addresses`, `tags`, and `approvees`.
 
 **Using multiple transaction fields, returns transactions hashes at the intersection of those values.** 
 
- ### Parameters
+### Parameters
 	
 |Parameters |Description | Type
 |--|--|--|
-| request|Transaction fields to search for, including `bundles`, `addresses`, `tags`, and `approvees` |array of objects |
- |`bundles`|Bundle hashes to search for|array of strings| 
- |`addresses`|Addresses to search for (do not include the checksum)|array of strings|
- | `tags`|Tags to search for |array of strings |
- | `approvees`|Child transactions to search for| array of strings|
+| `bundles` | Bundle hashes to search for | array of strings |
+| `addresses` | Addresses to search for (do not include the checksum) | array of strings |
+| `tags` | Tags to search for | array of strings |
+| `approvees` | Child transactions to search for | array of strings |
 
 ### Examples
 --------------------
