@@ -64,3 +64,7 @@
 :::success:Congratulations :tada:
 You're account is now emitting events that you can listen to and act on.
 :::
+
+## Next steps
+
+[Create a plugin that listens to events](../how-to-guides/create-plugin.md).
