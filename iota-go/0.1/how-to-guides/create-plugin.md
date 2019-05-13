@@ -1,12 +1,14 @@
 # Create a plugin
 
-**Plugins extend the functionality of an account. For example, you could create a plugin that prints events to the screen as they happen. All plugins run in their own goroutine and start and shut down together with an account.**
+**Plugins extend the functionality of an account. All plugins run in their own goroutine and start and shut down together with an account.**
 
 ## Prerequisites
 
 [Create a new account](../how-to-guides/create-account.md).
 
 ## Create a plugin that prints events to the screen
+
+To explain how to create a plugin, this guide helps you to create one that prints events to the screen as they happen.
 
 1. Create a new file called `event_logger.go`
 
@@ -25,13 +27,17 @@
     }
     ```
 
-3. Create a `Name()` function that returns the name of the plugin. The `account` object uses this name in error messages to help you debug your account.
+3. Create a `Name()` function that returns the name of the plugin
 
     ```go
     func (l *logplugin) Name() string {
 	return "eventLogger"
     }  
     ```
+
+    :::info:
+    The `account` object uses this name in error messages to help you debug your account.
+    :::
 
 4. Create a `Start()` function that will be called when the account starts. When an account is started, all plugins take the `account` object as an argument.
 
