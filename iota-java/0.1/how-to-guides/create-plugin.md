@@ -23,43 +23,39 @@ The easiest way to create a plugin is to create a class that extends the `Accoun
 public class TestPlugin extends AccountPlugin {
 
 	@Override
-    public void load() throws Exception {
+	public void load() throws Exception {
 		// Load data that the plugin needs such as reading storage, generating memory intensive resources, etc..
-    }
+	}
 
-    @Override
-    public boolean start() {
+	@Override
+	public boolean start() {
 		// Start any processes that you want to run continuously
 
 		// Return true if all went well, otherwise false
-        return true;
-    }
+	return true;
+	}
 
-    @Override
-    public void shutdown() {
+	@Override
+	public void shutdown() {
 		// Stop any running processes here
-    }
+	}
 
-    @Override
-    public String name() {
-        return "AwesomeTestPlugin";
-    }
-}
-```
+	@Override
+	public String name() {
+	return "AwesomeTestPlugin";
+	}
 
-Because all plugins implement the `EventListener` interface and are added to the `EventManager`, you can act on events inside the plugin.
+	@AccountEvent
+	public void confirmed(EventTransferConfirmed e) {
+	    System.out.println("account: " + account.getId());
+	    System.out.println("confimed: " + e.getBundle().getBundleHash());
+	}
 
-```java
-@AccountEvent
-public void confirmed(EventTransferConfirmed e) {
-    System.out.println("account: " + account.getId());
-    System.out.println("confimed: " + e.getBundle().getBundleHash());
-}
-
-@AccountEvent
-public void promoted(EventPromotion e) {
-    System.out.println("account: " + account.getId());
-    System.out.println("promoted: " + e.getPromotedBundle());
+	@AccountEvent
+	public void promoted(EventPromotion e) {
+	    System.out.println("account: " + account.getId());
+	    System.out.println("promoted: " + e.getPromotedBundle());
+	}
 }
 ```
 
@@ -70,52 +66,52 @@ If you can't extend a class, or you do not want to, you can implement the `Plugi
 ```java
 public class TestPlugin implements Plugin {
 
-    private Account account;
+	private Account account;
 
-    @Override
-    public void setAccount(Account account) {
-        this.account = account;
-    }
+	@Override
+	public void setAccount(Account account) {
+	this.account = account;
+	}
 
-    @Override
-    public Account getAccount() {
-        return account;
-    }
+	@Override
+	public Account getAccount() {
+	return account;
+	}
 
-    @Override
-    public void load() throws Exception {
+	@Override
+	public void load() throws Exception {
 		// Load required data for this plugin. Think of reading storage, generating memory intensive resources, etc..
-    }
+	}
 
-    @Override
-    public boolean start() {
+	@Override
+	public boolean start() {
 		// Start any processes that you want to have running continuously
 
 		// Return true if all went well, otherwise false
-        return true;
-    }
+	return true;
+	}
 
-    @Override
-    public void shutdown() {
+	@Override
+	public void shutdown() {
 		// Stop any running processes here
-    }
+	}
 
-    @Override
-    public String name() {
-        return "AwesomeTestPlugin";
-    }
-    
-    @AccountEvent
-    public void confirmed(EventTransferConfirmed e) {
-        System.out.println("account: " + account.getId());
-        System.out.println("confimed: " + e.getBundle().getBundleHash());
-    }
+	@Override
+	public String name() {
+	return "AwesomeTestPlugin";
+	}
 
-    @AccountEvent
-    public void promoted(EventPromotion e) {
-        System.out.println("account: " + account.getId());
-        System.out.println("promoted: " + e.getPromotedBundle());
-    }
+	@AccountEvent
+	public void confirmed(EventTransferConfirmed e) {
+	System.out.println("account: " + account.getId());
+	System.out.println("confimed: " + e.getBundle().getBundleHash());
+	}
+
+	@AccountEvent
+	public void promoted(EventPromotion e) {
+	System.out.println("account: " + account.getId());
+	System.out.println("promoted: " + e.getPromotedBundle());
+	}
 }
 ```
 
