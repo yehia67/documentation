@@ -1,6 +1,6 @@
 # Create a plugin
 
-**Plugins extend the functionality of an account. All plugins implement the `EventListener` interface and are added to the `EventManager`, so you don't need to do so yourself.**
+**Plugins extend the functionality of an account. All plugins implement the `EventListener` interface and are added to the `EventManager`. As a result, when you create a plugin, you don't need to register a separate `EventListener` with your account.**
 
 ## Prerequisites
 
