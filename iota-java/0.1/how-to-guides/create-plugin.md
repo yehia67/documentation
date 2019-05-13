@@ -61,30 +61,6 @@ public void promoted(EventPromotion e) {
     System.out.println("account: " + account.getId());
     System.out.println("promoted: " + e.getPromotedBundle());
 }
-
-@AccountEvent
-public void reattach(EventReattachment e) {
-    System.out.println("account: " + account.getId());
-    System.out.println("reattach: " + e.getNewBundle());
-}
-
-@AccountEvent
-public void sent(EventSentTransfer e) {
-    System.out.println("account: " + account.getId());
-    System.out.println("sent transfer: " + e.getBundle().getBundleHash());
-}
-
-@AccountEvent
-public void received(EventReceivedMessage e) {
-    System.out.println("account: " + account.getId());
-    System.out.println("message: " + e.getMessage());
-}
-
-@AccountEvent
-public void input(EventNewInput e) {
-    System.out.println("account: " + account.getId());
-    System.out.println("newInput: " + e.getAddress());
-}
 ```
 
 ### Implement the Plugin interface
@@ -138,30 +114,6 @@ public class TestPlugin implements Plugin {
     public void promoted(EventPromotion e) {
         System.out.println("account: " + account.getId());
         System.out.println("promoted: " + e.getPromotedBundle());
-    }
-
-    @AccountEvent
-    public void reattach(EventReattachment e) {
-        System.out.println("account: " + account.getId());
-        System.out.println("reattach: " + e.getNewBundle());
-    }
-
-    @AccountEvent
-    public void sent(EventSentTransfer e) {
-        System.out.println("account: " + account.getId());
-        System.out.println("sent transfer: " + e.getBundle().getBundleHash());
-    }
-
-    @AccountEvent
-    public void received(EventReceivedMessage e) {
-        System.out.println("account: " + account.getId());
-        System.out.println("message: " + e.getMessage());
-    }
-
-    @AccountEvent
-    public void input(EventNewInput e) {
-        System.out.println("account: " + account.getId());
-        System.out.println("newInput: " + e.getAddress());
     }
 }
 ```
