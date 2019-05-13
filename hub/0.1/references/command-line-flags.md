@@ -50,6 +50,7 @@
 |`--signingServerSslCert`|If you configure Hub to use SSL encryption (`--authMode="ssl"`) and you have a [signing server](../how-to-guides/install-the-signing-server.md), you must pass the path to the SSL certificate to this flag|"/dev/null"|
 |`--sweepInterval` |Interval in milliseconds that Hub waits between sweeps. 0=disabled.|600000|
 |`--powMode`|[Proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) mode, local or remote|
+|`-fetchTransactionMessages`| Whether Hub stores the message of a deposit transaction in the database |false|
 
 ## Flags from hub/service/sweep_service.cc
 

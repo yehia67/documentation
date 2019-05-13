@@ -125,6 +125,7 @@ This table contains information about the balance of users' deposit addresses.
 | `reason`       | One of [three reasons](../references/api-reference.md#hub.rpc.HubAddressBalanceReason) for the balance update event    | NULL                |
 | `tail_hash`    | 81-tryte tail transaction hash of the sweep   | NULL                |
 | `sweep`        | ID of the sweep that caused the balance update. This ID is in the `sweep` table.    | NULL                |
+|`message`| Contents (in trytes) of the `signatureMessageFragment` field of the output transaction in a deposit bundle
 | `occured_at`   | Date and time that the balance was updated in the following format: `YYYY-MM-DD HH:MM:SS` |The current date and time|
 
 ## Withdrawal
