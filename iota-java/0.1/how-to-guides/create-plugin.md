@@ -104,6 +104,7 @@ public class TestPlugin implements Plugin {
     public String name() {
         return "AwesomeTestPlugin";
     }
+    
     @AccountEvent
     public void confirmed(EventTransferConfirmed e) {
         System.out.println("account: " + account.getId());
