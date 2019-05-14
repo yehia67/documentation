@@ -35,7 +35,7 @@ To send to an address in Trinity, it must include the 9-tryte checksum. If you g
     ![Sending IOTA tokens](../images/send.jpg)
 
     :::info:
-    If you minimize Trinity while sending a transaction, the sending process pauses until you reopen it.
+    If you minimize Trinity Mobile while sending a transaction, the sending process pauses until you reopen it.
     :::
 
 When you either receive or send a transaction, it appears on the home page. Click a transaction from the list to view information about it.
