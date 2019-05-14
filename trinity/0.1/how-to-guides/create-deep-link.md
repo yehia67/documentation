@@ -44,5 +44,5 @@ If you're using a hardware wallet, you use either an amount or a message in deep
     ```
 
     :::info:
-    You can't add spaces to the message in deep links.
+    You currently can't add spaces to the message in deep links.
     :::
