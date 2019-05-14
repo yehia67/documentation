@@ -2,7 +2,7 @@
 
 **Deep links are customizable links that automatically fill the transaction fields in Trinity. You can add deep links to your website or ecommerce platform to make IOTA payments quicker and easier for customers.**
 
-When you click a deep link, Trinity is opened and the parameters of the link are used to fill the transaction fields in your primary account.
+When you click a deep link, Trinity is opened and the parameters of the link are used to fill the transaction fields.
 
 You can use these parameters to specify the address, amount, and message fields of a transaction.
 
