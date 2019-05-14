@@ -1,8 +1,8 @@
 # Create a deep link
 
-**Deep links are customizable links that automatically fill the transaction fields in Trinity. You can add deep links to your website or ecommerce platform to make IOTA payments quicker and easier for customers.**
+**Deep links are customizable links that automatically complete the transaction fields in Trinity. You can add deep links to your website or ecommerce platform to make IOTA payments quicker and easier for customers.**
 
-When you click a deep link, Trinity is opened and the parameters of the link are used to fill the transaction fields.
+When you click a deep link, Trinity is opened and the parameters of the link are used to complete the transaction fields.
 
 You can use these parameters to specify the address, amount, and message fields of a transaction.
 
@@ -25,8 +25,6 @@ iota://XNGPUCURQLLJFGXNDCMROGYNWAZP9AFWSVEUAIWIESOSPYDUPWSPSREEBWJPD9ZWZPAJKBHPL
 
 :::info:
 Accounts that are linked to hardware wallets can't send value transactions with a message.
-
-If someone with a hardware wallet account clicks a deep links that includes both an `amount` and `message` parameter, the transaction's MESSAGE field won't be filled.
 :::
 
 1. Go to **Settings** > **Advanced settings** and enable deep linking
