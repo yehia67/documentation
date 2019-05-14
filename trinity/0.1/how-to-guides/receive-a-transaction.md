@@ -8,7 +8,7 @@ If you send a transaction that withdraws IOTA tokens from one of your addresses,
 
 1. Click **Receive**
 2. Click **Sync address** (**Generate address** on a mobile device) to generate a new address
-3. Either copy the address and send it to the sender, or send the QR code instead.
+3. Either copy the address and give it to the sender, [create a QR code](../how-to-guides/create-a-qr-code.md), or [create a deep link](../how-to-guides/create-deep-link.md).
 
     :::danger:Important
     On Android devices, any application can read the content of keyboard presses and modify it. Be careful when pasting an address into another app and make sure that the address you have pasted is the same one that you copied.

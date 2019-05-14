@@ -16,7 +16,9 @@ When you send a transaction, it has a pending status until it's confirmed.
 
 If a transaction is pending for a long time, make sure that the [Auto-promotion setting](../how-to-guides/change-the-advanced-settings.md) is set to **Enabled**.
 
-**Note:** Auto-promotion is availble on mobile devices only when Trinity is in the foreground.
+:::info:
+Auto-promotion is available on mobile devices only when Trinity is in the foreground.
+:::
 
 ## Unable to send a transaction
 

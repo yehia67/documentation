@@ -8,7 +8,11 @@ Trinity allows you to do the following:
 * Read your balance and transaction history
 * Send and receive transactions
 
-![Trinity home](../images/trinity.png) 
+![Trinity home](../images/trinity.png)
+
+:::info:
+[Download and install Trinity](https://trinity.iota.org/)
+:::
 
 ## Security
 
