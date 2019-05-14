@@ -35,7 +35,6 @@ Accounts that are linked to hardware wallets can't send value transactions with 
 
 4. Embed the deep link on your website or ecommerce platform
 
-
     :::info:
     You currently can't add spaces to the message in deep links.
     :::
