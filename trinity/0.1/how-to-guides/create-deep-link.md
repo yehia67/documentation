@@ -35,12 +35,9 @@ Accounts that are linked to hardware wallets can't send value transactions with 
 
 4. Embed the deep link on your website or ecommerce platform
 
-    For example, on a website you may want to create a clickable link in HTML:
-
-    ```html
-    <a>iota://XNGPUCURQLLJFGXNDCMROGYNWAZP9AFWSVEUAIWIESOSPYDUPWSPSREEBWJPD9ZWZPAJKBHPLG99DJWJCZUHWTQTDD/?amount=1000000&message=shirt</a> 
-    ```
 
     :::info:
     You currently can't add spaces to the message in deep links.
     :::
+
+To test your deep link, copy and paste the link into a browser's address bar.
