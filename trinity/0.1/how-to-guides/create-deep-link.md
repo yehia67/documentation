@@ -25,8 +25,6 @@ iota://XNGPUCURQLLJFGXNDCMROGYNWAZP9AFWSVEUAIWIESOSPYDUPWSPSREEBWJPD9ZWZPAJKBHPL
 
 :::info:
 Accounts that are linked to hardware wallets can't send value transactions with a message.
-
-If you're using a hardware wallet, you use either an amount or a message in deep links, but not both.
 :::
 
 1. Go to **Settings** > **Advanced settings** and enable deep linking
