@@ -33,7 +33,7 @@ If you're using a hardware wallet, you use either an amount or a message in deep
 
 2. Go back to the home page and click **Receive** to generate a new address
 
-3. Create a deep link, using the new address
+3. Manually create a deep link outside of Trinity, using the new address
 
 4. Embed the deep link on your website or ecommerce platform
 
