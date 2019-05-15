@@ -17,11 +17,9 @@ If you want to specify an amount or message, you can use the following query par
 * `amount`
 * `message`
 
-For example:
+For example (you can click this link to test it):
 
-```
-iota://XNGPUCURQLLJFGXNDCMROGYNWAZP9AFWSVEUAIWIESOSPYDUPWSPSREEBWJPD9ZWZPAJKBHPLG99DJWJCZUHWTQTDD/?amount=1000000&message=shirt
-```
+<iota://XNGPUCURQLLJFGXNDCMROGYNWAZP9AFWSVEUAIWIESOSPYDUPWSPSREEBWJPD9ZWZPAJKBHPLG99DJWJCZUHWTQTDD/?amount=1000000&message=shirt>
 
 :::info:
 Accounts that are linked to hardware wallets can't send value transactions with a message.
@@ -39,4 +37,4 @@ Accounts that are linked to hardware wallets can't send value transactions with 
     You currently can't add spaces to the message in deep links.
     :::
 
-To test your deep link, copy and paste the link into a browser's address bar.
+To test your deep link, copy and paste the link into a browser's address bar. Trinity will open and you will see the completed transaction fields.
