@@ -248,7 +248,7 @@ If you are making a contribution that includes adding or changing text, follow t
 
 Your strings will be shown on [Crowdin](https://crowdin.com/project/iota-trinity-wallet) when we merge your pull request into the `develop` branch. The community can contribute to Trinity by translating your strings on Crowdin.
 
-## Submit a pull request
+### Submit a pull request
 
 After you've made your changes, create a new pull request on GitHub.
 
