@@ -48,43 +48,9 @@ Now, you can install either the desktop or the mobile development environment.
 
 ## Install the desktop development environment
 
-1\. If you're using a Windows or Linux operating system, you need to install some extra build tools or packages
+If you're using a Windows or Linux operating system, you need to install some extra build tools or packages.
 
 --------------------
-### Windows Vista and Windows 7
-1\. Install .NET Framework 4.5.1 (https://www.microsoft.com/en-us/download/details.aspx?id=40773)
-
-2\. Install Visual C++ Build Tools and Python 2.7
-
-```
-npm install --global windows-build-tools
-```
-
-3\. Install OpenSSL VC++ Static 64bit Library
-
-```
-git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
-cd C:\src\vcpkg
-.\bootstrap-vcpkg.bat
-.\vcpkg install openssl:x64-windows-static
-```
----
-### Other Windows versions
-1\. Install Visual C++ Build Tools and Python 2.7
-
-```
-npm install --global windows-build-tools
-```
-
-2\. Install OpenSSL VC++ Static 64bit Library
-
-```
-git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
-cd C:\src\vcpkg
-.\bootstrap-vcpkg.bat
-.\vcpkg install openssl:x64-windows-static
-```
----
 ### Linux
 ```
 sudo apt install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev
@@ -95,47 +61,81 @@ sudo apt install gcc-4.8 g++-4.8 && export CXX=g++-4.8
 ```
 yum install libusbx-devel
 ```
+---
+### Windows Vista and Windows 7
+1. [Install the .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=4077)
+
+2. Install Visual C++ build tools and Python 2.7
+
+```
+npm install --global windows-build-tools
+```
+
+3. Install OpenSSL VC++ Static 64bit Library
+
+```
+git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
+cd C:\src\vcpkg
+.\bootstrap-vcpkg.bat
+.\vcpkg install openssl:x64-windows-static
+```
+---
+### Other Windows versions
+1. Install Visual C++ Build Tools and Python 2.7
+
+```
+npm install --global windows-build-tools
+```
+
+2. Install OpenSSL VC++ Static 64bit Library
+
+```
+git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
+cd C:\src\vcpkg
+.\bootstrap-vcpkg.bat
+.\vcpkg install openssl:x64-windows-static
+```
 --------------------
 
-2\. Install the desktop dependencies
+1. Install the desktop dependencies
 
 ```bash
 npm run deps:desktop
 ```
 
-3\. Change into the `desktop` directory
+2. Change into the `desktop` directory
 
 ```bash  
 cd src/desktop
 ```
 
-4\. Build Trinity desktop
+3. Build Trinity desktop
 
 ```bash
 npm run build
 ```
 
-Now, you can either compile an executable file, or run Trinity in development mode
+4. Now, you can either compile an executable file, or run Trinity in development mode
 
-5a\. If you want an executable file, compile Trinity
+    * If you want an executable file, compile Trinity
 
-```bash
-npm run compile:mac
-```
+    ```bash
+    npm run compile:mac
+    ```
 
-:::info:
-Change `mac` to your operating system: `mac`, `win`, or `linux`.
-:::
+    :::info:
+    Change `mac` to your operating system: `mac`, `win`, or `linux`.
+    :::
 
-When Trinity is compiled, the executable file and the installation files will be located in the `src/desktop/out/` directory.
+    When Trinity is compiled, the executable file and the installation files will be located in the `src/desktop/out/` directory.
 
-5b\. If you want to run Trinity in development mode, start the app
+    * If you want to run Trinity in development mode, start the app
 
-```bash
-npm start
-```
+    ```bash
+    npm start
+    ```
 
-Trinity will open when the build is ready.
+    Trinity will open when the build is ready.
 
 ## Install the mobile development environment
 
@@ -157,33 +157,33 @@ Trinity will open when the build is ready.
     cd src/mobile
     ```
 
-5\. Run Trinity and the logger
+Now, you can run Trinity and the logger.
 
 --------------------
 ### iOS
-1\. Install the additional dependencies with CocoaPods
+1. Install the additional dependencies with CocoaPods
 
 ```bash
 cd ios && pod install && cd ..
 ```
 
-2\. Run Trinity
+2. Run Trinity
 ```bash
 yarn ios:dev
 ```
 
-3\. Run the logger
+3. Run the logger
 ```bash
 yarn log:ios
 ```
 ---
 ### Android
-1\. Run the application
+1. Run the application
 ```bash
 yarn android:dev
 ```
 
-2\. Run the logger
+2. Run the logger
 ```bash
 yarn log:android
 ```
@@ -248,15 +248,13 @@ If you are making a contribution that includes adding or changing text, follow t
 
 Your strings will be shown on [Crowdin](https://crowdin.com/project/iota-trinity-wallet) when we merge your pull request into the `develop` branch. The community can contribute to Trinity by translating your strings on Crowdin.
 
-## Submit a pull request
+### Submit a pull request
 
 After you've made your changes, create a new pull request on GitHub.
 
 Use your branch as the source branch and use the `develop` branch as the target branch.
 
-This is the repository for the IOTA Trinity Desktop Wallet. The application is based on [React](https://reactjs.org) and built on [Electron](https://electronjs.org/).
-
-## Development mode troubleshooting
+## Troubleshooting
 
 You may find some of these issues while running Trinity in development mode.
 
