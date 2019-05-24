@@ -254,7 +254,7 @@ After you've made your changes, create a new pull request on GitHub.
 
 Use your branch as the source branch and use the `develop` branch as the target branch.
 
-## Development mode troubleshooting
+## Troubleshooting
 
 You may find some of these issues while running Trinity in development mode.
 
