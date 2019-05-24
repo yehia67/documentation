@@ -99,25 +99,25 @@ cd C:\src\vcpkg
 
 1. Install the desktop dependencies
 
-```bash
-npm run deps:desktop
-```
+    ```bash
+    npm run deps:desktop
+    ```
 
 2. Change into the `desktop` directory
 
-```bash  
-cd src/desktop
-```
+    ```bash  
+    cd src/desktop
+    ```
 
 3. Build Trinity desktop
 
-```bash
-npm run build
-```
+    ```bash
+    npm run build
+    ```
 
 4. Now, you can either compile an executable file, or run Trinity in development mode
 
-    * If you want an executable file, compile Trinity
+* If you want an executable file, compile Trinity
 
     ```bash
     npm run compile:mac
@@ -129,7 +129,7 @@ npm run build
 
     When Trinity is compiled, the executable file and the installation files will be located in the `src/desktop/out/` directory.
 
-    * If you want to run Trinity in development mode, start the app
+* If you want to run Trinity in development mode, start the app
 
     ```bash
     npm start
@@ -163,30 +163,30 @@ Now, you can run Trinity and the logger.
 ### iOS
 1. Install the additional dependencies with CocoaPods
 
-```bash
-cd ios && pod install && cd ..
-```
+    ```bash
+    cd ios && pod install && cd ..
+    ```
 
 2. Run Trinity
-```bash
-yarn ios:dev
-```
+    ```bash
+    yarn ios:dev
+    ```
 
 3. Run the logger
-```bash
-yarn log:ios
-```
+    ```bash
+    yarn log:ios
+    ```
 ---
 ### Android
 1. Run the application
-```bash
-yarn android:dev
-```
+    ```bash
+    yarn android:dev
+    ```
 
 2. Run the logger
-```bash
-yarn log:android
-```
+    ```bash
+    yarn log:android
+    ```
 --------------------
 
 ## Contribute to the code
