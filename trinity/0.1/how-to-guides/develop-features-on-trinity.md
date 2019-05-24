@@ -7,7 +7,7 @@ To get started with Trinity development, do the following:
 1. Install the shared dependencies
 2. Install the desktop development environment or the mobile development environment
 3. Contribute to the code
-4. Submit a pull 
+4. Submit a pull request
 
 Trinity desktop is written in React and built on Electron, whereas Trinity mobile is written in React Native.
 
@@ -16,7 +16,7 @@ Developers are encouraged to contribute to the [GitHub issues](https://github.co
 ## Prerequisites
 
 To develop on Trinity, your computer must have the following:
-* [Node.js (8+)](https://nodejs.org/en/)
+* [An LTS version or current version of Node.js](https://nodejs.org/en/) (we recommend version 10.15.3)
 * [Yarn](https://yarnpkg.com/lang/en/docs/install/)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
@@ -48,59 +48,94 @@ Now, you can install either the desktop or the mobile development environment.
 
 ## Install the desktop development environment
 
-1. Install Electron
+1\. If you're using a Windows or Linux operating system, you need to install some extra build tools or packages
 
-    ```bash
-    npm install electron -g
-    ```
+--------------------
+### Windows Vista and Windows 7
+1\. Install .NET Framework 4.5.1 (https://www.microsoft.com/en-us/download/details.aspx?id=40773)
 
-2. If you're using the Windows operating system, install the Windows build tools to compile the native modules
+2\. Install Visual C++ Build Tools and Python 2.7
 
-        ```bash
-        npm install --global windows-build-tools
-        ```
+```
+npm install --global windows-build-tools
+```
 
-3. If you're using the Linux operating system, install the following packages to compile the native modules
+3\. Install OpenSSL VC++ Static 64bit Library
 
-        ```bash
-        sudo apt install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev
-        sudo apt install gcc-4.8 g++-4.8 && export CXX=g++-4.8
-        # Fedora only:
-        yum install libusbx-devel
-        ```
+```
+git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
+cd C:\src\vcpkg
+.\bootstrap-vcpkg.bat
+.\vcpkg install openssl:x64-windows-static
+```
+---
+### Other Windows versions
+1\. Install Visual C++ Build Tools and Python 2.7
 
-3. Install the desktop dependencies
-    ```bash
-    npm run deps:desktop
-    ```
+```
+npm install --global windows-build-tools
+```
 
-4. Change into the `desktop` directory
+2\. Install OpenSSL VC++ Static 64bit Library
 
-    ```bash  
-    cd src/desktop
-    ```
+```
+git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
+cd C:\src\vcpkg
+.\bootstrap-vcpkg.bat
+.\vcpkg install openssl:x64-windows-static
+```
+---
+### Linux
+```
+sudo apt install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev
+sudo apt install gcc-4.8 g++-4.8 && export CXX=g++-4.8
+```
+---
+### Fedora
+```
+yum install libusbx-devel
+```
+--------------------
 
-5. Build Trinity desktop
+2\. Install the desktop dependencies
 
-    ```bash
-    npm run build
-    ```
+```bash
+npm run deps:desktop
+```
 
-6. If you want an executable file, compile Trinity
+3\. Change into the `desktop` directory
 
-        ```bash
-        npm run compile:mac
-        ```
+```bash  
+cd src/desktop
+```
 
-        :::info:
-        Change `mac` to your operating system: mac, win, or linux.
-        :::
+4\. Build Trinity desktop
 
-7. If you want to run Trinity in development mode, start the app
+```bash
+npm run build
+```
 
-        ```bash
-        npm start
-        ```
+Now, you can either compile an executable file, or run Trinity in development mode
+
+5a\. If you want an executable file, compile Trinity
+
+```bash
+npm run compile:mac
+```
+
+:::info:
+Change `mac` to your operating system: `mac`, `win`, or `linux`.
+:::
+
+When Trinity is compiled, the executable file and the installation files will be located in the `src/desktop/out/` directory.
+
+5b\. If you want to run Trinity in development mode, start the app
+
+```bash
+npm start
+```
+
+Trinity will open when the build is ready.
 
 ## Install the mobile development environment
 
@@ -122,34 +157,37 @@ Now, you can install either the desktop or the mobile development environment.
     cd src/mobile
     ```
 
-5. If you are targeting the iOS operating system, do the following:
+5\. Run Trinity and the logger
 
-        1. Install the additional dependencies with CocoaPods
-            ```bash
-            cd ios && pod install && cd ..
-            ```
+--------------------
+### iOS
+1\. Install the additional dependencies with CocoaPods
 
-        2. Run Trinity
-            ```bash
-            yarn ios:dev
-            ```
+```bash
+cd ios && pod install && cd ..
+```
 
-        3. Run the logger
-            ```bash
-            yarn log:ios
-            ```
+2\. Run Trinity
+```bash
+yarn ios:dev
+```
 
-6. If you are targeting the Android operating system, do the following:
+3\. Run the logger
+```bash
+yarn log:ios
+```
+---
+### Android
+1\. Run the application
+```bash
+yarn android:dev
+```
 
-        1. Run the application
-            ```bash
-            yarn android:dev
-            ```
-
-        2. Run the logger
-            ```bash
-            yarn log:android
-            ```
+2\. Run the logger
+```bash
+yarn log:android
+```
+--------------------
 
 ## Contribute to the code
 
@@ -171,9 +209,9 @@ A theme consists of a color scheme used by the UI of the mobile and desktop wall
 
 1. In the `themes` directory, create a new JavaScript file and copy the contents of the Classic.js file into it
 
-2. Change the color values to suit your theme
+2. Change the color values to suit your theme and save the file
 
-3. In the themes.js file, import your theme and add it to the `themes` constant
+3. In the `themes.js` file, import your theme and add it to the `themes` constant
 
 4. Go to `src/shared/locales/en/translation.json`, and add the name of your theme to the `themes` object. If you miss this step, the name of your theme will not be correct in Trinity.
 
@@ -215,3 +253,38 @@ Your strings will be shown on [Crowdin](https://crowdin.com/project/iota-trinity
 After you've made your changes, create a new pull request on GitHub.
 
 Use your branch as the source branch and use the `develop` branch as the target branch.
+
+This is the repository for the IOTA Trinity Desktop Wallet. The application is based on [React](https://reactjs.org) and built on [Electron](https://electronjs.org/).
+
+## Development mode troubleshooting
+
+You may find some of these issues while running Trinity in development mode.
+
+### Trinity does not start after a version update
+
+1. Sometimes, we update the dependencies and change the configurations. Try to reinstall the dependencies by doing `npm install` in the `trinity-wallet` directory. Then, build the wallet again by doing `npm run build`
+
+2. The development environment does not clear the user configuration files when you switch between different versions of Trinity. If you have run a different version of Trinity before, remove the configuration files, then try and run Trinity again
+
+--------------------
+### macOS
+```bash
+rm -rf ~/Library/Application Support/Electron
+```
+---
+### Windows
+```bash
+Remove-Item –path %APPDATA%/Electron –recurse
+```
+---
+### Linux
+```bash
+rm -rf ~/.config/Electron
+```
+--------------------
+
+### Trinity opens with a blank screen
+
+1. Reload Trinity by pressing **Ctrl**+ **R** (**cmd**+**R** on macOS) while the Developer tools window is open and in focus.
+
+2. Check the Developer tools console for any errors. Try to fix them or report them as an [issue](https://github.com/iotaledger/trinity-wallet/issues) on GitHub.
