@@ -67,34 +67,34 @@ yum install libusbx-devel
 
 2. Install Visual C++ build tools and Python 2.7
 
-```
-npm install --global windows-build-tools
-```
+    ```
+    npm install --global windows-build-tools
+    ```
 
 3. Install OpenSSL VC++ Static 64bit Library
 
-```
-git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
-cd C:\src\vcpkg
-.\bootstrap-vcpkg.bat
-.\vcpkg install openssl:x64-windows-static
-```
+    ```
+    git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
+    cd C:\src\vcpkg
+    .\bootstrap-vcpkg.bat
+    .\vcpkg install openssl:x64-windows-static
+    ```
 ---
 ### Other Windows versions
 1. Install Visual C++ Build Tools and Python 2.7
 
-```
-npm install --global windows-build-tools
-```
+    ```
+    npm install --global windows-build-tools
+    ```
 
 2. Install OpenSSL VC++ Static 64bit Library
 
-```
-git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
-cd C:\src\vcpkg
-.\bootstrap-vcpkg.bat
-.\vcpkg install openssl:x64-windows-static
-```
+    ```
+    git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
+    cd C:\src\vcpkg
+    .\bootstrap-vcpkg.bat
+    .\vcpkg install openssl:x64-windows-static
+    ```
 --------------------
 
 1. Install the desktop dependencies
