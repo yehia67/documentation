@@ -48,7 +48,7 @@ Now, you can install either the desktop or the mobile development environment.
 
 ## Install the desktop development environment
 
-1\. If you're using a Windows or Linux operating system, you need to install some extra build tools or packages
+If you're using a Windows or Linux operating system, you need to install some extra build tools or packages.
 
 --------------------
 ### Linux
@@ -97,45 +97,45 @@ cd C:\src\vcpkg
 ```
 --------------------
 
-2\. Install the desktop dependencies
+1. Install the desktop dependencies
 
 ```bash
 npm run deps:desktop
 ```
 
-3\. Change into the `desktop` directory
+2. Change into the `desktop` directory
 
 ```bash  
 cd src/desktop
 ```
 
-4\. Build Trinity desktop
+3. Build Trinity desktop
 
 ```bash
 npm run build
 ```
 
-Now, you can either compile an executable file, or run Trinity in development mode
+4. Now, you can either compile an executable file, or run Trinity in development mode
 
-5a\. If you want an executable file, compile Trinity
+    * If you want an executable file, compile Trinity
 
-```bash
-npm run compile:mac
-```
+    ```bash
+    npm run compile:mac
+    ```
 
-:::info:
-Change `mac` to your operating system: `mac`, `win`, or `linux`.
-:::
+    :::info:
+    Change `mac` to your operating system: `mac`, `win`, or `linux`.
+    :::
 
-When Trinity is compiled, the executable file and the installation files will be located in the `src/desktop/out/` directory.
+    When Trinity is compiled, the executable file and the installation files will be located in the `src/desktop/out/` directory.
 
-5b\. If you want to run Trinity in development mode, start the app
+    * If you want to run Trinity in development mode, start the app
 
-```bash
-npm start
-```
+    ```bash
+    npm start
+    ```
 
-Trinity will open when the build is ready.
+    Trinity will open when the build is ready.
 
 ## Install the mobile development environment
 
@@ -157,7 +157,7 @@ Trinity will open when the build is ready.
     cd src/mobile
     ```
 
-5\. Run Trinity and the logger
+Now, you can run Trinity and the logger.
 
 --------------------
 ### iOS
