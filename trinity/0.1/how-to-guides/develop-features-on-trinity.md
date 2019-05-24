@@ -51,40 +51,6 @@ Now, you can install either the desktop or the mobile development environment.
 1\. If you're using a Windows or Linux operating system, you need to install some extra build tools or packages
 
 --------------------
-### Windows Vista and Windows 7
-1\. Install .NET Framework 4.5.1 (https://www.microsoft.com/en-us/download/details.aspx?id=40773)
-
-2\. Install Visual C++ Build Tools and Python 2.7
-
-```
-npm install --global windows-build-tools
-```
-
-3\. Install OpenSSL VC++ Static 64bit Library
-
-```
-git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
-cd C:\src\vcpkg
-.\bootstrap-vcpkg.bat
-.\vcpkg install openssl:x64-windows-static
-```
----
-### Other Windows versions
-1\. Install Visual C++ Build Tools and Python 2.7
-
-```
-npm install --global windows-build-tools
-```
-
-2\. Install OpenSSL VC++ Static 64bit Library
-
-```
-git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
-cd C:\src\vcpkg
-.\bootstrap-vcpkg.bat
-.\vcpkg install openssl:x64-windows-static
-```
----
 ### Linux
 ```
 sudo apt install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev
@@ -94,6 +60,40 @@ sudo apt install gcc-4.8 g++-4.8 && export CXX=g++-4.8
 ### Fedora
 ```
 yum install libusbx-devel
+```
+---
+### Windows Vista and Windows 7
+1. [Install the .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=4077)
+
+2. Install Visual C++ build tools and Python 2.7
+
+```
+npm install --global windows-build-tools
+```
+
+3. Install OpenSSL VC++ Static 64bit Library
+
+```
+git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
+cd C:\src\vcpkg
+.\bootstrap-vcpkg.bat
+.\vcpkg install openssl:x64-windows-static
+```
+---
+### Other Windows versions
+1. Install Visual C++ Build Tools and Python 2.7
+
+```
+npm install --global windows-build-tools
+```
+
+2. Install OpenSSL VC++ Static 64bit Library
+
+```
+git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
+cd C:\src\vcpkg
+.\bootstrap-vcpkg.bat
+.\vcpkg install openssl:x64-windows-static
 ```
 --------------------
 
@@ -161,29 +161,29 @@ Trinity will open when the build is ready.
 
 --------------------
 ### iOS
-1\. Install the additional dependencies with CocoaPods
+1. Install the additional dependencies with CocoaPods
 
 ```bash
 cd ios && pod install && cd ..
 ```
 
-2\. Run Trinity
+2. Run Trinity
 ```bash
 yarn ios:dev
 ```
 
-3\. Run the logger
+3. Run the logger
 ```bash
 yarn log:ios
 ```
 ---
 ### Android
-1\. Run the application
+1. Run the application
 ```bash
 yarn android:dev
 ```
 
-2\. Run the logger
+2. Run the logger
 ```bash
 yarn log:android
 ```
@@ -253,8 +253,6 @@ Your strings will be shown on [Crowdin](https://crowdin.com/project/iota-trinity
 After you've made your changes, create a new pull request on GitHub.
 
 Use your branch as the source branch and use the `develop` branch as the target branch.
-
-This is the repository for the IOTA Trinity Desktop Wallet. The application is based on [React](https://reactjs.org) and built on [Electron](https://electronjs.org/).
 
 ## Development mode troubleshooting
 
