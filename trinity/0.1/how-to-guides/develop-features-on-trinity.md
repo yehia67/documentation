@@ -16,7 +16,7 @@ Developers are encouraged to contribute to the [GitHub issues](https://github.co
 ## Prerequisites
 
 To develop on Trinity, your computer must have the following:
-* [An LTS version or current version of Node.js](https://nodejs.org/en/) (we recommend version 10.15.3)
+* [An LTS version of Node.js](https://nodejs.org/en/) (we recommend version 10.15.3)
 * [Yarn](https://yarnpkg.com/lang/en/docs/install/)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
@@ -59,7 +59,7 @@ sudo apt install gcc-4.8 g++-4.8 && export CXX=g++-4.8
 ---
 ### Fedora
 ```
-yum install libusbx-devel
+yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-devel gcc-4.8 g++-4.8 && export CXX=g++-4.8
 ```
 ---
 ### Windows Vista and Windows 7
@@ -221,7 +221,7 @@ If you are making a contribution that includes adding or changing text, follow t
 
 1. Import the `translate` higher order component (HOC)
     ```javascript
-    import { translate } from ‘react-i18next’;
+    import { withNamespaces } from ‘react-i18next’;
     ```
 
 2. Create a `t` constant, and set it to the `props` object
@@ -236,7 +236,7 @@ If you are making a contribution that includes adding or changing text, follow t
 
 4. Wrap the component
     ```javascript
-    export translate(‘myContainer’)(MyContainer);
+    export withNamespaces(‘myContainer’)(MyContainer);
     ```
 
 5. Add the translations for your keys to the translation.json file in the `src/shared/locales/en/` directory
