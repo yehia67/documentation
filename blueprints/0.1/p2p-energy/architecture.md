@@ -135,7 +135,7 @@ When a source registers with a producer, it can start monitoring the source's MA
 #### Deregister
 
 ```
-DELETE https://producer/registration/:registrationId
+DELETE https://producer/registration/:registrationId/:sideKey
 ```
 
 **Response**
@@ -147,7 +147,7 @@ DELETE https://producer/registration/:registrationId
 }
 ```
 
-When a source is deregistered, the producer should stop watching the source's MAM channel.
+The `sideKey` is passed to the delete as a measure of authentication. When a source is deregistered, the producer should stop watching the source's MAM channel.
 
 ### Producer MAM output channel
 
@@ -155,18 +155,18 @@ This MAM channel contains information on the aggregated output from the producer
 
 The grid will monitor and record the channels for all producers to use later in order to calculate the amount to pay to each producer. The payment address and requested  price can change per time period to give the Producer the ability to provide variable price power at different times.
 
-The `askingPrice` field is not guaranteed to be met by the grid, instead a consensus price amongst all the producers will be paid. The consensus price could just be a regular average of all the `askingPrice` fields or a weighted average based on how much the producer contributed to the grid.
+The `producerPrice` field is not guaranteed to be met by the grid, instead a consensus price amongst all the producers will be paid. The consensus price could just be a regular average of all the `producerPrice` fields or a weighted average based on how much the producer contributed to the grid. The `paymentIdOrAddress` can be an IOTA address to make payments to by the grid, or a reference id the grid has another way of making payments.
 
 **Payload**
 
 ```json
 {
-   "command": "output",                /* The MAM command */
-   "startTime": 1542267468229,         /* ms since 1900 */
-   "endTime": 1542267469229,           /* ms since 1900 */
-   "output": 1.234,                    /* kWh */
-   "askingPrice": 56789,               /* IOTA per kWh */
-   "paymentAddress": "PPPPPP...QQQQQQ" /* address to receive payment */
+   "command": "output",                    /* The MAM command */
+   "startTime": 1542267468229,             /* ms since 1900 */
+   "endTime": 1542267469229,               /* ms since 1900 */
+   "output": 1.234,                        /* kWh */
+   "producerPrice": 56789,                 /* IOTA per kWh */
+   "paymentIdOrAddress": "PPPPPP...QQQQQQ" /* address to receive payment */
 }
 ```
 
@@ -208,8 +208,8 @@ PUT https://grid/registration/:registrationId
 {
    "itemName": "My Solar Source",         /* free text */
    "itemType": "producer",                /* enum producer/consumer */
-   "root"?: "CCCCCC...DDDDDD",            /* MAM root hash for the channel 
-                                             the grid should monitor, 
+   "root"?: "CCCCCC...DDDDDD",            /* MAM root hash for the channel
+                                             the grid should monitor,
                                              optional as you may just want a  
                                              registration id */
    "sideKey"?: "CCC...DDDD"               /* side key for the channel,
@@ -223,11 +223,11 @@ PUT https://grid/registration/:registrationId
    "success": true,                       /* true or false */
    "message": "OK",                       /* Or error message if fail */
    "root"?: "JJJJJJ...KKKKKK",            /* Optional, channel the
-                                             registered item                
+                                             registered item
                                              should monitor from the grid.
-                                             for the consumer this contains 
+                                             for the consumer this contains
                                              the amount owed feed */
-   "sideKey"?: "CCC...DDDD"               /* Optional, private key for the 
+   "sideKey"?: "CCC...DDDD"               /* Optional, private key for the
                                              channel */
 }
 ```
@@ -235,7 +235,7 @@ PUT https://grid/registration/:registrationId
 #### Registration remove
 
 ```
-DELETE https://grid/registration/:registration-id
+DELETE https://grid/registration/:registration-id/:sideKey
 ```
 
 **Response**
@@ -246,6 +246,8 @@ DELETE https://grid/registration/:registration-id
    "message": "OK"      /* Or error message if fail */
 }
 ```
+
+The `sideKey` is passed to the delete as a measure of authentication.
 
 ### Grid storage API
 
@@ -350,40 +352,24 @@ The producer could get all its items on page 5 with a page size of 10 with a GET
 
 ### Grid MAM consumer channels
 
-When a consumer registers with the grid the grid will create a MAM channel that is updated with the consumers outstanding balance and also payment information. The grid will also track this information in its central DB but by providing a MAM channel a consumer can immediately see their outstanding balance. The outstanding balance is calculated from the information read from the consumers Usage Channel in conjunction with the pricing from the producer's output channels. The grid might also send command to the consumer through this channel.
+When a consumer registers with the grid the grid will create a MAM channel that is updated with the payment requests. The grid will also track this information in its central DB but by providing a MAM channel a consumer can immediately see what they owe. The outstanding balance is calculated from the information read from the consumers Usage Channel in conjunction with the pricing from the producer's output channels.
 
-#### Balance payload
-
-```json
-{
-   "command": "balance",               /* the command */
-   "owed": 345,                        /* amount in IOTA owed
-                                          excludes pending transactions */
-   "pending": 123,                     /* amount in IOTA
-                                          of only pending transactions */
-   "pendingTxs": ["TTTTT...UUUUUU"],   /* hashes of pending
-                                          transactions*/
-   "paymentAddress": "WWWWWW...XXXXXX" /* payment address for owed
-                                          balance payment to grid */
-}
-```
-
-The grid may need to change the consumer channel hash. To facilitate this, we can send a channel-change payload. On receipt of this payload, the source should stop using the current MAM channel and switch to the new one.
-
-#### Channel update payload
+#### Payment payload
 
 ```json
 {
-   "command": "channel-update",          /* the command */
-   "root": "WWWWWW...XXXXXX",            /* the new channel the Consumer 
-                                            should switch to */
-   "sideKey": "CCC...DDDD"               /* private key for the channel */
+   "command": "payment-request",           /* the command */
+   "owed": 345,                            /* amount in IOTA owed
+                                              excludes pending transactions */
+   "usage": 123,                           /* the amount of kWh the payment is for */
+   "paymentIdOrAddress": "WWWWWW...XXXXXX" /* payment address for owed
+                                              balance payment to grid */
 }
 ```
 
 ### Grid payment addresses
 
-The payment addresses are the ones published to the consumer's channels to receive payments. On receipt of payments the grid will update the consumer's channel, and again when payments confirm. After the grid has taken its cut of the IOTAs the rest will be added to a central pool which will be allocated to the producers based on time periods and asking prices.
+The payment addresses are the ones published to the consumer's channels to receive payments. The `paymentIdOrAddress` can be the an actual IOTA address or a reference that the consumer can use to make payments with a different method. After the grid has taken its cut of the IOTAs the rest will be added to a central pool which will be allocated to the producers based on time periods and asking prices.
 
 ### Consumer MAM usage channel
 
@@ -398,7 +384,3 @@ The consumer's MAM Usage Channel will be continuously updated with the consumer'
    "usage": 1.234                      /* kWh */
 }
 ```
-
-
-
-
