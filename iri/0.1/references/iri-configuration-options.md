@@ -4,6 +4,7 @@
 
 You can choose to configure the IRI by specifying the configuration options in the following ways:
 * As flags in the command prompt
+  * All boolean flags require a parameter to be passed. For example `--remote true` or `--remote false`.
 * As parameters in a file with the .ini extension (IRI configuration file)
 
 ### Command line flags
@@ -45,7 +46,7 @@ You can choose to configure the IRI by specifying the configuration options in t
 |<a name="revalidate"></a>`--revalidate` |Reload data in the database about confirmed transactions, and transaction metadata | boolean| false|
 |<a name="send-limit"></a> `--send-limit` |Data limit in Mbits per second that the node can send |number | -1|If this number is below 0, no limit is set
 |<a name="tcp-receiver-port"></a>`-t`, `--tcp-receiver-port` |Port from which the IRI receives TCP data packets from neighbor IRI nodes |string | 15600|
-|<a name="tip-selection-timeout-sec"></a>`-t`, `--tcp-receiver-port` |the maximum number of seconds after which tip selection is aborted. |number | 15600|
+|<a name="tip-selection-timeout-sec"></a>`--tip-selection-timeout-sec` |The maximum number of seconds after which tip selection is aborted. |number | 60|
 |<a name="udp-receiver-port"></a>`-u`, `--udp-receiver-port` |Port from which the IRI receives UDP data packets from neighbor IRI nodes |string |14600 |
 |<a name="zmq-enabled"></a>  `--zmq-enabled` | Enable [zero message queue](../concepts/zero-message-queue.md) subscriptions| boolean|false |
 |<a name="zmq-ipc"></a>`--zmq-ipc` |Path that is used to communicate with ZMQ in IPC| string|  ipc://iri|
