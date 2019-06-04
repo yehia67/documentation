@@ -1,6 +1,6 @@
 # Receive free test tokens
 
-**The [Devnet](../references/iota-networks.md) is a copy of the IOTA Mainnet, which is where the IOTA tokens have value that can be traded on exchanges. The Devnet uses free tokens that don't have any monetary value. You can receive 1Ki (1000) of these free tokens to use for testing the network before transferring real value on the Mainnet.**
+**When testing IOTA, you may want to try sending IOTA tokens from one address to another. On the Mainnet, these tokens have a monetary value that can be traded on exchanges. To send test transactions without risking anything, you can use the Devnet. The [Devnet](../references/iota-networks.md) is similar to the Mainnet, except the tokens are free. You can use the Devnet faucet website to receive 1Ki (1000) of free tokens in one of your addresses.**
 
 ## Prerequisites
 
@@ -27,10 +27,6 @@ Before you complete this tutorial, you need [a new address](root://iota-basics/0
 This link takes you to a Devnet Tangle explorer. This website connects to nodes on the Devnet and requests information from them about the bundle that just transferred free tokens to your address.
 
 When the bundle is confirmed, 1Ki (1000) tokens will be added to the balance of your address.
-
-:::info:
-At the moment, you can't connect to Devnet nodes through Trinity. Instead, you can use the [client libraries](root://client-libraries/0.1/introduction/overview.md).
-:::
 
 ## Next steps
 
