@@ -1,12 +1,12 @@
 # Create an address
 
-**Addresses must not be withdrawn from more than once. If you withdraw IOTA tokens from an address, you must create a new one by incrementing the index or using a different security level.**
+**To receive IOTA tokens, you must give the sender one of your addresses. These addresses are derived from your seed. You can derive a new address from a seed by either incrementing the index and/or using a different security level.**
 
 ## Prerequisites
 
 To complete this guide, you need the following:
 
-* [Node.js (8+)](https://nodejs.org/en/)
+* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection

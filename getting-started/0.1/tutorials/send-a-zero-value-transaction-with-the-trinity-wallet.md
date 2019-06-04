@@ -16,7 +16,7 @@ Trinity allows you to do the following:
 
 2. Open Trinity
 
-3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you [created a seed outside of Trinity](../tutorials/create-a-seed.md), click **No, I have one**.
+3. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, click **No, I have one**.
 
     ![Seed options](../images/trinity-seed.png)
 
@@ -48,4 +48,6 @@ Your transaction will appear in your transaction history. Click the transaction 
 
 :::success:Congratulations :tada:
 You've just sent yourself a message that's now public on the IOTA network. Why not ask your friends for one of their addresses so you can send them messages.
+
+[Find out about the other features of Trinity](root://trinity/0.1/introduction/overview.md) and become an expert.
 :::
