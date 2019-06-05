@@ -141,7 +141,7 @@ Do [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) on a node fo
 |--|--|--|--|
 | `trunkTransaction` |Required| [Trunk transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
 | `branchTransaction` |Required| [Branch transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
-| `minWeightMagnitude` |Required| [Minimum weight magnitute](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) | integer|
+| `minWeightMagnitude` |Required| [Minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) | integer|
 | `trytes` |Required| String of transaction trytes |array of strings|
 
 ### Examples
