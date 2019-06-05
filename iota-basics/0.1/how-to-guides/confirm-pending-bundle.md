@@ -2,6 +2,10 @@
 
 **To be approved by a milestone, a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a bundle is stuck in a pending state, the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote it, depending on the circumstances.**
 
+:::info:First time using a client library?
+[Try our quickstart guide](root://getting-started/0.1/quickstart/get-started.md) for getting started with the official client libraries.
+:::
+
 :::info:
 If you're unfamiliar with the terms reattach, rebroadcast, or promote, we recommend that you [read about these concepts](../concepts/reattach-rebroadcast-promote.md).
 :::
@@ -10,39 +14,21 @@ If you're unfamiliar with the terms reattach, rebroadcast, or promote, we recomm
 
 To complete these guides, you need the following:
 
-* [Node.js (8+)](https://nodejs.org/en/)
+* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
 * An Internet connection
-* A tail transaction hash ([`currentIndex` 0](../references/structure-of-a-bundle.md)) from any pending bundle. You can create one by following the ['Send a bundle of zero-value transactions' article](../how-to-guides/send-bundle.md)
+* A tail transaction hash ([`currentIndex` 0](../references/structure-of-a-bundle.md)) from any pending bundle. You can create one by following the ['Send a bundle of zero-value transactions' guide](../how-to-guides/send-bundle.md)
 
----
+## Confirm a pending bundle
 
 A bundle can be stuck in a pending state for many reasons, for example if it's too old to be selected during tip selection or if it's attached to a part of the Tangle that leads to an invalid state such as a double-spend (inconsistent subtangle).
 
-To increase the chances of a pending transaction being confirmed, you can either reattach or promote it.
-
 In this guide, you'll create a script that does the following every 30 seconds:
 
-* Check if the tail transaction has been confirmed
+* Check if the tail transaction of a bundle on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) has been confirmed
 * If the transaction is still pending, promote or reattach it
 
-## Create the file and directory
-
-The sample code for this guide uses the IOTA core library. To use this library, you must create a working directory and install it using the `npm` package manager.
-
-1. Create a new directory called `iota-basics`
-
-2. Change into the `iota-basics` directory, and install the [IOTA core library](https://github.com/iotaledger/iota.js/tree/next/packages/core)
-
-    ```bash
-    cd iota-basics
-    npm install --save @iota/core
-    ```
-
-3. In the `iota-basics` directory, create a new file called `pending-to-confirmed.js`
-
-## Create a timer function
+### Step 1. Create a timer function
 
 If you want to know how long it took for a bundle to be confirmed, create a timer function.
 
@@ -52,7 +38,7 @@ If you want to know how long it took for a bundle to be confirmed, create a time
     const Iota = require('@iota/core');
     ```
 
-2. Create an array variable to store the tail transaction hash of the pending bundle that you want to confirm as well as the tail transaction hashes of any future reattached bundles
+2. Create a variable to store the tail transaction hash of the pending bundle that you want to confirm as well as the tail transaction hashes of any future reattached bundles
 
     ```js
     const tails = ["tail transaction hash"];
@@ -73,7 +59,7 @@ If you want to know how long it took for a bundle to be confirmed, create a time
     }
     ```
 
-## Create a function to auto-promote and auto-reattach bundles
+### Step 2. Create a function to auto-promote and auto-reattach bundles
 
 To promote and reattach a bundle, you need to pass its tail transaction hash to the relevant function in the client library.
 
@@ -107,11 +93,11 @@ function autoPromoteReattach (tail) {
 }
 ```
 
-## Create a function to check for confirmation at regular intervals
+### Step 3. Create a function to check for confirmation at regular intervals
 
 To be able to check the array of tail transactions for confirmation at regular intervals, you need a function that can be passed to a `setInterval()` function.
 
-The [`getLatestInclusion()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getLatestInclusion) method checks if any of the the tail transactions in the array have been confirmed. If any of the transactions have been confirmed this method returns `true`.
+The [`getLatestInclusion()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getLatestInclusion) method checks if any of the tail transactions in the array have been confirmed. If any of the transactions have been confirmed this method returns `true`.
 
 The `tail` variable stores the last tail transaction in the array so that the latest reattachment can be promoted or reattached.
 

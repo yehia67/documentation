@@ -14,15 +14,13 @@
 
 [Introduction/What is a node?](/introduction/what-is-a-node.md)
 
-[Tutorials/Get started](/tutorials/first-steps.md)
-
-[Tutorials/Create a seed](/tutorials/create-a-seed.md)
-
-[Tutorials/Send your first data transaction (Trinity)](/tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)
+[Quickstart/Get started](/quickstart/get-started.md)
 
 [Tutorials/Send your first data transaction (Node.js)](/tutorials/send-a-zero-value-transaction-with-nodejs.md)
 
 [Tutorials/Run your own IRI node (Docker)](/tutorials/run-your-own-iri-node.md)
+
+[Tutorials/Send your first data transaction (Trinity)](/tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)
 
 [References/IOTA networks](/references/iota-networks.md)
 

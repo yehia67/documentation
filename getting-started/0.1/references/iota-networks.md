@@ -1,8 +1,8 @@
 # IOTA networks
 
-**An IOTA network consists of nodes that are mutually connected to neighbors.**
+**In IOTA, bundles of transactions must be sent to [nodes](../introduction/what-is-a-node.md). IOTA has three [public networks](../references/iota-networks.md) of nodes. Each network has its own unique distributed ledger (the Tangle) that the nodes can append transactions to. You can choose to connect and send bundles to nodes on any public network.**
 
-IOTA has the following [permissionless networks](../introduction/what-is-dlt.md):
+IOTA has the following [permissionless (public) networks](../introduction/what-is-dlt.md):
 * **Mainnet:** IOTA token
 * **Devnet:** Devnet token (free)
 * **Spamnet:** Spamnet token (free)
@@ -18,7 +18,7 @@ If you want to create and test an application on a permissioned (private) networ
 When you buy IOTA tokens from a cryptocurrency exchange, those tokens are valid on the Mainnet.
 
 :::info:
-Cryptocurrency exchanges sell IOTA tokens in denominations of Mega IOTA, which is also written as MIOTA (1,000,000).
+Cryptocurrency exchanges sell IOTA tokens in denominations of Mega IOTA (1,000,000), which is also written as MIOTA or Mi.
 
 Learn more about [units of IOTA tokens](root://iota-basics/0.1/references/units-of-iota-tokens.md).
 :::
@@ -31,19 +31,20 @@ Transactions on the Mainnet must use a [minimum weight magnitude](root://iota-ba
 
 ## Devnet
 
-The Devnet is a copy of the Mainnet.
+The Devnet is similar to the Mainnet, except the tokens are free.
 
-On this network, you can test your applications and build proof of concepts that use free Devnet tokens.
+On this network, you can test your applications and build proofs of concept that use free Devnet tokens.
 
-:::info:Receive free Devnet tokens
-The [faucet website](https://faucet.devnet.iota.org) sends 1Ki (1000) Devnet tokens to your specified address.
+:::info:[Receive free Devnet tokens](../tutorials/receive-test-tokens.md)
 :::
 
 ![Devnet Configuration](../images/devnet-configuration.png)
 
 ### Minimum weight magnitude
 
-Transactions on the Devnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 9 to be valid. Compared to the Mainnet, this MWM reduces the time it takes for [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) (PoW) to be completed.
+Transactions on the Devnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 9 to be valid.
+
+Compared to the Mainnet, this MWM reduces the time it takes for [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
 
 ### IRI nodes
 
@@ -67,7 +68,7 @@ Use the ZMQ node to subscribe to events in an IRI node.
 
 #### PoW node
 
-This endpoint gives you access to an IRI node that can do proof of work.
+This endpoint gives you access to an IRI node that can do remote proof of work.
 
 Use the PoW node to save power on small devices.
 
@@ -75,7 +76,7 @@ Use the PoW node to save power on small devices.
 
 ## Spamnet
 
-The Spamnet is for applications that spam transactions.
+The Spamnet is for applications that send spam transactions.
 
 On this network, you can test your applications and build proof of concepts that use free Spamnet tokens.
 
@@ -87,7 +88,7 @@ The [faucet website](https://faucet.spamnet.iota.org) sends 1Ki (1000) Spamnet t
 
 ### Minimum weight magnitude
 
-Transactions on the Spamnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid. Compared to the Mainnet, this MWM reduces the time it takes for [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) (PoW) to be completed.
+Transactions on the Spamnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid. Compared to the Mainnet, this MWM reduces the time it takes for [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
 
 ### IRI nodes
 
