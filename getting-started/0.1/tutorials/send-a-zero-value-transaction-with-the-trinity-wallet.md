@@ -1,4 +1,4 @@
-# Send your first zero-value transaction (Trinity)
+# Send your first message to the Tangle (Trinity)
 
 **Trinity is a mobile and desktop application with a user interface that allows you to transfer data and IOTA tokens in an IOTA network. A zero-value transaction can be sent using a random seed that doesn't contain IOTA tokens. These transactions are useful for sending and storing immutable messages on the Tangle.**
 

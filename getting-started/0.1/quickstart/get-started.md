@@ -1,8 +1,8 @@
 # Get started
 
-**IOTA is a lightweight protocol that can be used to build applications that transfer data or IOTA tokens.**
+**IOTA is a lightweight protocol that allows you to transfer immutable data and/or value in the form of IOTA tokens.**
 
-To start integrating IOTA into your app or website you need complete only these three steps:
+To start integrating IOTA into your app or website you need complete these three steps:
 1. [Create a seed](#create-a-seed) so you can have access to addresses that can hold IOTA tokens
 2. [Install an API library](#install-an-api-library) so that your code can interact with an IOTA network through a node
 3. [Make a test API request](#make-a-test-api-request) to confirm that you're connected to a node

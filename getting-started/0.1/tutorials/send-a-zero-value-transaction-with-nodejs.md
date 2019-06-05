@@ -1,11 +1,8 @@
-# Send your first zero-value transaction (Node.js)
+# Send your first message to the Tangle (Node.js)
 
-**A zero-value [transaction](../introduction/what-is-a-transaction.md) can be sent using a random seed that doesn't contain IOTA tokens. These transactions are useful for applications that want to send and store immutable messages on the Tangle.**
+**IOTA allows you to send data (zero-value) transactions as well as IOTA tokens. These zero-value transactions are useful for applications that want to send and store immutable messages on the Tangle. To send only a zero-value [transaction](../introduction/what-is-a-transaction.md), you don't need any IOTA tokens.**
 
-To send a transaction, you must do the following:
-
-1. Connect to a node
-2. Create a bundle and send it to the node
+To send any transaction, you must connect to a node, create a bundle, then send that bundle to it.
 
 ## Prerequisites
 
@@ -16,13 +13,9 @@ To complete this tutorial, you need the following:
 * Access to a command prompt
 * An Internet connection
 
-## Connect to a node
+---
 
-In IOTA, transactions must be sent to [nodes](../introduction/what-is-a-node.md).
-
-IOTA has three [public networks](../references/iota-networks.md). Each network has its own unique distributed ledger (the Tangle) that all nodes can append to. You can choose to connect and send bundles to a node on any network.
-
-In this example, we connect to a Devnet node. The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
+In this example, we connect to a [Devnet node](../references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
 1. In the command prompt, create a working directory called `iota-example`
 
@@ -48,7 +41,7 @@ In this example, we connect to a Devnet node. The Devnet is similar to the Mainn
 
     You now have a `package.json` file and a `node_modules` directory, which contains the IOTA client libraries and their dependencies.
 
-3. In the `iota-example` directory, create a new file called `first-transaction.js`
+3. In the `iota-example` directory, create a new file called `data-transaction.js`
 
 4. Require the IOTA client libraries
 
@@ -68,65 +61,7 @@ In this example, we connect to a Devnet node. The Devnet is similar to the Mainn
     });
     ```
 
-6. Call the `getNodeInfo()` method and print the results to the console
-
-    ```js
-    // Call the `getNodeInfo()` method for information about the IRI node
-    iota.getNodeInfo()
-    // Convert the returned object to JSON to make the output more readable
-    .then(info => console.log(JSON.stringify(info, null, 1)))
-    .catch(err => {
-        // Catch any errors
-        console.log(err);
-    });
-    ```
-
-7. Save the file and run the code
-
-    ```bash
-    node index.js
-    ```
-
-    Some information about the IRI node that you're connected to should be displayed in the output.
-
-    ```json
-    {
-     "appName": "IRI Testnet",
-     "appVersion": "1.5.6-RELEASE",
-     "jreAvailableProcessors": 8,
-     "jreFreeMemory": 12052395632,
-     "jreVersion": "1.8.0_181",
-     "jreMaxMemory": 22906667008,
-     "jreTotalMemory": 16952328192,
-     "latestMilestone": "FPRSBTMKOP9JTTQSHWRGMPT9PBKYWFCCFLZLNWQDFRCXDDHZEFIEDXRIJYIMVGCXYQRHSZQYCTWXJM999",
-     "latestMilestoneIndex": 1102841,
-     "latestSolidSubtangleMilestone": "FPRSBTMKOP9JTTQSHWRGMPT9PBKYWFCCFLZLNWQDFRCXDDHZEFIEDXRIJYIMVGCXYQRHSZQYCTWXJM999",
-     "latestSolidSubtangleMilestoneIndex": 1102841,
-     "milestoneStartIndex": 434525,
-     "neighbors": 3,
-     "packetsQueueSize": 0,
-     "time": 1549482118137,
-     "tips": 153,
-     "transactionsToRequest": 0,
-     "features": ["snapshotPruning", "dnsRefresher", "testnet", "zeroMessageQueue", "tipSolidification", "RemotePOW"],
-     "coordinatorAddress": "EQQFCZBIHRHWPXKMTOLMYUYPCN9XLMJPYZVFJSAY9FQHCCLWTOLLUGKKMXYFDBOOYFBLBI9WUEILGECYM",
-     "duration": 0
-    }
-    ```
-
-    :::info:Want to know what these fields mean?
-    [Take a look at the `getNodeInfo()` API reference](root://iri/0.1/references/api-reference.md#getnodeinfo).
-    :::
-
-:::success:
-You've confirmed your connection to the node. Now, you can send a transaction to it.
-:::
-
-## Create a bundle and send it to a node
-
-When you're connected to a node, you can create a transaction, package it in a [bundle](../introduction/what-is-a-bundle.md), and send it to a node. When you do this, your transaction is attached to [the Tangle](../introduction/what-is-the-tangle.md).
-
-1. . At the end of the `index.js` file, create a variable to store the address to which you want to send a message
+6. Create a variable to store the address to which you want to send a message
 
     ```js
     const address =
@@ -137,7 +72,7 @@ When you're connected to a node, you can create a transaction, package it in a [
     This address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://iota-basics/0.1/concepts/trinary.md).
     :::
 
-2. Create a variable to store your seed, which will be used to derive an address from which to send the message
+7. Create a variable to store your seed, which will be used to [derive an address](root://iota-basics/0.1/concepts/addresses-and-signatures.md) from which to send the message
 
     ```js
     const seed =
@@ -145,10 +80,10 @@ When you're connected to a node, you can create a transaction, package it in a [
     ```
 
     :::info:
-    Seeds must contain 81 tryte-encoded characters. If a seed consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters.
+    This seed doesn't have to contain any addresses with IOTA tokens. If you enter a seed that consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters.
     :::
 
-3. Create a message that you want to send to the address and convert it to trytes
+8. Create a message that you want to send to the address and convert it to trytes
 
     ```js
     const message = Converter.asciiToTrytes('Hello World!');
@@ -162,7 +97,7 @@ When you're connected to a node, you can create a transaction, package it in a [
     The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
     :::
 
-4. Create a transfer object that specifies the value, message to send, and the address to send it to
+9. Create a transfer object that specifies the amount of IOTA tokens you want to send, the message that you want to send, and the address to send it to
 
     ```js
     const transfers = [
@@ -174,13 +109,7 @@ When you're connected to a node, you can create a transaction, package it in a [
     ];
     ```
 
-    :::info:Transaction fields
-    A transaction consists of [other fields](root://iota-basics/0.1/references/structure-of-a-transaction.md), but these ones are all you need to send a zero-value transaction.
-
-    The message is put in the `signatureMessageFragment` field of the transaction.
-    :::
-
-5. Pass the `transfers` array to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method to construct a [bundle](../introduction/what-is-a-bundle.md). This method creates a bundle from the transfer object. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](../introduction/what-is-a-node.md)
+10. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](../introduction/what-is-a-node.md)
 
     ```js
     iota.prepareTransfers(seed, transfers)
@@ -197,36 +126,36 @@ When you're connected to a node, you can create a transaction, package it in a [
     ```
 
     :::info:Depth
-    The `depth` argument affect tip selection. The greater the depth, the farther back in the Tangle the weighted random walk starts.
+    The `depth` argument affects tip selection. The greater the depth, the farther back in the Tangle the weighted random walk starts.
     :::
     
     :::info:Minimum weight magnitude
     The [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW.
     
-    Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid.
+    Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed.
     :::
-    
-6. Save the file and run the code
-
-    ```bash
-    node index.js
-    ```
 
 :::success:Congratulations :tada:
-You've just sent your first zero-value transaction.
+You've just sent your first zero-value transaction. Your transaction is attached to [the Tangle](../introduction/what-is-the-tangle.md), which makes your message immutable.
 :::
 
-In the console, you'll see information about the transaction in the [bundle](../introduction/what-is-a-bundle.md) that you sent.
+In the console, you'll see information about the the [bundle](../introduction/what-is-a-bundle.md) that you sent.
 
-Your transaction will propagate through the IOTA network until all the nodes have it in their ledgers.
+The transaction in your bundle transaction will propagate through the IOTA network until all the nodes have it in their ledgers.
 
-## Confirm that your bundle is on the network
+## Confirm that your transaction is on the network
 
-To confirm that your bundle is on the network (attached to the Tangle), copy the value of the `bundle` field from the console, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
+To confirm that your transaction is on the network (attached to the Tangle), copy the value of the `bundle` field from the console, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
-See the Parent transactions field to check which transactions your transaction is attached to in the Tangle.
+You'll see your message in the Message field.
+
+![Immutable message on the Tangle](../images/zero-value-message.png)
+
+:::info:
+You can also see the Parent transactions field to check which transactions your transaction is attached to in the Tangle.
 
 These transactions were chosen during tip selection and added to the [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md) of your transaction.
+:::
 
 ## Run the code
 
@@ -234,14 +163,15 @@ Click the green button to run the sample code in this tutorial and see the resul
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/51-Send-ASCII-Data?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-:::info:Want to know what the transaction fields mean?
-[Take a look at the structure of a transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md).
+:::info:[Learn what these transaction fields mean](root://iota-basics/0.1/references/structure-of-a-transaction.md).
+
+Messages are stored in the `signatureMessageFragment` field.
 :::
 
 ## Next steps
 
-[Send a bundle of two transactions](root://iota-basics/0.1/how-to-guides/send-bundle.md) and learn how bundles are structured.
+[Send some test IOTA tokens](../tutorials/send-iota-tokens.md)
+
+[Send a bundle of two zero-value transactions](root://iota-basics/0.1/how-to-guides/send-bundle.md) to learn how bundles are structured.
 
 [Run your own node in a Docker container](../tutorials/run-your-own-iri-node.md) for direct access to the Tangle without relying on third parties.
-
-

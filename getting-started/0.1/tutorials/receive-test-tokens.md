@@ -4,7 +4,11 @@
 
 ## Prerequisites
 
-Before you complete this tutorial, you need [a new address](root://iota-basics/0.1/how-to-guides/create-an-address.md).
+Before you complete this tutorial, you need to [a new address](root://iota-basics/0.1/how-to-guides/create-an-address.md).
+
+:::danger:Important
+If you own IOTA tokens on the Mainnet, we recommend creating a new test seed to use on the Devnet.
+:::
 
 ---
 
@@ -27,6 +31,10 @@ Before you complete this tutorial, you need [a new address](root://iota-basics/0
 This link takes you to a Devnet Tangle explorer. This website connects to nodes on the Devnet and requests information from them about the bundle that just transferred free tokens to your address.
 
 When the bundle is confirmed, 1Ki (1000) tokens will be added to the balance of your address.
+
+:::info:These tokens are valid only on the Devnet
+Other IOTA networks have neither received nor validated the bundle that transferred the tokens to your address. As a result, they haven't updated the balance of your address.
+::: 
 
 ## Next steps
 
