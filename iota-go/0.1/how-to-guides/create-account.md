@@ -86,7 +86,7 @@ The data that accounts store in a local database is called the seed state. Accou
     timesource := timesrc.NewNTPTimeSource("time.google.com")
     ```
 
-6. Build the account using both your custom settings and the `WithDefaultPlugins()` method. This method adds the default `transfer poller` and `promoter-reattacher` plugins to the account.
+6. Build the account using both your custom settings and the `WithDefaultPlugins()` method. This method adds the default `transfer poller` and `promoter-reattacher` plugins to the account.  In this example, the [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) is set to 9, which is the MWM for the Devnet.
 
     ```go
     account, err = builder.NewBuilder().
