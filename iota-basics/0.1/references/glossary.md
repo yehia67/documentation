@@ -85,7 +85,7 @@ Terms are listed in alphabetical order by category.
 
 <a name="milestone"></a><dl><dt>milestone</dt><dd>Valid transaction that is created by either the Coordinator. [Nodes](#iota-terms) use milestones to determine if other transactions are in a confirmed state.</dd></dl>
 
-<dl><dt>[minimum weight magnitude (MWM)](root:////iota-basics/0.1/concepts/minimum-weight-magnitude.md)</dt><dd>Integer that sets the amount of work that will be carried out during [PoW](#general-terms).</dd></dl>
+<dl><dt>[minimum weight magnitude (MWM)](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)</dt><dd>Integer that sets the amount of work that will be carried out during [PoW](#general-terms).</dd></dl>
 
 <dl><dt>pending</dt><dd>State of a transaction when it's been seen by the network, but not yet confirmed.</dd></dl>
 
