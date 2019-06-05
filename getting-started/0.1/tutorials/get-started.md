@@ -3,8 +3,11 @@
 **IOTA is a lightweight protocol that allows you to transfer immutable data and/or value in the form of IOTA tokens.**
 
 To start integrating IOTA into your app or website you need complete these three steps:
+
 1. [Create a seed](#create-a-seed) so you can have access to addresses that can hold IOTA tokens
+
 2. [Install an API library](#install-an-api-library) so that your code can interact with an IOTA network through a node
+
 3. [Make a test API request](#make-a-test-api-request) to confirm that you're connected to a node
 
 :::info:Not a developer?
@@ -20,7 +23,7 @@ You must keep your seed safe and back it up. If you lose your seed, you can't re
 :::
 
 --------------------
-### Linux operating system
+### Linux
 1\. Do the following in a command prompt:
 
 ```bash
@@ -29,7 +32,7 @@ cat /dev/urandom |tr -dc A-Z9|head -c${1:-81}
 
 2\. Copy and paste the 81 character output somewhere. You'll need the seed later. It's a good idea to back up your seed now.
 ---
-### macOS operating system
+### macOS
 1\. Do the following in a command prompt:
 
 ```bash
@@ -38,26 +41,24 @@ cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
 
 2\. Copy and paste the 81 character output somewhere. You'll need the seed later. It's a good idea to back up your seed now.
 ---
-### Windows operating system
+### Windows
 1\. [Download the KeePass installer](https://keepass.info/)
 
-:::info:
 KeePass is a password manager that stores passwords in encrypted databases, which can be unlocked with one master password or key file.
-:::
 
 2\. Open the installer and follow the on-screen instructions
 
 3\. Open KeePass and click **New**
 
-![A new KeePass database](../images/keypass-new.png)
+![Creating a new KeePass database](../images/keypass-new.png)
 
 4\. After you've followed the instructions and saved the KeePass file on your computer, right click the empty space and click **Add entry**
 
-![A new KeePass entry](../images/keepass-add-entry.png)
+![Adding a new KeePass entry](../images/keepass-add-entry.png)
 
 5\. Click **Generate a password**
 
-![Keepass password generator](../images/keypass-password-generator.png)
+![Selecting the Keepass password generator](../images/keypass-password-generator.png)
 
 6\. Select only the following options and click **OK**:
 
@@ -68,7 +69,7 @@ KeePass is a password manager that stores passwords in encrypted databases, whic
 7\. Click **OK** to save your seed
 --------------------
 
-## Step 2. Install an API library
+## Step 2. Install a client library
 
 We have [three official libraries](root://client-libraries/0.1/introduction/overview.md). As well as these libraries, the IOTA community has created some [community ones](root://client-libraries/0.1/introduction/overview.md) so you can use a language that we don't officially support.
 
@@ -120,15 +121,12 @@ For other environments such as Maven, [see the GitHub repository](https://github
 ### Go
 To download the IOTA Go client library and its dependencies, we recommend that you use [Go modules](https://github.com/golang/go/wiki/Modules) (available since version 1.11) to manage dependencies in your project.
 
-In any directory outside of GOPATH, initiate your project:
+In any directory outside of GOPATH, initiate your project. Change the placeholder to your chosen path such as github.com/me/awesome-project.
+
 
 ```bash
 go mod init <your-module-path>
 ```
-
-:::info:
-Change the placeholder to your chosen path such as github.com/me/awesome-project.
-:::
 
 Download the library and its dependencies:
 
@@ -184,7 +182,7 @@ System.out.println(response);
 ```
 ---
 ### Go
-```go
+```golang
 package main
 
 import (
@@ -243,7 +241,7 @@ The node returns a response object:
 ```
 
 :::success: Congratulations :tada:
-You've confirmed your connection to the node. Now, you're ready to send a transaction to it.
+You've confirmed your connection to the node. Now, you're ready to [send a transaction to it](../tutorials/send-a-zero-value-transaction-with-nodejs.md).
 :::
 
 :::info:

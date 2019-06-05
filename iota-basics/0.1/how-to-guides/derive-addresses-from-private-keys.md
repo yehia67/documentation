@@ -3,7 +3,7 @@
 **By using a client library to derive addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
 
 :::info:First time using a client library?
-[Try our quickstart guide](root://getting-started/0.1/quickstart/get-started.md) for getting started with the official client libraries.
+[Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries.
 :::
 
 :::info:

@@ -3,7 +3,7 @@
 **To be approved by a milestone, a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a bundle is stuck in a pending state, the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote it, depending on the circumstances.**
 
 :::info:First time using a client library?
-[Try our quickstart guide](root://getting-started/0.1/quickstart/get-started.md) for getting started with the official client libraries.
+[Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries.
 :::
 
 :::info:

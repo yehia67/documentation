@@ -3,7 +3,7 @@
 **To receive IOTA tokens, you must give the sender one of your addresses. These addresses are derived from your seed. You can derive a new address from a seed by either incrementing the index and/or using a different security level.**
 
 :::info:First time using a client library?
-[Try our quickstart guide](root://getting-started/0.1/quickstart/get-started.md) for getting started with the official client libraries.
+[Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries.
 :::
 
 ## Prerequisites

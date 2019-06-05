@@ -12,10 +12,8 @@ This section introduces users to IOTA by giving them a foundation of knowledge t
     - [What is a bundle?](/introduction/what-is-a-bundle.md)
     - [What is a node?](/introduction/what-is-a-node.md)
   
-- Quickstart
-    - [Get started](/quickstart/get-started.md)
-
 - Tutorials
+    - [Get started](/tutorials/get-started.md)
     - [Send your first data transaction (Trinity)](/tutorials/send-your-first-data-transaction-with-the-trinity-wallet.md)
     - [Send your first data transaction (Node.js)](/tutorials/send-your-first-data-transaction-with-nodejs.md)
     - [Run your own IRI node](/tutorials/run-your-own-iri-node.md)
