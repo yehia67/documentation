@@ -12,10 +12,11 @@ To complete this tutorial, you need the following:
 * An Internet connection
 
 
-:::info:[Get some free test tokens](../tutorials/receive-test-tokens.md)
+:::info:
+[Get some free test tokens](../tutorials/receive-test-tokens.md)
 :::
 
----
+## Send test tokens to one of your other addresses
 
 In this example, we send a bundle to a [Devnet node](../references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any bundles that you send to the Devnet do not exist on other networks such as the Mainnet.
 

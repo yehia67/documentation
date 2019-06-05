@@ -13,7 +13,7 @@ To complete this tutorial, you need the following:
 * Access to a command prompt
 * An Internet connection
 
----
+## Attach an immutable message to the Tangle
 
 In this example, we connect to a [Devnet node](../references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
@@ -163,7 +163,8 @@ Click the green button to run the sample code in this tutorial and see the resul
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/51-Send-ASCII-Data?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-:::info:[Learn what these transaction fields mean](root://iota-basics/0.1/references/structure-of-a-transaction.md).
+:::info:
+[Learn what these transaction fields mean](root://iota-basics/0.1/references/structure-of-a-transaction.md).
 
 Messages are stored in the `signatureMessageFragment` field.
 :::

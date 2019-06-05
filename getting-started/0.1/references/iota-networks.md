@@ -35,7 +35,8 @@ The Devnet is similar to the Mainnet, except the tokens are free.
 
 On this network, you can test your applications and build proofs of concept that use free Devnet tokens.
 
-:::info:[Receive free Devnet tokens](../tutorials/receive-test-tokens.md)
+:::info:
+[Receive free Devnet tokens](../tutorials/receive-test-tokens.md)
 :::
 
 ![Devnet Configuration](../images/devnet-configuration.png)

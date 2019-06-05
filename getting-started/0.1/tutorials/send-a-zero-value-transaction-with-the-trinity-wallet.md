@@ -10,7 +10,7 @@ Trinity allows you to do the following:
 
 ![Trinity home page](../images/trinity-home.jpg)
 
----
+## Attach an immutable message to the Tangle
 
 1. [Download and install Trinity](https://trinity.iota.org/)
 
