@@ -14,8 +14,6 @@ If you own IOTA tokens on the Mainnet, we recommend creating a new test seed to 
 
 1. Go to [the Devnet faucet](https://faucet.devnet.iota.org/)
 
-    <iframe src="https://faucet.devnet.iota.org/"></iframe>
-
 2. Copy and paste your address into the input field
 
 3. Prove that you're not a robot by clicking the 'I'm not a robot' box.
@@ -38,4 +36,4 @@ Other IOTA networks have neither received nor validated the bundle that transfer
 
 ## Next steps
 
-[Transfer your free tokens to another address](https://github.com/iota-community/javascript-iota-workshop/blob/master/code/4-send-tokens.js) to test the process.
+[Transfer your free tokens to another address](../tutorials/send-iota-tokens.md) to test the process.

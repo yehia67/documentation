@@ -11,7 +11,6 @@ To complete this tutorial, you need the following:
 * Access to a command prompt
 * An Internet connection
 
-
 :::info:
 [Get some free test tokens](../tutorials/receive-test-tokens.md)
 :::
