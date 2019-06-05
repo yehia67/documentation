@@ -1,4 +1,4 @@
-# Send IOTA tokens
+# Send test IOTA tokens
 
 **You may want to send IOTA tokens to someone in exchange for goods or services. In this tutorial we send test tokens from one of your addresses to another.**
 
