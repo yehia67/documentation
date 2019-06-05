@@ -10,7 +10,7 @@ Before you complete this tutorial, you need to [a new address](root://iota-basic
 If you own IOTA tokens on the Mainnet, we recommend creating a new test seed to use on the Devnet.
 :::
 
-## Get free test tokens sent to your address
+## Send free test tokens to your address
 
 1. Go to [the Devnet faucet](https://faucet.devnet.iota.org/)
 
