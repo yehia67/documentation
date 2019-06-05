@@ -4,11 +4,11 @@
 
 To start integrating IOTA into your app or website you need complete these three steps:
 
-1. [Create a seed](#create-a-seed) so you can have access to addresses that can hold IOTA tokens
+1. [Create a seed](#step-1.-create-a-seed) so you can have access to addresses that can hold IOTA tokens
 
-2. [Install an API library](#install-a-client-library) so that you can interact with an IOTA network through a node
+2. [Install a client library](#step-2.-install-a-client-library) so that you can interact with an IOTA network through a node
 
-3. [Make a test API request](#make-a-test-api-request) to confirm that you're connected to a node
+3. [Make a test API request](#step-2.-make-a-test-api-request) to confirm that you're connected to a node
 
 :::info:Not a developer?
 If you want to see how IOTA works without having to write code, you can [use Trinity to create a seed and send your first data transaction](../tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md).
