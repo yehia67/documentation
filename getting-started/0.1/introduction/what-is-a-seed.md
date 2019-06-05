@@ -10,4 +10,4 @@ Private keys are used to sign bundles, which proves ownership of an address and 
 
 **Example seed:** PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX
 
-[Get started with your own seed](../quickstart/get-started.md)!
+[Get started with your own seed](../tutorials/get-started.md)!

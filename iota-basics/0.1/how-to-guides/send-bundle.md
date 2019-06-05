@@ -3,7 +3,7 @@
 **Transactions must be packaged in a bundle before being sent to a node. The IOTA client libraries have built-in functions that create bundles from transfer objects.**
 
 :::info:First time using a client library?
-[Try our quickstart guide](root://getting-started/0.1/quickstart/get-started.md) for getting started with the official client libraries.
+[Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries.
 :::
 
 :::info:

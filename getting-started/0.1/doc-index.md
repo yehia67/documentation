@@ -14,7 +14,7 @@
 
 [Introduction/What is a node?](/introduction/what-is-a-node.md)
 
-[Quickstart/Get started](/quickstart/get-started.md)
+[Tutorials/Get started](/tutorials/get-started.md)
 
 [Tutorials/Send your first data transaction (Node.js)](/tutorials/send-a-zero-value-transaction-with-nodejs.md)
 

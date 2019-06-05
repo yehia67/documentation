@@ -3,7 +3,7 @@
 **Before IOTA tokens can be transferred, the bundle that transfers them must be confirmed. Transactions in a bundle remain in a pending state until the tail transaction is referenced and approved by a milestone.**
 
 :::info:First time using a client library?
-[Try our quickstart guide](root://getting-started/0.1/quickstart/get-started.md) for getting started with the official client libraries.
+[Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries.
 :::
 
 :::info:

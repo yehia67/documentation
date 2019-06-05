@@ -9,5 +9,5 @@
 [Use cases](/0.1/references/use-cases.md)
 ## Learn about the products that have already been built using IOTA
 
-[Get started](/0.1/quickstart/get-started.md)
+[Get started](/0.1/tutorials/get-started.md)
 ## Get started with integrating IOTA in your apps
