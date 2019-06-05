@@ -1,6 +1,6 @@
 # Derive addresses from private keys
 
-**Seeds are used to derive private keys, and in turn, a private key is used to derive addresses and sign bundles. By using the cryptography library to derive addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
+**By using a client library to derive addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
 
 :::info:First time using a client library?
 [Try our quickstart guide](root://getting-started/0.1/quickstart/get-started.md) for getting started with the official client libraries.

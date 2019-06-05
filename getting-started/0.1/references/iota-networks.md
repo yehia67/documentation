@@ -1,6 +1,6 @@
 # IOTA networks
 
-**In IOTA, bundles of transactions must be sent to [nodes](../introduction/what-is-a-node.md). IOTA has three [public networks](../references/iota-networks.md) of nodes. Each network has its own unique distributed ledger (the Tangle) that all nodes can append transactions to. You can choose to connect and send bundles to nodes on any public network.**
+**In IOTA, bundles of transactions must be sent to [nodes](../introduction/what-is-a-node.md). IOTA has three [public networks](../references/iota-networks.md) of nodes. Each network has its own unique distributed ledger (the Tangle) that the nodes can append transactions to. You can choose to connect and send bundles to nodes on any public network.**
 
 IOTA has the following [permissionless (public) networks](../introduction/what-is-dlt.md):
 * **Mainnet:** IOTA token
