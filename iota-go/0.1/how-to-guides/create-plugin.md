@@ -108,7 +108,7 @@ To explain how to create a plugin, this guide helps you to create one that print
 
 7. Save the file
 
-8. In your `myAccount.go` file, build your account with your `NewEventLoggerPlugin()` function.  Use [minimum weight magnitude](root:////iota-basics/0.1/concepts/minimum-weight-magnitude.md) of 9 for the Devnet.
+8. In your `myAccount.go` file, build your account with your `NewEventLoggerPlugin()` function.  Use [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) of 9 for the Devnet.
 
     ```go
     account, err = builder.NewBuilder().
