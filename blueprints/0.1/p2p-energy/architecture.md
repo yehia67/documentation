@@ -10,7 +10,7 @@ The architecture of our PoC (shown in the image below) follows a pattern, where 
 
 IOTA technologies are advantageous in an architecture such as this as they allow entities to communicate with one another in a secure manner without needing to be always on or connected to each other.
 
-![P2P Energy PoC - Architecture Diagram](./p2p_architecture.png)
+![P2P Energy PoC - Architecture Diagram](../images/p2p_architecture.png)
 
 IOTA technologies are employed as both the communication and payment mechanism between entities, which store the data on the Tangle.
 
@@ -34,7 +34,7 @@ The grid maintains its own IRI node, which enables it to communicate with neighb
 
 The following image shows the communication channels and the sequence of events that occur in the architecture.
 
-![P2P Energy PoC - Sequence Diagram](./p2p_sequence.png)
+![P2P Energy PoC - Sequence Diagram](../images/p2p_sequence.png)
 
 ## Workflows
 
@@ -44,19 +44,19 @@ The following workflows illustrate how the different entities interact with each
 
 This image shows the sequence of events that occur when a source communicates with a producer and the Tangle.
 
-![P2P energy PoC - source workflow](./p2p_source.png)
+![P2P energy PoC - source workflow](../images/p2p_source.png)
 
 ### Producer to grid
 
 This image shows the sequence of events that occur when a producer communicates with the grid and the Tangle.
 
-![P2P energy PoC - producer workflow](./p2p_producer.png)
+![P2P energy PoC - producer workflow](../images/p2p_producer.png)
 
 ### Consumer to grid
 
 This image shows the sequence of events that occur when a consumer communicates with the grid and the Tangle.
 
-![P2P energy PoC - consumer workflow](./p2p_consumer.png)
+![P2P energy PoC - consumer workflow](../images/p2p_consumer.png)
 
 ## Communication
 
@@ -64,7 +64,7 @@ The communication between the different entities is a combination of MAM channel
 
 A tangle transaction is issued whenever a consumer pays its bill to the grid or whenever the grid pays a producer.
 
-![P2P energy PoC - communication](./p2p_communication.png)
+![P2P energy PoC - communication](../images/p2p_communication.png)
 
 ### Source MAM output channel
 

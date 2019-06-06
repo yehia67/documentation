@@ -18,7 +18,7 @@ In order to reproduce this PoC there is no requirement to deploy dedicated hardw
 
 The presented infrastructure makes use of the IOTA Tangle and an `InterPlanetary File System` (IPFS) node that you run yourself. The following image shows the main architecture components.
 
-![Data Storage PoC - IOTA/IPFS - Architecture](../data-storage-ipfs.png)
+![Data Storage PoC - IOTA/IPFS - Architecture](../images/data-storage-ipfs.png)
 
 :::warning:Disclaimer
 Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community.
@@ -50,7 +50,7 @@ Behind the scenes, the API does the following:
 * Store the metadata, SHA256 and IPFS hash on the Tangle, which returns a transaction hash
 * Return the Tangle transaction hash to the client
 
-![Data Storage PoC - IOTA/IPFS - Store File](../data-storage-store.png)
+![Data Storage PoC - IOTA/IPFS - Store File](../images/data-storage-store.png)
 
 The `storeFile()` method takes a JSON object in the following format:
 
@@ -141,7 +141,7 @@ To retrieve a file and validate its contents the client does the following:
 * Perform a SHA256 on the retrieved file content
 * Compare the calculated SHA256 with the one returned from the API
 
-![Data Storage PoC - IOTA/IPFS - Retrieve File](../data-storage-retrieve.png)
+![Data Storage PoC - IOTA/IPFS - Retrieve File](../images/data-storage-retrieve.png)
 
 To retrieve and validate the file, the transaction hash is read from the Tangle.
 

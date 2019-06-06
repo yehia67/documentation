@@ -14,7 +14,7 @@ Consumer |Use the power provided by the grid in return for payment|
 Grid| Coordinate the distribution of power from the producers to the consumers, and distribute payments|
  
 
-![P2P Energy PoC - Use Case Picture](./p2p_use_case.png)
+![P2P Energy PoC - Use Case Picture](../images/p2p_use_case.png)
 
 :::info:
 This blueprint can be replicated in any scenario where a resource is distributed to consumers in return for payment, for example water supply.

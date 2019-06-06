@@ -2,7 +2,7 @@
 
 **Due to the lack of due diligence and the lack of a vendor-neutral data source, returnable assets that are used within distribution networks are seldom returned to their original owners. This blueprint describes how a track and trace system for recovery of returnable assets has been implemented by the IBCS Group, using the IOTA Tangle and other IOTA technologies.**
 
-![Track and Trace](../intro_track_trace.png)
+![Track and Trace](../images/intro_track_trace.png)
 
 Integration of this system within IBCS Group’s business processes is presented in order to provide a guide for other organizations willing to replicate and adapt the produced software to scenarios and business processes similar to the ones presented.
 
@@ -31,7 +31,7 @@ This image presents a simplified stakeholders map and the different actions each
 **Green circles:** Stakeholders such as custodians
 **Purple circle:** Owner of the returnable asset 
 
-![Returnable assets stakeholder map](../track-and-trace-returnable-assets-stakeholders.png)
+![Returnable assets stakeholder map](../images/track-and-trace-returnable-assets-stakeholders.png)
 
 ### Challenges
 
