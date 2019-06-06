@@ -38,7 +38,7 @@ Data silos make it difficult to buy and sell data among different data points. T
 -------------------------
 ```
 
-![Cards](./cards.png)
+![Cards](./card.png)
 
 ### Heading Label
 
