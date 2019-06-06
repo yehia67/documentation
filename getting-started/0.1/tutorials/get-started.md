@@ -95,6 +95,8 @@ Install the library with Yarn:
 ```bash
 yarn add @iota/core
 ```
+
+[See the JavaScript documentation](root://iota-js/0.1/README.md).
 ---
 ### Java
 Download the library with Gradle
@@ -116,7 +118,7 @@ dependencies {
 }
 ```
 
-For other environments such as Maven, [see the GitHub repository](https://github.com/iotaledger/iota-java).
+[See the Java documentation](root://iota-java/0.1/README.md).
 ---
 ### Go
 To download the IOTA Go client library and its dependencies, we recommend that you use [Go modules](https://github.com/golang/go/wiki/Modules) (available since version 1.11) to manage dependencies in your project.
@@ -134,6 +136,8 @@ Download the library and its dependencies:
 $ go get github.com/iotaledger/iota.go/api
 ```
 This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file.
+
+[See the Go documentation](root://iota-go/0.1/README.md).
 --------------------
 
 ## Step 3. Make a test API request
@@ -247,6 +251,24 @@ You've confirmed your connection to the node. Now, you're ready to [send a trans
 :::info:
 To learn what these fields mean, [see the API reference](root://iri/0.1/references/api-reference.md#getNodeInfo).
 :::
+
+## Run the code (Node.js)
+
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/Connect-to-a-node?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+## Get involved
+
+[Join our Discord channel](https://discordapp.com/invite/fNGZXvh) where you can:
+
+* Take part in discussions with IOTA developers and the community
+* Ask for help
+* Share your knowledge to help others
+
+We have many channels, including the following:
+
+* `-dev`: These channles are read-only and are where developers discuss topics with each other and where you can see any code updates from GitHub.
+
+* `-discussion`: These channels are where you can participate.
 
 ## Next steps
 
