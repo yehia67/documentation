@@ -72,7 +72,7 @@ In this example, we connect to a [Devnet node](../references/iota-networks.md#de
     This address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://iota-basics/0.1/concepts/trinary.md).
     :::
 
-7. Create a variable to store your seed, which will be used to [derive an address](root://iota-basics/0.1/concepts/addresses-and-signatures.md) from which to send the message
+7. Create a variable to store your seed
 
     ```js
     const seed =
@@ -141,7 +141,7 @@ You've just sent your first zero-value transaction. Your transaction is attached
 
 In the console, you'll see information about the the [bundle](../introduction/what-is-a-bundle.md) that you sent.
 
-The transaction in your bundle transaction will propagate through the IOTA network until all the nodes have it in their ledgers.
+The transaction in your bundle will propagate through the network until all the nodes have it in their ledgers.
 
 ## Confirm that your transaction is on the network
 

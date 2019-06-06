@@ -128,7 +128,7 @@ You've just sent your value transaction. Your transaction is attached to [the Ta
 
 In the console, you'll see information about the transaction in the [bundle](../introduction/what-is-a-bundle.md) that you sent.
 
-Your transaction will propagate through the IOTA network until all the nodes have it in their ledgers.
+The transactions in your bundle will propagate through the network until all the nodes have it in their ledgers.
 
 ## Run the code
 

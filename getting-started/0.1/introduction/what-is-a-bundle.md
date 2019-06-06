@@ -18,7 +18,7 @@ In this example, you want to send 100Mi to recipient A, and your balance is dist
 * **Address 1:** 30Mi
 * **Address 2:** 55Mi
 
-To send 100Mi to recipient A, you must create the following transactions and send them to a node as a transfer bundle:
+When you send 100Mi to recipient A, the following transactions are created and sent to a node as a transfer bundle:
 
 * **Input transaction:** Withdraw 100Mi from my address and check the signature to verify that I own it
 * **Output transaction:** Deposit 100Mi to the recipient's address
