@@ -8,13 +8,15 @@ Running an open source project, like any human endeavor, involves uncertainty an
 
 The architecture of our PoC (shown in the image below) follows a pattern, where the source, producer, consumer, and grid are interconnected through an IOTA network.
 
-IOTA technologies are advantageous in an architecture such as this as they allow entities to communicate with one another in a secure manner without needing to be always on or connected to each other.
+IOTA technologies are advantageous in an architecture such as this because they allow entities to communicate with one another in a secure manner without needing to always be on or connected to each other.
 
 ![P2P Energy PoC - Architecture Diagram](./p2p_architecture.png)
 
-IOTA technologies are employed as both the communication and payment mechanism between entities, which store the data on the Tangle.
+IOTA technologies are employed as both the communication and payment mechanisms between entities that store the data on the Tangle.
 
-The implementation of the source and the consumer is intended to be a lightweight operation that can be done by embedded devices. These entities need to perform Tangle operations, such as producing and consuming MAM channels, and communicating with web APIs. The producer is more complex and needs to host a web API to accept registrations, but can use the grid for any storage needs. Any more intense processes or storage requirements are offloaded to the grid.
+The implementation of the source and the consumer is intended to be a lightweight operation that can be done by embedded devices. These entities need to perform operations such as producing and consuming MAM channels, and communicating with web APIs.
+
+The producer is more complex and needs to host a web API to accept registrations, but can use the grid for any storage needs. Any more intense processes or storage requirements are offloaded to the grid.
 
 This table displays a list of all the main components of the application:
 
@@ -28,7 +30,12 @@ Database | Provides a permanent storage mechanism for the grid to use for its ow
 
 The sources are kept as separate entities from the producers to allow for some redundancy. If a producer is offline, the sources continue logging their readings to the Tangle instead of directly to the producer. The sources are still registered with the producers so that the producers can later consolidate the data before communicating it to the grid.
 
-The grid usually does the majority of the work, maintaining a database, running a web server with a portal, provisioning APIs, and running background tasks to process information. These operations could all be performed locally on the machine or outsourced to wider infrastructure in the cloud.
+The grid usually does the majority of the work, which could be performed locally on the machine or outsourced to a wider infrastructure in the cloud::
+
+* Maintaining a database
+* Running a web server with a portal
+* Provisioning APIs
+* Running background tasks to process information
 
 The grid maintains its own IRI node, which enables it to communicate with neighbours in the peer-to-peer network on which the Tangle operates. By running your own IRI node, the rest of the entities can live in a LAN network, with only the grid requiring WAN access to the rest of the Tangle for syncing. The alternative is for all entities to have WAN access directly to an IRI node on Tangle.
 
@@ -155,7 +162,7 @@ This MAM channel contains information on the aggregated output from the producer
 
 The grid will monitor and record the channels for all producers to use later in order to calculate the amount to pay to each producer. The payment address and requested  price can change per time period to give the Producer the ability to provide variable price power at different times.
 
-The `producerPrice` field is not guaranteed to be met by the grid, instead a consensus price amongst all the producers will be paid. The consensus price could just be a regular average of all the `producerPrice` fields or a weighted average based on how much the producer contributed to the grid. The `paymentIdOrAddress` can be an IOTA address to make payments to by the grid, or a reference id the grid has another way of making payments.
+The `producerPrice` field is not guaranteed to be met by the grid, instead a consensus price amongst all the producers will be paid. The consensus price could be a regular average of all the `producerPrice` fields or a weighted average based on how much the producer contributed to the grid. The `paymentIdOrAddress` can be an IOTA address that the grid can make payments to, or a reference ID so that the grid has another way of making payments.
 
 **Payload**
 
