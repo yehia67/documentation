@@ -18,8 +18,6 @@ Grid| Coordinate the distribution of power from the producers to the consumers, 
 
 :::info:
 This blueprint can be replicated in any scenario where a resource is distributed to consumers in return for payment, for example water supply.
-
-The full deployment instructions for this blueprint will be available in May.
 :::
 
 ## Glossary

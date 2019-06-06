@@ -8,13 +8,15 @@ Running an open source project, like any human endeavor, involves uncertainty an
 
 The architecture of our PoC (shown in the image below) follows a pattern, where the source, producer, consumer, and grid are interconnected through an IOTA network.
 
-IOTA technologies are advantageous in an architecture such as this as they allow entities to communicate with one another in a secure manner without needing to be always on or connected to each other.
+IOTA technologies are advantageous in an architecture such as this because they allow entities to communicate with one another in a secure manner without needing to always be on or connected to each other.
 
 ![P2P Energy PoC - Architecture Diagram](./p2p_architecture.png)
 
-IOTA technologies are employed as both the communication and payment mechanism between entities, which store the data on the Tangle.
+IOTA technologies are employed as both the communication and payment mechanisms between entities that store the data on the Tangle.
 
-The implementation of the source and the consumer is intended to be a lightweight operation that can be done by embedded devices. These entities need to perform Tangle operations, such as producing and consuming MAM channels, and communicating with web APIs. The producer is more complex and needs to host a web API to accept registrations, but can use the grid for any storage needs. Any more intense processes or storage requirements are offloaded to the grid.
+The implementation of the source and the consumer is intended to be a lightweight operation that can be done by embedded devices. These entities need to perform operations such as producing and consuming MAM channels, and communicating with web APIs.
+
+The producer is more complex and needs to host a web API to accept registrations, but can use the grid for any storage needs. Any more intense processes or storage requirements are offloaded to the grid.
 
 This table displays a list of all the main components of the application:
 
@@ -28,7 +30,12 @@ Database | Provides a permanent storage mechanism for the grid to use for its ow
 
 The sources are kept as separate entities from the producers to allow for some redundancy. If a producer is offline, the sources continue logging their readings to the Tangle instead of directly to the producer. The sources are still registered with the producers so that the producers can later consolidate the data before communicating it to the grid.
 
-The grid usually does the majority of the work, maintaining a database, running a web server with a portal, provisioning APIs, and running background tasks to process information. These operations could all be performed locally on the machine or outsourced to wider infrastructure in the cloud.
+The grid usually does the majority of the work, which could be performed locally on the machine or outsourced to a wider infrastructure in the cloud::
+
+* Maintaining a database
+* Running a web server with a portal
+* Provisioning APIs
+* Running background tasks to process information
 
 The grid maintains its own IRI node, which enables it to communicate with neighbours in the peer-to-peer network on which the Tangle operates. By running your own IRI node, the rest of the entities can live in a LAN network, with only the grid requiring WAN access to the rest of the Tangle for syncing. The alternative is for all entities to have WAN access directly to an IRI node on Tangle.
 
@@ -135,7 +142,7 @@ When a source registers with a producer, it can start monitoring the source's MA
 #### Deregister
 
 ```
-DELETE https://producer/registration/:registrationId
+DELETE https://producer/registration/:registrationId/:sideKey
 ```
 
 **Response**
@@ -147,7 +154,7 @@ DELETE https://producer/registration/:registrationId
 }
 ```
 
-When a source is deregistered, the producer should stop watching the source's MAM channel.
+The `sideKey` is passed to the delete as a measure of authentication. When a source is deregistered, the producer should stop watching the source's MAM channel.
 
 ### Producer MAM output channel
 
@@ -155,18 +162,18 @@ This MAM channel contains information on the aggregated output from the producer
 
 The grid will monitor and record the channels for all producers to use later in order to calculate the amount to pay to each producer. The payment address and requested  price can change per time period to give the Producer the ability to provide variable price power at different times.
 
-The `askingPrice` field is not guaranteed to be met by the grid, instead a consensus price amongst all the producers will be paid. The consensus price could just be a regular average of all the `askingPrice` fields or a weighted average based on how much the producer contributed to the grid.
+The `producerPrice` field is not guaranteed to be met by the grid, instead a consensus price amongst all the producers will be paid. The consensus price could be a regular average of all the `producerPrice` fields or a weighted average based on how much the producer contributed to the grid. The `paymentIdOrAddress` can be an IOTA address that the grid can make payments to, or a reference ID so that the grid has another way of making payments.
 
 **Payload**
 
 ```json
 {
-   "command": "output",                /* The MAM command */
-   "startTime": 1542267468229,         /* ms since 1900 */
-   "endTime": 1542267469229,           /* ms since 1900 */
-   "output": 1.234,                    /* kWh */
-   "askingPrice": 56789,               /* IOTA per kWh */
-   "paymentAddress": "PPPPPP...QQQQQQ" /* address to receive payment */
+   "command": "output",                    /* The MAM command */
+   "startTime": 1542267468229,             /* ms since 1900 */
+   "endTime": 1542267469229,               /* ms since 1900 */
+   "output": 1.234,                        /* kWh */
+   "producerPrice": 56789,                 /* IOTA per kWh */
+   "paymentIdOrAddress": "PPPPPP...QQQQQQ" /* address to receive payment */
 }
 ```
 
@@ -208,8 +215,8 @@ PUT https://grid/registration/:registrationId
 {
    "itemName": "My Solar Source",         /* free text */
    "itemType": "producer",                /* enum producer/consumer */
-   "root"?: "CCCCCC...DDDDDD",            /* MAM root hash for the channel 
-                                             the grid should monitor, 
+   "root"?: "CCCCCC...DDDDDD",            /* MAM root hash for the channel
+                                             the grid should monitor,
                                              optional as you may just want a  
                                              registration id */
    "sideKey"?: "CCC...DDDD"               /* side key for the channel,
@@ -223,11 +230,11 @@ PUT https://grid/registration/:registrationId
    "success": true,                       /* true or false */
    "message": "OK",                       /* Or error message if fail */
    "root"?: "JJJJJJ...KKKKKK",            /* Optional, channel the
-                                             registered item                
+                                             registered item
                                              should monitor from the grid.
-                                             for the consumer this contains 
+                                             for the consumer this contains
                                              the amount owed feed */
-   "sideKey"?: "CCC...DDDD"               /* Optional, private key for the 
+   "sideKey"?: "CCC...DDDD"               /* Optional, private key for the
                                              channel */
 }
 ```
@@ -235,7 +242,7 @@ PUT https://grid/registration/:registrationId
 #### Registration remove
 
 ```
-DELETE https://grid/registration/:registration-id
+DELETE https://grid/registration/:registration-id/:sideKey
 ```
 
 **Response**
@@ -246,6 +253,8 @@ DELETE https://grid/registration/:registration-id
    "message": "OK"      /* Or error message if fail */
 }
 ```
+
+The `sideKey` is passed to the delete as a measure of authentication.
 
 ### Grid storage API
 
@@ -350,40 +359,24 @@ The producer could get all its items on page 5 with a page size of 10 with a GET
 
 ### Grid MAM consumer channels
 
-When a consumer registers with the grid the grid will create a MAM channel that is updated with the consumers outstanding balance and also payment information. The grid will also track this information in its central DB but by providing a MAM channel a consumer can immediately see their outstanding balance. The outstanding balance is calculated from the information read from the consumers Usage Channel in conjunction with the pricing from the producer's output channels. The grid might also send command to the consumer through this channel.
+When a consumer registers with the grid the grid will create a MAM channel that is updated with the payment requests. The grid will also track this information in its central DB but by providing a MAM channel a consumer can immediately see what they owe. The outstanding balance is calculated from the information read from the consumers Usage Channel in conjunction with the pricing from the producer's output channels.
 
-#### Balance payload
-
-```json
-{
-   "command": "balance",               /* the command */
-   "owed": 345,                        /* amount in IOTA owed
-                                          excludes pending transactions */
-   "pending": 123,                     /* amount in IOTA
-                                          of only pending transactions */
-   "pendingTxs": ["TTTTT...UUUUUU"],   /* hashes of pending
-                                          transactions*/
-   "paymentAddress": "WWWWWW...XXXXXX" /* payment address for owed
-                                          balance payment to grid */
-}
-```
-
-The grid may need to change the consumer channel hash. To facilitate this, we can send a channel-change payload. On receipt of this payload, the source should stop using the current MAM channel and switch to the new one.
-
-#### Channel update payload
+#### Payment payload
 
 ```json
 {
-   "command": "channel-update",          /* the command */
-   "root": "WWWWWW...XXXXXX",            /* the new channel the Consumer 
-                                            should switch to */
-   "sideKey": "CCC...DDDD"               /* private key for the channel */
+   "command": "payment-request",           /* the command */
+   "owed": 345,                            /* amount in IOTA owed
+                                              excludes pending transactions */
+   "usage": 123,                           /* the amount of kWh the payment is for */
+   "paymentIdOrAddress": "WWWWWW...XXXXXX" /* payment address for owed
+                                              balance payment to grid */
 }
 ```
 
 ### Grid payment addresses
 
-The payment addresses are the ones published to the consumer's channels to receive payments. On receipt of payments the grid will update the consumer's channel, and again when payments confirm. After the grid has taken its cut of the IOTAs the rest will be added to a central pool which will be allocated to the producers based on time periods and asking prices.
+The payment addresses are the ones published to the consumer's channels to receive payments. The `paymentIdOrAddress` can be the an actual IOTA address or a reference that the consumer can use to make payments with a different method. After the grid has taken its cut of the IOTAs the rest will be added to a central pool which will be allocated to the producers based on time periods and asking prices.
 
 ### Consumer MAM usage channel
 
@@ -398,7 +391,3 @@ The consumer's MAM Usage Channel will be continuously updated with the consumer'
    "usage": 1.234                      /* kWh */
 }
 ```
-
-
-
-
