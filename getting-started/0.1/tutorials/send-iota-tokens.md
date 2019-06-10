@@ -76,7 +76,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     [Learn how a seed is used to prove ownership of an address](root://iota-basics/0.1/concepts/addresses-and-signatures.md).
     :::
 
-7. Create a new address from your seed to send the tokens to
+7. Derive a new address from your seed. You will send your tokens to this address.
 
     ```js
     const receivingAddress = iota.getNewAddress(seed, {
@@ -98,7 +98,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     {
       value: 500,
       address: receivingAddress[0],
-      tag: 'MYMAGIC'
+      tag: 'MYFIRSTVALUETRANSACTION'
     }
     ]
     ```
