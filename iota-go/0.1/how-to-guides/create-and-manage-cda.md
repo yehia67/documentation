@@ -1,8 +1,8 @@
 # Send and receive transactions
 
-**To send and receive transactions in an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawals and deposits.**
+**To send and receive transactions with an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawals and deposits.**
 
-Accounts use CDAs to reduce the [risks associated with spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from a someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA.
+Accounts use CDAs to reduce the [risks associated with spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA.
 
 :::info:
 CDAs can be used only in an account and not in the generic [client library methods](root://client-libraries/0.1/introduction/overview.md). As a result, both you and the sender must have an account to be able to use CDAs.
@@ -39,9 +39,21 @@ To avoid withdrawing from a spent address, we recommend creating CDAs with eithe
 
 [Create a new account](../how-to-guides/create-account.md).
 
+This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
+
 ## Create a new CDA
 
-1. Store the current time from your account's timesource object
+1. Import the required packages
+
+    ```go
+    "time"
+
+	"github.com/iotaledger/iota.go/account/deposit"
+	"github.com/iotaledger/iota.go/account/oracle"
+	oracle_time "github.com/iotaledger/iota.go/account/oracle/time"
+    ```
+
+2. Store the current time from your account's timesource object
 
     ```go
     // get current time
@@ -49,7 +61,7 @@ To avoid withdrawing from a spent address, we recommend creating CDAs with eithe
     handleErr(err)
     ```
 
-2. Define an expiration time for the CDA
+3. Define an expiration time for the CDA
 
     ```go
     // define the time after which the CDA expires
@@ -57,12 +69,12 @@ To avoid withdrawing from a spent address, we recommend creating CDAs with eithe
     now = now.Add(time.Duration(72) * time.Hour)
     ```
 
-3. Create a new multi-use CDA with an expiration time
+4. Create a new multi-use CDA with an expiration time
 
     ```go
     // allocate a new deposit address with timeout conditions.
-    conditions := &deposit.Request{TimeoutAt: &now, MultiUse: true}
-    cda, err := acc.AllocateDepositRequest(conditions)
+    conditions := &deposit.Conditions{TimeoutAt: &now, MultiUse: true}
+    cda, err := account.AllocateDepositAddress(conditions)
     handleErr(err)
     ```
 
@@ -127,7 +139,7 @@ Because CDAs are descriptive objects, you can serialize them into any format and
 2. To parse the magnet link into a CDA, use the `ParseMagnetLink()` method of the `deposit` object
 
     ```go
-    cda, err := deposit.ParseMagnetLink(cdaMagnetLink)
+    cda, err := deposit.ParseMagnetLink(cda.AsMagnetLink())
     handleErr(err)
     ```
 

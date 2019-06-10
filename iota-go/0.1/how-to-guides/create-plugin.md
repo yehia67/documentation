@@ -6,13 +6,33 @@
 
 [Create a new account](../how-to-guides/create-account.md).
 
+This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
+
 ## Create a plugin that prints events to the screen
 
 To explain how to create a plugin, this guide helps you to create one that prints events to the screen as they happen.
 
+:::info:
+See the list of all possible [channel events](https://github.com/iotaledger/iota.go/blob/master/account/event/listener/channel_listener.go).
+:::
+
 1. Create a new file called `event_logger.go`
 
-2. Create a function that takes an `EventMachine` object as an argument and returns an `account.Plugin` object
+2. Import the required packages
+
+    ```go
+    package main
+
+    import (
+        "fmt"
+
+        "github.com/iotaledger/iota.go/account"
+        "github.com/iotaledger/iota.go/account/event"
+        "github.com/iotaledger/iota.go/account/event/listener"
+    )
+    ```
+
+3. Create a function that takes an `EventMachine` object as an argument and returns an `account.Plugin` object
 
     ```go
     // NewEventLoggerPlugin ...
@@ -27,7 +47,7 @@ To explain how to create a plugin, this guide helps you to create one that print
     }
     ```
 
-3. Create a `Name()` function that returns the name of the plugin
+4. Create a `Name()` function that returns the name of the plugin
 
     ```go
     func (l *logplugin) Name() string {
@@ -36,10 +56,10 @@ To explain how to create a plugin, this guide helps you to create one that print
     ```
 
     :::info:
-    The `account` object uses this name in error messages to help you debug your account.
+    The `account` object uses this name in error messages to help you debug.
     :::
 
-4. Create a `Start()` function that will be called when the account starts. When an account is started, all plugins take the `account` object as an argument.
+5. Create a `Start()` function that will be called when the account starts. When an account is started, all plugins take the `account` object as an argument.
 
     ```go
     func (l *logplugin) Start(acc account.Account) error {
@@ -49,7 +69,7 @@ To explain how to create a plugin, this guide helps you to create one that print
     }
     ```
 
-5. Create a `Shutdown()` function that shuts down the plugin at the same time as the account
+6. Create a `Shutdown()` function that shuts down the plugin at the same time as the account
 
     ```go
     func (l *logplugin) Shutdown() error {
@@ -58,7 +78,7 @@ To explain how to create a plugin, this guide helps you to create one that print
     }
     ```
 
-6. Create the `log()` function that will print all events to the screen when they happen
+7. Create the `log()` function that will print all events to the screen when they happen
 
     ```go
     func (l *logplugin) log() {
@@ -106,9 +126,11 @@ To explain how to create a plugin, this guide helps you to create one that print
     }
     ```
 
-7. Save the file
+8. Save the file
 
-8. In your `myAccount.go` file, build your account with your `NewEventLoggerPlugin()` function.  Use [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) of 9 for the Devnet.
+9. Create a new file called `myAccount.go`
+
+10. Build your account with the `NewEventLoggerPlugin()` function
 
     ```go
     account, err = builder.NewBuilder().
@@ -134,5 +156,5 @@ To explain how to create a plugin, this guide helps you to create one that print
 :::success:Congratulations! :tada:
 You've just created your first plugin.
 
-Now, when your account starts, you don't have to do anything to listen to events. Your plugin will print all events to the screen as they happen.
+Now, when your account starts, you don't have to do anything to listen to events. Your plugin will print all events to the console as they happen.
 :::

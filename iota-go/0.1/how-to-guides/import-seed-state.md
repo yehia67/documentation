@@ -6,6 +6,14 @@ You may want to import an existing seed state into an account on another device.
 Never update the same seed state on multiple devices. If more than one device changes the seed state, the state is no longer consistent and may lead to withdrawals from spent addresses.
 :::
 
+## Prerequisites
+
+This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
+
+## Export then import your seed state
+
+To use your seed state on another device, you need to export, store, then import it.
+
 1. Export your seed state by passing your account's ID to the `store.ExportAccount()` method
 
     ```go
@@ -17,7 +25,7 @@ Never update the same seed state on multiple devices. If more than one device ch
     fmt.Println(acc)
     ```
 
-2. Serialize your seed state into a data structure such as JSON
+3. Serialize your seed state into a data structure such as JSON
 
     ```go
     jsonacc, err := json.Marshal(acc)
@@ -28,7 +36,7 @@ Never update the same seed state on multiple devices. If more than one device ch
     Here, we store the exported seed state in a variable. But, we recommend that you save the seed state in a file so that you can later read from it.
     :::
 
-3. Deserialize your JSON seed state into an `ExportedAccountState` type
+4. Deserialize your JSON seed state into an `ExportedAccountState` type
 
     ```go
     a := Store.ExportedAccountState{}
@@ -36,7 +44,7 @@ Never update the same seed state on multiple devices. If more than one device ch
 	handleErr(err)
     ```
 
-4. Import your seed state into your account's database by passing the `ExportedAccountState` struct to the `store.ImportAccount()` method
+5. Import your seed state into your account's database by passing the `ExportedAccountState` struct to the `store.ImportAccount()` method
 
     ```go
     store.ImportAccount(a)
