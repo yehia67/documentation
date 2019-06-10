@@ -266,7 +266,7 @@ To learn what these fields mean, [see the API reference](root://iri/0.1/referenc
 
 We have many channels, including the following:
 
-* `-dev`: These channles are read-only and are where developers discuss topics with each other and where you can see any code updates from GitHub.
+* `-dev`: These channels are read-only and are where developers discuss topics with each other and where you can see any code updates from GitHub.
 
 * `-discussion`: These channels are where you can participate.
 
