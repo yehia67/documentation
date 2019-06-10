@@ -2,23 +2,25 @@
 
 **When an account is started with an `EventMachine` object, that object emits events when they happen. An example of an event is when you send a bundle to a node. You can listen for these events and act on them by creating an instance of a listener.**
 
-We have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use a callback listener. 
+We have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use a callback listener. If you're interesting in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md).
 
 :::info:
-If you're interesting in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md).
+See the list of all possible [callback events](https://github.com/iotaledger/iota.go/blob/master/account/event/listener/callback_listener.go).
 :::
 
 ## Prerequisites
 
 This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
 
----
+## Listen to an event
+
+To listen to an event, you need to build your account with an `EventMachine` object, choose which event you want to listen to, then trigger the event.
 
 1. Build and start an account that has an `EventMachine` object
 
     ```go
-    var node = "https://nodes.devnet.iota.org:443"
-    var seed = "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX"
+    node := "https://nodes.devnet.iota.org:443"
+    seed := "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX"
 
     // API object that connects to a node
     apiSettings := api.HTTPClientSettings{URI: node}
@@ -50,6 +52,8 @@ This guide assumes that you've followed our [Getting started guide](../README.md
         WithDefaultPlugins().
         Build()
     handleErr(err)
+
+    handleErr(account.Start())
     ```
 
 2. Create a new `CallbackEventListener` object that listens for the `RegAttachingToTangle` event

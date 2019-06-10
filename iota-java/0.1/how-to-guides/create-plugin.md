@@ -61,7 +61,7 @@ public class TestPlugin extends AccountPlugin {
 
 ### Implement the Plugin interface
 
-If you can't extend a class, or you do not want to, you can implement the `Plugin` interface. This way requires `getter` and `setter` methods for the account object with which the plugin will work.
+If you can't extend a class, or you don't want to, you can implement the `Plugin` interface. This requires `getter` and `setter` methods for the account object with which the plugin will work.
 
 ```java
 public class TestPlugin implements Plugin {
@@ -117,7 +117,7 @@ public class TestPlugin implements Plugin {
 
 ## Add the plugin class to your account object
 
-After you've created a plugin class, you can add it to the builder of the account object to start it
+After you've created a plugin class, you can build your account with it
 
 ```java
 Plugin myPlugin = new TestPlugin();
