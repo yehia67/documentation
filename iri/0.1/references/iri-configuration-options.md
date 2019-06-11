@@ -43,7 +43,7 @@ You can choose to configure the IRI by specifying the configuration options in t
 |<a name="remote-limit-api"></a>`--remote-limit-api` |API calls that the IRI must ignore |array of strings |[addNeighbors, getNeighbors, removeNeighbors, attachToTangle, interruptAttachToTangle] | This option allows you to protect your IRI node against spammers that know the IRI node's URL or IP address.
 |<a name="rescan"></a> `--rescan`|Rescan all transaction metadata (approvees, bundles, and tags) |boolean |false |
 |<a name="revalidate"></a>`--revalidate` |Reload data in the database about confirmed transactions, and transaction metadata | boolean| false|
-|<a name="send-limit"></a> `--send-limit` |Maximum number of packets that may be sent by the IRI in a one-second interval |number | -1|If this number is below 0, no limit is set
+|<a name="send-limit"></a> `--send-limit` |Data limit in Mbits per second that the node can send |number | -1|If this number is below 0, no limit is set
 |<a name="tcp-receiver-port"></a>`-t`, `--tcp-receiver-port` |Port from which the IRI receives TCP data packets from neighbor IRI nodes |string | 15600|
 |<a name="udp-receiver-port"></a>`-u`, `--udp-receiver-port` |Port from which the IRI receives UDP data packets from neighbor IRI nodes |string |14600 |
 |<a name="zmq-enabled"></a>  `--zmq-enabled` | Enable [zero message queue](../concepts/zero-message-queue.md) subscriptions| boolean|false |

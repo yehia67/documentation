@@ -1,41 +1,35 @@
 # Send a bundle of zero-value transactions
 
-**Transactions must be grouped in a bundle before being sent to an IRI node. The IOTA client libraries have built-in functions that create bundles from transfer objects.**
+**Transactions must be packaged in a bundle before being sent to a node. The IOTA client libraries have built-in functions that create bundles from transfer objects.**
 
-If you're unfamilar with the terms bundle or transaction, we recommend that you [read about bundles and transactions](../concepts/bundles-and-transactions.md).
+:::info:First time using a client library?
+[Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries.
+:::
 
-Any code that uses a seed is executed on the client side. Your seed is never sent anywhere.
+:::info:
+If you're unfamiliar with the terms bundle or transaction, we recommend that you [read about bundles and transactions](../concepts/bundles-and-transactions.md).
+:::
 
 ## Prerequisites
 
 To complete this guide, you need the following:
 
-* [Node JS (8+)](https://nodejs.org/en/)
+* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
 * An Internet connection
 
----
+## Send a bundle of zero-value transactions
 
-1. Create a new directory called `iota-basics`
+In this example, we create and send a bundle to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
-2. In the command prompt, change into the `iota-basics` directory, and install the [IOTA Core library](https://github.com/iotaledger/iota.js/tree/next/packages/core) and the [IOTA converter library](https://github.com/iotaledger/iota.js/tree/next/packages/converter)
-
-    ```bash
-    cd iota-basics
-    npm install --save @iota/core
-    ```
-
-3. In the `iota-basics` directory, create a new file called send-bundle.js
-
-4. In the send-bundle.js file, require the IOTA libraries
+1. Require the IOTA libraries
 
     ```js
     const Iota = require('@iota/core');
     const Converter = require('@iota/converter');
     ```
 
-5. Create an instance of the IOTA object and use the `provider` field to connect to an IRI node
+2. Create an instance of the IOTA object and use the `provider` field to connect to an IRI node
 
     ```js
     const iota = Iota.composeAPI({
@@ -43,7 +37,7 @@ To complete this guide, you need the following:
     });
     ```
 
-6. Create the variables to store a seed and two addresses to which you want to send transactions
+3. Create the variables to store a seed and two addresses to which you want to send transactions
 
     ```js
     const seed =
@@ -54,7 +48,11 @@ To complete this guide, you need the following:
     var recipientAddress2 = "CYJV9DRIE9NCQJYLOYOJOGKQGOOELTWXVWUYGQSWCNODHJAHACADUAAHQ9ODUICCESOIVZABA9LTMM9RW";
     ```
 
-7. Create one `transfer` object for each transaction that you want to send. The `address` field contains the address to which the transaction will be sent.
+    :::info:
+    Any code that uses a seed is executed on the client side. Your seed never leaves your device.
+    :::
+
+4. Create one `transfer` object for each transaction that you want to send. The `address` field contains the address to which the transaction will be sent.
 
     ```js
     var transfer1 = {
@@ -72,25 +70,22 @@ To complete this guide, you need the following:
     };
     ```
 
-    **Note:** The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
+    :::info:
+    The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
+    :::
 
-8. Use the `prepareTransfers()` method to create a bundle, then pass the returned trytes to the `sendTrytes()` method. This method asks the connected IRI node to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), then broadcasts the bundle to the IRI node.
+5. Create a bundle and pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the node.
 
     ```js
     iota.prepareTransfers(seed, [transfer1, transfer2])
     .then(function(trytes){
-        return iota.sendTrytes(trytes, 3, 14 );
+        return iota.sendTrytes(trytes, 3, 9);
     })
 
     .then(results => console.log(JSON.stringify(results, ['hash', 'currentIndex', 'lastIndex', 'bundle', 'trunkTransaction', 'branchTransaction'], 1)));
     ```
 
-    **Note:** To be able to reattach a transaction, you should save the trytes that are returned from the `prepareTransfers()` method.
-
-    In this example, the resulting array is converted to JSON and filtered so that only the transaction hash, bundle information, and parent transactions are displayed in the output.
-
-    **Note:** Trunk and branch transactions are called parent transactions.
-[All transactions in a bundle are connected through the value of their `trunkTransaction` fields](../references/structure-of-a-bundle.md). You should see that the `trunkTransaction` hash of transaction 0 is the same as the transaction hash (`hash`) of transaction 1.
+    In the console, you'll see information about the bundle that you sent. The `currentIndex` field is the position of the transaction in the bundle. The `lastIndex` field is the last transaction in the bundle, which indicates the total number of transactions in it.
 
     ```json
     [
@@ -113,58 +108,24 @@ To complete this guide, you need the following:
     ]
     ```
 
-9. To see details about your first transaction, copy the hash of the first transaction and paste it into [thetangle.org](https://thetangle.org/). These details have been sourced from IRI nodes that the website is connected to.
+    :::info:Trunk and branch transactions are called parent transactions.
+    
+    [All transactions in a bundle are connected through the value of their `trunkTransaction` fields](../references/structure-of-a-bundle.md). You should see that the `trunkTransaction` hash of transaction 0 is the same as the transaction hash (`hash`) of transaction 1.
+    :::
 
-    ![Transaction in a Tangle explorer](../tangle-explorer.PNG)
+6. To see details about your first transaction, copy the hash of the first transaction and paste it into [devnet.thetangle.org](https://devnet.thetangle.org/). These details have been sourced from the nodes that the website is connected to.
 
-10. To see details about your second transaction, scroll down to 'Parent transactions' and click the Trunk hash
+    ![Transaction in a Tangle explorer](../images/tangle-explorer.PNG)
 
-    ![Trunk transaction in a Tangle explorer](../tangle-explorer-trunk.PNG)
+7. To see details about your second transaction, scroll down to 'Parent transactions' and click the Trunk hash
 
-## Final code
+    ![Trunk transaction in a Tangle explorer](../images/tangle-explorer-trunk.PNG)
 
-```js
-// Require the IOTA libraries
-const Iota = require('@iota/core');
-const Converter = require('@iota/converter');
+## Run the code
 
-// Create a new instance of the IOTA object
-// Use the `provider` field to specify which IRI node to connect to
-const iota = Iota.composeAPI({
-provider: 'https://nodes.thetangle.org:443'
-});
+Click the green button to run the sample code in this guide and see the results in the web browser.
 
-const seed =
-'PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
-
-var recipientAddress1 = "CXDUYK9XGHC9DTSPDMKGGGXAIARSRVAFGHJOCDDHWADLVBBOEHLICHTMGKVDOGRU9TBESJNHAXYPVJ9R9";
-
-var recipientAddress2 = "CYJV9DRIE9NCQJYLOYOJOGKQGOOELTWXVWUYGQSWCNODHJAHACADUAAHQ9ODUICCESOIVZABA9LTMM9RW";
-
-// Prepare transactions
-var transfer1 = {
-'address': recipientAddress1,
-'value': 0,
-'message': Converter.asciiToTrytes('Hello, this is my first message'),
-'tag': 'SENDABUNDLEOFTRANSACTIONS'
-};
-
-var transfer2 = {
-'address': recipientAddress2,
-'value': 0,
-'message': Converter.asciiToTrytes('Hello, this is my second message'),
-'tag': 'SENDABUNDLEOFTRANSACTIONS'
-};
-
-// Create bundle and return the trytes of the prepared transactions
-iota.prepareTransfers(seed, [transfer1, transfer2])
-.then(function(trytes){
-    // Finalize and broadcast the bundle to the IRI node
-    return iota.sendTrytes(trytes, 3 /*depth*/, 14 /*minimum weight magnitude*/);
-})
-
-.then(results => console.log(JSON.stringify(results, ['hash', 'currentIndex', 'lastIndex', 'bundle', 'trunkTransaction', 'branchTransaction'], 1)));
-```
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/Send-bundle?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 
 

@@ -11,6 +11,10 @@
 
 * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md).
 
+    * **UDP neighbor peering port:** 14600
+    * **TCP neighbor peering port:** 14600
+    * **TCP API port:** 14265
+
 ---
 
 The IRI Docker container is suitable for the following operating systems:
@@ -116,9 +120,12 @@ You can configure the IRI by passing in [IRI configuration options](../reference
 
     If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a config.ini file in the `/path/to/conf/config.ini` on your Docker host, then add `-c /path/to/conf/config.ini` to the DOCKER RUN command.
 
-    **Notes:**
-    * If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`
-    * To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the DOCKER RUN command
+    :::info:
+    If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`.
+    :::
+    :::info:
+    To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the DOCKER RUN command.
+    :::
 
 2. Call the [getNodeInfo](../references/api-reference.md#getnodeinfo) endpoint to request general information about the IRI node
 
@@ -130,27 +137,27 @@ You can configure the IRI by passing in [IRI configuration options](../reference
 
     ```json
     {
-    "appName":"IRI",
-    "appVersion":"1.6.0-RELEASE",
-    "jreAvailableProcessors":1,
-    "jreFreeMemory":1037385664,
-    "jreVersion":"1.8.0_201",
-    "jreMaxMemory":4294967296,
-    "jreTotalMemory":2147483648,
-    "latestMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999",
-    "latestMilestoneIndex":933210,
-    "latestSolidSubtangleMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999",
-    "latestSolidSubtangleMilestoneIndex":933210,
-    "milestoneStartIndex":-1,
-    "lastSnapshottedMilestoneIndex":933210,
+    "appName": "IRI",
+    "appVersion": "1.7.0-RELEASE",
+    "jreAvailableProcessors": 8,
+    "jreFreeMemory": 2115085674,
+    "jreVersion": "1.8.0_191",
+    "jreMaxMemory": 20997734400,
+    "jreTotalMemory": 4860129502,
+    "latestMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
+    "latestMilestoneIndex": 1050373,
+    "latestSolidSubtangleMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
+    "latestSolidSubtangleMilestoneIndex": 1050373,
+    "milestoneStartIndex": -1,
+    "lastSnapshottedMilestoneIndex": 1039138,
     "neighbors":0,
     "packetsQueueSize":0,
     "time":1548407444641,
     "tips":0,
     "transactionsToRequest":0,
     "features":["snapshotPruning","dnsRefresher","tipSolidification"],
-    "coordinatorAddress":"KPWCHICGJZXKE9GSUDXZYUAPLHAKAHYHDXNPHENTERYMMBQOPSQIDENXKLKCEYCPVTZQLEEJVYJZV9BWU",
-    "duration":26
+    "coordinatorAddress": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
+    "duration": 0
     }
     ```
     
@@ -172,7 +179,7 @@ The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are a
 
 1. To check the actual `latestMilestoneIndex` field, go to our [Discord](https://discordapp.com/invite/fNGZXvh) and enter **!milestone** in one of the channels
 
-    ![Entering !milestone on Discord](../discord-milestone-check.PNG)
+    ![Entering !milestone on Discord](../images/discord-milestone-check.PNG)
 
 2. To check these fields for your IRI node, call the `getNodeInfo` API endpoint
 
@@ -180,7 +187,9 @@ The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are a
     curl -s http://localhost:14265 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}'
     ```
 
-**Note:** It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
+:::info:
+It may take some time for the IRI to synchronize. For help with any issues, read our [troubleshooting guide](../references/troubleshooting.md).
+:::
 
 ## Next steps
 

@@ -23,7 +23,7 @@
         "private key": "Private string of characters that are used to sign transactions that withdraw IOTA tokens from a client's address.",
         "security level": "Integer (1, 2, or 3) that affects the length of a private key. The higher the security level, the longer the private key, and the stronger the security of the corresponding address.",
         "seed": "Secret password that's used to create addresses and private keys.",
-        "signature": "Cryptograhic proof of ownership of an address. IOTA tokens can't be withdrawn from an address without a transaction that contains a valid signature."
+        "signature": "Cryptographic proof of ownership of an address. IOTA tokens can't be withdrawn from an address without a transaction that contains a valid signature."
 
     }
 
@@ -69,7 +69,7 @@
         "bundle": "Group of transactions that are sent together to an IRI node. Bundles are atomic. Either all transactions inside the bundle are accepted or none of them are.",
         "confirmed": "State of a transaction when it's been approved by a milestone. Value transactions must be confirmed before IOTA tokens are transferred.",
         "cumulative weight": "Rating that an IRI node gives to a transaction during tip selection",
-        "depth": "Entrypoint milestone that's used to start a weighted random walk through a subgraph. The higher the value, the farther back in the subgraph the weighted random walk starts. A typical depth that wallets use is 3, which causes the weighted random walk to start 3 milestones in the past.",
+        "depth": "Entry point milestone that's used to start a weighted random walk through a subgraph. The higher the value, the farther back in the subgraph the weighted random walk starts. A typical depth that wallets use is 3, which causes the weighted random walk to start 3 milestones in the past.",
         "future set": "Group of transactions that approves the same transaction",
         "inconsistent": "State of a transaction when it leads to a negative balance of IOTA tokens",
         "inclusion": "State of a transaction that's been referenced by given tip transactions or a milestone transaction",

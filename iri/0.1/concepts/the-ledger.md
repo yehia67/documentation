@@ -8,11 +8,11 @@ The ledger is the primary data source for an IRI node. The data in the ledger is
 
 ## Ledger synchronization
 
-When an IRI node starts running, it synchronizes its ledger by solidifying every transaction that approves each milestone, starting from an **entrypoint milestone** and ending at the latest milestone.
+When an IRI node starts running, it synchronizes its ledger by solidifying every transaction that approves each milestone, starting from an **entry point milestone** and ending at the latest milestone.
 
-The older the entrypoint milestone, the longer synchronization takes.
+The older the entry point milestone, the longer synchronization takes.
 
-<dl><dt>solidify</dt><dd>Request transactions from neighbor IRI nodes until all transactions and their referenced transactions are stored in the ledger.</dd></dl>
+<dl><dt>solidify</dt><dd>Request transactions from neighbor IRI nodes until all transactions and their history are stored in the ledger.</dd></dl>
 
 An IRI node is considered synchronized when its `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field.
 
@@ -20,4 +20,6 @@ The `latestMilestoneIndex` field is the index of the latest milestone that the I
 
 The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milestone for which the IRI node has all the transactions that the milestone directly and indirectly references.
 
-**Tip:** The `getNodeInfo` API endpoint returns this information. Try [interacting with an IRI node](../how-to-guides/interact-with-an-iri-node.md) to see this information.
+:::info:
+The `getNodeInfo` API endpoint returns this information. Try [interacting with an IRI node](../how-to-guides/interact-with-an-iri-node.md) to see this information.
+:::

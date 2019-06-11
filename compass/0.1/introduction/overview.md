@@ -1,16 +1,24 @@
 # Compass overview
 
-**Compass is an open-source [Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md) that can be used to protect an IOTA network against attacks. Any transaction that's referenced by a Compass milestone is considered confirmed by any IRI nodes in the network.**
+**Compass is an open-source implementation of the Coordinator. You can use Compass to run your own IOTA network for testing and development purposes.**
 
-Compass sends honest, zero-value milestones to IRI nodes at regular intervals. Milestones can't modify balances or censor transactions because all transactions, including milestones, are [validated by each IRI node](root://iri/0.1/concepts/transaction-validation.md) in the network.
+IOTA is a distributed network of nodes that validate transactions and store them. Before nodes can update the balance of an address, they must reach a consensus on any transactions that lead to the updated balance. When nodes reach a consensus, on transactions, those transactions are confirmed.
 
-You can use Compass to [create your own IOTA network](../how-to-guides/create-an-iota-network.md) for the following use cases:
+On the IOTA Mainnet, the [Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md) creates, signs, and sends bundles that contain milestones. The nodes on this network use these milestone to reach a consensus. Any transaction that's referenced and approved by a milestone is confirmed.
 
-- **Security testing and research:** Use Compass to create a controlled environment to test assumptions and produce attacks.
-- **Development of proof of concepts:** Use Compass to develop proof-of-concept applications without sharing your ideas on a [permissionless network](root://getting-started/0.1/references/iota-networks.md).
+Compass is an open-source implementation of the Coordinator. You can use Compass to allow the nodes in your own IOTA network to reach a consensus on Compass' milestones instead of the Coordinator's ones.
 
-**Note:** By releasing Compass, the IOTA Foundation aims to further its research into finding a viable replacement for the Coordinator.
+To allow your nodes to reach a consensus, you must configure your nodes to recognize Compass milestones. Then, you can configure Compass to send milestones to one of your nodes at regular intervals.
+
+:::info:
+[Create your own IOTA network](../how-to-guides/create-an-iota-network.md).
+:::
 
 ## Repository
 
-Jump directly to the Compass source code on [Github](https://github.com/iotaledger/compass)
+Go to the Compass source code on [Github](https://github.com/iotaledger/compass)
+
+## Further reading 
+
+- [IOTA papers discussing the Tangle and other protocol features](https://www.iota.org/research/academic-papers)
+- [A series of posts discussing the removal of the Coordinator](https://blog.iota.org/coordinator-part-1-the-path-to-coordicide-ee4148a8db08)

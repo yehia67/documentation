@@ -1,6 +1,6 @@
-# Subscribe to events in the IRI
+# Subscribe to events on a node
 
-**If an IRI node has the ZMQ port enabled, you can subscribe to its events such as transaction confirmations. These events give you real-time data from an IOTA network.**
+**If a node has the ZMQ port enabled, you can subscribe to its events such as transaction confirmations. These events give you real-time data from an IOTA network.**
 
 You may want to subscribe to events in the [zero message queue (ZMQ)](../concepts/zero-message-queue.md) to do the following:
 
@@ -13,72 +13,150 @@ You can subscribe to events in the ZMQ by doing the following:
 
 2. Create a ZMQ socket and connect it to an IRI node that has the [`ZMQ-enabled` configuration parameter](../references/iri-configuration-options.md#zmq-enabled) set to `true`
 
-3. Subscribe to events on the ZMQ
+3. Subscribe to events from the ZMQ
 
-In the following how-to guide we use NodeJS, but you could use any [programming language that is supported by the ZMQ library](http://zguide.zeromq.org/page:all).
+In the following how-to guide we use Node.js and Python, but you could use any [programming language that is supported by the ZMQ library](http://zguide.zeromq.org/page:all).
 
-## Listen for recently confirmed transactions
+## Prerequisites
 
-You can subscribe to the `sn` event on the ZMQ of the IRI to listen for recently confirmed transactions. The data that is returned from the `sn` event is the following:
-* The index of the first milestone that referenced the transaction
-* The transaction hash
+To use the code samples in this guide, you must have the following:
 
-### Prerequisites
-
-To use the sample code in this guide, your computer must have the following:
-
-* [Node JS (8+)](https://nodejs.org/en/)
+* [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
 
-1. Create a working directory called zmq-example
+## Listen for recently confirmed transactions
 
-    ```bash
-    mkdir zmq-example
-    cd zmq-example
-    ```
+You can subscribe to the `sn` event on the ZMQ of a node to listen for recently confirmed transactions. The following data is returned from the `sn` event:
 
-2. In the zmq-example directory, install the zeromq library
+* The index of the first milestone that referenced the transaction
+* The transaction hash
 
-    ```bash
-    npm install zeromq --save
-    ```
+1\. Install the zeromq library
 
-3. Create a file called index.js in the zmq-example directory
+--------------------
+### Node.js
 
-4. In the index.js file, copy and paste the following:
+```bash
+npm install zeromq --save
+```
+---
+### Python
 
-    ```javascript
-    let zmq = require('zeromq');
-    //Create a zmq socket
-    let sock = zmq.socket('sub');
+```bash
+pip install pyzmq
+```
+--------------------
 
-    //Connect the ZMQ socket to the IRI by passing the `connect` function the URL or the IP address of the IRI and the ZMQ port
-    sock.connect('tcp://zmq.devnet.iota.org:5556');
-    //Subscribe to the confirmed transactions event
-    sock.subscribe('sn');
+2\. Import the libraries and create a ZMQ subscribe socket
 
-    //Create a callback function to process the data that is returned from the ZMQ
-    sock.on('message', msg => {
+--------------------
+### Node.js
+
+```js
+const zmq = require('zeromq');
+const sock = zmq.socket('sub');
+```
+---
+### Python
+
+```python
+import zmq
+
+context = zmq.Context()
+socket = context.socket(zmq.SUB)
+```
+--------------------
+
+3\. Connect the socket to the node's address
+
+--------------------
+### Node.js
+
+```js
+sock.connect('tcp://zmq.devnet.iota.org:5556');
+```
+---
+### Python
+
+```python
+socket.connect('tcp://zmq.devnet.iota.org:5556')
+```
+--------------------
+
+4\. Subscribe to the `sn` event. This event is for confirmed transactions.
+
+--------------------
+### Node.js
+
+```js
+sock.subscribe('sn');
+console.log("Socket connected");
+```
+---
+### Python
+```python
+socket.subscribe('sn')
+print ("Socket connected")
+```
+--------------------
+
+5\. Process the event data that the node returns
+
+--------------------
+### Node.js
+
+```js
+sock.on('message', msg => {
     //Split the data into an array
     const data = msg.toString().split(' ');
     console.log(`Transaction confirmed by milestone index: ${data[1]}` );
     console.log(`Transaction hash: ${data[2]}` );
-    });
-    ```
+});
+```
+---
+### Python
+```python
+while True:
+    print ("Waiting for events from the node")
+    message = socket.recv()
+    data = message.split()
+    print ("Transaction confirmed by milestone index: ", data[1])
+    print ("Transaction hash: ", data[2])
+```
+--------------------
 
-    The output should display something like the following:
-    ```shell
-    Transaction confirmed by milestone index: 964091
-    Transaction hash: QUU9NXGQBKF9XVIVOGAPEMELTEKANNJPUFCEEFWHQKRASFGDUQNSFMRXULPDSLXUZU9NVQQEBAQLVG999
-    Transaction confirmed by milestone index: 964091
-    Transaction hash: DXFNIOMKEOETZXSMGEDUIY9JFWCFQTGSVJHIUWMQWKCUMCTYZRWAMVURZYJPYGUBZPUELKVZSALNNU999
-    Transaction confirmed by milestone index: 964091
-    Transaction hash: OHRNZFLVXJVHBT9HNOQWIOQHICJ9NVTLKAPYLBUVVGIRTYGUSZKWINSUTSJJGPBBFLNCGUFTVYFNNF999
-    Transaction confirmed by milestone index: 964091
-    Transaction hash: QNCPDSSMPISSVXBENGGNNBTRBSLCBXTVBLTZLH9DFNXUWWPQNAIFJPAQENDUYL9XTWOMNURAGRFNWN999
-    ```
+The output should display something like the following:
+```shell
+Transaction confirmed by milestone index: 964091
+Transaction hash: QUU9NXGQBKF9XVIVOGAPEMELTEKANNJPUFCEEFWHQKRASFGDUQNSFMRXULPDSLXUZU9NVQQEBAQLVG999
+Transaction confirmed by milestone index: 964091
+Transaction hash: DXFNIOMKEOETZXSMGEDUIY9JFWCFQTGSVJHIUWMQWKCUMCTYZRWAMVURZYJPYGUBZPUELKVZSALNNU999
+Transaction confirmed by milestone index: 964091
+Transaction hash: OHRNZFLVXJVHBT9HNOQWIOQHICJ9NVTLKAPYLBUVVGIRTYGUSZKWINSUTSJJGPBBFLNCGUFTVYFNNF999
+Transaction confirmed by milestone index: 964091
+Transaction hash: QNCPDSSMPISSVXBENGGNNBTRBSLCBXTVBLTZLH9DFNXUWWPQNAIFJPAQENDUYL9XTWOMNURAGRFNWN999
+```
+
+## Run the code
+
+Click the green button to run the sample code in this guide and see the results in the web browser.
+
+:::info:
+It may take a minute or so for the ZMQ to receive data from the node.
+
+You can ignore any green text.
+:::
+
+### Node.js
+
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/ZMQ-example-Nodejs?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+### Python
+
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/ZMQ-example-Python?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
 ## Next steps
 
 Use your knowledge of the ZMQ to build an application that monitors the IRI for other [events](../references/zmq-events.md). 

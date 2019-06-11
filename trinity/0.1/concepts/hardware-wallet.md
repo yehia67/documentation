@@ -10,7 +10,7 @@ Hardware wallets are an extra layer of security. If you [create a Trinity accoun
 
 ## Seed creation and seed storage
 
-Seeds are created using a sequence of randomly generated words. After a seed has been created it never leaves the device, even when you connect it to your computer.
+Seeds are created using a sequence of randomly generated words. After a seed has been created, it will never leave the device, even when you connect it to your computer.
 
 When you set up a hardware wallet, it will give you instructions to both write down and never lose your randomly generated words. These words are the key to your device.
 
@@ -20,14 +20,11 @@ If you ever lose a hardware wallet, you can still access your funds by entering 
 
 When you send a value transaction, it must contain a valid signature that was created using the correct private key.
 
-Bundles are signed on the device. Private keys never leave a hardware wallet, so it's impossible for an attacker to steal your funds without it.
+Bundles are signed on the device. Private keys never leave a hardware wallet, so it's impossible for an attacker to steal your IOTA tokens without it.
 
 ## Supported hardware wallets
 
-Although many hardware wallets exist, Trinity supports only the [Ledger Nano S](https://www.ledger.com/products/ledger-nano-s).
-
-**Note:** Trinity will support more hardware wallets, including [Trezor](https://trezor.io/) and [Ledger Blue](https://www.ledger.com/products/ledger-blue)
-.
+At the moment, Trinity supports only the [Ledger Nano S](https://www.ledger.com/products/ledger-nano-s) and the [Ledger Blue](https://www.ledger.com/products/ledger-blue).
 
 ## Limitations
 
@@ -37,9 +34,9 @@ To check the balances of your addresses, go to **Account management** > **View a
 
 ### Example scenario
 
-Address 0: 200 Mi
-Address 1: 400 Mi
-Address 3: 50 Mi
+* **Address 0:** 200 Mi
+* **Address 1:** 400 Mi
+* **Address 3:** 50 Mi
 
 You try to send 650 Mi from Trinity, using a Ledger Nano S. This transaction would require a bundle that withdraws from three addresses, so it won't be valid and won't send.
 

@@ -1,55 +1,69 @@
 # Run a cIRI node on Linux
 
-#### Warning: cIRI is still under development. You should not use cIRI in a production environment.
+**When you run the cIRI on a Linux server, it becomes a cIRI node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
 
-## Requirements:
+:::warning:Warning
+cIRI is still under development. You shouldn't use cIRI in a production environment.
+:::
 
-- Ubuntu (or another Linux based OS. MacOS or an BSD based OS should also work)
+## Prerequisites
 
-*_Note:_* This guide uses Ubuntu. If you are a beginner, you should stick to Ubuntu.
-
-- At least 512 MB memory. Recommendation: 1 MB - 2 GB
-
+- Ubuntu (or another Linux based OS. MacOS or an BSD based OS should also work). This guide uses Ubuntu. If you are a beginner, you should stick to Ubuntu.
+- At least 512 MB of RAM
 - At least 50 GB of free storage
+- [A public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md)
 
-## Install Bazel
+1. [Install Bazel](https://docs.bazel.build/versions/master/install.html)
 
-Follow the [installation guide](https://docs.bazel.build/versions/master/install.html) for your OS in the Bazel documentation.
+2. Install Git
 
-## Clone the repository
+     ```bash
+    sudo apt-get install -y git
+    ```
+    :::info:
+    To make sure that Git is installed, do the following: `git --version`. You should see a version number. If not, try installing Git again.
+    :::
 
-```bash
-git clone https://github.com/iotaledger/entangled.git && cd entangled
-```
+3. Clone the cIRI repository
 
-## Install sqlite3
+    ```bash
+    git clone https://github.com/iotaledger/entangled.git && cd entangled
+    ```
 
-```bash
-sudo apt-get install sqlite3
-```
+4. Install sqlite3
 
-## Initialize the database
+    ```bash
+    sudo apt-get install sqlite3
+    ```
 
-```bash
-sqlite3 ciri/db/ciri-mainnet.db < common/storage/sql/schema.sql
-```
+5. Initialize the database
 
-## Create a configuration file
+    ```bash
+    sqlite3 ciri/db/ciri-mainnet.db < common/storage/sql/schema.sql
+    ```
 
-Take a look into the [IRI guide](root://iri/0.1/how-to-guide/find-neighbor-iri-node.md) to find neighbors.
-Create the configuration file in ``ciri/conf.yml`` with at least the following content:
+6. Find some neighbors
 
-```yaml
-log-level: info
-neighbors: "udp://148.148.148.148:14265"
-port: 14265
-```
+    :::info:
+    Read the [IRI guide](root://iri/0.1/how-to-guide/find-neighbor-iri-node.md) for help finding neighbors.
+    :::
 
-## Run cIRI with Bazel
+7. Create a configuration file called conf.yaml in the `ciri` directory and add the following settings. In the `neighbors` field, add the IP addresses or URLs of your neighbors.
 
-You should read more about [trit encoding](root://ciri/0.1/references/trit-encoding.md), if you want to optimize ciri.
-We also provide an overview of all [cIRI configuration flags](root://ciri/0.1/references/ciri-configuration-options.md).
+    ```yaml
+    log-level: info
+    neighbors: "udp://148.148.148.148:14265"
+    port: 14265
+    ```
 
-```bash
-bazel run --define trit_encoding=5 --define network=mainnet|testnet -- ciri <configuration flags>
-```
+    Find out more about the possible [cIRI configuration settings](root://ciri/0.1/references/ciri-configuration-options.md).
+
+8. Run cIRI with Bazel
+
+    ```bash
+    bazel run --define trit_encoding=5 --define network=mainnet|testnet -- ciri <configuration flags>
+    ```
+
+## Next steps
+
+To optimize the cIRI, read about [trit encoding](root://ciri/0.1/references/trit-encoding.md).

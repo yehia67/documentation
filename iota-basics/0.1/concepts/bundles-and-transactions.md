@@ -1,20 +1,22 @@
 # Bundles and transactions
 
-**A transaction is a single operation that you can send to an IRI node. Transactions can withdraw/deposit IOTA tokens or send data. To send an IRI node one or more transactions, you must package them in a bundle before sending them.**
+**A transaction is a single operation that you can send to a node. Transactions can withdraw/deposit IOTA tokens or send data. To send a node one or more transactions, you must package them in a bundle.**
 
 Each transaction in a bundle must be [structured](../references/structure-of-a-transaction.md) according to the IOTA protocol and contain valid values for all the transaction fields.
 
-When a transaction is packaged in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the end of the bundle. Next, each transaction in the bundle, except the last one, is [connected to each other](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. Then, the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields are absorbed and squeezed by a cryptographic sponge function to produce an 81-tryte bundle hash. This bundle hash is included in each transaction's `bundle` field to seal the package.
+When a transaction is packaged in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the end of the bundle (head). Next, each transaction in the bundle, except the head, is [connected to each other](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. Then, the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields are absorbed and squeezed by a cryptographic sponge function to produce an 81-tryte bundle hash. This bundle hash is included in each transaction's `bundle` field to seal the package.
 
 Bundles are atomic, meaning that if any of the transactions in the bundle change, the bundle hash of each transaction would be invalid.
 
-To explain why bundles need to be atomic, let's take an example.
+To explain why bundles need to be atomic, take this example.
 
 You're at an online checkout and the total to pay is 10Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5Mi. So, you create three transactions: One input transaction to withdraw 5Mi from address 0, another input transaction to withdraw 5Mi from address 1, and one output transaction to deposit 10Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.)
 
 For the vendor to receive 10Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the overall goal of transferring IOTA tokens.
 
-**Note:** It's not just multiple transactions that need to be packaged in a bundle, even individual ones do.
+:::info:
+It's not just multiple transactions that need to be packaged in a bundle, even individual ones do.
+:::
 
 ## Withdrawals and deposits
 
@@ -26,7 +28,9 @@ Input transactions withdraw IOTA tokens from addresses.
 
 Bundles can contain multiple input transactions, and each one must include a valid signature. The length of the signature depends on the [security level](../references/security-levels.md) of the address. If the security level of the address is greater than 1, the signature is too large to fit in one transaction and must be fragmented across zero-value output transactions.
 
-**Important:** [Addresses must not be withdrawn from more than once](../concepts/addresses-and-signatures.md#address-reuse). Therefore, input transactions must withdraw all IOTA tokens from an address even if the sender does not want to transfer all of them to the recipient. The remaining IOTA tokens can be deposited into a remainder address (usually the sender's address) in an output transaction.
+:::danger:
+[Addresses must not be withdrawn from more than once](../concepts/addresses-and-signatures.md#address-reuse). Therefore, input transactions must withdraw all IOTA tokens from an address even if the sender does not want to transfer all of them to the recipient. The remaining IOTA tokens can be deposited into a remainder address (usually the sender's address) in an output transaction.
+:::
 
 ### Output transaction
 
@@ -37,15 +41,17 @@ Output transactions can be one of the following:
 
 Bundles can contain multiple output transactions. If a message in an output transaction is larger than the `signatureMessageFragment` field, the message can be fragmented across other zero-value output transactions.
 
-**Note:** Transactions that deposit IOTA tokens can also contain a message because they don't withdraw IOTA tokens, and therefore don't contain a signature.
+:::info:
+Transactions that deposit IOTA tokens can also contain a message because they don't withdraw IOTA tokens, and therefore don't contain a signature.
+:::
 
 ## How bundles are validated
 
-After you send a bundle to an [IRI node](root://iri/0.1/introduction/overview.md), it validates each transaction and appends each one to its ledger.
+After you send a bundle to a [node](root://iri/0.1/introduction/overview.md), it validates each transaction and appends each one to its ledger.
 
-During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), an IRI node finds and [validates each transaction in your bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the IRI node has validated all transactions up to the [`lastIndex` field](../references/structure-of-a-transaction.md), your bundle is considered valid.
+During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the node has validated all transactions up to the head (or [`lastIndex` field](../references/structure-of-a-transaction.md)), your bundle is considered valid.
 
-![Example of a bundle of 4 transactions](../bundle.png)
+![Example of a bundle of 4 transactions](../images/bundle.png)
 
 ## Example bundles
 

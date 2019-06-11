@@ -1,113 +1,94 @@
-# Architecture
+# Application architecture
 
-**This page describes an example architecture that can be used for solving the Tangle data storage use case.**
+**The Tangle data storage application consists of two parts: A graphical user interface (GUI), written in React and a back-end API, written in NodeJS.**
 
-**Disclaimer:** Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss with IOTA community.
+This application consists of the following:
 
-## Prerequesites
+## Prerequisites
 
-This projects asumes some level of programming knowledge, specifically in: Javascript, React and NodeJS.
+This projects assumes some level of programming knowledge, specifically in: JavaScript, React and Node.js.
 
 ## Instructions and technical concepts 
 
 - [PoC source code](https://github.com/iotaledger/poc-ipfs/blob/master/README.md) - 
-Consists of two parts a front-end GUI written in React and a back-end written as a NodeJS API.
+Consists of two parts a front-end GUI written in React and a back-end written as a Node.js API.
 In order to reproduce this PoC there is no requirement to deploy dedicated hardware.
 - [Front-end deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/client/DEPLOYMENT.md)
-- [NodeJS API deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md)
+- [Node.js API deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md)
 
 The presented infrastructure makes use of the IOTA Tangle and an `InterPlanetary File System` (IPFS) node that you run yourself. The following image shows the main architecture components.
 
 ![Data Storage PoC - IOTA/IPFS - Architecture](../data-storage-ipfs.png)
 
-The PoC implements two simple APIs:
+:::warning:Disclaimer
+Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community.
+:::
 
-- storeFile
-- retrieveFile
-  
-## Store File
+## Prerequisites
 
-To store a file using the API we take the following steps in the client.
-1.	Select the file to upload
-2.	Generate SHA256 hash of the file content
-3.	Capture additional file meta data
-4.	Send the meta data, SHA256 hash and file content to the api (POST /ipfs)
-
-Within the API we do the following:
-1.	Upload the file content to IPFS which returns the IPFS unique hash
-2.	Store the metadata, SHA256 and IPFS hash on the tangle which gives us the transaction hash
-3.	Return the Tangle transaction hash to the client
-
-The communication sequence used for the storeFile API is shown in the following image.
-
-![Data Storage PoC - IOTA/IPFS - Store File](../data-storage-store.png)
-
-## Retrieve File
-
-To retrieve a file and validate its contents we perform the following in the client:
-
-1. Request the metadata, SHA256 and IPFS hash using the transaction hash from the API (GET /ipfs)
-2. Get the file contents from IPFS using the IPFS hash
-3. Perform a SHA256 on the retrieved file content
-4. Compare the calculated SHA256 with the one returned from the API
-
-The communication sequence used for the retrieveFile API is shown in the following image.
-
-![Data Storage PoC - IOTA/IPFS - Retrieve File](../data-storage-retrieve.png)
-
-## Data Security
-
-Note that anyone who has the IPFS hash can download and read the content since it is stored in the distributed database and is discoverable via the hash. 
-
-While the solution outlined in this blueprint doesn’t show how to encrypt the data, the data could always be encrypted prior to upload to prevent unauthorized entities from reading the data even if they discover it. 
-
-## Alternative Data Storage Solutions
-
-Upload of data to IPFS is used as an example in this blueprint, however the same principles would apply when uploading to an alternative data storage solution, whether it is hosted internally or externally to an organization.
-
-To use alternative storage solutions such as Amazon S3 or Azure Storage you would just have to upload the data to the storage with a unique hash (the SHA256 of the file would suffice).
+To test, edit, and deploy this application, you need programming knowledge in JavaScript, React, and NodeJS.
 
 ## API
 
-The main bulk of the work performed in this PoC is in the API. The storeFile API requires a JSON payload in the form shown below:
+The API implements two methods:
+
+- `storeFile()`
+- `retrieveFile()`
+  
+### File storage
+
+To store a file using the API, the client does the following:
+
+* Select the file to upload
+* Generate SHA256 hash of the file content
+* Capture additional file meta data
+* Send the meta data, SHA256 hash, and file contents to the IPFS node (POST /ipfs)
+
+Behind the scenes, the API does the following:
+
+* Upload the file content to IPFS, which returns the IPFS hash
+* Store the metadata, SHA256 and IPFS hash on the Tangle, which returns a transaction hash
+* Return the Tangle transaction hash to the client
+
+![Data Storage PoC - IOTA/IPFS - Store File](../data-storage-store.png)
+
+The `storeFile()` method takes a JSON object in the following format:
 
 ```javascript
 IPFSStoreRequest {
    /**
-    * The filename of the file to store.
+    * The name of the file.
     */
    name: string;
 
    /**
-    * The description of the file to store.
+    * The description of the file.
     */
    description: string;
 
    /**
-    * The size of the file to store.
+    * The size of the file.
     */
    size: number;
 
    /**
-    * The modified date of the file to store.
+    * The modified date of the file.
     */
    modified: Date;
 
    /**
-    * The sha256 hash of the file to store.
+    * The sha256 hash of the file.
     */
    sha256: string;
 
    /**
-    * The data of the file to store in base64.
+    * The file data encoded in base64.
     */
    data: string;
 }
 ```
 
-### Uploading data
-
-On receipt of the request data the code which uploads the data to IPFS is very straightforward.
+On receipt of the JSON object, the file is uploaded to the IPFS node.
 
 ```javascript
 import ipfsClient from "ipfs-http-client";
@@ -117,7 +98,7 @@ const ipfs = ipfsClient(config.ipfs);
 const addResponse = await ipfs.add(buffer);
 ```
 
-The response from the add contains the IPFS hash, we then combine this with the metadata and SHA256 to attach to the tangle.
+The response from the `add()` method contains the IPFS hash, which is combined with the metadata and the SHA256 hash before being attached to the Tangle.
 
 ```javascript
 const nextAddress = generateAddress(config.seed, 0, 2);
@@ -149,11 +130,20 @@ const bundle = await iota.sendTrytes(trytes, config.depth, config.mwm);
    
 ```
 
-The bundle returned from the sendTrytes will contain the transaction hash we return to the client.
+The bundle returned from the `sendTrytes()` method contains the transaction hash that's then returned to the client.
 
-### Retrieving and Validating Data
+### File retrieval
 
-In order to retrieve and validate the file we first get the transaction from the tangle.
+To retrieve a file and validate its contents the client does the following:
+
+* Request the metadata, SHA256 and IPFS hash using the transaction hash from the API (GET /ipfs)
+* Get the file contents from IPFS using the IPFS hash
+* Perform a SHA256 on the retrieved file content
+* Compare the calculated SHA256 with the one returned from the API
+
+![Data Storage PoC - IOTA/IPFS - Retrieve File](../data-storage-retrieve.png)
+
+To retrieve and validate the file, the transaction hash is read from the Tangle.
 
 ```javascript
 const iota = composeAPI({
@@ -166,9 +156,9 @@ const ascii = trytesToAscii(txObject.signatureMessageFragment);
 const payload = JSON.parse(ascii)
 ```
 
-Then we retrieve the IPFS file using any public IPFS gateway such as [Cloudflare](https://cloudflare-ipfs.com/ipfs/:hash)
+Then, the transaction hash is used to request the file from the IPFS node, using any public IPFS gateway such as [Cloudflare](https://cloudflare-ipfs.com/ipfs/:hash)
 
-Assuming we have retrieved the file into a buffer we generate the SHA256 of the file and compare it with the one from the payload.
+Assuming the file was returned into a buffer, the file is hashed using a SHA256 algorithm and the resulting hash is compared to the one from the transaction's message.
 
 ```javascript
 const sha256 = crypto.createHash("sha256");
@@ -181,4 +171,14 @@ if (ipfsSha256 === payload.sha256) {
 }
 ```
 
-Now that the functionality is defined, you continue to [Deployment and testing](deployment-and-testing.md).
+## Data security
+
+Because the IPFS is a distributed web, anyone who has the IPFS hash can download and read the contents of the file. 
+
+To prevent unauthorized entities from reading the data, you could encrypt it before uploading it to the IPFS node.
+
+## Alternative data storage solutions
+
+In this application, data is uploaded to an IPFS node, however the same principles apply if you were to upload to an alternative data storage solution.
+
+To use alternative storage solutions such as Amazon S3 or Azure Storage, you just need to upload the data to it with a unique hash (for example the SHA256 hash of the file).

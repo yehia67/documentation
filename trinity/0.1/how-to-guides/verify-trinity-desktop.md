@@ -10,7 +10,7 @@ To verify the authenticity of Trinity Desktop, you can use the SHA256 hash and c
 
 1. Open a command prompt
 
-2. Create a SHA256 hash of the Trinity Desktop .exe file. Replace the path with the path to your Trinity .exe file.
+2. Create a SHA256 hash of the Trinity Desktop `.exe` file. Replace the path with the path to your Trinity `.exe` file.
 
     ```
     certUtil -hashfile path\to\trinity-desktop-version.exe SHA256
@@ -44,7 +44,7 @@ To verify the authenticity of Trinity Desktop, you can use the SHA256 hash and c
 
 1. Open Terminal (in `/Applications/Utilities/Terminal`)
 
-2.  Create a SHA256 hash of the Trinity Desktop .dmg file. Replace the path with the path to your Trinity .dmg file.
+2.  Create a SHA256 hash of the Trinity Desktop `.dmg` file. Replace the path with the path to your Trinity `.dmg` file.
 
   ```bash
   shasum -a 256 /path/to/trinity-desktop-version.dmg
@@ -66,7 +66,7 @@ To follow these instructions you need [Xcode Command Line Tools](https://www.ics
 
 1. Open Terminal (in `/Applications/Utilities/Terminal`)
 
-2. Verify the Trinity.app file's signature. Replace the path with the path to your Trinity.app file. This command confirms whether the code binaries are actually signed, the signature is valid, all the sealed components are unaltered, and the signature passes some basic consistency checks.
+2. Verify the `Trinity.app` file's signature. Replace the path with the path to your `Trinity.app` file. This command confirms whether the code binaries are actually signed, the signature is valid, all the sealed components are unaltered, and the signature passes some basic consistency checks.
 
     ```bash
     codesign -d -vv /path/to/Trinity.app
@@ -87,7 +87,7 @@ To follow these instructions you need [Xcode Command Line Tools](https://www.ics
     Authority=Apple Root CA
     ```
 
-4. Test the signature against system policies. Replace the path with the path to your Trinity.app file.
+4. Test the signature against system policies. Replace the path with the path to your `Trinity.app` file.
 
     ```bash
     spctl -a -vv path/to/Trinity.app
@@ -134,7 +134,7 @@ To follow these instructions you need the `sha256sum` package, which is included
 
 1. Download the .asc and .gpg files in the Assets section of the [release notes](https://github.com/iotaledger/trinity-wallet/releases)
 
-2. Import the Trinity GPG key. Replace the path with the path to your Trinity .gpg file.
+2. Import the Trinity GPG key. Replace the path with the path to your Trinity `.gpg` file.
 
     ```bash
     gpg --import path/to/gpgfile

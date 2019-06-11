@@ -1,10 +1,8 @@
 # Set up a reverse proxy server
 
-**Clients can abuse the open API port of an IRI node by making spam API requests to it. To restrict API requests by IP address or to limit the number of permitted API requests, you can connect your IRI node to a reverse proxy server.**
+**Clients can abuse the open API port of an IRI node by spamming API requests to it. To restrict API requests by IP address or to limit the number of API requests, you can connect your IRI node to a reverse proxy server.**
 
 Many [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy) exist. In this guide, you'll install [Nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) on the same Linux server as your IRI node.
-
-When Nginx receives a request, it sends the request to your IRI node, fetches the response, and sends it back to the client.
 
 1. On your Linux server, open a terminal window, and install Nginx
 
@@ -12,17 +10,19 @@ When Nginx receives a request, it sends the request to your IRI node, fetches th
     sudo apt-get update
     sudo apt-get install nginx
     ```
-    At the end of the installation process, Ubuntu starts Nginx. If you don't want Nginx to automatically start on boot, do the following:
+    :::info:
+    At the end of the installation process, Ubuntu starts Nginx. If you don't want Nginx to start automatically on every restart, do the following:
     
     ```bash
     sudo systemctl disable nginx
     ```
 
-    To re-enable Nginx to start on boot, do the following:
+    To re-enable Nginx to start, do the following:
 
     ```bash    
     sudo systemctl enable nginx
     ```
+    :::
 
 2. Check that the Nginx server is running
 
@@ -41,74 +41,73 @@ When Nginx receives a request, it sends the request to your IRI node, fetches th
             └─12858 nginx: worker process
     ```
 
-3. Go to a web browser and type the IP address of your Linux server in the address bar
+3. Go to a web browser and enter the IP address of your Linux server in the address bar
 
     You'll see the Nginx webpage. This page is included with Nginx to show you that the server is running. Now, you need to configure Nginx as a reverse proxy for your IRI node.
 
-4. Open the main Nginx configuration file
-
-    ```bash
-    sudo nano /etc/nginx/nginx.conf
-    ```
-
-5. Create a custom configuration file called iri.conf
+4. Create a custom configuration file called iri.conf
 
     ```bash
     sudo nano /etc/nginx/sites-enabled/iri.conf
     ```
 
-6. Add the following to the iri.conf file:
+5. Add the following to the `iri.conf` file:
 
     ```shell
+    # Limit the amount of requests that'll be forwarded from a single IP address to the IRI node (5 per second)
+    limit_req_zone              $binary_remote_addr zone=iri:10m rate=5r/s;
 
-        # Limit the amount of requests that'll be forwarded from a single IP address to the IRI node (5 per second)
-        limit_req_zone              $binary_remote_addr zone=iri:10m rate=5r/s;
+    server {
 
-        server {
-            # Port that Nginx will listen on
-            listen                    5000 default_server deferred;
+        server_name _;
+        # Port that Nginx will listen on
+        listen                    5000 default_server deferred;
 
-            location / {
-            # Tell Nginx to drop requests to the server if more than 5 are queued from one IP address
-            limit_req               zone=iri burst=5 nodelay;
-            
-            # IP address of your IRI node. In this case the IRI node is running on the same machine as Nginx
-            proxy_pass http://127.0.0.1:14265;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header Host $http_host;
-            }
+        location / {
+        # Tell Nginx to drop requests to the server if more than 5 are queued from the same IP address
+        limit_req               zone=iri burst=5 nodelay;
+        
+        # IP address of your IRI node. In this case the IRI node is running on the same machine as Nginx
+        proxy_pass http://127.0.0.1:14265;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
         }
     }
     ```
 
-7. Restart Nginx to allow the changes to take effect
+    :::info:Want to connect to Nginx from outside localhost?
+    Open port 5000 on your Nginx server.
+    :::
+
+6. Restart Nginx to allow the changes to take effect
 
     ```bash
     sudo systemctl restart nginx
     ```
-
-    Nginx is now receiving and forwarding connections to your IRI node.
-
-8. Start your IRI node, and call the `getNodeInfo` API endpoint on the Nginx port
+    
+7. Start your IRI node, and call the `getNodeInfo` API endpoint on the Nginx port
 
     ```bash
     sudo apt install curl jq
     curl -s http://localhost:5000 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}' | jq
     ```
 
-Congratulations :tada: Nginx is now controlling the requests to your IRI node.
+:::success:Congratulations! :tada:
+Nginx is now controlling the requests to your IRI node.
+When Nginx receives a request, it sends the request to your IRI node, fetches the response, and sends it back to the client.
+:::
 
-To test that Nginx is limiting the API requests, make 20 consecutive requests to the `getNodeInfo` endpoint
+To test that Nginx is limiting the rate of API requests, make 20 consecutive requests to the `getNodeInfo` endpoint
 
 ```bash
 for i in {0..20}; do (curl  http://localhost:5000 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}') 2>/dev/null; done
 ```
 
-You should see a mixture of JSON responses and 503 errors, which are returned when too many requests are made from one IP address.
+You should see a mixture of JSON responses and 503 errors, which are returned when too many requests are made from the same IP address.
 
 ```shell
-{"appName":"IRI","appVersion":"1.6.0-RELEASE","jreAvailableProcessors":2,"jreFreeMemory":1139498432,"jreVersion":"1.8.0_201","jreMaxMemory":4294967296,"jreTotalMemory":2147483648,"latestMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999","latestMilestoneIndex":933210,"latestSolidSubtangleMilestone":"999999999999999999999999999999999999999999999999999999999999999999999999999999999","latestSolidSubtangleMilestoneIndex":933210,"milestoneStartIndex":-1,"lastSnapshottedMilestoneIndex":933210,"neighbors":0,"packetsQueueSize":0,"time":1549447256071,"tips":0,"transactionsToRequest":0,"features":["snapshotPruning","dnsRefresher","tipSolidification"],"coordinatorAddress":"KPWCHICGJZXKE9GSUDXZYUAPLHAKAHYHDXNPHENTERYMMBQOPSQIDENXKLKCEYCPVTZQLEEJVYJZV9BWU","duration":0}<html>
+{"appName":"IRI","appVersion":"1.7.0-RELEASE","jreAvailableProcessors":8,"jreFreeMemory":1832921952,"jreVersion":"1.8.0_191","jreMaxMemory":20997734400,"jreTotalMemory":4073869600,"latestMilestone":"CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999","latestMilestoneIndex":1050373,"latestSolidSubtangleMilestone":"CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999","latestSolidSubtangleMilestoneIndex":1050373,"milestoneStartIndex":1050101,"lastSnapshottedMilestoneIndex":1050264,"neighbors":7,"packetsQueueSize":0,"time":1554971201776,"tips":7335,"transactionsToRequest":0,"features":["snapshotPruning","dnsRefresher","tipSolidification"],"coordinatorAddress":"EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9","duration":0}<html>
 <head><title>503 Service Temporarily Unavailable</title></head>
 <body bgcolor="white">
 <center><h1>503 Service Temporarily Unavailable</h1></center>
@@ -121,13 +120,14 @@ You should see a mixture of JSON responses and 503 errors, which are returned wh
 
 If requests from certain IP addresses are causing issues for your IRI node, you can block them.
 
-1. Open the iri.conf file
+1. Open the `iri.conf` file
 
     ```bash
     sudo nano /etc/nginx/sites-enabled/iri.conf
     ```
 
-2. Add the IP addresses to the `server` block directive
+2. Add the IP addresses to the `server` block directive. Change `ipaddress` to the IP address that you want to restrict.
+
 
     ```shell
     # Denies access from an IP address
@@ -136,15 +136,13 @@ If requests from certain IP addresses are causing issues for your IRI node, you 
     allow all;
     ```
 
-    **Note:** Change ipaddress to the IP address that you want to restrict.
-
-Now when Nginx receives requests from those IP addresses, it wont forward those requests to your IRI node.
+Now when Nginx receives requests from those IP addresses, it won't forward those requests to your IRI node.
 
 ## Add load balancing
 
-If you have more than one IRI node, you can add load balancing to evenly distribute the requests among them.
+If you have more than one IRI node, you can add load balancing to evenly distribute the API requests among them.
 
-1. Open the iri.conf file
+1. Open the `iri.conf` file
 
     ```bash
     sudo nano /etc/nginx/sites-enabled/iri.conf
@@ -169,13 +167,13 @@ If you have more than one IRI node, you can add load balancing to evenly distrib
     }
     ```
 
-4. In the `server` block directive, change the value of the `proxy_pass` simple directive to http://iri.
+4. In the `server` block directive, change the value of the `proxy_pass` simple directive to http://iri. Change `iri` to the name of your `upstream` block directive.
 
-    **Note:** Change iri to the name of your `upstream` block directive.
+Now, when Nginx receives multiple requests, it evenly distributes them among your IRI nodes that are listed in the `upstream` block directive.
 
-Now when Nginx receives multiple requests, it evenly distributes them among your IRI nodes.
-
+:::info:
 See the Nginx documentation to [learn more about the `upstream` directive](http://nginx.org/en/docs/http/ngx_http_upstream_module.html#upstream).
+:::
 
 ## Next steps
 

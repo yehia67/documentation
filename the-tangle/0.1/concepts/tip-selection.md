@@ -1,20 +1,20 @@
 # Tip selection
 
-**Each transaction in the Tangle must reference two previous transactions. Tip selection is the process whereby an IRI node selects two random tip transactions from a subgraph of its ledger.**
+**Each transaction in the Tangle must reference and approve two previous transactions. Tip selection is the process whereby a node selects two random tip transactions from a subgraph of its ledger.**
 
 In general, the tip selection algorithm selects tip transactions that have no parents.
 
-Although the tip selection algorithm is embedded in the [IOTA node software](root://iri/0.1/introduction/overview.md) (IRI), it isn't enforced by the network. Instead, IRI nodes are given an [incentive to use the tip selection algorithim](../concepts/incentives-in-the-tangle.md).
+Although the tip selection algorithm is embedded in the [IOTA node software](root://iri/0.1/introduction/overview.md), it isn't enforced by the network. Instead, nodes are given an [incentive to use the tip selection algorithm](../concepts/incentives-in-the-tangle.md).
 
 ## The tip selection process
 
-The IRI selects a subgraph (also known as a subtangle) of the ledger and does two weighted random walks through it. Each weighted random walk returns a tip transaction hash.
+The node selects a subgraph (also known as a subtangle) of the ledger and does two weighted random walks through it. Each weighted random walk returns a tip transaction hash.
 
 ### Subgraph selection
 
 A subgraph is a section of the ledger that contains all transactions between a milestone transaction and tip transactions.
 
-The tip selection is done on a subgraph of the ledger to save computational power. The more transactions that the IRI node includes in the weighted random walk, the longer the tip selection process takes.
+The tip selection is done on a subgraph of the ledger to save computational power. The more transactions that a node includes in the weighted random walk, the longer the tip selection process takes.
 
 For the tip selection process, the milestone transaction for the subgraph is defined by the client, and is calculated by doing the following:
 
@@ -22,11 +22,13 @@ For the tip selection process, the milestone transaction for the subgraph is def
 
 The result of this calculation is equal to the index of the milestone transaction that is used to form the subgraph.
 
-**Note:** The higher the value of the `depth` parameter, the more computations the IRI node must do. To restrict the value of the `depth` parameter, IRI nodes can change the [`MAX-DEPTH`](root://iri/0.1/references/iri-configuration-options.md#max-depth) configuration option.
+:::info:
+The greater the value of the `depth` parameter, the more computations the node must do. To restrict the value of the `depth` parameter, nodes can change the [`MAX-DEPTH`](root://iri/0.1/references/iri-configuration-options.md#max-depth) configuration option.
+:::
 
 ### Weighted random walk
 
-A weighted random walk is an algorithm that the IRI uses to find a path to a tip transaction in a subgraph.
+A weighted random walk is an algorithm that nodes use to find a path to a tip transaction in a subgraph.
 
 To increase the probability of selecting a path to new transactions, the algorithm favors a path through transactions that have a higher rating. This rating is called a cumulative weight.
 
@@ -34,21 +36,23 @@ The cumulative weight of a transaction is calculated using the following variabl
 * **Future set:** Transactions that approves the transaction
 * **[`ALPHA` configuration parameter](root://iri/0.1/references/iri-configuration-options.md#alpha):** A number that affects the randomness of the tip selection process
 
-The IRI gives a high rating to a transaction with a large future set because it has a higher probability of being confirmed than one with a small future set. However, if the IRI were to rate transactions based only on this variable, the ledger would become a long, narrow chain of transactions, which are referenced by many other transactions. This would slow the rate of new transactions being appended to the ledger because new transactions would have to wait until they had a large enough future set before other transactions would reference them. So, to increase the speed at which new transactions are appended to the ledger, the IRI also uses the `ALPHA` configuration parameter to calculate the cumulative weight.
+Nodes gives a high rating to a transaction with a large future set because it has a higher probability of being confirmed than one with a small future set. However, if a node were to rate transactions based only on this variable, the ledger would become a long, narrow chain of transactions, which are referenced by many other transactions. This would slow the rate of new transactions being appended to the ledger because new transactions would have to wait until they had a large enough future set before other transactions would reference them. So, to increase the speed at which new transactions are appended to the ledger, nodes also use the `ALPHA` configuration parameter to calculate the cumulative weight.
 
-The `ALPHA` configuration parameter makes sure that the cumulative weight of each transaction is calculated with an element of randomness. This parameter allows the IRI to select some transactions that have a small future set and by doing so, increase the speed at which new transactions are appended to the ledger.  
+The `ALPHA` configuration parameter makes sure that the cumulative weight of each transaction is calculated with an element of randomness. This parameter allows nodes to select some transactions that have a small future set and by doing so, increase the speed at which new transactions are appended to the ledger.  
 
 For more information about the weighted random walk, and for an in-depth explanation about the theories surrounding the best value for the `ALPHA` configuration parameter, read our [blog post](https://blog.iota.org/confirmation-rates-in-the-tangle-186ef02878bb).
 
 ## In-depth explanation of the tip selection algorithm
 
-The following information describes what the IRI node does when a client calls the [getTransactionsToApprove](root://iri/0.1/references/api-reference.md#getTransactionsToApprove) endpoint.
+The following information describes what nodes do when a client calls the [getTransactionsToApprove](root://iri/0.1/references/api-reference.md#getTransactionsToApprove) endpoint.
 
 Clients call this endpoint when they want to send a transaction. The endpoint results in two tip transaction hashes, which are used in the `trunkTransaction` and `branchTransaction` fields of the new transaction.
 
-**Tip** Find out more about the [structure of a transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md).
+:::info:
+Find out more about the [structure of a transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md).
+:::
 
-When this endpoint is called, the IRI node starts the tip selection algorithm, which is separated into the following stages:
+When this endpoint is called, a node starts the tip selection algorithm, which is separated into the following stages:
 
 1. Preparation
 2. Rating calculation
@@ -93,7 +97,7 @@ entryPoint = latestSolidMilestone - depth
 
 entryPointTrunk = entryPoint
 
-entryPointBranch = reference or entryPoint 
+entryPointBranch = reference or entry point 
 
 ratings = CumulativeWeightCalculator.calculate(entryPointTrunk)
 
@@ -261,7 +265,9 @@ class WalkValidator:
 
 ```
 
-**Note:** The same validator object is passed for both walks, resulting in two tip transactions that are consistent with each other.
+:::info:
+The same validator object is passed for both walks, resulting in two tip transactions that are consistent with each other.
+:::
 
 #### Bundles and consistency
 

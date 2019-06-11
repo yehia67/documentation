@@ -4,7 +4,7 @@
 
 Terms are listed in alphabetical order by category.
 
-### Acronymns
+### Acronyms
 
 <dl><dt>CTPS</dt><dd>Number of Confirmed Transactions Per Second</dd></dl>
 
@@ -14,13 +14,13 @@ Terms are listed in alphabetical order by category.
 
 <dl><dt>address</dt><dd>Account that owns IOTA tokens. Addresses can send and receive data and IOTA tokens</dd></dl>
 
-<dl><dt>multi-signature address (multi-sig address)</dt><dd>Address that needs multiple parties to sign a transaction before their IOTA tokens can be spent</dd></dl>
+<dl><dt>multi-signature address (multi-sig address)</dt><dd>Address that needs multiple parties to sign a transaction before IOTA tokens can be withdrawn from it</dd></dl>
 
 <dl><dt>security level</dt><dd>An integer (1, 2, or 3) that affects the length of a signature. The higher the security level, the longer the signature, and the stronger the security of the address.</dd></dl>
 
 <dl><dt>seed</dt><dd>81-tryte password used to generate addresses and signatures</dd></dl>
 
-<dl><dt>signature</dt><dd>Cryptograhic proof of ownership of an address. IOTA tokens can't be spent from an address without a valid signature.</dd></dl>
+<dl><dt>signature</dt><dd>Cryptographic proof of ownership of an address. IOTA tokens can't be withdrawn from an address without a valid signature.</dd></dl>
 
 ### Cryptography
 
@@ -71,9 +71,9 @@ Terms are listed in alphabetical order by category.
 
 <dl><dt>confirmed</dt><dd>State of a transaction when it's been approved by a milestone</dd></dl>
 
-<dl><dt>cumulative weight</dt><dd>Rating that an [IRI node](#iota-terms) gives to a [transaction](#transactions)</dd></dl>
+<dl><dt>cumulative weight</dt><dd>Rating that a [node](#iota-terms) gives to a [transaction](#transactions).</dd></dl>
 
-<dl><dt>depth</dt><dd>Entrypoint [milestone](#milestone) that's used to start a weighted random walk through a [subgraph](#subgraph). The higher the value, the farther back in the subgraph the weighted random walk starts. A typical depth that wallets use is 3, which causes the weighted random walk to start 3 milestones in the past.</dd></dl>
+<dl><dt>depth</dt><dd>Entry point [milestone](#milestone) that's used to start a weighted random walk through a [subgraph](#subgraph). The higher the value, the farther back in the subgraph the weighted random walk starts. A typical depth that wallets use is 3, which causes the weighted random walk to start 3 milestones in the past.</dd></dl>
 
 <dl><dt>future set</dt><dd>Group of transactions that approve the same transaction</dd></dl>
 
@@ -83,9 +83,9 @@ Terms are listed in alphabetical order by category.
 
 <dl><dt>invalid</dt><dd>State of a transaction when it's either non-solid, inconsistent, or it references a transaction that's too old.</dd></dl>
 
-<a name="milestone"></a><dl><dt>milestone</dt><dd>Valid transaction that is created by either the Coordinator in a permissionless IOTA network or [Compass](root://compass/0.1/introduction/overview.md) in a permissioned IOTA network. [IRI nodes](#iota-terms) use milestones to determine if other transactions are in a confirmed state.</dd></dl>
+<a name="milestone"></a><dl><dt>milestone</dt><dd>Valid transaction that is created by either the Coordinator. [Nodes](#iota-terms) use milestones to determine if other transactions are in a confirmed state.</dd></dl>
 
-<dl><dt>minimum weight magnitude (MWM)</dt><dd>Integer that sets the amount of work that will be carried out during [PoW](#general-terms). The solution to the computational puzzle is a number that contains the same number of trailing nines as the MWM. Each increment of MWM makes it three times harder to complete the PoW (on average).</dd></dl>
+<dl><dt>[minimum weight magnitude (MWM)](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)</dt><dd>Integer that sets the amount of work that will be carried out during [PoW](#general-terms).</dd></dl>
 
 <dl><dt>pending</dt><dd>State of a transaction when it's been seen by the network, but not yet confirmed.</dd></dl>
 
@@ -95,7 +95,7 @@ Terms are listed in alphabetical order by category.
 
 <dl><dt>solid</dt><dd>State of a transaction when an IRI node has its entire history (all directly and indirectly referenced transactions) in its ledger</dd></dl>
 
-<dl><dt>tail transaction</dt><dd>Transaction 0 in a bundle. [IRI nodes](#iota-terms) recontruct and validate bundles by traversing the trunk transaction of each tail transaction.</dd></dl>
+<dl><dt>tail transaction</dt><dd>Transaction 0 in a bundle. [IRI nodes](#iota-terms) reconstruct and validate bundles by traversing the trunk transaction of each tail transaction.</dd></dl>
 
 <dl><dt>tip selection</dt><dd>Process whereby an [IRI node](#iota-terms) selects two [tip transactions](#tip-transaction) and returns them to a client for use as a new transaction's [branch transaction](#branch) and [trunk transaction](#trunk)</dd></dl>
 
@@ -105,7 +105,7 @@ Terms are listed in alphabetical order by category.
 
 <a name="trunk"></a><dl><dt>trunk transaction</dt><dd>Transaction that is referenced by another transaction. Transactions in a bundle are connected to each other through the trunk transaction. This connection makes it faster for IRI nodes to validate transactions in a bundle.</dd></dl> 
 
-<dl><dt>weighted random walk</dt><dd>Algorithm that an [IRI node](#iota-terms) uses during tip selection to find a path to a tip transaction in the ledger. To increase the probability of new transactions being selected and appended to the [ledger](#ledger), the algorithm favors a path through transactions that have a larger cumulative weight.</dd></dl>
+<dl><dt>weighted random walk</dt><dd>Algorithm that a [node](#iota-terms) uses during tip selection to find a path to a tip transaction in the ledger.</dd></dl>
 
 ## Trinary
 

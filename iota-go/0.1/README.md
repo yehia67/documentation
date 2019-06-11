@@ -1,14 +1,32 @@
-# IOTA GO Library
+# IOTA Go Library
 
 This is the **official** Go client library, which allows you to do the following:
-- Create transactions
-- Sign transactions
+- Create, import, export, and manage accounts
+- Send transactions
+- Promote and reattach pending transactions
+- Request deposits into conditional deposit addresses (CDA)
+- Listen to events
+- Extend the library functionality with plug-ins
 - Interact with an IRI node
 
-[IOTA GO GitHub repository](https://github.com/iotaledger/iota.go).
+To learn more about how the library works:
 
-This is beta software, so there may be performance and stability issues.
+- See how you can [work with accounts](root://iota-go/0.1/how-to-guides/create-account.md).
+- See how you can [send and receive](root://iota-go/0.1/how-to-guides/create-and-manage-cda.md) transactions.
+
+Get the library at the [IOTA Go GitHub repository](https://github.com/iotaledger/iota.go).
+
+:::warning:Beta software
+The client libraries are currently in beta. Their use in production is not supported.
+:::
+
 Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.go/issues/new).
+
+## Audience
+
+This documentation is designed for people who are familiar with the Go programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
+
+This guide is designed to let you quickly start exploring and developing applications with IOTA.
 
 ## Prerequisites
 
@@ -19,13 +37,11 @@ To download the IOTA Go client library and its dependencies, we recommend that y
 
 To download the IOTA Go client library and its dependencies, do the following:
 
-1. In any directory outside of GOPATH, initiate your project
+1. In any directory outside of $GOPATH, create a directory for your project and initialize it. Change the `<your-module-path>` placeholder to the path of your project such as `github.com/me/awesome-project`.
 
 	```bash
 	go mod init <your-module-path>
 	```
-
-**Note:** Change the <your-module-path> placeholder to your chosen path such as github.com/me/awesome-project.
 
 2. Download the library
 
@@ -33,8 +49,7 @@ To download the IOTA Go client library and its dependencies, do the following:
 	go get github.com/iotaledger/iota.go/api
 	```
 
-This command downloads the latest version of the IOTA Go client library and writes the version into
-the `go.mod` file (vgo is `go get` agnostic).
+This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file.
 
 ## Get started
 
@@ -237,8 +252,8 @@ Before your pull requests can be accepted, you must test your code in Ginkgo.
 
 After creating a testing file, you'll have following two files:
 
-- <package-name>_suite_test.go
-- <package-name>_test.go
+- `<package-name>_suite_test.go`
+- `<package-name>_test.go`
 
 **Note:** You can use the existing tests as a reference on how to write Ginkgo tests or
 you can [read the documentation](https://onsi.github.io/ginkgo/).

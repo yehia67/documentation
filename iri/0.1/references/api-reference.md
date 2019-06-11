@@ -1,6 +1,6 @@
 # API reference
 
-**This list contains the commands for communicating with an IRI node through the HTTP API.**
+**This list contains the commands for communicating with a node through the HTTP API.**
 
 All the following commands must include an HTTP header.
 
@@ -14,9 +14,11 @@ All the following commands must include an HTTP header.
 
 ## addNeighbors
 
-Add a list of temporary neighbors to an IRI node.
+Add a list of temporary neighbors to a node.
 
-**Note:** The neighbors are removed if the IRI restarts. If you want to permanently add the neighbors to your own IRI node, add their URIs to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option.
+:::info:
+The neighbors are removed if the node restarts. If you want to permanently add the neighbors to your own node, add their URIs to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option.
+:::
 
  ### Parameters
 
@@ -56,7 +58,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -107,8 +109,8 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-  "addedNeighbors": "802",
-  "duration": "125"
+  "addedNeighbors": 2,
+  "duration": 125
 }
 ```
 ---
@@ -129,7 +131,7 @@ curl http://localhost:14265 \
 
 ## attachToTangle
 
-Do proof of work on an IRI node for the given transaction trytes.
+Do [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) on a node for the given transaction trytes.
 
  ### Parameters
 
@@ -137,9 +139,9 @@ Do proof of work on an IRI node for the given transaction trytes.
 	
 |Parameter |Required or Optional |Description |Type|
 |--|--|--|--|
-| `trunkTransaction` |Required| Trunk transaction hash | string|
-| `branchTransaction` |Required| Branch transaction hash | string|
-| `minWeightMagnitude` |Required| Minimum weight magnitute | integer|
+| `trunkTransaction` |Required| [Trunk transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
+| `branchTransaction` |Required| [Branch transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
+| `minWeightMagnitude` |Required| [Minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) | integer|
 | `trytes` |Required| String of transaction trytes |array of strings|
 
 ### Examples
@@ -153,7 +155,7 @@ command = {
 "command": "attachToTangle", 
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -175,7 +177,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -183,7 +185,7 @@ var command = {
 "command": "attachToTangle", 
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -218,7 +220,7 @@ curl http://localhost:14265 \
 "command": "attachToTangle",
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
-"minWeightMagnitude": "18",
+"minWeightMagnitude": 14,
 "trytes": [
   "HOHZUBAFSGNYMOOYGPCKANKOR ...",
   "IOELDJYWAZBKWBTQZYLPTPLIT ..."
@@ -257,15 +259,15 @@ The last 243 trytes of the return value consist of the following:
 
 ## broadcastTransactions
 
-Broadcast transaction trytes to an IRI node. 
+Broadcast transaction trytes to a node. 
 
  ### Parameters
 
-The `trytes2` parameter for this call is returned from the [`attachToTangle`](#attachToTangle) endpoint.
+The `trytes` parameter for this endpoint must include proof of work, which is done by the [`attachToTangle`](#attachToTangle) endpoint.
 	
 |Parameters |Required or Optional |Description |Type
 |--|--|--|--|
-| `trytes2` |Required| Valid transaction trytes | string
+| `trytes` |Required| Valid transaction trytes | array of strings
 
 ### Examples
 --------------------
@@ -276,7 +278,7 @@ import json
 
 command = {
   "command": "broadcastTransactions",
-  "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
 }
 
 stringified = json.dumps(command)
@@ -294,13 +296,13 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
 var command = {
   "command": "broadcastTransactions",
-  "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
   }
 
 var options = {
@@ -329,7 +331,7 @@ curl http://localhost:14265 \
 -H 'X-IOTA-API-Version: 1' \
 -d '{
   "command": "broadcastTransactions",
-  "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
   }'
 ```
 --------------------
@@ -400,7 +402,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -469,25 +471,25 @@ curl http://localhost:14265 \
 
 |Return field | Description |
 |--|--|
-| `state` | States of the specified transactions in the same order as the values in the `tails` parameter. A `true` value means that the transaction is consistent. |
+| `state` | State of the given transactions in the `tails` parameter. A `true` value means that all given transactions are consistent. A `false` value means that one or more of the given transactions aren't consistent. |
 | `info` | If the `state` field is false, this field contains information about why the transaction is inconsistent |
 | `duration` | Number of milliseconds it took to complete the request |
 
 ## findTransactions
 
-Find transactions that contain the given values in their transaction fields. 
+Find transactions that contain the given values in their transaction fields.
+The parameters define the transaction fields to search for, including `bundles`, `addresses`, `tags`, and `approvees`.
 
-**Using multiple transaction fields returns transactions hashes at the intersection of those values.** 
+**Using multiple transaction fields, returns transactions hashes at the intersection of those values.** 
 
- ### Parameters
+### Parameters
 	
-|Parameters | |Description | Type
-|--|--|--|--|
-| request| |Transaction fields to search for |array of objects |
- || `bundles`|Bundle hashes to search for|array of strings| 
- ||`addresses`|Addresses to search for (do not include the checksum)|array of strings|
- || `tags`|Tags to search for |array of strings |
- || `approvees`|Child transactions to search for| array of strings|
+|Parameters |Description | Type
+|--|--|--|
+| `bundles` | Bundle hashes to search for | array of strings |
+| `addresses` | Addresses to search for (do not include the checksum) | array of strings |
+| `tags` | Tags to search for | array of strings |
+| `approvees` | Child transactions to search for | array of strings |
 
 ### Examples
 --------------------
@@ -518,7 +520,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -636,7 +638,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -760,7 +762,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -819,8 +821,8 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-  "states": ["true", "true"],
-  "duration": "726"
+  "states": [true, true],
+  "duration": 726
 }
 ```
 ---
@@ -841,7 +843,7 @@ curl http://localhost:14265 \
 
 ## getNeighbors
 
-Get an IRI node's neighbors and their activity.
+Get a node's neighbors and their activity.
 
 ### Examples
 --------------------
@@ -867,7 +869,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -930,7 +932,9 @@ curl http://localhost:14265 \
 
 ### Results
 
-**Note:** The activity is accumulative until an IRI node restarts.
+:::info:
+The activity accumulates until the node restarts.
+:::
 
 |Return field| Description |
 |--|--|
@@ -939,7 +943,7 @@ curl http://localhost:14265 \
 
 ## getNodeInfo
 
-Get information about an IRI node.
+Get information about a node.
 
 ### Examples
 --------------------
@@ -965,7 +969,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -1004,25 +1008,31 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-  "appName":"IRI Testnet",
-  "appVersion":"1.5.6-RELEASE",
-  "jreAvailableProcessors":8,
-  "jreFreeMemory":12537798504,
-  "jreVersion":"1.8.0_181",
-  "jreMaxMemory":51469877248,
-  "jreTotalMemory":51469877248,"latestMilestone":"LADAAQL9DV9MLVJKSMVVITNGOO9IEYZXURSKGXQJUUHTQEQWQXMSBMCZKCWXYKVOHJJQZUGCSQNCQC999",
-  "latestMilestoneIndex":1084938,
-  "latestSolidSubtangleMilestone":"LADAAQL9DV9MLVJKSMVVITNGOO9IEYZXURSKGXQJUUHTQEQWQXMSBMCZKCWXYKVOHJJQZUGCSQNCQC999",
-  "latestSolidSubtangleMilestoneIndex":1084938,
-  "milestoneStartIndex":434525,
-  "neighbors":7,
-  "packetsQueueSize":0,
-  "time":1548758921513,
-  "tips":1477,
-  "transactionsToRequest":0,
-  "features":["snapshotPruning","dnsRefresher","testnet","zeroMessageQueue","tipSolidification","RemotePOW"],
-  "coordinatorAddress":"EQQFCZBIHRHWPXKMTOLMYUYPCN9XLMJPYZVFJSAY9FQHCCLWTOLLUGKKMXYFDBOOYFBLBI9WUEILGECYM",
-  "duration":0
+ "appName": "IRI",
+ "appVersion": "1.7.0-RELEASE",
+ "jreAvailableProcessors": 8,
+ "jreFreeMemory": 2115085674,
+ "jreVersion": "1.8.0_191",
+ "jreMaxMemory": 20997734400,
+ "jreTotalMemory": 4860129502,
+ "latestMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
+ "latestMilestoneIndex": 1050373,
+ "latestSolidSubtangleMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
+ "latestSolidSubtangleMilestoneIndex": 1050373,
+ "milestoneStartIndex": 1050101,
+ "lastSnapshottedMilestoneIndex": 1039138,
+ "neighbors": 7,
+ "packetsQueueSize": 0,
+ "time": 1554970558971,
+ "tips": 9018,
+ "transactionsToRequest": 0,
+ "features": [
+  "snapshotPruning",
+  "dnsRefresher",
+  "tipSolidification"
+ ],
+ "coordinatorAddress": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
+ "duration": 0
 }
 ```
 ---
@@ -1036,11 +1046,11 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** | **Description** |
 |--|--|
 | `appName` | Name of the IRI network |
 | `appVersion` | Version of the IRI |
-| `jreAvailableProcessors` | Available CPU cores on the IRI node |
+| `jreAvailableProcessors` | Available CPU cores on the node |
 | `jreFreeMemory` | Amount of free memory in the Java virtual machine |
 | `jreMaxMemory` | Maximum amount of memory that the Java virtual machine can use |
 | `jreTotalMemory` | Total amount of memory in the Java virtual machine|
@@ -1048,20 +1058,21 @@ curl http://localhost:14265 \
 | `latestMilestone` | Transaction hash of the latest milestone |
 | `latestMilestoneIndex` | Index of the latest milestone |
 | `latestSolidSubtangleMilestone` | Transaction hash of the latest solid milestone |
-| `latestSolidSubtangleMilestoneIndex` | Index of the latest solid milestone. |
-| `milestoneStartIndex` | Entrypoint milestone for the current version of the IRI |
-| `neighbors` | Total number of connected neighbor IRI nodes  |
+| `latestSolidSubtangleMilestoneIndex` | Index of the latest solid milestone |
+| `milestoneStartIndex` | Start milestone for the current version of the IRI |
+|`lastSnapshottedMilestoneIndex`|Index of the last milestone that triggered a [local snapshot](../concepts/local-snapshot.md) on the node |
+| `neighbors` | Total number of connected neighbor nodes  |
 | `packetsQueueSize` | Size of the packet queue |
 | `time` | Current UNIX timestamp |
 | `tips` | Number of tips in the network |
-| `transactionsToRequest` | Total number of transactions that the IRI node is missing in its ledger|
-| `features` | Enabled commands|
-| `coordinatorAddress` | Address of the Coordinator|
+| `transactionsToRequest` | Total number of transactions that the node is missing in its ledger|
+| `features` | Enabled configuration options|
+| `coordinatorAddress` | Address (Merkle root) of the Coordinator|
 | `duration` | Number of milliseconds it took to complete the request |
 
 ## getTips
 
-Get tip transaction hashes from an IRI node.
+Get tip transaction hashes from a node.
 
 ### Examples
 --------------------
@@ -1087,7 +1098,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -1146,7 +1157,7 @@ curl http://localhost:14265 \
 
 |Return field| Description |
 |--|--|
-| `hashes` | Array of current tip transaction hashes |
+| `hashes` | Array of tip transaction hashes |
 | `duration` | Number of milliseconds it took to complete the request |
 
 ## getTransactionsToApprove
@@ -1158,7 +1169,7 @@ Get two consistent tip transaction hashes to use as branch/trunk transactions.
 |Parameter|Required or Optional| Description |Type|
 |--|--|--|--|
 | `depth` |Required| Number of bundles to go back to determine the transactions for approval. |integer|
-| `references` |Optional| Transaction hashes from which to start the weighted random walk. Use this parameter to make sure the returned tip transaction hashes approve a given transaction. |array of strings
+| `reference` |Optional| Transaction hash from which to start the weighted random walk. Use this parameter to make sure the returned tip transaction hashes approve a given reference transaction. |string
 
 ### Examples
 --------------------
@@ -1169,10 +1180,8 @@ import json
 
 command = {
   "command": "getTransactionsToApprove",
-  "depth": 15,
-  "references": [
-    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
-  ]
+  "depth": 4,
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
 }
 
 stringified = json.dumps(command)
@@ -1190,16 +1199,14 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
 var command = {
   "command": "getTransactionsToApprove",
-  "depth": 15,
-  "references": [
-    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY999"
-  ]
+  "depth": 4,
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY999"
 }
 
 var options = {
@@ -1228,10 +1235,8 @@ curl http://localhost:14265 \
 -H 'X-IOTA-API-Version: 1' \
 -d '{
   "command": "getTransactionsToApprove",
-  "depth": 15,
-  "references": [
-    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
-  ]
+  "depth": 4,
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
 }'
 ```
 --------------------
@@ -1301,7 +1306,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -1371,8 +1376,12 @@ You can convert the returned trytes to ASCII characters by using the client libr
 
 |Return field | Description |
 |--|--|
-| `trytes` | The raw transaction data (trytes) of the specified transactions |
+| `trytes` | Array of transaction trytes for the given transaction hashes (in the same order as the parameters) |
 | `duration` | Number of milliseconds it took to complete the request |
+
+:::info:
+If a node doesn't have the trytes for a given transaction hash in its ledger, the value at the index of that transaction hash is either `null` or a string of 9s.
+:::
 
 ## interruptAttachingToTangle
 
@@ -1402,7 +1411,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -1461,17 +1470,19 @@ curl http://localhost:14265 \
 
 ## removeNeighbors
 
-Temporarily removes a list of neighbors from an IRI node.
+Temporarily removes a list of neighbors from a node.
 
-**Note:** The neighbors are added again if the IRI restarts. If you want to permanently remove the neighbors from your own IRI node, remove their URIs from the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option. 
+:::info:
+The neighbors are added again if the node restarts. If you want to permanently remove the neighbors from your own node, remove their URIs from the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option. 
+:::
 
 ### Parameters
 
-The URI (unique resource identification) format for adding neighbors is `"udp://IPADDRESS:PORT"`.
+The URI (unique resource identification) format for removing neighbors is `"udp://IPADDRESS:PORT"`.
 
 |Parameter | Required or Optional|Description | Type|
 |--|--|--|--|
-| `uris` | Required|Strings of neighbor URIs to add | array of strings|
+| `uris` | Required|Strings of neighbor URIs to remove | array of strings|
 
 ### Examples
 --------------------
@@ -1497,7 +1508,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -1556,7 +1567,7 @@ curl http://localhost:14265 \
 
 ## storeTransactions
 
-Store transactions in an IRI node's local storage.
+Store transactions in a node's local storage.
 
 ### Parameters
 
@@ -1593,7 +1604,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -1639,7 +1650,7 @@ curl http://localhost:14265 \
 ```json
 {
 "trytes": ["JJSLJFJD9HMHHMKAJNRODFHUN ..."],
-"duration":982
+"duration": 982
 }
 ```
 ---
@@ -1659,9 +1670,9 @@ curl http://localhost:14265 \
 
 ## wereAddressesSpentFrom
 
-Check if an address was ever spent from, either in the current epoch or in any previous epochs.
+Check if an address was ever withdrawn from, either in the current epoch or in any previous epochs.
 
-If an address has a pending transaction, it's also considered spent.
+If an address has a pending transaction, it's also considered 'spent'.
 
 ### Parameters
 
@@ -1699,7 +1710,7 @@ jsonData = json.loads(returnData)
 print jsonData
 ```
 ---
-### Node JS
+### Node.js
 ```js
 var request = require('request');
 
@@ -1750,8 +1761,8 @@ curl http://localhost:14265 \
 ### 200
 ```json
 {
-"states": ["true", "false"],
-"duration":982
+"states": [true, false],
+"duration": 982
 }
 ```
 ---

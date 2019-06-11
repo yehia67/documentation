@@ -1,16 +1,21 @@
-# Deploy and test Track and trace
+# Deploy and test the track and trace app
 
-**The section below describes how to install and re-use the presented PoC.**
+**To start tracking data on the Tangle, deploy the application and use our graphical user interface to search for and upload assets.**
 
 ## Prerequisites
 
-- For instructions on how to deploy a Firebase server for the required PoC backend functionalities, please read here: https://firebase.google.com/  
-- For how-to connect to an IOTA node, and sending transaction to the IOTA network using IRI, please read here: https://docs.iota.org/iri  
-- For how-to to create MAM Channel and messages, using the IOTA MAM JS library, please read here: https://github.com/iotaledger/mam.client.js  
+You must know how to do the following:
 
-## Reproduce the PoC
+* [Deploy a Firebase server](https://firebase.google.com/)
 
-- In order to reproduce this PoC, you do not need to deploy to dedicated hardware.
-- Find more details and re-usable code in the [Trade-PoC GitHub repository](https://github.com/iotaledger/trade-poc).
-- To deploy your track and trace web app, please follow instructions [here](https://github.com/iotaledger/trade-poc/blob/master/firebase_functions/README.md).  
-- To deploy your backend server (Object Repository) built in Firebase, please follow instructions [here](https://github.com/iotaledger/trade-poc/blob/master/README.md).
+* [Connect to an IOTA node](root://iri/0.1/how-to-guides/interact-with-an-iri-node.md)
+
+* Create a MAM channel and send messages through it using the [JavaScript client library](https://github.com/iotaledger/mam.client.js )
+
+---
+
+1. Find more details and re-usable code in the [Trade-PoC GitHub repository](https://github.com/iotaledger/trade-poc)
+
+2. To deploy your track and trace web app, follow these [instructions](https://github.com/iotaledger/trade-poc/blob/master/firebase_functions/README.md)
+
+3. To deploy the Firebase server, follow these [instructions](https://github.com/iotaledger/trade-poc/blob/master/README.md)

@@ -1,20 +1,22 @@
-# Track and trace
+# Track and trace overview
 
-**This blueprint describes how a track and trace system for recovery of returnable assets has been implemented by the IBCS Group, using the IOTA Tangle and other IOTA technologies.**
+**Due to the lack of due diligence and the lack of a vendor-neutral data source, returnable assets that are used within distribution networks are seldom returned to their original owners. This blueprint describes how a track and trace system for recovery of returnable assets has been implemented by the IBCS Group, using the IOTA Tangle and other IOTA technologies.**
 
 ![Track and Trace](../intro_track_trace.png)
 
-## Use case 
+Integration of this system within IBCS Group’s business processes is presented in order to provide a guide for other organizations willing to replicate and adapt the produced software to scenarios and business processes similar to the ones presented.
 
- Integration of this system within IBCS Group’s business processes is presented in order to provide a guide for other organizations willing to replicate and adapt the produced software to scenarios and business processes similar to the ones presented.
+## Business case 
 
-A returnable asset	is an asset (e.g. a container or in this blueprint a glass rack) used in the distribution and logistic chain for the handling and delivery of other valuable assets (e.g. glasses).
+Misplacement of returnable assets represents an economic loss for the asset owners. This also affects ability to fulfil producers next deliveries and is a waste of time and resources when owners try to recover their missing returnable assets.
 
-In the case of the glass manufacturing industry, a returnable asset is used to ship glasses from a glass producer (owner of the asset) to a distributor. Instead of returning the returnable asset to the glass producers, the glass distributors might use them to further ship glasses to a window manufacturer. The window manufacturers might use the returnable asset to deliver windows to the final end customer, either directly or through a different reseller. 
+A returnable asset is an asset, such as a glass rack, that's used by multiple parties in the distribution and logistics chain while handling and delivering other valuable assets such as glasses.
 
-The table below summarizes the different stakeholders and roles considered in our use case.
+In the case of the glass manufacturing industry, a returnable asset is used to ship glasses from a glass producer (owner of the asset) to a distributor. Instead of returning the returnable asset to the glass producers, the glass distributors might use them to ship other glasses to a window manufacturer. Then, the window manufacturers might use the returnable asset to deliver windows to the final end customer, either directly or through a different reseller. 
 
-| Stakeholder       | Role |
+The table below summarizes the different stakeholders and roles considered in this business case. The table also shows how complex it is to keep track of all the relations involved in the handling of returnable assets. 
+
+| **Stakeholder**       | **Role** |
 |:---------------|:--------|
 | Glass Producers | Deliver glasses either to distributors (directly) or to Window Manufacturers (through Logistic Provider). Own the returnable assets. |
 | Window Manufacturers | Deliver windows to windows resellers either directly or through logistic providers. Might own their own returnable assets and use for the delivery. Or they might also re-use returnable assets received from glass producers.  |
@@ -23,71 +25,64 @@ The table below summarizes the different stakeholders and roles considered in ou
 | End-customers    | Receive windows directly from windows resellers or through logistic providers which use glass producers and windows manufacturers returnable assets. Often dispose returnable assets or do not know to whom and how to return.  | 
 | Logistic Providers   | Move assets and returnable assets along the distribution chain.  | 
 
-The table shows how complex it is to keep track of all the relations involved into the handling of returnable assets. 
+This image presents a simplified stakeholders map and the different actions each stakeholder should perform when in contact with a given returnable asset. The following entities are represented:
 
-The following graphic presents a simplified stakeholders map, highlighting returnable asset owners, the different chains of custody and how returnable assets move along the chain (dotted arrows) and those stakeholders (namely custodians, green circles) eventually responsible of returning the assets to their owners (purple circles). 
+**Dotted arrows:** Path of a returnable asset
+**Green circles:** Stakeholders such as custodians
+**Purple circle:** Owner of the returnable asset 
 
 ![Returnable assets stakeholder map](../track-and-trace-returnable-assets-stakeholders.png)
 
-The image also shows the different actions they should perform when in contact with a given returnable asset.
+### Challenges
 
-Due to the lack of due diligence and complexity of this process, returnable assets are used within distribution networks and are seldom returned to their original owners. 
+So far, tracking and tracing returnable assets has been unsuccessful for the following reasons: 
 
-Similar returnable assets and problems can be seen in other industries and value chains, such as  the international flowers industry that also uses a variety of re-usable stands and pots. A solution to problem in the glass industry can be easily adapted to those markets and stakeholders too. 
+- Custodians don't see economic value in a returnable asset. Instead, returnable assets are more likely to be seen as disposable assets
+- Custodians are neither incentivized to help track returnable assets nor held accountable for not doing so
+- Tracking returnable assets requires access to data that's stored in a number of proprietary systems, all of which belong to different custodians. These different systems increase the complexity to predict, map, and integrate the data, and exceed the perceived benefits in tracking returnable assets.
 
-Therefore, there is the need for the returnable asset owners to track and trace their assets and to claim them back when these are considered missing. As various producers are circulating similar identical  assets with their stakeholders, the problem is spread across the whole industry.  
+It's not possible to report the custody of assets using a centralized database because this database will also reveal to third parties, proprietary knowledge about different stakeholders, customers, and distribution chains. Moreover, it will be difficult to create a system that's able to centrally track all the possible interactions envisioned for a number of stakeholders that aren't known up front.
 
-This requires a tracking system that allows for the collection of this information across a complex ecosystem of stakeholders. However, it is not possible to report custody-of-assets using a centralized database for the whole ecosystem as this will also reveal, to third parties, proprietary knowledge about different stakeholders, customers, and distribution chains. Moreover, it will be difficult to create a system able to centrally track all the possible interactions envisioned for a number of stakeholders not known apriori. The use of a distributed ledger provides a solution to these issues. In particular, using IOTA as a tracking layer ensures that only rightful owners will receive information of owned assets without any unauthorised party being able to gather or access any central recording of the full ecosystem.  
+### Solution
 
-Thanks to the permissionless nature of IOTA, no trust is required for who runs the infrastructure as this is spread across those independently running IOTA nodes. 
+The use of IOTA, a permissionless, distributed ledger technology, provides a solution to seamlessly collect and share information about returnable assets, despite all of the involved custodians and without the need to integrate any proprietary system. While doing that, IOTA can still guarantee access control of the collected information through the use of the second layer MAM protocol.
 
-In addition to that, no former knowledge of all parties willing to write information into the ledger is required, thus simplifying the creation of a track and trace system that can be used by all the different stakeholders and industry sectors as needed and with minimum integration and onboarding time.
+Thanks to the permissionless nature of IOTA, no trust is required among those who run the infrastructure because it's spread across the whole IOTA network. 
 
-The solution we describe in this blueprint allows for the following:
-
-- The owner of a returnable asset acquires the asset identity through a mobile app and an existing barcode or QR-code and creates a digital representation of her asset. The digital version of the asset (its digital twin	) is 
-recorded in an immutable way on the IOTA Tangle together with the identity of its owner;
-
-- Once, as part of its use within the distribution channels, the given returnable asset is handed over to a different custodian, the new custodian uses the same or a similar app to retrieve from the IOTA Tangle the asset digital twin and to attach to it its identity as well as its location (if available). Information is again recorded onto the Tangle in order to further trace asset use;
-
-- Change of custody is tracked as long as the asset and its custody is not returned to its owner or the asset is declared missing by its owner. In this last case, the asset owner can track the last asset custodian by retrieving it from the Tangle.  
-
-## Business case 
-
-Misplace of returnable assets represents an economic loss for the asset owners. This also affects ability to fulfil producers next deliveries and is a waste of time and resources when owners try to recover their missing returnable assets.  
-
-Traditional track and trace of returnable assets has been so far unsuccessful for the following reasons: 
-
-- Economic value of returnable assets is not perceived by their custodians but only by their owners; instead returnable assets are more likely to be seen by their custodians as disposable assets; 
-- There is currently neither incentive for different custodians to help tracking returnable assets nor perceived responsibility in not doing that; 
-- Tracking returnable assets requires access to information stored in a number of proprietary systems belonging to the different custodians, for which the complexity to predict, map and integrate them exceed the perceived benefits. 
-
-The use of IOTA, a permissionless distributed ledger technology, provides a solution to seamlessly collect and share information about returnable assets, despite all of the involved custodians and without need to integrate any proprietary system. While doing that, IOTA can still guarantee access control of the collected information. The permissionless nature of IOTA Tangle, and the use of the 2nd layer MAM  protocol, fulfill these needs.  
-
-While this already solves the track and trace problem, in future scenarios the use of IOTA Token (and Qubic smart contracts2) could allow to create incentive to reward custodians participation to the track and trace activities, despite the country and the currency in which the assets are handled. 
+In addition, no former knowledge of all parties who write information to the ledger is required, thus simplifying the creation of a track-and-trace system that can be used by all the different stakeholders and industry sectors as needed and with minimum integration and onboarding time.
 
 As a result, the following benefits are envisioned: 
 
-- Owners can track and request return of their returnable assets, thus saving money resulting from the need to buy new assets needed to fulfill their delivery needs. They can also save the time and the costs associated to searching for missing ones; 
+- Asset owners can track and request the return of their returnable assets, thus saving money resulting from the need to buy new assets
 
-- Asset owners can better predict and plan shipments of their production by knowing exactly the number and location of returnable assets available to them;  
+- Asset owners can save the time and the costs associated with searching for missing assets
 
-- Custodians can easily track the returnable assets they handle, get rewarded and increase their reputation towards returnable assets owners, while saving costs associated to support owners’ requests when assets are declared missing. 
-A scenario similar to the one described above is the one of the international container shipment, for which a solution similar to the one presented could be implemented and replicated.
+- Asset owners can better predict and plan shipments of their production by knowing the exact number and the exact location of any returnable assets that are available to them
 
-You can now continue to [Architecture](architecture.md).
+- Custodians can track the returnable assets they handle, be rewarded for returning them, and increase their reputation with asset owners
 
-## List of Abbreviations 
+- Custodians can save costs associated with supporting requests for returnable assets that are declared missing
+
+:::info:
+While this solution already solves the track and trace problem, in future scenarios the use of the IOTA token (and Qubic smart contracts) could allow you to create incentives to reward custodians who participate in tracking and tracing returnable assets, despite the country and the currency in which the assets are handled.
+:::
+
+## Demo
+
+See this website for a [demonstration of the application](http://tradedemo.iota.org/).
+
+## Abbreviations 
  
 - IF - IOTA Foundation
 - HW - Hardware
 - SW - Software
-- JS - Javascript
-- IRI - IOTA Reference Implementation, the SW written in JAVA that allows users to become part of the [IOTA](root://iri/0.1/introduction/overview.md) network as both a transaction relay and network information provider through the easy-to-use [API](root://iri/0.1/references/api-reference.md).
+- JS - JavaScript
+- IRI - IOTA reference implementation, the SW written in Java that allows users to become part of the [IOTA network](root://iri/0.1/introduction/overview.md) as both a transaction relay and network information provider through the easy-to-use [API](root://iri/0.1/references/api-reference.md).
 - DBMS - Database management systems
-- MAM -	Masked Authenticated Messaging 	a second layer data communication protocol which adds functionality to publish and control access to an encrypted data stream, over the Tangle 
+- MAM -	Masked Authenticated Messaging, a second layer data communication protocol that adds functionality to publish and control access to an encrypted data stream, over the Tangle 
  	 	 
-Additional Resources 
+## Additional resources
+
 - [IRI Repository](https://github.com/iotaledger/iri )
 - [MAM eloquently explained](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e) 
 - [MAM Source code Repository](https://github.com/iotaledger/mam.client.js) 

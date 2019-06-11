@@ -1,22 +1,32 @@
 # IOTA basics overview
 
-**IOTA introduces new concepts that are essential to learn before you start using an IOTA network.**
-
-An IOTA network consists of nodes and clients. A node is a computer that's connected to peers in an IOTA network and that has read/write access to a ledger of transactions. A client is a device that has a seed, which can be used to create their [addresses and signatures](../concepts/addresses-and-signatures.md).
+**An IOTA network consists of nodes and clients. A node is a device that has read/write access to a ledger of transactions. A client is a device that has a seed. A seed gives a client access to [addresses](../concepts/addresses-and-signatures.md). Addresses have a balance, which defines the amount of IOTA tokens in them. To withdraw IOTA tokens from their addresses, clients must send bundles of transactions to a node so that the nodes can validate the transactions and update their ledgers.**
 
 ## Clients
 
-Similar to an account number and sort code, an address in IOTA is a unique string of 81 characters ([trytes](../concepts/trinary.md)) that let's clients on the network send each other data or IOTA tokens in packets called [transactions](../concepts/bundles-and-transactions.md).
+Like an account number and sort code, an address in IOTA is a unique string of 81 characters ([trytes](../concepts/trinary.md)) that are unique to each seed.
 
-Transactions are objects that are [structured according to the rules (protocol) of the nodes in the IOTA network](../references/structure-of-a-transaction.md). Each transaction is an operation that instructs a node to transfer IOTA tokens or simply store the transaction if it contains only data.
+:::info:
+Sometimes addresses have 90 characters. The extra 9 characters are called the checksum, which helps you make sure your address is correct.
+:::
 
-Before a client can send a transaction, it must be packaged together in a bundle and sent to nodes so the network can validate and store it. When a transaction is validated and stored by nodes in an IOTA network, it's [immutable](#immutability).
+Clients on the network send each other data or IOTA tokens to each other's addresses in [bundles, which contain transactions](../concepts/bundles-and-transactions.md).
 
-**Tip:** The IOTA [client libraries](root://client-libraries/0.1/introduction/overview.md) provide you with all the tools you need, including those to create addresses, signatures, and bundles. All the methods that handle seeds are executed on the client side (your computer), to make sure that they're never sent anywhere insecure.
+Transactions are objects that are [structured according to the rules (protocol) of the nodes in the IOTA network](../references/structure-of-a-transaction.md). Each transaction is an operation that instructs a node to withdraw IOTA tokens, deposit IOTA tokens, or simply store the transaction.
+
+:::info:
+The IOTA [client libraries](root://client-libraries/0.1/introduction/overview.md) contain all the tools you need, including those to create addresses and bundles.
+
+Any code that uses a seed is executed on the client side. Your seed never leaves your device.
+:::
 
 ## Nodes
 
-Nodes are like a cross between a post office and a bank. They keep a ledger of every transaction that they receive and the non-zero balances of all addresses in the network. For a node to allow the withdrawal of IOTA tokens from an address, the transaction must be valid. Nodes [validate transactions](root://iri/0.1/concepts/transaction-validation.md) according to a set of rules, one of which states that withdrawals must contain a valid [signature](../concepts/addresses-and-signatures.md). When a transaction is considered valid, the node adds it to its ledger and updates the balances of the affected addresses.
+Nodes are like a cross between a post office and a bank. They keep a ledger of every transaction that they receive and the non-zero balances of all addresses in the network.
+
+Nodes have an [API](root://iri/0.1/references/api-reference.md), which allows clients to read from the ledger and send bundles.
+
+Nodes [validate transactions](root://iri/0.1/concepts/transaction-validation.md) according to a set of rules, one of which states that withdrawals must contain a valid [signature](../concepts/addresses-and-signatures.md). When a transaction is considered valid, the node adds it to its ledger and updates the balances of the affected addresses.
 
 ### Trust
 
@@ -26,7 +36,7 @@ Well, IOTA is a [distributed ledger technology](root://getting-started/0.1/intro
 
 ### Immutability
 
-So, what stops a node from being able to change a transaction?
+What stops a node from being able to change a transaction?
 
 The first step to transaction immutability is to hash its contents into 81 trytes. This hash is unique to the transaction. If one character of the transaction's contents were to be changed, the hash would be invalid.
 

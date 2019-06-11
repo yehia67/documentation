@@ -1,23 +1,25 @@
-# Architecture
+# Application architecture
 
-**This page describes an example architecture that can be used for solving the Track and trace use case.**
+**The track-and-trace application uses the IOTA MAM protocol to give returnable assets an ID and to track those assets in streams of transactions called MAM channels.**
 
-**Disclaimer:** Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss with IOTA community.
+:::warning:Disclaimer
+Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community.
+:::
+
+This application uses the IOTA MAM [JavaScript libraries](https://github.com/iotaledger/mam.client.js) to give a returnable asset an ID, and track that asset through every custodian.
 
 ## Prerequisites
 
-This projects asumes some level of programming knowledge, specifically in: Javascript. Knowledge of React and basic knowledge of DBMS is also recommended is recommended for the deployment of the PoC in [Deployment and testing](deployment-and-testing.md).
+To test, edit, and deploy this application, you need programming knowledge in JavaScript, React, NodeJS, and database management systems.
 
-The presented infrastructure makes use of the IOTA Tangle and IOTA MAM. You can interact with MAM using the MAM [javascript libraries](https://github.com/iotaledger/mam.client.js).
-
-## Using IOTA Masked authenticated messaging
+## Masked authenticated messaging
 
 The track and trace of a given returnable asset consists of a series of events. Because of this, registering the change of custody of a given asset, through the use of MAM channels, makes it easy to store the different custodian information onto the IOTA Tangle and associate it as a message in the same channel. Using MAM allows for encryption and protection of the shared information. Without using MAM, this could alternatively be done by issuing independent transactions to the IOTA Tangle, storing the required information for each change of custody related to a given asset. However, the architecture complexity of reconciling and linking all the information associated to a given asset would increase. That's why MAM was chosen as preferred solution design.
 
 ![Track and Trace](../track-and-trace-architecture.png)
 
 A tracker interacts with the architecture to report asset ownership and change of custody. Authorized tracers 
-connects to the architecture to fetch information about a given asset, e.g. its last custodian. 
+connect to the architecture to fetch information about a given asset, e.g. its last custodian. 
 
 A new IOTA MAM channel is created once a new returnable asset is first registered by its owner. A digital twin for the returnable asset is created with the following information: `<assetUniqueID, assetOwnerID, assetCustodianID, location, time, status>`. 
 
@@ -65,9 +67,9 @@ The communication diagram below shows the different messages exchanged across th
 
 Details on the different components implementation is provided below, alongside with code snippets. 
 
-## Data model/digital twin 
+## Data model of a digital twin 
 
-A returnable asset digital twin contains the following: 
+A returnable asset digital twin contains the following fields: 
 
 ```javascript
 { 
@@ -82,7 +84,7 @@ A returnable asset digital twin contains the following:
 } 
 ```
 
-## IOTA Building blocks
+## IOTA building blocks
 
 The tracker app will be responsible of creating and updating assets digital twins as MAM Channels and messages in order to allow tracking.
 
@@ -198,6 +200,4 @@ export const updateItem = (eventBody, mam, newItemData, user) => {
 };
 ```
 
-In the `updateItem()` function above, first the Firebase Object Repository is searched for an existing asset, through its itemId and subsequently information are updated with the new MAM channel or message details.
-
-Now that the functionality is defined, you continue to [Deployment and testing](deployment-and-testing.md).
+In the `updateItem()` function, first the Firebase Object Repository is searched for an existing asset by the 'itemId' field, then any information for that object is updated with the new MAM channel or message details.

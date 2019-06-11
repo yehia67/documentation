@@ -1,6 +1,6 @@
 # Connect to a custom IRI node
 
-**Instead of using the built-in node-balancing service, you can connect to a custom IRI node in Trinity.**
+**Instead of using the built-in node balancing service, you can connect to a custom IRI node in Trinity.**
 
 You may want to connect to your own IRI node or an IRI node on the Devnet network.
 

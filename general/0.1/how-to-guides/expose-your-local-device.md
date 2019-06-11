@@ -1,18 +1,22 @@
 # Expose your local device to the Internet
 
-**To connect a device to those outside of your local network, you can create port forwarding rules to forward requests from your public IP address to your device. A common reason to expose your local device to the Internet is to connect your IOTA node to neighbors.**
+**To connect a device to those outside of your local network, you need to expose it to the Internet. A common reason to expose your local device to the Internet is to connect an IOTA node to neighbors.**
 
-Before you can create port forwarding rules, you need a static IP address on your local network. If you already have one, [go straight to port forwarding](#create-a-port-forwarding-rule).
+To expose your local device to the Internet, you must forward ports from your router to your device. By doing so, any connections to your router's IP address on those ports will be forwarded to your device.
 
-## Prerequisites
-
-To complete this guide, you must have a Linux Ubuntu 18.04 server. If you don't have a Linux server and you're running a Windows or Mac operating system, you can [run one in a virtual machine](../how-to-guides/set-up-virtual-machine.md).
+Before you can create port forwarding rules, you need a static IP address both on your local network and the Internet. If you already have these, [go straight to port forwarding](#create-a-port-forwarding-rule).
 
 ## Get a static IP address on your local network
 
-Whenever a new device connects to a local network, it's assigned an internal IP address from a DHCP (dynamic host configuration protocol) server, which is usually your router.
+On many private networks, whenever a new device connects to it, the device is assigned a new internal IP address from a DHCP (dynamic host configuration protocol) server, which is usually a router.
 
-Before you can create port forwarding rules, you need the internal IP address of your local device to stay the same. Otherwise, you'd need to update your port forwarding rules every time your IP address changed.
+To avoid changing port forwarding rules, you need the internal IP address of your local device to stay the same. Otherwise, you'd need to update your port forwarding rules every time your IP address were to change.
+
+### Prerequisites
+
+To complete this guide, you must have a Linux Ubuntu 18.04 server. If you don't have a Linux server and you're running a Windows or Mac operating system, you can [run one in a virtual machine](../how-to-guides/set-up-virtual-machine.md).
+
+---
 
 **Note:** Many ways exists to get a static IP on your local network, and this guide is just one way of doing so.
 
@@ -62,19 +66,35 @@ Before you can create port forwarding rules, you need the internal IP address of
     sudo netplan apply
     ```
 
-Now that you're Linux server has a static IP address, you can [create port forwarding rules](#create-port-forwarding-rules).
-
 **Important:** If your network configuration changes, for example you change your router, you may lose connection to your device. In this case, you should physically connect to your device and update the 01-netcfg.yaml file with a new static IP address.
 
-**Note:** If you want your Linux server to have a public domain name and your public IP address is not static, you can use a dynamic domain name server (DDNS) such as [DuckDNS](https://www.duckdns.org/).
+## Get a domain name for your router
+
+To allow external devices to connect to your device through the Internet, your router needs a static IP address on the Internet. Unfortunately, Internet service providers often give your router a dynamic IP address, which changes at regular intervals. As a result, any connections to your device will be lost when its IP address changes. Therefore, you need to use a dynamic DNS (DDNS) service to get a public domain name that is linked to your dynamic IP address. With a DDNS, your device will report the actual public IP to the DDNS server every few minutes, so it can update its records for your domain name.
+
+**Note:** In this task, we use Duck DNS, but many other DDNS services exist.
+
+1. [Create a Duck DNS account](https://www.duckdns.org/) and add a subdomain
+
+    ![Duck DNS sub domain](../duckdns-subdomain.png)
+
+2. [Install the scripts](https://www.duckdns.org/install.jsp) that will send your IP address to Duck DNS at regular intervals. Make sure you select the correct operating system for your device and select your subdomain from the dropdown. Then, follow the instructions.
+
+    ![Duck DNS installation](../duckdns-install.png)
+
+Now that your router has a static IP address, you can create port forwarding rules to forward connections to your device.
 
 ## Create a port forwarding rule
 
-To expose a local device to the Internet, you must create port forwarding rules, which forward requests from certain ports of your public IP address to your local device's internal IP address.
+To expose a local device to the Internet, you must create port forwarding rules, which forward requests from certain ports of your router's IP address to your local device's internal IP address.
 
 ### Prerequisites
 
-You need administrator access to your router and a [static IP address on your local network](#get-a-static-ip-address-on-your-local-network).
+To complete this guide, you need the following:
+
+* Administrator access to your router
+* A [static IP address on your local network](#get-a-static-ip-address-on-your-local-network).
+* A static IP address for your router, or if it has a dynamic IP address, a [domain name from a dynamic DNS service](#get-a-domain-name-for-your-router)
 
 ---
 
