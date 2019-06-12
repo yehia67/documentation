@@ -14,5 +14,5 @@
 |`MAX FORWARD DELAY` |`max_forward_delay`|Affects the transaction's position in the sender queue. A number between `MIN FORWARD DELAY` and `MAX FORWARD DELAY` is used to determine the send time of the transaction in the queue. | 200|
 |`MAX. ABS. TX./ROUND`|`anti_spam_abs`|Maximum amount of transactions that a node will accept during a round. If a neighbor sends more transactions than this value, the node will ignore them and increment the number of ignored transactions in the `IGN` column of the logs | 1000|
 |`WEB ACCESS ENABLED`|`gui_enabled`|Controls whether to Ict website | true|
-|`PORT`|`gui_port`|Port to access the Ict website | 2187|
-|`PASSWORD`|`gui_password`| Password to log into the Ict website| change_me_now|
+|`PORT`|`gui_port`|Port to access the Ict website and the API | 2187|
+|`PASSWORD`|`gui_password`| Password to log into the Ict website and authenticate API requests| change_me_now|

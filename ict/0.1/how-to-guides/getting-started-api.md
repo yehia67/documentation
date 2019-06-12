@@ -1,8 +1,8 @@
 # Get started with the Ict REST API
 
-**The Ict REST API allows you to programatically configure a node, download the latest Ict Java file, update IXI modules, as well as access data from neighbors, log messages, and IXI modules.**
+**The Ict REST API allows you to configure a node, download the latest Ict Java file, update IXI modules, as well as access data from neighbors, log messages, and IXI modules.**
 
-In the following guide, you'll use Node.js to send an HTTP POST request for the following:
+In the following guide, you'll use Node.js to send an HTTP POST request for the following information:
 
 * The version of the Ict software that a node is running
 * The default values of the configuration parameters
@@ -20,7 +20,7 @@ To use the sample code in this guide, you must have the following:
 
 ## Authentication
 
-Nodes wait to receive transactions from clients on the REST API port.
+Nodes wait to receive transactions from clients on the GUI port.
 
 All requests must include the password to the Ict website in a query parameter, which must be in the following format:
 
@@ -34,32 +34,23 @@ If you've forgotten your password, [find it in the configuration file](../refere
 
 ## Get general information about a node
 
-:::info:
-Just want the code? [See the final code](#final-code).
+:::info:Just want the code?
+[See the complete sample code](#final-code).
 :::
 
-1. Create a working directory called node-info-example
-
-    ```bash
-    mkdir node-info-example
-    cd node-info-example
-    ```
-
-2. In the `node-info-example` directory, install the [request module](https://github.com/request/request)
+1. Install the [request module](https://github.com/request/request)
 
     ```bash
     npm install request --save
     ```
 
-3. Create a file called index.js in the `node-info-example` directory
-
-4. In the index.js file, require the `request` module
+2. Require the `request` module
 
     ```js
     var request = require('request');
     ```
 
-5. Create a variable to store your password. Replace `change_me_now` with your password.
+3. Create a variable to store your password. Replace `change_me_now` with your password.
 
     ```js
     var password = "password=change_me_now";
@@ -69,7 +60,7 @@ Just want the code? [See the final code](#final-code).
     If you've forgotten your password, [find it in the configuration file](../references/troubleshooting.md).
     :::
 
-6. Create an `options` object to authenticate the request with your password. Replace `http:localhost:2187` with the URL and REST API port of your node, and replace `change_me_now` with your password.
+4. Create an `options` object to authenticate the request with your password. Replace `http:localhost:2187` with the URL and REST API port of your node, and replace `change_me_now` with your password.
 
     ```js
     var options = {
@@ -82,7 +73,7 @@ Just want the code? [See the final code](#final-code).
     };
     ```
 
-7. Call the `request()` function and pass it the `options` object
+5. Call the `request()` function and pass it the `options` object
 
     ```js
     request(options, function (error, response, data) {
@@ -93,7 +84,7 @@ Just want the code? [See the final code](#final-code).
     });
     ```
 
-8. Execute the file
+6. Execute the file
 
 The output should display something like the following:
 

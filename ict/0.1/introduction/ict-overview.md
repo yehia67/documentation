@@ -1,38 +1,28 @@
 # Ict overview
 
-**The Ict (IOTA Controlled agenT) is open-source Java software that defines an IOTA protocol, which is a lightweight alternative to the IRI. Computers that run the Ict are called nodes.**
+**The Ict (IOTA controlled agent) is a lightweight, modular implementation of the IOTA protocol that's designed for small devices on the Internet of Things. The Ict consists of a gossip protocol that allows nodes to send and receive transactions among each other. Everything else such as consensus algorithms, enhancements, and applications can each be built on top of the Ict as an IOTA extension interface (IXI) module. This design allows nodes to use as many modules as they like, depending on the size of the device that they're running.**
 
 :::info:
-At the moment, the IRI and Ict protocols aren't compatible, and the Ict doesn't have a Mainnet. The purpose of the Ict is to develop an IOTA protocol that devices can run on the Internet of Things.
- :::
+The Ict is separate and incompatible with other implementations such as IRI.
 
-To reduce the storage overhead of nodes, the Ict doesn't store transactions persistently in a database, instead transactions are streamed and forgetten after runtime.
+At the moment, you can send only zero-value transactions on the Ict network. As such, you can't transfer the IOTA token on it.
+:::
 
-The main components of the Ict are the following:
+To reduce the storage overhead of nodes, the Ict doesn't store transactions in a database. Instead, the Ict streams and processes transactions in a queue. Depending on the node's available memory during runtime, the Ict prunes transactions from the queue in the order of first in first out (FIFO).
+
+The Ict consists of the following:
 
 * Gossip protocol
-* IOTA eXtension Interface (IXI)
-* Swarm intelligence
-* Economic clustering
+* IXI
 
 ## Gossip protocol
 
-Nodes communicate with their neighbors through a gossip protocol.
+Nodes communicate with their neighbors through a gossip protocol, which allows them to forward transactions onto the rest of the network.
 
-<dl><dt>gossip protocol</dt><dd>A peer-to-peer communication protocol that allows computers in the same network to share data.</dd></dl>
+To allow small IoT (Internet of Things) devices to run the Ict, it does not store a persistent database of transactions. Instead, Ict exchanges transactions with its neighbors and stores them only while it has memory during runtime. 
 
-To allow small IoT (Internet of Things) devices to run the Ict, it does not store a persistent database of transactions. Instead, Ict exchanges transactions with its neighbors and stores them only during runtime. 
+## IOTA extension interface
 
-## IOTA eXtension Interface
+The IXI is an API that allows you to build modules which extend the functionality of the core Ict.
 
-The IOTA eXtension Interface (IXI) is an API that allows you to build modules which extend the functionality of the core Ict.
-
-IXI modules can filter through the transaction stream. For example, to build a permanode (a node that permanently stores all transactions), one could write the entire stream into a database.
-
-## Swarm intelligence
-
-[Swarm intelligence](https://en.wikipedia.org/wiki/Swarm_intelligence) allows nodes to cooperate and achieve shared goals.
-
-## Economic clustering
-
-An economic cluster is a collection of economic actors that reach consensus on the same transactions. When a transaction is referenced by a sufficient amount of economic actors in the cluster, that transaction is considered confirmed in that economic cluster. Each node can follow one economic cluster.
+IXI modules can filter through transactions or even create and send their own transactions. For example, to build a permanode (a node that permanently stores all transactions), one could write all received transactions into a database.

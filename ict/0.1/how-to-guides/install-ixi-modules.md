@@ -11,10 +11,10 @@ Find an [IXI module](../references/ixi-modules.md) that you want to install.
 1. In a web browser such as Google Chrome, enter the address of your Ict website
 
     :::info:
-    If you don't know your Ict website, or you're having trouble connected to it, [find solutions in the troubleshooting guide](../references/troubleshooting.md).
+    If you don't know the address of your Ict website, or you're having trouble connected to it, [find solutions in the troubleshooting guide](../references/troubleshooting.md).
     :::
 
-2. Log into the Ict website
+2. Log in
 
     ![Ict login](../ict-password.png)
 

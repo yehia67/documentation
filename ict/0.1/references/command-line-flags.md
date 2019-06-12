@@ -1,6 +1,6 @@
 # Command line flags
 
-**In the command to execute the Ict Java file, you can pass the following flags to change the default behavior of a node, such as saving log messages to a file.**
+**In the command to execute the Ict Java file, you can pass the following flags to change the default behavior of a node. For example, you can choose to save log messages to a file.**
 
 **Flag**|**Alias**|**Example**|**Description**
 :---|:---|:---|:---

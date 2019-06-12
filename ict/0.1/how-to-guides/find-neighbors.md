@@ -11,7 +11,7 @@ The community often discusses Ict-related topics in the `ict-help` and `ict-disc
 1. Go to [Discord](https://discordapp.com/invite/fNGZXvh), and in the`ict-help` channel, say that you're looking for Ict neighbors
 
     :::warning:Keep your IP address secret
-    Don't share your node's IP address or URL in the channel. Wait until someone direct messages you, then you can both exchange details.
+    Don't share your node's IP address or URL in the channel. Wait until someone directly messages you, then you can both exchange details.
     :::
 
 2. If you can't find any neighbors in the channel, enter `!ictnodes` in the channel

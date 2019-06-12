@@ -5,11 +5,11 @@
 You have three options for updating the Ict software:
 * Download the pre-built Java file from GitHub (quickest option)
 * Build the Java file from the source code on GitHub
-* Use the REST API
+* Write a script that uses the REST API to automate the update process 
 
 ## Download the pre-built Java file
 
-The pre-built IRI Java file is available on the [IOTA GitHub repository](https://github.com/iotaledger/ict/releases). Downloading and executing this file is the quickest and simplest way to install the Ict software.
+The pre-built Ict Java file is available on the [IOTA GitHub repository](https://github.com/iotaledger/ict/releases). Downloading and executing this file is the quickest and simplest way to install the Ict software.
 
 1. Stop the node
 
