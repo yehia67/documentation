@@ -16,7 +16,7 @@ A common requirement for nearly all use cases or applications is that data must 
 However, the Tangle is not a database. The Tangle is an immutable, distributed ledger which allows you to store a hash of data and a pointer to its location in third-party data storage.
 
 :::info:
-Although permanent storage on the Tangle isn't currently possible, the IOTA Foundation (IF) are developing a solution that will allow permanodes to retain a full transaction history. These permanodes could retain the history for a number of reasons for example, to store a permanent record of supply chain events or a permanent record of vehicle maintenance and ownership.
+Although permanent storage on the Tangle isn't currently possible, the IOTA Foundation (IF) are developing a solution that will allow it. This solution is called permanodes.
 :::
 
 ### Solution
@@ -35,12 +35,24 @@ See this website for a [demonstration of the application](https://ipfs.iota.org/
 - HW - Hardware
 - SW - Software
 - JS - JavaScript
-- IRI - IOTA reference implementation, the SW written in Java that allows users to become part of the [IOTA network](root://iri/0.1/introduction/overview.md) as both a transaction relay and network information provider through the easy-to-use [API](root://iri/0.1/references/api-reference.md).
-- SHA256 - [Secure Hash Algorithm - 2](https://en.wikipedia.org/wiki/SHA-2)
+- IRI - IOTA reference implementation, the SW written in Java that allows users to become part of the IOTA network as both a transaction relay and network information provider through the easy-to-use API
+- SHA256 - Secure Hash Algorithm
 
 ## Additional Resources
 
-- PoC Repository - https://github.com/iotaledger/poc-ipfs
-- iota.js Repository - https://github.com/iotaledger/iota.js 
-- Node.js - https://nodejs.org/
-- IPFS - https://ipfs.io/
+---------------
+#### GitHub repository ####
+[Link](https://github.com/iotaledger/poc-ipfs)
+
+Read the code and some quickstart instructions to test this blueprint.
+---
+#### iota.js client library ####
+[Link](root://iota-js/0.1/README.md)
+
+Learn how to use the iota.js client library.
+---
+#### IPFS ####
+[Link](https://ipfs.io/)
+
+This blueprint stores files on IPFS, then attaches the immutable, permanent IPFS links to the Tangle. This secures your content, without having to put the whole file on the Tangle.
+---------------

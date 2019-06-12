@@ -2,20 +2,20 @@
 
 **Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses IOTA MAM channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.**
 
-Data is one of the most fundamental ingredients in the machine economy and the connected world. It is the foundation upon which the other strata of the **D**ata — **I**nformation — **K**nowledge — **W**isdom (**DIKW**) pyramid are dependent. Without this primary substrate, nothing can be established about the world. A datum (plural: data) is the raw value of a qualitative or quantitative variable: A pure unfiltered input from reality. Data sets that are structured and thus have had meaning extracted from them constitute what we consider to be information. Information tells us something concrete and coherent about the world through context. Contextualized information thus makes up what we know as knowledge, which in turn gives rise to our (and our machines’) ability to make wise decisions. Wisdom is knowledge applied.
+Data is one of the most fundamental ingredients in the machine economy and the connected world. It is the foundation of the Data — Information — Knowledge — Wisdom [(DIKW) pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid).
 
 ![Data pyramid](../images/data-marketplace-otr-updates.png)
 
-The above image shows how the different echelons of this hierarchy are intertwined:
+The different layers of this pyramid all rely on data. For example, sensors on cars can lead to the wisdom that allows drivers to bypass congestion:
 
-* **Data:** The sensors (cameras) monitoring the road are receiving signals from the photons reflecting off the surface of their environment
-* **Information:** The measured speed of the moving objects and their relative positions is the meaningful information extracted from this data
-* **Knowledge:** This information is then contextualized and distilled into knowledge, telling the drivers on the road via over-the-air ​updates that the road may be congested due to a crash
-* **Wisdom:** This knowledge allows drivers to take an alternative route
+* **Data:** Sensors (cameras) monitor the road and receive signals from the photons that reflect off the surface of their environment
+* **Information:** Sensor data is used to extract meaningful information about the speed of the moving objects and their relative positions
+* **Knowledge:** Information is contextualized and distilled into knowledge, telling the drivers on the road via over-the-air ​updates that the road may be congested due to a crash
+* **Wisdom:** Knowledge allows drivers to take an alternative route
 
 ## Business case
 
-Over the next decade, more than 75 billion connected devices will be interacting in different manners. These devices will give rise to a machine economy where they will trade everything from storage to electricity and sensor data. The data trade in this pilot project will highlight and explore the potential of these developments. With the prospect of tens of billions of devices generating data, we will see a proliferation of data that is unmatched in history.
+Over the next decade, more than 75 billion connected devices will be interacting in different manners. These devices will give rise to a machine economy where they will trade everything from storage to electricity and sensor data. The data trade in this pilot project will highlight and explore the potential in these developments. With the prospect of tens of billions of devices generating data, we will see a proliferation of data that is unmatched in history.
 
 ![IoT devices](../images/data-marketplace-iot-stats.png)
 
@@ -25,7 +25,7 @@ The largest obstacle preventing the fulfillment of the grandeur envisaged by Big
 
 ![Data silos](../images/data-marketplace-data-silos.png)
 
-Data silos do not, or very rarely, share data outside their own closed environment. This environment leads to enormous quantities of wasted data. In fact, often, over 99% of data is lost to the void ([source: McKinsey 2015](https://www.mckinsey.com/mgi/overview/in-the-news/by-2025-internet-of-things-applications-could-have-11-trillion-impact)). This lost data could potentially contain extremely valuable information if allowed to flow freely in open, decentralized data streams that are accessible to any compensating party.
+Data silos do not, or very rarely, share data outside their own closed environment. This environment leads to enormous quantities of wasted data. In fact, often, over 99% of data is lost to the void ([source: McKinsey 2015](https://www.mckinsey.com/mgi/overview/in-the-news/by-2025-internet-of-things-applications-could-have-11-trillion-impact)). This lost data could contain valuable information to any compensating party if it were in an open, decentralized data stream.
 
 ![Open data](../images/data-marketplace-open-data.png)
 
@@ -37,19 +37,19 @@ A third obstacle is the lack of ensured authenticity and audit trails of data. B
 
 The IOTA Foundation launched the [Data Marketplace](https://data.iota.org) as a proof of concept (PoC) and as an open innovation ecosystem.
 
-As a not-for-profit organisation, the IOTA Foundation has developed this project to produce an open source technology and empower other organisations to shape their own IOTA-enabled Data Marketplaces, with associated products and services. IOTA’s Data Marketplace PoC is not a launchpad for a future commercial service by the IOTA Foundation.
+As a non-profit organisation, the IOTA Foundation has developed this project to produce an open source technology and to empower other organisations to shape their own IOTA-enabled data marketplaces, with associated products and services.
 
 ![Data Marketplace](../images/data-marketplace.png)
 
-The growth of Data Marketplaces is an inevitable result of the IoT (Internet of Things) revolution. As physical assets such as ships, factories, vehicles, farms or buildings become digital, their digital twins will gradually act as secure data exchanges. As data streams surge across silos and carry value across organisations, traditional value chains will transition into a web of value. This paradigm will be more complex to administer, forcing business to rethink their competitive play as part of these ecosystems. Data marketplaces will emerge as a means to exchange data, monetise data streams and provide the basis of new “smart” business models. We refer to this new wave of value creation, for the Internet of Everything, as the “Economy of Things”.
+The growth of data marketplaces is an inevitable result of the IoT (Internet of Things) revolution. As physical assets such as ships, factories, vehicles, farms or buildings become digital, their digital twins will gradually act as secure data exchanges.
+
+As data streams surge across silos and carry value across organisations, traditional value chains will transition into a web of value. This paradigm will be more complex to administer, forcing business to rethink their competitive play as part of these ecosystems. Data marketplaces will emerge as a means to exchange data, monetise data streams and provide the basis of new smart business models. We refer to this new wave of value creation, for the Internet of Everything, as the Economy of Things.
+
+:::info:
+This Data Marketplace is not a launchpad for a future commercial service by the IOTA Foundation.
+:::
 
 ### Objectives of the initiative
-
-To realise the potential of data marketplaces, several key challenges had to be addressed.
-
-IOTA and its Data Marketplace initiative help to address these challenges with an initial Proof of Concept and a growing open innovation ecosystem. We invite all participants to help shape the IOTA technology as a common standard that works for all, and co-create new business models for the “Economy of Things”.
-
-![Smart models](../images/data-marketplace-smart-models.png)
 
 The initiative’s objective was to do the following:
 
@@ -57,9 +57,11 @@ The initiative’s objective was to do the following:
 * Explore business model innovation
 * Grow a co-creation ecosystem to foster permissionless innovation
 
-Like its technology, the IOTA Foundation’s approach to enabling innovation is open and permissionless. Our ambition is to enable the ecosystem to co-create and develop new IoT / M2M solutions and business models, but not to drive and push specific solutions to market.
+Like its technology, the IOTA Foundation’s approach to enabling innovation is open and permissionless. Our ambition is to enable the ecosystem to co-create and develop new solutions and business models, but not to drive and push specific solutions to market.
 
 The Data Marketplace is designed to enable an agile, experiment-driven and collective approach to innovation for its participants, but also for the IOTA Foundation itself. This initiative challenges the IOTA technology with the requirements of real life deployments and the demand of the Data Marketplace participants. We aim to adapt our technology to meet these demands.
+
+![Smart models](../images/data-marketplace-smart-models.png)
 
 ## Demo
 
@@ -67,11 +69,33 @@ See this website for a [demonstration of the application](https://data.iota.org/
 
 ## Abbreviations
 
-MAM - [Masked Authentication Messaging](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e) is a second layer data communication protocol which adds functionality to emit and access an encrypted data stream, like RSS, over the Tangle.
+MAM - Masked Authentication Messaging is a second layer data communication protocol which adds functionality to emit and access an encrypted data stream, like RSS, over the Tangle.
 
 ## Additional resources
 
-- [Data Marketplace repository](https://github.com/iotaledger/data-marketplace)
-- [Data Marketplace API documentation](https://data.iota.org/static/docs)
-- [MAM repository](https://github.com/iotaledger/mam.client.js)
-- [iota.js repository](https://github.com/iotaledger/iota.js)
+---------------
+#### Data Marketplace API documentation ####
+[Link](https://data.iota.org/static/docs)
+
+Interact with the Data Marketplace through the REST API.
+---
+#### GitHub repository ####
+[Link](https://github.com/iotaledger/data-marketplace)
+
+Read the code and some quickstart instructions to test this blueprint.
+---
+#### iota.js client library ####
+[Link](root://iota-js/0.1/README.md)
+
+Learn how to use the iota.js client library.
+---
+#### MAM eloquently explained ####
+[Link](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e)
+
+Learn what masked authenticated messaging is.
+---
+#### MAM GitHub repository ####
+[Link](https://github.com/iotaledger/mam.client.js)
+
+Read the code and some quickstart instructions to test MAM with JavaScript.
+---------------

@@ -6,9 +6,9 @@
 Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community.
 :::
 
-The architecture of our PoC (shown in the image below) follows a pattern, where the source, producer, consumer, and grid are interconnected through an IOTA network.
+The architecture of our PoC follows a pattern, where the source, producer, consumer, and grid are interconnected through an IOTA network.
 
-IOTA technologies are advantageous in an architecture such as this as they allow entities to communicate with one another in a secure manner without needing to be always on or connected to each other.
+IOTA technologies are advantageous in an architecture such as this because they allow entities to communicate with one another in a secure manner without needing to always be on or connected to each other.
 
 ![P2P Energy PoC - Architecture Diagram](../images/p2p_architecture.png)
 
@@ -20,11 +20,11 @@ This table displays a list of all the main components of the application:
 
 **Component**|**Description**
 :-----|:------|
-Web Server: Storage API | Provides a facility for any entities within the system to store/retrieve arbitrary data, this allows any entities with limited storage facilities to store more data. The choice of a traditional web API instead of using the Tangle for storage is because the data on the Tangle can be removed at a snapshot.
+**Web Server: Storage API** | Provides a facility for any entities within the system to store/retrieve arbitrary data, this allows any entities with limited storage facilities to store more data. The choice of a traditional web API instead of using the Tangle for storage is because the data on the Tangle can be removed at a snapshot.
 --- | ---
-Web Server: Registration API | The mechanism by which Sources register with producers, and consumers/producers register with the grid. This initial handshake must be performed using traditional web APIs as the MAM channel hashes need to be communicated along with any keys to the channel data.
-Web Server: Web portal | A web UI that allows the grid to monitor the whole system.
-Database | Provides a permanent storage mechanism for the grid to use for its own data.
+**Web Server: Registration API** | The mechanism by which Sources register with producers, and consumers/producers register with the grid. This initial handshake must be performed using traditional web APIs as the MAM channel hashes need to be communicated along with any keys to the channel data.
+**Web Server: Web portal** | A web UI that allows the grid to monitor the whole system.
+**Database** | Provides a permanent storage mechanism for the grid to use for its own data.
 
 The sources are kept as separate entities from the producers to allow for some redundancy. If a producer is offline, the sources continue logging their readings to the Tangle instead of directly to the producer. The sources are still registered with the producers so that the producers can later consolidate the data before communicating it to the grid.
 
