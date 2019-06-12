@@ -72,16 +72,6 @@ Future scenarios the use of the IOTA token (and Qubic smart contracts) could all
 ## Demo
 
 See this website for a [demonstration of the application](http://tradedemo.iota.org).
-
-## Abbreviations 
- 
-- IF - IOTA Foundation
-- HW - Hardware
-- SW - Software
-- JS - JavaScript
-- IRI - IOTA reference implementation, the SW written in Java that allows users to become part of the IOTA network as both a transaction relay and network information provider through the easy-to-use API
-- DBMS - Database management systems
-- MAM -	Masked Authenticated Messaging is a second layer data communication protocol that adds functionality to publish and control access to an encrypted data stream, over the Tangle 
  	 	 
 ## Additional resources
 
@@ -89,12 +79,12 @@ See this website for a [demonstration of the application](http://tradedemo.iota.
 #### iota.js client library ####
 [Link](root://iota-js/0.1/README.md)
 
-Learn how to use the iota.js client library.
+Learn how to use the iota.js client library to create, send, and receive transactions.
 ---
 #### MAM eloquently explained ####
 [Link](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e)
 
-Learn what masked authenticated messaging is.
+Masked Authenticated Messaging is a second layer data communication protocol that adds functionality to publish and control access to an encrypted data stream, over the Tangle. Learn more about how MAM works.
 ---
 #### MAM GitHub repository ####
 [Link](https://github.com/iotaledger/mam.client.js)

@@ -1,6 +1,6 @@
 # Data Marketplace overview
 
-**Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses IOTA MAM channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.**
+**Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses IOTA masked authenticated messaging (MAM) channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.**
 
 Data is one of the most fundamental ingredients in the machine economy and the connected world. It is the foundation of the Data — Information — Knowledge — Wisdom [(DIKW) pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid).
 
@@ -8,7 +8,7 @@ Data is one of the most fundamental ingredients in the machine economy and the c
 
 The different layers of this pyramid all rely on data. For example, sensors on cars can lead to the wisdom that allows drivers to bypass congestion:
 
-* **Data:** Sensors (cameras) monitor the road and receive signals from the photons that reflect off the surface of their environment
+* **Data:** Sensors monitor the road and receive signals from the photons that reflect off the surface of their environment
 * **Information:** Sensor data is used to extract meaningful information about the speed of the moving objects and their relative positions
 * **Knowledge:** Information is contextualized and distilled into knowledge, telling the drivers on the road via over-the-air ​updates that the road may be congested due to a crash
 * **Wisdom:** Knowledge allows drivers to take an alternative route
@@ -67,10 +67,6 @@ The Data Marketplace is designed to enable an agile, experiment-driven and colle
 
 See this website for a [demonstration of the application](https://data.iota.org/).
 
-## Abbreviations
-
-MAM - Masked Authentication Messaging is a second layer data communication protocol which adds functionality to emit and access an encrypted data stream, like RSS, over the Tangle.
-
 ## Additional resources
 
 ---------------
@@ -87,12 +83,12 @@ Read the code and some quickstart instructions to test this blueprint.
 #### iota.js client library ####
 [Link](root://iota-js/0.1/README.md)
 
-Learn how to use the iota.js client library.
+Learn how to use the iota.js client library to create, send, and receive transactions.
 ---
 #### MAM eloquently explained ####
 [Link](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e)
 
-Learn what masked authenticated messaging is.
+Masked Authenticated Messaging is a second layer data communication protocol that adds functionality to publish and control access to an encrypted data stream, over the Tangle. Learn more about how MAM works.
 ---
 #### MAM GitHub repository ####
 [Link](https://github.com/iotaledger/mam.client.js)

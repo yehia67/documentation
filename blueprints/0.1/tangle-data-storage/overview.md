@@ -16,7 +16,7 @@ A common requirement for nearly all use cases or applications is that data must 
 However, the Tangle is not a database. The Tangle is an immutable, distributed ledger which allows you to store a hash of data and a pointer to its location in third-party data storage.
 
 :::info:
-Although permanent storage on the Tangle isn't currently possible, the IOTA Foundation (IF) are developing a solution that will allow it. This solution is called permanodes.
+Although permanent storage on the Tangle isn't currently possible, the IOTA Foundation are developing a solution that will allow it. This solution is called permanodes.
 :::
 
 ### Solution
@@ -29,15 +29,6 @@ When you use the Tangle with a third-party data storage solution as described in
 
 See this website for a [demonstration of the application](https://ipfs.iota.org/).
 
-## Abbreviations
-
-- IF - IOTA Foundation
-- HW - Hardware
-- SW - Software
-- JS - JavaScript
-- IRI - IOTA reference implementation, the SW written in Java that allows users to become part of the IOTA network as both a transaction relay and network information provider through the easy-to-use API
-- SHA256 - Secure Hash Algorithm
-
 ## Additional Resources
 
 ---------------
@@ -49,7 +40,7 @@ Read the code and some quickstart instructions to test this blueprint.
 #### iota.js client library ####
 [Link](root://iota-js/0.1/README.md)
 
-Learn how to use the iota.js client library.
+Learn how to use the iota.js client library to create, send, and receive transactions.
 ---
 #### IPFS ####
 [Link](https://ipfs.io/)
