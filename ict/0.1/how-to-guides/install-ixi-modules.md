@@ -35,3 +35,5 @@ Find an [IXI module](../references/ixi-modules.md) that you want to install.
 ## Next steps
 
 If you're familiar with the Java programming language, take a look at the IXI GitHub repository and [learn to build your own IXI module](https://github.com/iotaledger/ixi/blob/master/README.md).
+
+If you want to [write an IXI module in a different programming language](https://github.com/iotaledger/bridge.ixi), use the Bridge.ixi module.

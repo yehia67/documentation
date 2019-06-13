@@ -166,15 +166,17 @@ Before a node can start receiving and sending transactions, you need to configur
     sudo java -jar ict-${VERSION}.jar --config-create
     ```
 
+    :::info:
+    [See more command-line flags](../references/command-line-flags.md).
+    ::: 
+
     You should see the following at the end of the output:
 
     ```
     ALL   |NEW   |REQ   |INV   |IGN   |ADDRESS
     ```
 
-    :::info:
     This line means that your node is running and that it's not yet configured because it's not receiving any transactions. That's OK. By executing the file, all the directories that you need are created for you.
-    :::
     
     You should have the following directories as well as an `ict.cfg` configuration file:
 
@@ -309,6 +311,10 @@ If you want more detailed log messages, you can stop the Ict and execute the Ict
 systemctl stop ict
 java -jar /home/ict/ict${VERSION}.jar --debug
 ```
+
+:::info:
+[See more command-line flags](../references/command-line-flags.md).
+::: 
 
 ## Next steps
 

@@ -79,5 +79,5 @@ To download the IcTinder module, your node must have version 0.6-SNAPSHOT of the
 
 :::Success:
 The IcTinder module is monitoring your neighbors and will replace them with new ones if they're unreliable.
-When the module has chosen neighbors for you, you'll be notified on Discord. To delete a neighbor, you can use the `!delnode <address>:<port>` command. To list registered nodes, use the `!listnodes` command.
+When the module has chosen neighbors for you, you'll be notified on Discord. To delete a neighbor, you can go log into the [IcTinder website](http://qubiota.com/ictinder2).
 :::
