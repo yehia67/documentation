@@ -16,7 +16,7 @@ In order to reproduce this PoC there is no requirement to deploy dedicated hardw
 
 1. After the application loads, the following image is displayed:
 
-    ![Upload File for IOTA IPFS Data Storage PoC](../data-storage-upload.png)
+    ![Upload File for IOTA IPFS Data Storage PoC](../images/data-storage-upload.png)
 
     :::info:
     The file size limitation is only for the purposes of this blueprint. Real-world implementations can allow any file size.
@@ -24,18 +24,18 @@ In order to reproduce this PoC there is no requirement to deploy dedicated hardw
 
 2. Select a file, and see that the other fields are automatically populated with metadata
 
-    ![Upload File for IOTA IPFS Data Storage PoC - Populated](../data-storage-upload2.png)
+    ![Upload File for IOTA IPFS Data Storage PoC - Populated](../images/data-storage-upload2.png)
 
 3. Click **Upload** to store the metadata on the IPFS node and the Tangle. If everything went well, you should see a confirmation message.
 
-    ![Uploaded File for IOTA IPFS Data Storage PoC](../data-storage-upload-finished.png)
+    ![Uploaded File for IOTA IPFS Data Storage PoC](../images/data-storage-upload-finished.png)
 
 4. To retrieve and validate a file, go to the Retrieve File page.
 
-    ![Retrieve File for IOTA IPFS Data Storage PoC](../data-storage-upload-retrieve.png)
+    ![Retrieve File for IOTA IPFS Data Storage PoC](../images/data-storage-upload-retrieve.png)
 
 5. Enter a transaction hash and click **RETRIEVE**. The transaction hash will be passed to the API, which will retrieve the IPFS hash from the transaction's message, which is used to download the file and validate its SHA256 hash against the one stored in the transaction.
 
-    ![Retrieve File for IOTA IPFS Data Storage PoC](../data-storage-upload-validated.png)
+    ![Retrieve File for IOTA IPFS Data Storage PoC](../images/data-storage-upload-validated.png)
 
 This completes the full lifecycle for storing, retrieving, and validating a file. The file metadata, SHA256 hash and IPFS hash that are stored in a transaction on the Tangle are immutable. If the file contents that you retrieve from the IPFS node don't match the ones on the Tangle, then the contents of that file can no longer be trusted.
