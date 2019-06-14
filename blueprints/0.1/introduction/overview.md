@@ -16,13 +16,13 @@ Data silos make it difficult to buy and sell data among different data points. T
 
 -------------------------
 ![Peer-to-peer energy grid](../images/p2p-energy-grid-thumbnail.png)
-## [Peer-to-peer energy grid](../data-marketplace/overview.md)
+## [Peer-to-peer energy grid](../p2p-energy/overview.md)
 Although the supply of energy is often automated, the payment system is expensive to integrate and often requires manual intervention. By creating a peer-to-peer energy grid with IOTA, you can automate the transfer of power and the payment for that power. This automation makes your infrastructure more dynamic and easier to update.
 -------------------------
 
 -------------------------
 ![Tangle data storage](../images/tangle-data-storage-thumbnail.png)
-## [Tangle data storage](../data-marketplace/overview.md)
+## [Tangle data storage](../tangle-data-storage/overview.md)
 Data boosts innovation for public and private sector organisations, and can be used to create new revenue streams. However, without a vendor-neutral way of verifying data, it can't be trusted. This blueprint uses the IOTA Tangle as an immutable data structure to verify the contents of a file in a third-party storage solution.
 -------------------------
 
