@@ -89,7 +89,7 @@ request(options, function (error, response, data) {
 ```bash
 http = urllib3.PoolManager()
 
-r = http.request('POST', 'https://nodes.devnet.iota.org:443',
+response = http.request('POST', 'https://nodes.devnet.iota.org:443',
                  headers={'Content-Type': 'application/json', 'X-IOTA-API-Version': '1'},
                  body=command)
 
