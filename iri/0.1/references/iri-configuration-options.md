@@ -4,10 +4,11 @@
 
 You can choose to configure the IRI by specifying the configuration options in the following ways:
 * As flags in the command prompt
-  * All boolean flags require a parameter to be passed. For example `--remote true` or `--remote false`.
 * As parameters in a file with the .ini extension (IRI configuration file)
 
 ### Command line flags
+
+All boolean flags require a parameter. For example `--remote true` or `--remote false`.
 
 | **Flag** |   **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|
