@@ -4,6 +4,10 @@
 
 The Ict allows you to have a maximum of three neighbors.
 
+:::info:
+We recommend asking your neighbors to install the [Spam.ixi module](../references/ixi-modules.md) so that you can check your connection.
+:::
+
 ## Find neighbors on Discord
 
 The community often discusses Ict-related topics in the `ict-help` and `ict-discussion` channels. Here, you can find users who are also looking for neighbors and connect to them.

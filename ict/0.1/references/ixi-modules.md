@@ -62,6 +62,12 @@ These modules are neither built by nor maintained by the IOTA Foundation. Use th
 [Link](https://github.com/trifel/Report.ixi)
 
 Collects data from the Ict and passes it through an API to external services such as [monitoring tools](https://www.ictreport.com/).
+---
+#### Spam.ixi__ ####
+[Link](https://github.com/ixuz/Spam.ixi)
+
+Regularly sends zero-value transactions to neighbors. This module is useful for verifying the connection among new neighbors.
+
 
 ---------------
 
