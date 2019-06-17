@@ -123,7 +123,7 @@ The Compass repository includes a tool to create a Merkle tree and save it in a 
 
 4. Create a backup of the seed
 
-	:::danger:Keep you seed safe
+	:::danger:Keep your seed safe
 	An attacker with the seed could send fraudulent milestones and disrupt the operation of the network.
 	:::
 
