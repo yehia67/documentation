@@ -18,6 +18,8 @@ The data that accounts store in a local database is called the seed state. Accou
 
 To create an account, you need to create an `IotaAPI` object to connect to an IOTA network and an `IotaAccount` object to manage a seed.
 
+In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
+
 :::danger:Important:
 Although the `IotaAccount` object has default settings, we recommend that you provide at least a seed and a storage provider such as MongoDB. Otherwise, the seed state will not be saved after the code stops running.
 :::
@@ -45,18 +47,12 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
 
     :::danger:Protect your seed
     You should never hard code a seed as we do here. Instead, we recommend that you read the seed from a protected file.
+
+    If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `Builder()` constructor.
     :::
 
-    :::danger:Use a new seed
-    If you have never created an account before, you must create a new seed because existing seed states are unknown.
-    :::
-
-    :::danger:Create one account per seed
-    You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
-    :::
-
-    :::info:
-    If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `Builder()` constructor in step 4.
+    :::danger:Is this your first account?
+    If you have never created an account before, but you have already used your seed to send transactions, the account module does not know the seed state. So, instead of using your existing seed, you must create a new seed to use with an account.
     :::
 
 3. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a Memory Store database.
@@ -80,6 +76,10 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
                     .api(api)
                     .build();
     ```
+
+    :::info:Default settings
+    If you don't specify any custom settings, the account uses the [defaults](https://github.com/iotaledger/iota-java/blob/dev/jota/src/main/java/org/iota/jota/config/types/IotaDefaultConfig.java).
+    :::
 
 :::success:Congratulations! :tada:
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.

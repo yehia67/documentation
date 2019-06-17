@@ -26,6 +26,20 @@ The above markup will produce the following output:
 
 ![Tabbed Control](./tabbed-control.png)
 
+### Cards
+
+Cards should be fenced with 25 hyphens. The first line is the image with alt text. The second line is a level 2 header linked to the content. Any additional content below the title will appear in the description.
+
+```markup
+-------------------------
+![Data Marketplace](../images/blueprint-data-marketplace.png)
+## [Data Marketplace](../data-marketplace/overview.md)
+Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses IOTA MAM channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.
+-------------------------
+```
+
+![Cards](./card.png)
+
 ### Heading Label
 
 The heading label is formatted in a similar way to regular level 3 headings except that you also append 3 hashes as well. It can be colored as either primary or secondary by using the ** or __ wrappers around the content.

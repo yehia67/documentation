@@ -1,6 +1,10 @@
 # Derive addresses from private keys
 
-**Seeds are used to derive private keys, and in turn, a private key is used to derive addresses and sign bundles. By using the cryptography library to derive addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
+**By using a client library to derive addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
+
+:::info:First time using a client library?
+[Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries.
+:::
 
 :::info:
 If you're unfamiliar with the terms private key, subseed, and key digest, we recommend [reading about addresses and signatures](../concepts/addresses-and-signatures.md).
@@ -10,27 +14,15 @@ If you're unfamiliar with the terms private key, subseed, and key digest, we rec
 
 To complete this guide, you need the following:
 
-* [Node.js (8+)](https://nodejs.org/en/)
+* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
 * An Internet connection
 
----
+## Derive addresses from private keys
 
-1. Create a new directory called `iota-basics`
+In this example, we use the [`signing` package](https://github.com/iotaledger/iota.js/tree/next/packages/signing) of the iota.js library to derive private keys from a seed and then to derive addresses from those private keys.
 
-2. Change into the `iota-basics` directory, and install the [IOTA core library](https://github.com/iotaledger/iota.js/tree/next/packages/core), the [IOTA converter library](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and the [IOTA signing library](https://github.com/iotaledger/iota.js/tree/next/packages/signing)
-
-    ```bash
-    cd iota-basics
-    npm install --save @iota/core
-    npm install --save @iota/converter
-    npm install --save @iota/signing
-    ```
-
-3. In the `iota-basics` directory, create a new file called `create-private-key-address.js`
-
-4. In the `create-private-key-address.js` file, require the IOTA libraries
+1. Require the IOTA libraries
 
     ```js
     const Iota = require('@iota/core');
@@ -38,7 +30,7 @@ To complete this guide, you need the following:
     const Converter = require('@iota/converter');
     ```
 
-5. Derive a subseed by passing a seed in trits and an index to the `subseed()` method
+2. Derive a subseed by passing a seed in trits and an index to the `subseed()` method
 
     ```js
     const seed = "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
@@ -50,7 +42,7 @@ To complete this guide, you need the following:
     Any code that uses a seed is executed on the client side. Your seed never leaves your device.
     :::
 
-6. Derive one private key for each of the three security levels by passing the same subseed and a different security level to the `key()` method
+3. Derive one private key for each of the three security levels by passing the same subseed and a different security level to the `key()` method
 
     ```js
     var privateKey1 = Sign.key(subseed, 1 /*security level*/);
@@ -80,7 +72,7 @@ To complete this guide, you need the following:
     [Find out more about security levels](../references/security-levels.md).
     :::
 
-7. Derive the key digests for each private key by passing each one to the `digests()` method
+4. Derive the key digests for each private key by passing each one to the `digests()` method
 
     ```js
     var privateKey1Digests = Sign.digests(privateKey1);
@@ -110,7 +102,7 @@ To complete this guide, you need the following:
     [Find out more about key digests](../concepts/addresses-and-signatures.md).
     :::
 
-8. Derive an address for each private key by passing the digests to the `address()` method
+5. Derive an address for each private key by passing the digests to the `address()` method
 
     ```js
     var privateKey1Address = Sign.address(privateKey1Digests);
@@ -134,7 +126,7 @@ To complete this guide, you need the following:
     Address with security level 3: LJGSYD9N9JEAQ9AVN9BJCAOW9LFVZGFHOXFVFVLQEBKVZFGBIDJJIRK9FBJUKRS9VMUXTCXBRIOOEMQJ9
     ```
 
-9. To check that the same addresses would be returned from the IOTA core library, do the following:
+6. To check that the same addresses would be returned from the IOTA core library, do the following:
 
     ```js
     console.log(Iota.generateAddress(seed, 0 /*index*/, 1 /*security level*/));

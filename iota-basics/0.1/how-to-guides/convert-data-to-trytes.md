@@ -1,46 +1,36 @@
 # Convert data to trytes
 
-**The values of transaction fields must be represented in trytes. To facilitate data conversion, the IOTA client libraries have built-in converters to convert data to/from trytes, trits, and ASCII characters.**
+**The values of transaction fields must be represented in trytes. To facilitate data conversion, the IOTA client libraries have built-in functions to convert data to/from trytes, trits, and ASCII characters.**
 
-:::info:
-If you're unfamiliar with the terms trytes, trits, or trinary, we recommend that you [read about these concepts](../concepts/trinary.md).
+:::info:First time using a client library?
+[Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries.
 :::
 
 ## Prerequisites
 
 To complete this guide, you need the following:
 
-* [Node.js (8+)](https://nodejs.org/en/)
+* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
 * An Internet connection
 
----
+## Convert a message to trytes
 
-1. Create a new directory called `iota-basics`
+In this example, we convert a message to trytes, then convert it back to ASCII characters using the [`converter` package](https://github.com/iotaledger/iota.js/tree/next/packages/converter) of the iota.js library.
 
-2. In the command prompt, change into the `iota-basics` directory, and install the [IOTA converter library](https://github.com/iotaledger/iota.js/tree/next/packages/converter)
-
-    ```bash
-    cd iota-basics
-    npm install --save @iota/converter
-    ```
-
-3. In the `iota-basics` directory, create a new file called `convert-to-trytes.js`
-
-4. In the `convert-to-trytes.js` file, require the IOTA client library
+1. Require the IOTA client library
 
     ```js
     const Iota = require('@iota/converter');
     ```
 
-5. Create a variable to hold a message
+2. Create a variable to hold a message
 
     ```js
     var data = "Hello World!";
     ```
 
-6. Pass the `data` variable to the `asciiToTrytes()` method to convert the message to trytes
+3. Pass the `data` variable to the `asciiToTrytes()` method to convert the message to trytes
 
     ```js
     var trytes = Converter.asciiToTrytes(data);
@@ -48,7 +38,7 @@ To complete this guide, you need the following:
     console.log(`${data} converted to trytes: ${trytes}`);
     ```
 
-7. Pass the returned trytes to the `trytesToAscii()` method to convert them to ASCII characters
+4. Pass the returned trytes to the `trytesToAscii()` method to convert them to ASCII characters
 
     ```js
     var message = Converter.trytesToAscii(trytes);

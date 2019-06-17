@@ -1,15 +1,33 @@
 # Application blueprints
 
-**Application blueprints are documents that explain how the IOTA technology can be used to solve real-world problems and to support well-defined business needs.**
+**Application blueprints explain how you can use IOTA to solve real-world problems and to support well-defined business needs.**
 
 Blueprints are designed to do the following:
 
-* Describe a problem and a solution that uses IOTA
-* Present an architecture that shows how to solve the problem by integrating IOTA into your existing systems
+* Describe a problem and a solution
+* Present an architecture that shows you how to solve the problem with IOTA
 * Explain how you can test, edit, and deploy the blueprint
 
-## Who should use blueprints?
+-------------------------
+![Data Marketplace](../images/data-marketplace-thumbnail.png)
+## [Data Marketplace](../data-marketplace/overview.md)
+Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses IOTA MAM channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.
+-------------------------
 
-Anyone who either wants to build real-world applications with IOTA or wants to evaluate IOTA for a specific business case.
+-------------------------
+![Peer-to-peer energy grid](../images/p2p-energy-grid-thumbnail.png)
+## [Peer-to-peer energy grid](../p2p-energy/overview.md)
+Although the supply of energy is often automated, the payment system is expensive to integrate and often requires manual intervention. By creating a peer-to-peer energy grid with IOTA, you can automate the transfer of power and the payment for that power. This automation makes your infrastructure more dynamic and easier to update.
+-------------------------
 
-You can use blueprints as a reference to build and deploy a similar solution into other systems and to test different business models.
+-------------------------
+![Tangle data storage](../images/tangle-data-storage-thumbnail.png)
+## [Tangle data storage](../tangle-data-storage/overview.md)
+Data boosts innovation for public and private sector organisations, and can be used to create new revenue streams. However, without a vendor-neutral way of verifying data, it can't be trusted. This blueprint uses the IOTA Tangle as an immutable data structure to verify the contents of a file in a third-party storage solution.
+-------------------------
+
+-------------------------
+![Track and trace](../images/track-and-trace-thumbnail.png)
+## [Track and trace](../track-and-trace/overview.md)
+Due to a lack of both due diligence and a vendor-neutral data source, returnable assets in distribution networks are often not returned to their original owners. This blueprint describes how the IBCS Group implemented a track and trace system for recovery of returnable assets, using the IOTA Tangle and other IOTA technologies.
+-------------------------

@@ -16,7 +16,7 @@ To test, edit, and deploy this application, you need programming knowledge in Ja
 
 The track and trace of a given returnable asset consists of a series of events. Because of this, registering the change of custody of a given asset, through the use of MAM channels, makes it easy to store the different custodian information onto the IOTA Tangle and associate it as a message in the same channel. Using MAM allows for encryption and protection of the shared information. Without using MAM, this could alternatively be done by issuing independent transactions to the IOTA Tangle, storing the required information for each change of custody related to a given asset. However, the architecture complexity of reconciling and linking all the information associated to a given asset would increase. That's why MAM was chosen as preferred solution design.
 
-![Track and Trace](../track-and-trace-architecture.png)
+![Track and Trace](../images/track-and-trace-architecture.png)
 
 A tracker interacts with the architecture to report asset ownership and change of custody. Authorized tracers 
 connect to the architecture to fetch information about a given asset, e.g. its last custodian. 
@@ -59,11 +59,11 @@ GUI. How to handle missing assets is out of the scope of this blueprint.
  
 The sequence diagram below recaps all the steps needed to track a given returnable asset.
 
-![Track and Trace](../track-and-trace-architecture_actors.png)
+![Track and Trace](../images/track-and-trace-architecture_actors.png)
 
 The communication diagram below shows the different messages exchanged across the architecture components presented above.
 
-![Track and Trace](../track-and-trace-architecture-message-exchange.png)
+![Track and Trace](../images/track-and-trace-architecture-message-exchange.png)
 
 Details on the different components implementation is provided below, alongside with code snippets. 
 

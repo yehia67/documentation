@@ -2,6 +2,10 @@
 
 **Before IOTA tokens can be transferred, the bundle that transfers them must be confirmed. Transactions in a bundle remain in a pending state until the tail transaction is referenced and approved by a milestone.**
 
+:::info:First time using a client library?
+[Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries.
+:::
+
 :::info:
 If you're unfamiliar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://the-tangle/0.1/introduction/overview.md).
 :::
@@ -10,31 +14,22 @@ If you're unfamiliar with the terms Coordinator, milestone, or confirmation, we 
 
 To complete this guide, you need the following:
 
-* [Node.js (8+)](https://nodejs.org/en/)
+* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
 
----
+## Check if a transaction is confirmed
 
-1. Create a new directory called `iota-basics`
+In this example, we check if a transaction is confirmed on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
-2. In the command prompt, change into the `iota-basics` directory, and install the [IOTA Core library](https://github.com/iotaledger/iota.js/tree/next/packages/core)
-
-    ```bash
-    cd iota-basics
-    npm install --save @iota/core
-    ```
-
-3. In the `iota-basics` directory, create a new file called `check-confirmation.js`
-
-4. In the `check-confirmation.js` file, require the IOTA client library
+1. Require the IOTA client library
 
     ```js
     const Iota = require('@iota/core');
     ```
 
-5. Create an instance of the IOTA object and use the `provider` field to connect to a node
+2. Create an instance of the IOTA object and use the `provider` field to connect to a node
 
     ```js
     const iota = Iota.composeAPI({
@@ -42,13 +37,13 @@ To complete this guide, you need the following:
     });
     ```
 
-6. Go to [devnet.thetangle.org](https://devnet.thetangle.org/) and find a confirmed transaction
+3. Go to [devnet.thetangle.org](https://devnet.thetangle.org/) and find a confirmed transaction
 
     :::info:Can't find a confirmed transaction?
     Click a transaction hash in the Latest milestones box, then click the branch transaction hash. This transaction is referenced and approved by the milstone, so it is in a confirmed state.
     :::
 
-7. Pass the transaction hash to the [`getLatestInclusion()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getLatestInclusion) method to check if the IRI node's latest solid subtangle milestone approves it
+4. Pass the transaction hash to the [`getLatestInclusion()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getLatestInclusion) method to check if the IRI node's latest solid subtangle milestone approves it
 
     ```js
     iota.getLatestInclusion(['TRANSACTION HASH'])
@@ -61,13 +56,13 @@ To complete this guide, you need the following:
     You could also use the `getInclusionStates()` method to check if a transaction is approved by an array of your own chosen transactions.
     :::
 
-8. Go to [devnet.thetangle.org](https://devnet.thetangle.org) and find a pending transaction
+5. Go to [devnet.thetangle.org](https://devnet.thetangle.org) and find a pending transaction
 
     :::info:Can't find a pending transaction?
     Click a transaction hash in the Latest transactions box. This transaction is a tip, so it is in a pending state.
     :::
 
-9. Pass the transaction hash to the `getLatestInclusion()` method to check if the IRI node's latest solid subtangle milestone approves it
+6. Pass the transaction hash to the `getLatestInclusion()` method to check if the IRI node's latest solid subtangle milestone approves it
 
     ```js
     iota.getLatestInclusion(['TRANSACTION HASH'])
@@ -82,5 +77,7 @@ Click the green button to run the sample code in this guide and see the results 
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Check-transaction-confirmation?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
+## Next steps
 
+[Increase the likelihood of a pending transaction being confirmed](../how-to-guides/confirm-pending-bundle.md)
 

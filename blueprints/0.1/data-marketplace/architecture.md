@@ -8,7 +8,7 @@ Running an open source project, like any human endeavor, involves uncertainty an
 
 The architecture of our PoC (shown in the image below) follows a pattern, where the sensor or any other device, cloud backend, and distributed ledger (DLT) are interconnected.
 
-![Data Marketplace architecture](../data-marketplace-architecture.png)
+![Data Marketplace architecture](../images/data-marketplace-architecture.png)
 
 Submitting sensor data to the Data Marketplace is intended to be a lightweight operation that can be done by embedded devices. To submit sensor data, a device needs to perform Tangle operations, such as producing and consuming MAM channels, and communicating with web APIs. The data consuming part of the application is more complex and needs the ability to transfer IOTA tokens in exchange for access to the device's data streams. Therefore, an access-rights management add-on is implemented.
 
@@ -41,7 +41,7 @@ Wallet funding and token transfer operations are completed only after the node c
 
 Cloud functions can be configured to change the default values of the following:
 
-* `depth` and `minWeightMagnitude` fields, which are typically different for IOTA Devnet and Mainnet nodes 
+* `depth` and [`minWeightMagnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) fields, which are typically different for IOTA Devnet and Mainnet nodes 
 * Whitelist page, where administrator users with predefined email addresses are allowed to administer devices
 
 ## Sensors and data

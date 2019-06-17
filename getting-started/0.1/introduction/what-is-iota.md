@@ -71,6 +71,6 @@ Many industries such as the following could benefit from using IOTA:
 
 ## How do I get started?
 
-* [Start your IOTA journey](../tutorials/first-steps.md)
+* [Start your IOTA journey](../tutorials/get-started.md)
 
 * Take a look at some [applications that are already using IOTA](../references/use-cases.md)
