@@ -4,6 +4,7 @@
 
 You can choose to configure the IRI by specifying the configuration options in the following ways:
 * As flags in the command prompt
+  * All boolean flags require a parameter to be passed. For example `--remote true` or `--remote false`.
 * As parameters in a file with the .ini extension (IRI configuration file)
 
 ### Command line flags
@@ -45,6 +46,7 @@ You can choose to configure the IRI by specifying the configuration options in t
 |<a name="revalidate"></a>`--revalidate` |Reload data in the database about confirmed transactions, and transaction metadata | boolean| false|
 |<a name="send-limit"></a> `--send-limit` |Data limit in Mbits per second that the node can send |number | -1|If this number is below 0, no limit is set
 |<a name="tcp-receiver-port"></a>`-t`, `--tcp-receiver-port` |Port from which the IRI receives TCP data packets from neighbor IRI nodes |string | 15600|
+|<a name="tip-selection-timeout-sec"></a>`--tip-selection-timeout-sec` |The maximum number of seconds after which tip selection is aborted. |number | 60|
 |<a name="udp-receiver-port"></a>`-u`, `--udp-receiver-port` |Port from which the IRI receives UDP data packets from neighbor IRI nodes |string |14600 |
 |<a name="zmq-enabled"></a>  `--zmq-enabled` | Enable [zero message queue](../concepts/zero-message-queue.md) subscriptions| boolean|false |
 |<a name="zmq-ipc"></a>`--zmq-ipc` |Path that is used to communicate with ZMQ in IPC| string|  ipc://iri|
@@ -55,7 +57,7 @@ You can choose to configure the IRI by specifying the configuration options in t
 | **Parameter** |   **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|
 |<a name="local-snapshots-enabled"></a>`LOCAL_SNAPSHOTS_ENABLED`   | Enable [local snapshots](../concepts/local-snapshot.md) |boolean  | true  | This parameter must be set to `true` for the IRI to read any other `LOCAL_SNAPSHOTS` parameters|
-|<a name="local-snapshots-pruning-enabled"></a>`LOCAL_SNAPSHOTS_PRUNING_ENABLED`  |  Enable the deletion of transactions from the ledger  | true | Transactions are deleted if they were confirmed by a milestone with an index that is older than the result of the following calculation: current milestone index - (`LOCAL_SNAPSHOTS_DEPTH` + `LOCAL_SNAPSHOTS_PRUNING_DELAY`).  |
+|<a name="local-snapshots-pruning-enabled"></a>`LOCAL_SNAPSHOTS_PRUNING_ENABLED`  |  Enable the deletion of transactions from the ledger  | false | Transactions are deleted if they were confirmed by a milestone with an index that is older than the result of the following calculation: current milestone index - (`LOCAL_SNAPSHOTS_DEPTH` + `LOCAL_SNAPSHOTS_PRUNING_DELAY`).  |
 |<a name="local-snapshots-depth"></a>`LOCAL_SNAPSHOTS_DEPTH`  | Amount of seen milestones to record in the snapshot.meta file | number starting from 100 | 100 | |
 |<a name="local-snapshots-pruning-delay"></a>`LOCAL_SNAPSHOTS_PRUNING_DELAY`  | Amount of milestone transactions to keep in the ledger   | number starting from 10,000  | 40,000 | We recommend that you use the default value for this option, which triggers a local snapshot around every 28 days.  |
 |<a name="local-snapshots-interval-synced"></a>`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`  | Interval, in milestone transactions, at which snapshot files are created if the ledger is fully synchronized  |number| 10   | |
