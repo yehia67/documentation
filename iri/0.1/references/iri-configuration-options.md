@@ -27,7 +27,7 @@ All boolean flags require a parameter, for example `--remote=true` or `--remote=
 
 Use these settings to customize how the API behaves and which hosts can access it.
 
-| **CL flags** |**config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="api-host"></a> `--api-host`|`API_HOST` |Set the host to which the API listens| string | localhost | To accept any host, set this option to 0.0.0.0 or set the `REMOTE` option to `true`|
 |<a name="port"></a>`--port, -p` (**required**) |`API_PORT`|Set the port on which the API listens |string |14265 |
@@ -44,7 +44,7 @@ Use these settings to customize how the API behaves and which hosts can access i
 
 Use these settings to customize how your node communicates with neighbors.
 
-| **CL flags** |**config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="cache-size"></a>`--cache-size` |`CACHE_SIZE_BYTES`|Set the maximum size of the network cache in bytes | |150,000 | |
 |<a name="dns-refresher"></a>`--dns-refresher` |`DNS_REFRESHER`|Reconnect to neighbors that have dynamic IP addresses |boolean |true |
@@ -62,7 +62,7 @@ Use these settings to customize how your node communicates with neighbors.
 
 Use these settings to customize how your node uses IXI modules.
 
-| **CL flags** |**config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="ixi-dir"></a>  `--ixi-dir` |`IXI_DIR`|Folder where IXI modules should be added for automatic discovery |string |ixi |
 
@@ -70,7 +70,7 @@ Use these settings to customize how your node uses IXI modules.
 
 Use these settings to customize what your node does with its ledger.
 
-| **CL flags** |**config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="db"></a>`--db` |`MAIN_DB`|Name the database that's used to store transactions  | string | rocksdb | Currently, the only supported database is RocksDB|
 |<a name="db-cache-size"></a>`--db-cache-size` |`DB_CACHE_SIZE`|Set the maximum size of the database cache in kilobytes | |100,000 | |
@@ -83,7 +83,7 @@ Use these settings to customize what your node does with its ledger.
 
 Use these settings to customize which transactions will be accepted by the network, and how they will be propagated to other nodes.
 
-| **CL flags** |**config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="p-drop-transaction"></a>  `--p-drop-transaction`|`P_DROP_TRANSACTION`|Set the probability of losing a received transaction |number between 0 and 1 |0.0 | This option is available only for testing purposes
 |<a name="p-propagate-request"></a>`--p-propagate-request` |`P_PROPAGATE_REQUEST`|Set the probability of the IRI requesting a missing transaction from a neighbor | number|0.01 | This number should be low to avoid the IRI requesting non-existing transactions that spam the network
@@ -95,7 +95,7 @@ Use these settings to customize which transactions will be accepted by the netwo
 
 Use these settings to customize how clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md).
 
-| **CL flags** |**config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="zmq-enabled"></a>  `--zmq-enable-ipc` | `ZMQ_ENABLE_IPC`|Enable [zero message queue](../concepts/zero-message-queue.md) subscriptions through IPC at the `ipc://iri` address| boolean|false |Set the `ZMQ_IPC` option to change the default address|
 |`--zmq-enable-tcp` | `ZMQ_ENABLE_TCP`|Enable [zero message queue](../concepts/zero-message-queue.md) subscriptions through TCP on port 5556|boolean|false |Set the `ZMQ_PORT` option to change the default port|
@@ -107,7 +107,7 @@ Use these settings to customize how clients can [subscribe to your node's ZMQ ev
 
 Use these settings to customize the length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
 
-| **CL flags** |**config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="alpha"></a>`--alpha`| `ALPHA`|Set the randomness of the tip selection process             |   number between 0 and infinity  |  0.001     | The number 0 is the most random and infinity is the most deterministic. For an in-depth explanation of this option, [see our blog post](https://blog.iota.org/alpha-d176d7601f1c).|
 |<a name="max-analyzed-transactions"></a>`--max-analyzed-transactions` |`MAX_ANALYZED_TXS`|Set the maximum number of unconfirmed transactions that may be analyzed during tip selection to find the latest milestone that references a transaction |number |20,000 |
@@ -118,7 +118,7 @@ Use these settings to customize the length and randomness of the weighted random
 
 Use these settings to customize how tip transactions become solid.
 
-| **CL flags** |**config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="tip-selection-timeout-sec"></a>`--tip-solidfier-enabled` |`TIP_SOLIDIFIER_ENABLED`|Enable your node to solidify tip transactions that aren't milestones |boolean | false| By default, the IRI actively tries to solidify only milestones. Other tip transactions become solid through the gossip protocol. If you set this option to `true`, your node will use more resources.
 
@@ -127,7 +127,7 @@ Use these settings to customize how tip transactions become solid.
 
 Use these settings to customize how your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md).
 
-| **CL flags** |**config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="pow-threads"></a>`--pow-threads`|`POW_THREADS`   | Number of threads to use for proof-of-work calculations |number  | 0  | |
 
@@ -135,7 +135,7 @@ Use these settings to customize how your node does [proof of work](root://the-ta
 
 Use these settings to customize how and when your node does [local snapshots](../concepts/local-snapshot.md).
 
-| **CL flags** |**config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="local-snapshots-enabled"></a>`--local-snapshots-enabled`|`LOCAL_SNAPSHOTS_ENABLED`   | Enable local snapshots |boolean  | true  | This parameter must be set to `true` for the IRI to read any other `LOCAL_SNAPSHOTS` parameters|
 |<a name="local-snapshots-pruning-enabled"></a>`--local-snapshots-pruning-enabled`|`LOCAL_SNAPSHOTS_PRUNING_ENABLED`  |  Enable your node to delete old transactions from its database  | false | Transactions are deleted if they were confirmed by a milestone with an index that is older than the result of the following calculation: current milestone index - (`LOCAL_SNAPSHOTS_DEPTH` + `LOCAL_SNAPSHOTS_PRUNING_DELAY`).  |
