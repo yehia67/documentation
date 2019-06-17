@@ -27,7 +27,7 @@ All boolean flags require a parameter, for example `--remote=true` or `--remote=
 
 Use these settings to customize how the API behaves and which hosts can access it.
 
-| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="api-host"></a> `--api-host`|`API_HOST` |Set the host to which the API listens| string | localhost | To accept any host, set this option to 0.0.0.0 or set the `REMOTE` option to `true`|
 |<a name="port"></a>`--port, -p` (**required**) |`API_PORT`|Set the port on which the API listens |string |14265 |
@@ -44,13 +44,13 @@ Use these settings to customize how the API behaves and which hosts can access i
 
 Use these settings to customize how your node communicates with neighbors.
 
-| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="cache-size"></a>`--cache-size` |`CACHE_SIZE_BYTES`|Set the maximum size of the network cache in bytes | |150,000 | |
+|<a name="cache-size"></a>`--cache-size` |`CACHE_SIZE_BYTES`|Set the maximum size of the network cache in bytes |number |150,000 |
 |<a name="dns-refresher"></a>`--dns-refresher` |`DNS_REFRESHER`|Reconnect to neighbors that have dynamic IP addresses |boolean |true |
 |<a name="dns-resolution"></a>`--dns-resolution` |`DNS_RESOLUTION`|Enable DNS for neighbor peering |boolean |true|
 |<a name="max-peers"></a>`--max-peers` |`MAX_PEERS`|Set the maximum number of non-mutually-tethered connections |number |0 |This option is available only on the IOTA Devnet network|
-|<a name="neighbors"></a>`-n`, `--neighbors` |`NEIGHBORS`|Set the URLs and IP addresses of [neighbors](../how-to-guides/find-neighbor-iri-nodes.md) |array of strings |[ ] |
+|<a name="neighbors"></a>`-n`, `--neighbors` |`NEIGHBORS`|Set the URLs and IP addresses of [neighbors](../how-to-guides/find-neighbor-iri-nodes.md) |array of strings |[""] |
 |<a name="p-drop-cache"></a>`--p-drop-cache` |`P_DROP_CACHE_ENTRY`|Set the probability of losing recently seen transactions in the network cache | number between 0 and 1|0.02 |
 |<a name="p-remove-request"></a>`--p-remove-request` |`P_REMOVE_REQUEST`|Set the probability of the IRI stopping to request a transaction |number between 0 and 1 |0.01 |This number should be close to 0 so that non-existing transaction hashes are eventually removed
 |<a name="queue-size"></a>`--queue-size `|`Q_SIZE_NODE`|Set the maximum size of the REPLY, BROADCAST, and RECEIVE network queues | number|1,000|
@@ -62,7 +62,7 @@ Use these settings to customize how your node communicates with neighbors.
 
 Use these settings to customize how your node uses IXI modules.
 
-| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="ixi-dir"></a>  `--ixi-dir` |`IXI_DIR`|Folder where IXI modules should be added for automatic discovery |string |ixi |
 
@@ -70,12 +70,12 @@ Use these settings to customize how your node uses IXI modules.
 
 Use these settings to customize what your node does with its ledger.
 
-| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="db"></a>`--db` |`MAIN_DB`|Name the database that's used to store transactions  | string | rocksdb | Currently, the only supported database is RocksDB|
-|<a name="db-cache-size"></a>`--db-cache-size` |`DB_CACHE_SIZE`|Set the maximum size of the database cache in kilobytes | |100,000 | |
-|<a name="db-log-path"></a>`--db-log-path` |`DB_LOG_PATH`|Set the path to the file where the database logs are saved | string |mainnet.log| |
-|<a name="db-path"></a> `--db-path`| `DB_PATH`|Set the path to the folder where the database is saved|string |mainnetdb | |
+|<a name="db-cache-size"></a>`--db-cache-size` |`DB_CACHE_SIZE`|Set the maximum size of the database cache in kilobytes | number|100,000 |
+|<a name="db-log-path"></a>`--db-log-path` |`DB_LOG_PATH`|Set the path to the file where the database logs are saved | string |mainnet.log|
+|<a name="db-path"></a> `--db-path`| `DB_PATH`|Set the path to the folder where the database is saved|string |mainnetdb |
 |<a name="rescan"></a> `--rescan`|`RESCAN_DB`|Rescan all transaction metadata (approvees, bundles, and tags) |boolean |false |
 |<a name="revalidate"></a>`--revalidate` |`REVALIDATE`|Reload data in the database about confirmed transactions, and transaction metadata | boolean| false|
 
@@ -83,7 +83,7 @@ Use these settings to customize what your node does with its ledger.
 
 Use these settings to customize which transactions will be accepted by the network, and how they will be propagated to other nodes.
 
-| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="p-drop-transaction"></a>  `--p-drop-transaction`|`P_DROP_TRANSACTION`|Set the probability of losing a received transaction |number between 0 and 1 |0.0 | This option is available only for testing purposes
 |<a name="p-propagate-request"></a>`--p-propagate-request` |`P_PROPAGATE_REQUEST`|Set the probability of the IRI requesting a missing transaction from a neighbor | number|0.01 | This number should be low to avoid the IRI requesting non-existing transactions that spam the network
@@ -95,7 +95,7 @@ Use these settings to customize which transactions will be accepted by the netwo
 
 Use these settings to customize how clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md).
 
-| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="zmq-enabled"></a>  `--zmq-enable-ipc` | `ZMQ_ENABLE_IPC`|Enable [zero message queue](../concepts/zero-message-queue.md) subscriptions through IPC at the `ipc://iri` address| boolean|false |Set the `ZMQ_IPC` option to change the default address|
 |`--zmq-enable-tcp` | `ZMQ_ENABLE_TCP`|Enable [zero message queue](../concepts/zero-message-queue.md) subscriptions through TCP on port 5556|boolean|false |Set the `ZMQ_PORT` option to change the default port|
@@ -107,7 +107,7 @@ Use these settings to customize how clients can [subscribe to your node's ZMQ ev
 
 Use these settings to customize the length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
 
-| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="alpha"></a>`--alpha`| `ALPHA`|Set the randomness of the tip selection process             |   number between 0 and infinity  |  0.001     | The number 0 is the most random and infinity is the most deterministic. For an in-depth explanation of this option, [see our blog post](https://blog.iota.org/alpha-d176d7601f1c).|
 |<a name="max-analyzed-transactions"></a>`--max-analyzed-transactions` |`MAX_ANALYZED_TXS`|Set the maximum number of unconfirmed transactions that may be analyzed during tip selection to find the latest milestone that references a transaction |number |20,000 |
@@ -118,7 +118,7 @@ Use these settings to customize the length and randomness of the weighted random
 
 Use these settings to customize how tip transactions become solid.
 
-| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="tip-selection-timeout-sec"></a>`--tip-solidfier-enabled` |`TIP_SOLIDIFIER_ENABLED`|Enable your node to solidify tip transactions that aren't milestones |boolean | false| By default, the IRI actively tries to solidify only milestones. Other tip transactions become solid through the gossip protocol. If you set this option to `true`, your node will use more resources.
 
@@ -127,20 +127,20 @@ Use these settings to customize how tip transactions become solid.
 
 Use these settings to customize how your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md).
 
-| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="pow-threads"></a>`--pow-threads`|`POW_THREADS`   | Number of threads to use for proof-of-work calculations |number  | 0  | |
+|<a name="pow-threads"></a>`--pow-threads`|`POW_THREADS`   | Number of threads to use for proof-of-work calculations |number  | 0  |
 
 ## Local snapshot
 
 Use these settings to customize how and when your node does [local snapshots](../concepts/local-snapshot.md).
 
-| **CL flags** |**Config file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="local-snapshots-enabled"></a>`--local-snapshots-enabled`|`LOCAL_SNAPSHOTS_ENABLED`   | Enable local snapshots |boolean  | true  | This parameter must be set to `true` for the IRI to read any other `LOCAL_SNAPSHOTS` parameters|
 |<a name="local-snapshots-pruning-enabled"></a>`--local-snapshots-pruning-enabled`|`LOCAL_SNAPSHOTS_PRUNING_ENABLED`  |  Enable your node to delete old transactions from its database  | false | Transactions are deleted if they were confirmed by a milestone with an index that is older than the result of the following calculation: current milestone index - (`LOCAL_SNAPSHOTS_DEPTH` + `LOCAL_SNAPSHOTS_PRUNING_DELAY`).  |
-|<a name="local-snapshots-depth"></a>`--local-snapshots-depth`|`LOCAL_SNAPSHOTS_DEPTH`  | Amount of seen milestones to record in the snapshot.meta file | number starting from 100 | 100 | |
+|<a name="local-snapshots-depth"></a>`--local-snapshots-depth`|`LOCAL_SNAPSHOTS_DEPTH`  | Amount of seen milestones to record in the snapshot.meta file | number starting from 100 | 100 |
 |<a name="local-snapshots-pruning-delay"></a>`--local-snapshots-pruning-delay`|`LOCAL_SNAPSHOTS_PRUNING_DELAY`  | Amount of milestone transactions to keep in the ledger   | number starting from 10,000  | 40,000 | We recommend that you use the default value for this option, which triggers a local snapshot every 28 days  |
-|<a name="local-snapshots-interval-synced"></a>`--local-snapshots-interval-synced`|`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`  | Interval, in milestone transactions, at which snapshot files are created if the ledger is fully synchronized  |number| 10   | |
+|<a name="local-snapshots-interval-synced"></a>`--local-snapshots-interval-synced`|`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`  | Interval, in milestone transactions, at which snapshot files are created if the ledger is fully synchronized  |number| 10   |
 |<a name="local-snapshots-interval-unsynced"></a>`--local-snapshots-interval-unsynced`|`LOCAL_SNAPSHOTS_INTERVAL_UNSYNCED`   | Interval, in milestone transactions, at which snapshot files are created if the ledger is not fully synchronized  |number| 1,000  | This value is higher than the `LOCAL_SNAPSHOTS_INTERVAL_SYNCED` configuration option to allow the IRI to focus its resources on synchronizing with its neighbor IRI nodes|
-|<a name="local-snapshots-base-path"></a>`--local-snapshots-base-path`|`LOCAL_SNAPSHOTS_BASE_PATH`  |  Path to the snapshot file, without the file extension. |  string |  mainnet   | Prepends the `.snapshot.meta` and `.snapshot.state` files with the value of this parameter. For the default value, the files are named `mainnet.snapshot.meta` and `mainnet.snapshot.state`. You can specify a directory for the files to be added to by doing the following: `<directory name>/<file name>`, which results in `folderpath/filename.snapshot.meta`. | |
+|<a name="local-snapshots-base-path"></a>`--local-snapshots-base-path`|`LOCAL_SNAPSHOTS_BASE_PATH`  |  Path to the snapshot file, without the file extension. |  string |  mainnet   | Prepends the `.snapshot.meta` and `.snapshot.state` files with the value of this parameter. For the default value, the files are named `mainnet.snapshot.meta` and `mainnet.snapshot.state`. You can specify a directory for the files to be added to by doing the following: `<directory name>/<file name>`, which results in `folderpath/filename.snapshot.meta`. |
