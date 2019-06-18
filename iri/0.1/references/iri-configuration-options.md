@@ -35,7 +35,7 @@ Use these settings to customize how the API behaves and which hosts can access i
 |<a name="max-find-transactions"></a>`--max-find-transactions` |`MAX_FIND_TRANSACTIONS`|Set a maximum number of transactions that may be returned by the [findTransactions endpoint](../references/api-reference.md#findTransactions) |number | 100,000 | If the number of transactions exceeds this number, an error is returned
 |<a name="max-requests-list"></a>`--max-requests-list` |`MAX_REQUESTS_LIST`|Set a maximum number of parameters in an API call |number |1,000 | If the number of parameters exceeds this number, an error is returned
 |<a name="max-get-trytes"></a>`--max-get-trytes` |`MAX_GET_TRYTES`|Set a maximum number of trytes that may be returned by the [getTrytes endpoint](../references/api-reference.md#getTrytes)  |number |10,000 | If the number of trytes exceeds this number, an error is returned
-|<a name="remote"></a> ` --remote `|`REMOTE`|Open the API interface to any host |boolean | false| When set to true, this option is equivalent to setting the `API_HOST` option to 0.0.0.0
+|<a name="remote"></a> ` --remote `|-|Open the API interface to any host |boolean | false| When set to true, this option is equivalent to setting the `API_HOST` option to 0.0.0.0
 |<a name="remote-auth"></a>`--remote-auth` |`REMOTE_AUTH`|Add basic authentication for API calls in the form of username:password  | string| ""|You can use a plain text or a hashed password|
 |<a name="remote-limit-api"></a>`--remote-limit-api` |`REMOTE_LIMIT_API`|Ignore requests to certain API endpoints |array of strings |[[addNeighbors](../references/api-reference.md#addNeighbors), [getNeighbors](../references/api-reference.md#getNeighbors), [removeNeighbors](../references/api-reference.md#removeNeighbors), [attachToTangle](../references/api-reference.md#attachToTangle), [interruptAttachToTangle](../references/api-reference.md#interruptAttachToTangle)] | This option allows you to protect your node against spammers that know the IRI node's URL or IP address.
 |<a name="remote-trusted-api-hosts"></a>`--remote-trusted-api-hosts` |`REMOTE_TRUSTED_API_HOSTS`|Hosts that may call any API endpoints, including those set in the `REMOTE_LIMIT_API` option |comma-separated list of strings |localhost | You must also set the `REMOTE` option to `true`
@@ -46,17 +46,19 @@ Use these settings to customize how your node communicates with neighbors.
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
+|<a name="auto-tethering-enabled"></a>`--auto-tethering-enabled` |`AUTO_TETHERING_ENABLED`|Enable new connections from unknown neighbors |boolean |false| Unknown neighbors are those that are neither defined in the `NEIGHBORS` option nor added through the `addNeighbors` API endpoint. Use the `MAX_NEIGHBORS` option to limit the maximum number of neighbors that can connect to your node.|
 |<a name="cache-size"></a>`--cache-size` |`CACHE_SIZE_BYTES`|Set the maximum size of the network cache in bytes |number |150,000 |
 |<a name="dns-refresher"></a>`--dns-refresher` |`DNS_REFRESHER`|Reconnect to neighbors that have dynamic IP addresses |boolean |true |
 |<a name="dns-resolution"></a>`--dns-resolution` |`DNS_RESOLUTION`|Enable DNS for neighbor peering |boolean |true|
-|<a name="max-peers"></a>`--max-peers` |`MAX_PEERS`|Set the maximum number of non-mutually-tethered connections |number |0 |This option is available only on the IOTA Devnet network|
+|<a name="max-neighbors"></a>`--max-neighbors` |`MAX_NEIGHBORS`|Set the maximum number of neighbors |number |5 |This option is available only on the IOTA Devnet network|
 |<a name="neighbors"></a>`-n`, `--neighbors` |`NEIGHBORS`|Set the URLs and IP addresses of [neighbors](../how-to-guides/find-neighbor-iri-nodes.md) |array of strings |[""] |
+|<a name="neighboring-socket-address"></a>`--neighboring-socket-address` |`NEIGHBORING_SOCKET_ADDRESS`|Bind the TCP server socket to a port |string |15600|The default address binds the TCP server socket to every network interface. Change this option if your node has multiple IP addresses and you only want to bind a specific one.|
+|<a name="neighboring-socket-port"></a>`--neighboring-socket-port` |`NEIGHBORING_SOCKET_PORT`|Bind the TCP server socket to an address |string |0.0.0.0|
 |<a name="p-drop-cache"></a>`--p-drop-cache` |`P_DROP_CACHE_ENTRY`|Set the probability of losing recently seen transactions in the network cache | number between 0 and 1|0.02 |
 |<a name="p-remove-request"></a>`--p-remove-request` |`P_REMOVE_REQUEST`|Set the probability of the IRI stopping to request a transaction |number between 0 and 1 |0.01 |This number should be close to 0 so that non-existing transaction hashes are eventually removed
 |<a name="queue-size"></a>`--queue-size `|`Q_SIZE_NODE`|Set the maximum size of the REPLY, BROADCAST, and RECEIVE network queues | number|1,000|
-|<a name="send-limit"></a> `--send-limit` |`SEND_LIMIT`|Set the data limit in Mbits per second that the node can send |number | -1 |If this number is below 0, no limit is set
-|<a name="udp-receiver-port"></a>`-u`, `--udp-receiver-port` |`UDP_RECEIVER_PORT`|Set the port from which the IRI receives UDP data packets from neighbor IRI nodes |string |14600 |
-|<a name="tcp-receiver-port"></a>`-t`, `--tcp-receiver-port` |`TCP_RECEIVER_PORT`|Set the port from which the IRI receives TCP data packets from neighbor IRI nodes |string | 15600|
+|<a name="reconnect-attempt-interval-seconds"></a>`--reconnect-attempt-interval-seconds` |`RECONNECT_ATTEMPT_INTERVAL_SECONDS`|Set the number of seconds to wait before trying to reconnect to a disconnected neighbor |number |60|
+|<a name="send-limit"></a> `--send-limit` |`SEND_LIMIT`|Set the maximum number of packets that your node can send per second |number | -1 |If this number is below 0, no limit is set|
 
 ## IXI
 
