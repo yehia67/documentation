@@ -69,7 +69,7 @@ In this example, we connect to a [Devnet node](../references/iota-networks.md#de
     ```
 
     :::info:
-    You aren't sedning any IOTA tokens, so this address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://iota-basics/0.1/concepts/trinary.md).
+    You aren't sending any IOTA tokens, so this address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://iota-basics/0.1/concepts/trinary.md).
     :::
 
 7. Create a variable to store your seed

@@ -6,11 +6,11 @@
 Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community.
 :::
 
-The architecture of our PoC (shown in the image below) follows a pattern, where the source, producer, consumer, and grid are interconnected through an IOTA network.
+The architecture of our PoC follows a pattern, where the source, producer, consumer, and grid are interconnected through an IOTA network.
 
 IOTA technologies are advantageous in an architecture such as this because they allow entities to communicate with one another in a secure manner without needing to always be on or connected to each other.
 
-![P2P Energy PoC - Architecture Diagram](./p2p_architecture.png)
+![P2P Energy PoC - Architecture Diagram](../images/p2p_architecture.png)
 
 IOTA technologies are employed as both the communication and payment mechanisms between entities that store the data on the Tangle.
 
@@ -22,11 +22,11 @@ This table displays a list of all the main components of the application:
 
 **Component**|**Description**
 :-----|:------|
-Web Server: Storage API | Provides a facility for any entities within the system to store/retrieve arbitrary data, this allows any entities with limited storage facilities to store more data. The choice of a traditional web API instead of using the Tangle for storage is because the data on the Tangle can be removed at a snapshot.
+**Web Server: Storage API** | Provides a facility for any entities within the system to store/retrieve arbitrary data, this allows any entities with limited storage facilities to store more data. The choice of a traditional web API instead of using the Tangle for storage is because the data on the Tangle can be removed at a snapshot.
 --- | ---
-Web Server: Registration API | The mechanism by which Sources register with producers, and consumers/producers register with the grid. This initial handshake must be performed using traditional web APIs as the MAM channel hashes need to be communicated along with any keys to the channel data.
-Web Server: Web portal | A web UI that allows the grid to monitor the whole system.
-Database | Provides a permanent storage mechanism for the grid to use for its own data.
+**Web Server: Registration API** | The mechanism by which Sources register with producers, and consumers/producers register with the grid. This initial handshake must be performed using traditional web APIs as the MAM channel hashes need to be communicated along with any keys to the channel data.
+**Web Server: Web portal** | A web UI that allows the grid to monitor the whole system.
+**Database** | Provides a permanent storage mechanism for the grid to use for its own data.
 
 The sources are kept as separate entities from the producers to allow for some redundancy. If a producer is offline, the sources continue logging their readings to the Tangle instead of directly to the producer. The sources are still registered with the producers so that the producers can later consolidate the data before communicating it to the grid.
 
@@ -41,7 +41,7 @@ The grid maintains its own IRI node, which enables it to communicate with neighb
 
 The following image shows the communication channels and the sequence of events that occur in the architecture.
 
-![P2P Energy PoC - Sequence Diagram](./p2p_sequence.png)
+![P2P Energy PoC - Sequence Diagram](../images/p2p_sequence.png)
 
 ## Workflows
 
@@ -51,19 +51,19 @@ The following workflows illustrate how the different entities interact with each
 
 This image shows the sequence of events that occur when a source communicates with a producer and the Tangle.
 
-![P2P energy PoC - source workflow](./p2p_source.png)
+![P2P energy PoC - source workflow](../images/p2p_source.png)
 
 ### Producer to grid
 
 This image shows the sequence of events that occur when a producer communicates with the grid and the Tangle.
 
-![P2P energy PoC - producer workflow](./p2p_producer.png)
+![P2P energy PoC - producer workflow](../images/p2p_producer.png)
 
 ### Consumer to grid
 
 This image shows the sequence of events that occur when a consumer communicates with the grid and the Tangle.
 
-![P2P energy PoC - consumer workflow](./p2p_consumer.png)
+![P2P energy PoC - consumer workflow](../images/p2p_consumer.png)
 
 ## Communication
 
@@ -71,7 +71,7 @@ The communication between the different entities is a combination of MAM channel
 
 A tangle transaction is issued whenever a consumer pays its bill to the grid or whenever the grid pays a producer.
 
-![P2P energy PoC - communication](./p2p_communication.png)
+![P2P energy PoC - communication](../images/p2p_communication.png)
 
 ### Source MAM output channel
 

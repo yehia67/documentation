@@ -1,6 +1,6 @@
 # API error messages
 
-**If an API request fails you'll receive an HTTP error code and a JSON object in the response body. Use this page to resolve errors.**
+**If an API request fails you'll receive an HTTP error code and a JSON object in the response body.**
 
 ## 400: Invalid addresses input
 
