@@ -173,7 +173,7 @@ The Compass repository includes a tool to create a Merkle tree and save it in a 
 	sudo ./01_calculate_layers.sh
 	```
 
-This process will take a while (with 4 CPUs it takes around 15 minutes). After the process finishes, the root of the Merkle tree is displayed in the output:
+This process will take a while (with a 4 core virtual machine it takes around 15 minutes). After the process finishes, the root of the Merkle tree is displayed in the output:
 
 ```shell
 [main] INFO org.iota.compass.LayersCalculator - Calculating 65536 addresses.

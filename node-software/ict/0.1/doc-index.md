@@ -1,8 +1,8 @@
 # Index
 
 [Introduction/Overview](/introduction/overview.md)
-[How-to Guides/Run an Ict node](/how-to-guides/run-an-ict-node.md)
 [How-to Guides/Find neighbors](/how-to-guides/find-neighbors.md)
+[How-to Guides/Run an Ict node](/how-to-guides/run-an-ict-node.md)
 [How-to Guides/Get started with the Ict REST API](/how-to-guides/interact-with-ict.md)
 [How-to Guides/Install IXI modules](/how-to-guides/install-ixi-modules.md)
 [How-to Guides/Update the Ict](/how-to-guides/update-ict.md)

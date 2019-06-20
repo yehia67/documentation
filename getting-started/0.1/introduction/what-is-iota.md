@@ -24,7 +24,7 @@ At its most basic level, the IOTA token is a record of ownership that's held by 
 
 These characters might look cryptic, but let's break it down. On the left of the semicolon is an address. These are unique to each client in the network. On the right of the semicolon is an amount of IOTA tokens that belong to that address, in this case 1,000 tokens.
 
-You own IOTA tokens only when all nodes [validate the transaction](root://iri/0.1/concepts/transaction-validation.md) that sent the tokens to you, and when it's referenced by a milestone.
+You own IOTA tokens only when all nodes [validate the transaction](root://node-software/iri/0.1/concepts/transaction-validation.md) that sent the tokens to you, and when it's referenced by a milestone.
 
 ## What makes the IOTA token valuable?
 

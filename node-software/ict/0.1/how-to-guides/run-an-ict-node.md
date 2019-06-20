@@ -11,7 +11,7 @@ To complete this guide, you need the following:
 * A Linux server (this guide has been tested on [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/))
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 
-Ict can run on any Internet-connected device that can run a Java runtime environment (JRE). For example, Ict can run on a Raspberry Pi, a Rock64, a laptop, a VPS, a virtual machine, or an Android phone.
+Ict can run on any Internet-connected device that can run a Java runtime environment (JRE). For example, Ict can run on a Raspberry Pi, a laptop, a VPS, a virtual machine, or an Android phone.
 
 ## Step 1. Set up your system
 

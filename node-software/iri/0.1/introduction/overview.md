@@ -1,6 +1,6 @@
 # IOTA reference implementation overview
 
-**The IRI (IOTA reference implementation) is open-source Java software that defines the IOTA protocol. Computers that run the IRI are called IRI nodes.**
+**The IRI (IOTA reference implementation) is open-source Java software that defines the IOTA protocol. The IRI is the software that currently runs on the IOTA Mainnet, where clients can transfer the IOTA token among each other.**
 
 IRI nodes are the core of an IOTA network, and are responsible for the following key functions:
 
@@ -8,7 +8,7 @@ IRI nodes are the core of an IOTA network, and are responsible for the following
 - [Store valid transactions in a ledger](../concepts/the-ledger.md)
 - [Allow clients to interact with the IRI](../how-to-guides/interact-with-an-iri-node.md) and have their transactions appended to the ledger
 
-Without IRI nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom.
+Without IRI nodes, no one would be able to send transactions because there would be no way of recording who sent what to whom.
 
 By running your own IRI node you have the following benefits:
 

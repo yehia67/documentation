@@ -10,7 +10,7 @@ Originally, PoW was introduced as a concept to reduce large amounts of email spa
 
 Similar to hashcash, each transaction must include a PoW before it can be validated. This PoW provides spam protection for an IOTA network by increasing the time and computational power it takes to create a valid transaction. Furthermore, to reduce the effect that spam transactions have on the network, nodes ignore transactions that don't contain a valid PoW.
 
-PoW can be done by clients or it can be outsourced to a node (known as remote proof of work) by calling the [`attachToTangle` endpoint](root://iri/0.1/references/api-reference.md#attachToTangle).
+PoW can be done by clients or it can be outsourced to a node (known as remote proof of work) by calling the [`attachToTangle` endpoint](root://node-software/iri/0.1/references/api-reference.md#attachToTangle).
 
 Clients may want to use remote PoW if the device they're using to create transactions doesn't have the necessary computational power to calculate PoW in a reasonable amount of time.
 

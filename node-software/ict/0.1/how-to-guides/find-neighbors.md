@@ -5,7 +5,7 @@
 The Ict allows you to have a maximum of three neighbors.
 
 :::info:
-We recommend asking your neighbors to install the [Spam.ixi module](../references/ixi-modules.md) so that you can check your connection.
+We recommend asking your neighbors to install the [Spam.ixi module](../references/ixi-modules.md) so that they send you some transactions, allowing you to check that they're connected.
 :::
 
 ## Find neighbors on Discord

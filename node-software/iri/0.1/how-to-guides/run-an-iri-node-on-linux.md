@@ -17,10 +17,6 @@
     
 ---
 
-:::info:
-If your server has limited resources such as less than 4 GB of RAM, we recommend running the cIRI instead of the IRI.
-:::
-
 The IRI is Java software, so it must be run in a Java runtime environment (JRE).
 
 You have two options for downloading the latest IRI software:

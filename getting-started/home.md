@@ -10,4 +10,4 @@
 ## Learn about the products that have already been built using IOTA
 
 [Get started](/0.1/tutorials/get-started.md)
-## Start integrating IOTA in your apps and send your first transactions
+## Start integrating IOTA into your apps and send your first transactions
