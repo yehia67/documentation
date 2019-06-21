@@ -94,5 +94,7 @@ On this page, you can check that your data is unchanged by checking the `message
 
 After going through this tutorial, you know enough to adapt this application to send any kind of data from any kind of device that you want.
 
+[Start encrypting your data and sending it through a MAM (masked authenticated messaging) channel](../mam-watcher/overview.md).
+
 [Get to know the IOTA client libraries](root://client-libraries/0.1/introduction/overview.md) and find out what else you can do.
 
