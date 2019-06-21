@@ -66,7 +66,7 @@ In the console, you should see that the `sender.js` window sends transactions an
 
 ![MAM watcher](../images/mam-watcher.gif)
 
-## Making your data more private
+## Increase the privacy of your data
 
 Until now, anyone who was able to find your transactions on the Tangle could decrypt the message using the address as the key.
 
