@@ -7,9 +7,13 @@
 For quickstart instructions or to read the source code, [go to the GitHub repository](https://github.com/iota-community/raspberrypi-pubsub).
 :::
 
+:::warning:
+This application uses the [IOTA JavaScript client library](root://client-libraries/0.1/introduction/overview.md), which are still in beta development. Do not use this code in production environments.
+:::
+
 ## Why use this application?
 
-Devices on the Internet of Things often need to share data so they can process and act on it. With IOTA, you can set up your own devices to easily share this data with each other on the Tangle by sending it in a transaction.
+Devices often need to share data so they can process and act on it. With IOTA, you can set up your own devices to easily share this data with each other on the Tangle by sending it in a transaction.
 
 This application is a ready-to-use template that sends temperature sensor data to the Tangle.
 

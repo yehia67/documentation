@@ -6,7 +6,19 @@
 For quickstart instructions or to read the source code, [go to the GitHub repository](https://github.com/iota-community/one-command-tangle).
 :::
 
-The test network consists of one [IRI node](root://node-software/iri/0.1/introduction/overview.md) and an instance of a [Compass](root://compass/0.1/introduction/overview.md).
+:::warning:
+This code is subject to breaking changes. Do not use this application in production environments.
+:::
+
+## Why use this application?
+
+For testing, you may not want to publish test data on one of the public networks. Instead, you can run your own private network with same total supply of test tokens as the [IOTA Mainnet](root://getting-started/0.1/references/iota-networks.md#mainnet). This way, you can create applications that transfer data and value without anyone outside of your network seeing those transactions.
+
+When you're ready to use your application on the Mainnet, you can disconnect it from your private IRI node and connect it to one on the Mainnet.
+
+## How it works
+
+The test network runs one [IRI node](root://node-software/iri/0.1/introduction/overview.md) and an instance of a [Compass](root://compass/0.1/introduction/overview.md) on your localhost (not connected to the Internet).
 
 The IRI node receives transactions, validates them, and keeps an up-to-date record of users' balances.
 

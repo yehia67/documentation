@@ -6,7 +6,13 @@
 For quickstart instructions or to read the source code, [go to the GitHub repository](https://github.com/iota-community/mam-watcher).
 :::
 
-![MAM watcher](../images/mam-watcher.gif)
+:::warning:
+This application uses the [IOTA MAM library](https://www.npmjs.com/package/@iota/mam), which is a work-in-progress. Do not use it in production environments.
+:::
+
+## Why use this application?
+
+Devices on the Internet of Things are often monitoring their environment and creating data. This application allows you to encrypt that data and stream it on the Tangle through a channel. This way, you can allow other devices to subscribe to your data stream through the channel.
 
 ## Prerequisites
 
@@ -23,16 +29,19 @@ To use this application, you need the following:
     ```
     git clone https://github.com/iota-community/mam-watcher
     ```
+
 2. Change into the `mam-watcher` directory
 
     ```bash
     cd mam-watcher
     ```
+
 3. Install the dependencies
 
     ```bash
     npm install
     ```
+
 4. Start sending messages to a MAM stream
 
     ```bash
@@ -55,9 +64,69 @@ To use this application, you need the following:
 
 In the console, you should see that the `sender.js` window sends transactions and the `fetcher.js` window subscribes to the channel and retrieves the messages from the Tangle.
 
+![MAM watcher](../images/mam-watcher.gif)
+
+## Making your data more private
+
+Until now, anyone who was able to find your transactions on the Tangle could decrypt the message using the address as the key.
+
+To make your data more private and to have more control over who can decrypt it, you can make your channel restricted.
+
+1. Open the `sender.js` file
+
+2. Create a secret 81-tryte  side key under the first two lines at the top
+
+    ```js
+    var sideKey = asciiToTrytes('mySuperSecretSideKey');
+
+    while(sideKey.length % 81 !== 0){
+    sideKey += '9';
+    }
+    ```
+
+    :::info:
+    This is only an example. For your own applications, create your own 81-tryte side key.
+    :::
+
+3. Change the `mamState` variable to use the `restricted` method instead of the `public` one
+
+    ```js
+    mamState = Mam.changeMode(mamState, 'restricted', sideKey);
+    ```
+
+4. Change the message, so we know that it's now secret
+
+    ```js
+    publish('Super secret message' + count++);
+    ```
+
+5. Open the `fetcher.js` file
+
+6. Give this file the same side key as the one you created in the `sender.js` file
+
+    ```js
+    const { asciiToTrytes } = require('@iota/converter')
+
+    var sideKey = asciiToTrytes('mySuperSecretSideKey');
+
+    while(sideKey.length % 81 !== 0){
+    sideKey += '9';
+    }
+    ```
+
+7. Change the fetch method so that it decrypts the message using the side key
+
+    ```js
+    await Mam.fetch(root, 'restricted', sideKey, showData)
+    ```
+
+:::success:Congratulations!
+Now, only those with the side key can decrypt your message, even if they find your transactions on the Tangle.
+:::
+
 ## Next steps
 
-Try running your own private Tangle and sending the sending the MAM messages to it.
+Try [running your own private Tangle](../one-command-tangle/overview.md) and sending the sending the MAM messages to it.
 
 :::info:
 Make sure to change the node URL `https://nodes.devnet.thetangle.org:443` to the URL of your node (`http:127.0.0.1:14265`) in both the `sender.js` file and the `fetcher.js` file.
