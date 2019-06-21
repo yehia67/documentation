@@ -2,6 +2,7 @@
 
 [Introduction/Overview](/introduction/overview.md)
 [Concepts/Hardware wallet](/concepts/hardware-wallet.md)
+[Concepts/Node quorum](/concepts/node-quorum.md)
 [How-to Guides/Create an account](/how-to-guides/create-an-account.md)
 [How-to Guides/Back up your seed](/how-to-guides/back-up-seed.md)
 [How-to Guides/Verify the Trinity Desktop download](/how-to-guides/verify-trinity-desktop.md)
