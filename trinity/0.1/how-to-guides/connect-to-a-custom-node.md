@@ -38,7 +38,7 @@ As well as connecting to a single custom node, you can also add multiple custom 
 
 5. Click **Save**
 
-:::success:Congrtulations! :tada:
+:::success:Congratulations! :tada:
 All the information that Trinity displays about the Tangle is now sent from your custom nodes.
 :::
 
