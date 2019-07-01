@@ -1,6 +1,6 @@
 # One-command private test Tangle
 
-**This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and [2.7Pi](root://iota-basics/0.1/references/units-of-iota-tokens.md) (the maximum amount) of test IOTA tokens to use. These tokens will be stored on the first address of this seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`. You can use this application to test your ideas and applications without risking any monetary value.**
+**This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and [2.7Pi](root://iota-basics/0.1/references/units-of-iota-tokens.md) (the maximum amount) of test IOTA tokens to use. You can use this application to test your ideas and applications without risking any monetary value.**
 
 :::info:Go to GitHub
 For quickstart instructions or to read the source code, [go to the GitHub repository](https://github.com/iota-community/one-command-tangle).
@@ -12,17 +12,19 @@ This code is subject to breaking changes. Do not use this application in product
 
 ## Why use this application?
 
-For testing, you may not want to publish test data on one of the public networks. Instead, you can run your own private network with same total supply of test tokens as the [IOTA Mainnet](root://getting-started/0.1/references/iota-networks.md#mainnet). This way, you can create applications that transfer data and value without anyone outside of your network seeing those transactions.
+For testing, you may not want to publish test data on one of the public networks. Instead, you can run your own private network with the same total supply of test tokens as those in the [IOTA Mainnet](root://getting-started/0.1/references/iota-networks.md#mainnet). This way, you can create applications that transfer data and value without anyone outside of your network seeing those transactions.
 
 When you're ready to use your application on the Mainnet, you can disconnect it from your private IRI node and connect it to one on the Mainnet.
 
 ## How it works
 
-The test network runs one [IRI node](root://node-software/iri/0.1/introduction/overview.md) and an instance of a [Compass](root://compass/0.1/introduction/overview.md) on your localhost (not connected to the Internet).
+The test network runs one [IRI node](root://node-software/iri/0.1/introduction/overview.md) and an instance of [Compass](root://compass/0.1/introduction/overview.md) on your localhost (not connected to the Internet).
 
 The IRI node receives transactions, validates them, and keeps an up-to-date record of users' balances.
 
-At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](https://docs.iota.org/docs/the-tangle/0.1/concepts/the-coordinator#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction. 
+At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](https://docs.iota.org/docs/the-tangle/0.1/concepts/the-coordinator#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction.
+
+The total supply of tokens are stored on the first address of this seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`.
 
 :::warning:Do not expose this network to the Internet
 The purpose of this application is to allow you to quickly set up a test IOTA network. To do so, this application uses a pre-calculated Merkle tree. As a result, you should use this application only for testing on your own local network.
