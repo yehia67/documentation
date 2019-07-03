@@ -31,9 +31,7 @@ As well as connecting to a single custom node, you can also add multiple custom 
 4. Select your node from the dropdown menu
 
     :::warning:Devnet nodes
-    If your custom node is a Devnet node, you must also deselect the **Use remote list** option. The nodes in that list are Mainnet nodes, so they're incompatible with the Devnet.
-
-    Doing so will automatically deselect the **Node quorum** option.
+    If your custom node is a Devnet node, you must also disable the **Use remote list** and **Primary node autoswitching** options. The nodes in that list are Mainnet nodes, so they're incompatible with the Devnet.
     :::
 
 5. Click **Save**
