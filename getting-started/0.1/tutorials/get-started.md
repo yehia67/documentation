@@ -258,7 +258,7 @@ To learn what these fields mean, [see the API reference](root://node-software/ir
 
 ## Get involved
 
-[Join our Discord channel](https://discordapp.com/invite/fNGZXvh) where you can:
+[Join our Discord channel](https://discord.iota.org) where you can:
 
 * Take part in discussions with IOTA developers and the community
 * Ask for help

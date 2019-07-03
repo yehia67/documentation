@@ -220,4 +220,4 @@ Please update the documention when needed by editing [`JSDoc`](http://usejsdoc.o
 
 ## Join the discussion
 
-If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss IOTA, Distributed Registry Technology (DRT) and IoT with other people, feel free to join our [Discord](https://discordapp.com/invite/fNGZXvh).
+If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss IOTA, Distributed Registry Technology (DRT) and IoT with other people, feel free to join our [Discord](https://discord.iota.org).

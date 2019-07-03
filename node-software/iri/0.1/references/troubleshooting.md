@@ -27,7 +27,7 @@ It may take some time for the IRI to synchronize. Wait a while to see if the IRI
     curl http://localhost:14265 -X POST -H 'Content-Type: application/json' -H 'X-IOTA-API-Version: 1' -d '{"command": "getNeighbors"}'
     ```
 
-* Ask for more support on [Discord](https://discordapp.com/invite/fNGZXvh) in our #help and #fullnodes channels
+* Ask for more support on [Discord](https://discord.iota.org) in our #help and #fullnodes channels
 
 :::info:
 You can download the latest database files from [dbfiles.iota.org](https://dbfiles.iota.org/?prefix=).
