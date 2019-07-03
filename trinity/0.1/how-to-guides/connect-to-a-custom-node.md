@@ -1,6 +1,6 @@
 # Connect to custom nodes
 
-**You can connect to one or more custom nodes instead of or in addition to the default [node quorum](../concepts/node-quorum.md). For example, you may want to be able to connect to your own nodes or even connect to nodes on the Devnet.**
+**You can connect to one or more custom nodes either instead of the default [node quorum](../concepts/node-quorum.md) or in addition to it. For example, you may want to be able to connect to your own nodes or even connect to nodes on the Devnet.**
 
 :::info:
 All nodes in Trinity must use the HTTPS protocol.
