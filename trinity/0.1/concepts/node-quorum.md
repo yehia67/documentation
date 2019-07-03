@@ -1,6 +1,6 @@
 # Node quorum
 
-**When you rely only on one node as a source of information from the Tangle, you can't be confident that it's correct. For example, that node could send you the wrong information about your available balance. To increase your confidence in the information that Trinity displays, it can connect to multiple nodes and compare the results. This group of nodes is called a node quorum, which consists of a hard-coded list of public nodes and/or any user-defined custom nodes**
+**When you rely only on one node as a source of information from the Tangle, you can't be confident that it's correct. For example, that node could send you the wrong information about your available balance. To increase your confidence in the information that Trinity displays, it can connect to multiple nodes and compare the results. This group of nodes is called a node quorum, which consists of hard-coded nodes, remote public nodes and/or any user-defined custom nodes**
 
 When Trinity sends a request for information to a node quorum, it compares the results from each of them. If at least 67% (3 out of 4) nodes return the same result, then Trinity has a high level of confidence that the information is correct. If fewer nodes agree, the quorum fails and Trinity displays a _safe_ fallback result.
 
