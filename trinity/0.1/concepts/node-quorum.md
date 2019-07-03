@@ -1,6 +1,6 @@
 # Node quorum
 
-**When you rely only on one node as a source of information from the Tangle, you can't be confident that it's correct. For example, that node could send you the wrong information about your available balance. To increase the confidence in the information that Trinity displays, it connects to multiple nodes and compares the results. These nodes are called a node quorum.**
+**When you rely only on one node as a source of information from the Tangle, you can't be confident that it's correct. For example, that node could send you the wrong information about your available balance. To increase the confidence in the information that Trinity displays, it connects to multiple nodes and compares the results. This group of nodes is called a node quorum.**
 
 When Trinity sends a request for information, it sends it to a node quorum, which consists of 4 random nodes by default. These nodes are chosen from a remote list of public nodes.
 
