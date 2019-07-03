@@ -9,4 +9,4 @@ At the moment, Trinity uses a node quorum for the following:
 | **Request to a node quorum**|**Safe fallback result (in case of failure)** |**Reason for safe fallback result**|
 |:--|:--|:---|
 |Whether an address is spent| The address is spent| To stop users from trying to spend tokens that they don't have|
-|The balances of an address before, during, and after sending a transaction| Zero balance| To stop users from being misled into believing that their balance is up to date.
+|The balances of an address before, during, and after sending a transaction| Zero balance| To stop users from being misled into believing that their balance is up to date, thus avoiding the risk of a user withdrawing from a spent address. [Find out why this is important](root://iota-basics/0.1/concepts/addresses-and-signatures.md#addressreuse).
