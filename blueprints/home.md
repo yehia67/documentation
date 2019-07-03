@@ -3,6 +3,9 @@
 [Data Marketplace](/0.1/data-marketplace/overview.md)
 ## Learn how to buy and sell data through MAM channels on the Tangle
 
+[Document immutability](/0.1/doc-immutability/overview.md)
+## Learn how to use IOTA to verify that a document has not been modified
+
 [Peer-to-peer energy grid](/0.1/p2p-energy/overview.md)
 ## Learn how to buy and sell energy through MAM channels on the Tangle
 
