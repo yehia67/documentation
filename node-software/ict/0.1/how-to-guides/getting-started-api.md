@@ -114,7 +114,7 @@ The output should display something like the following:
 You've just sent your first successful HTTP request to a node.
 :::
 
-### Final code
+### Full sample code
 
 ```js
 var request = require('request');

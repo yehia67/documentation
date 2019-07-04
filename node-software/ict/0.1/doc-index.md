@@ -9,6 +9,6 @@
 [References/API reference](/references/api-reference.md)
 [References/API errors](/references/api-errors.md)
 [References/Command line flags](/references/command-line-flags.md)
-[References/Configuration settings](/references/configuration-settings.md)
+[References/Configuration options](/references/configuration-options.md)
 [References/Data in the Ict logs](/references/log-data.md)
 [References/Troubleshooting](/references/troubleshooting.md)

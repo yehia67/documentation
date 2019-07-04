@@ -1,6 +1,6 @@
-# Configuration settings
+# Configuration options
 
-**The configuration settings affect how a node behaves. You can edit the configuration settings either on the Ict website or in the configuration file. This table displays information about the configuration fields and their default values.**
+**The configuration options allow you to customize how your node behaves. You can edit the configuration options either on the Ict website or in the configuration file. This table displays information about the configuration fields and their default values.**
 
 |**Ict website**|**Configuration file** |**Description**|**Default**|
 |:-----|:----------|:------|:-----|

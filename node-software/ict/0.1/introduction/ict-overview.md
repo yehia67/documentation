@@ -2,6 +2,12 @@
 
 **The Ict (IOTA controlled agent) is a lightweight, modular implementation of the IOTA protocol that's designed for devices on the Internet of Things (IoT). This software is experimental and consists only of a gossip protocol that allows nodes to send and receive transactions among each other. Everything else such as consensus algorithms, enhancements, and applications can each be built on top of the Ict as an IOTA extension interface (IXI) module. This modular design allows nodes to use as many modules as they like, depending on the size of the device that they're running.**
 
+:::info:
+This software is being rewritten in the Rust programming language. As a result, the Ict will eventually be replaced by the new Rust version, which will be called **Bee**. Many of the features in the Ict will still exist in Bee, so feel free to test this network in the meantime.
+
+To keep up to date with the development of Bee, [join the IOTA Discord server](https://discord.iota.org) and take a look at the `Bee-dev` channel.
+:::
+
 To reduce the storage overhead of nodes, the Ict doesn't store transactions in a database. Instead, the Ict streams and processes transactions in a queue. Depending on the node's available memory during runtime, the Ict prunes transactions from the queue in the order of first in first out (FIFO).
 
 The Ict consists of the following:

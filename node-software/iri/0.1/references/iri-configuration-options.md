@@ -1,6 +1,6 @@
 # IRI configuration options
 
-**The IRI configuration options allow you to customize your node. You can choose to set these options either in the command line (CL flags) or in a .ini configuration file (config file parameters).**
+**The IRI configuration options allow you to customize how your node behaves. You can choose to set these options either in the command line (CL flags) or in a .ini configuration file (config file parameters).**
 
 To make it easier to find the options you want to change, we've separated them into the following categories:
 

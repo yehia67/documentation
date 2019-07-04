@@ -148,7 +148,7 @@ To check if a newer version of the Ict Java file is available and download the i
 Before you complete this guide, we recommend completing the [Getting started guide](../how-to-guides/getting-started-api.md). This guide assumes that you've completed that guide and that you have the index.js file open in a code editor.
 
 :::info:
-Just want the code? [See the final code](#final-code).
+Just want the code? [See the full sample code](#full-sample-code).
 :::
 
 ---
@@ -224,7 +224,7 @@ Just want the code? [See the final code](#final-code).
     systemctl start ict
     ```
 
-### Final code
+### Full sample code
  
 Before you run this sample code, replace `http:localhost:2187` with the URL and REST API port of your node, and replace `change_me_now` with your password.
 
