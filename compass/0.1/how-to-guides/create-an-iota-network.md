@@ -345,6 +345,6 @@ Feel free to send test transactions and see them confirmed by Compass milestones
 
 ## Next steps
 
-You could install a signing server for increased security.
+Install a signing server for increased security. A signing server reduces the attack surface of Compass by moving sensitive operations such as signing to an external service. Compass interacts with the signing server through a gRPC API.
 
-A signing server reduces the attack surface of Compass by moving sensitive operations such as signing to an external service. Compass interacts with the signing server through a gRPC API.
+[Subscribe to events on your node](root://iri/0.1/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions.
