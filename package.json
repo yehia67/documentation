@@ -12,7 +12,9 @@
     "scripts": {
         "validate": "node buildProjects.js --no-remote"
     },
-    "pre-commit": [ "validate" ],
+    "pre-commit": [
+        "validate"
+    ],
     "homepage": "https://github.com/iotaledger/documentation#readme",
     "devDependencies": {
         "axios": "^0.18.0",
