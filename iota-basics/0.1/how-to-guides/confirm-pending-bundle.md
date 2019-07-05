@@ -1,6 +1,6 @@
 # Confirm a pending bundle
 
-**To be approved by a milestone, a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a bundle is stuck in a pending state, the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote it, depending on the circumstances.**
+**To be approved by a milestone, a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a bundle is stuck in a pending state, the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote its tail transaction, depending on the circumstances.**
 
 :::info:First time using a client library?
 [Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries.
@@ -12,7 +12,7 @@ If you're unfamiliar with the terms reattach, rebroadcast, or promote, we recomm
 
 ## Prerequisites
 
-To complete these guides, you need the following:
+To complete this guide, you need the following:
 
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -21,12 +21,12 @@ To complete these guides, you need the following:
 
 ## Confirm a pending bundle
 
-A bundle can be stuck in a pending state for many reasons, for example if it's too old to be selected during tip selection or if it's attached to a part of the Tangle that leads to an invalid state such as a double-spend (inconsistent subtangle).
+A bundle can be stuck in a pending state for many reasons, for example if its tail transaction is too old to be selected during tip selection or if it's attached to a part of the Tangle that leads to an invalid state such as a double-spend (inconsistent subtangle).
 
 In this guide, you'll create a script that does the following every 30 seconds:
 
-* Check if the tail transaction of a bundle on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) has been confirmed
-* If the transaction is still pending, promote or reattach it
+* Check if a tail transaction on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) has been confirmed
+* If the tail transaction is still pending, promote or reattach it
 
 ### Step 1. Create a timer function
 
