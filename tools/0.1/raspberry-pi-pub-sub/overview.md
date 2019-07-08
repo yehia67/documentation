@@ -1,4 +1,3 @@
-
 # Raspberry Pi sensor data publisher
 
 **This application sends real-time temperature data (the current temperature in Celsius) from a Raspberry Pi to the Devnet Tangle every minute. Then, it subscribes to the event stream (ZMQ) on another Devnet node and triggers a message to let you know when it receives the data.**

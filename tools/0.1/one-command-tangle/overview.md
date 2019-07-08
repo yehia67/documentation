@@ -18,11 +18,11 @@ When you're ready to use your application on the Mainnet, you can disconnect it 
 
 ## How it works
 
-The test network runs one [IRI node](root://node-software/iri/0.1/introduction/overview.md) and an instance of [Compass](root://compass/0.1/introduction/overview.md) on your localhost (not connected to the Internet).
+The test network runs one [IRI node](root://iri/0.1/introduction/overview.md) and an instance of [Compass](root://compass/0.1/introduction/overview.md) on your localhost (not connected to the Internet).
 
 The IRI node receives transactions, validates them, and keeps an up-to-date record of users' balances.
 
-At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](https://docs.iota.org/docs/the-tangle/0.1/concepts/the-coordinator#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction.
+At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction.
 
 The total supply of tokens are stored on the first address of this seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`.
 
@@ -56,18 +56,18 @@ To use this application, you need the following:
  ![Compass and IRI node logs](../images/cli.gif)
 
  :::info:
- Compass uses a pre-built [Merkle tree](https://docs.iota.works/docs/the-tangle/0.1/concepts/the-coordinator#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals.
+ Compass uses a pre-built [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals.
  :::
  
 ## Step 2. Interact with the network
 
 When the application is running, you can interact with the network through the IRI node's API port at the following address http://localhost:14265.
 
-See a list of [API endpoints](root://node-software/iri/0.1/references/api-reference).
+See a list of [API endpoints](root://iri/0.1/references/api-reference.md).
 
 --------------------
 ### GetBalances
-Using the [JavaScript client library](root://client-libraries/0.1/introduction/overview) with Node.js, you can call the [`getBalances`](root://node-software/iri/0.1/references/api-reference#getbalances) endpoint to get the total balance of the `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999` seed.
+Using the [JavaScript client library](root://client-libraries/0.1/introduction/overview) with Node.js, you can call the [`getBalances`](root://iri/0.1/references/api-reference.md#getbalances) endpoint to get the total balance of the `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999` seed.
 
 If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs).
 
