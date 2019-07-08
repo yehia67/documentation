@@ -21,7 +21,6 @@ To use the sample code in this guide, you must have the following:
 * Access to a command prompt
 * An Internet connection
 
-
 ## Step 1. Send transactions to your node
 
 To make sure that your node is receiving transactions, you can use the `spammer` API endpoint to send it some transactions.
@@ -31,7 +30,7 @@ Open a web browser and enter the following into the address bar
 `http://localhost:8080/spammer?cmd=start`
 
 :::info:
-By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 30 TPS, send a request to the following endpoint `http://localhost:8080/spammer?cmd=start&tps=30`
+By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 10,000 TPS, send a request to the following endpoint `http://localhost:8080/spammer?cmd=start&tps=10000`
 :::
 
 Now that your node is receiving transactions, subscribe to the `tx` event, using a ZMQ library.
@@ -166,4 +165,8 @@ If we take this data as a random example, it corresponds to the following:
 |FXTZC9KKRBWSBYKCOGUDZ...|Branch transaction hash|
 |1562247720|Unix timestamp of when the node received the transaction|
 |99999999999999999999...|Emty tag|
+
+:::info:
+The `value` field has a non-zero value so that the transaction hash is unique for each transaction. No IOTA tokens are transferred.
+::: 
 

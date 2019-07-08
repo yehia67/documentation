@@ -1,14 +1,13 @@
-# Coordicide testnet
+# Coordicide Alphanet
 
-**The goal of Coordicide is for the network to reach consensus without the Coordinator. This goal will allow IOTA networks to be decentralized because they will no longer rely on milestones to consider transactions as confirmed. To reach this goal, the network must be modular so that updates can occur easily. These modules are part of the Coordicide testnet.**
+**The Coordicide Alphanet is a work-in-progress prototype of an IOTA network that will lead to Coordicide. The goal of Coordicide is for the network to reach a consensus without the Coordinator, allowing IOTA networks to be decentralized. To reach this goal, the Coordicide Alphanet consists of modules that each have a specific role.**
 
-## Current modules
+At the moment, the Coordicide Alphanet includes the following modules:
 
-At the moment, the Coordicide testnet includes the following modules:
-
-
+* **Auto-peering:** Each new node on the network tries to connect to four neighbors and accepts connections from a further four neighbors
+* **Node identities:** Each node creates a unique public/private key pair. The public key is used to identify nodes during auto-peering. In the future, these identities will allow nodes to receive mana.
 
 :::info:
-[Find out more about the full Coordicide solution](https://coordicide.iota.org).
+[Find out more about mana and the other modules in the full Coordicide solution](https://coordicide.iota.org).
 :::
 

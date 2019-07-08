@@ -6,7 +6,6 @@
 
 To complete this guide, you need the following:
 
-* Administrator access to your router
 * An Internet connection
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 * At least version 1.12 of the Go programming language (we recommend the latest version)
@@ -48,17 +47,9 @@ If you build the executable file, you'll have a file called `shimmer` that you n
 
 To execute this file on Linux or macOS, do `./shimmer`.
 
-To execute this file on Windows, rename it to `shimmer.exe`, then execute it by double clicking the file, or by doing `.\shimmer.exe` in the command prompt.
+To execute this file on Windows, rename it to `shimmer.exe`, then execute it by double clicking the file, or by doing `.\shimmer` in the command prompt.
 
 ## Next steps
 
-Send some transactions to your node and see that transaction data by subscribing to events.
-
-Run another node
-
-See that it autopeers with that node
-
-Explain what happened (entry node facilitates the connection? What's the maximum number of neighbors? What are the critera for auto removing/adding neighbors?)
-
-How is the node ID used? Is voting implemented yet?
+[Send some transactions to your node and see that transaction data by subscribing to events](../how-to-guides/subscribe-to-events.md).
 
