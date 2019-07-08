@@ -12,7 +12,7 @@
 
 [Concepts/Trinary](/concepts/trinary.md)
 
-[How-to Guides/Convert data to trytes](/how-to-guides/convert-data-to-trytes.md)
+[How-to Guides/Convert data to/from trytes](/how-to-guides/convert-data-to-trytes.md)
 
 [How-to Guides/Create an address](/how-to-guides/create-an-address.md)
 
