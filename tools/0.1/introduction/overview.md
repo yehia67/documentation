@@ -22,3 +22,7 @@ Set up your own IOTA network by using a single [Docker](https://www.docker.com/w
 
 Sends real-time temperature data (the current temperature in Celsius) from a Raspberry Pi to the Devnet Tangle every minute.
 ---------------
+
+:::info:
+More tools are available on the [`iota-community` GitHub repository](https://github.com/iota-community).
+:::
