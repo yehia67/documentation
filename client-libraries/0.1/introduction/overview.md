@@ -52,7 +52,7 @@ A C# .NET 4.6 client library. This library includes core and extended functional
 ## Useful links
 
 - **[Tangle explorer](https://www.thetangle.org):** View transactions on the Tangle
-- **[Official Discord](https://discord.gg/NaAy8k7):** Join the discussion in language-specific channels.
+- **[Official Discord](https://discord.iota.org):** Join the discussion in language-specific channels.
 
 ## IoT experiments
 

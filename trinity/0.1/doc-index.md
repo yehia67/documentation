@@ -2,6 +2,7 @@
 
 [Introduction/Overview](/introduction/overview.md)
 [Concepts/Hardware wallet](/concepts/hardware-wallet.md)
+[Concepts/Node quorum](/concepts/node-quorum.md)
 [How-to Guides/Create an account](/how-to-guides/create-an-account.md)
 [How-to Guides/Back up your seed](/how-to-guides/back-up-seed.md)
 [How-to Guides/Verify the Trinity Desktop download](/how-to-guides/verify-trinity-desktop.md)
@@ -10,6 +11,7 @@
 [How-to Guides/Receive a transaction](/how-to-guides/receive-a-transaction.md)
 [How-to Guides/Create a QR code](/how-to-guides/create-a-qr-code.md)
 [How-to Guides/Create a deep link](/how-to-guides/create-deep-link.md)
+[How-to Guides/Connect to a custom node](/how-to-guides/connect-to-a-custom-node.md)
 [How-to Guides/Manage your account](/how-to-guides/manage-your-account.md)
 [How-to Guides/Manage your security settings](/how-to-guides/manage-your-security-settings.md)
 [How-to Guides/Change the general settings](/how-to-guides/change-the-general-settings.md)

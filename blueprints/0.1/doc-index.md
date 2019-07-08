@@ -4,6 +4,8 @@
 [Data Marketplace/Overview](/data-marketplace/overview.md)
 [Data Marketplace/App architecture](/data-marketplace/architecture.md)
 [Data Marketplace/Deploy and test the app](/data-marketplace/deployment-and-testing.md)
+[Document immutability/Overview](/doc-immutability/overview.md)
+[Document immutability/App architecture](/doc-immutability/architecture.md)
 [P2P energy grid/Overview](/p2p-energy/overview.md)
 [P2P energy grid/App architecture](/p2p-energy/architecture.md)
 [P2P energy grid/Deploy and test the app](/p2p-energy/deployment-and-testing.md)

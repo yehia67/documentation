@@ -15,6 +15,12 @@ Data silos make it difficult to buy and sell data among different data points. T
 -------------------------
 
 -------------------------
+![Document immutability](../images/document-immutability.png)
+## [Document immutability](../doc-immutability/overview.md)
+Documents are an important means of transporting information and contracts between parties. Being able to reliably prove that a document has not been changed from an established state helps ensure trust between parties. As well as protect the parties. This blueprint describes a solution that automatically checks the signature of a previously signed document using the IOTA Tangle.
+-------------------------
+
+-------------------------
 ![Peer-to-peer energy grid](../images/p2p-energy-grid-thumbnail.png)
 ## [Peer-to-peer energy grid](../p2p-energy/overview.md)
 Although the supply of energy is often automated, the payment system is expensive to integrate and often requires manual intervention. By creating a peer-to-peer energy grid with IOTA, you can automate the transfer of power and the payment for that power. This automation makes your infrastructure more dynamic and easier to update.

@@ -4,21 +4,7 @@
 
 For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine. But, you could run multiple IRI nodes and connect them to each other as neighbors.
 
-:::info:
-You could also install a signing server for increased security.
-
-A signing server reduces the attack surface of Compass by moving sensitive operations such as signing to an external service. Compass interacts with the signing server through a gRPC API.
-:::
-
 ![System diagram of Compass](../images/compass.png)
-
-To create your own IOTA network, you must complete the following tasks in order:
-
-1. [Install the dependencies](#install-the-dependencies)
-2. [Calculate the Merkle tree](#calculate-the-merkle-tree)
-3. [Run an IRI node](#run-an-iri-node)
-4. [Run Compass](#run-compass)
-5. [Test the network](#test-your-network)
 
 ## Prerequisites
 
@@ -29,7 +15,7 @@ A Linux server with the following minimum requirements. If you are on a Windows 
 * Preferably 4+ CPU cores, the more cores the faster the Merkle tree will be generated.
 * At least a 10GB SSD
 
-## Install the dependencies
+## Step 1. Install the dependencies
 
 Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.docker.com/) to run, so we need to make sure both are installed.
 
@@ -80,7 +66,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 	sudo apt install jq
 	```
 
-## Calculate the Merkle tree
+## Step 2. Calculate the Merkle tree
 
 For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) with a depth of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. The interval between milestones depends on two factors:
 
@@ -123,7 +109,7 @@ The Compass repository includes a tool to create a Merkle tree and save it in a 
 
 4. Create a backup of the seed
 
-	:::danger:Keep you seed safe
+	:::danger:Keep your seed safe
 	An attacker with the seed could send fraudulent milestones and disrupt the operation of the network.
 	:::
 
@@ -183,7 +169,7 @@ This process will take a while (with a 4 core virtual machine it takes around 15
 
 The Merkle tree is stored in the data directory, so Compass can use the private keys when it starts running.
 
-## Run an IRI node
+## Step 3. Run an IRI node
 
 Compass must send milestones to an IRI node. Compass sends milestones to an IRI node through an HTTP RPC API.
 
@@ -218,7 +204,7 @@ The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first
 	```
 
 	:::info:
-	If you see a `malformed snapshot state file` error, check the snapshot.txt file and make sure that you didn't include a line break at the end of the line.
+	If you see a `malformed snapshot state file` error, check the snapshot.txt file and make sure that you didn't include a line break at the en of the line.
 	
 	If you see a `NumberFormatException` error or an `IllegalArgumentException` error, check that no space characters are either side of the semicolon.
 	:::
@@ -232,7 +218,7 @@ If the IRI node that Compass is connected to is compromised, an attacker could m
 - Stop propagating milestone transactions to the rest of the network, causing no more transactions to be confirmed.
 :::
 
-## Run Compass
+## Step 4. Run Compass
 
 After you've created the Merkle tree and you're running an IRI node, you can run Compass.
 
@@ -270,14 +256,95 @@ After you've created the Merkle tree and you're running an IRI node, you can run
 If you restart Compass, you don't need to pass it the `-bootstrap` flag (Compass won't start if you do). But, you should pass it 	the `-broadcast` flag as a security measure so that Compass broadcasts its milestones to the IRI node.
 :::
 
-## Test your network
+## Step 5. Test your network
 
-You can connect to your IRI node on port 14265, using Trinity or a client library.
+When the application is running, you can interact with the network through the IRI node's API port at the following address http://localhost:14265.
 
-1. Connect to your IRI node
+For a list of API endpoints see the [IRI API reference](root://iri/0.1/references/api-reference.md).
 
-2. Enter the `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999` seed
+--------------------
+### getBalances
+Call the [`getBalances`](root://iri/0.1/references/api-reference.md#getbalances) endpoint to get the total balance of the `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999` seed. If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md).
 
-Your balance should be 2.7Pi (you may have to attach the first address to the Tangle).
+ ```js
+ var request = require('request');
+
+ const iota = require('@iota/core');
+
+ Iota = iota.composeAPI({
+     provider: 'http://localhost:14265'
+ });
+
+ var address = iota.generateAddress('SEED99999999999999999999999999999999999999999999999999999999999999999999999999999',0);
+
+ getBalance(address);
+
+ function getBalance(address) {
+
+     var command = {
+     'command': 'getBalances',
+     'addresses': [
+     address
+     ],
+     'threshold':100
+     }
+
+     var options = {
+     url: 'http://localhost:14265',
+     method: 'POST',
+     headers: {
+     'Content-Type': 'application/json',
+     'X-IOTA-API-Version': '1',
+     'Content-Length': Buffer.byteLength(JSON.stringify(command))
+     },
+     json: command
+     };
+
+     request(options, function (error, response, data) {
+         if (!error && response.statusCode == 200) {
+         console.log(JSON.stringify(data,null,1));
+         }
+     });
+ }
+ ```
+---
+### Example response
+
+This example response shows that we have a balance of 2.7Pi.
+
+```json
+{
+ "balances": [
+  "2779530283277761"
+ ],
+ "references": [
+  "BDZPAONKWQTVCXFFO9GBTJ9GGWPRLITXZ9BMYALTCVWNOLFYPNHFJHPDWICRPGCZWUNDQHV9UDEXGW999"
+ ],
+ "milestoneIndex": 7,
+ "duration": 1
+}
+```
+--------------------
+ 
+## Step 6. Connect to the network through a wallet
+
+If you want to send and receive transactions on the network through a user interface, you can configure the [IOTA Light Wallet](https://github.com/iotaledger/wallet/releases) to connect to your node at http://localhost:14265 and log in with your seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`.
+
+![IOTA Light Wallet](../images/light-wallet-test-tangle.png)
+
+
+To connect to your node, go to **Tools** > **Edit Node Configuration**, and enter the URL of your node (http://localhost:14265).
+
+![Wallet configuration](../images/light-wallet-node-configuration.png)
+
+:::info:
+When you first log into the IOTA Light Wallet, go to **RECEIVE** > **ATTACH TO TANGLE** to see your full balance.
+:::
 
 Feel free to send test transactions and see them confirmed by Compass milestones.
+
+## Next steps
+
+Install a signing server for increased security. A signing server reduces the attack surface of Compass by moving sensitive operations such as signing to an external service. Compass interacts with the signing server through a gRPC API.
+
+[Subscribe to events on your node](root://iri/0.1/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions.

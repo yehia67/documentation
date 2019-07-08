@@ -1,6 +1,6 @@
 # Contribute to IOTA Documentation
 
-We encourage everyone with knowledge of IOTA to contribute to our documentation. To discuss the documentation, join our #Documentation channel on [Discord](https://discordapp.com/invite/fNGZXvh).
+We encourage everyone with knowledge of IOTA to contribute to our documentation. To discuss the documentation, join our #Documentation channel on [Discord](https://discord.iota.org).
 
 1. See our [open issues](https://github.com/iotaledger/documentation/issues)
 2. Filter the issues by the `Help Wanted` label
