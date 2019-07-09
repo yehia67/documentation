@@ -11,4 +11,4 @@ The total supply of IOTA tokens is (3<sup>33</sup>-1) / 2, which equals 2,779,53
 | Gi   | Giga IOTA  | 1,000,000,000         | 10<sup>9</sup>  |
 | Mi   | Mega IOTA  | 1,000,000             | 10<sup>6</sup>  |
 | Ki   | Kila IOTA  | 1,000                 | 10<sup>3</sup>  |
-| i    | IOTA       | 1                     | 10<sup>1</sup>  |
+| i    | IOTA       | 1                     | 10<sup>0</sup>  |
