@@ -7,7 +7,7 @@ For quickstart instructions or to read the source code, [go to the GitHub reposi
 :::
 
 :::warning:
-This code is subject to breaking changes. Do not use this application in production environments.
+This code still in beta development. Do not use this code in production environments.
 :::
 
 ## Why use this application?
