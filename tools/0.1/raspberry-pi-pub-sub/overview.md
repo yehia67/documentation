@@ -22,8 +22,6 @@ To use this application, you need the following:
 
 * [An Enviro Phat sensor board](https://shop.pimoroni.com/products/enviro-phat) connected to a Raspberry Pi
 
-  <img src="../images/raspberrypi-enviro-phat.jpg" width="150">
-
 * [An LTS version or the latest version of Node.js and NPM](https://nodejs.org/en/download/)
 
 * [Git](https://git-scm.com/download/linux)
