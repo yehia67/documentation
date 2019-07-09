@@ -7,7 +7,7 @@ For quickstart instructions or to read the source code, [go to the GitHub reposi
 :::
 
 :::warning:
-This application uses the [IOTA JavaScript client library](root://client-libraries/0.1/introduction/overview.md), which are still in beta development. Do not use this code in production environments.
+This application uses the [IOTA JavaScript client library](root://client-libraries/0.1/introduction/overview.md), which is still in beta development. Do not use this code in production environments.
 :::
 
 ## Why use this application?
@@ -21,8 +21,6 @@ This application is a ready-to-use template that sends temperature sensor data t
 To use this application, you need the following:
 
 * [An Enviro Phat sensor board](https://shop.pimoroni.com/products/enviro-phat) connected to a Raspberry Pi
-
-  <img src="../images/raspberrypi-enviro-phat.jpg" width="150">
 
 * [An LTS version or the latest version of Node.js and NPM](https://nodejs.org/en/download/)
 

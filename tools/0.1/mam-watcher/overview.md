@@ -7,7 +7,7 @@ For quickstart instructions or to read the source code, [go to the GitHub reposi
 :::
 
 :::warning:
-This application uses the [IOTA MAM library](https://www.npmjs.com/package/@iota/mam), which is a work-in-progress. Do not use it in production environments.
+This application uses the [IOTA MAM library](https://www.npmjs.com/package/@iota/mam), which is still in beta development. Do not use this code in production environments.
 :::
 
 ## Why use this application?
@@ -74,7 +74,7 @@ To make your data more private and to have more control over who can decrypt it,
 
 1. Open the `sender.js` file
 
-2. Create a secret 81-tryte  side key under the first two lines at the top
+2. Create a secret 81-tryte side key under the first two lines at the top
 
     ```js
     var sideKey = asciiToTrytes('mySuperSecretSideKey');
@@ -94,7 +94,7 @@ To make your data more private and to have more control over who can decrypt it,
     mamState = Mam.changeMode(mamState, 'restricted', sideKey);
     ```
 
-4. Change the message, so we know that it's now secret
+4. Change the message, so we know that now it's secret
 
     ```js
     publish('Super secret message' + count++);

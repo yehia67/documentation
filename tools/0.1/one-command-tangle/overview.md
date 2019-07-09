@@ -7,7 +7,7 @@ For quickstart instructions or to read the source code, [go to the GitHub reposi
 :::
 
 :::warning:
-This code is subject to breaking changes. Do not use this application in production environments.
+This code still in beta development. Do not use this code in production environments.
 :::
 
 ## Why use this application?
@@ -67,7 +67,7 @@ See a list of [API endpoints](root://iri/0.1/references/api-reference.md).
 
 --------------------
 ### GetBalances
-Using the [JavaScript client library](root://client-libraries/0.1/introduction/overview.md) with Node.js, you can call the [`getBalances`](root://iri/0.1/references/api-reference.md#getbalances) endpoint to get the total balance of the `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999` seed.
+Using the [JavaScript client library](root://client-libraries/0.1/introduction/overview.md) with Node.js, you can call the [`getBalances`](root://iri/0.1/references/api-reference.md#getbalances) endpoint to get the total balance of the seed.
 
 If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md).
 
