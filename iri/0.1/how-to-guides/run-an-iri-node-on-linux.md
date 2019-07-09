@@ -11,8 +11,7 @@
 
 * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md).
 
-    * **UDP neighbor peering port:** 14600
-    * **TCP neighbor peering port:** 14600
+    * **TCP neighbor peering port:** 15600
     * **TCP API port:** 14265
     
 ---
@@ -57,7 +56,7 @@ The pre-built IRI Java file is available on the [IOTA GitHub repository](https:/
     ```
 
     :::info:
-    To check that Java is installed, do `java -version`. You should see a version number in the output.
+    To check that Java is installed, enter `java -version`. You should see a version number in the output.
     :::
 
 
@@ -131,7 +130,7 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
     sudo apt-get update && apt-get install -y --no-install-recommends git
     ```
 
-4. Clone and check out the IRI GitHub repository
+4. Clone and check out the GitHub repository
 
     ```bash
     git clone https://github.com/iotaledger/iri.git
@@ -149,7 +148,7 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
     /usr/share/maven/bin/mvn clean package
     ```
     :::info:
-    The IRI Java file is built in a directory called `target`.
+    The IRI Java file is in a directory called `target`.
     :::
 
 ## Configure the IRI
@@ -176,7 +175,7 @@ The IRI runs in a Java virtual machine. Therefore, before you run the IRI, you n
     nano /home/jake/node/config.ini
     ```
 
-    Leave the file empty for now. The default [IRI configuration options](../references/iri-configuration-options.md) are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the configuration options that you want to change.
+    Leave the file empty for now. The default configuration options are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the [configuration options](../references/iri-configuration-options.md) that you want to change.
 
 ### Configure a permanode
 
@@ -188,13 +187,13 @@ If you want to run a Devnet node, you must set the `TESTNET` configuration optio
 
 The following Devnet nodes have auto-peering enabled, so they will automatically add you as neighbors:
 
-* udp://p101.testnet.iota.cafe:14666
+* tcp://p101.testnet.iota.cafe:14666
 
-* udp://p102.testnet.iota.cafe:14666
+* tcp://p102.testnet.iota.cafe:14666
 
-* udp://p103.testnet.iota.cafe:14666
+* tcp://p103.testnet.iota.cafe:14666
 
-* udp://p104.testnet.iota.cafe:14666
+* tcp://p104.testnet.iota.cafe:14666
 
 ### Configure a Spamnet node
 
@@ -327,4 +326,4 @@ It may take some time for the IRI to synchronize. For help with any issues, read
 
 ## Next steps
 
-* [Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
+[Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md)

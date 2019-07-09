@@ -11,8 +11,7 @@
 
 * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md).
 
-    * **UDP neighbor peering port:** 14600
-    * **TCP neighbor peering port:** 14600
+    * **TCP neighbor peering port:** 15600
     * **TCP API port:** 14265
 
 ---
