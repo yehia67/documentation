@@ -45,7 +45,7 @@ cIRI is still under development. You shouldn't use cIRI in a production environm
 6. Find some neighbors
 
     :::info:
-    Read the [IRI guide](root://iri/0.1/how-to-guide/find-neighbor-iri-node.md) for help finding neighbors.
+    Read the [IRI guide](root://node-software/iri/0.1/how-to-guide/find-neighbor-iri-node.md) for help finding neighbors.
     :::
 
 7. Create a configuration file called conf.yaml in the `ciri` directory and add the following settings. In the `neighbors` field, add the IP addresses or URLs of your neighbors.

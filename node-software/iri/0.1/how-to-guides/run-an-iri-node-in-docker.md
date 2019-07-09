@@ -4,34 +4,30 @@
 
 ## Prerequisites
 
-* To run the IRI, your computer must meet the following minimum requirements:
-    * 4GB RAM
-    * 64-bit processor
-    * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
+To complete this guide, you need the following:
 
-* By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md).
+* 4GB RAM
+* 64-bit processor
+* Administrator access to your router
+* An Internet connection
+* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 
-    * **UDP neighbor peering port:** 14600
-    * **TCP neighbor peering port:** 14600
-    * **TCP API port:** 14265
+By default, the IRI uses the following ports. If you're on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md).
 
----
+* **UDP neighbor peering port:** 14600
+* **TCP neighbor peering port:** 14600
+* **TCP API port:** 14265
 
 The IRI Docker container is suitable for the following operating systems:
 * Linux
 * Mac
 * Windows
 
+:::info:
 If you're using a Linux operating system, add `sudo` before all the commands in the following tasks.
+:::
 
-The IRI is Java software, so it must be run in a Java runtime environment (JRE).
-The IRI Docker container contains the necessary software to run the IRI.
-
-You have two options for downloading the IRI Docker container:
-* [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option)
-* [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code)
-
-## Install Docker
+## Step 1. Install Docker
 
 To build the IRI Docker container, Docker 17.05+ (for multi-stage build support) must be installed on your computer.
 
@@ -73,8 +69,17 @@ To build the IRI Docker container, Docker 17.05+ (for multi-stage build support)
     For more examples and ideas, visit:
     https://docs.docker.com/get-started/
     ```
+
+## Step 2. Download the IRI Docker container
+
+The IRI is Java software, so it must be run in a Java runtime environment (JRE).
+The IRI Docker container contains the necessary software to run the IRI.
+
+You have two options for downloading the IRI Docker container:
+* [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option)
+* [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code)
   
-## Download the pre-built IRI Docker container
+### Download the pre-built IRI Docker container
 
 The Docker container for the pre-built IRI Java file is available on the IOTA GitHub repository.
 
@@ -82,7 +87,7 @@ The Docker container for the pre-built IRI Java file is available on the IOTA Gi
 docker pull iotaledger/iri:latest
 ```
 
-## Build the IRI Docker container from the source code
+### Build the IRI Docker container from the source code
 
 Instead of downloading the pre-built Docker container, you may want to build the file from the source code for any of the following reasons:
 * You want to be sure that the code you run is the same as the source code
@@ -108,7 +113,7 @@ Instead of downloading the pre-built Docker container, you may want to build the
     docker build -t iri .
     ```
 
-## Run the IRI
+## Step 2. Run the IRI
 
 You can configure the IRI by passing in [IRI configuration options](../references/iri-configuration-options.md) as flags.
 
@@ -167,7 +172,7 @@ You can configure the IRI by passing in [IRI configuration options](../reference
 
 Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
 
-## Check that the IRI is synchronized
+## Step 3. Check that the IRI is synchronized
 
 The IRI is considered synchronized when the `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field.
 
