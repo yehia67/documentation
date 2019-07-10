@@ -121,4 +121,4 @@ You've created an account that will automatically promote and reattach transacti
 
 ## Next steps
 
-[Create a CDA so that you can send and receive transactions](../how-to-guides/create-and-manage-cda.md).
+[Create a CDA so that you can send and receive transactions](root://iota-js/0.1/how-to-guides/create-and-manage-cda.md).
