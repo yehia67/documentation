@@ -1,4 +1,4 @@
-# Utilities are open-source applications or programs that you can use to fast track the development of your own applications.
+# Utilities are open-source applications or programs that you can either use as they are or use to fast track the development of your own applications.
 
 [Overview](/0.1/introduction/overview.md)
 ## Find out which tools are available
