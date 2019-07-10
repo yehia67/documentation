@@ -4,84 +4,76 @@
 
 ## Prerequisites
 
-This guide assumes that you understand the concept of events in Node.js (https://nodejs.org/api/events.html)
-Event listeners are used to assign callbacks to specific event types.
-Also listeners may be [removed](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener), and they should be, once the subscription to a
-specific event is no longer required.
+This guide assumes that you understand the concept of events in Node.js (https://nodejs.org/api/events.html). Event listeners are used to assign callbacks to specific event types. You should always [remove event listeners](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener) when you're finished with them.
 
 ## Listening to deposit and withdrawal events
 
-Deposit and withdrawal events are emitted as soon as a depositing or
-withdrawing bundle is detected. Each of those bundles may trigger events in
-two steps, one for it's **pending** state, and one for it's **included** (confirmed) state.
+Deposit and withdrawal events are emitted as soon as a deposit or withdrawal bundle is detected. Each of those bundles may trigger events in two steps: One for its **pending** state, and one for its **included** (confirmed) state.
 
-Callbacks are given an object as argument, which contains the
-relevant address and the complete depositing or withdrawing bundle.
+Callbacks are given an object as an argument, which contains the relevant address and the complete deposit or withdrawal bundle.
 
-1. Attach listeners for deposit and withdrawal events:
+1. Attach listeners for deposit and withdrawal events
+
     ```js
     account.on('pendingDeposit', ({ address, bundle }) => {
         console.log('Address:', address, 'Tail transaction hash:', bundle[0].hash);
         // ...
-    })
+    });
 
     account.on('includedDeposit', ({ addresses, bundle }) => {
         console.log('Address:', address, 'Tail transaction hash:', bundle[0].hash);
         // ...
-    })
+    });
 
     account.on('pendingWithdrawal', ({ address, bundle }) => {
         // ...
-    })
+    });
 
     account.on('includedWithdrawal', ({ addresses, bundle }) => {
         // ...
-    })
+    });
     ```
 
-    Do not forget to subscribe to `error` events which are usefull for dubugging
-    your application, and reacting to exceptions thrown in the background.
+2. Subscribe to `error` events, which are useful for debugging your application and reacting to exceptions that may be thrown in the background
 
     ```js
     account.on('error', (error) => {
         console.log(`Something went wrong: ${error}`);
-    })
+    });
     ```
 
-2. Generate a CDA
+3. Generate a CDA and set it to expire tomorrow
 
     ```js
     const cda = account
         .generateCDA({
             timeoutAt: Date.now() + 24 * 60 * 60 * 1000,
-            expectedAmount: 100,
-        })
+            expectedAmount: 100
+        });
     ```
 
-3. Send a deposit to the CDA above
+4. Send a deposit to the CDA
     ```js
     cda
         .tap(cda => console.log('Sending to:', cda.address))
         .then(cda =>
             account.sendToCDA({
                 ...cda,
-                value: 100,
+                value: 100
             })
         )
-        .catch(error => console.log(error))
+        .catch(error => console.log(error));
     ```
 
     :::info:
-    All relevant transactions that exist in database of connected node
-    trigger events uppon account startup.
+    An event is triggered for each transaction in the connected node's ledger that withdraws from or deposits into one of your CDAs.
     :::
 
-You should be able to see a pair of an address and a tail transaction hash once
-transaction is detected and one once confirmed!
+In the output, you should see an address and a tail transaction hash when the transaction is pending, and the same address and tail transaction hash when the transaction is confirmed.
 
-## Full list of account events
+## Account events
 
-|**Event name**|**Callback argument**|
+|**Event name**|**Callback arguments**|
 | :----------| :----------|
 |`pendingDeposit`|`{ address, bundle }`|
 |`includedDeposit`|`{ address, bundle }`|
