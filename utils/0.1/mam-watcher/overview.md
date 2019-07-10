@@ -66,11 +66,11 @@ In the console, you should see that the `sender.js` window sends transactions an
 
 ![MAM watcher](../images/mam-watcher.gif)
 
-## Increase the privacy of your data
+## Make your message more private
 
 Until now, anyone who was able to find your transactions on the Tangle could decrypt the message using the address as the key.
 
-To make your data more private and to have more control over who can decrypt it, you can make your channel restricted.
+To make your message more private and to have more control over who can decrypt it, you can make your channel restricted.
 
 1. Open the `sender.js` file
 
