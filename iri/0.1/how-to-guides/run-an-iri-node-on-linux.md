@@ -202,7 +202,6 @@ If you want to run a Spamnet node, you must include only the following configura
 ```
 [IRI]
 ZMQ_ENABLED = TRUE
-TESTNET = TRUE
 DB_PATH = spamnetdb
 DB_LOG_PATH = spamnetdb.log
 MWM = 7
@@ -212,7 +211,7 @@ NUMBER_OF_KEYS_IN_A_MILESTONE = 20
 SNAPSHOT_TIME = 1535760000
 MILESTONE_START_INDEX = 2
 DONT_VALIDATE_TESTNET_MILESTONE_SIG = true
-NEIGHBORS = udp://p101.spamnet.iota.cafe:14600 udp://p102.spamnet.iota.cafe:14600
+NEIGHBORS = tcp://p101.spamnet.iota.cafe:15600 tcp://p102.spamnet.iota.cafe:15600
 ```
 
 You must also create a snapshot file to define an address that contains the entire supply of tokens on the Spamnet. The location of this file must be set in the `SNAPSHOT_FILE` configuration parameter.
@@ -309,7 +308,7 @@ The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milest
 
 The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are accurate only when the IRI node is connected to synchronized neighbors.
 
-1. To check the actual `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels
+1. To check the current `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels
 
     ![Entering !milestone on Discord](../images/discord-milestone-check.PNG)
 
