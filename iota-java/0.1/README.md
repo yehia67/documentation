@@ -175,10 +175,10 @@ Here are some of the most commonly used API functions:
 
 ## Examples
 
-We have a list of test cases on the [`src/test/java` directory][tests] that you can use as a reference when developing apps with IOTA.
-A good starter is the [`IotaAPITest` case](https://github.com/iotaledger/iota-java/blob/master/jota/src/test/java/jota/IotaAPITest.java).
+We have a list of test cases in the [`src/test/java` directory](https://github.com/iotaledger/iota-java/blob/dev/jota/src/test) that you can use as a reference when developing apps with IOTA.
+A good place to start is the [`IotaAPITest` case](https://github.com/iotaledger/iota-java/blob/dev/jota/src/test/java/org/iota/jota/IotaAPITest.java).
 
-## Change logs:
+## Change logs
 - Changes in [**1.0.0-beta3**](https://github.com/iotaledger/iota-java/compare/1.0.0-beta2...1.0.0-beta3)
 - Changes in [**1.0.0-beta2**](https://github.com/iotaledger/iota-java/compare/1.0.0-beta1...1.0.0-beta2)
 - Changes in [**1.0.0-beta1**](https://github.com/iotaledger/iota-java/compare/0.9.10...1.0.0-beta1)
@@ -197,7 +197,7 @@ We have some [basic contribution guidelines](https://github.com/iotaledger/iota-
 
 ## Join the Discussion
 
-If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss blockchain, distributed ledgers, and IoT with other people, feel free to join our [Discord](https://discordapp.com/invite/fNGZXvh).  
+If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss blockchain, distributed ledgers, and IoT with other people, feel free to join our [Discord](https://discord.iota.org).  
 
 ## License
 

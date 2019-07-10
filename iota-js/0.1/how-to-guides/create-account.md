@@ -1,6 +1,6 @@
 # Create an account
 
-**An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about reusing spent addresses or promoting and reattaching pending transactions.**
+**An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about withdrawing from spent addresses or promoting and reattaching pending transactions.**
 
 In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a [transfer bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md).
 
@@ -31,8 +31,8 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
 
       const seed = 'ASFITGPSD9ASDFKRWE...';
 
-      // Local node to connect to;
-      const provider = 'http://<node-url>:14265';
+      // Connect to a node;
+      const provider = 'https://nodes.devnet.iota.org:443';
 
       const account = createAccount({
             seed,
@@ -51,7 +51,37 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
       You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
       :::
 
-3. **Optional:** Pass a **`persistenceAdapter`** factory to your account. This adapter creates a local database object to which the account can save the seed state and its history. By default, the local databases are saved in the root of the project. You can change the path to the local database in the `persistencePath` field.
+3. **Optional:** Modify default parameters related to transaction attachment
+
+      ```js
+      const { createAccount }  = require('@iota/account')
+
+      const seed = 'ASFITGPSD9ASDFKRWE...';
+
+      // Local node to connect to
+      const provider = 'http://<node-url>:14265';
+
+      const account = createAccount({
+            seed,
+            provider,
+
+            // How far back in the Tangle to start the tip selection
+            depth: 3,
+
+            // The minimum weight magnitude is 9 on the Devnet
+            minWeightMagnitude: 9,
+
+            // How long to wait before the next attachment round
+            delay: 1000 * 30,
+
+            // The depth at which transactions are no longer promotable
+            // Those transactions are automatically re-attached
+            maxDepth: 6
+      });
+      ```
+
+
+4. **Optional:** Pass a `persistenceAdapter` factory to your account. This adapter creates a local database object to which the account can save the seed state. By default, the local database is saved in the root of the project. You can change the path to the local database in the `persistencePath` field.
 
       ```js
       const { createPersistenceAdapter }  = require('@iota/persistence-adapter-level')
@@ -60,18 +90,17 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
             seed,
             provider,
             persistencePath: './',
-            stateAdapter: createPersistenceAdapter,
-            historyAdapter: createPersistenceAdapter
+            persistenceAdapter: createPersistenceAdapter
       });
       ```
 
       :::info:
-      The [@iota/persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level) adapter is the default. This adapter stores the seed state and seed history in the `leveldown` flavor of the [LevelDB database](http://leveldb.org/). You can customize this adapter to use a different database.
+      The [@iota/persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level) adapter is the default. This adapter stores the seed state in the `leveldown` flavor of the [LevelDB database](http://leveldb.org/). You can customize this adapter to use a different database.
 
       You can't use one adapter instance for multiple accounts at the same time. A private adapter is created for each new account.
       :::
 
-4. **Optional** Create a `timeSource` method that outputs the current time in milliseconds, and pass it to your `account` object
+5. **Optional** Create a `timeSource` method that outputs the current time in milliseconds, and pass it to your `account` object
 
       ```js
       const account = createAccount({
@@ -86,9 +115,10 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
       ```
 
 :::success:Congratulations! :tada:
-You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
+You've created an account that will automatically promote and reattach transactions as well as manage the state of your addresses.
 :::
+
 
 ## Next steps
 
-[Create a CDA so that you can send and receive transactions](../how-to-guides/create-and-manage-cda.md).
+[Create a CDA so that you can send and receive transactions](root://iota-js/0.1/how-to-guides/create-and-manage-cda.md).

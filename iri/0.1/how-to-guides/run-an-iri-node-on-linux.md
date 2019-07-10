@@ -309,7 +309,7 @@ The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milest
 
 The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are accurate only when the IRI node is connected to synchronized neighbors.
 
-1. To check the current `latestMilestoneIndex` field, go to our [Discord](https://discordapp.com/invite/fNGZXvh) and enter **!milestone** in one of the channels
+1. To check the current `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels
 
     ![Entering !milestone on Discord](../images/discord-milestone-check.PNG)
 

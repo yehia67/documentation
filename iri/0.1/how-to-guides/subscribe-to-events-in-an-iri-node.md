@@ -69,7 +69,7 @@ socket = context.socket(zmq.SUB)
 ```
 --------------------
 
-3\. Connect the socket to the node's address
+3\. Connect the socket to the node's address. If you want to connect do a different node, replace the `tcp://zmq.devnet.iota.org:5556` URL with the URL of your node.
 
 --------------------
 ### Node.js
@@ -159,4 +159,8 @@ You can ignore any green text.
 
 ## Next steps
 
-Use your knowledge of the ZMQ to build an application that monitors the IRI for other [events](../references/zmq-events.md). 
+Use your knowledge of the ZMQ to build an application that monitors the IRI for other [events](../references/zmq-events.md).
+
+:::info:
+If your transactions aren't being confirmed, you can [promote or reattach them](root://iota-basics/0.1/how-to-guides/confirm-pending-bundle.md) to increase the likelihood of this happening.
+:::

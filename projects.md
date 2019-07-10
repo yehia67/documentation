@@ -6,6 +6,7 @@
 [Hub](/hub)
 [Compass](/compass)
 [Trinity Wallet](/trinity)
+[Utilities](/utils)
 [App Blueprints](/blueprints)
 [IOTA Go](/iota-go)
 [IOTA Java](/iota-java)

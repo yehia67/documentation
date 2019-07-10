@@ -114,7 +114,7 @@ To complete this tutorial, you need the following:
 
 You'll notice in the output that the value of the `neighbors` field is 0. This means that your node is not connected to an IOTA network. To do so, you need to connect to [neighbors](root://iri/0.1/concepts/neighbor-iri-node.md).
 
-For help connecting to neighbors, go to the #help or #nodesharing channel on our [Discord](https://discordapp.com/invite/fNGZXvh).
+For help connecting to neighbors, go to the #help or #nodesharing channel on our [Discord](https://discord.iota.org).
 
 ## Next steps
 
