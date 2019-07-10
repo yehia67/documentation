@@ -171,4 +171,4 @@ The `generateCDA()` method returns a CDA object with the following fields. You c
 
 ## Next steps
 
-[Create an event listener](../how-to-guides/listen-to-events.md).
+[Create an event listener](root://iota-js/0.1/how-to-guides/listen-to-events.md).
