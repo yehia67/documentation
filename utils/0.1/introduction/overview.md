@@ -1,6 +1,6 @@
 # Utilities
 
-**Utilities are open-source applications or programs that you can either use as they are or use to fast track the development of your own applications.**
+**Utilities are open-source applications or programs that you can either use or adapt and include in your own applications.**
 
 :::info:
 More utilities are available on the [iota-community GitHub repository](https://github.com/iota-community).
