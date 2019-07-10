@@ -1,6 +1,6 @@
-# Set up a private IOTA network
+# Set up a private Tangle
 
-**If you want to test an application on a private Tangle, you can run Compass and connect it to an IRI node.**
+**If you want to test an application on a private IOTA network, you can run Compass and connect it to an IRI node. Doing so gives you a private Tangle to which you can attach your transactions.**
 
 For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine. But, you could run multiple IRI nodes and connect them to each other as neighbors.
 

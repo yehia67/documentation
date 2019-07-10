@@ -36,8 +36,8 @@
             "name": "Trinity"
         },
         {
-            "query": "private iota network",
-            "name": "Set up a private IOTA network"
+            "query": "private tangle",
+            "name": "Set up a private Tangle"
         }
     ],
     "cards": [
