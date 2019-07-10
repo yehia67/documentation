@@ -1,6 +1,6 @@
 # Create an account
 
-**An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about reusing spent addresses or promoting and reattaching pending transactions.**
+**An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about withdrawing from spent addresses or promoting and reattaching pending transactions.**
 
 In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a [transfer bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md).
 
@@ -31,12 +31,12 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
 
       const seed = 'ASFITGPSD9ASDFKRWE...';
 
-      // Local node to connect to;
-      const provider = 'http://<node-url>:14265';
+      // Connect to a node;
+      const provider = 'https://nodes.devnet.iota.org:443';
 
       const account = createAccount({
             seed,
-            provider,
+            provider
       });
       ```
       :::danger:Protect your seed
@@ -58,33 +58,30 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
 
       const seed = 'ASFITGPSD9ASDFKRWE...';
 
-      // Local node to connect to;
+      // Local node to connect to
       const provider = 'http://<node-url>:14265';
 
       const account = createAccount({
             seed,
             provider,
 
-            // How far to go for the tip selection.
-            // Defaults to 3.
+            // How far back in the Tangle to start the tip selection
             depth: 3,
 
-            // Default is 9 on devnet.
+            // The minimum weight magnitude is 9 on the Devnet
             minWeightMagnitude: 9,
 
-            // How long to wait before the next attachment round.
+            // How long to wait before the next attachment round
             delay: 1000 * 30,
 
-            // Specifies at which depth attached transactions are
-            // no longer promotable.
-            // Those transactions are automatically re-attached.
-            // Defaults to 6.
-            maxDepth: 6,
+            // The depth at which transactions are no longer promotable
+            // Those transactions are automatically re-attached
+            maxDepth: 6
       });
       ```
 
 
-4. **Optional:** Pass a **`persistenceAdapter`** factory to your account. This adapter creates a local database object to which the account can save the seed state. By default, the local database is saved in the root of the project. You can change the path to the local database in the `persistencePath` field.
+4. **Optional:** Pass a `persistenceAdapter` factory to your account. This adapter creates a local database object to which the account can save the seed state. By default, the local database is saved in the root of the project. You can change the path to the local database in the `persistencePath` field.
 
       ```js
       const { createPersistenceAdapter }  = require('@iota/persistence-adapter-level')
@@ -93,7 +90,7 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
             seed,
             provider,
             persistencePath: './',
-            persistenceAdapter: createPersistenceAdapter,
+            persistenceAdapter: createPersistenceAdapter
       });
       ```
 
@@ -118,7 +115,7 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
       ```
 
 :::success:Congratulations! :tada:
-You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
+You've created an account that will automatically promote and reattach transactions as well as manage the state of your addresses.
 :::
 
 
