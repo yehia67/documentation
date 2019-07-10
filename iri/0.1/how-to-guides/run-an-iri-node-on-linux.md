@@ -202,7 +202,6 @@ If you want to run a Spamnet node, you must include only the following configura
 ```
 [IRI]
 ZMQ_ENABLED = TRUE
-TESTNET = TRUE
 DB_PATH = spamnetdb
 DB_LOG_PATH = spamnetdb.log
 MWM = 7
@@ -212,7 +211,7 @@ NUMBER_OF_KEYS_IN_A_MILESTONE = 20
 SNAPSHOT_TIME = 1535760000
 MILESTONE_START_INDEX = 2
 DONT_VALIDATE_TESTNET_MILESTONE_SIG = true
-NEIGHBORS = udp://p101.spamnet.iota.cafe:14600 udp://p102.spamnet.iota.cafe:14600
+NEIGHBORS = tcp://p101.spamnet.iota.cafe:15600 tcp://p102.spamnet.iota.cafe:15600
 ```
 
 You must also create a snapshot file to define an address that contains the entire supply of tokens on the Spamnet. The location of this file must be set in the `SNAPSHOT_FILE` configuration parameter.
