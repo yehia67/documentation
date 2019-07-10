@@ -11,7 +11,7 @@ Compass is an open-source implementation of the Coordinator. You can use Compass
 To allow your nodes to reach a consensus, you must configure your nodes to recognize Compass milestones. Then, you can configure Compass to send milestones to one of your nodes at regular intervals.
 
 :::info:
-[Create your own IOTA network](../how-to-guides/create-an-iota-network.md).
+[Set up your own IOTA network](../how-to-guides/set-up-a-private-tangle.md).
 :::
 
 ## Repository
