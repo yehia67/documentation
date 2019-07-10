@@ -1,9 +1,9 @@
-# Tools and utilities
+# Utilities
 
 **Fast-track the development of your own applications by reusing or adapting code that's already been written by the IOTA developer community.**
 
 :::info:
-More tools are available on the [iota-community GitHub repository](https://github.com/iota-community).
+More utilities are available on the [iota-community GitHub repository](https://github.com/iota-community).
 :::
 
 ### __Community support__ ###
