@@ -202,6 +202,7 @@ If you want to run a Spamnet node, you must include only the following configura
 ```
 [IRI]
 ZMQ_ENABLED = TRUE
+TESTNET = TRUE
 DB_PATH = spamnetdb
 DB_LOG_PATH = spamnetdb.log
 MWM = 7
