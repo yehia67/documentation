@@ -1,6 +1,6 @@
 # Utilities
 
-**Fast-track the development of your own applications by reusing or adapting code that's already been written by the IOTA developer community.**
+**Utilities are open-source applications or programs that you can either use as they are or use to fast track the development of your own applications.**
 
 :::info:
 More utilities are available on the [iota-community GitHub repository](https://github.com/iota-community).
