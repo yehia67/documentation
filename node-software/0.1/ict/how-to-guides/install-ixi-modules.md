@@ -16,7 +16,7 @@ Find an [IXI module](../references/ixi-modules.md) that you want to install.
 
 2. Log in
 
-    ![Ict login](../ict-password.png)
+    ![Ict login](../images/ict-password.png)
 
     :::info:
     If you've forgotten your password, [find it in the configuration file](../references/troubleshooting.md).
@@ -30,7 +30,7 @@ Find an [IXI module](../references/ixi-modules.md) that you want to install.
 
 5. To install a [community module](../references/ixi-modules.md), click **INSTALL THIRD PARTY MODULE**, enter the GitHub repository where it's hosted, and click **INSTALL**
 
-    ![Manage modules](../manage-modules.png)
+    ![Manage modules](../images/manage-modules.png)
 
 ## Next steps
 

@@ -58,7 +58,7 @@ To download the IcTinder module, your node must have version 0.6-SNAPSHOT of the
 
 4. Log into the Ict website
 
-    ![Ict login](../ict-password.png)
+    ![Ict login](../images/ict-password.png)
 
     :::info:
     If you've forgotten your password, [find it in the configuration file](../references/troubleshooting.md).
@@ -77,7 +77,7 @@ To download the IcTinder module, your node must have version 0.6-SNAPSHOT of the
     * `node_address`: Enter the public address that neighbors can use to connect to your node in the following format: `host:port`
     * `discord_id` and `ictinder_password`: Enter the authentication credentials that the Ictinder user sent you on Discord
 
-    ![IcTinder configuration settings](../ictinder-configuration.png)
+    ![IcTinder configuration settings](../images/ictinder-configuration.png)
 
 9. Click **Save**
 

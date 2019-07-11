@@ -184,17 +184,17 @@ Before a node can start receiving and sending transactions, you need to configur
     * `modules`: This directory stores the IXI modules that are installed on your node
     * `web`: This directory stores the JavaScript, HTML, and CSS files that render the Ict website
 
-2. [Forward the following ports from your router to your device](root://general/0.1/how-to-guides/expose-your-device.md):
+2. [Forward the following ports from your router to your device](root://general/0.1/how-to-guides/expose-your-local-device.md):
 
     * **2187 (GUI port):** Forward through the UDP and TCP protocols
     * **1337 (Ict port):** Forward through the UDP protocol
 
 3. In a web browser, enter the URL of your node followed by `:2187` and log in
 
-    ![Ict login](../ict-password.png)
+    ![Ict login](../images/ict-password.png)
 
     :::info:
-    If you can't access this page, [make sure that you've forwarded the GUI port (default is 2187) to your device through the UDP and TCP protocols](root://general/0.1/how-to-guides/expose-your-device.md).
+    If you can't access this page, [make sure that you've forwarded the GUI port (default is 2187) to your device through the UDP and TCP protocols](root://general/0.1/how-to-guides/expose-your-local-device.md).
     :::
 
 4. [Find some neighbors](../how-to-guides/find-neighbors.md)

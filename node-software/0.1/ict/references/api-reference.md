@@ -16,7 +16,7 @@ HTTP requests to the following endpoints must include a `Content-Type` HTTP head
 
 ## Parameters
 
-HTTP requests must include the [API password](../how-to-guides/interact-with-ict.md) in the request body, which must be in the following format:
+HTTP requests must include the [API password](../how-to-guides/getting-started-api.md) in the request body, which must be in the following format:
 
 ```json
 "password=your-password"
@@ -24,7 +24,7 @@ HTTP requests must include the [API password](../how-to-guides/interact-with-ict
 
 ## Endpoints
 
-All endpoints are relative to the `http://URL:API-PORT/` URL, where `URL` is the URL or IP address of the node and `API-PORT` is its [REST API port](../how-to-guides/interact-with-ict.md).
+All endpoints are relative to the `http://URL:API-PORT/` URL, where `URL` is the URL or IP address of the node and `API-PORT` is its [REST API port](../how-to-guides/getting-started-api.md).
 
 
 ### getConfig

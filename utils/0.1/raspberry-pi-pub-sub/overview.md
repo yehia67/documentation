@@ -23,7 +23,7 @@ In the `raspberrypi-pubsub` directory, you have the following files:
 * `index.js`: Collects data, constructs the bundle, and sends the transaction.
 * `temp.py`: Uses the [`envirophat` library](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat) to read the current temperature from the sensor.
 * `fetchTemp.js`: Executes the `tempy.py` file to get the current temperature.
-* `zmqWatcher.js`: Subscribes to a Devnet node's [ZMQ `address` event](root://iri/0.1/references/zmq-events.md#address) to monitor the address for confirmation.
+* `zmqWatcher.js`: Subscribes to a Devnet node's [ZMQ `address` event](root://node-software/0.1/iri/references/zmq-events.md#address) to monitor the address for confirmation.
 
 The `fetchTemp.js` and `zmqWatcher.js` files are exported as modules and called from the `index.js` file.
 

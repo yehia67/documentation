@@ -17,7 +17,7 @@ example.com:2187
 ```
 
 :::info:
-If you can't access this page, [make sure that you've forwarded the GUI port to your device](root://general/0.1/how-to-guides/expose-your-device.md).
+If you can't access this page, [make sure that you've forwarded the GUI port to your device](root://general/0.1/how-to-guides/expose-your-local-device.md).
 :::
 
 ## Forgotten password to the Ict website

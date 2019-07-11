@@ -18,7 +18,7 @@ When you're ready to use your application on the Mainnet, you can disconnect it 
 
 ## How it works
 
-The test network runs one [IRI node](root://iri/0.1/introduction/overview.md) and an instance of [Compass](root://compass/0.1/introduction/overview.md) on your localhost (not connected to the Internet).
+The test network runs one [IRI node](root://node-software/0.1/iri/introduction/overview.md) and an instance of [Compass](root://compass/0.1/introduction/overview.md) on your localhost (not connected to the Internet).
 
 The IRI node receives transactions, validates them, and keeps an up-to-date record of users' balances.
 
@@ -63,11 +63,11 @@ To use this application, you need the following:
 
 When the application is running, you can interact with the network through the IRI node's API port at the following address http://localhost:14265.
 
-See a list of [API endpoints](root://iri/0.1/references/api-reference.md).
+See a list of [API endpoints](root://node-software/0.1/iri/references/api-reference.md).
 
 --------------------
 ### GetBalances
-Using the [JavaScript client library](root://client-libraries/0.1/introduction/overview.md) with Node.js, you can call the [`getBalances`](root://iri/0.1/references/api-reference.md#getbalances) endpoint to get the total balance of the seed.
+Using the [JavaScript client library](root://client-libraries/0.1/introduction/overview.md) with Node.js, you can call the [`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances) endpoint to get the total balance of the seed.
 
 If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md).
 

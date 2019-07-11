@@ -141,4 +141,4 @@ if (!error && response.statusCode == 200) {
 
 ## Next steps
 
-Try using this endpoint to find out the latest Ict version and [update your node](../how-to-guides/update-ict-with-api.md).
+Try using this endpoint to find out the latest Ict version and [update your node](../how-to-guides/update-ict.md#download-the-latest-ict-through-the-rest-api).

@@ -125,7 +125,7 @@ The output should display something like the following:
 ```
 
 :::info:Want to know what these fields mean?
-[Take a look at the `getNodeInfo()` API reference](root://node-software/iri/0.1/references/api-reference.md#getnodeinfo).
+[Take a look at the `getNodeInfo()` API reference](root://node-software/0.1/iri/references/api-reference.md#getnodeinfo).
 :::
 
 ## Run the code
