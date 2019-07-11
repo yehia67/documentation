@@ -12,7 +12,8 @@ To complete this guide, you need the following:
 * An Internet connection
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 
-By default, the IRI uses the following ports. If you're on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md).
+    * **TCP neighbor peering port:** 15600
+    * **TCP API port:** 14265
 
 * **UDP neighbor peering port:** 14600
 * **TCP neighbor peering port:** 14600

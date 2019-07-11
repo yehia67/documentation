@@ -13,7 +13,10 @@ To complete this guide, you need the following:
 * A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04))
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 
-By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md).
+    * **TCP neighbor peering port:** 15600
+    * **TCP API port:** 14265
+    
+---
 
 * **UDP neighbor peering port:** 14600
 * **TCP neighbor peering port:** 14600
@@ -57,7 +60,7 @@ The pre-built IRI Java file is available on the [IOTA GitHub repository](https:/
     ```
 
     :::info:
-    To check that Java is installed, do `java -version`. You should see a version number in the output.
+    To check that Java is installed, enter `java -version`. You should see a version number in the output.
     :::
 
 
@@ -131,7 +134,7 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
     sudo apt-get update && apt-get install -y --no-install-recommends git
     ```
 
-4. Clone and check out the IRI GitHub repository
+4. Clone and check out the GitHub repository
 
     ```bash
     git clone https://github.com/iotaledger/iri.git
@@ -149,7 +152,7 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
     /usr/share/maven/bin/mvn clean package
     ```
     :::info:
-    The IRI Java file is built in a directory called `target`.
+    The IRI Java file is in a directory called `target`.
     :::
 
 ## Step 2. Configure the IRI
@@ -176,7 +179,7 @@ The IRI runs in a Java virtual machine. Therefore, before you run the IRI, you n
     nano /home/jake/node/config.ini
     ```
 
-    Leave the file empty for now. The default [IRI configuration options](../references/iri-configuration-options.md) are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the configuration options that you want to change.
+    Leave the file empty for now. The default configuration options are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the [configuration options](../references/iri-configuration-options.md) that you want to change.
 
 ### Configure a permanode
 
@@ -188,13 +191,13 @@ If you want to run a Devnet node, you must set the `TESTNET` configuration optio
 
 The following Devnet nodes have auto-peering enabled, so they will automatically add you as neighbors:
 
-* udp://p101.testnet.iota.cafe:14666
+* tcp://p101.testnet.iota.cafe:14666
 
-* udp://p102.testnet.iota.cafe:14666
+* tcp://p102.testnet.iota.cafe:14666
 
-* udp://p103.testnet.iota.cafe:14666
+* tcp://p103.testnet.iota.cafe:14666
 
-* udp://p104.testnet.iota.cafe:14666
+* tcp://p104.testnet.iota.cafe:14666
 
 ### Configure a Spamnet node
 
@@ -213,7 +216,7 @@ NUMBER_OF_KEYS_IN_A_MILESTONE = 20
 SNAPSHOT_TIME = 1535760000
 MILESTONE_START_INDEX = 2
 DONT_VALIDATE_TESTNET_MILESTONE_SIG = true
-NEIGHBORS = udp://p101.spamnet.iota.cafe:14600 udp://p102.spamnet.iota.cafe:14600
+NEIGHBORS = tcp://p101.spamnet.iota.cafe:15600 tcp://p102.spamnet.iota.cafe:15600
 ```
 
 You must also create a snapshot file to define an address that contains the entire supply of tokens on the Spamnet. The location of this file must be set in the `SNAPSHOT_FILE` configuration parameter.
@@ -310,7 +313,7 @@ The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milest
 
 The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are accurate only when the IRI node is connected to synchronized neighbors.
 
-1. To check the actual `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels
+1. To check the current `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels
 
     ![Entering !milestone on Discord](../images/discord-milestone-check.PNG)
 
@@ -327,4 +330,4 @@ It may take some time for the IRI to synchronize. For help with any issues, read
 
 ## Next steps
 
-* [Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
+[Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md)

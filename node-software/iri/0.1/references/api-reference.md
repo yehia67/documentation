@@ -10,7 +10,9 @@ All the following commands must include an HTTP header.
 | Content-Type | application/json | Optional |
 | Authorization  | Bearer {token} | Optional  |
 
-**Important:** This API is in beta, and is subject to change. We recommend that you don't use this API in production applications.
+:::warning:
+This API is in beta, and is subject to change. We recommend that you don't use this API in production applications.
+:::
 
 ## addNeighbors
 
@@ -22,7 +24,7 @@ The neighbors are removed if the node restarts. If you want to permanently add t
 
  ### Parameters
 
- The URI (unique resource identification) format for adding neighbors is `"udp://IPADDRESS:PORT"`.
+ The URI format for adding neighbors is `"tcp://IPADDRESS:PORT"`.
 	
 |Parameter | Required or Optional|Description | Type|
 |--|--|--|--|
@@ -38,8 +40,8 @@ import json
 command = {
   "command": "addNeighbors",
   "uris": [
-    "udp://8.8.8.8:14265",
-    "udp://8.8.8.8:14265"
+    "tcp://8.8.8.8:14265",
+    "tcp://8.8.8.8:14265"
   ]
 }
 
@@ -65,8 +67,8 @@ var request = require('request');
 var command = {
   "command": "addNeighbors",
   "uris": [
-    "udp://8.8.8.8:14265",
-    "udp://8.8.8.8:14265"
+    "tcp://8.8.8.8:14265",
+    "tcp://8.8.8.8:14265"
   ]
 }
 
@@ -97,8 +99,8 @@ curl http://localhost:14265 \
 -d '{
   "command": "addNeighbors",
   "uris": [
-    "udp://8.8.8.8:14265",
-    "udp://8.8.8.8:14265"
+    "tcp://8.8.8.8:14265",
+    "tcp://8.8.8.8:14265"
   ]
 }'
 ```
@@ -471,7 +473,7 @@ curl http://localhost:14265 \
 
 |Return field | Description |
 |--|--|
-| `state` | State of the given transactions in the `tails` parameter. A `true` value means that all given transactions are consistent. A `false` value means that one or more of the given transactions aren't consistent. |
+| `state` | State of the given transactions in the `tails` parameter. A `true` value means that all given transactions are consistent. A `false` value means that one or more of the given transactions are inconsistent. |
 | `info` | If the `state` field is false, this field contains information about why the transaction is inconsistent |
 | `duration` | Number of milliseconds it took to complete the request |
 
@@ -1478,7 +1480,7 @@ The neighbors are added again if the node restarts. If you want to permanently r
 
 ### Parameters
 
-The URI (unique resource identification) format for removing neighbors is `"udp://IPADDRESS:PORT"`.
+The URI format for removing neighbors is `"tcp://IPADDRESS:PORT"`.
 
 |Parameter | Required or Optional|Description | Type|
 |--|--|--|--|
@@ -1491,7 +1493,7 @@ The URI (unique resource identification) format for removing neighbors is `"udp:
 import urllib2
 import json
 
-command = {"command": "removeNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}
+command = {"command": "removeNeighbors", "uris": ["tcp://8.8.8.8:14265", "tcp://8.8.8.8:14265"]}
 
 stringified = json.dumps(command)
 
@@ -1512,7 +1514,7 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "removeNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}
+var command = {"command": "removeNeighbors", "uris": ["tcp://8.8.8.8:14265", "tcp://8.8.8.8:14265"]}
 
 var options = {
   url: 'http://localhost:14265',
@@ -1538,7 +1540,7 @@ curl http://localhost:14265 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
--d '{"command": "removeNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}'
+-d '{"command": "removeNeighbors", "uris": ["tcp://8.8.8.8:14265", "tcp://8.8.8.8:14265"]}'
 ```
 --------------------
 

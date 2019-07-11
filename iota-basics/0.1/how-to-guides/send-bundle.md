@@ -33,7 +33,7 @@ In this example, we create and send a bundle to a [Devnet node](root://getting-s
 
     ```js
     const iota = Iota.composeAPI({
-    provider: 'https://nodes.thetangle.org:443'
+    provider: 'https://nodes.devnet.thetangle.org:443'
     });
     ```
 
