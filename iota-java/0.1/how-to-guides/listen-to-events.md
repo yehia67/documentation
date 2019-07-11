@@ -1,12 +1,14 @@
 # Listen to events in an account
 
-**When an account is started with an `EventListener` object, that object emits events when they happen. An example of an event is when you send a bundle to a node. You can listen for these events and act on them by creating an instance of a listener.**
+**An account object emits events when they happen. An example of an event is when you make or receive a payment. You can listen for these events and act on them.**
 
-## Prerequisites
+## Monitor your account for incoming and outgoing payments
 
-[Create an account](..how-to-guides/create-an-account.md).
+When your account's connected nodes receive a bundle that affects your balance, your account can trigger two types of event: One when the bundle is in a **pending** state, and one when it's in an **included** (confirmed) state.
 
----
+Any incoming payments to your account are called deposits, and outgoing payments are called withdrawals.
+
+## Listen to deposit and withdrawal events
 
 1. Create a class that listens to account events
 
@@ -17,42 +19,49 @@
         public AccountListener(IotaAccount account) {
             this.account = account;
         }
-        
-        @AccountEvent
-        public void confirmed(EventTransferConfirmed e) {
-            System.out.println("account: " + account.getId());
-            System.out.println("confirmed: " + e.getBundle().getBundleHash());
+
+         @AccountEvent
+        public void sent(EventSentTransfer e) {
+            System.out.println("Account: " + account.getId());
+            System.out.println("Outgoing payment is pending: " + e.getBundle().getBundleHash());
         }
-        
-        @AccountEvent
+
+         @AccountEvent
         public void promoted(EventPromotion e) {
-            System.out.println("account: " + account.getId());
-            System.out.println("promoted: " + e.getPromotedBundle());
+            System.out.println("Account: " + account.getId());
+            System.out.println("Promoting a pending bundle: " + e.getPromotedBundle());
         }
         
         @AccountEvent
         public void reattach(EventReattachment e) {
-            System.out.println("account: " + account.getId());
-            System.out.println("reattach: " + e.getNewBundle());
+            System.out.println("Account: " + account.getId());
+            System.out.println("Reattaching a pending bundle: " + e.getNewBundle());
         }
         
         @AccountEvent
-        public void sent(EventSentTransfer e) {
-            System.out.println("account: " + account.getId());
-            System.out.println("sent transfer: " + e.getBundle().getBundleHash());
+        public void confirmed(EventTransferConfirmed e) {
+            System.out.println("Account: " + account.getId());
+            System.out.println("Outgoing payment confirmed: " + e.getBundle().getBundleHash());
         }
         
         @AccountEvent
         public void received(EventReceivedMessage e) {
-            System.out.println("account: " + account.getId());
-            System.out.println("message: " + e.getMessage());
+            System.out.println("Account: " + account.getId());
+            System.out.println("Received a new message: " + e.getMessage());
+        }
+
+        @AccountEvent
+        public void received(EventReceivingDeposit e) {
+            System.out.println("Account: " + account.getId());
+            System.out.println("Receiving a new payment: " + e.getBundle());
+        }
+
+        @AccountEvent
+        public void received(EventReceivedDeposit e) {
+            System.out.println("Account: " + account.getId());
+            System.out.println("Received a new payment: " + e.getBundle());
         }
         
-        @AccountEvent
-        public void input(EventNewInput e) {
-            System.out.println("account: " + account.getId());
-            System.out.println("newInput: " + e.getAddress());
-        }
     }
 
 2. Register the `AccountListener` object with your account
@@ -67,4 +76,4 @@ You're account is now emitting events that you can listen to and act on.
 
 ## Next steps
 
-[Create a plugin that listens to events](../how-to-guides/create-plugin.md).
+Now that you have an event listener, start [making payments to/from your account](../how-to-guides/create-and-manage-cda.md) to test it.

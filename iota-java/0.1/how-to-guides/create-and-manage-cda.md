@@ -1,71 +1,32 @@
-# Send and receive transactions
+# Make payments to/from your account
 
-**To send and receive transactions in an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawals and deposits.**
+**To make payments, both the sender and the receiver need to have a CDA. The sender needs an expired CDA that contains IOTA tokens, and the receiver needs an active CDA.**
 
-Accounts use CDAs to help reduce the [risks of withdrawing from spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from a someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA.
-
-:::info:
-CDAs can be used only in an account and not in the generic [client library methods](root://client-libraries/0.1/introduction/overview.md). As a result, both you and the sender must have an account to be able to use CDAs.
+:::info:Accounts only
+CDAs can be used only in an account and not in the generic client library methods. As a result, both you and the sender must have an account to be able to use CDAs.
 :::
 
-## State of a CDA
-
-CDAs can be in either an active or expired state. The state of a CDA determines whether you can withdraw from it or deposit into it:
-
-**Active CDA:** You can deposit IOTA tokens into an active address. You can't withdraw tokens from an active address.
-
-**Expired CDA:** You can withdraw tokens from an expired address. You can't deposit tokens into an expired address.
-
-## Conditions of a CDA
-
-To create a CDA, specify the following condition, which defines whether it's active or expired:
-
-* **timeout_at (required):** The time at which the address expires
-
-And one of the following, recommended fields:
-
-* **multi_use (recommended):** A boolean that specifies if the address may be sent more than one deposit.
-* **expected_amount (recommended):** The amount of IOTA tokens that the address is expected to contain. When the address contains this amount, it's considered expired. We highly recommend using this condition.
-
-:::info:
-You can't specify the `expected_amount` and `multi_use` fields in the same CDA. Please refer to the [FAQ](../references/cda-faq.md) for more information.
+:::info:Checksum
+The last 9 characters of a CDA are the checksum, which includes the address and all of its conditions. This checksum is not compatible with Trinity because it doesn't yet support CDAs.
 :::
-
-|  **Combination of fields** | **Withdrawal conditions**
-| :----------| :----------|
-|`timeout_at` |The CDA can used in withdrawals as long as it contains IOTA tokens|
-|`timeout_at` and `multi_use` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it. See the [CDA FAQ](../references/cda-faq.md) on when to use addresses with the `multi_use` field set. |
-|`timeout_at` and `expected_amount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount. See the [CDA FAQ](../references/cda-faq.md) on when to use addresses with the `multi_use` field set.|
-
-:::warning:Warning
-If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. 
-
-To avoid withdrawing from a spent address, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible.
-:::
-
-## Create a CDA
 
 1. Define an expiration time for the CDA
   
     ```java
     // In this case, after 72 hours
-    Date hour = new Date(System.currentTimeMillis() + 72000 * 60 * 60);
+    Date hours = new Date(System.currentTimeMillis() + 72000 * 60 * 60);
     
     ```
 
 2. Create a new CDA with an expiration time and expected amount
 
     ```java
-    Future<ConditionalDepositAddress> cda = account.newDepositAddress(hour, false, account.usableBalance()).get();
+    Future<ConditionalDepositAddress> cda = account.newDepositAddress(hours, false, 1000).get();
     ```
 
-## Deposit IOTA tokens into a CDA
-
-1. When a CDA contains an expected amount, you can deposit that amount into it by passing the object to the `account.send()` method.
+3. After making sure that the CDA is still active, send a deposit to it
 
     ```java
-    String magnet = "iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000";
-    ConditionalDepositAddress cda = DepositFactory.get().parse(magnet, MagnetMethod.class);
     Future<Bundle> bundle = account.send(
             cda.getDepositAddress().getHashCheckSum(),
             cda.getRequest().getExpectedAmount(),
@@ -73,24 +34,26 @@ To avoid withdrawing from a spent address, we recommend creating CDAs with eithe
     bundle.get();
     ```
 
-:::info:
-If you're testing your account on the Devnet and you don't have enough balance, use the [Devnet faucet](https://faucet.devnet.iota.org/) to request Devnet tokens.
-:::
+    :::info
+    If you want to test this sample code with free test tokens, [request some](root://getting-started/0.1/tutorials/receive-test-tokens.md).
 
-## Deposit your entire account balance into one CDA
+    Be aware that the last 9 characters of your address is the checksum, which is not compatible with the faucet. Remove these characters before pasting your address into the input field.
+    :::
+
+## Transfer your entire account balance into one CDA
 
 1. Create a CDA that has your account's total usable balance as its expected amount
 
     ```java
-	Date n = new Date(System.currentTimeMillis() + 10000 * 60 * 60);
-    ConditionalDepositAddress address = account.newDepositAddress(n, false, account.usableBalance()).get();
+	Date hours = new Date(System.currentTimeMillis() + 10000 * 60 * 60);
+    ConditionalDepositAddress cda = account.newDepositAddress(hours, false, account.usableBalance()).get();
     ```
 
     :::info:
     Usable balance is the total balance of all expired CDAs.
     :::
 
-2. Deposit your total usable balance into the CDA by passing the object to the `account.send()` method
+2. Transfer your total usable balance into the CDA
 
     ```java
     Future<Bundle> bundle = account.send(
@@ -101,13 +64,26 @@ If you're testing your account on the Devnet and you don't have enough balance, 
     bundle.get();
     ```
 
-## Distribute a CDA
+## Send someone your CDA
 
-Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with the `timeout_at`, `multi_use`, and `expected_amount` parameters.
+If you want a depositer to send IOTA tokens to your account, you need to send them your CDA.
 
+Because CDAs are descriptive objects, you can serialize them into any format before sending them. The `generateCDA()` method returns a CDA object with the following fields. You can serialize a CDA into any format before distributing it to senders.
+
+```js
+{
+   address, // The last 9 trytes are the checksum
+   timeoutAt,
+   multiUse,
+   expectedAmount
+}
 ```
-iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=false&expected_amount=1000
-```
+
+For example, you can serialize these fields to create a magnet link.
+
+### Serialize a CDA into a magnet link
+
+The built-in method for serializing a CDA is to create a magent link.
 
 1. To serialize a CDA to a magnet link, do the following:
 
@@ -116,4 +92,16 @@ iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=fals
     
     System.out.println(magnet);
     // iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000
+    ```
+
+2. To send a transaction to a CDA that's been serialized into a magnet link, first deserialize the magent link into a CDA
+
+    ```java
+     String magnet = "iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000";
+    ConditionalDepositAddress cda = DepositFactory.get().parse(magnet, MagnetMethod.class);
+    Future<Bundle> bundle = account.send(
+            cda.getDepositAddress().getHashCheckSum(),
+            cda.getRequest().getExpectedAmount(),
+            Optional.of("Thanks for that pizza!"), Optional.of("OMNOMNOM"));
+    bundle.get();
     ```

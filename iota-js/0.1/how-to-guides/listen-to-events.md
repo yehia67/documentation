@@ -1,40 +1,42 @@
 # Listen to events in an account
 
-**An account object emits events when they happen. An example of an event is when you send funds to other accounts or receive a deposit. You can listen for these events and act on them.**
+**An account object emits events when they happen. An example of an event is when you make or receive a payment. You can listen for these events and act on them.**
 
 ## Prerequisites
 
 This guide assumes that you understand the concept of events in Node.js (https://nodejs.org/api/events.html). Event listeners are used to assign callbacks to specific event types. You should always [remove event listeners](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener) when you're finished with them.
 
-## Listening to deposit and withdrawal events
+## Monitor your account for incoming and outgoing payments
 
-Deposit and withdrawal events are emitted as soon as a deposit or withdrawal bundle is detected. Each of those bundles may trigger events in two steps: One for its **pending** state, and one for its **included** (confirmed) state.
+When your account's connected nodes receive a bundle that affects your balance, your account can trigger two types of event: One when the bundle is in a **pending** state, and one when it's in an **included** (confirmed) state.
 
-Callbacks are given an object as an argument, which contains the relevant address and the complete deposit or withdrawal bundle.
+Any incoming payments to your account are called deposits, and outgoing payments are called withdrawals.
 
-1. Attach listeners for deposit and withdrawal events
+1. Attach listeners to your account for deposit and withdrawal events
 
     ```js
     account.on('pendingDeposit', ({ address, bundle }) => {
+        console.log('Receiving a new payment')
         console.log('Address:', address, 'Tail transaction hash:', bundle[0].hash);
-        // ...
     });
 
-    account.on('includedDeposit', ({ addresses, bundle }) => {
+    account.on('includedDeposit', ({ address, bundle }) => {
+        console.log('Received a new payment')
         console.log('Address:', address, 'Tail transaction hash:', bundle[0].hash);
-        // ...
     });
 
     account.on('pendingWithdrawal', ({ address, bundle }) => {
-        // ...
+        console.log('Outgoing payment is pending')
+        console.log('Address:', address, 'Tail transaction hash:', bundle[0].hash);
     });
 
-    account.on('includedWithdrawal', ({ addresses, bundle }) => {
-        // ...
+    account.on('includedWithdrawal', ({ address, bundle }) => {
+        console.log('Outgoing payment confirmed')
+        console.log('Address:', address, 'Tail transaction hash:', bundle[0].hash);
     });
     ```
 
-2. Subscribe to `error` events, which are useful for debugging your application and reacting to exceptions that may be thrown in the background
+2. Subscribe to `error` events. These events are useful for debugging your application and reacting to exceptions that may be thrown in the background.
 
     ```js
     account.on('error', (error) => {
@@ -42,34 +44,13 @@ Callbacks are given an object as an argument, which contains the relevant addres
     });
     ```
 
-3. Generate a CDA and set it to expire tomorrow
-
-    ```js
-    const cda = account
-        .generateCDA({
-            timeoutAt: Date.now() + 24 * 60 * 60 * 1000,
-            expectedAmount: 100
-        });
-    ```
-
-4. Send a deposit to the CDA
-    ```js
-    cda
-        .tap(cda => console.log('Sending to:', cda.address))
-        .then(cda =>
-            account.sendToCDA({
-                ...cda,
-                value: 100
-            })
-        )
-        .catch(error => console.log(error));
-    ```
-
     :::info:
-    An event is triggered for each transaction in the connected node's ledger that withdraws from or deposits into one of your CDAs.
+    An event is triggered for each transaction in the connected node's ledger that affects any active CDAs in your account.
     :::
 
-In the output, you should see an address and a tail transaction hash when the transaction is pending, and the same address and tail transaction hash when the transaction is confirmed.
+:::success:Congratulations! :tada:
+You're account is now emitting events that you can listen to and act on.
+:::
 
 ## Account events
 
@@ -86,6 +67,8 @@ In the output, you should see an address and a tail transaction hash when the tr
 |`broadcast`|`transactionObjects`|
 |`error`|`Error`|
 
-:::success:Congratulations! :tada:
-You're account is now emitting events that you can listen to and act on.
-:::
+## Next steps
+
+Now that you have an event listener, start [making payments to/from your account](../how-to-guides/create-and-manage-cda.md) to test it.
+
+

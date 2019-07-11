@@ -1,20 +1,19 @@
 # Listen to events in an account
 
-**When an account is started with an `EventMachine` object, that object emits events when they happen. An example of an event is when you send a bundle to a node. You can listen for these events and act on them by creating an instance of a listener.**
+**An account object emits events when they happen. An example of an event is when you make or receive a payment. You can listen for these events and act on them.**
 
-We have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use a callback listener. If you're interesting in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md).
+Accounts have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use callback listeners. If you're interesting in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md).
 
 :::info:
 See the list of all possible [callback events](https://github.com/iotaledger/iota.go/blob/master/account/event/listener/callback_listener.go).
 :::
 
-## Prerequisites
+## Monitor your account for incoming and outgoing payments
 
-This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
+When your account's connected nodes receive a bundle that affects your balance, your account can trigger two types of event: One when the bundle is in a **pending** state, and one when it's in an **included** (confirmed) state.
 
-## Listen to an event
+Any incoming payments to your account are called deposits, and outgoing payments are called withdrawals.
 
-To listen to an event, you need to build your account with an `EventMachine` object, choose which event you want to listen to, then trigger the event.
 
 1. Build and start an account that has an `EventMachine` object
 
@@ -56,48 +55,38 @@ To listen to an event, you need to build your account with an `EventMachine` obj
     handleErr(account.Start())
     ```
 
-2. Create a new `CallbackEventListener` object that listens for the `RegAttachingToTangle` event
+2. Create a new `CallbackEventListener` object that listens for incoming and outgoing payments
 
     ```go
     lis := listener.NewCallbackEventListener(em)
-	lis.RegAttachingToTangle(func() {
-        fmt.Println("Doing proof of work")
+    lis.RegSentTransfers(func(bun bundle.Bundle) {
+		fmt.Println("Outgoing payment is pending")
+		fmt.Println("Bundle :", bun)
+	})
+    lis.RegPromotions(func(bundle) {
+        fmt.Println("Promoting a pending bundle")
         // Do something here
     })
-    ```
-
-3. Create a new CDA
-
-    ```go
-    // Get the current time
-    now, err := timesource.Time()
-    handleErr(err)
-
-    // Define the time after which the CDA expires
-    // (in this case after 72 hours)
-    now = now.Add(time.Duration(72) * time.Hour)
-
-    // Allocate a new deposit address with conditions
-    conditions := &deposit.Conditions{TimeoutAt: &now, MultiUse: true}
-
-    cda, err := account.AllocateDepositAddress(conditions)
-    handleErr(err)
-    ```
-
-4. Use the `Send()` method to send a data transaction to the CDA
-    
-    ```go
-    bundle, err := account.Send(cda.AsTransfer())
-    handleErr(err)
-
-    fmt.Printf("Made deposit into %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[0].Hash)
-    ```
-
-    You should see something like the following in the output:
-
-    ```
-    Doing proof of work
-    Made deposit into DL9CSYICJVKQRUTWBFUCZJQZ9WNBSRJOA9MGOISQZGGHOCZTXVSKDIZN9HBORNGDWRBBAFTKXGEJIAHKDTMAUX9ILA in the bundle with the following tail transaction hash WZEATTRJYENRALJTWPVGDQZHETIDJXPUROUM9BBPS9RJEELDMU9YNZFBSDGPQHZHMXBVCKITSMDEEQ999
+    lis.RegReattachments(func(bundle) {
+        fmt.Println("Reattaching a pending bundle")
+        // Do something here
+    })
+    lis.RegConfirmedTransfers(func(bun bundle.Bundle) {
+        fmt.Println("Outgoing payment confirmed")
+        fmt.Println("Bundle :", bun)
+    })
+    lis.RegReceivedMessages(func(bun bundle.Bundle) {
+        fmt.Println("Received a new message")
+        fmt.Println("Bundle :", bun)
+    })
+    lis.RegReceivingDeposits(func(bun bundle.Bundle) {
+        fmt.Println("Receiving a new payment")
+        fmt.Println("Bundle :", bun)
+    })
+    lis.RegReceivedDeposits(func(bun bundle.Bundle) {
+        fmt.Println("Received a new payment")
+        fmt.Println("Bundle :", bun)
+    })
     ```
 
 :::success:Congratulations! :tada:
@@ -106,4 +95,4 @@ You're account is now emitting events that you can listen to and act on.
 
 ## Next steps
 
-[Create an event-listener plugin](../how-to-guides/create-plugin.md).
+Now that you have an event listener, start [making payments to/from your account](../how-to-guides/create-and-manage-cda.md) to test it.
