@@ -4,6 +4,8 @@
 
 ## Prerequisites
 
+[Create an account](../how-to-guides/create-account.md).
+
 This guide assumes that you understand the concept of events in Node.js (https://nodejs.org/api/events.html). Event listeners are used to assign callbacks to specific event types. You should always [remove event listeners](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener) when you're finished with them.
 
 ## Monitor your account for incoming and outgoing payments
@@ -49,7 +51,7 @@ Any incoming payments to your account are called deposits, and outgoing payments
     :::
 
 :::success:Congratulations! :tada:
-You're account is now emitting events that you can listen to and act on.
+You're account can now emit events that you can listen to and act on.
 :::
 
 ## Account events

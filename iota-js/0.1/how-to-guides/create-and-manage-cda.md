@@ -2,13 +2,10 @@
 
 **To make payments, both the sender and the receiver need to have a CDA. The sender needs an expired CDA that contains IOTA tokens, and the receiver needs an active CDA.**
 
-:::info:Accounts only
+:::info:
 CDAs can be used only in an account and not in the generic client library methods. As a result, both you and the sender must have an account to be able to use CDAs.
 :::
 
-:::info:Checksum
-The last 9 characters of a CDA are the checksum, which includes the address and all of its conditions. This checksum is not compatible with Trinity because it doesn't yet support CDAs.
-:::
 
 1. Install the package
 
@@ -50,9 +47,13 @@ The last 9 characters of a CDA are the checksum, which includes the address and 
     ```
 
     :::info
-    If you want to test this sample code with free test tokens, [request some](root://getting-started/0.1/tutorials/receive-test-tokens.md).
+    If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/tutorials/receive-test-tokens.md).
+    :::
 
-    Be aware that the last 9 characters of your address is the checksum, which is not compatible with the faucet. Remove these characters before pasting your address into the input field.
+    :::info:
+    The last 9 characters of a CDA are the checksum, which is a hash of the address and all of its conditions. This checksum is not compatible with Trinity or the Devent faucet because they don't yet support CDAs.
+    
+    Remove the checksum before pasting your address into the input field of either of these applications.
     :::
 
 In the output, you should see an address and a tail transaction hash when the transaction is pending, and the same address and tail transaction hash when the transaction is confirmed.
@@ -84,6 +85,40 @@ You can start or stop the attachment routine by calling the `startAttaching()` a
     });
 
     account.stopAttaching();
+    ```
+
+## Transfer your entire available balance to one CDA
+
+You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. To do so, you can transfer you available balance to a new CDA.
+
+:::info:
+Available balance is the total balance of all expired CDAs. This balance is safe to withdraw.
+
+Your account's total balance includes CDAs that are still active as well as expired. This balance is unsafe to withdraw.
+:::
+
+1. Create a CDA that has your account's total available balance as its expected amount, then transfer your total available balance to that CDA
+
+    ```js
+    account.getAvailableBalance()
+    .then(balance => {
+        const cda = account.generateCDA({
+                timeoutAt: Date.now() + 24 * 60 * 60 * 1000,
+                expectedAmount: balance
+            })
+            .then(cda => {
+                account.sendToCDA({
+                ...cda,
+                value: 1000
+            })
+            .then((trytes) => {
+                console.log('Successfully prepared transaction trytes:', trytes)
+            })
+        })
+    })
+    .catch(err => {
+            // Handle errors here...
+    });
     ```
 
 ## Send someone your CDA

@@ -2,12 +2,8 @@
 
 **To make payments, both the sender and the receiver need to have a CDA. The sender needs an expired CDA that contains IOTA tokens, and the receiver needs an active CDA.**
 
-:::info:Accounts only
+:::info:
 CDAs can be used only in an account and not in the generic client library methods. As a result, both you and the sender must have an account to be able to use CDAs.
-:::
-
-:::info:Checksum
-The last 9 characters of a CDA are the checksum, which includes the address and all of its conditions. This checksum is not compatible with Trinity because it doesn't yet support CDAs.
 :::
 
 1. Define an expiration time for the CDA
@@ -35,25 +31,33 @@ The last 9 characters of a CDA are the checksum, which includes the address and 
     ```
 
     :::info
-    If you want to test this sample code with free test tokens, [request some](root://getting-started/0.1/tutorials/receive-test-tokens.md).
-
-    Be aware that the last 9 characters of your address is the checksum, which is not compatible with the faucet. Remove these characters before pasting your address into the input field.
+    If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/tutorials/receive-test-tokens.md).
     :::
 
-## Transfer your entire account balance into one CDA
+    :::info:
+    The last 9 characters of a CDA are the checksum, which is a hash of the address and all of its conditions. This checksum is not compatible with Trinity or the Devent faucet because they don't yet support CDAs.
+    
+    Remove the checksum before pasting your address into the input field of either of these applications.
+    :::
 
-1. Create a CDA that has your account's total usable balance as its expected amount
+## Transfer your entire available balance to one CDA
+
+You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. To do so, you can transfer you available balance to a new CDA.
+
+:::info:
+Available balance is the total balance of all expired CDAs. This balance is safe to withdraw.
+
+Your account's total balance includes CDAs that are still active as well as expired. This balance is unsafe to withdraw.
+:::
+
+1. Create a CDA that has your account's total available balance as its expected amount
 
     ```java
 	Date hours = new Date(System.currentTimeMillis() + 10000 * 60 * 60);
     ConditionalDepositAddress cda = account.newDepositAddress(hours, false, account.usableBalance()).get();
     ```
 
-    :::info:
-    Usable balance is the total balance of all expired CDAs.
-    :::
-
-2. Transfer your total usable balance into the CDA
+2. Transfer your total available balance to the CDA
 
     ```java
     Future<Bundle> bundle = account.send(
@@ -69,6 +73,8 @@ The last 9 characters of a CDA are the checksum, which includes the address and 
 If you want a depositer to send IOTA tokens to your account, you need to send them your CDA.
 
 Because CDAs are descriptive objects, you can serialize them into any format before sending them. The `generateCDA()` method returns a CDA object with the following fields. You can serialize a CDA into any format before distributing it to senders.
+
+This is the 
 
 ```js
 {

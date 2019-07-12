@@ -2,13 +2,15 @@
 
 **An account object emits events when they happen. An example of an event is when you make or receive a payment. You can listen for these events and act on them.**
 
+## Prerequisites
+
+[Create an account](../how-to-guides/create-account.md).
+
 ## Monitor your account for incoming and outgoing payments
 
 When your account's connected nodes receive a bundle that affects your balance, your account can trigger two types of event: One when the bundle is in a **pending** state, and one when it's in an **included** (confirmed) state.
 
 Any incoming payments to your account are called deposits, and outgoing payments are called withdrawals.
-
-## Listen to deposit and withdrawal events
 
 1. Create a class that listens to account events
 
@@ -71,7 +73,7 @@ Any incoming payments to your account are called deposits, and outgoing payments
     ```
 
 :::success:Congratulations :tada:
-You're account is now emitting events that you can listen to and act on.
+You're account can now emit events that you can listen to and act on.
 :::
 
 ## Next steps

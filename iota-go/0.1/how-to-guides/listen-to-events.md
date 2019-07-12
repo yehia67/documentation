@@ -8,6 +8,10 @@ Accounts have two types of listeners: One that uses channels and one that uses c
 See the list of all possible [callback events](https://github.com/iotaledger/iota.go/blob/master/account/event/listener/callback_listener.go).
 :::
 
+## Prerequisites
+
+[Create an account](../how-to-guides/create-account.md).
+
 ## Monitor your account for incoming and outgoing payments
 
 When your account's connected nodes receive a bundle that affects your balance, your account can trigger two types of event: One when the bundle is in a **pending** state, and one when it's in an **included** (confirmed) state.
@@ -63,14 +67,14 @@ Any incoming payments to your account are called deposits, and outgoing payments
 		fmt.Println("Outgoing payment is pending")
 		fmt.Println("Bundle :", bun)
 	})
-    lis.RegPromotions(func(bundle) {
-        fmt.Println("Promoting a pending bundle")
-        // Do something here
-    })
-    lis.RegReattachments(func(bundle) {
-        fmt.Println("Reattaching a pending bundle")
-        // Do something here
-    })
+    lis.RegPromotions(func(promoted *promoter.PromotionReattachmentEvent) {
+		fmt.Println("Promoting a pending bundle")
+		fmt.Printf("%+v\n", *promoted)
+	})
+	lis.RegReattachments(func(promoted *promoter.PromotionReattachmentEvent) {
+		fmt.Println("Reattaching a pending bundle")
+		fmt.Printf("%+v\n", *promoted)
+	})
     lis.RegConfirmedTransfers(func(bun bundle.Bundle) {
         fmt.Println("Outgoing payment confirmed")
         fmt.Println("Bundle :", bun)
@@ -90,7 +94,7 @@ Any incoming payments to your account are called deposits, and outgoing payments
     ```
 
 :::success:Congratulations! :tada:
-You're account is now emitting events that you can listen to and act on.
+You're account can now emit events that you can listen to and act on.
 :::
 
 ## Next steps
