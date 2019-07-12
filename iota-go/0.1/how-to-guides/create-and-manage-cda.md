@@ -133,9 +133,9 @@ Because CDAs are descriptive objects, you can serialize them into any format bef
 ```js
 {
    address, // The last 9 trytes are the checksum
-   timeoutAt,
-   multiUse,
-   expectedAmount
+   timeout_at,
+   multi_use,
+   expected_amount
 }
 ```
 
