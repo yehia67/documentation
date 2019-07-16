@@ -54,7 +54,7 @@ Your account's total balance includes CDAs that are still active as well as expi
 
     ```java
 	Date hours = new Date(System.currentTimeMillis() + 10000 * 60 * 60);
-    ConditionalDepositAddress cda = account.newDepositAddress(hours, false, account.usableBalance()).get();
+    ConditionalDepositAddress cda = account.newDepositAddress(hours, false, account.availableBalance()).get();
     ```
 
 2. Transfer your total available balance to the CDA

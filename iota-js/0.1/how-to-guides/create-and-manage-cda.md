@@ -109,7 +109,7 @@ Your account's total balance includes CDAs that are still active as well as expi
             .then(cda => {
                 account.sendToCDA({
                 ...cda,
-                value: 1000
+                value: balance
             })
             .then((trytes) => {
                 console.log('Successfully prepared transaction trytes:', trytes)
