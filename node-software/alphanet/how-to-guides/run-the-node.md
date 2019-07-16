@@ -1,6 +1,6 @@
 # Run a node on the Coordicide Alphanet
 
-**When you run the Coordicide Alphanet software, your computer becomes a node in the network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become a testnet, which is a candidate for an official release.**
+**When you run the Coordicide Alphanet software, your computer becomes a node in the network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become the Coordicide testnet, which is a release candidate for the next IOTA protocol.**
 
 ## Prerequisites
 
