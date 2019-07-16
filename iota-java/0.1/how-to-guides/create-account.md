@@ -1,6 +1,6 @@
 # Create an account
 
-**An account is an object that makes it easier to handle payments and keep a history and pending and confirmed ones.**
+**An account is an object that makes it easier to handle payments and keep a history of pending and confirmed ones.**
 
 ## Prerequisites
 
