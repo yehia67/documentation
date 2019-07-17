@@ -1,6 +1,6 @@
 # Set up a private Tangle
 
-**If you want to test an application on a private IOTA network, you can run Compass and connect it to an IRI node. Doing so gives you a private Tangle to which you can attach your transactions.**
+**A private Tangle is one that you control and that contains only nodes that you know. If you want to test an application without using a public IOTA network such as the Mainnet or the Devnet, you can run Compass and connect it to an IRI node. Doing so gives you a private Tangle to which you can attach your transactions.**
 
 For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine. But, you could run multiple IRI nodes and connect them to each other as neighbors.
 
@@ -66,7 +66,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 	sudo apt install jq
 	```
 
-## Step 2. Calculate the Merkle tree
+## Step 2. Compute the Merkle tree
 
 For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) with a depth of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. The interval between milestones depends on two factors:
 
@@ -74,12 +74,12 @@ For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordi
 * The length of time it takes to create, sign and send a bundle
 
 :::info:
-The greater the depth, the longer it takes to create the Merkle tree, but the more bundles Compass can sign and send.
+The greater the depth, the longer it takes to compute the Merkle tree, but the more bundles Compass can sign and send.
 
-So, a depth of 24 would allow Compass to send milestones for over 31 years, but it would take a long time to create the Merkle tree. A depth of 8 would allow Compass to send milestones for only a couple of hours, but it would take only seconds to create the Merkle tree.
+So, a depth of 24 would allow Compass to send milestones for over 31 years, but it would take a long time to compute the Merkle tree. A depth of 8 would allow Compass to send milestones for only a couple of hours, but it would take only seconds to compute the Merkle tree.
 :::
 
-The Compass repository includes a tool to create a Merkle tree and save it in a `data` directory for Compass to use later on. 
+The Compass repository includes a tool to compute a Merkle tree and save it in a `data` directory for Compass to use later on. 
 
 1. Clone the Compass GitHub repository
 
@@ -88,7 +88,7 @@ The Compass repository includes a tool to create a Merkle tree and save it in a 
 	cd compass
 	```
 
-2. Build the `layers_calculator` tool that will create the Merkle tree
+2. Build the `layers_calculator` tool that will compute the Merkle tree
 
 	```bash
 	bazel run //docker:layers_calculator
@@ -153,7 +153,7 @@ The Compass repository includes a tool to create a Merkle tree and save it in a 
 	Compass will stop sending milestones if the Merkle tree runs out of leaves (public/private keys). To avoid this problem, use an 	appropriate value for the `depth` field.
 	:::
 
-9. Create the Merkle tree by executing the script in the `docs/private_tangle` directory
+9. Compute the Merkle tree by executing the script in the `docs/private_tangle` directory
 
 	```bash
 	sudo ./01_calculate_layers.sh
@@ -204,6 +204,10 @@ The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first
 	```
 
 	:::info:
+	If you want to allow neighbors to automatically connect to your node, edit the `02_run_iri.sh` file and add the `--auto-tethering-enabled true` flag to the list of other flags.
+	:::
+
+	:::info:
 	If you see a `malformed snapshot state file` error, check the snapshot.txt file and make sure that you didn't include a line break at the en of the line.
 	
 	If you see a `NumberFormatException` error or an `IllegalArgumentException` error, check that no space characters are either side of the semicolon.
@@ -212,7 +216,7 @@ The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first
 4. Press **Ctrl** + **C** in the command prompt. IRI will continue to run in the background.
 
 :::danger:Important
-If the IRI node that Compass is connected to is compromised, an attacker could manipulate Compass to receive favorable treatment. Possible scenarios include the following:
+If the IRI node to which Compass is connected becomes compromised, an attacker could manipulate Compass to receive favorable treatment. Possible scenarios include the following:
 - Return tip transactions that prioritize the attackers transactions over the regular tip selection algorithm.
 - Return tip transactions that conflict with the ledger state (double spend IOTA tokens) causing Compass to send an inconsistent milestone. IRI nodes will not accept this milestone and no more transactions will be confirmed.
 - Stop propagating milestone transactions to the rest of the network, causing no more transactions to be confirmed.
