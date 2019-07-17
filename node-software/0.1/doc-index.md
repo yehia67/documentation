@@ -15,6 +15,7 @@
 [IRI/How-to Guides/Interact with an IRI node](/iri/how-to-guides/interact-with-an-iri-node.md)
 [IRI/How-to Guides/Subscribe to events in an IRI node](/iri/how-to-guides/subscribe-to-events-in-an-iri-node.md)
 [IRI/How-to Guides/Process big data transaction stream in near real-time](/iri/how-to-guides/flink-tangle-stream-processing.md)
+[IRI/How-to Guides/Install a proof of work proxy](/iri/how-to-guides/install-a-pow-proxy.md)
 [IRI/How-to Guides/Update the IRI](/iri/how-to-guides/update-the-iri.md)
 [IRI/References/Troubleshooting](/iri/references/troubleshooting.md)
 [IRI/References/API reference](/iri/references/api-reference.md)
