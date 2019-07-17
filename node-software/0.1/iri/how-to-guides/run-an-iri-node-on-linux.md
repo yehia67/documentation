@@ -82,11 +82,10 @@ HTTP request sent, awaiting response ... 200 OK
 ```
 
 :::info:Is this your first node?
-If you are starting a node from scratch, you need to download the `spent-addresses-db` directory from [our website](https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/), [the IOTA Partners website](https://iota.partners/#database), or the [IOTA Playbook](https://iri-playbook.readthedocs.io/en/master/faq.html#where-can-i-get-a-fully-synced-database-to-help-kick-start-my-node).
+You need to download the `spent-addresses-db` directory from [our website](https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/), [the IOTA Partners website](https://iota.partners/#database), or the [IOTA Playbook](https://iri-playbook.readthedocs.io/en/master/faq.html#where-can-i-get-a-fully-synced-database-to-help-kick-start-my-node).
 
 After you've downloaded the directory, extract it into the same directory as your IRI Java file from step 4. For this example, the file is in the `/home/jake/node/` directory.
 :::
-
 
 Now that the IRI Java file and the `spent-addresses-db` directory are saved on your server, [configure the IRI](#configure-the-iri) before running it.
 
@@ -235,6 +234,10 @@ When you've downloaded, and configured the IRI, it's time to run it.
     mkdir -p /home/jake/node/data
     cd /home/jake/node/data
     ```
+
+    :::info:
+    We recommend making regular backups of your database. This way, you can restore your node in case of a corrupted database or another type of node malfunction. To do so, you create a cron job that copies the database to a different volume every day.
+    :::
 
 2. Run the IRI. Change `jake` to your Linux username and `$VERSION` to the version of the IRI that you downloaded.
 

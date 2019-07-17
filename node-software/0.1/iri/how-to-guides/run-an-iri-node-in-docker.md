@@ -21,7 +21,7 @@ To complete this guide, you need the following:
 
 The IRI Docker container is suitable for the following operating systems:
 * Linux
-* Mac
+* macOS
 * Windows
 
 :::info:

@@ -1,11 +1,11 @@
 # Install a proof-of-work proxy server
 
-**The `attachToTangle` endpoint is resource intensive. As a result, many calls to these endpoints can sometimes cause a node to crash. To resolve this problem, you can install a dedicated proxy server to do proof of work (PoW) instead of making the node do it.**
+**The `attachToTangle` endpoint is resource intensive. As a result, many calls to this endpoint can sometimes cause a node to crash. To resolve this problem, you can install a dedicated proxy server to do proof of work (PoW) instead of making the node do it.**
 
-The PoW proxy server is an implementation of [Caddy](https://caddyserver.com/) that has IOTA middleware. This middleware allows the PoW proxy server to intercept calls to an IRI node's `attachToTangle` endpoint and do the PoW itself.
+The PoW proxy server is an implementation of [Caddy](https://caddyserver.com/) that uses IOTA middleware. This middleware allows the server to intercept calls to an IRI node's `attachToTangle` endpoint and do the PoW.
 
 :::info:
-All requests to the other IRI API endpoints are sent to the IRI node.
+All requests to the other IRI API endpoints are forwarded to the IRI node.
 :::
 
 ## Prerequisites
@@ -13,7 +13,6 @@ All requests to the other IRI API endpoints are sent to the IRI node.
 To complete this guide, you need the following:
 
 * An Internet connection
-* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 * At least version 1.12 of the Go programming language (we recommend the latest version)
 * GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
 * [Git](https://git-scm.com/downloads)
@@ -26,7 +25,7 @@ To complete this guide, you need the following:
     go env GOPATH
     ````
 
-2. In any directory outside of the one in your `GOPATH` environment variable, clone the `iotacaddy/caddy` GitHub repository
+2. In any directory outside of the one in your `GOPATH` environment variable, clone the `iotacaddy` GitHub repository
 
     ```bash
     git clone https://github.com/luca-moser/iotacaddy.git
@@ -48,22 +47,22 @@ To complete this guide, you need the following:
         ```
 
         :::info:
-        Most modern CPUs support AVX, but you may want to check which implementation that your CPU supports.
+        Most modern CPUs support AVX, but you should check which implementation your one supports.
         :::
 
-        This will create a executable file called `caddy` in the `iotacaddy/caddy` directory.
+        This action will create a executable file called `caddy` in the `iotacaddy/caddy` directory.
 
 5. Create a file called `Caddyfile` in the same directory as your `caddy` executable file
 
-6. Configure your PoW proxy server by [editing the `Caddyfile` file](https://caddyserver.com/tutorial/caddyfile). Here is an example of the contents of the file
+6. Configure your PoW proxy server by [editing the `Caddyfile` file](https://caddyserver.com/tutorial/caddyfile). In this example, we run the PoW proxy server on localhost. If you want to access your PoW proxy server from an external network, change the URL to your public IP address and make sure that the port is open. 
 
         ```bash
-        # The URL of your proxy server
+        # Set the URL of your PoW proxy server
         127.0.0.1:15265 {
 
         gzip
 
-        # log requests to the proxy with rotation
+        # Log requests to the proxy with rotation
         log requests.log {
                 rotate_size 100
                 rotate_age  90
@@ -73,76 +72,99 @@ To complete this guide, you need the following:
 
         #tls /etc/letsencrypt/live/iota-tangle.io/fullchain.pem /etc/letsencrypt/live/iota-tangle.io/privkey.pem
 
-        # limit request body to 10 megabytes
+        # Limit request body to 10 megabytes
         limits 10mb
 
-        # intercept attachToTangle calls with a max MWM of 14 and 20 txs per call
+        # Intercept calls that have a maximum MWM of 14 and include a maximum of 20 transactions per call
         iota 14 20
 
-        # The URL of your IRI node
-        proxy / http://127.0.0.1:14265 {
+        # Set up a reverse proxy to your IRI node
+        # In this example, we connect to a public Devnet node, but you can also connect to your own node
+        proxy / https://nodes.devnet.iota.org:443 {
                 header_upstream X-IOTA-API-VERSION 1.4
                 header_upstream Access-Control-Allow-Origin *
                 }
         }
         ```
 
-7. Run caddy via `./caddy` which will the configured interceptor parameters up on startup
+        :::info:
+        If you want to the connection between the client and the PoW proxy server to be secure, remove the hash symbol (#) before the `tls` directive and change the paths to point to your SSL certificates.
+        :::
+
+7. To execute this file on Linux or macOS, do `./shimmer`. To execute this file on Windows, double click it, or do `.\shimmer` in the command prompt.
+
+        When the PoW proxy server starts, you should see something like the following:
 
         ```
         Activating privacy features... done.                                                                                             
         [iota interceptor] 2019/06/03 12:56:54 iota API call interception configured with max bundle txs limit of 20 and max MWM of 14   
-        [iota interceptor] 2019/06/03 12:56:54 using PoW implementation: SyncAVX                                                         
-                                                                                                                                        
-        Serving HTTPS on port 14265                                                                                                      
-        https://<hostname>:14265
+        [iota interceptor] 2019/06/03 12:56:54 using PoW implementation: SyncAVX                                                                             
+        Serving HTTPS on port 15265                                                                                                      
+        http://127.0.0.1:15265
         ```
 
-If an `attachToTangle` calls get intercepted, the middleware will log it in stdout similar to:
-```
-[iota interceptor] 2019/06/03 12:58:08 new attachToTangle request from 80.218.171.223:33442                                      │
-[iota interceptor] 2019/06/03 12:58:08 VBDKIEDKVYHWGROOMBEFZOJFAVITMGQBASCPVZWYTVRFSLMJTNYOOZVGVBEFZINUTVQI9VZQCISPDXJN9 - [input│
-] -0.000001 Mi                                                                                                                   │
-[iota interceptor] 2019/06/03 12:58:08 bundle: PYPWHTVICKOEJ9CFHDHOJJAWDARUZNPOIXONCYKHLFEFEGKXWSEJXGZSXKTS9BBGNKTQGQZCLCHPLIKIC │
-[iota interceptor] 2019/06/03 12:58:08 bundle is using -0.000001 Mi as input                                                     │
-[iota interceptor] 2019/06/03 12:58:08 doing PoW for bundle with 1 txs...                                                        │
-[iota interceptor] 2019/06/03 12:58:08 took 273ms to do PoW for bundle with 1 txs
-```
+        :::warning:
+        If you close the command prompt, the PoW proxy will shut it down. To make sure that it always runs, you can run it as a service.
+        :::
 
-Caddy will generate a `requests.log` file containing the requests against the proxy.
+8. Send a transaction to your local PoW proxy server
 
-Install PoW proxy:
-The proxy runs in a Caddy Server.
-On your proxy machine, please open up another additional port, i.e. `14266` where the proxy will bind to.
-Then update the `Caddyfile` as per the following:
-1. change the domain name to the one of your service   i.e., your-domain.com:14266
-2. either remove the `tls` directive (if the SSL connection is terminated at the load balancer) or set it to your appropriate SSL certificates
-3. change the line `proxy / http//address` to point to the address of your IRI node
-4. run `pow_sse_middleware` script which will boot up a http-proxy between your client and your IRI node  and that will intercept `attachToTangle` (PoW) calls
-5. set your to use the proxy port you open up above, e.g., `14266’
+        :::info:
+        If this is your first time sending a transaction, follow our [getting started guide with Node.js](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md).
+        :::
 
-Please bear in mind that the proxy binary code does not install itself as a service and closing the shell will also kill it. 
+        ```js
+        // Require the IOTA libraries
+        const Iota = require('@iota/core');
+        const Converter = require('@iota/converter');
 
-To avoid this you can run the server using the following syntax:
+        // Create a new instance of the IOTA object
+        // Use the `provider` field to specify which IRI node to connect to
+        const iota = Iota.composeAPI({
+        provider: 'http://127.0.0.1:15265'
+        });
 
-pow_sse_middleware & disown
+        const address = 'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD';
 
-To check that the proxy is running, you should receive an output similar to the one below:
+        const seed = 'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
 
-***************************
-```Croot@trinity /opt/iri/caddy # ./caddy 
-Activating privacy features... done. 
-middleware2019/05/27 12:15:13 attachToTangle interception configured with max bundle txs limit of 200 
-middleware2019/05/27 12:15:13 using proof of work method: PowSSE 
-https://trinity.iota-tangle.io:14265
-```
-***************************
-The proxy logs will be written to `requests.log` located in the same directory as the proxy binary. Moreover, all performed PoW will be logged in the stdout channel. 
+        const message = Converter.asciiToTrytes('Hello World!');
+        const transfers = [
+        {
+        value: 0,
+        address: address,
+        message: message
+        }
+        ];
 
-It you want to compile the code and generate your own binary, you can find the required resources here along with the required instructions:
+        iota.prepareTransfers(seed, transfers)
+        .then(trytes => {
+        return iota.sendTrytes(trytes, 3/*depth*/, 9/*MWM*/)
+        })
+        .then(bundle => {
+        var JSONBundle = JSON.stringify(bundle,null,1);
+        console.log(`Bundle: ${JSONBundle}`)
+        })
+        .catch(error => {
+        // Catch any errors
+        console.log(error);
+        });
+        ```
 
-Link
-Source code
-https://github.com/luca-moser/iotacaddy with the plugin residing under https://github.com/luca-moser/iotacaddy/blob/master/iota/plugin.go
-Guide
-https://github.com/luca-moser/iotacaddy/blob/master/IOTA.md
+        You should see that the PoW proxy server handles the `attachToTangle` endpoint and logs it to the console:
+
+        ```
+        [iota interceptor] 2019/07/17 11:16:15 new attachToTangle request from 127.0.0.1:63167
+        [iota interceptor] 2019/07/17 11:16:15 bundle: SBEKOAJCN9NZOECDIIYYAUBZBTGPEIFLUIGTDU9EGDEVS9TGPTGQLFJAFXZBIHLRWLTAZLALRXOFOPTXB
+        [iota interceptor] 2019/07/17 11:16:15 doing PoW for bundle with 1 txs...
+        [iota interceptor] 2019/07/17 11:16:15 took 17ms to do PoW for bundle with 1 txs
+        ```
+
+        :::info:
+        Caddy saves a log of all requests in the `requests.log` file.
+        :::
+
+:::success:Congratulations :tada:
+You have a dedicated proxy server that handles proof of work for your IRI node.
+:::
+
