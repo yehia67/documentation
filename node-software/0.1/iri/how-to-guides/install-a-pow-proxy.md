@@ -91,7 +91,7 @@ To complete this guide, you need the following:
         If you want to the connection between the client and the PoW proxy server to be secure, remove the hash symbol (#) before the `tls` directive and change the paths to point to your SSL certificates.
         :::
 
-7. To execute this file on Linux or macOS, do `./shimmer`. To execute this file on Windows, double click it, or do `.\shimmer` in the command prompt.
+7. To execute this file on Linux or macOS, do `./caddy`. To execute this file on Windows, double click it, or do `.\caddy` in the command prompt.
 
         When the PoW proxy server starts, you should see something like the following:
 
