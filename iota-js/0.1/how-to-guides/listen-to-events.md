@@ -6,7 +6,7 @@
 
 [Create an account](../how-to-guides/create-account.md).
 
-This guide assumes that you understand the concept of events in Node.js (https://nodejs.org/api/events.html). Event listeners are used to assign callbacks to specific event types. You should always [remove event listeners](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener) when you're finished with them.
+This guide assumes that you understand the concept of [events in Node.js](https://nodejs.org/api/events.html). Event listeners are used to assign callbacks to specific event types. You should always [remove event listeners](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener) when you're finished with them.
 
 ## Monitor your account for incoming and outgoing payments
 
