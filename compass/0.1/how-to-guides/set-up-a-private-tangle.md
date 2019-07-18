@@ -1,6 +1,6 @@
 # Set up a private Tangle
 
-**A private Tangle is one that you control and that contains only nodes that you know. If you want to test an application without using a public IOTA network such as the Mainnet or the Devnet, you can run Compass and connect it to an IRI node. Doing so gives you a private Tangle to which you can attach your transactions.**
+**A private Tangle is one that you control and that contains only nodes that you know. You may want to set up a private Tangle if you want to test an application without using a public IOTA network such as the Mainnet or the Devnet. To do so, you can run Compass and connect it to an IRI node.**
 
 For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine with the same configuration settings as the [Devnet](root://getting-started/0.1/references/iota-networks.md).
 
