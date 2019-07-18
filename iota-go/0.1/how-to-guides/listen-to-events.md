@@ -2,7 +2,7 @@
 
 **An account object emits events when they happen. An example of an event is when you make or receive a payment. You can listen for these events and act on them.**
 
-Accounts have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use callback listeners. If you're interesting in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md).
+Accounts have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use callback listeners. If you're interested in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md).
 
 :::info:
 See the list of all possible [callback events](https://github.com/iotaledger/iota.go/blob/master/account/event/listener/callback_listener.go).
