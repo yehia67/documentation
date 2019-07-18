@@ -6,15 +6,15 @@ A private Tangle is one that you control and that contains only nodes that you k
 
 A private Tangle uses the same technology as the public IOTA networks, except you control it by running Compass. If Compass stops, no transactions in your IOTA network will be confirmed until it starts again.
 
-## Why set up a private Tangle
+## Reasons to set up a private Tangle
 
 You may want to set up a private Tangle for the following reasons:
 
-**Explore a new technology:** If you have little or no experience with IOTA, you can set up your own private Tangle to help you understand the technology and how you can benefit from it.
+**Explore the technology:** If you have little or no experience with IOTA, you can set up your own private Tangle to help you understand the technology and how you can benefit from it.
 
-**Set up a faster IOTA network:** If your use cases need a faster network speed than the public IOTA networks can currently provide, you can set up your own private Tangle with different settings for parameters such as [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) to increase the number of transactions per second.
+**Set up a faster IOTA network:** If your use cases need a faster network speed than the public IOTA networks can currently provide, you can set up your own private Tangle to increase the number of transactions per second. For example, you could lower the value of the [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) to make proof of work quicker.
 
-**Develop and test an application that uses IOTA:** If you want to develop or test an application on IOTA, you may want to do so on a private Tangle so that your transactions aren't visible to the public. Having a private Tangle also has the added benefit of being able to reset the network to start all tests from the same point.
+**Develop and test an application:** If you want to develop or test an application on IOTA, you may want to do so on a private Tangle so that your transactions aren't visible to the public. Having a private Tangle also has the added benefit of being able to reset the network to start all tests from the same point.
 
 **Showcase the technology:** If you want to show your ideas to others, you may want to set up a private Tangle so you can make sure that everything runs smoothly during your presentation.
 
