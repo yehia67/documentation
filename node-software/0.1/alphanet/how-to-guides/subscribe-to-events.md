@@ -168,6 +168,6 @@ If we take this data as a random example, it corresponds to the following:
 
 :::info:
 The `value` field has a non-zero value so that the transaction hash is unique for each transaction. No IOTA tokens are transferred.
-At the moment the ZMQ endpoint only supports the tx topic.
+At the moment the ZMQ endpoint only supports the `tx` event.
 ::: 
 

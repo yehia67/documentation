@@ -1,6 +1,6 @@
 # Coordicide Alphanet
 
-**The Coordicide Alphanet is a work-in-progress prototype of an IOTA network that will lead to Coordicide. The goal of Coordicide is for the network to reach a consensus without the Coordinator, allowing IOTA networks to be decentralized. To reach this goal, the Coordicide Alphanet consists of modules that each have a specific role.**
+**The Coordicide Alphanet is a work-in-progress prototype of an IOTA network that will lead to Coordicide. The goal of Coordicide is for the network to reach a consensus without the Coordinator, allowing IOTA networks to be decentralized. To reach this goal, the Coordicide Alphanet consists of modules that each have a specific role. When all the modules become available, this network will become the Coordicide testnet, which is a release candidate for the next IOTA protocol.**
 
 At the moment, the Coordicide Alphanet includes the following modules:
 
