@@ -1,6 +1,6 @@
 # Run a node on the Coordicide Alphanet
 
-**When you run the Coordicide Alphanet software, your computer becomes a node in the network. By running a node, you can test the network and keep up to date with regular changes.**
+**When you run the Coordicide Alphanet software, your computer becomes a node in the network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become the Coordicide testnet, which is a release candidate for the next IOTA protocol.**
 
 ## Prerequisites
 
@@ -43,17 +43,13 @@ To complete this guide, you need the following:
 
 You have two options to run the node. You can either run the `main.go` file (`go run main.go`) or you can build an executable file (`go build -o shimmer`) and execute it.
 
-If you built the executable file, you'll have a file called `shimmer` that you need to execute.
+If you build the executable file, you'll have a file called `shimmer` that you need to execute.
 
 To execute this file on Linux or macOS, do `./shimmer`.
 
 To execute this file on Windows, rename it to `shimmer.exe`, then execute it by double clicking the file, or by doing `.\shimmer` in the command prompt.
 
 ![Alphanet user interface](../images/goshimmer.gif)
-
-To see the web user interface, go to localhost:8081.
-
-![Alphanet web user interface](../images/alphanet-web-ui.png)
 
 ## Next steps
 
