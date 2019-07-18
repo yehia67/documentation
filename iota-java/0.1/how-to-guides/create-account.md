@@ -1,27 +1,29 @@
 # Create an account
 
-**An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about withdrawing from spent addresses or promoting and reattaching pending transactions.**
+**An account is an object that makes it easier to handle payments and keep a history of pending and confirmed ones.**
 
-In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a [transfer bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md).
+## Prerequisites
 
-## Seed state
+To complete this tutorial, you need the following:
 
-The data that accounts store in a local database is called the seed state. Accounts use this data to keep a history of activity and to avoid making unnecessary API calls to nodes.
+* Access to a command prompt
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+* An Internet connection
+* Java 6 (or higher)
+* [Download the client library](root://iota-java/0.1/README.md#download-the-library)
 
-|**Data**| **Purpose**|
-|:-----------------|:----------|
-|The last key index that was used to create a CDA| Create a new CDA that has never been used before|
-|All active CDAs|Stop withdrawals from CDAs that may receive deposits|
-|Pending transfers| Monitor pending transactions and rebroadcast or reattach them if necessary|
+:::warning: Create a new seed
+If you have never created an account before, you must [create a new seed](root://getting-started/0.1/tutorials/get-started.md) because existing seed states are unknown.
+:::
 
 ## Create a new account
 
-To create an account, you need to create an `IotaAPI` object to connect to an IOTA network and an `IotaAccount` object to manage a seed.
+You can use your account on any IOTA network.
 
 In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
-:::danger:Important:
-Although the `IotaAccount` object has default settings, we recommend that you provide at least a seed and a storage provider such as MongoDB. Otherwise, the seed state will not be saved after the code stops running.
+:::danger:Important
+Although the account has default settings, we recommend that you provide at least a seed and a storage provider such as MongoDB. Otherwise, the seed state will not be saved after the code stops running.
 :::
 
 1. Create an `IotaAPI` object that connects to a node
@@ -39,20 +41,16 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
                     .build();
     ```
 
-2. Create a variable to hold a seed
+2. Create a variable to hold your seed
 
     ```java
-    String mySeed = "ASFITGPSD9ASDFKRWE...";
+    String mySeed = "PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
     ```
 
     :::danger:Protect your seed
     You should never hard code a seed as we do here. Instead, we recommend that you read the seed from a protected file.
 
     If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `Builder()` constructor.
-    :::
-
-    :::danger:Is this your first account?
-    If you have never created an account before, but you have already used your seed to send transactions, the account module does not know the seed state. So, instead of using your existing seed, you must create a new seed to use with an account.
     :::
 
 3. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a Memory Store database.
@@ -85,7 +83,7 @@ Although the `IotaAccount` object has default settings, we recommend that you pr
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
 :::
 
-### Connect to multiple IRI nodes
+### Connect to multiple nodes
 
 1. If you want to connect to multiple nodes, you can either create a `HttpConnector` object, or define a custom class.
 
@@ -119,4 +117,8 @@ To import an existing seed state into an account, pass the storage object to the
 
 ## Next steps
 
-[Create a CDA so that you can send and receive transactions](../how-to-guides/create-and-manage-cda.md).
+After certain events happen in your account, it emits them, and allow you to listen for them.
+
+For example, you may want to monitor your account for new payments. To do so, you need to [create an event listener](root://iota-js/0.1/how-to-guides/listen-to-events.md).
+
+Or, you can [create a plugin](../how-to-guides/create-plugin.md) that also emits events.

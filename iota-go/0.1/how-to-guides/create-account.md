@@ -1,24 +1,23 @@
 # Create an account
 
-**An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about withdrawing from spent addresses or promoting and reattaching pending transactions.**
-
-In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a [transfer bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md).
-
-## Seed state
-
-The data that accounts store is called the seed state. Accounts use this data to keep a history of activity and to avoid making unnecessary API calls to nodes.
-
-|**Data**| **Purpose**|
-|:-----------------|:----------|
-|The index of the most recent CDA| Create a new CDA|
-|All active CDAs|Stop withdrawals from CDAs that may still receive deposits|
-|Pending transfers| Monitor pending transactions to rebroadcast or reattach them if necessary|
+**An account is an object that makes it easier to handle payments and keep a history of pending and confirmed ones.**
 
 ## Prerequisites
 
-This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
+To complete this tutorial, you need the following:
+
+* Access to a command prompt
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+* An Internet connection
+* Follow our [Getting started guide](../README.md) 
+
+:::warning: Create a new seed
+If you have never created an account before, you must [create a new seed](root://getting-started/0.1/tutorials/get-started.md) because existing seed states are unknown.
+:::
 
 ## Create a new account
+
+You can use your account on any IOTA network.
 
 In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
@@ -48,10 +47,6 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
     If you want to use a seed from a particular location, for example a hardware wallet, create a custom `SeedProvider` object, and pass it to the `WithSeedProvider()` method.
     :::
 
-    :::danger:Is this your first account?
-    If you have never created an account before, but you have already used your seed to send transactions, the account module does not know the seed state. So, instead of using your existing seed, you must create a new seed to use with an account.
-    :::
-
 3. Create an API object that connects to a node
    
     ```go
@@ -66,12 +61,13 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
     ```go
     store, err := badger.NewBadgerStore("db")
     handleErr(err)
+
+    // Make sure the database closes
+    defer store.Close()
     ```
 
     :::danger:Important
     If the given `Store` object is closeable, you must close it, otherwise the database may become locked.
-
-    For example, if you use BadgerDB, you may want to add the following line `defer store.Close()`.
     :::
 
     :::info:
@@ -80,7 +76,7 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
     As a result, you can use the same storage object for multiple accounts at the same time.
     :::
 
-5. Use the [`timesrc` package](https://github.com/iotaledger/iota.go/tree/master/account/timesrc) to create an object that returns an accurate time. In this example, the time source is a Google NTP (network time protocol) server.
+5. Create an object that returns an accurate time. In this example, the time source is a Google NTP (network time protocol) server.
 
      ```go
     // create an accurate time source (in this case Google's NTP server).
@@ -119,29 +115,16 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
 
     ```go
     handleErr(account.Start())
+
+    // Make sure the account shuts down
+    defer account.Shutdown()
     ```
 
     Every 30 seconds, the `transfer-poller` plugin will check whether withdrawals have been confirmed or whether any deposits are pending. Then, the `promoter-reattacher` plugin will promote or reattach any pending withdrawal transactions.
 
-    :::danger:Important
-    Make sure that the account can always shut down, otherwise you may see unexpected results.
-
-    For example, you may want to add the following line `defer account.Shutdown()`.
-    :::
-
     :::info:
     If you want to have more control over the behavior of the plugins, you can customize them in the `WithPlugin()` method.
     :::
-
-8. Check that you're connected to a [synchronized node](root://iri/0.1/how-to-guides/run-an-iri-node-on-linux.md#check-that-the-iri-is-synchronized)
-
-    ```go
-    nodeInfo, err := iotaAPI.GetNodeInfo()
-    handleErr(err)
-
-    fmt.Println("latest milestone index:", nodeInfo.LatestMilestoneIndex)
-    fmt.Println("latest milestone index:", nodeInfo.LatestSolidSubtangleMilestone)
-    ```
 
 :::success:Congratulations! :tada:
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your seed.
@@ -149,4 +132,8 @@ You've created an account that will automatically promote and reattach transacti
 
 ## Next steps
 
-[Create a CDA so that you can send and receive transactions](../how-to-guides/create-and-manage-cda.md).
+After certain events happen in your account, it emits them, and allow you to listen for them.
+
+For example, you may want to monitor your account for new payments. To do so, you need to [create an event listener](root://iota-js/0.1/how-to-guides/listen-to-events.md).
+
+Or, you can [create a plugin](../how-to-guides/create-plugin.md) that also emits events.
