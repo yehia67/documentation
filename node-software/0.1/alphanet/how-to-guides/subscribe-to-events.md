@@ -21,29 +21,7 @@ To use the sample code in this guide, you must have the following:
 * Access to a command prompt
 * An Internet connection
 
-## Step 1. Send transactions to your node
-
-To make sure that your node is receiving transactions, you can use the `spammer` API endpoint to send it some transactions.
-
-Open a web browser and enter the following into the address bar
-
-`http://localhost:8080/spammer?cmd=start`
-
-:::info:
-By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 10,000 TPS, send a request to the following endpoint `http://localhost:8080/spammer?cmd=start&tps=10000`
-:::
-
-To check that your node is receiving transactions, you can open the web user interface by going to localhost:8081 in a web browser.
-
-![Alphanet web user interface](../images/alphanet-web-ui.png)
-
-:::info:
-The displayed TPS may be lower than the value of the `tps` parameter you used. The reason for this difference may be due to limits with your computer hardware.
-:::
-
-Now that your node is receiving transactions, subscribe to the `tx` event, using a ZMQ library.
-
-## Step 2. Subscribe to the received transaction event
+## Subscribe to the received transaction event
 
 You can subscribe to the `tx` event on the ZMQ of a node to listen for recently received transactions.
 
@@ -172,10 +150,10 @@ If we take this data as a random example, it corresponds to the following:
 |BLFZJUOBAPWCXTGOCSBVJ...|Trunk transaction hash|
 |FXTZC9KKRBWSBYKCOGUDZ...|Branch transaction hash|
 |1562247720|Unix timestamp of when the node received the transaction|
-|99999999999999999999...|Emty tag|
+|99999999999999999999...|Empty tag|
 
 :::info:
 The `value` field has a non-zero value so that the transaction hash is unique for each transaction. No IOTA tokens are transferred.
-At the moment the ZMQ endpoint only supports the `tx` event.
+At the moment, the ZMQ endpoint only supports the `tx` event.
 ::: 
 

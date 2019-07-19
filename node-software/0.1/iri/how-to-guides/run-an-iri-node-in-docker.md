@@ -11,13 +11,10 @@ To complete this guide, you need the following:
 * Administrator access to your router
 * An Internet connection
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
+* The following default ports must be open and forwarded to the device that's running the node:
 
     * **TCP neighbor peering port:** 15600
     * **TCP API port:** 14265
-
-* **UDP neighbor peering port:** 14600
-* **TCP neighbor peering port:** 14600
-* **TCP API port:** 14265
 
 The IRI Docker container is suitable for the following operating systems:
 * Linux
