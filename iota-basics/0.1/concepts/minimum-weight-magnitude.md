@@ -1,6 +1,8 @@
 # Minimum weight magnitude
 
-**The minimum weight magnitude (MWM) is a variable that defines how much work is done during proof of work. During proof of work, the transaction hash is repeatedly hashed until it ends in the same number of 0 trits as the MWM. The higher the MWM, the harder the proof of work. When you interact with an IOTA network as a client, you must use the correct MWM for that network. Otherwise, your transaction won't be valid and the nodes will reject it.**
+**The minimum weight magnitude (MWM) is a variable that defines how much work is done during [proof of work](../concept/proof-of-work.md). When you interact with an IOTA network as a client, you must use the correct MWM for that network. Otherwise, your transaction won't be valid and the nodes will reject it.**
+
+During proof of work, the transaction hash is repeatedly hashed until it ends in the same number of 0 trits as the MWM. The higher the MWM, the harder the proof of work.
 
 All nodes in an [IOTA network](root://getting-started/0.1/references/iota-networks.md) accept transactions whose hashes end in the same or higher number of 0 trits as their predefined MWM.
 

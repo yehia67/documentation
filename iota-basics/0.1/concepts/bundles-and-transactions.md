@@ -4,7 +4,11 @@
 
 Each transaction in a bundle must be [structured](../references/structure-of-a-transaction.md) according to the IOTA protocol and contain valid values for all the transaction fields.
 
-When a transaction is packaged in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the end of the bundle (head). Next, each transaction in the bundle, except the head, is [connected to each other](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. Then, the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields are absorbed and squeezed by a cryptographic sponge function to produce an 81-tryte bundle hash. This bundle hash is included in each transaction's `bundle` field to seal the package.
+When a transaction is packaged in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the end of the bundle (head).
+
+Next, each transaction in the bundle, except the head, is [attached to THE proceeding one](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. This attachment forms a connection among the transactions so that nodes can find and validate all transactions in a bundle.
+
+Then, the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields are absorbed and squeezed by a cryptographic sponge function to produce an 81-tryte bundle hash. This bundle hash is included in each transaction's `bundle` field to seal the package.
 
 Bundles are atomic, meaning that if any of the transactions in the bundle change, the bundle hash of each transaction would be invalid.
 
@@ -26,10 +30,10 @@ A bundle can consist of any number of withdrawals and deposits. However because 
 
 Input transactions withdraw IOTA tokens from addresses.
 
-Bundles can contain multiple input transactions, and each one must include a valid signature. The length of the signature depends on the [security level](../references/security-levels.md) of the address. If the security level of the address is greater than 1, the signature is too large to fit in one transaction and must be fragmented across zero-value output transactions.
+Bundles can contain multiple input transactions, and each one must include a valid [signature](../concepts/addresses-and-signatures.md). The length of the signature depends on the [security level](../references/security-levels.md) of the address. If the security level of the address is greater than 1, the signature is too large to fit in one transaction and must be fragmented across zero-value output transactions.
 
 :::danger:
-[Addresses must not be withdrawn from more than once](../concepts/addresses-and-signatures.md#address-reuse). Therefore, input transactions must withdraw all IOTA tokens from an address even if the sender does not want to transfer all of them to the recipient. The remaining IOTA tokens can be deposited into a remainder address (usually the sender's address) in an output transaction.
+[Addresses must not be withdrawn from more than once](../concepts/addresses-and-signatures.md#address-reuse). As a result, input transactions must withdraw all IOTA tokens from an address even if the sender does not want to transfer all of them to the recipient. The remaining IOTA tokens can be deposited into a remainder address (usually the sender's address) in an output transaction.
 :::
 
 ### Output transaction
@@ -45,7 +49,7 @@ Bundles can contain multiple output transactions. If a message in an output tran
 Transactions that deposit IOTA tokens can also contain a message because they don't withdraw IOTA tokens, and therefore don't contain a signature.
 :::
 
-## How bundles are validated
+## How nodes validate bundles
 
 After you send a bundle to a [node](root://node-software/0.1/iri/introduction/overview.md), it validates each transaction and appends each one to its ledger.
 

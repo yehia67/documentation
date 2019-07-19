@@ -1,8 +1,8 @@
 # What is the Tangle?
 
-**When you create a bundle, you must reference it to two existing transactions in the network. When a node receives your transactions, it attach them to these existing ones. The attachments among all the transactions form a data structure that's called the Tangle.**
+**Before you send a bundle to a node, you ask it to select two existing tail transactions from its ledger. Then, when you attach your transactions to those ones, they become a part of the data structure that's called the Tangle. The Tangle is the history of IOTA transactions that's stored by all nodes on the same IOTA network.**
 
-This model forms a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), in which each transaction represents a vertex.
+This Tangle is a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), in which each transaction represents a vertex (a numbered box).
 
 ![A directed acyclic graph](../images/dag.png)
 
@@ -12,9 +12,9 @@ Transaction 6 is attached to transaction 5 (and another transaction that's not s
 
 ## How a transaction becomes confirmed
 
-When you send a transfer bundle to a node, it doesn't update the balances of the affected addresses straight away.
+Transactions in the Tangle can be in one of two states: Pending or confirmed.
 
-Nodes do not transfer IOTA tokens until all transactions in the bundle are confirmed.
+When you send a bundle to a node, that bundle is pending and the node doesn't update the balances of the affected addresses until it's confirmed.
 
 To go from a pending state to a confirmed state, nodes must reach consensus on the state of a transaction.
 
@@ -24,5 +24,5 @@ At the moment, nodes reach a consensus on transactions that are **directly or in
 If transaction 6 were a milestone, then transaction 5, 3, 2, and 1 would all be confirmed and considered final.
 ::: 
 
-Learn more about [the Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md) and [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
+Learn more about [the Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md), [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
 

@@ -1,6 +1,6 @@
 # The Tangle overview
 
-**Before you send a bundle, you must attach your transactions to two existing ones in the network. You do this so that the node can walk on the connections to find and validate each transaction. These connections form a data structure that's called the Tangle. Transactions in the Tangle can be in one of two states: Pending or confirmed.**
+**Before you send a bundle to a node, you ask it to select two existing tail transactions from its ledger. Then, when you attach your transactions to those ones, they become a part of the data structure that's called the Tangle. The Tangle is the history of IOTA transactions that's stored by all nodes on the same IOTA network.**
 
 The data structure that forms the Tangle is a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), and it was formally introduced in the IOTA whitepaper by Professor Serguei Popov in 2015.
 

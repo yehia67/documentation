@@ -8,7 +8,7 @@ After validating a transaction, a node sends it to neighbors so that it can be v
 
 To use any IOTA network, you can interact with a node through the [client libraries](root://client-libraries/0.1/introduction/overview.md). Many IOTA applications, such as [Trinity](root://trinity/0.1/introduction/overview.md), use one of these client libraries behind the scenes.
 
-IOTA is a permissionless DLT. Therefore, nodes can be run by anyone, including individuals and businesses. Node owners often don't open them to the public because a high volume of API calls can be costly. Therefore, we suggest that you run your own node for direct access to an IOTA network.
+IOTA is a permissionless DLT. So, nodes can be run by anyone, including individuals and businesses. Node owners often don't open them to the public because a high volume of API calls can be costly. As a result, we suggest that you run your own node for direct access to an IOTA network.
 
 If you can't run your own node, you can use the public ones in Trinity or use websites such as [IOTA Dance](https://iota.dance) to find a list them.
 
