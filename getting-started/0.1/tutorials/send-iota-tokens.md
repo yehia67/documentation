@@ -139,7 +139,7 @@ Before you run this sample code, replace the seed with your own test seed.
 :::danger:Important
 If you own IOTA tokens on the Mainnet, we recommend creating a new test seed to use on the Devnet.
 
-If you don't have any test tokens, [request some](../tutorials/receive-test-tokens.md).
+If you don't have any test tokens, [request some from the Devnet faucet](../tutorials/receive-test-tokens.md).
 :::
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Send-IOTA-tokens-on-the-Devnet?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
