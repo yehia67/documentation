@@ -21,15 +21,7 @@ To complete this guide, you need the following:
     go env GOPATH
     ````
 
-2. Clone the ``goshimmer`` repository into `$GOPATH/src/iotaledger/goshimmer`
-
-    **SSH**
-    
-    ```bash
-    git clone git@github.com:iotaledger/goshimmer.git $GOPATH/src/github.com/iotaledger/goshimmer
-    ```
-    
-    or **TLS**
+2. Clone the ``goshimmer`` repository into `GOPATH`
     
     ```bash
     git clone https://github.com/iotaledger/goshimmer.git $GOPATH/src/github.com/iotaledger/goshimmer
