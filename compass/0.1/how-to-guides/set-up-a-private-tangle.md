@@ -1,14 +1,14 @@
 # Set up a private Tangle
 
-**If you want to test an application on a private IOTA network, you can run Compass and connect it to an IRI node. Doing so gives you a private Tangle to which you can attach your transactions.**
+**A private Tangle is one that you control and that contains only nodes that you know. You may want to set up a private Tangle if you want to test an application without using a public IOTA network such as the Mainnet or the Devnet. To do so, you can run Compass and connect it to an IRI node.**
 
-For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine. But, you could run multiple IRI nodes and connect them to each other as neighbors.
+For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine with the same configuration settings as the [Devnet](root://getting-started/0.1/references/iota-networks.md).
 
-![System diagram of Compass](../images/compass.png)
+![Single-node private Tangle](../images/single-node-tangle.svg)
 
 ## Prerequisites
 
-A Linux server with the following minimum requirements. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
+A Linux server with the following minimum requirements. If you are on a Windows or macOS operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
 
 * A new installation of an Ubuntu 18.04 Server / Virtual Machine
 * At least 8GB RAM
@@ -66,20 +66,15 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 	sudo apt install jq
 	```
 
-## Step 2. Calculate the Merkle tree
+## Step 2. Compute the Merkle tree
 
-For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) with a depth of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. The interval between milestones depends on two factors:
-
-* The `tick` interval that Compass waits between creating, signing, and sending a bundle
-* The length of time it takes to create, sign and send a bundle
+For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them.
 
 :::info:
-The greater the depth, the longer it takes to create the Merkle tree, but the more bundles Compass can sign and send.
-
-So, a depth of 24 would allow Compass to send milestones for over 31 years, but it would take a long time to create the Merkle tree. A depth of 8 would allow Compass to send milestones for only a couple of hours, but it would take only seconds to create the Merkle tree.
+[See our example Merkle tree compute times](../references/merkle-tree-compute-times.md) that show how the `depth` parameter affects both the time it takes to compute the Merkle tree and the total network uptime.
 :::
 
-The Compass repository includes a tool to create a Merkle tree and save it in a `data` directory for Compass to use later on. 
+The Compass repository includes a tool to compute a Merkle tree and save it in a `data` directory for Compass to use later on. 
 
 1. Clone the Compass GitHub repository
 
@@ -88,7 +83,7 @@ The Compass repository includes a tool to create a Merkle tree and save it in a 
 	cd compass
 	```
 
-2. Build the `layers_calculator` tool that will create the Merkle tree
+2. Build the `layers_calculator` tool that will compute the Merkle tree
 
 	```bash
 	bazel run //docker:layers_calculator
@@ -148,12 +143,12 @@ The Compass repository includes a tool to create a Merkle tree and save it in a 
 		"host": "http://localhost:14265"
 	}
 	```
-	
+
 	:::info:
-	Compass will stop sending milestones if the Merkle tree runs out of leaves (public/private keys). To avoid this problem, use an 	appropriate value for the `depth` field.
+	Find out how to [customize the configuration of Compass](../references/compass-configuration-options.md) for your own private Tangle.
 	:::
 
-9. Create the Merkle tree by executing the script in the `docs/private_tangle` directory
+9. Compute the Merkle tree by executing the script in the `docs/private_tangle` directory
 
 	```bash
 	sudo ./01_calculate_layers.sh
@@ -204,6 +199,12 @@ The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first
 	```
 
 	:::info:
+	If you want to allow neighbors to automatically connect to your node, edit the `02_run_iri.sh` file and add the `--auto-tethering-enabled true` flag to the list of other flags.
+
+	Find out which [other flags](root://iri/0.1/references/iri-configuration-options.md) you can change to customize the IRI for your own private Tangle.
+	:::
+
+	:::info:
 	If you see a `malformed snapshot state file` error, check the snapshot.txt file and make sure that you didn't include a line break at the en of the line.
 	
 	If you see a `NumberFormatException` error or an `IllegalArgumentException` error, check that no space characters are either side of the semicolon.
@@ -212,7 +213,7 @@ The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first
 4. Press **Ctrl** + **C** in the command prompt. IRI will continue to run in the background.
 
 :::danger:Important
-If the IRI node that Compass is connected to is compromised, an attacker could manipulate Compass to receive favorable treatment. Possible scenarios include the following:
+If the IRI node to which Compass is connected becomes compromised, an attacker could manipulate Compass to receive favorable treatment. Possible scenarios include the following:
 - Return tip transactions that prioritize the attackers transactions over the regular tip selection algorithm.
 - Return tip transactions that conflict with the ledger state (double spend IOTA tokens) causing Compass to send an inconsistent milestone. IRI nodes will not accept this milestone and no more transactions will be confirmed.
 - Stop propagating milestone transactions to the rest of the network, causing no more transactions to be confirmed.
@@ -328,23 +329,27 @@ This example response shows that we have a balance of 2.7Pi.
  
 ## Step 6. Connect to the network through a wallet
 
-If you want to send and receive transactions on the network through a user interface, you can configure the [IOTA Light Wallet](https://github.com/iotaledger/wallet/releases) to connect to your node at http://localhost:14265 and log in with your seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`.
+If you want to send and receive transactions on the network through a user interface, you can use the [IOTA Light Wallet](https://github.com/iotaledger/wallet/releases).
 
 ![IOTA Light Wallet](../images/light-wallet-test-tangle.png)
 
+1. Open the wallet and log in with your seed
 
-To connect to your node, go to **Tools** > **Edit Node Configuration**, and enter the URL of your node (http://localhost:14265).
+	`SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`
 
-![Wallet configuration](../images/light-wallet-node-configuration.png)
 
-:::info:
-When you first log into the IOTA Light Wallet, go to **RECEIVE** > **ATTACH TO TANGLE** to see your full balance.
-:::
+1. To connect to your node, go to **Tools** > **Edit Node Configuration**, and enter the URL of your node (http://localhost:14265).
 
-Feel free to send test transactions and see them confirmed by Compass milestones.
+	![Wallet configuration](../images/light-wallet-node-configuration.png)
+
+2. Go to **RECEIVE** > **ATTACH TO TANGLE** to see your full balance
+
+3. Send test transactions and see them confirmed by Compass milestones
 
 ## Next steps
 
-Install a signing server for increased security. A signing server reduces the attack surface of Compass by moving sensitive operations such as signing to an external service. Compass interacts with the signing server through a gRPC API.
+* [Subscribe to events on your node](root://iri/0.1/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions.
 
-[Subscribe to events on your node](root://iri/0.1/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions.
+* Try adding multiple nodes to your network to make a similar architecture to the [Devnet](root://getting-started/0.1/references/iota-networks.md)
+
+![Multi-node private Tangle](../images/multi-node-tangle.svg)
