@@ -44,7 +44,7 @@ To complete this guide, you need the following:
 4. Install the dependencies
 
     ```bash
-    GO111MODULE=on go get
+    go get
     ```
 
 ## Step 2. Run the node
