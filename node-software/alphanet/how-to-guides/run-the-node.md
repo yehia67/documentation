@@ -21,22 +21,30 @@ To complete this guide, you need the following:
     go env GOPATH
     ````
 
-2. In any directory outside of the one in your `GOPATH` environment variable, clone the `goshimmer` GitHub repository
+2. Clone the ``goshimmer`` repository into `$GOPATH/src/iotaledger/goshimmer`
 
+    **SSH**
+    
     ```bash
-    git clone https://github.com/iotaledger/goshimmer.git
+    git clone git@github.com:iotaledger/goshimmer.git $GOPATH/src/github.com/iotaledger/goshimmer
+    ```
+    
+    or **TLS**
+    
+    ```bash
+    git clone https://github.com/iotaledger/goshimmer.git $GOPATH/src/github.com/iotaledger/goshimmer
     ```
 
 3. Change into the `goshimmer` directory
 
     ```bash
-    cd goshimmer
+    cd $GOPATH/src/github.com/iotaledger/goshimmer
     ```
 
 4. Install the dependencies
 
     ```bash
-    go get
+    GO111MODULE=on go get
     ```
 
 ## Step 2. Run the node

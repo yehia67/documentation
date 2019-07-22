@@ -27,10 +27,12 @@ To make sure that your node is receiving transactions, you can use the `spammer`
 
 Open a web browser and enter the following into the address bar
 
-`http://localhost:8080/spammer?cmd=start`
+IP_ADDRESS => The ip address of your shimmer node
+
+`http://[IP_ADDRESS]:8080/spammer?cmd=start`
 
 :::info:
-By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 10,000 TPS, send a request to the following endpoint `http://localhost:8080/spammer?cmd=start&tps=10000`
+By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 10,000 TPS, send a request to the following endpoint `http://[IP_ADDRESS]:8080/spammer?cmd=start&tps=10000`
 :::
 
 Now that your node is receiving transactions, subscribe to the `tx` event, using a ZMQ library.
@@ -81,13 +83,13 @@ socket = context.socket(zmq.SUB)
 ### Node.js
 
 ```js
-sock.connect('tcp://localhost:5556');
+sock.connect('tcp://[IP_ADDRESS]:5556');
 ```
 ---
 ### Python
 
 ```python
-socket.connect('tcp://localhost:5556')
+socket.connect('tcp://[IP_ADDRESS]:5556')
 ```
 --------------------
 
