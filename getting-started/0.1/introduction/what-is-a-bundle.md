@@ -6,8 +6,6 @@ The structure of a bundle consists of a head, a body, and a tail, where the tail
 
 All transactions, starting from the tail, are connected by reference to the one with the next index. For example, the tail transaction is connected to transaction 1, which is connected to transaction 2, and so on. These connections allow nodes to reconstruct bundles and validate their contents.
 
-To attach transactions to the Tangle, the head transaction is connected to the tails of two other bundles in the Tangle. (The tail and body transactions are connected to one of those tails as well.) These tail transactions are selected by nodes during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
-
 ## Example of a bundle that transfers IOTA tokens
 
 To transfer IOTA tokens, a bundle must contain at least one input and one output transaction. These bundles are called transfer bundles.

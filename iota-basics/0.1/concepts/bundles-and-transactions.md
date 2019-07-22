@@ -6,7 +6,7 @@ Each transaction in a bundle must be [structured](../references/structure-of-a-t
 
 When a transaction is packaged in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the end of the bundle (head).
 
-Next, each transaction in the bundle, except the head, is [attached to THE proceeding one](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. This attachment forms a connection among the transactions so that nodes can find and validate all transactions in a bundle.
+Next, each transaction in the bundle, except the head, is [attached to the proceeding one](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. This attachment forms a connection among the transactions so that nodes can find and validate all transactions in a bundle.
 
 Then, the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields are absorbed and squeezed by a cryptographic sponge function to produce an 81-tryte bundle hash. This bundle hash is included in each transaction's `bundle` field to seal the package.
 
@@ -51,7 +51,7 @@ Transactions that deposit IOTA tokens can also contain a message because they do
 
 ## How nodes validate bundles
 
-After you send a bundle to a [node](root://node-software/0.1/iri/introduction/overview.md), it validates each transaction and appends each one to its ledger.
+After you send a bundle to a [node](root://node-software/0.1/iri/introduction/overview.md), it validates the transactions and appends each one to its ledger.
 
 During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the node has validated all transactions up to the head (or [`lastIndex` field](../references/structure-of-a-transaction.md)), your bundle is considered valid.
 

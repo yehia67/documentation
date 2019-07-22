@@ -1,6 +1,6 @@
 # What is the Tangle?
 
-**Before you send a bundle to a node, you ask it to select two existing tail transactions from its ledger. Then, when you attach your transactions to those ones, they become a part of the data structure that's called the Tangle. The Tangle is the history of IOTA transactions that's stored by all nodes on the same IOTA network.**
+**The Tangle is the history of IOTA transactions that's stored by all nodes on the same IOTA network. Before you send a bundle to a node, you ask it to select two existing tail transactions from its ledger. Then, when you attach your transactions to those ones, they become a part of the Tangle.**
 
 This Tangle is a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), in which each transaction represents a vertex (a numbered box).
 

@@ -14,7 +14,7 @@ To avoid changing port forwarding rules, you need the internal IP address of you
 
 ### Prerequisites
 
-To complete this guide, you must have a Linux Ubuntu 18.04 server. If you don't have a Linux server and you're running a Windows or Mac operating system, you can [run one in a virtual machine](../how-to-guides/set-up-virtual-machine.md).
+To complete this guide, you must have a Linux Ubuntu 18.04 server. If you don't have a Linux server and you're running a Windows or macOS operating system, you can [run one in a virtual machine](../how-to-guides/set-up-virtual-machine.md).
 
 ---
 

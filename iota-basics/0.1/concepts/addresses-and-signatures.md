@@ -2,24 +2,18 @@
 
 **Each client in an IOTA network has a secret password called a seed, which is used to derive addresses and to sign bundles. Addresses are the accounts that hold IOTA tokens and signatures prove ownership of an address.**
 
-To use an IOTA network, clients must [create a seed and keep it private](root://getting-started/0.1/tutorials/get-started.md). A seed is a string of 81 [trytes](../references/tryte-alphabet.md) that gives a client access to addresses.  
+To use an IOTA network, clients need a seed.
  
-Seeds are the master keys to the cryptographic hashing function in the IOTA protocol. Each seed can derive an almost unlimited number of unique private keys and addresses (9<sup>57</sup>).
+Seeds are the master keys to the cryptographic hashing function in the IOTA protocol. Each seed is 81 [trytes](../references/tryte-alphabet.md) long and can derive an almost unlimited number of unique private keys and addresses (9<sup>57</sup>).
 
-Each private key is unique to a seed, index, and security level, and can be used to derive one corresponding address. A private key and an address can be thought of as a pair. Addresses are public and clients can send IOTA tokens and messages to them using the [`address` field] of a transaction. A private key is private and is used to sign bundles that withdraw IOTA tokens from the address.
+Each private key is unique to a seed, index, and security level, and can be used to derive one corresponding address. A private key and an address can be thought of as a pair. Addresses are public and clients can transfer IOTA tokens and messages to them using the [`address` field] of a transaction. A private key is private and is used to sign bundles that withdraw IOTA tokens from the address.
 
 Each pair of private keys and addresses has its own index and [security level](../references/security-levels.md). The security level affects the length of the private key. The greater the security level, the longer the private key, and the more secure a transaction's signature.
 
-In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from (spent) only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level.
-
-:::info:
-The greater the security level of a private key and address pair, the more difficult it is for an attacker to brute force the signature of a spent address.
-:::
+In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level.
 
 :::warning:Keep seeds and private keys secure
 A seed is the key to all your private keys and addresses. And, a private key is the key to one address.
-
-You must keep your seeds and private keys secure.
 :::
 
 ### How private keys are derived
