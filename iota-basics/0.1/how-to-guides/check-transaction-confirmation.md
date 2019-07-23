@@ -7,7 +7,7 @@
 :::
 
 :::info:
-If you're unfamiliar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://the-tangle/0.1/introduction/overview.md).
+If you're unfamiliar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://iota-basics/0.1/concepts/the-tangle.md).
 :::
 
 ## Prerequisites

@@ -3,6 +3,7 @@
 [Introduction/Overview](/introduction/overview.md)
 [IRI/Introduction/Overview](/iri/introduction/overview.md)
 [IRI/Concepts/The ledger](/iri/concepts/the-ledger.md)
+[IRI/Concepts/Tip selection](/iri/concepts/tip-selection.md)
 [IRI/Concepts/Neighbor IRI node](/iri/concepts/neighbor-iri-node.md)
 [IRI/Concepts/Transaction validation](/iri/concepts/transaction-validation.md)
 [IRI/Concepts/Zero message queue](/iri/concepts/zero-message-queue.md)

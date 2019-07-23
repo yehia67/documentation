@@ -1,10 +1,10 @@
 # What is a bundle?
 
-**A bundle is a group of one or more transactions, which send data or instruct a node to transfer IOTA tokens from certain addresses to others. The fate of each transaction in a bundle depends on the rest. Either all transactions are valid or none of them are.**
+**A bundle is a group of one or more transactions that can contain data and/or instruct a node to transfer IOTA tokens from certain addresses to others. The fate of each transaction in a bundle depends on the rest. Either all transactions are valid or none of them are.**
 
 The structure of a bundle consists of a head, a body, and a tail, where the tail is index 0 and the head is the last transaction in the bundle.
 
-All transactions, starting from the tail, are connected by reference to the one with the next index. For example, the tail transaction is connected to transaction 1, which is connected to transaction 2, and so on. These connections allow nodes to reconstruct bundles and validate their contents.
+All transactions, starting from the tail, reference the one with the next index. For example, the tail transaction references transaction 1, which references transaction 2, and so on. These connections allow nodes to reconstruct bundles and validate their contents.
 
 ## Example of a bundle that transfers IOTA tokens
 
@@ -26,5 +26,5 @@ When you send 100Mi to recipient A, the following transactions are created and s
 [You must not withdraw from an address more than once](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). So, a transfer bundle may require an extra output transaction to deposit the remaining balance of a withdrawn address into a new address.
 :::
 
-[Learn more about bundles](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
+[Learn more about bundles and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
 

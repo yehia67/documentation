@@ -22,7 +22,7 @@ You may want to set up a private Tangle for the following reasons:
 
 IOTA is a distributed network of nodes that validate transactions and store them. Before nodes can update the balance of an address, they must reach a consensus on any transactions that lead to the updated balance. When nodes reach a consensus, on transactions, those transactions are confirmed.
 
-On the IOTA Mainnet, the [Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md) creates, signs, and sends bundles that contain milestones. The nodes on this network use these milestone to reach a consensus. Any transaction that's referenced and approved by a milestone is confirmed.
+On the IOTA Mainnet, the [Coordinator](root://iota-basics/0.1/concepts/the-tangle.md#the-coordinator) creates, signs, and sends bundles that contain milestones. The nodes on this network use these milestone to reach a consensus. Any transaction that's referenced and approved by a milestone is confirmed.
 
 Compass is an open-source implementation of the Coordinator. You can use Compass to allow the nodes in your own IOTA network to reach a consensus on Compass' milestones instead of the Coordinator's ones.
 

@@ -8,7 +8,7 @@ All transactions in a bundle, except the head, are connected to each other throu
 
 | Transaction's current index                         |`trunkTransaction` field| `branchTransaction` field| Description   |
 | :----------------------------- | :------ |:---|:---|
-| 0| Transaction 1 in this bundle| Tail transaction hash from another bundle. This transaction hash is returned from the [tip selection process](root://the-tangle/0.1/concepts/tip-selection.md).|This transaction is called the **tail transaction**. |
+| 0| Transaction 1 in this bundle| Tail transaction hash from another bundle. This transaction hash is returned from the [tip selection process](root://node-software/0.1/iri/concepts/tip-selection.md).|This transaction is called the **tail transaction**. |
 |1 | Transaction 2 in this bundle| The same branch transaction hash as transaction 0|This transaction is linked to transaction 0 through the `trunkTransaction` field |
 |2 | Transaction 3 in this bundle| The same branch transaction hash as transactions 0 and 1|This transaction is linked to transaction 1 through the `trunkTransaction` field |
-|Last index | The same branch transaction hash as all other transactions in this bundle| Tail transaction hash from another bundle. This transaction hash is returned from the [tip selection process](root://the-tangle/0.1/concepts/tip-selection.md).| This transaction is called the **head transaction**. A bundle can consist of any number of transactions. |
+|Last index | The same branch transaction hash as all other transactions in this bundle| Tail transaction hash from another bundle. This transaction hash is returned from the tip selection process.| This transaction is called the **head transaction**. A bundle can consist of any number of transactions. |

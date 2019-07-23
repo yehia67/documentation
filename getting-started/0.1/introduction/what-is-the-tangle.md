@@ -1,14 +1,12 @@
 # What is the Tangle?
 
-**The Tangle is the history of IOTA transactions that's stored by all nodes on the same IOTA network. Before you send a bundle to a node, you ask it to select two existing tail transactions from its ledger. Then, when you attach your transactions to those ones, they become a part of the Tangle.**
+**The Tangle is the immutable data structure that contains a history of IOTA transactions. All nodes in an IOTA network store a copy of the Tangle in their ledgers and can read from it and attach new transactions to it.**
 
-This Tangle is a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), in which each transaction represents a vertex (a numbered box).
+Transactions in the Tangle are immutable because their contents are cryptographically referenced to the history of two other transactions. So, if any transaction were to change in that history, all the references would be broken.
 
 ![A directed acyclic graph](../images/dag.png)
 
-In this diagram, transaction 5 is attached to transactions 2 and 3. So, transaction 5 **directly** references transactions 2 and 3.
-
-Transaction 6 is attached to transaction 5 (and another transaction that's not shown). So, transaction 6 **indirectly** references transaction 3 (through transaction 5).
+In this diagram, each numbered box is a transaction. Transaction 5 **directly** references transactions 2 and 3, and transaction 6 **indirectly** references transaction 3 (through transaction 5).
 
 ## How a transaction becomes confirmed
 
@@ -21,8 +19,8 @@ To go from a pending state to a confirmed state, nodes must reach consensus on t
 At the moment, nodes reach a consensus on transactions that are **directly or indirectly referenced by a milestone** (transaction that's created and sent by the Coordinator).
 
 :::info:
-If transaction 6 were a milestone, then transaction 5, 3, 2, and 1 would all be confirmed and considered final.
+If transaction 6 were a milestone, then transaction 5, 3, 2, and 1 would all be confirmed.
 ::: 
 
-Learn more about [the Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md), [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
+Learn more about [the Coordinator](root://iota-basics/0.1/concepts/the-tangle.md), [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md).
 

@@ -1,34 +1,46 @@
-# The Tangle overview
+# The Tangle
 
-**Before you send a bundle to a node, you ask it to select two existing tail transactions from its ledger. Then, when you attach your transactions to those ones, they become a part of the data structure that's called the Tangle. The Tangle is the history of IOTA transactions that's stored by all nodes on the same IOTA network.**
+**The Tangle is the immutable data structure that contains a history of IOTA transactions. All nodes in an IOTA network store a copy of the Tangle in their ledgers and can read from it and attach new transactions to it.**
 
-The data structure that forms the Tangle is a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), and it was formally introduced in the IOTA whitepaper by Professor Serguei Popov in 2015.
+The Tangle is a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), which is a sequence of vertices where every edge is directed from earlier to later in the sequence.
 
-In the Tangle, transactions are connected to each other by reference through their [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md). These fields contain the transaction hash of either a transaction in the same bundle or a tip transaction that was returned during [tip selection](../concepts/tip-selection.md).
+In the Tangle, vertices are transactions, and edges are references.
 
-References form a family tree, whereby if a transaction is a **child**, the branch and trunk transactions are its **parents**.
+In this diagram, the numbered boxes represent transactions. The transactions on the left come first in the sequence, and the transactions on the right come after.
 
 ![A directed acyclic graph](../images/dag.png)
 
-In this diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. On the other hand, transaction 6 indirectly references transaction 3, so, transaction 3 is a **grandparent** of transaction 6.
-
-Because tip selection causes nodes to validate bundles, any transaction that directly or indirectly references other transactions approves them and their entire history.
+When a node attaches a new transaction to the Tangle, that transaction directly references two existing ones to the left of it.
 
 :::info:
-Transaction 0 is the genesis transaction, which is the very first transaction in the Tangle.
+Nodes select these existing transactions during a process called [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md). During this process, nodes [validate](root://node-software/0.1/iri/concepts/transaction-validation.md) the history of the selected transactions. As a result, any transaction that references another also approves it.
+:::
+
+In the Tangle, transactions reference each other through their [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md). Each of these fields contains the transaction hash of another transaction.
+
+If any of the transaction's contents were to change, the hash would change, thus breaking the references. As a result, when a transaction is attached to the Tangle, it's immutable.
+
+:::info:
+References form a family tree, whereby if a new transaction is a **child**, the branch and trunk transactions are its **parents**.
+
+In this diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. On the other hand, transaction 6 indirectly references transaction 3, so, transaction 3 is a **grandparent** of transaction 6.
 :::
 
 ## Consensus
 
-In IOTA, the nodes must reach a consensus about when a transaction can be considered confirmed before they can update the balances of addresses.
+Because the Tangle is distributed among all nodes, they must reach a consensus on which transactions to consider confirmed before they can update the balances of addresses.
 
-A transaction is considered confirmed when it's directly or indirectly referenced by a [Coordinator](../concepts/the-coordinator.md)-issued milestone.
+A transaction is considered confirmed when it's directly or indirectly referenced by a transaction that's sent and signed by the Coordinator.
 
 ## The Coordinator
 
-The Coordinator is a client application that creates, signs, and sends bundles of transactions from the same address at regular intervals. These bundles contain transactions called milestones that nodes use to reach a consensus. When milestones directly or indirectly reference and approve a transaction in the Tangle, nodes mark the state of that transaction and its entire history as confirmed.
+The Coordinator is an application that creates, signs, and sends bundles of transactions from the same address at regular intervals. Each of these bundles contains transactions called milestones that nodes use to reach a consensus. When milestones directly or indirectly reference a transaction in the Tangle, nodes mark the state of that transaction and its entire history as confirmed.
 
-## Milestones
+:::info:Coordicide
+At the moment, we are focused on a project called [Coordicide](https://coordicide.iota.org/), which is a proposal for the removal of the Coordinator. When this happens, nodes will be able to reach a consensus without milestones.
+:::
+
+### Milestones
 
 The Coordinator sends milestones to nodes at regular intervals. Nodes use these milestones to reach a consensus. 
 
@@ -49,13 +61,13 @@ A Merkle tree is a data structure that starts by hashing data at the leaves and 
 
 The Coordinator can sign and send one signed bundle for each leaf in its Merkle tree.
 
-In this example, we have four leaves, which each represent one of the Coordinator's public/private key pairs. These key pairs are created in advance and used to calculate the the Coordinator's address. The total number of key pairs in a Merkle tree depends on its depth in this formula: 2<sup>depth</sup>. In this example, the Merkle tree's depth is 2.
+In this example, we have four leaves, which each represent one of the Coordinator's public/private key pairs. These key pairs are created in advance and used to compute the the Coordinator's address. The total number of key pairs in a Merkle tree depends on its depth in this formula: 2<sup>depth</sup>. In this example, the Merkle tree's depth is 2.
 
 :::info:
 On the Mainnet, the Coordinator's Merkle tree has a depth of 23. So, the Coordinator has 8,388,608 public/private key pairs and can send the same number of milestones.
 :::
 
-To calculate the Coordinator's address, the public keys are hashed in pairs:
+To compute the Coordinator's address, the public keys are hashed in pairs:
 
 * **Node 1:** Hash(Hash(public key of leaf 1) Hash(public key of leaf 2))
 * **Node 2:** Hash(Hash(public key of leaf 3) Hash(public key of leaf 4))
@@ -71,11 +83,11 @@ On the Mainnet, these private keys are security level 2. As a result, the milest
 [Learn more about how private keys are derived](root://iota-basics/0.1/concepts/addresses-and-signatures.md).
 :::
 
-### How nodes verify a milestone
+### How nodes verify milestones
 
-To verify a milestone, nodes must rebuild the Merkle tree to find the Merkle root. If the rebuilt Merkle root is the same as the Coordinator's address, nodes know the milestone was sent by the Coordinator.
+To verify milestones, nodes must rebuild the Merkle tree to find the Merkle root. If the rebuilt Merkle root is the same as the Coordinator's address, nodes know the milestone was sent by the Coordinator.
 
-To allow nodes to rebuild the Merkle tree, the Coordinator sends the following milestone transactions in the bundle:
+To allow nodes to rebuild the Merkle tree, the Coordinator sends the following milestones in the bundle:
 
 * Two transactions that contain the fragmented signature
 * One transaction whose [`signatureMessageFragment`](root://iota-basics/0.1/references/structure-of-a-transaction.md) field contains enough missing data from the Merkle tree to be able to rebuild it
@@ -106,10 +118,6 @@ Use Compass to create, sign, and send milestones in your own IOTA network.
 ## Further research
 
 We have an active research department that focuses on developing the Tangle and its related protocols.
-
-:::info:Coordicide
-At the moment, we are focused on a project called [Coordicide](https://coordicide.iota.org/), which is our proposal for the removal of the Coordinator. When this happens, nodes will be able to reach a consensus without milestones.
-:::
 
 * [Academic Papers](https://www.iota.org/research/academic-papers)
 * [Roadmap](https://www.iota.org/research/roadmap)

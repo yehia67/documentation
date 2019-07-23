@@ -10,9 +10,9 @@ To make it easier to find the options you want to change, we've separated them i
 * **Ledger:** What your node does with its ledger
 * **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes
 * **ZMQ:** How clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
-* **Tip selection:** The length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md)
+* **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md)
 * **Tip solidification:** How tip transactions become solid.
-* **Proof of work:** How your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md)
+* **Proof of work:** How your node does [proof of work](root://iota-basics/0.1/concepts/proof-of-work.md)
 * **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md)
 
 :::info:
@@ -106,13 +106,13 @@ Use these settings to customize how clients can [subscribe to your node's ZMQ ev
 
 ## Tip selection
 
-Use these settings to customize the length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
+Use these settings to customize the length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md).
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="alpha"></a>`--alpha`| `ALPHA`|Set the randomness of the tip selection process             |   number between 0 and infinity  |  0.001     | The number 0 is the most random and infinity is the most deterministic. For an in-depth explanation of this option, [see our blog post](https://blog.iota.org/alpha-d176d7601f1c).|
 |<a name="max-analyzed-transactions"></a>`--max-analyzed-transactions` |`MAX_ANALYZED_TXS`|Set the maximum number of unconfirmed transactions that may be analyzed during tip selection to find the latest milestone that references a transaction |number |20,000 |
-|  <a name="maxdepth"></a>`--max-depth` |`MAX_DEPTH`|Set the maximum number of previous milestones (depth) from where the IRI will start the tip selection |number |15 | This value should be both small enough to allow the weighted random walk to finish in a reasonable amount of time and large enough in include enough new transactions in the [subgraph](root://the-tangle/0.1/concepts/tip-selection.md#subgraph-selection)
+|  <a name="maxdepth"></a>`--max-depth` |`MAX_DEPTH`|Set the maximum number of previous milestones (depth) from where the IRI will start the tip selection |number |15 | This value should be both small enough to allow the weighted random walk to finish in a reasonable amount of time and large enough in include enough new transactions in the [subgraph](../concepts/tip-selection.md#subgraph-selection)
 |<a name="tip-selection-timeout-sec"></a>`--tip-selection-timeout-sec` |`TIP_SELECTION_TIMEOUT_SEC`|Set the maximum number of seconds that the IRI can spend to complete tip selection |number | 60|This option stops your node from stalling if tip selection takes too long
 
 ## Tip solidification
@@ -126,7 +126,7 @@ Use these settings to customize how tip transactions become solid.
 
 ## Proof of work
 
-Use these settings to customize how your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md).
+Use these settings to customize how your node does [proof of work](root://iota-basics/0.1/concepts/proof-of-work.md).
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|

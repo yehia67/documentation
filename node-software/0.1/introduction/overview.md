@@ -1,6 +1,6 @@
 # Node software
 
-**IOTA networks consist of interconnected nodes, which are computers that run the same node software. This software gives nodes read/write access to the Tangle and allows them to validate transactions and store them in their ledgers.**
+**IOTA networks consist of interconnected devices that run the same node software. This software gives nodes read/write access to the Tangle and allows them to validate transactions and store them in their ledgers.**
 
 -------------------------
 ![IRI](../images/IRI.png)

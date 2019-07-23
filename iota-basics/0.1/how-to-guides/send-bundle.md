@@ -74,7 +74,7 @@ In this example, we create and send a bundle to a [Devnet node](root://getting-s
     The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
     :::
 
-5. Create a bundle and pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the node.
+5. Create a bundle and pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://iota-basics/0.1/concepts/proof-of-work.md), and send the bundle to the node.
 
     ```js
     iota.prepareTransfers(seed, [transfer1, transfer2])

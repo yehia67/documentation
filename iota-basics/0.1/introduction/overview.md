@@ -1,6 +1,6 @@
 # IOTA basics overview
 
-**An IOTA network consists of nodes and clients. A node is a device that has read/write access to a ledger of transactions. A client is a device that has a seed. A seed gives a client access to [addresses](../concepts/addresses-and-signatures.md). Addresses have a balance, which defines the amount of IOTA tokens in them. To withdraw IOTA tokens from their addresses, clients must send bundles of transactions to a node so that the nodes can validate the transactions and update their ledgers.**
+**An IOTA network consists of a network of nodes. A node is a device that has read/write access to a ledger of transactions called the Tangle. A client is a device that creates transactions that transfer either data or IOTA tokens and sends them to nodes for validation. A seed gives a client access to [addresses](../concepts/addresses-and-signatures.md). Addresses have a balance, which defines the amount of IOTA tokens in them. To withdraw IOTA tokens from their addresses, clients must send bundles of transactions to a node so that the nodes can validate the transactions and update their ledgers.**
 
 ## Clients
 
@@ -42,7 +42,7 @@ The first step to transaction immutability is to hash its contents into 81 tryte
 
 The next step is to connect the transaction (called a child) to two others (called its parents) by referencing their transaction hashes in the `branchTransaction` and `trunkTransaction` fields. Now, the fate of the child transaction is bound to its parent. If the contents of either parents change, their transaction hashes will be invalid, making the child invalid.
 
-This connected structure in the ledger is what's called [the Tangle](root://the-tangle/0.1/introduction/overview.md), a tangled family of transaction hashes where any new orphaned child (with no parents), called a tip transaction, must reference two parents. As a result, the more children a transaction has, the more transaction hashes that are connected to it, and the more immutable it is considered.
+This connected structure in the ledger is what's called [the Tangle](root://iota-basics/0.1/concepts/the-tangle.md), a tangled family of transaction hashes where any new orphaned child (with no parents), called a tip transaction, must reference two parents. As a result, the more children a transaction has, the more transaction hashes that are connected to it, and the more immutable it is considered.
 
 ### Scalability
 
@@ -52,7 +52,7 @@ You've already seen that transactions reference each other to strengthen their i
 
 Before a client can send a transaction to a node, that transaction must reference two parents. Transactions, up to the last one in a bundle, will always reference each other in their `trunkTransaction` fields. So, what about the `branchTransaction` field and the `trunkTransaction` and `branchTransaction` fields of the last transaction in the bundle?
 
-The parents in these fields are chosen by a node during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). A process where a node starts from an old transaction and traverses its children, grandchildren, and so on, until it finds one without any parents (the selected tip).
+The parents in these fields are chosen by a node during [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md). A process where a node starts from an old transaction and traverses its children, grandchildren, and so on, until it finds one without any parents (the selected tip).
 
 While traversing transactions, the node must [validate their entire bundle](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator). As a result, by having the node validate the history of the tip transactions and by referencing their transaction hashes, **a child approves its parents' bundles and their entire history**.
 

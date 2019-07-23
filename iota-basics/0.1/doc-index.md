@@ -2,9 +2,13 @@
 
 [Introduction/Overview](/introduction/overview.md)
 
-[Concepts/Addresses and signatures](/concepts/addresses-and-signatures.md)
+[Concepts/The Tangle](/concepts/the-tangle.md)
 
 [Concepts/Bundles and transactions](/concepts/bundles-and-transactions.md)
+
+[Concepts/Addresses and signatures](/concepts/addresses-and-signatures.md)
+
+[Concepts/Proof of work](/concepts/proof-of-work.md)
 
 [Concepts/Minimum weight magnitude](/concepts/minimum-weight-magnitude.md)
 

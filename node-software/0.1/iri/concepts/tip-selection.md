@@ -1,10 +1,10 @@
 # Tip selection
 
-**Each transaction in the Tangle must reference and approve two previous transactions. Tip selection is the process whereby a node selects two random tip transactions from a subgraph of its ledger. Nodes to this when a client calls the `getTransactionsToApprove` endpoint.**
+**Each transaction in the Tangle must reference two previous transactions. Tip selection is the process whereby a node selects two random tip transactions from a subgraph of its ledger. Nodes do this when a client calls the `getTransactionsToApprove` endpoint.**
 
-In general, the tip selection algorithm selects tip transactions that have no parents.
+In general, the tip selection algorithm selects transactions that have no parents. These transactions are called tips, hence the name 'tip selection'.
 
-Although the tip selection algorithm is embedded in the [IOTA node software](root://node-software/0.1/iri/introduction/overview.md), it isn't enforced by the network. Instead, nodes are given an [incentive to use the tip selection algorithm](../concepts/incentives-in-the-tangle.md).
+Although the tip selection algorithm is embedded in the [IRI node software](root://node-software/0.1/iri/introduction/overview.md), it isn't enforced by the network. Instead, nodes are given an [incentive to use the tip selection algorithm](#incentives-to-use-tip-selection).
 
 ## The tip selection process
 

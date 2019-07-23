@@ -133,7 +133,7 @@ curl http://localhost:14265 \
 
 ## attachToTangle
 
-Do [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) on a node for the given transaction trytes.
+Do [proof of work](root://iota-basics/0.1/concepts/proof-of-work.md) on a node for the given transaction trytes.
 
  ### Parameters
 

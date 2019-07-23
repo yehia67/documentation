@@ -15,7 +15,7 @@ Withdrawals and deposits are transactions that are grouped together in the same 
 Before a withdrawal or a deposit is accepted by an IOTA network, the sweep must be confirmed. So, to avoid delays in confirmation, Hub [reattaches and promotes](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md) transactions until they're confirmed.
 
 :::info:Want to learn more about consensus?
-Read about [the Tangle](root://the-tangle/0.1/introduction/overview.md).
+Read about [the Tangle](root://iota-basics/0.1/concepts/the-tangle.md).
 :::
 
 ## Seed creation

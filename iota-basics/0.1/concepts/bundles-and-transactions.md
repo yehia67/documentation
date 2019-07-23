@@ -1,22 +1,22 @@
 # Bundles and transactions
 
-**A transaction is a single operation that you can send to a node. Transactions can withdraw/deposit IOTA tokens or send data. To send a node one or more transactions, you must package them in a bundle.**
+**A transaction is a single operation that you can send to a node. Transactions can withdraw/deposit IOTA tokens or send data. To send a node one or more transactions, you must group them in a bundle. The fate of each transaction in a bundle depends on the rest. Either all transactions are valid or none of them are.**
 
-Each transaction in a bundle must be [structured](../references/structure-of-a-transaction.md) according to the IOTA protocol and contain valid values for all the transaction fields.
+Each transaction in a bundle is [structured](../references/structure-of-a-transaction.md) according to the IOTA protocol. Nodes validate transactions according to this protocol before they attach them to the Tangle.
 
-When a transaction is packaged in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the end of the bundle (head).
+The structure of a bundle consists of a head, a body, and a tail, where the tail is first (index 0) and the head is the last transaction in the bundle.
 
-Next, each transaction in the bundle, except the head, is [attached to the proceeding one](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. This attachment forms a connection among the transactions so that nodes can find and validate all transactions in a bundle.
+When a transaction is grouped in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the head.
 
-Then, the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields are absorbed and squeezed by a cryptographic sponge function to produce an 81-tryte bundle hash. This bundle hash is included in each transaction's `bundle` field to seal the package.
+Next, each transaction in the bundle, except the head, [references the proceeding one](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. These connections allow nodes to reconstruct bundles in the Tangle and validate the contents of all its transactions.
 
 Bundles are atomic, meaning that if any of the transactions in the bundle change, the bundle hash of each transaction would be invalid.
 
 To explain why bundles need to be atomic, take this example.
 
-You're at an online checkout and the total to pay is 10Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5Mi. So, you create three transactions: One input transaction to withdraw 5Mi from address 0, another input transaction to withdraw 5Mi from address 1, and one output transaction to deposit 10Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.)
+    You're at an online checkout and the total to pay is 10Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5Mi. So, you create three transactions: One input transaction to withdraw 5Mi from address 0, another input transaction to withdraw 5Mi from address 1, and one output transaction to deposit 10Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.)
 
-For the vendor to receive 10Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the overall goal of transferring IOTA tokens.
+    For the vendor to receive 10Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the goal of transferring IOTA tokens.
 
 :::info:
 It's not just multiple transactions that need to be packaged in a bundle, even individual ones do.
@@ -24,7 +24,7 @@ It's not just multiple transactions that need to be packaged in a bundle, even i
 
 ## Withdrawals and deposits
 
-A bundle can consist of any number of withdrawals and deposits. However because of the time and resources that are involved during [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), we recommend a maximum of 30 transactions in a bundle.
+A bundle can consist of any number of withdrawals and deposits. But, because of the time and resources that are involved during [proof of work](root://iota-basics/0.1/concepts/proof-of-work.md), we recommend a maximum of 30 transactions in a bundle.
 
 ### Input transaction
 
@@ -53,7 +53,7 @@ Transactions that deposit IOTA tokens can also contain a message because they do
 
 After you send a bundle to a [node](root://node-software/0.1/iri/introduction/overview.md), it validates the transactions and appends each one to its ledger.
 
-During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the node has validated all transactions up to the head (or [`lastIndex` field](../references/structure-of-a-transaction.md)), your bundle is considered valid.
+During [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the node has validated all transactions up to the head (or [`lastIndex` field](../references/structure-of-a-transaction.md)), your bundle is considered valid.
 
 ![Example of a bundle of 4 transactions](../images/bundle.png)
 

@@ -2,8 +2,6 @@
 
 **Each client in an IOTA network has a secret password called a seed, which is used to derive addresses and to sign bundles. Addresses are the accounts that hold IOTA tokens and signatures prove ownership of an address.**
 
-To use an IOTA network, clients need a seed.
- 
 Seeds are the master keys to the cryptographic hashing function in the IOTA protocol. Each seed is 81 [trytes](../references/tryte-alphabet.md) long and can derive an almost unlimited number of unique private keys and addresses (9<sup>57</sup>).
 
 Each private key is unique to a seed, index, and security level, and can be used to derive one corresponding address. A private key and an address can be thought of as a pair. Addresses are public and clients can transfer IOTA tokens and messages to them using the [`address` field] of a transaction. A private key is private and is used to sign bundles that withdraw IOTA tokens from the address.
