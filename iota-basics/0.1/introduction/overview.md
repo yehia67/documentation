@@ -24,13 +24,13 @@ Any code that uses a seed is executed on the client side. Your seed never leaves
 
 Nodes are like a cross between a post office and a bank. They keep a ledger of every transaction that they receive and the non-zero balances of all addresses in the network.
 
-Nodes have an [API](root://node-software/iri/0.1/references/api-reference.md), which allows clients to read from the ledger and send bundles.
+Nodes have an [API](root://node-software/0.1/iri/references/api-reference.md), which allows clients to read from the ledger and send bundles.
 
-Nodes [validate transactions](root://node-software/iri/0.1/concepts/transaction-validation.md) according to a set of rules, one of which states that withdrawals must contain a valid [signature](../concepts/addresses-and-signatures.md). When a transaction is considered valid, the node adds it to its ledger and updates the balances of the affected addresses.
+Nodes [validate transactions](root://node-software/0.1/iri/concepts/transaction-validation.md) according to a set of rules, one of which states that withdrawals must contain a valid [signature](../concepts/addresses-and-signatures.md). When a transaction is considered valid, the node adds it to its ledger and updates the balances of the affected addresses.
 
 ### Trust
 
-You might be wondering how you can trust a node. After all, connecting to a node is the only way to read from and write to the Tangle. What if a node were to change the response to an API endpoint such as [`getBalances`](root://node-software/iri/0.1/references/api-reference.md#getBalances)? How would you know what your real balance is?
+You might be wondering how you can trust a node. After all, connecting to a node is the only way to read from and write to the Tangle. What if a node were to change the response to an API endpoint such as [`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getBalances)? How would you know what your real balance is?
 
 Well, IOTA is a [distributed ledger technology](root://getting-started/0.1/introduction/what-is-dlt.md). The word _distributed_ is the key. When a node receives a transaction, validates it, and appends it to its ledger, it doesn't stop there. The IOTA protocol states that all nodes must forward transactions onto other nodes, called their neighbors. This way, all nodes receive, validate, and store a consistent, distributed ledger of transactions, removing the need to trust any individual. As a result, you can send requests to multiple nodes and check the consistency of the returned data.
 
@@ -54,7 +54,7 @@ Before a client can send a transaction to a node, that transaction must referenc
 
 The parents in these fields are chosen by a node during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). A process where a node starts from an old transaction and traverses its children, grandchildren, and so on, until it finds one without any parents (the selected tip).
 
-While traversing transactions, the node must [validate their entire bundle](root://node-software/iri/0.1/concepts/transaction-validation.md#bundle-validator). As a result, by having the node validate the history of the tip transactions and by referencing their transaction hashes, **a child approves its parents' bundles and their entire history**.
+While traversing transactions, the node must [validate their entire bundle](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator). As a result, by having the node validate the history of the tip transactions and by referencing their transaction hashes, **a child approves its parents' bundles and their entire history**.
 
 Because every bundle approves two new bundles, the more bundles in the network, the faster new ones are approved.
 

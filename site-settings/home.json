@@ -34,6 +34,10 @@
         {
             "query": "trinity",
             "name": "Trinity"
+        },
+        {
+            "query": "set up a private tangle",
+            "name": "Set up a private Tangle"
         }
     ],
     "cards": [

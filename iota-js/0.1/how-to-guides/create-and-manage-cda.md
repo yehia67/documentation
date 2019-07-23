@@ -2,7 +2,7 @@
 
 **To send and receive transactions in an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawals and deposits.**
 
-Accounts use CDAs to help reduce the [risks of withdrawing from spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from a someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA.
+Accounts use CDAs to help reduce the [risk of withdrawing from spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from a someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA.
 
 :::info:
 CDAs can be used only in an account and not in the generic [client library methods](root://client-libraries/0.1/introduction/overview.md). As a result, both you and the sender must have an account to be able to use CDAs.
@@ -22,10 +22,10 @@ To create a CDA, specify the following condition, which defines whether it's act
 
 * **timeoutAt (required):** The time at which the address expires
 
-And one of the following, recommended fields:
+Then specify one of the following recommended fields:
 
-* **multiUse (recommended):** A boolean that specifies if the address may be sent more than one deposit.
-* **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to contain. When the address contains this amount, it's considered expired. We highly recommend using this condition.
+* **multiUse (recommended):** A boolean that specifies if the address may receive more than one deposit.
+* **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to contain. When the address contains this amount, it's considered expired. We recommend specifying this condition.
 
 :::info:
 You can't specify the `expected_amount` and `multi_use` fields in the same CDA. Please refer to the [FAQ](../references/cda-faq.md) for more information.
@@ -79,30 +79,49 @@ If you created an account with a `timeSource()` method, you can call that method
         expectedAmount: 10000000,
         value: 10000000
     })
-         .then((trytes) => {
+        .then((trytes) => {
             console.log('Successfully prepared transaction trytes:', trytes)
         })
         .catch(err => {
             // Handle errors here...
         });
+    ```
 
-    // Start attaching transactions to the Tangle
-    // The startAttaching routine will keep on attaching uncomfirmed transactions until they are confirmed
-    // The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one
+The attachment routine will keep on attaching unconfirmed transactions until they are confirmed.
+
+You may start or stop the attachment routine by calling the `startAttaching()` and
+`stopAttaching()` methods.
+
+    ```js
+
     account.startAttaching({
         depth: 3,
         minWeightMagnitude: 9,
-        delay: 30 * 1000 // 30 second delay
+        delay: 30 * 1000
+
+        // How far back in the Tangle to start the tip selection
+        depth: 3,
+
+        // The minimum weight magnitude is 9 on the Devnet
+        minWeightMagnitude: 9,
+
+        // How long to wait before the next attachment round
+        delay: 1000 * 30,
+
+        // The depth at which transactions are no longer promotable
+        // Those transactions are automatically re-attached
+        maxDepth: 6
     });
-    
-    // Or stop attaching
+
     account.stopAttaching();
+
     ```
+
 
 2. **Optional:** To use a CDA as a magnet link, pass it to the `parseCDAMagnet()` method, then and pass the result to the`sendToCDA()` method
 
     ```js
-     const magnetLink = 'iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0'
+     const magnetLink = 'iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0';
      const { address, timeoutAt, multiUse, expectedAmount } = parseCDAMagnet(
         magnetLink
     );
@@ -121,17 +140,11 @@ If you created an account with a `timeSource()` method, you can call that method
             // Handle errors here...
         });
 
-    // Start attaching transactions to the Tangle
-    // The startAttaching routine will keep on attaching uncomfirmed transactions until they are confirmed
-    // The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one
     account.startAttaching({
         depth: 3,
         minWeightMagnitude : 9,
         delay: 30 * 1000 // 30 second delay
     });
-    
-    // Or stop attaching
-    account.stopAttaching();
     ```
 
 ## Distribute a CDA
@@ -155,3 +168,7 @@ The `generateCDA()` method returns a CDA object with the following fields. You c
     const magnetLink = CDA.serializeCDAMagnet(cda);
     // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1
     ```
+
+## Next steps
+
+[Create an event listener](root://iota-js/0.1/how-to-guides/listen-to-events.md).

@@ -77,10 +77,10 @@ To complete this tutorial, you need the following:
     docker run --name iri iotaledger/iri:latest --remote -p 14265
     ```
     
-    Your IRI node is now running and you can interact with it through the [IRI API](root://node-software/iri/0.1/references/api-reference.md) at the following URL:
+    Your IRI node is now running and you can interact with it through the [IRI API](root://node-software/0.1/iri/references/api-reference.md) at the following URL:
     http://localhost.com:14265
 
-5. Use cURL to send a request to the [`getNodeInfo` endpoint](root://node-software/iri/0.1/references/api-reference.md#getNodeInfo)
+5. Use cURL to send a request to the [`getNodeInfo` endpoint](root://node-software/0.1/iri/references/api-reference.md#getNodeInfo)
     ```bash
     curl http://localhost:14265 -X POST -H 'Content-Type: application/json' -H 'X-IOTA-API-Version: 1' -d '{"command": "getNodeInfo"}'
     ```
@@ -112,12 +112,12 @@ To complete this tutorial, you need the following:
     }
     ```
 
-You'll notice in the output that the value of the `neighbors` field is 0. This means that your node is not connected to an IOTA network. To do so, you need to connect to [neighbors](root://node-software/iri/0.1/concepts/neighbor-iri-node.md).
+You'll notice in the output that the value of the `neighbors` field is 0. This means that your node is not connected to an IOTA network. To do so, you need to connect to [neighbors](root://node-software/0.1/iri/concepts/neighbor-iri-node.md).
 
 For help connecting to neighbors, go to the #help or #nodesharing channel on our [Discord](https://discord.iota.org).
 
 ## Next steps
 
-[Read more in-depth guides about running a node](root://node-software/iri/0.1/introduction/overview.md).
+[Read more in-depth guides about running a node](root://node-software/0.1/iri/introduction/overview.md).
 
 [Send your first data transaction](../tutorials/send-a-zero-value-transaction-with-nodejs.md) to a node that's connected to the Devnet network.
