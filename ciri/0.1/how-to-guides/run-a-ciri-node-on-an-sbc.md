@@ -12,7 +12,7 @@ The compilation time for the cross compile is faster on modern machines than on 
 cIRI is still under development. You shouldn't use cIRI in a production environment.
 :::
 
-If you want to use the most recent features and extensions, you should use [IRI](root://node-software/iri/0.1/introduction/overview.md).
+If you want to use the most recent features and extensions, you should use [IRI](root://node-software/0.1/iri/introduction/overview.md).
 
 :::info:
 This guide was tested on an Orange Pi Zero and Zero Plus for ARMv7 and Aarch64 (32-Bit and 64-Bit) architectures, but the instructions should be the same for any common Cortex-A-based SBC.
@@ -81,7 +81,7 @@ You can customize these commands by editing the build flags.
     --define network=value
     ```
 
-2. Choose which [trit encoding](root://ciri/0.1/references/ciri-configuration-options.md) to use to optimize your node
+2. Choose which [trit encoding](root://ciri/references/ciri-configuration-options.md) to use to optimize your node
 
     ```bash
     --define trit_encoding=5
@@ -153,7 +153,7 @@ Before you run cIRI, you need to configure it so that your node can connect to n
 2. Find some neighbors
 
     :::info:
-    Read the [IRI guide](root://node-software/iri/0.1/how-to-guide/find-neighbor-iri-node.md) for help finding neighbors.
+    Read the [IRI guide](root://node-software/0.1/iri/how-to-guide/find-neighbor-iri-node.md) for help finding neighbors.
     :::
 
 3. Create a configuration file called conf.yaml in the `ciri` directory and add the following settings. In the `neighbors` field, add the IP addresses or URLs of your neighbors.
@@ -164,7 +164,7 @@ Before you run cIRI, you need to configure it so that your node can connect to n
     port: 14265
     ```
 
-    Find out more about the possible [cIRI configuration settings](root://ciri/0.1/references/ciri-configuration-options.md).
+    Find out more about the possible [cIRI configuration settings](root://ciri/references/ciri-configuration-options.md).
 
 
 ## Set up the database

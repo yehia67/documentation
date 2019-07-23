@@ -21,7 +21,7 @@ In this example, we convert a message to trytes, then convert it back to ASCII c
 1. Require the IOTA client library
 
     ```js
-    const Iota = require('@iota/converter');
+    const Converter = require('@iota/converter');
     ```
 
 2. Create a variable to hold a message
