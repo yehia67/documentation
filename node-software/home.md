@@ -6,8 +6,5 @@
 [IRI](/node-software/0.1/iri/introduction/overview.md)
 ## Learn about the software that runs the IOTA Mainnet and how you could benefit the network by running it
 
-[Ict](/node-software/0.1/ict/introduction/overview.md)
-## Learn about the experimental IOTA controlled agent and how you can participate in the network to help us develop it into the future node software called Bee
-
 [Coordicide Alphanet](/node-software/0.1/alphanet/introduction/overview.md)
 ## Experiment with the prototype node software that will lead to Coordicide
