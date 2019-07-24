@@ -14,7 +14,7 @@ To complete this guide, you need the following:
 
 * [Git](https://git-scm.com/downloads)
 * An Internet connection
-* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626 and 14666 to the device that's running the node:
+* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626 and 14666 to the device that's running the node
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 * [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms)
 
@@ -130,7 +130,7 @@ To complete this guide, you need the following:
 * GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
 * [Git](https://git-scm.com/downloads)
 * An Internet connection
-* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626 and 14666 to the device that's running the node:
+* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626 and 14666 to the device that's running the node
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 
 ### Step 1. Download the code

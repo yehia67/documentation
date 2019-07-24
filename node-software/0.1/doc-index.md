@@ -25,7 +25,7 @@
 [IRI/References/IRI configuration options](/iri/references/iri-configuration-options.md)
 [IRI/References/ZMQ events](/iri/references/zmq-events.md)
 [GoShimmer/Introduction/Overview](/goshimmer/introduction/overview.md)
-[GoShimmer/How-to Guides/Run an Alphanet node](/goshimmer/how-to-guides/run-the-node.md)
+[GoShimmer/How-to Guides/Run a GoShimmer node](/goshimmer/how-to-guides/run-the-node.md)
 [GoShimmer/How-to Guides/Send spam transactions to your node](/goshimmer/how-to-guides/send-spam.md)
 [GoShimmer/How-to Guides/Subscribe to events](/goshimmer/how-to-guides/subscribe-to-events.md)
 [GoShimmer/References/Command-line flags](/goshimmer/references/command-line-flags.md)
