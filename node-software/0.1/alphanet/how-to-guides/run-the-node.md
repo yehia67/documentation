@@ -103,6 +103,7 @@ When you run the node, it joins the network by autopeering with the entry node t
 
     :::info:
     You can customize some features of your node by adding [command-line flags](../references/command-line-flags.md) after the `run` command.
+    
     To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command.
    :::
 

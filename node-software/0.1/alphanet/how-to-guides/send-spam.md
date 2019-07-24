@@ -12,7 +12,7 @@ The `spammer` API endpoint allows you to send your node spam transactions.
     By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 10,000 TPS, send a request to the following endpoint `http://localhost:8080/spammer?cmd=start&tps=10000`
     :::
 
-2. To check that your node is receiving transactions, you can open the web user interface by going to `http://localhost:8081` in a web browser.
+2. To check that your node is receiving transactions, you can open the web user interface by going to `http://localhost:8081/dashboard` in a web browser.
 
     ![Alphanet web user interface](../images/alphanet-web-ui.png)
 
