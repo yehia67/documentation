@@ -67,13 +67,13 @@ socket = context.socket(zmq.SUB)
 ### Node.js
 
 ```js
-sock.connect('tcp://[IP_ADDRESS]:5556');
+sock.connect('tcp://localhost:5556');
 ```
 ---
 ### Python
 
 ```python
-socket.connect('tcp://[IP_ADDRESS]:5556')
+socket.connect('tcp://localhost:5556')
 ```
 --------------------
 

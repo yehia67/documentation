@@ -75,7 +75,7 @@ To build the Docker container, you must install Docker 17.05+ (for multi-stage b
 
 ### Step 2. Run the node
 
-When you run the node, it joins the network by autopeering with the entry node that's run by the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors.
+When you run the node, it joins the network by autopeering with the entry node that's run by us at the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors.
 
 1. Clone the `goshimmer` repository
     
@@ -103,7 +103,7 @@ When you run the node, it joins the network by autopeering with the entry node t
 
     :::info:
     You can customize some features of your node by adding [command-line flags](../references/command-line-flags.md) after the `run` command.
-    
+
     To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command.
    :::
 
@@ -118,7 +118,7 @@ The user interface displays the following statistics in the top-right corner:
 * **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions.
 * **Node ID:** The node's public key that gives it a unique identity
 * **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it.
-* **Known peers:** The total number of neighbors that the node is connected to. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
+* **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
 * **Uptime:** The total amount of time during which the node has been running
 
 ## Run the node on your local device
@@ -171,7 +171,7 @@ To complete this guide, you need the following:
 
 ### Step 2. Run the node
 
-When you run the node, it joins the network by autopeering with the entry node that's run by the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors.
+When you run the node, it joins the network by autopeering with the entry node that's run by us at the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors.
 
 1. Build the executable file
 
@@ -195,14 +195,14 @@ When you run the node, it joins the network by autopeering with the entry node t
 You're now running a node on the Coordicide Alphanet.
 :::
 
-![Alphanet user interface](../images/goshimmer.gif)
+![Alphanet user interface](../images/goshimmer.png)
 
 The user interface displays the following statistics in the top-right corner:
 
 * **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions.
 * **Node ID:** The node's public key that gives it a unique identity
 * **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it.
-* **Known peers:** The total number of neighbors that the node is connected to. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
+* **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
 * **Uptime:** The total amount of time during which the node has been running
 
 ## Next steps
