@@ -1,6 +1,6 @@
 # What is the Tangle?
 
-**Before you send a bundle, you must attach your transactions to two existing ones in the network. You do this so that the node can walk on the connections to find and validate each transaction. These connections form a data structure that's called the Tangle. Transactions in the Tangle can be in one of two states: Pending or confirmed.**
+**When you create a bundle, you must reference it to two existing transactions in the network. When a node receives your transactions, it attach them to these existing ones. The attachments among all the transactions form a data structure that's called the Tangle.**
 
 This model forms a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), in which each transaction represents a vertex.
 
@@ -24,5 +24,5 @@ At the moment, nodes reach a consensus on transactions that are **directly or in
 If transaction 6 were a milestone, then transaction 5, 3, 2, and 1 would all be confirmed and considered final.
 ::: 
 
-Learn more about [the Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md), [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
+Learn more about [the Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md) and [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
 

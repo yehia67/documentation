@@ -260,11 +260,11 @@ If you restart Compass, you don't need to pass it the `-bootstrap` flag (Compass
 
 When the application is running, you can interact with the network through the IRI node's API port at the following address http://localhost:14265.
 
-For a list of API endpoints see the [IRI API reference](root://iri/0.1/references/api-reference.md).
+For a list of API endpoints see the [IRI API reference](root://node-software/0.1/iri/references/api-reference.md).
 
 --------------------
 ### getBalances
-Call the [`getBalances`](root://iri/0.1/references/api-reference.md#getbalances) endpoint to get the total balance of the `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999` seed. If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md).
+Call the [`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances) endpoint to get the total balance of the `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999` seed. If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md).
 
  ```js
  var request = require('request');
@@ -347,4 +347,4 @@ Feel free to send test transactions and see them confirmed by Compass milestones
 
 Install a signing server for increased security. A signing server reduces the attack surface of Compass by moving sensitive operations such as signing to an external service. Compass interacts with the signing server through a gRPC API.
 
-[Subscribe to events on your node](root://iri/0.1/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions.
+[Subscribe to events on your node](root://node-software/0.1/iri/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions.

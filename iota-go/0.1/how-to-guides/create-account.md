@@ -126,6 +126,16 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
     If you want to have more control over the behavior of the plugins, you can customize them in the `WithPlugin()` method.
     :::
 
+8. Check that you're connected to a [synchronized node](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-on-linux.md#check-that-the-iri-is-synchronized)
+
+    ```go
+    nodeInfo, err := iotaAPI.GetNodeInfo()
+    handleErr(err)
+
+    fmt.Println("latest milestone index:", nodeInfo.LatestMilestoneIndex)
+    fmt.Println("latest milestone index:", nodeInfo.LatestSolidSubtangleMilestone)
+    ```
+
 :::success:Congratulations! :tada:
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your seed.
 :::

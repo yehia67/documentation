@@ -47,9 +47,9 @@ Transactions that deposit IOTA tokens can also contain a message because they do
 
 ## How bundles are validated
 
-After you send a bundle to a [node](root://iri/0.1/introduction/overview.md), it validates each transaction and appends each one to its ledger.
+After you send a bundle to a [node](root://node-software/0.1/iri/introduction/overview.md), it validates each transaction and appends each one to its ledger.
 
-During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the node has validated all transactions up to the head (or [`lastIndex` field](../references/structure-of-a-transaction.md)), your bundle is considered valid.
+During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the node has validated all transactions up to the head (or [`lastIndex` field](../references/structure-of-a-transaction.md)), your bundle is considered valid.
 
 ![Example of a bundle of 4 transactions](../images/bundle.png)
 
