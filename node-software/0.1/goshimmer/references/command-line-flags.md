@@ -1,6 +1,6 @@
 # Command-line flags
 
-**In the command to execute the Alphanet code, you can pass the following flags to change the default behavior of a node. For example, you can choose to change the default auto-peering port.**
+**In the command to execute the GoShimmer code, you can pass the following flags to change the default behavior of a node. For example, you can choose to change the default auto-peering port.**
 
 :::info:
 If you've downloaded the code, you can also run it with the `-h` or `--help` flag to see a list of all the configuration options.

@@ -6,5 +6,5 @@
 [IRI](/node-software/0.1/iri/introduction/overview.md)
 ## Learn about the software that runs the IOTA Mainnet and how you could benefit the network by running it
 
-[Coordicide Alphanet](/node-software/0.1/alphanet/introduction/overview.md)
+[GoShimmer](/node-software/0.1/goshimmer/introduction/overview.md)
 ## Experiment with the prototype node software that will lead to Coordicide
