@@ -95,7 +95,7 @@ When you run the node, it joins the network by autopeering with the entry node t
 4. Run the Docker image
 
     ```bash
-    docker run --rm -it -v target/mainnetdb:/root/mainnetdb goshimmer
+    docker run --rm -it -v mainnetdb:/root/mainnetdb goshimmer
     ```
 
     :::info:
