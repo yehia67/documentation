@@ -14,7 +14,7 @@ If you've downloaded the code, you can also run it with the `-h` or `--help` fla
 |<a name="autopeering-entry-nodes"></a>`-autopeering-entry-nodes` |Set a list of trusted entry nodes for auto-peering |string | 7f7a876a4236091257e650da8dcf195fbe3cb625@159.69.158.51:14626 |
 |<a name="autopeering-port"></a>`-autopeering-port` |Set the TCP port for incoming peering requests |number |14626 |
 |<a name="database-directory"></a>`-database-directory` |Set the path to the database folder  |string |mainnetdb | 
-|<a name="gossip-port"></a> `-gossip-port`|Set the TCP port for the gossip connection | number| 14666
+|<a name="gossip-port"></a> `-gossip-port`|Set the TCP/UDP port for the gossip connection | number| 14666
 |<a name="node-disable-plugins"></a>`-node-disable-plugins` |Disable plugins by name | string| ""|
 |<a name="node-log-level"></a>`-node-log-level` |Set the type of log messages that are displayed|number |3 |LOG_LEVEL_FAILURE = 0, LOG_LEVEL_WARNING = 1, LOG_LEVEL_SUCCESS = 2, LOG_LEVEL_INFO = 3, LOG_LEVEL_DEBUG = 4|
 |<a name="zeromq-port"></a>`-zeromq-port` |Set the TCP port for the ZMQ stream |number |5556 | 
