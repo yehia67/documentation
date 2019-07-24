@@ -9,7 +9,7 @@ The IRI (IOTA reference implementation) is open-source Java software that runs o
 -------------------------
 
 -------------------------
-![GoShimmer](../images/Alphanet.png)
+![GoShimmer](../images/GoShimmer.png)
 ## [GoShimmer](../goshimmer/introduction/overview.md)
 GoShimmer is open-source Go software that implements a prototype of an IOTA network without the Coordinator. This network is still in development, so not all modules exist, but new ones will be added when they are ready.
 -------------------------
