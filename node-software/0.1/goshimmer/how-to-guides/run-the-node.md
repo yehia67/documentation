@@ -119,7 +119,7 @@ The user interface displays the following statistics in the top-right corner:
 * **Uptime:** The total amount of time during which the node has been running
 
 :::info:
-If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP port (14626) to your device.
+If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device.
 :::
 
 ## Run the node on your local device
@@ -198,7 +198,7 @@ The user interface displays the following statistics in the top-right corner:
 * **Uptime:** The total amount of time during which the node has been running
 
 :::info:
-If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP port (14626) to your device.
+If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device.
 :::
 
 ## Next steps
