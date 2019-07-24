@@ -12,14 +12,11 @@ When you run a node in a Docker container, it includes all the necessary depende
 
 To complete this guide, you need the following:
 
-* 64-bit processor
-* An Internet connection
-* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 * [Git](https://git-scm.com/downloads)
-* [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
-
-    * **Autopeering port:** 14626
-    * **Gossip port:** 14666
+* An Internet connection
+* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626 and 14666 to the device that's running the node:
+* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
+* [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms)
 
 The Docker container is suitable for the following operating systems:
 * Linux
@@ -27,7 +24,7 @@ The Docker container is suitable for the following operating systems:
 * Windows
 
 :::info:
-If you're using a Linux operating system, add `sudo` before all the commands in the following tasks.
+If you're using a Debian-based operating system, add `sudo` before all the commands in the following tasks.
 :::
 
 ### Step 1. Install Docker
@@ -86,19 +83,19 @@ When you run the node, it joins the network by autopeering with the entry node t
 2. Change into the `goshimmer` directory
 
     ```bash
-    cd iotaledger/goshimmer
+    cd goshimmer
     ```
 
 3. Build the Docker image
 
     ```bash
-    docker build -t iotaledger/goshimmer .
+    docker build -t goshimmer .
     ```
 
 4. Run the Docker image
 
     ```bash
-    docker run --rm -it -v target/mainnetdb:/root/mainnetdb iotaledger/goshimmer
+    docker run --rm -it -v target/mainnetdb:/root/mainnetdb goshimmer
     ```
 
     :::info:
@@ -129,15 +126,12 @@ When you run a node on your local device, you need to make sure that it has the 
 
 To complete this guide, you need the following:
 
-* An Internet connection
-* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 * At least version 1.12 of the Go programming language (we recommend the latest version)
 * GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
 * [Git](https://git-scm.com/downloads)
-* [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
-
-    * **Autopeering port:** 14626
-    * **Gossip port:** 14666
+* An Internet connection
+* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626 and 14666 to the device that's running the node:
+* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 
 ### Step 1. Download the code
 
