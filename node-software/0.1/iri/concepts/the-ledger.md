@@ -6,7 +6,7 @@ The ledger is the primary data source for a node. The data in the ledger is a co
 
 ## Ledger solidification
 
-Ledger solidification is the process by which a node receives the history of all [milestones](root://the-tangle/0.1/concepts/the-coordinator.md) in the [Tangle](root://the-tangle/0.1/introduction/overview.md).
+Ledger solidification is the process by which a node asks its neighbors for the history of all [milestones](root://the-tangle/0.1/concepts/the-coordinator.md) in the [Tangle](root://the-tangle/0.1/introduction/overview.md).
 
 When a node starts running, it starts to request the transactions that each milestone references (its history), starting from an **entry point milestone** and ending at the latest one.
 

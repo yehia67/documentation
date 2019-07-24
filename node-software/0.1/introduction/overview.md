@@ -9,14 +9,8 @@ The IRI (IOTA reference implementation) is open-source Java software that runs o
 -------------------------
 
 -------------------------
-![Ict](../images/Ict.png)
-## [Ict](../ict/introduction/overview.md)
-The Ict (IOTA controlled agent) is open-source Java software that defines an **experimental** version of the future IOTA protocol. This version is designed to be more lightweight and modular than the IRI so that even devices on the Internet of Things can run it. This software is being rewritten in the Rust programming language. As a result, the Ict will eventually be replaced by the new Rust version called **Bee**.
--------------------------
-
--------------------------
 ![Coordicide Alphanet](../images/Alphanet.png)
 ## [Coordicide Alphanet](../alphanet/introduction/overview.md)
-The Coordicide Alphanet is open-source Go software that implements a prototype of an IOTA network without the Coordinator. This network is still in development, so not all modules exist, but new ones will be added when they are ready. When this network is complete, the modules will be added to the Rust version of the Ict (Bee).
+The Coordicide Alphanet is open-source Go software that implements a prototype of an IOTA network without the Coordinator. This network is still in development, so not all modules exist, but new ones will be added when they are ready.
 -------------------------
 
