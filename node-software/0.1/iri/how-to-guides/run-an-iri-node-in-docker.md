@@ -2,6 +2,13 @@
 
 **When you run the IRI in a Docker container, your device becomes a Linux server for an IRI node, which gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.**
 
+The IRI Docker container is suitable for the following operating systems:
+* Linux
+* Mac
+* Windows
+
+If you're using a Linux operating system, add `sudo` before the commands in this guide.
+
 ## Prerequisites
 
 To complete this guide, you need the following:

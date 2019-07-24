@@ -1,6 +1,6 @@
 # Create an account
 
-**An account is an object that makes it easier to handle payments and keep a history of pending and confirmed ones.**
+**An account is an object that makes it easier to handle payments and keep a history of pending and confirmed ones. You can use your account on any IOTA network.**
 
 ## Prerequisites
 
@@ -16,8 +16,6 @@ If you have never created an account before, you must [create a new seed](root:/
 :::
 
 ## Create a new account
-
-You can use your account on any IOTA network.
 
 In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. 
 
@@ -116,6 +114,4 @@ Instead of using the default account settings, you can customize them to change 
 
 ## Next steps
 
-After certain events happen in your account, it emits them, and allow you to listen for them.
-
-For example, you may want to monitor your account for new payments. To do so, you need to [create an event listener](root://iota-js/0.1/how-to-guides/listen-to-events.md).
+After certain events happen in your account, it emits them, and allows you to listen for them. For example, you may want to monitor your account for new payments. To do so, you need to [create an event listener](root://iota-js/0.1/how-to-guides/listen-to-events.md).
