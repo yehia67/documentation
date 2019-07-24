@@ -1,6 +1,6 @@
 # Send spam transactions to your node
 
-**When you run a node, it wait to receive and process transactions from its neighbors. To test how many transactions per second your node can process, you can use a web API endpoint to send it spam transactions.**
+**To test how many transactions per second your node can process, you can use a web API endpoint to send it spam transactions.**
 
 The `spammer` API endpoint allows you to send your node spam transactions.
 
