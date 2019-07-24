@@ -1,6 +1,6 @@
 # Utilities
 
-**Utilities are open-source applications or programs that you can either use or adapt and include in your own applications.**
+**Utilities are open-source applications or tools that you can either use or adapt and include in your own applications.**
 
 ### **Official support** ###
 
