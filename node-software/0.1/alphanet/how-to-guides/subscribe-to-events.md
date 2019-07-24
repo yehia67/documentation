@@ -1,6 +1,6 @@
-# Subscribe to a transaction event
+# Subscribe to the transaction event
 
-**When your node receives transactions, it publishes them as an event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event and receive details of every transaction that your node receives.**
+**When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event and receive details of every transaction that your node receives.**
 
 You can receive this transaction data from a node by doing the following:
 
@@ -21,27 +21,7 @@ To use the sample code in this guide, you must have the following:
 * Access to a command prompt
 * An Internet connection
 
-<<<<<<< HEAD:node-software/alphanet/how-to-guides/subscribe-to-events.md
-## Step 1. Send transactions to your node
-
-To make sure that your node is receiving transactions, you can use the `spammer` API endpoint to send it some transactions.
-
-Open a web browser and enter the following into the address bar
-
-IP_ADDRESS => The ip address of your shimmer node
-
-`http://[IP_ADDRESS]:8080/spammer?cmd=start`
-
-:::info:
-By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 10,000 TPS, send a request to the following endpoint `http://[IP_ADDRESS]:8080/spammer?cmd=start&tps=10000`
-:::
-
-Now that your node is receiving transactions, subscribe to the `tx` event, using a ZMQ library.
-
-## Step 2. Subscribe to the received transaction event
-=======
 ## Subscribe to the received transaction event
->>>>>>> c7be7dbb0d06ab097fe16fd740dc68ff393250b0:node-software/0.1/alphanet/how-to-guides/subscribe-to-events.md
 
 You can subscribe to the `tx` event on the ZMQ of a node to listen for recently received transactions.
 

@@ -26,6 +26,7 @@
 [IRI/References/ZMQ events](/iri/references/zmq-events.md)
 [Alphanet/Introduction/Overview](/alphanet/introduction/overview.md)
 [Alphanet/How-to Guides/Run an Alphanet node](/alphanet/how-to-guides/run-the-node.md)
+[Alphanet/How-to Guides/Send spam transactions to your node](/alphanet/how-to-guides/send-spam.md)
 [Alphanet/How-to Guides/Subscribe to events](/alphanet/how-to-guides/subscribe-to-events.md)
 [Alphanet/References/Command-line flags](/alphanet/references/command-line-flags.md)
 
