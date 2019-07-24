@@ -42,7 +42,6 @@ To complete this guide, you must have the following
     ```bash
     GOROOT=/usr/local/go
     GOPATH=~/[USERNAME]/go
-    GO111MODULE=on
     ```
 
 7. Create soft links to the Go binary files
