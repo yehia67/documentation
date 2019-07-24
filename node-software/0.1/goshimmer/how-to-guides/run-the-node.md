@@ -149,29 +149,23 @@ To complete this guide, you need the following:
     This directory is called `$GOPATH`.
     :::
 
-2. Clone the `goshimmer` repository. Replace the `$GOPATH` placeholder with your own `$GOPATH` directory.
+2. Clone the `goshimmer` repository anywhere outside of `$GOPATH`
     
     ```bash
-    git clone https://github.com/iotaledger/goshimmer.git $GOPATH/src/github.com/iotaledger/goshimmer
-    ```
-
-3. Change into the `goshimmer` directory. Replace the `$GOPATH` placeholder with your own `$GOPATH` directory.
-
-    ```bash
-    cd $GOPATH/src/github.com/iotaledger/goshimmer
-    ```
-
-4. Install the dependencies
-
-    ```bash
-    go get
+    git clone https://github.com/iotaledger/goshimmer.git
     ```
 
 ### Step 2. Run the node
 
 When you run the node, it joins the network by autopeering with the entry node that's run by us at the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors.
 
-1. Build the executable file
+1. Change into the `goshimmer` directory
+
+    ```bash
+    cd goshimmer
+    ```
+
+2. Build the executable file
 
     ```bash
     go build -o shimmer
@@ -179,7 +173,7 @@ When you run the node, it joins the network by autopeering with the entry node t
     
     Now, you have a file called `shimmer` that you need to execute.
 
-2. To execute the `shimmer` file on Linux or macOS, do `./shimmer`. To execute the file on Windows, rename it to `shimmer.exe`, then execute it by double clicking the file, or by doing `.\shimmer` in the command prompt.
+3. To execute the `shimmer` file on Linux or macOS, do `./shimmer`. To execute the file on Windows, rename it to `shimmer.exe`, then execute it by double clicking the file, or by doing `.\shimmer` in the command prompt.
 
     :::info:
     You can customize some features of your node by adding [command-line flags](../references/command-line-flags.md) after the command to execute the file.
