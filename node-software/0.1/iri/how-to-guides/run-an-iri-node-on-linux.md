@@ -1,24 +1,22 @@
 # Run an IRI node on a Linux server
 
-**When you run the IRI on a Linux server, it becomes a node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
+**When you run the IRI software, your device becomes a node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
 
 ## Prerequisites
 
-* To run the IRI, your server must meet the following minimum requirements:
-    * 4GB RAM
-    * 64-bit processor
-    * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
+To complete this guide, you need the following:
 
-* By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md).
+* 4GB RAM
+* 64-bit processor
+* An Internet connection
+* A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04))
+* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
+* [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
 
     * **TCP neighbor peering port:** 15600
     * **TCP API port:** 14265
     
----
-
-:::info:
-If your server has limited resources such as less than 4 GB of RAM, we recommend running the cIRI instead of the IRI.
-:::
+## Step 1. Download the IRI Java file
 
 The IRI is Java software, so it must be run in a Java runtime environment (JRE).
 
@@ -78,11 +76,10 @@ HTTP request sent, awaiting response ... 200 OK
 ```
 
 :::info:Is this your first node?
-If you are starting a node from scratch, you need to download the `spent-addresses-db` directory from [our website](https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/), [the IOTA Partners website](https://iota.partners/#database), or the [IOTA Playbook](https://iri-playbook.readthedocs.io/en/master/faq.html#where-can-i-get-a-fully-synced-database-to-help-kick-start-my-node).
+You need to download the `spent-addresses-db` directory from [our website](https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/), [the IOTA Partners website](https://iota.partners/#database), or the [IOTA Playbook](https://iri-playbook.readthedocs.io/en/master/faq.html#where-can-i-get-a-fully-synced-database-to-help-kick-start-my-node).
 
 After you've downloaded the directory, extract it into the same directory as your IRI Java file from step 4. For this example, the file is in the `/home/jake/node/` directory.
 :::
-
 
 Now that the IRI Java file and the `spent-addresses-db` directory are saved on your server, [configure the IRI](#configure-the-iri) before running it.
 
@@ -151,7 +148,7 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
     The IRI Java file is in a directory called `target`.
     :::
 
-## Configure the IRI
+## Step 2. Configure the IRI
 
 The IRI runs in a Java virtual machine. Therefore, before you run the IRI, you need to set up some Java variables.
 
@@ -221,7 +218,7 @@ You must also create a snapshot file to define an address that contains the enti
 WYF9OOFCQJRTLTRMREDWPOBQ9KNDMFVZSROZVXACAWKUMXAIYTFQCPAYZHNGKIWZZGKCSHSSTRDHDAJCW;2779530283277761
 ```
 
-## Run the IRI
+## Step 3. Run the IRI
 
 When you've downloaded, and configured the IRI, it's time to run it.
 
@@ -231,6 +228,10 @@ When you've downloaded, and configured the IRI, it's time to run it.
     mkdir -p /home/jake/node/data
     cd /home/jake/node/data
     ```
+
+    :::info:
+    We recommend making regular backups of your database. This way, you can restore your node in case of a corrupted database or another type of node malfunction. To do so, you create a cron job that copies the database to a different volume every day.
+    :::
 
 2. Run the IRI. Change `jake` to your Linux username and `$VERSION` to the version of the IRI that you downloaded.
 
@@ -299,7 +300,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
 
 Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
 
-## Check that the IRI is synchronized
+## Step 4. Check that the IRI is synchronized
 
 The IRI is considered synchronized when the `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field.
 

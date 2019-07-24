@@ -36,10 +36,10 @@
 
 | **Flag** |   **Description**| **Default values**|
 | :------------------------ | :--------------- | :--------|
-|`--apiAddress`| URL or IP address of the IRI node that Hub connects to. To avoid connecting to a malicious node, we recommend [running your own node](root://iri/0.1/introduction/overview.md) and connecting to it. Hub can't connect to nodes that use the HTTPS protocol.| "127.0.0.1:14265"|
+|`--apiAddress`| URL or IP address of the IRI node that Hub connects to. To avoid connecting to a malicious node, we recommend [running your own node](root://node-software/0.1/iri/introduction/overview.md) and connecting to it. Hub can't connect to nodes that use the HTTPS protocol.| "127.0.0.1:14265"|
 |`--attachmentInterval`|Interval in milliseconds that Hub waits between [reattaching and promoting transactions](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md). 0=disabled.|240000|
 |`--authProvider`| Provider to use to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method. This value can be "non" or "hmac"| "none"|
-|`--depth`|Value to use for the `depth` parameter of the [`getTransactionsToApprove` (GTTA)](root://iri/0.1/references/api-reference.md#getTransactionsToApprove) endpoint| 3|
+|`--depth`|Value to use for the `depth` parameter of the [`getTransactionsToApprove` (GTTA)](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove) endpoint| 3|
 |`--hmacKeyPath` |Path to the HMAC key used to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method|"/dev/null"|
 |`--minWeightMagnitude`| [Minimum weight magnitude (MWM)](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) to use for proof of work. To use Hub on the Mainnet, you must use a MWM of 14.| 9|
 |<a name="monitorInterval"></a>`--monitorInterval`|Interval in milliseconds that Hub checks deposit addresses and updates the [`user_address` and `user_address_balance` tables](../references/database-tables.md). Those that contain tokens are included in the next sweep. 0=disabled.|60000|

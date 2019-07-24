@@ -12,4 +12,4 @@ IOTA is a permissionless DLT. Therefore, nodes can be run by anyone, including i
 
 If you can't run your own node, you can use the public ones in Trinity or use websites such as [IOTA Dance](https://iota.dance) to find a list them.
 
-[Learn more about node software](root://iri/0.1/introduction/overview.md).
+[Learn more about node software](root://node-software/0.1/iri/introduction/overview.md).
