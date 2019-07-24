@@ -105,7 +105,7 @@ When you run the node, it joins the network by autopeering with the entry node t
    :::
 
 :::success:Congratulations :tada:
-You're now running a GoShimmer.
+You're now running a GoShimmer node.
 :::
 
 ![GoShimmer user interface](../images/goshimmer.png)
