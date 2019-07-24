@@ -103,7 +103,8 @@ When you run the node, it joins the network by autopeering with the entry node t
 
     :::info:
     You can customize some features of your node by adding [command-line flags](../references/command-line-flags.md) after the `run` command.
-    :::
+    To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command.
+   :::
 
 :::success:Congratulations :tada:
 You're now running a node on the Coordicide Alphanet.
@@ -115,32 +116,9 @@ The user interface displays the following statistics in the top-right corner:
 
 * **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions.
 * **Node ID:** The node's public key that gives it a unique identity
-* **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accept incoming connections from 4 other neighbors that chose it.
+* **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it.
 * **Known peers:** The total number of neighbors that the node is connected to. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
 * **Uptime:** The total amount of time during which the node has been running
-
-### Step 3. Send spam transactions to your node
-
-The `spammer` API endpoint allows you to send your node spam transactions.
-
-1. Open a web browser and enter the following into the address bar. If you want to access your node through the Internet, replace localhost with your IP address.
-
-    `http://localhost:8080/spammer?cmd=start`
-
-    :::info:
-    By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 10,000 TPS, send a request to the following endpoint `http://localhost:8080/spammer?cmd=start&tps=10000`
-    :::
-
-2. To check that your node is receiving transactions, you can open the web user interface by going to localhost:8081 in a web browser.
-
-    ![Alphanet web user interface](../images/alphanet-web-ui.png)
-
-    :::info:
-    The displayed TPS may be lower than the value of the `tps` parameter you used. The reason for this difference may be due to limits with your computer hardware.
-    :::
-    :::info:
-    To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command.
-    :::
 
 ## Run the node on your local device
 
@@ -222,11 +200,11 @@ The user interface displays the following statistics in the top-right corner:
 
 * **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions.
 * **Node ID:** The node's public key that gives it a unique identity
-* **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accept incoming connections from 4 other neighbors that chose it.
+* **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it.
 * **Known peers:** The total number of neighbors that the node is connected to. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
 * **Uptime:** The total amount of time during which the node has been running
 
-### Step 3. Send spam transactions to your node
+## Send spam transactions to your node
 
 The `spammer` API endpoint allows you to send your node spam transactions.
 
