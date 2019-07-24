@@ -2,7 +2,7 @@
 [IOTA Basics](/iota-basics)
 [The Tangle](/the-tangle)
 [Client Libraries](/client-libraries)
-[Node software](/node-software)
+[Node Software](/node-software)
 [Hub](/hub)
 [Compass](/compass)
 [Trinity Wallet](/trinity)
