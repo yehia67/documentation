@@ -1,6 +1,6 @@
 # Run an IRI node in a Docker container
 
-**When you run the IRI in a Docker container, your computer becomes a Linux server for an IRI node, which gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.**
+**When you run the IRI in a Docker container, your device becomes a Linux server for an IRI node, which gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.**
 
 The IRI Docker container is suitable for the following operating systems:
 * Linux
@@ -15,28 +15,27 @@ To complete this guide, you need the following:
 
 * 4GB RAM
 * 64-bit processor
-* Administrator access to your router
 * An Internet connection
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
-* The following default ports must be open and forwarded to the device that's running the node:
+* [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
 
     * **TCP neighbor peering port:** 15600
     * **TCP API port:** 14265
 
----
+The Docker container is suitable for the following operating systems:
+* Linux
+* macOS
+* Windows
 
-The IRI is Java software, so it must be run in a Java runtime environment (JRE).
-The IRI Docker container contains the necessary software to run the IRI.
+:::info:
+If you're using a Linux operating system, add `sudo` before all the commands in the following tasks.
+:::
 
-You have two options for downloading the IRI Docker container:
-* [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option)
-* [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code)
+## Step 1. Install Docker
 
-## Install Docker
+To build the Docker container, you must install Docker 17.05+ (for multi-stage build support) on your device.
 
-To build the IRI Docker container, Docker 17.05+ (for multi-stage build support) must be installed on your computer.
-
-1. [Install Docker](https://docs.docker.com/install/#supported-platforms). If you're running a version of Mac or Windows that's older than the system requirements, install the [Docker toolbox](https://docs.docker.com/toolbox/overview/) instead.
+1. [Install Docker](https://docs.docker.com/install/#supported-platforms). If you're running a version of macOS or Windows that's older than the system requirements, install the [Docker toolbox](https://docs.docker.com/toolbox/overview/) instead.
 
 2. Make sure that Docker is installed
 
@@ -120,7 +119,7 @@ Instead of downloading the pre-built Docker container, you may want to build the
 
 ## Step 2. Run the IRI
 
-You can configure the IRI by passing in [IRI configuration options](../references/iri-configuration-options.md) as flags.
+You can configure the node by passing [configuration options](../references/iri-configuration-options.md) to the `run` command as flags.
 
 1. Run the IRI with the `-p` flag to specify the API port
 

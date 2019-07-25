@@ -201,7 +201,7 @@ The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first
 	:::info:
 	If you want to allow neighbors to automatically connect to your node, edit the `02_run_iri.sh` file and add the `--auto-tethering-enabled true` flag to the list of other flags.
 
-	Find out which [other flags](root://iri/0.1/references/iri-configuration-options.md) you can change to customize the IRI for your own private Tangle.
+	Find out which [other flags](root://node-software/0.1/iri/references/iri-configuration-options.md) you can change to customize the IRI for your own private Tangle.
 	:::
 
 	:::info:
@@ -348,7 +348,7 @@ If you want to send and receive transactions on the network through a user inter
 
 ## Next steps
 
-* [Subscribe to events on your node](root://iri/0.1/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions.
+* [Subscribe to events on your node](root://node-software/0.1/iri/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions.
 
 * Try adding multiple nodes to your network to make a similar architecture to the [Devnet](root://getting-started/0.1/references/iota-networks.md)
 

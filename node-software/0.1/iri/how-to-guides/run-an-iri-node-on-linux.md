@@ -1,6 +1,6 @@
 # Run an IRI node on a Linux server
 
-**When you run the IRI software, your computer becomes a node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
+**When you run the IRI software, your device becomes a node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
 
 ## Prerequisites
 
@@ -8,11 +8,10 @@ To complete this guide, you need the following:
 
 * 4GB RAM
 * 64-bit processor
-* Administrator access to your router
 * An Internet connection
 * A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04))
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
-* The following default ports must be open and forwarded to the device that's running the node:
+* [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
 
     * **TCP neighbor peering port:** 15600
     * **TCP API port:** 14265
