@@ -46,7 +46,7 @@ CDAs can be used only in an account and not in the generic client library method
         });
     ```
 
-    :::info
+    :::info:
     If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/tutorials/receive-test-tokens.md).
     :::
 
@@ -63,29 +63,28 @@ The account's attachment routine will keep attaching unconfirmed transactions un
 You can start or stop the attachment routine by calling the `startAttaching()` and
 `stopAttaching()` methods.
 
-    ```js
+```js
+account.startAttaching({
+    depth: 3,
+    minWeightMagnitude: 9,
+    delay: 30 * 1000
 
-    account.startAttaching({
-        depth: 3,
-        minWeightMagnitude: 9,
-        delay: 30 * 1000
+    // How far back in the Tangle to start the tip selection
+    depth: 3,
 
-        // How far back in the Tangle to start the tip selection
-        depth: 3,
+    // The minimum weight magnitude is 9 on the Devnet
+    minWeightMagnitude: 9,
 
-        // The minimum weight magnitude is 9 on the Devnet
-        minWeightMagnitude: 9,
+    // How long to wait before the next attachment round
+    delay: 1000 * 30,
 
-        // How long to wait before the next attachment round
-        delay: 1000 * 30,
+    // The depth at which transactions are no longer promotable
+    // Those transactions are automatically re-attached
+    maxDepth: 6
+});
 
-        // The depth at which transactions are no longer promotable
-        // Those transactions are automatically re-attached
-        maxDepth: 6
-    });
-
-    account.stopAttaching();
-    ```
+account.stopAttaching();
+```
 
 ## Transfer your entire available balance to one CDA
 

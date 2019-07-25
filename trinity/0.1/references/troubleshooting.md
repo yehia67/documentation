@@ -1,6 +1,8 @@
 # Troubleshooting
 
-**You may find some of these common issues while using Trinity.**
+**Use this reference guide to resolve issues related to Trinity.**
+
+If you can't find the solution to your issue, search the [IOTA StackExchange](https://iota.stackexchange.com/).
 
 ## Incorrect balance
 

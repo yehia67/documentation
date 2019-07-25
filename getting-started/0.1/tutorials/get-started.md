@@ -249,7 +249,7 @@ You've confirmed your connection to the node. Now, you're ready to [send a trans
 :::
 
 :::info:
-To learn what these fields mean, [see the API reference](root://iri/0.1/references/api-reference.md#getNodeInfo).
+To learn what these fields mean, [see the API reference](root://node-software/0.1/iri/references/api-reference.md#getNodeInfo).
 :::
 
 ## Run the code (Node.js)
