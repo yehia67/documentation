@@ -1,8 +1,8 @@
 # Hub overview
 
-**Hub is a headless multi-user-wallet that you can plug into your own applications. Through its [gRPC API](../how-to-guides/get-started-with-the-api.md), Hub offers you a secure way to manage deposits and withdrawals of IOTA tokens. To manage the data for each user, Hub uses a database to store user information such as IDs, deposit addresses, and withdrawal requests.**
+**Hub is a headless multi-user wallet for cryptocurrency exchanges. Hub offers you a secure way to manage deposits and withdrawals of users' IOTA tokens. When a user deposits IOTA tokens into one of their Hub addresses, Hub transfers those tokens to the Hub owners address in a process called a sweep. This way, the Hub owner can make sure that users' tokens are secure until they request a withdrawal.**
 
-Hub helps you to integrate IOTA into your own applications by automating the following processes:
+Hub helps you to integrate IOTA into your own applications by automating the following processes through a [gRPC API](../how-to-guides/get-started-with-the-api.md):
 
 * [Transaction monitoring](#transaction-monitoring)
 * [Seed creation](#seed-creation)

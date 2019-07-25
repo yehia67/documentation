@@ -6,7 +6,12 @@ You have two options for running a node. You either can run the node as a servic
 
 ## Run the node in a Docker container
 
-When you run a node in a Docker container, it includes all the necessary dependencies that you need to run a node. For example, GCC and the Go programming language.
+When you run a node in a Docker container, it's similar to running it in a lighweight virtual machine.
+
+Some of the advantages of running a node in a Docker container include the following:
+
+* You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language
+* The node runs in the same way on any supported system architecture
 
 ### Prerequisites
 
@@ -92,10 +97,10 @@ When you run the node, it joins the network by autopeering with the entry node t
     docker build -t goshimmer .
     ```
 
-4. Run the Docker image
+4. Run the Docker image and forward the ports from your host device to the Docker container
 
     ```bash
-    docker run --rm -it -v mainnetdb:/root/mainnetdb goshimmer
+    sudo docker run --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -it -v mainnetdb:/root/mainnetdb goshimmer
     ```
 
     :::info:

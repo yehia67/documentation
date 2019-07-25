@@ -2,7 +2,7 @@
 
 **Hub allows you to create new users, manage their seeds, and action deposits and withdrawals by using any programming language that supports the gRPC framework.**
 
-![IOTA Hub architecture](../iota_hub.png)
+![IOTA Hub architecture](../images/iota_hub.png)
 
 To get started with Hub, complete the following tasks in order.
 
@@ -112,7 +112,7 @@ The default repositories for Ubuntu 18.04 LTS don't provide a package that can b
 
 	During the installation, you'll be prompted to enter a root password for MariaDB. Enter a secure password and remember it. You will need it later on.
 
-	![MariaDB password prompt](../mariapassword.png "Choose your password")
+	![MariaDB password prompt](../images/mariapassword.png "Choose your password")
 
 5. Make sure that MySQL is installed
 
@@ -363,7 +363,7 @@ You can communicate with Hub through any programming language that supports [gRP
 	python examples/get_address.py
 	```
 
-	The output should display a new deposit address for user-1. Feel free to send it a couple of IOTA tokens to try it out with [Trinity](root://trinity/0.1/introduction/overview.md)!
+	The output should display a new deposit address for user-1. Feel free to send it a couple of IOTA tokens to try it out with [Trinity](root://wallets/0.1/trinity/0.1/introduction/overview.md)!
 
 7. Get the balance and history for the user  
 

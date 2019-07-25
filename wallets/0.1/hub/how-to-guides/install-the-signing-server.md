@@ -4,7 +4,7 @@
 
 For this guide, you'll need a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
 
-![IOTA Hub architecture](../iota_hub.png)
+![IOTA Hub architecture](../images/iota_hub.png)
 
 To get started with Hub, complete the following tasks in order.
 

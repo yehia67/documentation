@@ -8,6 +8,6 @@ Node owners often don't open them to the public because a high volume of API cal
 
 If you can't run your own node, you can use the public ones in Trinity or use websites such as [IOTA Dance](https://iota.dance) to find a list them.
 
-To use any IOTA network, you can interact with a node through the [client libraries](root://client-libraries/0.1/introduction/overview.md). Many IOTA applications, such as [Trinity](root://trinity/0.1/introduction/overview.md), use one of these client libraries behind the scenes.
+To use any IOTA network, you can interact with a node through the [client libraries](root://client-libraries/0.1/introduction/overview.md). Many IOTA applications, such as [Trinity](root://wallets/0.1/trinity/0.1/introduction/overview.md), use one of these client libraries behind the scenes.
 
 [Learn more about node software](root://node-software/0.1/iri/introduction/overview.md).

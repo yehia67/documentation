@@ -1,6 +1,6 @@
 # Trinity overview
 
-**Trinity is a mobile and desktop application with a user interface that allows you to transfer data and IOTA tokens.**
+**Trinity is a mobile and desktop application with a user interface that allows you to transfer data and IOTA tokens. Trinity allows you to encrypt and store multiple seeds, where each seed has its own account, transaction history, and settings.**
 
 Trinity allows you to do the following:
 

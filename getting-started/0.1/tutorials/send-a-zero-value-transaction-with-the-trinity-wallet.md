@@ -49,5 +49,5 @@ Your transaction will appear in your transaction history. Click the transaction 
 :::success:Congratulations :tada:
 You've just sent yourself a message that's now public on the IOTA network. Why not ask your friends for one of their addresses so you can send them messages.
 
-[Find out about the other features of Trinity](root://trinity/0.1/introduction/overview.md) and become an expert.
+[Find out about the other features of Trinity](root://wallets/0.1/trinity/0.1/introduction/overview.md) and become an expert.
 :::
