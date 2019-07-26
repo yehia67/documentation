@@ -1,6 +1,6 @@
 # Wallets
 
-**A wallet is an application that stores your seed and keeps a record of transactions in a database. You can use wallets simplify the process of securing your seed, sending transactions, and managing your balance.**
+**A wallet is an application that stores your seed and keeps a record of transactions in a database. You can use wallets to simplify the process of securing your seed, sending transactions, and managing your balance.**
 
 -------------------------
 ![Trinity](../images/trinity.png)
