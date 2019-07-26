@@ -10,6 +10,10 @@ When a transaction is grouped in a bundle, it's given both a `currentIndex` fiel
 
 Next, each transaction in the bundle, except the head, [references the proceeding one](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. These connections allow nodes to reconstruct bundles in the Tangle and validate the contents of all its transactions.
 
+:::info:
+[Send a bundle of transactions](../how-to-guides/send-bundle.md) to see these references.
+:::
+
 Bundles are atomic, meaning that if any of the transactions in the bundle change, the bundle hash of each transaction would be invalid.
 
 To explain why bundles need to be atomic, take this example.

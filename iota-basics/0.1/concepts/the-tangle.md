@@ -1,8 +1,16 @@
 # The Tangle
 
-**The Tangle is the immutable data structure that contains a history of IOTA transactions. All nodes in an IOTA network store a copy of the Tangle in their ledgers and can read from it and attach new transactions to it.**
+**The Tangle is the immutable data structure that contains IOTA transactions. All nodes in an IOTA network store a copy of the Tangle in their ledgers, read from it, attach new transactions to it, and reach a consensus on its contents.**
 
-The Tangle is a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), which is a sequence of vertices where every edge is directed from earlier to later in the sequence.
+In the Tangle, each transaction is attached to two others by reference.
+
+Clients define these references in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md).
+
+:::info:
+Before a client sends a bundle of transactions to a node, it asks the node for two transaction hashes from the Tangle to include in these fields. The node does this in a process called [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md).
+:::
+
+The references among transactions form a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), which is a sequence of vertices where every edge is directed from an earlier point to a later one in the sequence.
 
 In the Tangle, vertices are transactions, and edges are references.
 
@@ -12,23 +20,19 @@ In this diagram, the numbered boxes represent transactions. The transactions on 
 
 When a node attaches a new transaction to the Tangle, that transaction directly references two existing ones to the left of it.
 
-:::info:
-Nodes select these existing transactions during a process called [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md). During this process, nodes [validate](root://node-software/0.1/iri/concepts/transaction-validation.md) the history of the selected transactions. As a result, any transaction that references another also approves it.
-:::
-
-In the Tangle, transactions reference each other through their [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md). Each of these fields contains the transaction hash of another transaction.
-
-If any of the transaction's contents were to change, the hash would change, thus breaking the references. As a result, when a transaction is attached to the Tangle, it's immutable.
-
-:::info:
 References form a family tree, whereby if a new transaction is a **child**, the branch and trunk transactions are its **parents**.
 
 In this diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. On the other hand, transaction 6 indirectly references transaction 3, so, transaction 3 is a **grandparent** of transaction 6.
-:::
 
 ## Consensus
 
-Because the Tangle is distributed among all nodes, they must reach a consensus on which transactions to consider confirmed before they can update the balances of addresses.
+Because the Tangle is distributed among all nodes in an IOTA network, some of them may have different transactions in their ledgers at any given time. The transactions in any node's ledger make up that node's _view of the Tangle_.
+
+To make sure that all nodes have the same view of the Tangle, they forward any new transactions they receive to their neighbors. If a node is missing any of a transaction's references, it will asks its neighbors for those references.
+
+When a node has all of a transaction's references, the transaction is considered solid. The goal of all nodes is to make the transactions in their ledgers solid.
+
+For a transaction to be considered confirmed, nodes must reach a consensus on which solid transactions to consider final before they can update the balances of addresses.
 
 A transaction is considered confirmed when it's directly or indirectly referenced by a transaction that's sent and signed by the Coordinator.
 

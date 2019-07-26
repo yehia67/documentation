@@ -22,9 +22,5 @@ At the moment, nodes reach a consensus on transactions that are **directly or in
 If transaction 6 were a milestone, then transaction 5, 3, 2, and 1 would all be confirmed.
 ::: 
 
-<<<<<<< HEAD
 Learn more about [the Coordinator](root://iota-basics/0.1/concepts/the-tangle.md), [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md).
-=======
-Learn more about [the Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md) and [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
->>>>>>> c58171ef5abf7dba738198d5ace1a239aa1623e8
 
