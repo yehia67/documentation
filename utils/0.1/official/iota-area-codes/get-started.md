@@ -12,15 +12,15 @@ To complete this tutorial, you need the following:
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
-*Installed the [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md) and [`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes) libraries
+* The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md) and [`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes) libraries
 
 :::info:
 If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)
 :::
 
-## Step 1. Find a coordinates
+## Step 1. Find some coordinates
 
-To encode a geo-location into an IAC, you need some latitude and longitude cooridinates. In this example, we use Google Maps to find the coordinates.
+To encode a geo-location into an IAC, you need some latitude and longitude coordinates. In this example, we use Google Maps to find the coordinates.
 
 1. [Open Google Maps](https://www.google.co.uk/maps) and search for an address
 
@@ -92,8 +92,7 @@ In this example, we tag a transaction on the [Devnet](root://getting-started/0.1
     return iota.sendTrytes(trytes, 3/*depth*/, 9/*MWM*/)
     })
     .then(bundle => {
-    var JSONBundle = JSON.stringify(bundle,null,1);
-    console.log("Bundle sent");
+    console.log("Bundle sent with the tagged transaction");
     })
     .catch(err => {
     // Catch any errors
@@ -116,9 +115,7 @@ In this example, we tag a transaction on the [Devnet](root://getting-started/0.1
                     let data = iotaAreaCodes.decode(areaCode);
                     locations.push({"lat": data.latitude, "lng":data.longitude});
                 }
-                for(i=0;i<locations.length;i++){
-                    console.log(locations[i])
-                }
+                    console.log(`${locations[i]} transactions found with the ${iac} tag`)
             }
         )
     })
@@ -128,7 +125,7 @@ In this example, we tag a transaction on the [Devnet](root://getting-started/0.1
     });
     ```
 
-:::success:Congratulation :tada:
+:::success:Congratulations :tada:
 You've just used the IAC API to tag a transaction with a geo-location, and find any transactions with the same tag.
 :::
 

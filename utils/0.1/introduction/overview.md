@@ -4,9 +4,7 @@
 
 ### **Official support** ###
 
-These utilities were built by us at the IOTA Foundation and are hosted on [utils.iota.org](https://utils.iota.org/).
-
-The source code for this website is available on [GitHub](https://github.com/iotaledger/tangle-utils-website).
+The following utilities are maintained by us at the IOTA Foundation.  Use these links to find instructions for using the utilities and information about how they work.
 
 ---------------
 #### **Area code finder** ####
