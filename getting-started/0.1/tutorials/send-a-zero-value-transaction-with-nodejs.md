@@ -13,7 +13,7 @@ To complete this tutorial, you need the following:
 * Access to a command prompt
 * An Internet connection
 
-## Attach an immutable message to the Tangle
+## Step 1. Attach an immutable message to the Tangle
 
 In this example, we connect to a [Devnet node](../references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
@@ -143,7 +143,7 @@ In the console, you'll see information about the the [bundle](../introduction/wh
 
 The transaction in your bundle will propagate through the network until all the nodes have it in their ledgers.
 
-## Confirm that your transaction is on the network
+## Step 2. Confirm that your transaction is on the network
 
 To confirm that your transaction is on the network (attached to the Tangle), copy the value of the `bundle` field from the console, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
 
