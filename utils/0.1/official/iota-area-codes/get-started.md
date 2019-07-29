@@ -18,9 +18,9 @@ To complete this tutorial, you need the following:
 If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)
 :::
 
-## Step 1. Find a coordinates
+## Step 1. Find some coordinates
 
-To encode a geo-location into an IAC, you need some latitude and longitude cooridinates. In this example, we use Google Maps to find the coordinates.
+To encode a geo-location into an IAC, you need some latitude and longitude coordinates. In this example, we use Google Maps to find the coordinates.
 
 1. [Open Google Maps](https://www.google.co.uk/maps) and search for an address
 
