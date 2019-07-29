@@ -38,3 +38,7 @@ An IAC consists of three parts (excluding the `9` separator):
 |11    |3.5 m |
 |12 |Less than 3 m|
 
+## Further reading
+
+For more information about IACs, [read our blog post](https://blog.iota.org/iota-area-codes-a-proposal-to-geo-tag-iota-transactions-d3c457d1df1b).
+

@@ -10,71 +10,10 @@ The source code for this website is available on [GitHub](https://github.com/iot
 
 ---------------
 #### **Area code finder** ####
-[Link](https://utils.iota.org/area-codes)
+[Link](../official/iota-area-codes/overview.md)
 
-Use a map to find locations by an IOTA area code (IAC).
-
-For more information about IACs, [read our blog post](https://blog.iota.org/iota-area-codes-a-proposal-to-geo-tag-iota-transactions-d3c457d1df1b).
-
-To integrate IACs into your own applications, [read our quickstart guide on GitHub](https://github.com/iotaledger/iota-area-codes).
----
-
-#### **Currency converter** ####
-[Link](https://utils.iota.org/currency-conversion)
-
-Convert any units of IOTA to one of the available currencies.
----
-
-#### **MAM subscriber** ####
-[Link](https://utils.iota.org/mam)
-
-Complete the form to subscribe to a MAM channel on the Mainnet or Devnet.
----
-
-#### **QR code creator** ####
-[Link](https://utils.iota.org/qr-create)
-
-Create a QR code that contains transaction data such as the address, amount and message fields.
----
-
-#### **QR code scanner** ####
-[Link](https://utils.iota.org/qr-scan)
-
-Scan a QR code to read the transaction data from it.
----
-
-#### **Simple transaction sender** ####
-[Link](https://utils.iota.org/simple-transaction)
-
-Complete the form fields to send a zero-value transaction to the Mainnet or Devnet.
----
-
-#### **Tangle explorer** ####
-[Link](https://utils.iota.org/)
-
-Search for transactions on the Mainnet or Devnet and filter them by value. 
----
-
-#### **Text converter** ####
-[Link](https://utils.iota.org/text-conversion)
-
-Convert ASCII characters to/from trytes.
----
-
-#### **Transaction decoder** ####
-[Link](https://utils.iota.org/transaction-decoder)
-
-Decode a transaction's structure in trytes so that you can read the values of its fields.
----
-
-#### **Trytes compressor** ####
-[Link](https://utils.iota.org/compress)
-
-Compress trytes into bytes so that you can store transactions in less space.
-
-To integrate the trytes compressor into your own applications, [read our quickstart guide on GitHub](https://github.com/iotaledger/tryte-compress-js) 
+Tag an IOTA transaction with a geo-location, and find others with the same tag. 
 ---------------
-
 
 ### __Community support__ ###
 
