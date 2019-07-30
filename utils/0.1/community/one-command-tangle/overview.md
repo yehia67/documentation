@@ -168,7 +168,7 @@ We have two wallets that you can use:
 
 ### Connect to the light wallet
 
-If you want to send and receive transactions through a user interface without exposing your IRI node to the Internet, you can configure the [IOTA Light Wallet](https://github.com/iotaledger/wallet/releases) to connect to your node at `http://localhost:14265`
+The [IOTA Light Wallet](https://github.com/iotaledger/wallet/releases) is a basic user interface that allows you to connect to your IRI node at `http://localhost:14265`.
 
 1. Log into the wallet with your seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`
 
@@ -182,9 +182,9 @@ If you want to send and receive transactions through a user interface without ex
 
 ### Connect to Trinity
 
-[Trinity](root://trinity/0.1/introduction/overview.md) allows you to connect only to nodes that support the HTTPS protocol.
+[Trinity](root://trinity/0.1/introduction/overview.md) is the official IOTA  wallet for macOS, Windows, Linux, iOS, and Android. This wallet allows you to connect only to nodes that support the HTTPS protocol.
 
-If you want to access your private Tangle from Trinity, you need to expose the IRI node to the Internet through an HTTPS connection. To do so, you can configure the Docker container to start a secure Caddy proxy server that uses Let's Encrypt SSL certificates.
+To connect to Trinity, you can configure the one-command Tangle's Docker container to start a secure Caddy proxy server that uses Let's Encrypt SSL certificates.
 
 :::warning:
 This application uses a pre-computed Merkle tree with a seed that's in the `docker-compose.yml` file. As a result, if anyone has the URL of your node, they can use the Compass seed to take over your private Tangle.
@@ -196,7 +196,7 @@ You need the following:
 
 * A domain name whose [A-record](https://support.dnsimple.com/articles/a-record/) points to your public IP address
 
-* The device that's running the IRI node must be reachable on your public IP address on ports 80 and 443 (you may need to forward ports)
+* A device that's running the one-command Tangle, which is exposed to the Internet on ports 80 and 443 (you may need to forward ports)
 
 ---
 
