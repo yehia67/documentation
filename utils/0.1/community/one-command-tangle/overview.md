@@ -60,7 +60,7 @@ To use this application, you need the following:
  Compass uses a pre-built [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals.
  :::
 
-### Host an optional utilities website for your private Tangle
+ ### Host an optional utilities website for your private Tangle
 
 The [utils.iota.org website](https://utils.iota.org/) has utilities that make it easier to use an IOTA network. For example, you can use the website to interact with an IOTA network, compress transaction trytes, and convert the value of IOTA tokens into different currencies.
 
@@ -157,25 +157,28 @@ If you've never used the IOTA client libraries before, we recommend completing [
 ```
 --------------------
 
-## Step 3. Connect to the network through a wallet
+## Step 3. Connect to your private Tangle through a wallet
 
-You have two options for connecting to your private Tangle to a wallet:
+If you want to send and receive transactions through a user interface, you can connect to your private Tangle through one of the IOTA wallets.
+
+We have two wallets that you can use:
 
 * **Light wallet:** You can connect to your private Tangle without exposing your IRI node to the Internet
 * **Trinity:** You must expose your IRI node to the Internet through an HTTPS connection
 
 ### Connect to the light wallet
 
-If you want to send and receive transactions through a user interface without exposing your IRI node to the Internet, you can configure the [IOTA Light Wallet](https://github.com/iotaledger/wallet/releases) to connect to your node at `http://localhost:14265` and log in with your seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`.
+If you want to send and receive transactions through a user interface without exposing your IRI node to the Internet, you can configure the [IOTA Light Wallet](https://github.com/iotaledger/wallet/releases) to connect to your node at `http://localhost:14265`
 
-1. To connect to your node, go to **Tools** > **Edit Node Configuration**, and enter the URL of your node (`http://localhost:14265`)
+1. Log into the wallet with your seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`
+
+2. To connect to your node, go to **Tools** > **Edit Node Configuration**, and enter the URL of your node (`http://localhost:14265`)
 
     ![IOTA wallet configuration](../images/light-wallet-node-configuration.png)
 
-2. Go to **RECEIVE** > **ATTACH TO TANGLE** to see your full balance
+3. Go to **RECEIVE** > **ATTACH TO TANGLE** to see your full balance
 
     <img src="../images/light-wallet-test-tangle.png" width="200">
-
 
 ### Connect to Trinity
 
@@ -184,7 +187,7 @@ If you want to send and receive transactions through a user interface without ex
 If you want to access your private Tangle from Trinity, you need to expose the IRI node to the Internet through an HTTPS connection. To do so, you can configure the Docker container to start a secure Caddy proxy server that uses Let's Encrypt SSL certificates.
 
 :::warning:
-This application uses a pre-computed Merkle tree with a seed that's in the `docker-compose.yml` file. As a result, if anyone has the URL of your node, they can use the Compass seed take over your IOTA network.
+This application uses a pre-computed Merkle tree with a seed that's in the `docker-compose.yml` file. As a result, if anyone has the URL of your node, they can use the Compass seed to take over your private Tangle.
 :::
 
 #### Prerequisites
@@ -216,7 +219,7 @@ You need the following:
     }
     ```
 
-4. In Trinity, create an account with your seed
+4. In Trinity, [create an account](root://trinity/0.1/how-to-guides/create-an-account.md) with your seed
 
     ```
     SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
