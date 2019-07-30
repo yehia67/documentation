@@ -60,7 +60,7 @@ To use this application, you need the following:
  Compass uses a pre-built [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals.
  :::
 
- ### Host an optional utilities website for your private Tangle
+### Host an optional utilities website for your private Tangle
 
 The [utils.iota.org website](https://utils.iota.org/) has utilities that make it easier to use an IOTA network. For example, you can use the website to interact with an IOTA network, compress transaction trytes, and convert the value of IOTA tokens into different currencies.
 
@@ -70,11 +70,11 @@ You can host your own utilites website that makes it easier to use your private 
 
 If you want to use all the functionalities of the utilities website, you need the following configuration credentials:
 
-* For the Tangle explorer, you need [Amazon DynamoDB credentials](https://aws.amazon.com/dynamodb/)
+* For the [Tangle explorer](https://utils.iota.org/), you need [Amazon DynamoDB credentials](https://aws.amazon.com/dynamodb/)
 
-* For the currency converter, you need a [Fixer API key](https://rapidapi.com/fixer/api/fixer-currency) and a [CoinMarketCap API key](https://coinmarketcap.com/api/)
+* For the [currency converter](https://utils.iota.org/currency-conversion), you need a [Fixer API key](https://rapidapi.com/fixer/api/fixer-currency) and a [CoinMarketCap API key](https://coinmarketcap.com/api/)
 
-* For the IOTA area codes map, you need a [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key)
+* For the [IOTA area codes map](https://utils.iota.org/area-codes), you need a [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ---
 
@@ -210,7 +210,7 @@ You need the following:
 
 3. In a web browser, go to the URL of your IRI node. For example, if your domain name is `privatetangle.com`, go to `https://privatetangle.com`
 
-    The web browser will display the following, which means that your IRI node is reachable through that URL:
+    The web browser will display the following, which means that your IRI node is exposed to the Internet on port 443:
 
     ```
     {
@@ -218,6 +218,8 @@ You need the following:
     "duration": 0
     }
     ```
+
+    Now, you can connect to the IRI node.
 
 4. In Trinity, [create an account](root://trinity/0.1/how-to-guides/create-an-account.md) with your seed
 
@@ -242,7 +244,7 @@ All the information that Trinity displays about the Tangle is now sent from the 
 :::info:
 If you want to keep your private Tangle offline, but keep the HTTPS support, [follow the Caddy instructions for using your own certificate and key](https://caddyserver.com/docs/tls). Then, add the volumes for the certificate and key files to the `docker-compose-ssl.yml` file under `volumes` in the `proxy` object.
 
-If you do this, you won't be able to access your private Tangle in Trinity.
+If you do this, you will not be able to access your private Tangle in Trinity.
 :::
 
 ## Restart the network
