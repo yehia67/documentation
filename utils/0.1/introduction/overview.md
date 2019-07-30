@@ -26,7 +26,7 @@ More community utilities are available on the [iota-community GitHub repository]
 Sign and send encrypted messages on a channel that you can subscribe to and validate, decrypt, and read the messages.
 ---
 
-#### __One-command Tangle__ ####
+#### __One-command private Tangle__ ####
 [Link](../community/one-command-tangle/overview.md)
 
 Set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command.
