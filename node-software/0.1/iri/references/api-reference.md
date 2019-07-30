@@ -4,7 +4,7 @@
 
 All the following commands must include an HTTP header.
 
-| Header       | Value | Required or Optional |
+| **Header**       | **Value** | **Required or Optional** |
 |:---------------|:--------|:--------|
 | X-IOTA-API-Version | 1 | Required |
 | Content-Type | application/json | Optional |
@@ -26,7 +26,7 @@ The neighbors are removed if the node restarts. If you want to permanently add t
 
  The URI format for adding neighbors is `"tcp://IPADDRESS:PORT"`.
 	
-|Parameter | Required or Optional|Description | Type|
+|**Parameter** | **Required or Optional**|**Description** | **Type**|
 |--|--|--|--|
 | `uris` | Required|Strings of neighbor URIs to add | array of strings|
 
@@ -126,7 +126,7 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** | **Description** |
 |--|--|
 | `addedNeighbors` | Total number of added neighbors |
 | `duration` | Number of milliseconds it took to complete the request|
@@ -139,7 +139,7 @@ Do [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) on a node fo
 
  The `branchTransaction` and  `trunkTransaction` parameters are returned from the [`getTransactionsToApprove`](#getTransactionsToApprove) endpoint.
 	
-|Parameter |Required or Optional |Description |Type|
+|**Parameter** |**Required or Optional** |**Description** |**Type**|
 |--|--|--|--|
 | `trunkTransaction` |Required| [Trunk transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
 | `branchTransaction` |Required| [Branch transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
@@ -255,7 +255,7 @@ The last 243 trytes of the return value consist of the following:
 
 `trunkTransaction` + `branchTransaction` + `nonce`.
 
-|Return field | Description |
+|**Return field** | **Description** |
 |--|--|
 | `trytes` | Transaction trytes that include a valid `nonce` field |
 
@@ -267,7 +267,7 @@ Broadcast transaction trytes to a node.
 
 The `trytes` parameter for this endpoint must include proof of work, which is done by the [`attachToTangle`](#attachToTangle) endpoint.
 	
-|Parameters |Required or Optional |Description |Type
+|**Parameters** |**Required or Optional** |**Description** |**Type**
 |--|--|--|--|
 | `trytes` |Required| Valid transaction trytes | array of strings
 
@@ -357,20 +357,20 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** | **Description** |
 |--|--|
 | `duration` | Number of milliseconds it took to complete the request |
 
 ## checkConsistency
 
 Check the consistency of transactions. A consistent transaction is one where the following statements are true:
-* The transaction isn't missing a reference transaction
+* The node isn't missing the transaction's branch or trunk transactions
 * The transaction's bundle is valid
-* The transaction's reference transactions are valid
+* The transaction's branch and trunk transactions are valid
 
 ### Parameters
 
-|Parameter | Required or Optional|Description |Type
+|**Parameter** | **Required or Optional**|**Description** |**Type**
 |--|--|--|--|
 | `tails` |Required| Transaction hashes to check | array of strings
 
@@ -471,7 +471,7 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** | **Description** |
 |--|--|
 | `state` | State of the given transactions in the `tails` parameter. A `true` value means that all given transactions are consistent. A `false` value means that one or more of the given transactions are inconsistent. |
 | `info` | If the `state` field is false, this field contains information about why the transaction is inconsistent |
@@ -486,7 +486,7 @@ The parameters define the transaction fields to search for, including `bundles`,
 
 ### Parameters
 	
-|Parameters |Description | Type
+|**Parameters** |**Description** | **Type**
 |--|--|--|
 | `bundles` | Bundle hashes to search for | array of strings |
 | `addresses` | Addresses to search for (do not include the checksum) | array of strings |
@@ -591,7 +591,7 @@ curl http://localhost:14265 \
 
 An array of transaction hashes, is returned in the same order for all individual elements.
 
-|Return field | Description |
+|**Return field** | **Description** |
 |--|--|
 | `hashes` | The transaction hashes which are returned depend on your input. `bundles`: returns an array of transaction hashes that contain the given bundle hash. `addresses`: returns an array of transaction hashes that contain the given address in the `address` field. `tags`: returns an array of transaction hashes that contain the given value in the `tag` field. `approvees`: returns an array of transaction hashes that contain the given transactions in their `branchTransaction` or `trunkTransaction` fields. |
 | `duration` | Number of milliseconds it took to complete the request |
@@ -604,7 +604,7 @@ If the `tips` parameter is missing, the returned balance is correct as of the la
 
  ### Parameters
 	
-|Parameters | Required or Optional|Description |Type
+|**Parameters**s |**Required or Optional**|**Description** |Type
 |--|--|--|--|
 | `addresses` |Required| Address for which to get the balance (do not include the checksum) |array of strings|
 | `threshold` |Required| Confirmation threshold between 0 and 100 | integer|
@@ -710,7 +710,7 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** |**Description**|
 |--|--|
 | `balances` | Array of balances in the same order as the `addresses` parameters were passed to the endpoint|
 | `references` | The referencing tips. If no `tips` parameter was passed to the endpoint, this field contains the hash of the latest milestone that confirmed the balance |
@@ -719,16 +719,18 @@ curl http://localhost:14265 \
 
 ## getInclusionStates
 
-Get the inclusion states of a set of transactions. 
-This endpoint determines if a transaction is confirmed by the network (referenced by a valid milestone). 
+Get the inclusion states of a set of transactions.
+
+This endpoint determines if a transaction is confirmed by the network (referenced by a valid milestone).
+
 You can search for multiple tips (and thus, milestones) to get past inclusion states of transactions.
 
  ### Parameters
 	
-|Parameter | Required or Optional|Description | Type|
+|**Parameters** |**Required or Optional**|**Description** |**Type**|
 |--|--|--|--|
 | `transactions` |Required| List of transaction hashes for which you want to get the inclusion state|array of strings
-| `tips` | Optional|List of tip transaction hashes (including milestones) you want to search for | array of strings
+| `tips` | Required (can be empty)|List of tip transaction hashes (including milestones) you want to search for | array of strings
 
 ### Examples
 --------------------
@@ -838,7 +840,7 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** | **Description** |
 |--|--|
 | `states` | List of boolean values in the same order as the `transactions` parameters. A `true` value means the transaction was confirmed |
 | `duration` | Number of milliseconds it took to complete the request |
@@ -938,7 +940,7 @@ curl http://localhost:14265 \
 The activity accumulates until the node restarts.
 :::
 
-|Return field| Description |
+|**Return field**| **Description** |
 |--|--|
 | `neighbors` | Array of objects, including the following fields: address, connectionType, numberOfAllTransactions, numberOfRandomTransactionRequests, numberOfNewTransactions, numberOfInvalidTransactions, numberOfStaleTransactions, numberOfSentTransactions, connectiontype |
 | `duration` | Number of milliseconds it took to complete the request |
@@ -1157,7 +1159,7 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field| Description |
+|**Return field**| **Description** |
 |--|--|
 | `hashes` | Array of tip transaction hashes |
 | `duration` | Number of milliseconds it took to complete the request |
@@ -1168,7 +1170,7 @@ Get two consistent tip transaction hashes to use as branch/trunk transactions.
 
 ### Parameters
 
-|Parameter|Required or Optional| Description |Type|
+|**Parameters**|**Required or Optional**| **Description** |**Type**|
 |--|--|--|--|
 | `depth` |Required| Number of bundles to go back to determine the transactions for approval. |integer|
 | `reference` |Optional| Transaction hash from which to start the weighted random walk. Use this parameter to make sure the returned tip transaction hashes approve a given reference transaction. |string
@@ -1262,7 +1264,7 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** | **Description** |
 |--|--|
 | `trunkTransaction` | Valid trunk transaction hash |
 | `branchTransaction` | Valid branch transaction hash |
@@ -1274,7 +1276,7 @@ Get a transaction's contents in trytes.
 
 ### Parameters
 
-|Parameter | Required or Optional|Description |Type
+|**Parameters** |**Required or Optional**|**Description** |Type
 |--|--|--|--|
 | `hashes` |Required| Transaction hashes | array of strings
 
@@ -1376,7 +1378,7 @@ curl http://localhost:14265 \
 
 You can convert the returned trytes to ASCII characters by using the client libraries.
 
-|Return field | Description |
+|**Return field** |**Description**|
 |--|--|
 | `trytes` | Array of transaction trytes for the given transaction hashes (in the same order as the parameters) |
 | `duration` | Number of milliseconds it took to complete the request |
@@ -1466,7 +1468,7 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** |**Description**|
 |--|--|
 | `duration` | Number of milliseconds it took to complete the request |
 
@@ -1482,7 +1484,7 @@ The neighbors are added again if the node restarts. If you want to permanently r
 
 The URI format for removing neighbors is `"tcp://IPADDRESS:PORT"`.
 
-|Parameter | Required or Optional|Description | Type|
+|**Parameters** |**Required or Optional**|**Description** |**Type**|
 |--|--|--|--|
 | `uris` | Required|Strings of neighbor URIs to remove | array of strings|
 
@@ -1562,7 +1564,7 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** |**Description**|
 |--|--|
 | `removedNeighbors` | Total number of removed neighbors |
 | `duration` | Number of milliseconds it took to complete the request |
@@ -1575,7 +1577,7 @@ Store transactions in a node's local storage.
 
 The value of the `trytes` parameter must be valid. Valid trytes are returned by the [`attachToTangle`](#attachToTangle) endpoint.
 
-|Parameter | Required or Optional|Description |Type
+|**Parameters** |**Required or Optional**|**Description** |Type
 |--|--|--|--|
 | `trytes` |Required| Transaction trytes | array of strings
 
@@ -1666,7 +1668,7 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** |**Description**|
 |--|--|
 | `duration` | Number of milliseconds it took to complete the request |
 
@@ -1678,7 +1680,7 @@ If an address has a pending transaction, it's also considered 'spent'.
 
 ### Parameters
 
-|Parameter | Required or Optional|Description |Type
+|**Parameters** |**Required or Optional**|**Description** |Type
 |--|--|--|--|
 | `addresses` |Required| addresses to check (do not include the checksum) | array of strings
 
@@ -1778,7 +1780,7 @@ curl http://localhost:14265 \
 
 ### Results
 
-|Return field | Description |
+|**Return field** |**Description**|
 |--|--|
 | `states` | States of the specified addresses in the same order as the values in the `addresses` parameter. A `true` value means that the address has been spent from. |
 | `duration` | Number of milliseconds it took to complete the request |
