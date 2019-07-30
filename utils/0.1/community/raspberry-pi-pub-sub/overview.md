@@ -16,7 +16,7 @@ Devices often need to share data so they can process and act on it. With IOTA, y
 
 This application is a ready-to-use template that sends temperature sensor data to the Tangle.
 
-## How it works
+## How the publisher works
 
 In the `raspberrypi-pubsub` directory, you have the following files:
 
