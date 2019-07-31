@@ -4,12 +4,6 @@
 
 In the Tangle, each transaction is attached to two others by reference.
 
-Clients define these references in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md).
-
-:::info:
-Before a client sends a bundle of transactions to a node, it asks the node for two transaction hashes from the Tangle to include in these fields. The node does this in a process called [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md).
-:::
-
 The references among transactions form a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), which is a sequence of vertices where every edge is directed from an earlier point to a later one in the sequence.
 
 In the Tangle, vertices are transactions, and edges are references.
@@ -18,25 +12,47 @@ In this diagram, the numbered boxes represent transactions. The transactions on 
 
 ![A directed acyclic graph](../images/dag.png)
 
+## Parents and children
+
 When a node attaches a new transaction to the Tangle, that transaction directly references two existing ones to the left of it.
 
 References form a family tree, whereby if a new transaction is a **child**, the branch and trunk transactions are its **parents**.
 
-In this diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. On the other hand, transaction 6 indirectly references transaction 3, so, transaction 3 is a **grandparent** of transaction 6.
+In the diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. On the other hand, transaction 6 indirectly references transaction 3, so transaction 3 is a **grandparent** of transaction 6.
+
+These direct and indirect references make up a transaction's history.
+
+A transaction can be valid only if it references two other transaction's whose history does not conflict with it.
+
+For example, if transaction 6 instructs the node to withdraw 10 Mi from an address, the history of its parents must lead to a point where that address is sent at least 10 Mi.
 
 ## Consensus
 
-Because the Tangle is distributed among all nodes in an IOTA network, some of them may have different transactions in their ledgers at any given time. The transactions in any node's ledger make up that node's _view of the Tangle_.
+Nodes are responsible for validating transactions and their histories to make sure that they don't conflict. To validate a transaction, a node needs to have that transaction's history in its ledger.
 
-To make sure that all nodes have the same view of the Tangle, they forward any new transactions they receive to their neighbors. If a node is missing any of a transaction's references, it will asks its neighbors for those references.
+Because the Tangle is distributed among all nodes in an IOTA network, some of them may not have the history of all transactions in their ledgers at any given time.
 
-When a node has all of a transaction's references, the transaction is considered solid. The goal of all nodes is to make the transactions in their ledgers solid.
+:::info:
+The transactions in any node's ledger make up that node's _view of the Tangle_.
+:::
+
+To make sure that all nodes eventually have the same view of the Tangle, they forward any new transactions that they receive to their neighbors. If a node is missing part of a transaction's history, it will asks its neighbors for the missing transactions.
+
+When a node has a transaction's history, the transaction is considered solid. The goal of all nodes is to make the transactions in their ledgers solid.
+
+:::info:
+Nodes don't need the entire history of a transaction, starting from the first ever transaction to consider it solid.
+
+Instead, nodes need the history of a transaction up to a predefined transaction, which is called an entry point. When the transaction's history goes far back enough to reference an entry point, the node stops solidifying it.
+
+An example of a predefined entry point is a [local snapshot](root://node-software/0.1/iri/concepts/local-snapshot.md).
+:::
 
 For a transaction to be considered confirmed, nodes must reach a consensus on which solid transactions to consider final before they can update the balances of addresses.
 
 A transaction is considered confirmed when it's directly or indirectly referenced by a transaction that's sent and signed by the Coordinator.
 
-## The Coordinator
+### The Coordinator
 
 The Coordinator is an application that creates, signs, and sends bundles of transactions from the same address at regular intervals. Each of these bundles contains transactions called milestones that nodes use to reach a consensus. When milestones directly or indirectly reference a transaction in the Tangle, nodes mark the state of that transaction and its entire history as confirmed.
 
@@ -116,7 +132,7 @@ Now, we hash the public keys of leaves 1 and 2 to find the hash of node 1. Then 
 If the Merkle root is the same as the Coordinator's address, the bundle was signed with one of the private keys in the Coordinator's Merkle tree.
 
 :::info:Want to run your own Coordinator?
-Use Compass to create, sign, and send milestones in your own IOTA network.
+Use Compass to create, sign, and send milestones in your own private Tangle.
 :::
 
 ## Further research

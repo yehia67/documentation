@@ -1,8 +1,8 @@
-# IOTA networks
+# Public IOTA networks
 
-**In IOTA, bundles of transactions must be sent to [nodes](../introduction/what-is-a-node.md). IOTA has three [public networks](../references/iota-networks.md) of nodes. Each network has its own unique distributed ledger (the Tangle) that the nodes can append transactions to. You can choose to connect and send bundles to nodes on any public network.**
+**IOTA has three public networks of nodes. Each network has its own unique distributed ledger (the Tangle) that the nodes can attach transactions to. You can choose to connect and send bundles to nodes on any public network.**
 
-IOTA has the following [permissionless (public) networks](../introduction/what-is-dlt.md):
+IOTA has the following [public networks](../introduction/what-is-dlt.md):
 * **Mainnet:** IOTA token
 * **Devnet:** Devnet token (free)
 * **Spamnet:** Spamnet token (free)
@@ -10,7 +10,7 @@ IOTA has the following [permissionless (public) networks](../introduction/what-i
 All permissionless networks consist of nodes, clients, and the Coordinator.
 
 :::info:
-If you want to create and test an application on a permissioned (private) network, you can do so by running an instance of the open-source Coordinator code called [Compass](root://compass/0.1/introduction/overview.md).
+If you want to create and test an application on a private network, you can do so by running an instance of the open-source Coordinator code called [Compass](root://compass/0.1/introduction/overview.md).
 :::
 
 ## Mainnet

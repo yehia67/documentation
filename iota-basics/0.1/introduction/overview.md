@@ -7,7 +7,7 @@
 Like an account number and sort code, an address in IOTA is a unique string of 81 characters ([trytes](../concepts/trinary.md)) that are unique to each seed.
 
 :::info:
-Sometimes addresses have 90 characters. The extra 9 characters are called the checksum, which helps you make sure your address is correct.
+Sometimes addresses have 90 trytes. The extra 9 trytes are called the checksum, which helps you make sure your address is correct.
 :::
 
 Clients on the network send each other data or IOTA tokens to each other's addresses in [bundles, which contain transactions](../concepts/bundles-and-transactions.md).

@@ -1,10 +1,12 @@
 # What is a bundle?
 
-**A bundle is a group of one or more transactions that can contain data and/or instruct a node to transfer IOTA tokens from certain addresses to others. The fate of each transaction in a bundle depends on the rest. Either all transactions are valid or none of them are.**
+**A bundle is a group of one or more transactions that can contain data and/or instruct a node to transfer IOTA tokens from certain addresses to others. All transactions, even single ones, are always sent to a node as a bundle.**
 
 The structure of a bundle consists of a head, a body, and a tail, where the tail is index 0 and the head is the last transaction in the bundle.
 
 All transactions, starting from the tail, reference the one with the next index. For example, the tail transaction references transaction 1, which references transaction 2, and so on. These connections allow nodes to reconstruct bundles and validate their contents.
+
+The fate of each transaction in a bundle depends on the rest. Either all transactions are valid or none of them are.
 
 ## Example of a bundle that transfers IOTA tokens
 

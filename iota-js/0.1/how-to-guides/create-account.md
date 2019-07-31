@@ -45,8 +45,8 @@ In this example, we connect to a [Devnet node](root://getting-started/0.1/refere
       Never hard code a seed as we do here. Instead, we recommend that you read the seed from a protected file.
       :::
 
-      :::danger:Create one account per seed
-      You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
+      :::danger:Create one account instance per seed
+      You must not create multiple instances of an account with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
       :::
 
 :::success:Congratulations! :tada:

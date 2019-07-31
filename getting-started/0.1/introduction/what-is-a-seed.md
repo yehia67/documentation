@@ -1,6 +1,6 @@
 # What is a seed?
 
-**A seed is a unique password that gives you access to IOTA addresses. These addresses hold IOTA tokens and as such have a balance. When you have a seed, you can use IOTA to send or receive data and/or IOTA tokens on the network.**
+**A seed is your unique password that gives you access to all your addresses. These addresses hold your IOTA tokens and as such have a balance. To spend IOTA tokens, you must use your seed to prove that you own the address that holds them. Seeds can include only the number 9 and the uppercase letters A-Z.**
 
 [Addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md) are like  accounts that you can use to send and receive [transactions](../introduction/what-is-a-transaction.md) in a [bundle](../introduction/what-is-a-bundle.md).
 

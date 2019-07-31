@@ -32,7 +32,7 @@ Use these settings to customize how the API behaves and which hosts can access i
 |<a name="api-host"></a> `--api-host`|`API_HOST` |Set the host to which the API listens| string | localhost | To accept any host, set this option to 0.0.0.0 or set the `REMOTE` option to `true`|
 |<a name="port"></a>`--port, -p` (**required**) |`API_PORT`|Set the port on which the API listens |string |14265 |
 |<a name="max-body-length"></a> `--max-body-length` | `MAX_BODY_LENGTH`|Set a maximum number of characters that the body of an API call may contain|number |1,000,000 | If the length of a request body exceeds this number, an error is returned
-|<a name="max-find-transactions"></a>`--max-find-transactions` |`MAX_FIND_TRANSACTIONS`|Set a maximum number of transactions that may be returned by the [findTransactions endpoint](../references/api-reference.md#findTransactions) |number | 100,000 | If the number of transactions exceeds this number, an error is returned
+|<a name="max-find-transactions"></a>`--max-find-transactions` |`MAX_FIND_TRANSACTIONS`|Set a maximum number of transactions that may be returned by the [`findTransactions` endpoint](../references/api-reference.md#findTransactions) |number | 100,000 | If the number of transactions exceeds this number, an error is returned
 |<a name="max-requests-list"></a>`--max-requests-list` |`MAX_REQUESTS_LIST`|Set a maximum number of parameters in an API call |number |1,000 | If the number of parameters exceeds this number, an error is returned
 |<a name="max-get-trytes"></a>`--max-get-trytes` |`MAX_GET_TRYTES`|Set a maximum number of trytes that may be returned by the [getTrytes endpoint](../references/api-reference.md#getTrytes)  |number |10,000 | If the number of trytes exceeds this number, an error is returned
 |<a name="remote"></a> ` --remote `|-|Open the API interface to any host |boolean | false| When set to true, this option is equivalent to setting the `API_HOST` option to 0.0.0.0. You must add a `true` or `false` value after this flag.
@@ -46,7 +46,7 @@ Use these settings to customize how your node communicates with neighbors.
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="auto-tethering-enabled"></a>`--auto-tethering-enabled` |`AUTO_TETHERING_ENABLED`|Enable new connections from unknown neighbors |boolean |false| Unknown neighbors are those that are neither defined in the `NEIGHBORS` option nor added through the `addNeighbors` API endpoint. Use the `MAX_NEIGHBORS` option to limit the maximum number of neighbors that can connect to your node.|
+|<a name="auto-tethering-enabled"></a>`--auto-tethering` |`AUTO_TETHERING`|Enable new connections from unknown neighbors |boolean |false| Unknown neighbors are those that are neither defined in the `NEIGHBORS` option nor added through the `addNeighbors` API endpoint. Use the `MAX_NEIGHBORS` option to limit the maximum number of neighbors that can connect to your node.|
 |<a name="cache-size"></a>`--cache-size` |`CACHE_SIZE_BYTES`|Set the maximum size of the network cache in bytes |number |150,000 |
 |<a name="dns-refresher"></a>`--dns-refresher` |`DNS_REFRESHER`|Reconnect to neighbors that have dynamic IP addresses |boolean |true |
 |<a name="dns-resolution"></a>`--dns-resolution` |`DNS_RESOLUTION`|Enable DNS for neighbor peering |boolean |true|
@@ -121,7 +121,7 @@ Use these settings to customize how tip transactions become solid.
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="tip-selection-timeout-sec"></a>`--tip-solidfier-enabled` |`TIP_SOLIDIFIER_ENABLED`|Enable your node to solidify tip transactions that aren't milestones |boolean | false| By default, the IRI actively tries to solidify only milestones. Other tip transactions become solid through the gossip protocol. If you set this option to `true`, your node will use more resources.
+|<a name="tip-selection-timeout-sec"></a>`--tip-solidfier-enabled` |`TIP_SOLIDIFIER_ENABLED`|Enable your node to solidify tip transactions that aren't milestones |boolean | false| By default, the IRI actively tries to solidify only milestones. Other tip transactions become solid through the gossip protocol. If you set this option to `true`, your node will use more resources to solidify non-milestones.
 
 
 ## Proof of work

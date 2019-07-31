@@ -10,9 +10,7 @@ Hub helps you to integrate IOTA into your own applications by automating the fol
 
 ## Transaction monitoring
 
-Withdrawals and deposits are transactions that are grouped together in the same [bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md). This bundle is called a [sweep](../concepts/sweeps.md).
-
-Before a withdrawal or a deposit is accepted by an IOTA network, the sweep must be confirmed. So, to avoid delays in confirmation, Hub [reattaches and promotes](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md) transactions until they're confirmed.
+Before any transaction is accepted by an IOTA network, it must be confirmed. So, to avoid delays in confirmation, Hub [reattaches and promotes](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md) transactions until they are confirmed.
 
 :::info:Want to learn more about consensus?
 Read about [the Tangle](root://iota-basics/0.1/concepts/the-tangle.md).
@@ -22,15 +20,13 @@ Read about [the Tangle](root://iota-basics/0.1/concepts/the-tangle.md).
 
 Each client in an IOTA network has a secret password called a [seed](root://getting-started/0.1/introduction/what-is-a-seed.md), which is used to create [addresses and to sign bundles](root://iota-basics/0.1/concepts/addresses-and-signatures.md). Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address.
 
-Hub creates a seed for each deposit address, using the [Argon2](https://www.argon2.com/) hashing function. The following values are used to create a seed:
+Hub creates a new seed for each user's deposit address, using the [Argon2](https://www.argon2.com/) hashing function. The following values are used to create a seed:
 
 * Seed UUID: A randomly generated universally unique identifier that is stored in a [`seeduuid` field](../references/database-tables.md#user_account)
-* Salt: Characters that you can define in a [`salt` flag](../references/command-line-flags.md)
+* Salt: Characters that you can define in an optional [`salt` flag](../references/command-line-flags.md)
 
 :::info:
-Seeds are never stored in the database.
-The salt is optional, but recommended.
-For extra security you should [install a signing server](../how-to-guides/install-the-signing-server.md) to store the salt and handle the signing of bundles.
+The database contains a record of how many IOTA tokens a user has. The IOTA tokens are not kept in the user's addresses. Instead, they are transferred to the Hub owners address during a [sweep](../concepts/sweeps.md). If a user later triggers a [`userWithdrawRequest` command](../references/api-reference.md#hub.rpc.UserWithdrawRequest), Hub creates a new sweep to send the user's tokens to the chosen addresses.
 :::
 
 ## Token protection

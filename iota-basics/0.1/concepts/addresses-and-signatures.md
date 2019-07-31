@@ -1,36 +1,54 @@
 # Addresses and signatures
 
-**Each client in an IOTA network has a secret password called a seed, which is used to derive addresses and to sign bundles. Addresses are the accounts that hold IOTA tokens and signatures prove ownership of an address. The balance of all addresses is stored and kept up to date on all nodes in an IOTA network.**
+**To send transactions in an IOTA network, you need a secret password called a seed, which gives you access to all your addresses. These addresses hold your IOTA tokens and as such have a balance that's stored and kept up to date on all nodes in an IOTA network. To spend IOTA tokens, you must create a transaction and sign the bundle it's in to prove to a node that you own the address that holds them.**
 
-Seeds are the master keys to the cryptographic hashing function in the IOTA protocol. Each seed is 81 [trytes](../references/tryte-alphabet.md) long and can derive an almost unlimited number of unique private keys and addresses (9<sup>57</sup>).
+All nodes in an IOTA network keep a record of the positive balances of all addresses.
+
+This record looks something like this, where the address is on the left of the semicolon and the balance is on the right:
+
+    ADDRESS....ENDOFADDRESS;1000
+
+Nodes don't know which client owns an address because they don't have the clients' seeds. So, nodes use cryptography to validate a transaction.
+
+When a node validates a transaction, it makes sure that, if it withdraws IOTA tokens, it was created by the owner of the seed that owns the address. The node does this by checking the transaction signature.
+
+To create a valid signature, you need the private key that corresponds to the address from which IOTA tokens are being withdrawn.
+
+The only way to create this private key is by owning the seed that was used to create the address. This way, signatures prove ownership of an address by proving ownership of the private key and thus the seed.
+
+## How seeds are used in IOTA
+
+Seeds are the master keys to the Kerl [hash function](https://www.techopedia.com/definition/19744/hash-function) in the IOTA protocol, which uses [Keccak-384](https://keccak.team/keccak.html). This hash function takes a seed, an index, and a security level to create an address and private key pair:
+
+* **Seed:** Unique 81 [trytes](../references/tryte-alphabet.md) chosen by the client
+* **Index*:** Number that changes which address and private key pair is created
+* **Security level:** Number between 1 and 3 that affects the length of a private key
+
+A private key is used to sign bundles that withdraw IOTA tokens from an address to prove you own it. Each address has a corresponding private key. So, to withdraw IOTA tokens from an address, you need to prove you own it by creating a private key from the same seed, index, and security level as the address.
+
+If you use the same seed, index, and security level, the hash function will always return the same address and private key pair.
 
 :::info:
-If you don't have a seed, create one to [get started with IOTA](root://getting-started/0.1/tutorials/get-started.md).
+You can try this by using our JavaScript client library to [create a new address](../how-to-guides/create-an-address.md).
+
+Seeds can be used to create an almost unlimited number of addresses and private key pairs (9<sup>57</sup>).
 :::
 
-Each private key is unique to a seed, index, and security level, and can be used to derive one corresponding address. A private key and an address can be thought of as a pair. Addresses are public and clients can transfer IOTA tokens and messages to them using the [`address` field] of a transaction. A private key is private and is used to sign bundles that withdraw IOTA tokens from the address.
+The first step to generate an address is to derive a private key from the seed, index, and security level.
 
-Each pair of private keys and addresses has its own index and [security level](../references/security-levels.md). The security level affects the length of the private key. The greater the security level, the longer the private key, and the more secure a transaction's signature.
+## How private keys are derived
 
-In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level.
+Each private key is derived by hashing a seed, an index, and a security level with Kerl. 
 
-:::warning:Keep seeds and private keys secure
-A seed is the key to all your private keys and addresses. And, a private key is the key to one address.
-:::
+First, the seed and index are combined and hashed to derive an 81-tryte **subseed**:
 
-### How private keys are derived
+    Kerl(seed + index)
 
-Each private key is derived from a cryptographic hashing function that takes a seed, an index, and a security level. 
+To derive a private key, the subseed is absorbed and squeezed in a [sponge function](https://keccak.team/sponge_duplex.html) 27 times per security level.
 
-The seed and index are combined and hashed, using the [Keccak-384 hashing function](https://keccak.team/keccak.html) to derive an 81-tryte **subseed**:
+The result of the sponge function is a private key with a length that varies, depending on the [security level](../references/security-levels.md). The greater the security level, the longer and more secure the private key.
 
-    hash(seed + index)
-
-To derive a private key, the subseed is passed to a [cryptographic sponge function](https://en.wikipedia.org/wiki/Sponge_function), which absorbs it and squeezes it 27 times per security level.
-
-The result of the sponge function is a private key that consists of 2,187, 4,374, or 6,561 trytes, depending on the [security level](../references/security-levels.md).
-
-### How addresses are derived
+## How addresses are derived
 
 To derive an address, the private key is split into **81-tryte segments**. Then, each segment is hashed 26 times. A group of 27 hashed segments is called a **key fragment**.
 
@@ -40,28 +58,34 @@ Each key fragment is hashed once to derive one **key digest** for each security 
 
 Then, the key digests are combined and hashed once to derive an 81-tryte address.
 
-:::info:Want to try this out?
-Use the JavaScript client library to [derive addresses from private keys](../how-to-guides/derive-addresses-from-private-keys.md).
+:::info:
+Some application such as Trinity require you to use addresses, which include a 9-tryte checksum on the end.
 :::
 
 ![Address generation](../images/address-generation.png)
 
-### How private keys sign bundles
+:::info:Want to try this out?
+Use the JavaScript client library to [derive addresses from private keys](../how-to-guides/derive-addresses-from-private-keys.md).
+:::
 
-Private keys sign the bundle hash of the transaction that withdraws from the address and put that signature in the [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) of the transaction.
+## How private keys are used to sign bundles
+
+Private keys sign the bundle hash of the transaction that withdraws IOTA tokens from the address, then the signature is put in the [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) of the transaction.
 
 By signing the bundle hash, it's impossible for attackers to intercept a bundle and change any transaction without changing the bundle hash and invalidating the signature.
 
-Signatures are created using the Winternitz one-time signature scheme (W-OTS). This signature scheme is quantum resistant, meaning that signatures are resistant to attacks from [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing).
+:::info:
+The bundle hash is derived from a hash of the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields. This bundle hash is included in each transaction's `bundle` field to seal the package. If the values of any of these fields were to change, the nodes would invalidate the bundle hash.
+:::
 
-To sign a bundle hash, first it's normalized to make sure that only half of the private key is revealed in the signature.
-
-If the bundle hash weren't normalized, the W-OTS would reveal an unknown amount of the private key. By revealing half of the private key, an address can safely be withdrawn from once.
+Signatures are created using the Winternitz one-time signature scheme (W-OTS). This signature scheme is quantum resistant, meaning that signatures are resistant to attacks from [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing). But, this signature scheme also reveals an unknown amount of the private key.
 <a id="address-reuse"></a>
 
 :::danger:Spent addresses
 If an address is withdrawn from (spent) more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens.
 :::
+
+To make sure that it's always safe to withdraw from an address once, first the bundle hash is normalized to make sure that only half of the private key is revealed in the signature.
 
 Depending on the number of key fragments that a private key has, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of segments in a key fragment.
 
@@ -73,7 +97,7 @@ The result of this calculation is the number of times that each of the 27 segmen
 
 Because a transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) can contain only 2187 trytes, any input address with a security level greater than 1 must fragment the rest of the signature over zero-value output transactions.
 
-### How nodes verify signatures
+## How nodes verify signatures
 
 Nodes verify a signature in a transaction by using the signature and the bundle hash to find the address of the input transaction.
 

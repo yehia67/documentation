@@ -22,6 +22,10 @@ To complete this guide, you need the following:
 
 In this example, we create and send a bundle to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
+:::info:
+A bundle can consist of any number of transactions. But, because of the time and resources that are involved during [proof of work](root://iota-basics/0.1/concepts/proof-of-work.md), we recommend a maximum of 30 transactions in a bundle.
+:::
+
 1. Require the IOTA libraries
 
     ```js
