@@ -8,11 +8,9 @@
 
 [Concepts/Bundles and transactions](/concepts/bundles-and-transactions.md)
 
-[Concepts/Reattach, rebroadcast, and promote](/concepts/reattach-rebroadcast-promote.md)
-
-[Concepts/Proof of work](/concepts/proof-of-work.md)
-
 [Concepts/Minimum weight magnitude](/concepts/minimum-weight-magnitude.md)
+
+[Concepts/Reattach, rebroadcast, and promote](/concepts/reattach-rebroadcast-promote.md)
 
 [Concepts/Trinary](/concepts/trinary.md)
 

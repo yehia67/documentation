@@ -23,7 +23,7 @@ To complete this guide, you need the following:
 In this example, we create and send a bundle to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
 :::info:
-A bundle can consist of any number of transactions. But, because of the time and resources that are involved during [proof of work](root://iota-basics/0.1/concepts/proof-of-work.md), we recommend a maximum of 30 transactions in a bundle.
+A bundle can consist of any number of transactions. But, because of the time and resources that are involved during [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md), we recommend a maximum of 30 transactions in a bundle.
 :::
 
 1. Require the IOTA libraries
@@ -78,7 +78,7 @@ A bundle can consist of any number of transactions. But, because of the time and
     The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
     :::
 
-5. Create a bundle and pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://iota-basics/0.1/concepts/proof-of-work.md), and send the bundle to the node.
+5. Create a bundle and pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the node.
 
     ```js
     iota.prepareTransfers(seed, [transfer1, transfer2])

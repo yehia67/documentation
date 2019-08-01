@@ -1,11 +1,11 @@
 # Bundles and transactions
 
-**If you want to send anything to an IOTA network, you must send it to a node in the form of a transaction. A transaction is a single operation that can be either an input (withdrawal) or an output (deposit or zero-value). To send a node one or more transactions, you must group them in a bundle.**
+**If you want to send anything to an IOTA network, you must send it to a node in the form of a transaction. A transaction is a single operation that can be either an input (withdraw from an address) or an output (deposit into an address or have zero-value). To send a node one or more transactions, you must group them in a bundle.**
 
 Each transaction in a bundle has the following structure that allows nodes to validate them and attach them to the Tangle.
 
 
-| **Field**                         | **Description**                                                                                                                                                                                                                   |
+| **Field**                         | **Description**                                                                                   |
 | :----------------------------- | :------ |
 | `signatureMessageFragment`      | A signature or a message, both of which may be _fragmented_ over multiple transactions in the bundle. This field contains a signature if the transaction withdraws IOTA tokens. Otherwise, this field can contain a tryte-encoded message or all 9's where no message is defined. |
 | `address`                       | Contains either the sender or recipient's address. This field contains a recipient's address if the transaction is an output. Otherwise, this field contains an address from which IOTA tokens are being withdrawn (transaction with a negative `value` field).   |
@@ -21,7 +21,7 @@ Each transaction in a bundle has the following structure that allows nodes to va
 | `attachmentTimestamp`          |Unix epoch: Milliseconds since Jan 1, 1970 (after POW)                                                                                                                                                                                                           |
 | `attachmentTimestampLowerBound` |Lower limit of the `attachmentTimestamp` field (not currently used)                                                                                                                                                                                                      |
 | `attachmentTimestampUpperBound` |Upper limit of the `attachmentTimestamp` field (not currently used)                                                                                                                                                                                                         |
-| `nonce`                         |Trytes that represent the amount of times a transaction must be hashed to check the [proof of work](root://iota-basics/0.1/concepts/proof-of-work.md).                                      |
+| `nonce`                         |Trytes that represent the amount of times a transaction must be hashed to check the [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md).                                      |
 
 
 When a transaction is grouped in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the last transaction in a bundle.
@@ -30,9 +30,16 @@ When a transaction is grouped in a bundle, it's given both a `currentIndex` fiel
 The structure of a bundle consists of a head, a body, and a tail, where the tail is first (index 0) and the head is the last transaction in the bundle.
 :::
 
-All transactions in the same bundle have the same value in the `bundle` field. This field contains the bundle hash.
+All transactions in the same bundle have the same value in the `bundle` field. This field contains the bundle hash, which is derived from the **bundle essence**, which consists of a hash of the values of the following transaction fields:
 
-The bundle hash is derived from a hash of the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields. This bundle hash is included in each transaction's `bundle` field to seal the package. So, if the values of any of these fields were to change, the nodes would invalidate all transactions in the bundle.
+* `address`
+* `value`
+* `obsoleteTag`
+* `currentIndex`
+* `lastIndex`
+* `timestamp`
+
+So, if the values of any of these fields were to change, the nodes would invalidate all transactions in the bundle.
 
 As a result, bundles are atomic: Either all transactions in the bundle are valid and confirmed or none of them are.
 
@@ -44,16 +51,6 @@ To explain why bundles need to be atomic, take this example.
 
 :::info:
 It's not just multiple transactions that need to be packaged in a bundle, even individual ones do.
-:::
-
-## References among transactions and bundles
-
-Each transaction in a bundle, except the head, [references the proceeding one](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. These connections allow nodes to reconstruct bundles in the Tangle and validate the contents of all its transactions.
-
-The other `branchTransaction` and `trunkTransaction` fields reference the tail transactions of two existing bundles in the Tangle. 
-
-:::info:
-[Send a bundle of transactions](../how-to-guides/send-bundle.md) to see these references.
 :::
 
 ## Types of transaction
@@ -84,6 +81,31 @@ Bundles can contain multiple output transactions. If a message in an output tran
 
 :::info:
 Transactions that deposit IOTA tokens can also contain a message because they don't withdraw IOTA tokens, and therefore don't contain a signature.
+:::
+
+## Options for sending a transaction
+
+When you've created your transaction, you need to send it to a node along with two other arguments:
+
+* Depth
+* Minimum weight magnitude
+
+The depth affects how far back in the Tangle the node starts the [tip selection algorithm](../concepts/the-tangle.md#tip-selection). Nodes use this algorithm to find two existing tail transactions in the Tangle that a new transaction can reference in the `branchTransaction` and `trunkTransaction` fields.
+
+:::info:
+The greater the depth, the farther back in the Tangle the node starts, so a greater depth makes tip selection take longer and makes the node use more computational power.
+:::
+
+The [minimum weight magnitude](../concepts/minimum-weight-magnitude.md) (MWM) is a variable that defines how much work is done during proof of work. When you send a transaction to a node, you must use the correct MWM for that node's network. Otherwise, your transaction won't be valid and all nodes will reject it.
+
+## References among transactions and bundles
+
+Each transaction in a bundle, except the head, [references the proceeding one](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. These connections allow nodes to reconstruct bundles in the Tangle and validate the contents of all its transactions.
+
+The other `branchTransaction` and `trunkTransaction` fields reference the tail transactions of two existing bundles in the Tangle that the node returned after tip selection.
+
+:::info:
+[Send a bundle of transactions](../how-to-guides/send-bundle.md) to see these references.
 :::
 
 ## How nodes validate bundles

@@ -45,7 +45,7 @@ On this network, you can test your applications and build proofs of concept that
 
 Transactions on the Devnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 9 to be valid.
 
-Compared to the Mainnet, this MWM reduces the time it takes for [proof of work](root://iota-basics/0.1/concepts/proof-of-work.md) (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
+Compared to the Mainnet, this MWM reduces the time it takes for proof of work (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
 
 ### IRI nodes
 
@@ -89,7 +89,9 @@ The [faucet website](https://faucet.spamnet.iota.org) sends 1Ki (1000) Spamnet t
 
 ### Minimum weight magnitude
 
-Transactions on the Spamnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid. Compared to the Mainnet, this MWM reduces the time it takes for [proof of work](root://iota-basics/0.1/concepts/proof-of-work.md) (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
+Transactions on the Spamnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid.
+
+Compared to the Mainnet, this MWM reduces the time it takes for proof of work (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
 
 ### IRI nodes
 

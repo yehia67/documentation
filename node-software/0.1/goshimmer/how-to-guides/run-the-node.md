@@ -6,12 +6,13 @@ You have two options for running a node. You either can run the node as a servic
 
 ## Run the node in a Docker container
 
-When you run a node in a Docker container, it's similar to running it in a lighweight virtual machine.
+When you run a node in a Docker container, it's similar to running it in a lightweight virtual machine.
 
 Some of the advantages of running a node in a Docker container include the following:
 
 * You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language
 * The node runs in the same way on any supported system architecture
+* It's easier to run the node in the background, stop it, and see the logs
 
 ### Prerequisites
 
@@ -20,7 +21,7 @@ To complete this guide, you need the following:
 * [Git](https://git-scm.com/downloads)
 * An Internet connection
 * [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
-* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
+* A public IP address
 * [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms)
 
 The Docker container is suitable for the following operating systems:
@@ -97,11 +98,13 @@ When you run the node, it joins the network by autopeering with the entry node t
     docker build -t goshimmer .
     ```
 
-4. Run the Docker image and forward the ports from your host device to the Docker container
+4. Run the Docker image in the background, and forward the ports from your host device to the Docker container
 
     ```bash
-    sudo docker run --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -it -v mainnetdb:/root/mainnetdb goshimmer
+    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -it -v mainnetdb:/root/mainnetdb goshimmer
     ```
+
+    The container ID is displayed in the console.
 
     :::info:
     You can customize some features of your node by adding [command-line flags](../references/command-line-flags.md) after the `run` command.
@@ -109,13 +112,25 @@ When you run the node, it joins the network by autopeering with the entry node t
     To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command.
    :::
 
+5. Copy the container ID, and use it to read the node's logs. Replace the `$ContainerID` placeholder with your container ID.
+
+    ```bash
+    docker logs -f $ContainerID
+    ```
+
+6. To see the status screen, attach the Docker container by doing the following. Replace the `$ContainerID` placeholder with your container ID.
+
+    ```bash
+    docker attack $ContainerID
+    ```
+
 :::success:Congratulations :tada:
 You're now running a GoShimmer node.
 :::
 
-![GoShimmer user interface](../images/goshimmer.png)
+![GoShimmer status screen](../images/goshimmer.png)
 
-The user interface displays the following statistics in the top-right corner:
+The status screen displays the following statistics in the top-right corner:
 
 * **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions.
 * **Node ID:** The node's public key that gives it a unique identity
@@ -140,7 +155,7 @@ To complete this guide, you need the following:
 * [Git](https://git-scm.com/downloads)
 * An Internet connection
 * [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
-* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
+* A public IP address
 
 ### Step 1. Download the code
 
@@ -192,9 +207,9 @@ When you run the node, it joins the network by autopeering with the entry node t
 You're now running a GoShimmer node.
 :::
 
-![GoShimmer user interface](../images/goshimmer.png)
+![GoShimmer status screen](../images/goshimmer.png)
 
-The user interface displays the following statistics in the top-right corner:
+The status screen displays the following statistics in the top-right corner:
 
 * **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions.
 * **Node ID:** The node's public key that gives it a unique identity
