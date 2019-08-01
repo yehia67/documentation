@@ -2,9 +2,9 @@
 
 **When you run the GoShimmer software, your device becomes a node in the network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become the Coordicide testnet, which is a release candidate for the next IOTA protocol.**
 
-You have two options for running a node. You either can run the node as a service in a Docker container, or you can run the node on the file system of your local device.
+You have two options for running a node. You either can run the node as a service in a Docker container, or you can build the node from source.
 
-## Run the node in a Docker container
+## Run a node in a Docker container
 
 When you run a node in a Docker container, it's similar to running it in a lightweight virtual machine.
 
@@ -100,6 +100,10 @@ When you run the node, it joins the network by autopeering with the entry node t
 
 4. Run the Docker image in the background, and forward the ports from your host device to the Docker container
 
+    :::info:
+    If you have [Docker Compose](https://docs.docker.com/compose/), you can also run `docker-compose up -d`.
+    :::
+
     ```bash
     sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -it -v mainnetdb:/root/mainnetdb goshimmer
     ```
@@ -142,9 +146,9 @@ The status screen displays the following statistics in the top-right corner:
 If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device.
 :::
 
-## Run the node on your local device
+## Build a node from source
 
-When you run a node on your local device, you need to make sure that it has the dependencies such as GCC, and the Go programming language.
+When you build the node from the source code, you need to make sure that you have the dependencies in the prerequisites such as GCC, and the Go programming language.
 
 ### Prerequisites
 
