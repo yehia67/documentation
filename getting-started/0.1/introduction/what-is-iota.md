@@ -1,20 +1,20 @@
 # What is IOTA?
 
-**IOTA is a distributed ledger technology that allows computers in an IOTA network to transfer immutable data and value among each other.**
+**IOTA is a distributed ledger technology that allows devices in an IOTA network to transfer immutable data and value among each other for free.**
 
 IOTA aims to improve efficiency, increase production, and ensure data integrity in a machine-to-machine economy.
 
-<dl><dt>machine-to-machine economy</dt><dd>Economy in which any computer can transfer data and value to other computers without human intervention.</dd></dl>
+<dl><dt>machine-to-machine economy</dt><dd>Economy in which any device can transfer data and value to other devices without human intervention.</dd></dl>
 
 To see IOTA in action, watch [this video](https://www.youtube.com/embed/Gr-LstcDcAw) about how it can improve supply chains.
 
 ## How does IOTA work?
 
-Clients send data and IOTA tokens to each other through [nodes](../introduction/what-is-a-node.md).
+Clients send groups of related [transactions](../introduction/what-is-a-transaction.md) called [bundles](../introduction/what-is-a-bundle.md) to [nodes](../introduction/what-is-a-node.md). The transactions in a bundle can instruct the node to transfer IOTA tokens from one address to another, or they can simply contain data. These addresses are creating, using a client's unique secret password called a [seed](../introduction/what-is-a-seed.md).
 
-To send and receive IOTA tokens, clients send packages of [transactions](../introduction/what-is-a-transaction.md) called [bundles](../introduction/what-is-a-bundle.md) to nodes. The transactions in a bundle instruct the node to transfer IOTA tokens from one address to another. These addresses are derived from a client's unique secret password called a [seed](../introduction/what-is-a-seed.md).
+Nodes are responsible for [validating transactions](root://node-software/0.1/iri/concepts/transaction-validation.md) and attaching them to [the Tangle](../introduction/what-is-the-tangle.md).
 
-When the bundle is confirmed in [the Tangle](../introduction/what-is-the-tangle.md), the IOTA tokens are transferred.
+When a bundle is confirmed, the nodes update the balances of any addresses that appear in that bundle's transactions.
 
 ## What is the IOTA token?
 
@@ -22,9 +22,7 @@ At its most basic level, the IOTA token is a record of ownership that's held by 
 
     ADDRESS....ENDOFADDRESS;1000
 
-These characters might look cryptic, but let's break it down. On the left of the semicolon is an address. These are unique to each client in the network. On the right of the semicolon is an amount of IOTA tokens that belong to that address, in this case 1,000 tokens.
-
-You own IOTA tokens only when all nodes [validate the transaction](root://node-software/0.1/iri/concepts/transaction-validation.md) that sent the tokens to you, and when it's referenced by a milestone.
+On the left of the semicolon is an address. These are unique to each client in the network. On the right of the semicolon is an amount of IOTA tokens that belong to that address, in this case 1,000 tokens.
 
 ## What makes the IOTA token valuable?
 
@@ -49,11 +47,11 @@ All transactions in the ledger are immutable and transparent.
 
 IOTA uses quantum-resistant cryptography to secure the network and prevent attackers from stealing IOTA tokens.
 
-IOTA networks are peer-to-peer networks. No central authority controls the ledger of transactions, instead all nodes hold a copy and run the software that contains the IOTA protocol to automate the agreement on its contents.
+IOTA networks are peer-to-peer networks. No central authority controls the ledger of transactions, instead all nodes hold a copy and automate the agreement on its contents through the IOTA protocol.
 
 ### Cost saving
 
-IOTA is free to use. You don't need to pay a subscription, or sign a contract. Even transactions are free to send.
+IOTA is free to use. You don't need to pay a subscription, or sign a contract. Even transactions are feeless.
 
 ### Scalability
 

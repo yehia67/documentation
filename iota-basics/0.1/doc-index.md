@@ -2,6 +2,8 @@
 
 [Introduction/Overview](/introduction/overview.md)
 
+[Concepts/The Tangle](/concepts/the-tangle.md)
+
 [Concepts/Addresses and signatures](/concepts/addresses-and-signatures.md)
 
 [Concepts/Bundles and transactions](/concepts/bundles-and-transactions.md)

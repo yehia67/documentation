@@ -16,7 +16,7 @@ If you want to see how IOTA works without having to write code, you can [use Tri
 
 ## Step 1. Create a seed
 
-A [seed](../introduction/what-is-a-seed.md) is your unique password that gives you access to all your addresses. These addresses hold your IOTA tokens and as such have a balance. To spend IOTA tokens, you must use your seed to prove that you own the address that holds them. Seeds can include only the number 9 and the uppercase letters A-Z.
+A [seed](../introduction/what-is-a-seed.md) is a unique password that gives you access to all your addresses. These addresses hold your IOTA tokens and as such have a balance. To transfer IOTA tokens, you must use your seed to prove that you own the address that holds them. Seeds can include only the number 9 and the uppercase letters A-Z.
 
 :::warning:
 You must keep your seed safe and back it up. If you lose your seed, you can't recover it.

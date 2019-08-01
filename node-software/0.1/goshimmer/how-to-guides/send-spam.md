@@ -12,8 +12,10 @@ The `spammer` API endpoint allows you to send your node spam transactions.
     By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 10,000 TPS, send a request to the following endpoint `http://localhost:8080/spammer?cmd=start&tps=10000`
     :::
 
-2. To check that your node is receiving transactions, see the statistics in the top-right of the user interface
+2. To check that your node is receiving transactions, open the user interface by going to `http://localhost:8081/dashboard` in a web browser
 
+    ![GoShimmer web user interface](../images/goshimmer-web-ui.png)
+    
     :::info:
     The displayed TPS may be lower than the value of the `tps` parameter you used. The reason for this difference may be due to limits with your computer hardware.
     :::

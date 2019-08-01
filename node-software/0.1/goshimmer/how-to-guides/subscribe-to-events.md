@@ -142,10 +142,12 @@ If we take this data as a random example, it corresponds to the following:
 |:--------|:---------------|
 |tx|Name of the ZMQ event|
 |YMTMRYBLFPTYCLHAWJVDE...|Transaction hash|
+|999999999999999999999...|Address|
 |125204|Value|
 |999999999999999999999...|Obsolete tag|
-|0|Index of this transaction in the bundle|
-|0|Index of the last transaction in the bundle|
+|0|Timestamp|
+|0|Current index of this transaction in the bundle|
+|0|Index of the head transaction in the bundle|
 |YMTMRYBLFPTYCLHAWJVDE...|Bundle hash|
 |BLFZJUOBAPWCXTGOCSBVJ...|Trunk transaction hash|
 |FXTZC9KKRBWSBYKCOGUDZ...|Branch transaction hash|

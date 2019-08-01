@@ -10,9 +10,9 @@ To make it easier to find the options you want to change, we've separated them i
 * **Ledger:** What your node does with its ledger
 * **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes
 * **ZMQ:** How clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
-* **Tip selection:** The length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md)
+* **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md)
 * **Tip solidification:** How tip transactions become solid.
-* **Proof of work:** How your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md)
+* **Proof of work:** How your node does [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)
 * **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md)
 
 :::info:
@@ -32,7 +32,7 @@ Use these settings to customize how the API behaves and which hosts can access i
 |<a name="api-host"></a> `--api-host`|`API_HOST` |Set the host to which the API listens| string | localhost | To accept any host, set this option to 0.0.0.0 or set the `REMOTE` option to `true`|
 |<a name="port"></a>`--port, -p` (**required**) |`API_PORT`|Set the port on which the API listens |string |14265 |
 |<a name="max-body-length"></a> `--max-body-length` | `MAX_BODY_LENGTH`|Set a maximum number of characters that the body of an API call may contain|number |1,000,000 | If the length of a request body exceeds this number, an error is returned
-|<a name="max-find-transactions"></a>`--max-find-transactions` |`MAX_FIND_TRANSACTIONS`|Set a maximum number of transactions that may be returned by the [findTransactions endpoint](../references/api-reference.md#findTransactions) |number | 100,000 | If the number of transactions exceeds this number, an error is returned
+|<a name="max-find-transactions"></a>`--max-find-transactions` |`MAX_FIND_TRANSACTIONS`|Set a maximum number of transactions that may be returned by the [`findTransactions` endpoint](../references/api-reference.md#findTransactions) |number | 100,000 | If the number of transactions exceeds this number, an error is returned
 |<a name="max-requests-list"></a>`--max-requests-list` |`MAX_REQUESTS_LIST`|Set a maximum number of parameters in an API call |number |1,000 | If the number of parameters exceeds this number, an error is returned
 |<a name="max-get-trytes"></a>`--max-get-trytes` |`MAX_GET_TRYTES`|Set a maximum number of trytes that may be returned by the [getTrytes endpoint](../references/api-reference.md#getTrytes)  |number |10,000 | If the number of trytes exceeds this number, an error is returned
 |<a name="remote"></a> ` --remote `|-|Open the API interface to any host |boolean | false| When set to true, this option is equivalent to setting the `API_HOST` option to 0.0.0.0. You must add a `true` or `false` value after this flag.
@@ -46,7 +46,7 @@ Use these settings to customize how your node communicates with neighbors.
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="auto-tethering-enabled"></a>`--auto-tethering-enabled` |`AUTO_TETHERING_ENABLED`|Enable new connections from unknown neighbors |boolean |false| Unknown neighbors are those that are neither defined in the `NEIGHBORS` option nor added through the `addNeighbors` API endpoint. Use the `MAX_NEIGHBORS` option to limit the maximum number of neighbors that can connect to your node.|
+|<a name="auto-tethering-enabled"></a>`--auto-tethering` |`AUTO_TETHERING`|Enable new connections from unknown neighbors |boolean |false| Unknown neighbors are those that are neither defined in the `NEIGHBORS` option nor added through the `addNeighbors` API endpoint. Use the `MAX_NEIGHBORS` option to limit the maximum number of neighbors that can connect to your node.|
 |<a name="cache-size"></a>`--cache-size` |`CACHE_SIZE_BYTES`|Set the maximum size of the network cache in bytes |number |150,000 |
 |<a name="dns-refresher"></a>`--dns-refresher` |`DNS_REFRESHER`|Reconnect to neighbors that have dynamic IP addresses |boolean |true |
 |<a name="dns-resolution"></a>`--dns-resolution` |`DNS_RESOLUTION`|Enable DNS for neighbor peering |boolean |true|
@@ -106,13 +106,13 @@ Use these settings to customize how clients can [subscribe to your node's ZMQ ev
 
 ## Tip selection
 
-Use these settings to customize the length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
+Use these settings to customize the length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md).
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="alpha"></a>`--alpha`| `ALPHA`|Set the randomness of the tip selection process             |   number between 0 and infinity  |  0.001     | The number 0 is the most random and infinity is the most deterministic. For an in-depth explanation of this option, [see our blog post](https://blog.iota.org/alpha-d176d7601f1c).|
 |<a name="max-analyzed-transactions"></a>`--max-analyzed-transactions` |`MAX_ANALYZED_TXS`|Set the maximum number of unconfirmed transactions that may be analyzed during tip selection to find the latest milestone that references a transaction |number |20,000 |
-|  <a name="maxdepth"></a>`--max-depth` |`MAX_DEPTH`|Set the maximum number of previous milestones (depth) from where the IRI will start the tip selection |number |15 | This value should be both small enough to allow the weighted random walk to finish in a reasonable amount of time and large enough in include enough new transactions in the [subgraph](root://the-tangle/0.1/concepts/tip-selection.md#subgraph-selection)
+|  <a name="maxdepth"></a>`--max-depth` |`MAX_DEPTH`|Set the maximum number of previous milestones (depth) from where the IRI will start the tip selection |number |15 | This value should be both small enough to allow the weighted random walk to finish in a reasonable amount of time and large enough in include enough new transactions in the [subgraph](../concepts/tip-selection.md#subgraph-selection)
 |<a name="tip-selection-timeout-sec"></a>`--tip-selection-timeout-sec` |`TIP_SELECTION_TIMEOUT_SEC`|Set the maximum number of seconds that the IRI can spend to complete tip selection |number | 60|This option stops your node from stalling if tip selection takes too long
 
 ## Tip solidification
@@ -121,12 +121,12 @@ Use these settings to customize how tip transactions become solid.
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="tip-selection-timeout-sec"></a>`--tip-solidfier-enabled` |`TIP_SOLIDIFIER_ENABLED`|Enable your node to solidify tip transactions that aren't milestones |boolean | false| By default, the IRI actively tries to solidify only milestones. Other tip transactions become solid through the gossip protocol. If you set this option to `true`, your node will use more resources.
+|<a name="tip-selection-timeout-sec"></a>`--tip-solidfier-enabled` |`TIP_SOLIDIFIER_ENABLED`|Enable your node to solidify tip transactions that aren't milestones |boolean | false| By default, the IRI actively tries to solidify only milestones. Other tip transactions become solid through the gossip protocol. If you set this option to `true`, your node will use more resources to solidify non-milestones.
 
 
 ## Proof of work
 
-Use these settings to customize how your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md).
+Use these settings to customize how your node does [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md).
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|

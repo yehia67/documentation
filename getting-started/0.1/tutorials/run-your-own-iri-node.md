@@ -1,8 +1,6 @@
 # Run your own IRI node
 
-**Nodes are the core of an IOTA network. Clients must send their transactions to nodes to have them validated and recorded in the ledger.**
-
-Without nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom.
+**Nodes are the core of an IOTA network. Clients must send their transactions to nodes to have them validated and attached to the Tangle. Without nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom.**
 
 By running your own IRI node, you have the following benefits:
 * You have your own direct access to a ledger on an IOTA network instead of having to connect to someone else's node

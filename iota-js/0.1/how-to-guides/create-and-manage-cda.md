@@ -122,7 +122,7 @@ Your account's total balance includes CDAs that are still active as well as expi
 
 ## Send someone your CDA
 
-If you want a depositer to send IOTA tokens to your account, you need to send them your CDA.
+If you want a depositer to transfer IOTA tokens to your account, you need to send them your CDA.
 
 Because CDAs are descriptive objects, you can serialize them into any format before sending them. The `generateCDA()` method returns a CDA object with the following fields. You can serialize a CDA into any format before distributing it to senders.
 

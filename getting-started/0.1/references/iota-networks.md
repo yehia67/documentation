@@ -1,8 +1,10 @@
-# IOTA networks
+# Public IOTA networks
 
-**In IOTA, bundles of transactions must be sent to [nodes](../introduction/what-is-a-node.md). IOTA has three [public networks](../references/iota-networks.md) of nodes. Each network has its own unique distributed ledger (the Tangle) that the nodes can append transactions to. You can choose to connect and send bundles to nodes on any public network.**
+**IOTA has three public networks of nodes. Each network has its own unique distributed ledger (the Tangle) that the nodes can attach transactions to. You can choose to connect and send bundles to nodes on any public network.**
 
-IOTA has the following [permissionless (public) networks](../introduction/what-is-dlt.md):
+A public IOTA network is one that anyone can join and send transactions to. All transactions in a public IOTA network are transparent. Anyone can see the transactions and balances of all addresses. You can see this for yourself in an application called a [Tangle explorer](https://thetangle.org/). These applications take data from the Tangle and publish them on a public website for everyone to see.
+
+IOTA has the following [public networks](../introduction/what-is-dlt.md):
 * **Mainnet:** IOTA token
 * **Devnet:** Devnet token (free)
 * **Spamnet:** Spamnet token (free)
@@ -10,7 +12,7 @@ IOTA has the following [permissionless (public) networks](../introduction/what-i
 All permissionless networks consist of nodes, clients, and the Coordinator.
 
 :::info:
-If you want to create and test an application on a permissioned (private) network, you can do so by running an instance of the open-source Coordinator code called [Compass](root://compass/0.1/introduction/overview.md).
+If you want to create and test an application on a private network, you can do so by running an instance of the open-source Coordinator code called [Compass](root://compass/0.1/introduction/overview.md). This way, your transactions and balances are kept private, and the tokens have no real-world value.
 :::
 
 ## Mainnet
@@ -45,7 +47,7 @@ On this network, you can test your applications and build proofs of concept that
 
 Transactions on the Devnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 9 to be valid.
 
-Compared to the Mainnet, this MWM reduces the time it takes for [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
+Compared to the Mainnet, this MWM reduces the time it takes for proof of work (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
 
 ### IRI nodes
 
@@ -89,7 +91,9 @@ The [faucet website](https://faucet.spamnet.iota.org) sends 1Ki (1000) Spamnet t
 
 ### Minimum weight magnitude
 
-Transactions on the Spamnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid. Compared to the Mainnet, this MWM reduces the time it takes for [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
+Transactions on the Spamnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid.
+
+Compared to the Mainnet, this MWM reduces the time it takes for proof of work (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
 
 ### IRI nodes
 

@@ -24,6 +24,6 @@ You may want to rebroadcast a bundle if you think that the node you sent it to d
 
 ## Promote
 
-To promote a bundle means to increases its chances of being selected during tip selection by increasing the [cumulative weight](root://the-tangle/0.1/concepts/tip-selection.md) of its tail transaction. When you promote a bundle, you create and send a zero-value transaction that references both its tail transaction and the latest milestone.
+To promote a bundle means to increases its chances of being selected during tip selection by increasing the [cumulative weight](root://node-software/0.1/iri/concepts/tip-selection.md) of its tail transaction. When you promote a bundle, you create and send a zero-value transaction that references both its tail transaction and the latest milestone.
 
 Promoting a bundle is often more effective than reattaching a bundle, unless the bundle you're promoting leads to an inconsistent state (double-spend) or is older than the last six milestones.

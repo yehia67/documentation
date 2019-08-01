@@ -1,10 +1,6 @@
-# Compass overview
+# Private Tangle overview
 
-**Compass is an open-source implementation of the Coordinator that allows nodes to reach a consensus on transactions. You can use Compass to allow nodes to reach a consensus on transactions attached to your private Tangle. You may want to set up a private Tangle to test and develop your ideas outside of any public IOTA networks such as the Mainnet or the Devnet.**
-
-A private Tangle is one that you control and that contains only nodes that you know.
-
-A private Tangle uses the same technology as the public IOTA networks, except you control it by running Compass. If Compass stops, no transactions in your IOTA network will be confirmed until it starts again.
+**A private Tangle is an IOTA network that you control and that contains only nodes that you know. A private Tangle uses the same technology as the public IOTA networks, except you control it by running an open-source implementation of the Coordinator called Compass. You can use Compass to allow nodes to reach a consensus on transactions attached to your private Tangle. If Compass stops, no transactions in your IOTA network will be confirmed until it starts again.**
 
 ## Reasons to set up a private Tangle
 
@@ -18,11 +14,11 @@ You may want to set up a private Tangle for the following reasons:
 
 **Showcase the technology:** If you want to show your ideas to others, you may want to set up a private Tangle so you can make sure that everything runs smoothly during your presentation.
 
-## How it works
+## How a private Tangle works
 
 IOTA is a distributed network of nodes that validate transactions and store them. Before nodes can update the balance of an address, they must reach a consensus on any transactions that lead to the updated balance. When nodes reach a consensus, on transactions, those transactions are confirmed.
 
-On the IOTA Mainnet, the [Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md) creates, signs, and sends bundles that contain milestones. The nodes on this network use these milestone to reach a consensus. Any transaction that's referenced and approved by a milestone is confirmed.
+On the IOTA Mainnet, the [Coordinator](root://iota-basics/0.1/concepts/the-tangle.md#the-coordinator) creates, signs, and sends bundles that contain milestones. The nodes on this network use these milestone to reach a consensus. Any transaction that's referenced and approved by a milestone is confirmed.
 
 Compass is an open-source implementation of the Coordinator. You can use Compass to allow the nodes in your own IOTA network to reach a consensus on Compass' milestones instead of the Coordinator's ones.
 
