@@ -10,7 +10,7 @@ To see IOTA in action, watch [this video](https://www.youtube.com/embed/Gr-LstcD
 
 ## How does IOTA work?
 
-Clients send groups of related [transactions](../introduction/what-is-a-transaction.md) called [bundles](../introduction/what-is-a-bundle.md) to [nodes](../introduction/what-is-a-node.md). The transactions in a bundle can instruct the node to transfer IOTA tokens from one address to another, or they can simply contain data. These addresses are derived from a client's unique secret password called a [seed](../introduction/what-is-a-seed.md).
+Clients send groups of related [transactions](../introduction/what-is-a-transaction.md) called [bundles](../introduction/what-is-a-bundle.md) to [nodes](../introduction/what-is-a-node.md). The transactions in a bundle can instruct the node to transfer IOTA tokens from one address to another, or they can simply contain data. These addresses are creating, using a client's unique secret password called a [seed](../introduction/what-is-a-seed.md).
 
 Nodes are responsible for [validating transactions](root://node-software/0.1/iri/concepts/transaction-validation.md) and attaching them to [the Tangle](../introduction/what-is-the-tangle.md).
 

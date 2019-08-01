@@ -2,6 +2,8 @@
 
 **IOTA has three public networks of nodes. Each network has its own unique distributed ledger (the Tangle) that the nodes can attach transactions to. You can choose to connect and send bundles to nodes on any public network.**
 
+A public IOTA network is one that anyone can join and send transactions to. All transactions in a public IOTA network are transparent. Anyone can see the transactions and balances of all addresses. You can see this for yourself in an application called a [Tangle explorer](https://thetangle.org/). These applications take data from the Tangle and publish them on a public website for everyone to see.
+
 IOTA has the following [public networks](../introduction/what-is-dlt.md):
 * **Mainnet:** IOTA token
 * **Devnet:** Devnet token (free)
@@ -10,7 +12,7 @@ IOTA has the following [public networks](../introduction/what-is-dlt.md):
 All permissionless networks consist of nodes, clients, and the Coordinator.
 
 :::info:
-If you want to create and test an application on a private network, you can do so by running an instance of the open-source Coordinator code called [Compass](root://compass/0.1/introduction/overview.md).
+If you want to create and test an application on a private network, you can do so by running an instance of the open-source Coordinator code called [Compass](root://compass/0.1/introduction/overview.md). This way, your transactions and balances are kept private, and the tokens have no real-world value.
 :::
 
 ## Mainnet
