@@ -6,11 +6,7 @@ When a node receives a new transaction, it checks that it has the history its ch
 
 ## Solidification
 
-<<<<<<< HEAD:node-software/0.1/iri/concepts/the-ledger.md
 Solidification is the process by which a node receives the history of all [milestones](root://iota-basics/0.1/concepts/the-tangle.md#milestones) in the [Tangle](root://iota-basics/0.1/concepts/the-tangle.md).
-=======
-Ledger solidification is the process by which a node asks its neighbors for the history of all [milestones](root://the-tangle/0.1/concepts/the-coordinator.md) in the [Tangle](root://the-tangle/0.1/introduction/overview.md).
->>>>>>> c58171ef5abf7dba738198d5ace1a239aa1623e8:node-software/0.1/iri/concepts/the-ledger.md
 
 When a node starts running, it starts to request the transactions that each milestone references (its history), starting from an **entry point milestone** and ending at the latest one.
 

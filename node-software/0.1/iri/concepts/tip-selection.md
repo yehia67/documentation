@@ -4,11 +4,7 @@
 
 In general, the tip selection algorithm selects transactions that have no parents. These transactions are called tips, hence the name 'tip selection'.
 
-<<<<<<< HEAD:node-software/0.1/iri/concepts/tip-selection.md
 Although the tip selection algorithm is embedded in the [IRI node software](root://node-software/0.1/iri/introduction/overview.md), it isn't enforced by the network. Instead, nodes are given an [incentive to use the tip selection algorithm](#incentives-to-use-tip-selection).
-=======
-Although the tip selection algorithm is embedded in the [IOTA node software](root://node-software/0.1/iri/introduction/overview.md), it isn't enforced by the network. Instead, nodes are given an [incentive to use the tip selection algorithm](../concepts/incentives-in-the-tangle.md).
->>>>>>> c58171ef5abf7dba738198d5ace1a239aa1623e8:the-tangle/0.1/concepts/tip-selection.md
 
 ## The tip selection process
 
