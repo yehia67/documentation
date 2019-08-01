@@ -363,7 +363,7 @@ You can communicate with Hub through any programming language that supports [gRP
 	python examples/get_address.py
 	```
 
-	The output should display a new deposit address for user-1. Feel free to send it a couple of IOTA tokens to try it out with [Trinity](root://wallets/0.1/trinity/0.1/introduction/overview.md)!
+	The output should display a new deposit address for user-1. Feel free to send it a couple of IOTA tokens to try it out with [Trinity](root://wallets/0.1/trinity/introduction/overview.md)!
 
 7. Get the balance and history for the user  
 

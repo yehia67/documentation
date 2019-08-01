@@ -22,7 +22,7 @@ The test network runs one [IRI node](root://node-software/0.1/iri/introduction/o
 
 The IRI node receives transactions, validates them, and keeps an up-to-date record of users' balances.
 
-At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction.
+At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](root://iota-basics/0.1/concepts/the-tangle.md#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction.
 
 The total supply of tokens are stored on the first address of this seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`.
 
@@ -57,7 +57,7 @@ To use this application, you need the following:
  ![Compass and IRI node logs](../images/cli.gif)
 
  :::info:
- Compass uses a pre-built [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals.
+ Compass uses a pre-built [Merkle tree](root://iota-basics/0.1/concepts/the-tangle.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals.
  :::
 
 ### Host an optional utilities website for your private Tangle
@@ -182,7 +182,7 @@ The [IOTA Light Wallet](https://github.com/iotaledger/wallet/releases) is a basi
 
 ### Connect to Trinity
 
-[Trinity](root://trinity/0.1/introduction/overview.md) is the official IOTA  wallet for macOS, Windows, Linux, iOS, and Android. This wallet allows you to connect only to nodes that support the HTTPS protocol.
+[Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA  wallet for macOS, Windows, Linux, iOS, and Android. This wallet allows you to connect only to nodes that support the HTTPS protocol.
 
 To connect to Trinity, you can configure the one-command Tangle's Docker container to start a secure Caddy proxy server that uses Let's Encrypt SSL certificates.
 
@@ -221,7 +221,7 @@ You need the following:
 
     Now, you can connect to the IRI node.
 
-4. In Trinity, [create an account](root://trinity/0.1/how-to-guides/create-an-account.md) with your seed
+4. In Trinity, [create an account](root://wallets/0.1/trinity/how-to-guides/create-an-account.md) with your seed
 
     ```
     SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
