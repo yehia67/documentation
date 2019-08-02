@@ -8,7 +8,7 @@ Hub helps you to integrate IOTA into your own applications through the following
 * [Seed creation](#seed-creation)
 * [Token protection](#token-protection)
 
-You can use Hub to build applications that allow users to deposit IOTA tokens into it. When users deposit IOTA tokens, Hub keeps a record of their balances in a database. Then, Hub transfers those tokens to the Hub owner's IOTA address. This way the Hub owner has control over the tokens and can keep them safe for the users. If a user later requests a withdrawal, the Hub owner can issue that withdrawal by checking the users balance and sending a bundle of transactions to a node.
+You can use Hub to build applications that allow users to deposit IOTA tokens into it. When users deposit IOTA tokens, Hub keeps a record of their balances in a database. Then, Hub transfers those tokens to the Hub owner's IOTA address. This way the Hub owner has control over the tokens and can keep them safe for the users. If a user later requests a withdrawal, the Hub owner can issue that withdrawal by checking the user's balance and sending a bundle of transactions to a node.
 
 All Hub functions such as deposits and withdrawals are done by calling [gRPC API endpoints](../how-to-guides/get-started-with-the-api.md).
 
