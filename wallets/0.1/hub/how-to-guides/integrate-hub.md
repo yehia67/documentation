@@ -1,4 +1,4 @@
-# Integrate Hub into a crytocurrency exchange
+# Integrate Hub into a cryptocurrency exchange
 
 **Hub can be integrated into an exchange in many ways, depending on how you want to manage your users' balances.**
 
