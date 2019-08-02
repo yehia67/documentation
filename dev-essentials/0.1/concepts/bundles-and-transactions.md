@@ -21,7 +21,7 @@ Each transaction in a bundle has the following structure that allows nodes to va
 | `attachmentTimestamp`          |Unix epoch: Milliseconds since Jan 1, 1970 (after POW)                                                                                                                                                                                                           |
 | `attachmentTimestampLowerBound` |Lower limit of the `attachmentTimestamp` field (not currently used)                                                                                                                                                                                                      |
 | `attachmentTimestampUpperBound` |Upper limit of the `attachmentTimestamp` field (not currently used)                                                                                                                                                                                                         |
-| `nonce`                         |Trytes that represent the amount of times a transaction must be hashed to check the [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md).                                      |
+| `nonce`                         |Trytes that represent the amount of times a transaction must be hashed to check the [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md).                                      |
 
 
 When a transaction is grouped in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the last transaction in a bundle.

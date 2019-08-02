@@ -1,6 +1,6 @@
 # One-command private Tangle
 
-**This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and [2.7Pi](root://iota-basics/0.1/references/units-of-iota-tokens.md) (the maximum amount) of test IOTA tokens to use. You can use this application to test your ideas and applications without risking any monetary value.**
+**This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and [2.7Pi](root://dev-essentials/0.1/references/units-of-iota-tokens.md) (the maximum amount) of test IOTA tokens to use. You can use this application to test your ideas and applications without risking any monetary value.**
 
 :::info:Go to GitHub
 For quickstart instructions or to read the source code, [go to the GitHub repository](https://github.com/iota-community/one-command-tangle).
@@ -22,7 +22,7 @@ The test network runs one [IRI node](root://node-software/0.1/iri/introduction/o
 
 The IRI node receives transactions, validates them, and keeps an up-to-date record of users' balances.
 
-At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](root://iota-basics/0.1/concepts/the-tangle.md#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction.
+At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction.
 
 The total supply of tokens are stored on the first address of this seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`.
 
@@ -57,7 +57,7 @@ To use this application, you need the following:
  ![Compass and IRI node logs](../images/cli.gif)
 
  :::info:
- Compass uses a pre-built [Merkle tree](root://iota-basics/0.1/concepts/the-tangle.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals.
+ Compass uses a pre-built [Merkle tree](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals.
  :::
 
 ### Host an optional utilities website for your private Tangle

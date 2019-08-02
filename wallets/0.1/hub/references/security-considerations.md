@@ -4,7 +4,7 @@
 
 ## Deposit addresses
 
-For [security purposes](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse), deposit addresses may only be withdrawn from once.
+For [security purposes](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse), deposit addresses may only be withdrawn from once.
 
 Hub reduces this risk by transferring IOTA tokens from users' deposit addresses to a Hub owner's address at regular intervals. This process happens in a [sweep](../concepts/sweeps.md).
 

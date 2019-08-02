@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-Before you complete this tutorial, you need [a new address](root://iota-basics/0.1/how-to-guides/create-an-address.md).
+Before you complete this tutorial, you need [a new address](root://dev-essentials/0.1/how-to-guides/create-an-address.md).
 
 :::danger:Important
 If you own IOTA tokens on the Mainnet, we recommend creating a new test seed to use on the Devnet.
@@ -21,7 +21,7 @@ If you own IOTA tokens on the Mainnet, we recommend creating a new test seed to 
 4. Click **Request**
 
     :::info:
-    The Request button appears only if your address is valid. A valid address consists of 81 or 90 [trytes](root://iota-basics/0.1/concepts/trinary.md)(including a valid checksum).
+    The Request button appears only if your address is valid. A valid address consists of 81 or 90 [trytes](root://dev-essentials/0.1/concepts/trinary.md)(including a valid checksum).
     :::
 
 5. Click **Check balance**

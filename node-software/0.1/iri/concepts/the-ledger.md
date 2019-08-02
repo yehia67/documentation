@@ -6,12 +6,12 @@ When a node receives a new transaction, it checks that it has the history its ch
 
 ## Solidification
 
-Solidification is the process by which a node receives the history of all [milestones](root://iota-basics/0.1/concepts/the-tangle.md#milestones) in the [Tangle](root://iota-basics/0.1/concepts/the-tangle.md).
+Solidification is the process by which a node receives the history of all [milestones](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) in the [Tangle](root://dev-essentials/0.1/concepts/the-tangle.md).
 
 When a node starts running, it starts to request the transactions that each milestone references (its history), starting from an **entry point milestone** and ending at the latest one.
 
 :::info:
-References are defined in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md).
+References are defined in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://dev-essentials/0.1/references/structure-of-a-transaction.md).
 :::
 
 When a node has the milestone's branch and trunk, it starts to request all the transactions that those transactions reference. This process continues for each transaction until the node reaches the entry point milestone. At this point, the node marks that milestone as **solid**, and starts the process again from the next one.

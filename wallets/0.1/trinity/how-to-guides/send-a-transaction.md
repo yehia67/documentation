@@ -19,7 +19,7 @@ To send to an address in Trinity, it must include the 9-tryte checksum. If you g
 3. Enter either a message, or an amount of IOTA tokens, or both
 
     :::info:
-    The amount to send can be entered in units of IOTA or in the [currency of your choice](../how-to-guides/change-the-general-settings.md). Pay close attention to the [IOTA units](root://iota-basics/0.1/references/units-of-iota-tokens.md) (i, Mi, Gi,) that you're sending.
+    The amount to send can be entered in units of IOTA or in the [currency of your choice](../how-to-guides/change-the-general-settings.md). Pay close attention to the [IOTA units](root://dev-essentials/0.1/references/units-of-iota-tokens.md) (i, Mi, Gi,) that you're sending.
     :::
 
     :::info:

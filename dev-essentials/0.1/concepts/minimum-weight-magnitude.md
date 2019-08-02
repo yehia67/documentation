@@ -14,7 +14,7 @@ PoW is easy to calculate for one email, but costs a lot in time and computationa
 
 Similar to hashcash, each transaction must include a PoW before it can be validated. This PoW provides spam protection for an IOTA network by increasing the time and computational power it takes to create mass spam transactions.
 
-To calculate the PoW for a transaction, the following [contents of the transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) are converted from trytes to trits, then those trits are hashed to result in a transaction hash:
+To calculate the PoW for a transaction, the following [contents of the transaction](root://dev-essentials/0.1/references/structure-of-a-transaction.md) are converted from trytes to trits, then those trits are hashed to result in a transaction hash:
 
 * **Bundle hash:** Hash that's calculated using the `address`, `obsoleteTag`, `timestamp`, `value`, `currentIndex`, and `lastindex` fields of all transactions in a bundle. These fields are called the **bundle essence**.
 * **Signature:** Signature of the transaction (if it withdraws IOTA tokens from an address)
@@ -27,7 +27,7 @@ Minimum weight magnitude (MWM) defines the requirements for proof of work.
 During proof of work, the transaction hash is repeatedly hashed until it ends in the same number of 0 trits as the MWM. The higher the MWM, the harder the proof of work.
 
 :::info:
-[Three 0 trits are encoded as a 9 in trytes](root://iota-basics/0.1/references/tryte-alphabet.md).
+[Three 0 trits are encoded as a 9 in trytes](root://dev-essentials/0.1/references/tryte-alphabet.md).
 :::
 
 All nodes in an [IOTA network](root://getting-started/0.1/references/iota-networks.md) accept transactions whose hashes end in the same or higher number of 0 trits as their predefined MWM. If a transaction ends in fewer 0 trits than the MWM, the nodes in that network will reject it.
@@ -38,7 +38,7 @@ For example, on the Mainnet, you must use at least a MWM of 14. If you were to s
 Every increment of the MWM triples the difficulty of the PoW.
 :::
 
-If the transaction hash ends in the correct number of 0 trits ([minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)), it's considered valid.
+If the transaction hash ends in the correct number of 0 trits ([minimum weight magnitude](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)), it's considered valid.
 
 ### The `nonce` field
 

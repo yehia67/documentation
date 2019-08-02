@@ -49,7 +49,7 @@ The following information describes what nodes do when a client calls the [getTr
 Clients call this endpoint when they want to send a transaction. The endpoint results in two tip transaction hashes, which are used in the `trunkTransaction` and `branchTransaction` fields of the new transaction.
 
 :::info:
-Find out more about the [structure of a transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md).
+Find out more about the [structure of a transaction](root://dev-essentials/0.1/references/structure-of-a-transaction.md).
 :::
 
 When this endpoint is called, a node starts the tip selection algorithm, which is separated into the following stages:

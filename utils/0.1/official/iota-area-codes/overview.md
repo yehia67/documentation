@@ -8,7 +8,7 @@ By using IACs, you can tag a transaction with an area and allow someone else to 
 
 ## About IACs
 
-IACs are a clone of [Open Location Codes](https://en.wikipedia.org/wiki/Open_Location_Code) (OLC), which includes some minor changes to make them compatible with [tryte encoding](root://iota-basics/0.1/concepts/trinary.md):
+IACs are a clone of [Open Location Codes](https://en.wikipedia.org/wiki/Open_Location_Code) (OLC), which includes some minor changes to make them compatible with [tryte encoding](root://dev-essentials/0.1/concepts/trinary.md):
 
 * The numbers and letters that make up a code are called _trytes_, which include the following: `FGHJKLMNOPQRSTUVXWYZ`
 * The separator that comes after the eighth tryte in an IAC is a `9` instead of a `+`
