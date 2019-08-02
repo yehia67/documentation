@@ -22,7 +22,7 @@ The older the entry point milestone, the longer solidification takes.
 
 An IRI node is considered synchronized when it has solidified all the milestones up to the latest one.
 
-You can find out if a node is synchronzed by checking that its `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field.
+You can find out if a node is synchronized by checking that its `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field.
 
 The `latestMilestoneIndex` field is the index of the latest milestone that the IRI has received from its neighbors.
 

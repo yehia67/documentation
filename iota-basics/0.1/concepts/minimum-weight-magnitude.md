@@ -8,7 +8,7 @@ A proof of work (PoW) is a piece of data that is calculated using trial and erro
 
 PoW was introduced as a concept to reduce large amounts of email spam. This concept is known as [hashcash](https://en.wikipedia.org/wiki/Hashcash), and is a method of preventing email spam by requiring a proof of work for the contents of every email.
 
-PoW is easy to calcluate for one email, but costs a lot in time and computational power to calculate for mass spam emails.
+PoW is easy to calculate for one email, but costs a lot in time and computational power to calculate for mass spam emails.
 
 ### Proof of work in IOTA
 
