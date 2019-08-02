@@ -1,6 +1,6 @@
 # Install a proof-of-work proxy server
 
-**The `attachToTangle` endpoint is resource intensive. As a result, many calls to this endpoint can sometimes cause a node to crash. To resolve this problem, you can install a dedicated proxy server to do proof of work (PoW) instead of making the node do it.**
+**The `attachToTangle` endpoint is resource intensive. As a result, many calls to this endpoint can sometimes cause a node to crash. To resolve this problem, you can install a dedicated proxy server to do proof of work (PoW) for your node.**
 
 The PoW proxy server is an implementation of [Caddy](https://caddyserver.com/) that uses IOTA middleware. This middleware allows the server to intercept calls to an IRI node's `attachToTangle` endpoint and do the PoW.
 

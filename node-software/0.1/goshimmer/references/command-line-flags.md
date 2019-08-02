@@ -15,6 +15,7 @@ If you've downloaded the code, you can also run it with the `-h` or `--help` fla
 |<a name="autopeering-port"></a>`-autopeering-port` |Set the TCP port for incoming peering requests |number |14626 |
 |<a name="database-directory"></a>`-database-directory` |Set the path to the database folder  |string |mainnetdb | 
 |<a name="gossip-port"></a> `-gossip-port`|Set the TCP/UDP port for the gossip connection | number| 14666
-|<a name="node-disable-plugins"></a>`-node-disable-plugins` |Disable plugins by name | string| ""|
+|<a name="node-disable-plugins"></a>`-node-disable-plugins` |Disable plugins by name | string| "dashboard zeromq spammer"|
+|<a name="node-enable-plugins"></a>`-node-enable-plugins`|Enable plugins by name|string|"analysis autopeering bundleprocessor cli gossip gossiponsolidification gracefulshutdown metrics statusscreen statusscreentps tangle tipselection webapi webapigttaendpoint"
 |<a name="node-log-level"></a>`-node-log-level` |Set the type of log messages that are displayed|number |3 |LOG_LEVEL_FAILURE = 0, LOG_LEVEL_WARNING = 1, LOG_LEVEL_SUCCESS = 2, LOG_LEVEL_INFO = 3, LOG_LEVEL_DEBUG = 4|
 |<a name="zeromq-port"></a>`-zeromq-port` |Set the TCP port for the ZMQ stream |number |5556 | 

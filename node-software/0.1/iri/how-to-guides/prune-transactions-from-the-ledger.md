@@ -1,6 +1,6 @@
 # Prune transactions from the ledger
 
-**Over time, the ledger of an IRI node accumulates many valid transactions, which often cause it to become larger than the IRI node's available memory. To stop the ledger from becoming too large, you can choose to delete old transactions from the ledger at regular intervals.**
+**Over time, the ledger of an IRI node accumulates many transactions, which often cause it to become larger than the IRI node's available memory. To stop the ledger from becoming too large, you can choose to delete old transactions from the ledger at regular intervals.**
 
 Transactions are pruned only if they were confirmed by a milestone transaction that is older than the result of the following calculation:
 

@@ -12,20 +12,20 @@ The fate of each transaction in a bundle depends on the rest. Either all transac
 
 To transfer IOTA tokens, a bundle must contain at least one input and one output transaction. These bundles are called transfer bundles.
 
-In this example, you want to send 100Mi to recipient A, and your balance is distributed among three addresses:
+In this example, you want to send 100 Mi to recipient A, and your balance is distributed among three addresses:
 
-* **Address 0:** 20Mi
-* **Address 1:** 30Mi
-* **Address 2:** 55Mi
+* **Address 0:** 20 Mi
+* **Address 1:** 30 Mi
+* **Address 2:** 55 Mi
 
-When you send 100Mi to recipient A, the following transactions are created and sent to a node as a transfer bundle:
+When you send 100 Mi to recipient A, the following transactions are created and sent to a node as a transfer bundle:
 
-* **Input transaction:** Withdraw 100Mi from my address and check the signature to verify that I own it
-* **Output transaction:** Deposit 100Mi to the recipient's address
-* **Output transaction:** Deposit the remaining 5Mi from address 2 into address 3
+* **Input transaction:** Withdraw 100 Mi from my address and check the signature to verify that I own it
+* **Output transaction:** Deposit 100 Mi to the recipient's address
+* **Output transaction:** Deposit the remaining 5 Mi from address 2 into address 3
 
-:::danger:
-[You must not withdraw from an address more than once](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). So, a transfer bundle may require an extra output transaction to deposit the remaining balance of a withdrawn address into a new address.
+:::danger:Always withdraw the total balance of an address
+IOTA uses the [Winternitz one-time signature scheme](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse) to sign bundles. This signature scheme means that addresses can be safely withdrawn from only once, so you must always withdraw the total balance from an address. If you want to transfer only some of that balance to another person, you can transfer the remaining balance to one of your own unspent addresses.
 :::
 
 [Learn more about bundles and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md).

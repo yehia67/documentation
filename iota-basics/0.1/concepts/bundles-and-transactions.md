@@ -17,7 +17,7 @@ Each transaction in a bundle has the following structure that allows nodes to va
 | `bundle`                        | Hash of the bundle                |
 | `trunkTransaction`              |Transaction hash of a [parent transaction](../concepts/the-tangle.md#parent-and-children). This transaction hash can either be of an existing transaction in the Tangle or of [the next transaction index in the same bundle](../references/structure-of-a-bundle.md).                                                                                                                                 |
 | `branchTransaction`             |Transaction hash of a [parent transaction](../concepts/the-tangle.md#parents-and-children)                                                                                                                                                                 |
-| `attachmentTag`                |User-defined tag                                                                                                                                                                                                              | 27     |
+| `attachmentTag`                |User-defined tag                                                                                                                                                                                                              |
 | `attachmentTimestamp`          |Unix epoch: Milliseconds since Jan 1, 1970 (after POW)                                                                                                                                                                                                           |
 | `attachmentTimestampLowerBound` |Lower limit of the `attachmentTimestamp` field (not currently used)                                                                                                                                                                                                      |
 | `attachmentTimestampUpperBound` |Upper limit of the `attachmentTimestamp` field (not currently used)                                                                                                                                                                                                         |
@@ -45,9 +45,9 @@ As a result, bundles are atomic: Either all transactions in the bundle are valid
 
 To explain why bundles need to be atomic, take this example.
 
-    You're at an online checkout and the total to pay is 10Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5Mi. So, you create three transactions: One input transaction to withdraw 5Mi from address 0, another input transaction to withdraw 5Mi from address 1, and one output transaction to deposit 10Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.)
+> You're at an online checkout and the total to pay is 10 Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5 Mi. So, you create three transactions: One input transaction to withdraw 5 Mi from address 0, another input transaction to withdraw 5 Mi from address 1, and one output transaction to deposit 10 Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.)
 
-    For the vendor to receive 10Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the goal of transferring IOTA tokens.
+> For the vendor to receive 10 Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the goal of transferring IOTA tokens.
 
 :::info:
 It's not just multiple transactions that need to be packaged in a bundle, even individual ones do.
@@ -120,7 +120,7 @@ During [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), 
 
 ### Withdraw from address with security level 1
 
-This bundle transfers 80i to a recipient from an address with a security level of 1.
+This bundle transfers 80 i to a recipient from an address with a security level of 1.
 
 | **Transaction index** | **Transaction contents**                                                     | **Transaction value**                                          |
 | ----- | ------------------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -130,7 +130,7 @@ This bundle transfers 80i to a recipient from an address with a security level o
 
 ### Withdraw from address with security level 2
 
-This bundle transfers 80i to a recipient from an address with a security level of 2.
+This bundle transfers 80 i to a recipient from an address with a security level of 2.
 
 | **Transaction index** | **Transaction contents**                                                     | **Transaction value**                                          |
 | ----- | ------------------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -141,7 +141,7 @@ This bundle transfers 80i to a recipient from an address with a security level o
 
 ### Withdraw from an address with security level 3
 
-This bundle transfers 80i to a recipient from an address with a security level of 3.
+This bundle transfers 80 i to a recipient from an address with a security level of 3.
 
 | **Transaction index** | **Transaction contents**                                                     | **Transaction value**                                          |
 | ----- | ------------------------------------------------------------------------- | --------------------------------------------------------------- |

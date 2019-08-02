@@ -1,6 +1,6 @@
 # Minimum weight magnitude
 
-**Each transaction must include a valid proof of work, which is a spam prevention technique. The minimum weight magnitude (MWM) is a variable that defines how much work is done during proof of work. When you interact with an IOTA network as a client, you must use the correct MWM for that network. Otherwise, your transaction won't be valid and the nodes will reject it.**
+**Each transaction must include a valid proof of work, which is a spam prevention measure. The minimum weight magnitude (MWM) is a variable that defines how much work is done during proof of work. When you interact with an IOTA network as a client, you must use the correct MWM for that network. Otherwise, your transaction won't be valid and the nodes will reject it.**
 
 ## About proof of work
 
