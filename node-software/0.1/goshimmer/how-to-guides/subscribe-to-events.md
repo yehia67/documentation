@@ -1,6 +1,6 @@
-# Subscribe to the transaction event
+# Monitor your node for incoming transactions
 
-**When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event and receive details of every transaction that your node receives.**
+**When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event to monitor your node for incoming transactions.**
 
 You can receive this transaction data from a node by doing the following:
 
@@ -21,9 +21,9 @@ To use the sample code in this guide, you must have the following:
 * Access to a command prompt
 * An Internet connection
 
-## Subscribe to the received transaction event
+## Subscribe to the transaction event
 
-You can subscribe to the `tx` event on the ZMQ of a node to listen for recently received transactions.
+You can subscribe to the `tx` event to monitor a node for recently received transactions.
 
 1\. Install the zeromq library
 
