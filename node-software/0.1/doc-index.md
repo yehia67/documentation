@@ -7,6 +7,7 @@
 [IRI/Concepts/Transaction validation](/iri/concepts/transaction-validation.md)
 [IRI/Concepts/Zero message queue](/iri/concepts/zero-message-queue.md)
 [IRI/Concepts/Local snapshot](/iri/concepts/local-snapshot.md)
+[IRI/Concepts/Tip selection](/iri/concepts/tip-selection.md)
 [IRI/How-to Guides/Run an IRI node on a Linux server](/iri/how-to-guides/run-an-iri-node-on-linux.md)
 [IRI/How-to Guides/Run an IRI node in Docker](/iri/how-to-guides/run-an-iri-node-in-docker.md)
 [IRI/How-to Guides/Set up a reverse proxy server](/iri/how-to-guides/set-up-a-reverse-proxy.md)

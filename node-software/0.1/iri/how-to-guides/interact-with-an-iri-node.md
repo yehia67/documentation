@@ -1,4 +1,4 @@
-# Request information from a node
+# Send requests to a node
 
 **Nodes wait to receive transactions from clients on the API port that's set in the `PORT` configuration parameter. You can send HTTP requests to this port to interact with a node's REST API, which allows you to read/write data to the Tangle.**
 

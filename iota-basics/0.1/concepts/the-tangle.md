@@ -28,27 +28,21 @@ For example, if transaction 6 instructs the node to withdraw 10 Mi from an addre
 
 ## Consensus
 
-Nodes are responsible for validating transactions and their histories to make sure that they don't conflict. To validate a transaction, a node needs to have that transaction's history in its ledger.
+Nodes are responsible for validating transactions and their histories to make sure that they don't conflict. To validate a transaction, a node needs to have that transaction's history in its ledger. The transactions in any node's ledger make up its **view of the Tangle**.
 
-Because the Tangle is distributed among all nodes in an IOTA network, some of them may not have the history of all transactions in their ledgers at any given time.
-
-:::info:
-The transactions in any node's ledger make up that node's _view of the Tangle_.
-:::
-
-To make sure that all nodes eventually have the same view of the Tangle, they forward any new transactions that they receive to their neighbors. If a node is missing part of a transaction's history, it will asks its neighbors for the missing transactions.
+Because the Tangle is distributed among all nodes in an IOTA network, some of them can have different views of the Tangle. So, to make sure that all nodes eventually have the same view of the Tangle, they forward any new transactions that they receive to their neighbors. If a node is missing part of a transaction's history, it will asks its neighbors for the missing transactions.
 
 When a node has a transaction's history, the transaction is considered solid. The goal of all nodes is to make the transactions in their ledgers solid.
 
 :::info:
 Nodes don't need the entire history of a transaction, starting from the first ever transaction to consider it solid.
 
-Instead, nodes need the history of a transaction up to a predefined transaction, which is called an entry point. When the transaction's history goes far back enough to reference an entry point, the node stops solidifying it.
+Instead, nodes need the history of a transaction up to a predefined one, which is called an entry point. When the transaction's history goes far back enough to reference an entry point, the node stops solidifying it.
 
 An example of a predefined entry point is a [local snapshot](root://node-software/0.1/iri/concepts/local-snapshot.md).
 :::
 
-For a transaction to be considered confirmed, nodes must reach a consensus on which solid transactions to consider final before they can update the balances of addresses.
+For a transaction to be considered confirmed, nodes must reach a consensus on when to consider it final before they can update the balances of addresses.
 
 A transaction is considered confirmed when it's directly or indirectly referenced by a transaction that's sent and signed by the Coordinator.
 

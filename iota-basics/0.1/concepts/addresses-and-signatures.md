@@ -21,17 +21,15 @@ The only way to create this private key is by owning the seed that was used to c
 Seeds are the master keys to the Kerl [hash function](https://www.techopedia.com/definition/19744/hash-function) in the IOTA protocol, which uses [Keccak-384](https://keccak.team/keccak.html). This hash function takes a seed, an index, and a security level to create an address and private key pair:
 
 * **Seed:** Unique 81 [trytes](../references/tryte-alphabet.md) chosen by the client
-* **Index*:** Number that changes which address and private key pair is created
+* **Index:** Number that changes which address and private key pair is created
 * **Security level:** Number between 1 and 3 that affects the length of a private key
 
 A private key is used to sign bundles that withdraw IOTA tokens from an address to prove you own it. Each address has a corresponding private key. So, to withdraw IOTA tokens from an address, you need to prove you own it by creating a private key from the same seed, index, and security level as the address.
 
-If you use the same seed, index, and security level, the hash function will always return the same address and private key pair.
+If you use the same seed, index, and security level, the hash function will always return the same address and private key pair. Seeds can be used to create an almost unlimited number of addresses and private key pairs (9<sup>57</sup>) by incrementing the index and using all three security levels.
 
 :::info:
 You can try this by using our JavaScript client library to [create a new address](../how-to-guides/create-an-address.md).
-
-Seeds can be used to create an almost unlimited number of addresses and private key pairs (9<sup>57</sup>).
 :::
 
 The first step to generate an address is to derive a private key from the seed, index, and security level.
@@ -59,7 +57,7 @@ Each key fragment is hashed once to derive one **key digest** for each security 
 Then, the key digests are combined and hashed once to derive an 81-tryte address.
 
 :::info:
-Some application such as Trinity require you to use addresses, which include a 9-tryte checksum on the end.
+Some application such as Trinity require you to use addresses that include a 9-tryte checksum on the end.
 :::
 
 ![Address generation](../images/address-generation.png)
