@@ -133,7 +133,7 @@ curl http://localhost:14265 \
 
 ## attachToTangle
 
-Do [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) on a node for the given transaction trytes.
+Do [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) on a node for the given transaction trytes.
 
  ### Parameters
 
@@ -141,9 +141,9 @@ Do [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) 
 	
 |**Parameter** |**Required or Optional** |**Description** |**Type**|
 |--|--|--|--|
-| `trunkTransaction` |Required| [Trunk transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
-| `branchTransaction` |Required| [Branch transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
-| `minWeightMagnitude` |Required| [Minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) | integer|
+| `trunkTransaction` |Required| [Trunk transaction](root://dev-essentials/0.1/references/structure-of-a-transaction.md) hash | string|
+| `branchTransaction` |Required| [Branch transaction](root://dev-essentials/0.1/references/structure-of-a-transaction.md) hash | string|
+| `minWeightMagnitude` |Required| [Minimum weight magnitude](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) | integer|
 | `trytes` |Required| String of transaction trytes |array of strings|
 
 ### Examples

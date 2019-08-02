@@ -74,7 +74,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 
 ## Step 2. Compute the Merkle tree
 
-For this guide, we use a [Merkle tree](root://iota-basics/0.1/concepts/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them.
+For this guide, we use a [Merkle tree](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them.
 
 :::info:
 [See our example Merkle tree compute times](../references/merkle-tree-compute-times.md) that show how the `depth` parameter affects both the time it takes to compute the Merkle tree and the total network uptime.

@@ -16,7 +16,7 @@ The content of the file is a list of Markdown links.
 
 ```markdown
 [Getting Started](/getting-started)
-[IOTA Basics](/iota-basics)
+[Developer Essentials](/dev-essentials)
 ```
 
 ## home.md

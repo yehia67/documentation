@@ -139,7 +139,7 @@ This table contains information about the users' withdrawal requests.
 | `user_id`        | ID of the user's account in the `user_account` table |NULL                |
 | `amount`         | Total amount of the withdrawal |NULL                |
 | `payout_address` | Output address to which the tokens were sent   |  NULL    |
-| `tag`            | Value of the output transaction's [`tag` field](root://iota-basics/0.1/references/structure-of-a-transaction.md)   |  NULL    |
+| `tag`            | Value of the output transaction's [`tag` field](root://dev-essentials/0.1/references/structure-of-a-transaction.md)   |  NULL    |
 | `sweep`          | ID of the sweep that actioned the withdrawal. This ID is in the `sweep` table.       | NULL     |
 | `requested_at`   | Date and time that the user requested the withdrawal in the following format: `YYYY-MM-DD HH:MM:SS` | The current date and time |
 | `cancelled_at`   | Date and time that the withdrawal was canceled in the following format: `YYYY-MM-DD HH:MM:SS` | NULL |

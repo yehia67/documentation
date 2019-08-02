@@ -162,5 +162,5 @@ You can ignore any green text.
 Use your knowledge of the ZMQ to build an application that monitors the IRI for other [events](../references/zmq-events.md).
 
 :::info:
-If your transactions aren't being confirmed, you can [promote or reattach them](root://iota-basics/0.1/how-to-guides/confirm-pending-bundle.md) to increase the likelihood of this happening.
+If your transactions aren't being confirmed, you can [promote or reattach them](root://dev-essentials/0.1/how-to-guides/confirm-pending-bundle.md) to increase the likelihood of this happening.
 :::

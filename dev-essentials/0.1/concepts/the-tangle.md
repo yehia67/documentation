@@ -94,7 +94,7 @@ The Coordinator's private keys are derived from a seed, an index, and a security
 
 On the Mainnet, these private keys are security level 2. As a result, the milestone signature is too large to fit in one transaction and must be fragmented across two.
 
-[Learn more about how private keys are derived](root://iota-basics/0.1/concepts/addresses-and-signatures.md).
+[Learn more about how private keys are derived](root://dev-essentials/0.1/concepts/addresses-and-signatures.md).
 :::
 
 ### How nodes verify milestones
@@ -104,7 +104,7 @@ To verify milestones, nodes must rebuild the Merkle tree to find the Merkle root
 To allow nodes to rebuild the Merkle tree, the Coordinator sends the following milestones in the bundle:
 
 * Two transactions that contain the fragmented signature
-* One transaction whose [`signatureMessageFragment`](root://iota-basics/0.1/references/structure-of-a-transaction.md) field contains enough missing data from the Merkle tree to be able to rebuild it
+* One transaction whose [`signatureMessageFragment`](root://dev-essentials/0.1/references/structure-of-a-transaction.md) field contains enough missing data from the Merkle tree to be able to rebuild it
 
 ![Example Merkle tree](../images/merkle-tree-example.png)
 
@@ -113,7 +113,7 @@ For example, as a node, we have seen a bundle that was signed with the private k
 First, we verify the signature to find out the public key of leaf 1.
 
 :::info:
-[Learn how nodes verify signatures](root://iota-basics/0.1/concepts/addresses-and-signatures.md#how-nodes-verify-signatures)
+[Learn how nodes verify signatures](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#how-nodes-verify-signatures)
 :::
 
 To help us calculate the Merkle root, the third milestone in the bundle contains the following:

@@ -25,8 +25,8 @@ When you send 100 Mi to recipient A, the following transactions are created and 
 * **Output transaction:** Deposit the remaining 5 Mi from address 2 into address 3
 
 :::danger:Always withdraw the total balance of an address
-IOTA uses the [Winternitz one-time signature scheme](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse) to sign bundles. This signature scheme means that addresses can be safely withdrawn from only once, so you must always withdraw the total balance from an address. If you want to transfer only some of that balance to another person, you can transfer the remaining balance to one of your own unspent addresses.
+IOTA uses the [Winternitz one-time signature scheme](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse) to sign bundles. This signature scheme means that addresses can be safely withdrawn from only once, so you must always withdraw the total balance from an address. If you want to transfer only some of that balance to another person, you can transfer the remaining balance to one of your own unspent addresses.
 :::
 
-[Learn more about bundles and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
+[Learn more about bundles and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md).
 

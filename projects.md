@@ -1,5 +1,5 @@
 [Getting Started](/getting-started)
-[IOTA Basics](/iota-basics)
+[Developer Essentials](/dev-essentials)
 [Client Libraries](/client-libraries)
 [Node Software](/node-software)
 [Private Tangle](/compass)

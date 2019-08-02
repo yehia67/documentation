@@ -14,11 +14,11 @@ All Hub functions such as deposits and withdrawals are done by calling [gRPC API
 
 ## Transaction monitoring
 
-Before any transaction is accepted by an IOTA network, it must be confirmed. When a user deposits IOTA tokens into one of their addresses, or when the Hub owner issues a withdrawal, the transactions may become stuck in a pending state. So, to avoid delays in confirmation, Hub keeps a database of pending transactions so that it can automatically [reattach and promote](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md) them.
+Before any transaction is accepted by an IOTA network, it must be confirmed. When a user deposits IOTA tokens into one of their addresses, or when the Hub owner issues a withdrawal, the transactions may become stuck in a pending state. So, to avoid delays in confirmation, Hub keeps a database of pending transactions so that it can automatically [reattach and promote](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md) them.
 
 ## Seed creation
 
-Each client in an IOTA network has a secret password called a [seed](root://getting-started/0.1/introduction/what-is-a-seed.md), which is used to create [addresses and to sign bundles](root://iota-basics/0.1/concepts/addresses-and-signatures.md). Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address.
+Each client in an IOTA network has a secret password called a [seed](root://getting-started/0.1/introduction/what-is-a-seed.md), which is used to create [addresses and to sign bundles](root://dev-essentials/0.1/concepts/addresses-and-signatures.md). Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address.
 
 Each user's deposit addresses is derived from a new seed, using the [Argon2](https://www.argon2.com/) hashing function. The following values are used to create a seed:
 
@@ -34,7 +34,7 @@ The database contains a record of how many IOTA tokens a user has. The IOTA toke
 IOTA uses the Winternitz one-time signature scheme to sign bundles. As a result, each signature exposes around half of the private key. Signing a bundle once with a private key is safe. So, when a user withdraws from an address, that address is considered 'spent' and must never be withdrawn from again.
 
 :::info:
-[learn about signatures in IOTA and why you must never withdraw from an address more than once](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse).
+[learn about signatures in IOTA and why you must never withdraw from an address more than once](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse).
 :::
 
 To help users not to withdraw from spent addresses, Hub has the following features:

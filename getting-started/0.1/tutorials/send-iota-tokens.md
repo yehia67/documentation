@@ -73,7 +73,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     :::info:
     This seed will be used to prove that you own the address from which you want to withdraw IOTA tokens.
 
-    [Learn how a seed is used to prove ownership of an address](root://iota-basics/0.1/concepts/addresses-and-signatures.md).
+    [Learn how a seed is used to prove ownership of an address](root://dev-essentials/0.1/concepts/addresses-and-signatures.md).
     :::
 
 7. Derive a new address from your seed. You will send your tokens to this address.
@@ -88,7 +88,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     :::warning:
     Be sure that this is not a spent address (one that you have withdrawn from before).
 
-    [Learn why you should never use spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse).
+    [Learn why you should never use spent addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse).
     :::
 
 8. Create a `transfers` object that specifies the amount of IOTA tokens you want to transfer, the tag you want to add to the transaction, and the address to send the tokens to
@@ -103,7 +103,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     ]
     ```
 
-9. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the [node](../introduction/what-is-a-node.md)
+9. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the [node](../introduction/what-is-a-node.md)
 
     ```js
     // Construct bundle and convert to trytes
@@ -117,7 +117,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     :::
     
     :::info:Minimum weight magnitude (MWM)
-    The [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW.
+    The [`minimum weight magnitude`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW.
     
     Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed.
     :::
@@ -146,5 +146,5 @@ If you don't have any test tokens, [request some from the Devnet faucet](../tuto
 
 ## Next steps
 
-[Check if your transaction is confirmed](root://iota-basics/0.1/how-to-guides/check-transaction-confirmation.md).
+[Check if your transaction is confirmed](root://dev-essentials/0.1/how-to-guides/check-transaction-confirmation.md).
 

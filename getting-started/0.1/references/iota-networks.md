@@ -22,14 +22,14 @@ When you buy IOTA tokens from a cryptocurrency exchange, those tokens are valid 
 :::info:
 Cryptocurrency exchanges sell IOTA tokens in denominations of Mega IOTA (1,000,000), which is also written as MIOTA or Mi.
 
-Learn more about [units of IOTA tokens](root://iota-basics/0.1/references/units-of-iota-tokens.md).
+Learn more about [units of IOTA tokens](root://dev-essentials/0.1/references/units-of-iota-tokens.md).
 :::
 
 ![Mainnet configuration](../images/mainnet-configuration.png)
 
 ### Minimum weight magnitude
 
-Transactions on the Mainnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 14 to be valid.
+Transactions on the Mainnet must use a [minimum weight magnitude](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 14 to be valid.
 
 ## Devnet
 
@@ -45,7 +45,7 @@ On this network, you can test your applications and build proofs of concept that
 
 ### Minimum weight magnitude
 
-Transactions on the Devnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 9 to be valid.
+Transactions on the Devnet must use a [minimum weight magnitude](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 9 to be valid.
 
 Compared to the Mainnet, this MWM reduces the time it takes for proof of work (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
 
@@ -91,7 +91,7 @@ The [faucet website](https://faucet.spamnet.iota.org) sends 1Ki (1000) Spamnet t
 
 ### Minimum weight magnitude
 
-Transactions on the Spamnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid.
+Transactions on the Spamnet must use a [minimum weight magnitude](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid.
 
 Compared to the Mainnet, this MWM reduces the time it takes for proof of work (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
 
