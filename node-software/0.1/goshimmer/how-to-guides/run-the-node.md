@@ -125,7 +125,7 @@ When you run the node, it joins the network by autopeering with the entry node t
 6. To see the status screen, attach the Docker container by doing the following. Replace the `$ContainerID` placeholder with your container ID.
 
     ```bash
-    docker attack $ContainerID
+    docker attach $ContainerID
     ```
 
 :::success:Congratulations :tada:
