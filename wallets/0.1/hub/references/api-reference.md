@@ -50,36 +50,21 @@
 | --------- | ----------------- | ----- | ------------------------------------------------------------ |
 | newerThan | [uint64](#uint64) |       | Balances newer than this time (MS since epoch) will be retrieved |
 
-<a name="hub.rpc.CreateUserReply"></a>
-
-### CreateUserReply
-
-Reply for creating a new user.
-
-Currently unused.
-
 <a name="hub.rpc.CreateUserRequest"></a>
 
 ### CreateUserRequest
 
-Request for creating a new user.
+Request to create a new user.
 
 |**Field**|  |**Type**|              |**Label**| |**Description**| |
 | ------ | ----------------- | ----- | ----------- |
 | userId | [string](#string) |       |             |
 
-<a name="hub.rpc.Error"></a>
+<a name="hub.rpc.CreateUserReply"></a>
 
-### Error
+### CreateUserReply
 
-The generic Error that will be used to return an error code on, e.g. Status::CANCELLED. 	
-
-The error will be serialized and stored in the Status' detail field.
-
-|**Field**| |**Type**|                            |**Label**| |**Description**| |
-| ----- | ------------------------------- | ----- | ----------- |
-| code  | [ErrorCode](#hub.rpc.ErrorCode) |       |             |
-
+Reply for creating a new user (currently unused).
 
 <a name="hub.rpc.GetAddressInfoReply"></a>
 
@@ -97,35 +82,25 @@ The error will be serialized and stored in the Status' detail field.
 | ------- | ----------------- | ----- | ---------------------- |
 | address | [string](#string) |       | The address to look up |
 
-<a name="hub.rpc.GetBalanceReply"></a>
-
-### GetBalanceReply
-
-Reply containing a user's currently available balance
-
-|**Field**|     |**Type**|            |**Label**| |**Description**|                                                  |
-| --------- | --------------- | ----- | ------------------------------------------------------------ |
-| available | [int64](#int64) |       | User balance that is currently available for withdrawal / trades |
-
 <a name="hub.rpc.GetBalanceRequest"></a>
 
 ### GetBalanceRequest
 
-Request for requesting a user's currently available balance.
+Request to return a user's currently available balance.
 
 |**Field**|  |**Type**|              |**Label**| |**Description**| |
 | ------ | ----------------- | ----- | ----------- |
 | userId | [string](#string) |       |             |
 
-<a name="hub.rpc.GetDepositAddressReply"></a>
+<a name="hub.rpc.GetBalanceReply"></a>
 
-### GetDepositAddressReply
+### GetBalanceReply
 
-Reply containing the new deposit address.
+Returns a user's currently available balance
 
-|**Field**|   |**Type**|              |**Label**| |**Description**|                   |
-| ------- | ----------------- | ----- | ----------------------------- |
-| address | [string](#string) |       | Newly created deposit address |
+|**Field**|     |**Type**|            |**Label**| |**Description**|                                                  |
+| --------- | --------------- | ----- | ------------------------------------------------------------ |
+| available | [int64](#int64) |       | User balance that is currently available for withdrawal / trades |
 
 <a name="hub.rpc.GetDepositAddressRequest"></a>
 
@@ -138,13 +113,15 @@ Request for creating a new deposit address for a user.
 | userId          | [string](#string) |       |             |
 | includeChecksum | [bool](#bool)     |       |             |
 
-<a name="hub.rpc.GetUserHistoryReply"></a>
+<a name="hub.rpc.GetDepositAddressReply"></a>
 
-### GetUserHistoryReply
+### GetDepositAddressReply
 
-|**Field**|  |**Type**|                                                        |**Label**|    |**Description**|                                    |
-| ------ | ----------------------------------------------------------- | -------- | ---------------------------------------------- |
-| events | [UserAccountBalanceEvent](#hub.rpc.UserAccountBalanceEvent) | repeated | List of all user balance events for given user |
+Reply containing the new deposit address.
+
+|**Field**|   |**Type**|              |**Label**| |**Description**|                   |
+| ------- | ----------------- | ----- | ----------------------------- |
+| address | [string](#string) |       | Newly created deposit address |
 
 <a name="hub.rpc.GetUserHistoryRequest"></a>
 
@@ -154,6 +131,14 @@ Request for creating a new deposit address for a user.
 | --------- | ----------------- | ----- | ------------------------------------------------------------ |
 | userId    | [string](#string) |       | UserId                                                       |
 | newerThan | [uint64](#uint64) |       | Records newer than this time (MS since epoch) will be retrieved |
+
+<a name="hub.rpc.GetUserHistoryReply"></a>
+
+### GetUserHistoryReply
+
+|**Field**|  |**Type**|                                                        |**Label**|    |**Description**|                                    |
+| ------ | ----------------------------------------------------------- | -------- | ---------------------------------------------- |
+| events | [UserAccountBalanceEvent](#hub.rpc.UserAccountBalanceEvent) | repeated | List of all user balance events for given user |
 
 <a name="hub.rpc.HubAddressBalanceEvent"></a>
 
@@ -191,14 +176,6 @@ User IDs must be unique.
 | userId | [string](#string) |       |             |
 | amount | [int64](#int64)   |       |             |
 
-<a name="hub.rpc.SignBundleReply"></a>
-
-### SignBundleReply
-
-|**Field**|     |**Type**|              |**Label**| |**Description**|             |
-| --------- | ----------------- | ----- | ----------------------- |
-| signature | [string](#string) |       | The resulting signature |
-
 <a name="hub.rpc.SignBundleRequest"></a>
 
 ### SignBundleRequest
@@ -210,6 +187,20 @@ User IDs must be unique.
 | authentication   | [string](#string) |       | Authentication token (if used)                                       |
 | validateChecksum | [bool](#bool)     |       | Whether the signer should validate the address                              |
 
+<a name="hub.rpc.SignBundleReply"></a>
+
+### SignBundleReply
+
+|**Field**|     |**Type**|              |**Label**| |**Description**|             |
+| --------- | ----------------- | ----- | ----------------------- |
+| signature | [string](#string) |       | The resulting signature |
+
+<a name="hub.rpc.StatsRequest"></a>
+
+### StatsRequest
+
+<a name="hub.rpc.SweepDetailRequest"></a>
+
 <a name="hub.rpc.StatsReply"></a>
 
 ### StatsReply
@@ -217,12 +208,6 @@ User IDs must be unique.
 |**Field**|        |**Type**|              |**Label**| |**Description**|                                 |
 | ------------ | ----------------- | ----- | ------------------------------------------- |
 | totalBalance | [uint64](#uint64) |       | Total balance currently managed by the hub. |
-
-<a name="hub.rpc.StatsRequest"></a>
-
-### StatsRequest
-
-<a name="hub.rpc.SweepDetailRequest"></a>
 
 ### SweepDetailRequest
 
@@ -356,7 +341,17 @@ Returns whether a withdrawal was canceled.
 
 |**Field**|            |**Type**|              |**Label**| |**Description**|                                                  |
 | ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
-| wasCencelled  | [bool](#bool) |       | Returns true if the withdrawal was canceled | 
+| wasCencelled  | [bool](#bool) |       | Returns true if the withdrawal was canceled |
+
+<a name="hub.rpc.Error"></a>
+
+### Error
+
+Errors are serialized and stored in the Status' detail field.
+
+|**Field**| |**Type**|                            |**Label**| |**Description**| |
+| ----- | ------------------------------- | ----- | ----------- |
+| code  | [ErrorCode](#hub.rpc.ErrorCode) |       |             |
 
 <a name="hub.rpc.ErrorCode"></a>
 
