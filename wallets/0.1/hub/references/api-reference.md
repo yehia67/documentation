@@ -1,6 +1,6 @@
 # API reference
 
-**To simplify connections to the Tangle and the Hub database, Hub has a gRPC API. Use this API reference to find methods and learn what they do.**
+**Hub has a gRPC API that simplifies connections to the Tangle and the Hub database. Use this API reference to find methods and learn what they do.**
 
 <a name="hub.proto"></a>
 
@@ -10,7 +10,7 @@
 
 ### Hub
 
-| Method Name          | Request Type                                                 | Response Type                                                | Description                                                  |
+| **Method name**          | **Request type**                                                 | **Response type**                                                | **Description**                                                  |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | CreateUser           | [CreateUserRequest](#hub.rpc.CreateUserRequest)              | [CreateUserReply](#hub.rpc.CreateUserRequest)                | Creates a new user on the Hub                                |
 | GetBalance           | [GetBalanceRequest](#hub.rpc.GetBalanceRequest)              | [GetBalanceReply](#hub.rpc.GetBalanceRequest)                | Returns the available balance for a user                     |
@@ -26,6 +26,7 @@
 | SweepInfo            | [SweepInfoRequest](#hub.rpc.SweepInfoRequest)                | [SweepEvent](#hub.rpc.SweepInfoRequest)                      | Provides information on the sweep for the given withdrawal or bundle hash |
 | SignBundle           | [SignBundleRequest](#hub.rpc.SignBundleRequest)              | [SignBundleReply](#hub.rpc.SignBundleRequest)                | Provides a signature for a bundle hash                       |
 | SweepDetail          | [SweepDetailRequest](#hub.rpc.SweepDetailRequest)            | [SweepDetailReply](#hub.rpc.SweepDetailRequest)              | Provides detailed information on the sweep for the bundle hash |
+| WasWithdrawalCancelled          | [WasWithdrawalCancelledRequest](#hub.rpc.WasWithdrawalCancelledRequest)            | [WasWithdrawalCancelledReply](#hub.rpc.WasWithdrawalCancelledReply)              | Returns true if a withdrawal was canceled |
 
 <a name="messages.proto"></a>
 
@@ -45,9 +46,9 @@
 
 ### BalanceSubscriptionRequest
 
-| Field     | Type              | Label | Description                                                  |
+|**Field**|     |**Type**|              |**Label**| |**Description**|                                                  |
 | --------- | ----------------- | ----- | ------------------------------------------------------------ |
-| newerThan | [uint64](#uint64) |       | Balances newer than this time (MS since epoch) will be retrievd |
+| newerThan | [uint64](#uint64) |       | Balances newer than this time (MS since epoch) will be retrieved |
 
 <a name="hub.rpc.CreateUserReply"></a>
 
@@ -63,7 +64,7 @@ Currently unused.
 
 Request for creating a new user.
 
-| Field  | Type              | Label | Description |
+|**Field**|  |**Type**|              |**Label**| |**Description**| |
 | ------ | ----------------- | ----- | ----------- |
 | userId | [string](#string) |       |             |
 
@@ -75,7 +76,7 @@ The generic Error that will be used to return an error code on, e.g. Status::CAN
 
 The error will be serialized and stored in the Status' detail field.
 
-| Field | Type                            | Label | Description |
+|**Field**| |**Type**|                            |**Label**| |**Description**| |
 | ----- | ------------------------------- | ----- | ----------- |
 | code  | [ErrorCode](#hub.rpc.ErrorCode) |       |             |
 
@@ -84,7 +85,7 @@ The error will be serialized and stored in the Status' detail field.
 
 ### GetAddressInfoReply
 
-| Field  | Type              | Label | Description                             |
+|**Field**|  |**Type**|              |**Label**| |**Description**|                             |
 | ------ | ----------------- | ----- | --------------------------------------- |
 | userId | [string](#string) |       | The user identifier who owns an address |
 
@@ -92,7 +93,7 @@ The error will be serialized and stored in the Status' detail field.
 
 ### GetAddressInfoRequest
 
-| Field   | Type              | Label | Description            |
+|**Field**|   |**Type**|              |**Label**| |**Description**|            |
 | ------- | ----------------- | ----- | ---------------------- |
 | address | [string](#string) |       | The address to look up |
 
@@ -102,7 +103,7 @@ The error will be serialized and stored in the Status' detail field.
 
 Reply containing a user's currently available balance
 
-| Field     | Type            | Label | Description                                                  |
+|**Field**|     |**Type**|            |**Label**| |**Description**|                                                  |
 | --------- | --------------- | ----- | ------------------------------------------------------------ |
 | available | [int64](#int64) |       | User balance that is currently available for withdrawal / trades |
 
@@ -112,7 +113,7 @@ Reply containing a user's currently available balance
 
 Request for requesting a user's currently available balance.
 
-| Field  | Type              | Label | Description |
+|**Field**|  |**Type**|              |**Label**| |**Description**| |
 | ------ | ----------------- | ----- | ----------- |
 | userId | [string](#string) |       |             |
 
@@ -122,7 +123,7 @@ Request for requesting a user's currently available balance.
 
 Reply containing the new deposit address.
 
-| Field   | Type              | Label | Description                   |
+|**Field**|   |**Type**|              |**Label**| |**Description**|                   |
 | ------- | ----------------- | ----- | ----------------------------- |
 | address | [string](#string) |       | Newly created deposit address |
 
@@ -132,7 +133,7 @@ Reply containing the new deposit address.
 
 Request for creating a new deposit address for a user.
 
-| Field           | Type              | Label | Description |
+|**Field**|           |**Type**|              |**Label**| |**Description**| |
 | --------------- | ----------------- | ----- | ----------- |
 | userId          | [string](#string) |       |             |
 | includeChecksum | [bool](#bool)     |       |             |
@@ -141,7 +142,7 @@ Request for creating a new deposit address for a user.
 
 ### GetUserHistoryReply
 
-| Field  | Type                                                        | Label    | Description                                    |
+|**Field**|  |**Type**|                                                        |**Label**|    |**Description**|                                    |
 | ------ | ----------------------------------------------------------- | -------- | ---------------------------------------------- |
 | events | [UserAccountBalanceEvent](#hub.rpc.UserAccountBalanceEvent) | repeated | List of all user balance events for given user |
 
@@ -149,7 +150,7 @@ Request for creating a new deposit address for a user.
 
 ### GetUserHistoryRequest
 
-| Field     | Type              | Label | Description                                                  |
+|**Field**|     |**Type**|              |**Label**| |**Description**|                                                  |
 | --------- | ----------------- | ----- | ------------------------------------------------------------ |
 | userId    | [string](#string) |       | UserId                                                       |
 | newerThan | [uint64](#uint64) |       | Records newer than this time (MS since epoch) will be retrieved |
@@ -158,7 +159,7 @@ Request for creating a new deposit address for a user.
 
 ### HubAddressBalanceEvent
 
-| Field           | Type                                                        | Label | Description |
+|**Field**|           |**Type**|                                                        |**Label**| |**Description**| |
 | --------------- | ----------------------------------------------------------- | ----- | ----------- |
 | hubAddress      | [string](#string)                                           |       |             |
 | amount          | [int64](#int64)                                             |       |             |
@@ -175,9 +176,9 @@ Request for creating a new deposit address for a user.
 ### ProcessTransferBatchRequest
 
 This request contains a netted transfer batch. 
-UserIds must be unique.
+User IDs must be unique.
 
-| Field     | Type                                                         | Label    | Description |
+| **Field**     | **Type**                                                         | **Label**    | **Description** |
 | --------- | ------------------------------------------------------------ | -------- | ----------- |
 | transfers | [ProcessTransferBatchRequest.Transfer](#hub.rpc.ProcessTransferBatchRequest.Transfer) | repeated |             |
 
@@ -185,7 +186,7 @@ UserIds must be unique.
 
 ### ProcessTransferBatchRequest.Transfer
 
-| Field  | Type              | Label | Description |
+|**Field**|  |**Type**|              |**Label**| |**Description**| |
 | ------ | ----------------- | ----- | ----------- |
 | userId | [string](#string) |       |             |
 | amount | [int64](#int64)   |       |             |
@@ -194,7 +195,7 @@ UserIds must be unique.
 
 ### SignBundleReply
 
-| Field     | Type              | Label | Description             |
+|**Field**|     |**Type**|              |**Label**| |**Description**|             |
 | --------- | ----------------- | ----- | ----------------------- |
 | signature | [string](#string) |       | The resulting signature |
 
@@ -202,10 +203,10 @@ UserIds must be unique.
 
 ### SignBundleRequest
 
-| Field            | Type              | Label | Description                                                  |
+|**Field**|            |**Type**|              |**Label**| |**Description**|                                                  |
 | ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
-| address          | [string](#string) |       | The Hub-owned IOTA address that should be signed. (without checksum) |
-| bundleHash       | [string](#string) |       | The bundle hash that should be signed.                       |
+| address          | [string](#string) |       | The Hub owners IOTA address (without checksum) that should be signed |
+| bundleHash       | [string](#string) |       | The bundle hash that should be signed                      |
 | authentication   | [string](#string) |       | Authentication token (if used)                                       |
 | validateChecksum | [bool](#bool)     |       | Whether the signer should validate the address                              |
 
@@ -213,7 +214,7 @@ UserIds must be unique.
 
 ### StatsReply
 
-| Field        | Type              | Label | Description                                 |
+|**Field**|        |**Type**|              |**Label**| |**Description**|                                 |
 | ------------ | ----------------- | ----- | ------------------------------------------- |
 | totalBalance | [uint64](#uint64) |       | Total balance currently managed by the hub. |
 
@@ -221,30 +222,30 @@ UserIds must be unique.
 
 ### StatsRequest
 
+<a name="hub.rpc.SweepDetailRequest"></a>
+
+### SweepDetailRequest
+
+|**Field**|      |**Type**|              |**Label**| |**Description**|             |
+| ---------- | ----------------- | ----- | ----------------------- |
+| bundleHash | [string](#string) |       | Bundle hash of the sweep |
+
 <a name="hub.rpc.SweepDetailReply"></a>
 
 ### SweepDetailReply
 
 
-| Field     | Type              | Label    | Description                                                  |
+|**Field**|     |**Type**|              |**Label**|    |**Description**|                                                  |
 | --------- | ----------------- | -------- | ------------------------------------------------------------ |
 | confirmed | [bool](#bool)     |          | Sweep's confirmation status                              |
 | trytes    | [string](#string) | repeated | Sweep's transactions trytes                              |
 | tailHash  | [string](#string) | repeated | Sweep's tails hashes (multiple reattachment for each bundle) |
 
-<a name="hub.rpc.SweepDetailRequest"></a>
-
-### SweepDetailRequest
-
-| Field      | Type              | Label | Description             |
-| ---------- | ----------------- | ----- | ----------------------- |
-| bundleHash | [string](#string) |       | Bundle hash of the sweep |
-
 <a name="hub.rpc.SweepEvent"></a>
 
 ### SweepEvent
 
-| Field          | Type              | Label    | Description |
+|**Field**|          |**Type**|              |**Label**|    |**Description**| |
 | -------------- | ----------------- | -------- | ----------- |
 | bundleHash     | [string](#string) |          |             |
 | timestamp      | [uint64](#uint64) |          |             |
@@ -254,7 +255,7 @@ UserIds must be unique.
 
 ### SweepInfoRequest
 
-| Field          | Type              | Label | Description                |
+|**Field**|          |**Type**|              |**Label**| |**Description**|                |
 | -------------- | ----------------- | ----- | -------------------------- |
 | withdrawalUUID | [string](#string) |       | Withdrawal UUID to look up |
 | bundleHash     | [string](#string) |       | Bundle hash of the sweep |
@@ -263,7 +264,7 @@ UserIds must be unique.
 
 ### SweepSubscriptionRequest
 
-| Field     | Type              | Label | Description                                                  |
+|**Field**|     |**Type**|              |**Label**| |**Description**|                                                  |
 | --------- | ----------------- | ----- | ------------------------------------------------------------ |
 | newerThan | [uint64](#uint64) |       | Sweeps newer than this time (MS since epoch) will be retrieved |
 
@@ -271,11 +272,11 @@ UserIds must be unique.
 
 ### UserAccountBalanceEvent
 
-| Field           | Type                                                         | Label | Description                                                  |
+|**Field**|           |**Type**|                                                         |**Label**| |**Description**|                                                  |
 | --------------- | ------------------------------------------------------------ | ----- | ------------------------------------------------------------ |
 | userId          | [string](#string)                                            |       |                                                              |
 | timestamp       | [uint64](#uint64)                                            |       | Time since epoch in MS when the balance change occured       |
-| type            | [UserAccountBalanceEventType](#hub.rpc.UserAccountBalanceEventType) |       |                                                              |
+|**type**|            | [UserAccountBalanceEventType](#hub.rpc.UserAccountBalanceEventType) |       |                                                              |
 | amount          | [int64](#int64)                                              |       |                                                              |
 | sweepBundleHash | [string](#string)                                            |       | Will contain sweep bundle hash on deposit will contain withdrawal uuid on withdrawal or withdrawal cancel |
 | withdrawalUUID  | [string](#string)                                            |       |                                                              |
@@ -284,7 +285,7 @@ UserIds must be unique.
 
 ### UserAddressBalanceEvent
 
-| Field       | Type                                                         | Label | Description                                                  |
+|**Field**|       |**Type**|                                                         |**Label**| |**Description**|                                                  |
 | ----------- | ------------------------------------------------------------ | ----- | ------------------------------------------------------------ |
 | userId      | [string](#string)                                            |       |                                                              |
 | userAddress | [string](#string)                                            |       |                                                              |
@@ -293,34 +294,25 @@ UserIds must be unique.
 | hash        | [string](#string)                                            |       | Depositing bundle's tail (if reason == DEPOSIT) Bundle hash of sweep (if reason == SWEEP) |
 | timestamp   | [uint64](#uint64)                                            |       |                                                              |
 
-<a name="hub.rpc.UserWithdrawCancelReply"></a>
-
-### UserWithdrawCancelReply
-
-Reply for withdrawal cancellation.
-
-| Field   | Type          | Label | Description                          |
-| ------- | ------------- | ----- | ------------------------------------ |
-| success | [bool](#bool) |       | True if withdrawal could be canceled |
-
-
 <a name="hub.rpc.UserWithdrawCancelRequest"></a>
 
 ### UserWithdrawCancelRequest
 
 Request to cancel an already submitted withdrawal.
 
-| Field | Type              | Label | Description                            |
+|**Field**| |**Type**|              |**Label**| |**Description**|                            |
 | ----- | ----------------- | ----- | -------------------------------------- |
-| uuid  | [string](#string) |       | Withdrawal UUID that is to be canceled |
+| withdrawalUUID  | [string](#string) |       | Withdrawal UUID that is to be canceled |
 
-<a name="hub.rpc.UserWithdrawReply"></a>
+<a name="hub.rpc.UserWithdrawCancelReply"></a>
 
-### UserWithdrawReply
+### UserWithdrawCancelReply
 
-| Field | Type              | Label | Description                |
-| ----- | ----------------- | ----- | -------------------------- |
-| uuid  | [string](#string) |       | This withdrawal's UUID |
+Reply for withdrawal cancellation.
+
+|**Field**|   |**Type**|          |**Label**| |**Description**|                          |
+| ------- | ------------- | ----- | ------------------------------------ |
+| success | [bool](#bool) |       | True if withdrawal could be canceled |
 
 <a name="hub.rpc.UserWithdrawRequest"></a>
 
@@ -330,13 +322,41 @@ Requests a user-submitted withdrawal.
 
 This will fail if the user does not have sufficient balance available.
 
-| Field            | Type              | Label | Description                                                  |
+|**Field**|            |**Type**|              |**Label**| |**Description**|                                                  |
 | ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
-| userId           | [string](#string) |       |                                                              |
+| wasCancelled           | [bool](#bool) |       |                                                              |
 | payoutAddress    | [string](#string) |       | Address the user requests payout to. Should be without checksum. |
 | amount           | [uint64](#uint64) |       | Requested withdrawal amount                                  |
 | tag              | [string](#string) |       | Tag for withdrawal                                           |
-| validateChecksum | [bool](#bool)     |       | should command validate address                              |
+| validateChecksum | [bool](#bool)     |       | Should command validate address                              |
+
+<a name="hub.rpc.UserWithdrawReply"></a>
+
+### UserWithdrawReply
+
+|**Field**| |**Type**|              |**Label**| |**Description**|                |
+| ----- | ----------------- | ----- | -------------------------- |
+| withdrawalUUID  | [string](#string) |       | This withdrawal's UUID |
+
+<a name="hub.rpc.WasWithdrawalCancelledRequest"></a>
+
+### WasWithdrawalCancelledRequest
+
+Requests to check if a withdrawal was canceled.
+
+|**Field**|            |**Type**|              |**Label**| |**Description**|                                                  |
+| ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
+| withdrawalUUID  | [string](#string) |       | Withdrawal UUID to check for cancelation |
+
+<a name="hub.rpc.WasWithdrawalCancelledReply"></a>
+
+### WasWithdrawalCancelledReply
+
+Returns whether a withdrawal was canceled.
+
+|**Field**|            |**Type**|              |**Label**| |**Description**|                                                  |
+| ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
+| wasCencelled  | [bool](#bool) |       | Returns true if the withdrawal was canceled | 
 
 <a name="hub.rpc.ErrorCode"></a>
 
@@ -344,7 +364,7 @@ This will fail if the user does not have sufficient balance available.
 
 Error codes that can be returned by the hub.
 
-| Name      | Number | Description         |
+|**Name**|      |**Number**| |**Description**|         |
 | :------------------------------- | :------ | :------------------------------------------------------------ |
 | EC_UNKNOWN                      | 0      | Unused|                                              
 | USER_EXISTS                     | 1      | UserId already exists|                     
@@ -366,7 +386,7 @@ Error codes that can be returned by the hub.
 
 ### HubAddressBalanceReason
 
-| Name        | Number | Description                               |
+|**Name**|        |**Number**| |**Description**|                               |
 | ----------- | ------ | ----------------------------------------- |
 | HUB_UNKNOWN | 0      |                                           |
 | INBOUND     | 1      | Sweep inbound (used as remainder address) |
@@ -376,7 +396,7 @@ Error codes that can be returned by the hub.
 
 ### UserAccountBalanceEventType
 
-| Name                | Number | Description       |
+|**Name**|                |**Number**| |**Description**|       |
 | :------------------- | :------ | :------------------------------------------------------------ |
 | UAB_UNKNOWN         | 0      | Unused                                                       |
 | DEPOSIT             | 1      | Deposit into user account (positive amount)                  |
@@ -389,7 +409,7 @@ Error codes that can be returned by the hub.
 
 ### UserAddressBalanceReason
 
-| Name         | Number | Description              |
+|**Name**|         |**Number**| |**Description**|              |
 | ------------ | ------ | ------------------------ |
 | UADD_UNKNOWN | 0      |                          |
 | UA_DEPOSIT   | 1      | New user deposit tracked |
