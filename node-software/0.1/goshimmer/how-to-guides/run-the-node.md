@@ -199,14 +199,14 @@ When you run the node, it joins the network by autopeering with the entry node t
 
 3. Execute the `shimmer` file, according to your operating system:
 
-    * **Linux and macOS:** `./shimmer --enable-node-plugins "spammer zeromq dashboard"`
-    * **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node-enable-plugins "spammer zeromq dashboard"` in the command prompt
+* **Linux and macOS:** `./shimmer --enable-node-plugins "spammer zeromq dashboard"`
+* **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node-enable-plugins "spammer zeromq dashboard"` in the command prompt
 
-    Here, we run the run the node in the background, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
+Here, we run the run the node in the background, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
 
-    :::info:
-    If you see a `permission denied` error, try executing the file as an administrator.
-    :::
+:::info:
+If you see a `permission denied` error, try executing the file as an administrator.
+:::
 
 :::success:Congratulations :tada:
 You're now running a GoShimmer node.
