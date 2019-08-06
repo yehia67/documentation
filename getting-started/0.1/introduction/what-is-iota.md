@@ -10,11 +10,17 @@ To see IOTA in action, watch [this video](https://www.youtube.com/embed/Gr-LstcD
 
 ## How does IOTA work?
 
-Clients send groups of related [transactions](../introduction/what-is-a-transaction.md) called [bundles](../introduction/what-is-a-bundle.md) to [nodes](../introduction/what-is-a-node.md). The transactions in a bundle can instruct the node to transfer IOTA tokens from one address to another, or they can simply contain data. These addresses are creating, using a client's unique secret password called a [seed](../introduction/what-is-a-seed.md).
+To transfer anything in an IOTA network you need to send a node an instruction, called a transaction, which can contain data and/or IOTA tokens.
 
-Nodes are responsible for [validating transactions](root://node-software/0.1/iri/concepts/transaction-validation.md) and attaching them to [the Tangle](../introduction/what-is-the-tangle.md).
+The nodes in an IOTA network are a distributed network of devices that gossip information among each other. So, when one node, no matter where it is in the world, receives a transaction, it will be forwarded to every other node in the network. This way, all nodes in the same IOTA network can validate and store all transactions.
 
-When a bundle is confirmed, the nodes update the balances of any addresses that appear in that bundle's transactions.
+The collection of transactions that the nodes store is called the Tangle, and only nodes have direct access to it.
+
+As a result, the IOTA protocol uses a client/server model where clients connect to nodes to request access to the Tangle.
+
+Clients are the users of an IOTA network. All clients have a unique [seed](../introduction/what-is-a-seed.md), which is a master key to their addresses. When any client wants to send data or tokens to another, that client must send groups of related [transactions](../introduction/what-is-a-transaction.md) called [bundles](../introduction/what-is-a-bundle.md) to a [node](../introduction/what-is-a-node.md).
+
+Nodes then [validate the transactions](root://node-software/0.1/iri/concepts/transaction-validation.md) and attach them to [the Tangle](../introduction/what-is-the-tangle.md), where they can be confirmed.
 
 ## What is the IOTA token?
 
