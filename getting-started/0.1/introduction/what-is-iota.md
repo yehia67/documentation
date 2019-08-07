@@ -6,21 +6,29 @@ IOTA aims to improve efficiency, increase production, and ensure data integrity 
 
 <dl><dt>machine-to-machine economy</dt><dd>Economy in which any device can transfer data and value to other devices without human intervention.</dd></dl>
 
-To see IOTA in action, watch [this video](https://www.youtube.com/embed/Gr-LstcDcAw) about how it can improve supply chains.
+<iframe src="https://www.youtube.com/embed/Gr-LstcDcAw" width="400" height="200"></iframe>
 
 ## How does IOTA work?
 
-To transfer anything in an IOTA network you need to send a node an instruction, called a transaction, which can contain data and/or IOTA tokens.
+IOTA is permissionless, which means that anyone can use the network to make payments or send data. You don't need to sign up, give away your personal details, or pay a subscription. Instead, everything that you send to an IOTA network is verified through cryptography. The cryptographic functions in the IOTA protocol allow you to benefit from the following:
 
-The nodes in an IOTA network are a distributed network of devices that gossip information among each other. So, when one node, no matter where it is in the world, receives a transaction, it will be forwarded to every other node in the network. This way, all nodes in the same IOTA network can validate and store all transactions.
+**Authenticity:** Prove that you sent a transaction and that you own the data or IOTA tokens in it
+**Integrity:** Prove that your transaction is unchanged
+**Confidentiality:** Control who has access to your data through encryption
 
-The collection of transactions that the nodes store is called the Tangle, and only nodes have direct access to it.
+To use IOTA, all you need is a [seed](../introduction/what-is-a-seed.md), which is the master key to the cryptographic functions in IOTA.
 
-As a result, the IOTA protocol uses a client/server model where clients connect to nodes to request access to the Tangle.
+When you have a seed, you can use it to create addresses to which you can transfer data or IOTA tokens.
 
-Clients are the users of an IOTA network. All clients have a unique [seed](../introduction/what-is-a-seed.md), which is a master key to their addresses. When any client wants to send data or tokens to another, that client must send groups of related [transactions](../introduction/what-is-a-transaction.md) called [bundles](../introduction/what-is-a-bundle.md) to a [node](../introduction/what-is-a-node.md).
+To transfer anything in IOTA, you package an instruction into an object called a [transaction](../introduction/what-is-a-transaction.md). Then, you group that transaction into a [bundle](../introduction/what-is-a-bundle.md), and send it to a [node](../introduction/what-is-a-node.md), which is responsible for validating it and carrying it out.
 
-Nodes then [validate the transactions](root://node-software/0.1/iri/concepts/transaction-validation.md) and attach them to [the Tangle](../introduction/what-is-the-tangle.md), where they can be confirmed.
+### Network basics
+
+Nodes are the devices that make up an IOTA network. Like any distributed system, the nodes in an IOTA network are interconnected such that they gossip information among each other. So, when one node (no matter where it is in the world) receives a transaction, it will be forwarded to every other node in the network. This way, all nodes in the same IOTA network can validate all transactions and store them.
+
+The collection of transactions that the nodes store is called [the Tangle](../introduction/what-is-the-tangle.md), and only nodes have direct access to it. The Tangle is a data structure called a directed acyclic graph (DAG), where each transaction references the hashes of two transactions that came before it. This way, all transactions are immutable and have a history of references that nodes can traverse to validate their trustworthiness.
+
+Because only nodes have access to the Tangle, the IOTA protocol uses a client/server model where clients connect to nodes to request access to it.
 
 ## What is the IOTA token?
 
@@ -49,6 +57,10 @@ Each node in an IOTA network validates transactions, then sends them to other no
 
 All transactions in the ledger are immutable and transparent.
 
+Each transaction in the Tangle references the hashes of two previous ones. As a result, each transaction is commits itself to its references.
+
+If the contents of any transaction were to change, the hashes would be invalid, making the transactions invalid.
+
 ### Security
 
 IOTA uses quantum-resistant cryptography to secure the network and prevent attackers from stealing IOTA tokens.
@@ -61,7 +73,7 @@ IOTA is free to use. You don't need to pay a subscription, or sign a contract. E
 
 ### Scalability
 
-For each transaction that's appended to the ledger, two previous transactions are validated. This process makes IOTA incredibly scalable because the more new transactions that propagate through the network, the faster other transactions are validated.
+For each transaction that's attached to the Tangle, two previous transactions are validated. This process makes IOTA incredibly scalable because the more new transactions that propagate through the network, the faster other transactions are validated.
 
 ## For what industries is IOTA useful?
 Many industries such as the following could benefit from using IOTA:
@@ -72,9 +84,10 @@ Many industries such as the following could benefit from using IOTA:
 * [Healthcare](https://www.iota.org/verticals/ehealth)
 * [Energy](https://www.iota.org/verticals/smart-energy)
 
-
 ## How do I get started?
 
-* [Start your IOTA journey](../tutorials/get-started.md)
+* [Start your IOTA journey with our beginner tutorials](../tutorials/get-started.md)
+
+* [Learn the essential concepts](root://dev-essentials/0.1/introduction/overview.md) that you need to develop applications on IOTA.
 
 * Take a look at some [applications that are already using IOTA](../references/use-cases.md)
