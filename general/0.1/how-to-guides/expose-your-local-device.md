@@ -10,8 +10,6 @@ To complete this guide, you need the following:
 
 * Administrator access to your router
 * Linux Ubuntu 18.04 server
-* A [static IP address on your local network](#get-a-static-ip-address-on-your-local-network).
-* A static IP address for your router, or if it has a dynamic IP address, a [domain name from a dynamic DNS service](#get-a-domain-name-for-your-router)
 
 If you don't have a Linux server and you're running a Windows or macOS operating system, you can [run one in a virtual machine](../how-to-guides/set-up-virtual-machine.md).
 
@@ -97,7 +95,7 @@ Now that your router has a static IP address, you can create port forwarding rul
 
 To expose a local device to the Internet, you must create port forwarding rules, which forward requests from certain ports of your router's IP address to your local device's internal IP address.
 
-<iframe src="https://www.youtube.com/watch?v=2G1ueMDgwxw" width="400" height="200"></iframe>
+<iframe src="https://www.youtube.com/embed/2G1ueMDgwxw" width="400" height="200"></iframe>
 
 All routers are different, so these steps may be different for your router, but the concepts are the same. In this guide, the router is a BT Hub 6.
 
