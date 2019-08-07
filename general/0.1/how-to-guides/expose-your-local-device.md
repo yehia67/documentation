@@ -10,8 +10,6 @@ To complete this guide, you need the following:
 
 * Administrator access to your router
 * Linux Ubuntu 18.04 server
-* A [static IP address on your local network](#get-a-static-ip-address-on-your-local-network).
-* A static IP address for your router, or if it has a dynamic IP address, a [domain name from a dynamic DNS service](#get-a-domain-name-for-your-router)
 
 If you don't have a Linux server and you're running a Windows or macOS operating system, you can [run one in a virtual machine](../how-to-guides/set-up-virtual-machine.md).
 
