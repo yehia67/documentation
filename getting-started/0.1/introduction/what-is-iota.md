@@ -12,9 +12,9 @@ IOTA aims to improve efficiency, increase production, and ensure data integrity 
 
 IOTA is permissionless, which means that anyone can use the network to make payments or send data. You don't need to sign up, give away your personal details, or pay a subscription. Instead, everything that you send to an IOTA network is verified through cryptography. The cryptographic functions in the IOTA protocol allow you to benefit from the following:
 
-**Authenticity:** Prove that you sent a transaction and that you own the data or IOTA tokens in it
-**Integrity:** Prove that your transaction is unchanged
-**Confidentiality:** Control who has access to your data through encryption
+* **Authenticity:** Prove that you sent a transaction and that you own the data or IOTA tokens in it
+* **Integrity:** Prove that your transaction is unchanged
+* **Confidentiality:** Control who has access to your data through encryption
 
 To use IOTA, all you need is a [seed](../introduction/what-is-a-seed.md), which is the master key to the cryptographic functions in IOTA.
 
