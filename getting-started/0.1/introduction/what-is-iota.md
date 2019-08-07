@@ -22,7 +22,7 @@ When you have a seed, you can use it to create addresses to which you can transf
 
 To transfer anything in IOTA, you package an instruction into an object called a [transaction](../introduction/what-is-a-transaction.md). Then, you group that transaction into a [bundle](../introduction/what-is-a-bundle.md), and send it to a [node](../introduction/what-is-a-node.md), which is responsible for validating it and carrying it out.
 
-### About the network
+### Network basics
 
 Nodes are the devices that make up an IOTA network. Like any distributed system, the nodes in an IOTA network are interconnected such that they gossip information among each other. So, when one node (no matter where it is in the world) receives a transaction, it will be forwarded to every other node in the network. This way, all nodes in the same IOTA network can validate all transactions and store them.
 
