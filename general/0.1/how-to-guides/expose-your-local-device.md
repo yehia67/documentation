@@ -97,7 +97,7 @@ Now that your router has a static IP address, you can create port forwarding rul
 
 To expose a local device to the Internet, you must create port forwarding rules, which forward requests from certain ports of your router's IP address to your local device's internal IP address.
 
-<iframe src="https://www.youtube.com/watch?v=2G1ueMDgwxw" width="400" height="200"></iframe>
+<iframe src="https://www.youtube.com/embed/2G1ueMDgwxw" width="400" height="200"></iframe>
 
 All routers are different, so these steps may be different for your router, but the concepts are the same. In this guide, the router is a BT Hub 6.
 
