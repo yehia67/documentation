@@ -8,7 +8,7 @@ QR codes speed up the process of sending a transaction in Trinity by auto-popula
 To send to an address in Trinity, it must include the 9-tryte checksum. If you generated a new address in Trinity, that address will already include the checksum.
 :::
 
-1. Go to [iota-qr-codes.dag.sh](https://iota-qr-codes.dag.sh/)
+1. Go to the [official IOTA utility website](https://utils.iota.org/qr-create)
 2. Complete the fields
 3. Save the QR code as a PNG file
 4. Send the QR code to your sender, or add it to your website
