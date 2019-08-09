@@ -77,7 +77,7 @@ If you've never used the IOTA client libraries before, we recommend completing [
 
     ```js
 
-    var bundleTrytes;
+    let bundleTrytes;
 
     iota.prepareTransfers(seed, transfers)
     .then(trytes => {
@@ -89,9 +89,9 @@ If you've never used the IOTA client libraries before, we recommend completing [
         // Store the tail transaction hash and the transaction trytes
         storeTailTransaction(bundle[0].hash, bundleTrytes);
     })
-    .catch(err => {
+    .catch(error => {
         // Catch any errors
-        console.log(err);
+        console.log(error);
     });
     ```
 
@@ -100,9 +100,9 @@ If you've never used the IOTA client libraries before, we recommend completing [
     ```js
     function storeTailTransaction (transactionHash, bundleTrytes) {
 
-    var compressed = Compressor.compressTrytes(bundleTrytes);
+    let compressed = Compressor.compressTrytes(bundleTrytes);
 
-    var wstream = fs.createWriteStream(transactionHash);
+    let wstream = fs.createWriteStream(transactionHash);
 
     wstream.on('finish', function () {
         console.log(`Compressed tail transaction trytes were saved to: ${transactionHash}`);
@@ -131,7 +131,7 @@ Whenever you send a transaction, you are now compressing the transaction trytes 
 const Iota = require('@iota/core');
 const Compressor = require('@iota/tryte-compress');
 const Converter = require('@iota/converter');
-var fs = require('fs');
+const fs = require('fs');
 
 // Create a new instance of the IOTA object
 // Use the `provider` field to specify which IRI node to connect to
@@ -153,7 +153,7 @@ const transfers = [
     }
 ];
 
-var bundleTrytes;
+let bundleTrytes;
 
 iota.prepareTransfers(seed, transfers)
   .then(trytes => {
@@ -167,17 +167,17 @@ iota.prepareTransfers(seed, transfers)
     var JSONBundle = JSON.stringify(bundle,null,1);
     console.log(`Sent bundle: ${JSONBundle}`);
   })
-  .catch(err => {
+  .catch(error => {
     // Catch any errors
-    console.log(err);
+    console.log(error);
 });
 
 
 function storeTailTransaction (transactionHash, bundleTrytes) {
 
-    var compressed = Compressor.compressTrytes(bundleTrytes);
+    let compressed = Compressor.compressTrytes(bundleTrytes);
 
-    var wstream = fs.createWriteStream(transactionHash);
+    let wstream = fs.createWriteStream(transactionHash);
 
     wstream.on('finish', function () {
         console.log(`Compressed tail transaction trytes were saved to: ${transactionHash}`);
@@ -200,13 +200,11 @@ function storeTailTransaction (transactionHash, bundleTrytes) {
     ```js
     function readCompressedTailTransaction (file){
 
-        transactionBytes = fs.readFileSync(file);
+        let transactionBytes = fs.readFileSync(file);
 
-        transactionTrytes = Compressor.decompressTrytes(transactionBytes);
+        let transactionTrytes = Compressor.decompressTrytes(transactionBytes);
 
-        console.log(transactionTrytes)
-
-        console.log(transactionTrytes)
+        console.log(transactionTrytes);
 
     }
     ```
