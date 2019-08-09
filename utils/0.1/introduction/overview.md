@@ -10,7 +10,13 @@ The following utilities are maintained by us at the IOTA Foundation.  Use these 
 #### **Area code finder** ####
 [Link](../official/iota-area-codes/overview.md)
 
-Tag an IOTA transaction with a geo-location, and find others with the same tag. 
+Tag an IOTA transaction with a geo-location, and find others with the same tag.
+---
+
+#### **Trytes compressor** ####
+[Link](../official/iota-area-codes/overview.md)
+
+Store transaction trytes in a smaller memory space so you can later rebroadcast or reattach them.
 ---------------
 
 ### __Community support__ ###
