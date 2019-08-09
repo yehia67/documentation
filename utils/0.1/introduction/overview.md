@@ -14,7 +14,7 @@ Tag an IOTA transaction with a geo-location, and find others with the same tag.
 ---
 
 #### **Trytes compressor** ####
-[Link](../official/iota-area-codes/overview.md)
+[Link](../official/tryte-compress/overview.md)
 
 Store transaction trytes in a smaller memory space so you can later rebroadcast or reattach them.
 ---------------
