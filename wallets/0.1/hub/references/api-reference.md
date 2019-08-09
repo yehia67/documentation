@@ -175,10 +175,10 @@ Currently not used.
 
 |**Field**|**Type**|**Rules**|**Description**|
 | ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
-| address          | [string](#string) |       | The Hub owner's address (without checksum) |
-| bundleHash       | [string](#string) |       | The bundle hash that needs signing                      |
-| authentication   | [string](#string) |       | Authentication token (if used)                                       |
-| validateChecksum | [bool](#bool)     |       | Whether to validate the address                            |
+| address          | [string](#string) | singular      | The Hub owner's address (without checksum) |
+| bundleHash       | [string](#string) |  singular     | The bundle hash that needs signing                      |
+| authentication   | [string](#string) |  singular     | Authentication token (if used)                                       |
+| validateChecksum | [bool](#bool)     |   singular    | Whether to validate the address                            |
 
 <a name="hub.rpc.SignBundleReply"></a>
 
@@ -234,8 +234,8 @@ Currently not used.
 
 |**Field**|**Type**|**Rules** |**Description**|
 | -------------- | ----------------- | ----- | -------------------------- |
-| withdrawalUUID | [string](#string) |       | The withdrawal UUID to check for inclusion in a sweep |
-| bundleHash     | [string](#string) |       | The bundle hash of the sweep to check |
+| withdrawalUUID | [string](#string) |  singular     | The withdrawal UUID to check for inclusion in a sweep |
+| bundleHash     | [string](#string) |   singular    | The bundle hash of the sweep to check |
 
 <a name="hub.rpc.SweepSubscriptionRequest"></a>
 
@@ -266,7 +266,7 @@ Currently not used.
 | userId      | [string](#string)                                            |singular|                        ID of the user whose account's balance changed  |
 | userAddress | [string](#string)                                            |      singular |    Address whose balance was changed                                                          |
 | amount      | [int64](#int64)                                              |       singular|     Amount that changed to the balance                                                          |
-| reason      | [UserAddressBalanceReason](#hub.rpc.UserAddressBalanceReason) |       |                                                              |
+| reason      | [UserAddressBalanceReason](#hub.rpc.UserAddressBalanceReason) |      singular |    The reason that the balance of the address changed                                                          |
 | tail transaction hash or bundle hash       | [string](#string)                                            |   singular    | Contains either a tail transaction hash for a `DEPOSIT` reason or a bundle hash for a `SWEEP` reason |
 | timestamp   | [uint64](#uint64)                                            |      singular |       Time since epoch in MS when the balance change occured                                                        |
 
