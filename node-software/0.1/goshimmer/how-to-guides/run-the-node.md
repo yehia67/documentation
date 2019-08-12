@@ -107,7 +107,7 @@ When you run the node, it joins the network by autopeering with the entry node t
     :::
 
     ```bash
-    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/root/mainnetdb goshimmer --node-enable-plugins "spammer zeromq dashboard"
+    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer --node-enable-plugins "spammer zeromq dashboard"
     ```
 
     The container ID is displayed in the console.
