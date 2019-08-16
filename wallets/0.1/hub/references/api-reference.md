@@ -175,7 +175,7 @@ Currently not used.
 
 |**Field**|**Type**|**Rules**|**Description**|
 | ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
-| address          | [string](#string) | singular      | The Hub owner's address (without checksum) |
+| address          | [string](#string) | singular      | The Hub user's address that you want to withdraw from (without checksum) |
 | bundleHash       | [string](#string) |  singular     | The bundle hash that needs signing                      |
 | authentication   | [string](#string) |  singular     | Authentication token (if used)                                       |
 | validateChecksum | [bool](#bool)     |   singular    | Whether to validate the address                            |
