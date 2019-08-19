@@ -35,29 +35,41 @@ Before Hub can sign a bundle to transfer tokens from a swept address to new addr
     const Converter = require('@iota/converter');
     ```
 
-2. Create a `createSweepBundle()` function to return an unsigned bundle
+2. Create a `createSweepBundle()` function to create and save an unsigned bundle
 
     ```js
-    function createSweepBundle({ outputAddress, inputAddress, securityLevel, value }) {
-    const bundle = new Int8Array();
-    const issuanceTimestamp = Math.floor(Date.now() / 1000);
+    async function createSweepBundle({ outputAddress, inputAddress, securityLevel, value }) {
+   let bundle = new Int8Array();
+   const issuanceTimestamp = Converter.valueToTrits(Math.floor(Date.now() / 1000));
 
-    bundle.set(Bundle.addEntry(bundle, {
-        address: outputAddress,
-        value,
-        issuanceTimestamp,
-    }));
+   bundle = Bundle.addEntry(bundle, {
+      address: outputAddress,
+      value: Converter.valueToTrits(value),
+      issuanceTimestamp
+   });
 
-    // Create enough zero-value transaction in which to add the rest of the signature fragments
-    for (let i = 0; i < securityLevel; i++) {
-        bundle.set(Bundle.addEntry(bundle, {
-            address: inputAddress,
-            value: i == 0 ? -value : 0,
-            issuanceTimestamp,
-        }));
-    }
+    // For every security level, create a new zero-value transaction to which you can later add the rest of the signature fragments
+   for (let i = 0; i < securityLevel; i++) {
+       bundle = Bundle.addEntry(bundle, {
+          address: inputAddress,
+          value: Converter.valueToTrits(i == 0 ? -value : 0),
+          issuanceTimestamp
+       });
+   }
 
-    return Bundle.finalizeBundle(bundle);
+   const result = await Bundle.finalizeBundle(bundle);
+   
+   // Save the bundle array to a binary file
+   fs.writeFileSync('bundle', result, (error) => {
+      if(!error) {
+         console.log('Bundle details saved to file');
+      } else{
+         console.log(`Error writing file: ${error}`);
+      }});
+
+   const bundleHash = Converter.tritsToTrytes(Transaction.bundle(result));
+
+   console.log(bundleHash);
     }
     ```
 
@@ -65,16 +77,18 @@ Before Hub can sign a bundle to transfer tokens from a swept address to new addr
     You need the security level of the swept address so that the function can create enough zero-value transactions to which you can add the signature fragments.
     :::
 
+Copy the bundle hash from the console and paste it into a new file. Hub needs this bundle hash to create the signature.
+
 ## Step 2. Use Hub to sign the unsigned bundle
 
-Now that you have a function to create an unsigned bundle, you need to call that function, get the signature from Hub, then add that signature to the bundle.
+Now that you have a function to create an unsigned bundle, you need to call that function
 
 1. Get the following values from Hub and add them to the `parameters` object:
 
 |**Field**|**Description**|**Hub endpoint to use**|
 |:----|:----------|:-----------|
-|`outputAddress`|The new address to which you want to transfer the tokens|`GetDepositAddress` or create a new address outside of Hub. For example, you may want to send the tokens to an address on a hardware wallet. |
-|`inputAddress`|The swept address| |
+|`outputAddress`|The new address to which you want to transfer the tokens|None. This address does not have to be a Hub address. For example, you may want to send the tokens to an address on a hardware wallet. |
+|`inputAddress`|The swept address that contains the IOTA tokens that you need to rescue| |
 |`securityLevel`| The security level of the swept address| |
 |`value`|The total balance of the swept address| |
 
@@ -97,6 +111,10 @@ Now that you have a function to create an unsigned bundle, you need to call that
     This function returns an array of transactions that are in the unsigned bundle.
 
 3. In Hub, pass the result of the `createSweepBundle()` function to the ` ` endpoint to sign the bundle
+
+    :::info:
+    Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
+    :::
 
 4. Add the signature that Hub created to the `signature` constant (is it in trits?)
 
