@@ -24,7 +24,7 @@
 |`--argon2Mode` |Argon2 mode to use: 1=argon2i, 2=argon2id|2|
 |`--argon2Parallelism`|Number of threads to use in parallel for Argon2. [See this Stack Exchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.|1|
 |`--authMode`|Type of connection encryption that Hub uses. This flag accepts "none" or "ssl" as the value. When set to "ssl", you must also use the `--sslKey`, `--sslCert`, and `sslCA` flags. and |"none"|
-|`--keySecLevel` |[Security level](root://dev-essentials/0.1/references/security-levels.md) to use for IOTA [addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)|2|
+|<a name="keySec"></a>`--keySecLevel` |[Security level](root://dev-essentials/0.1/references/security-levels.md) to use for IOTA [addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)|2|
 |`--listenAddress`| Host to which the Hub API will listen. The default host allows any IP address to access the API.| "0.0.0.0:50051"|
 |`--maxConcurrentArgon2Hash`|Maximum number of concurrent Argon2 hash processes| 4|
 |`--salt`| Characters that are hashed together with the `seed_uuid` field to create seeds for each deposit address. This value should be at least 20 characters long.   |   ""    |
