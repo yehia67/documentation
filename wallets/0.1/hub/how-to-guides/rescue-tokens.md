@@ -15,12 +15,11 @@ To complete this guide, you need the following:
 * Access to a command prompt
 * An Internet connection
 * The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages
+* Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
 
 :::info:
 If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)
 :::
-
----
 
 ## Step 1. Create an unsigned bundle
 
@@ -112,11 +111,9 @@ Before Hub can sign a bundle, you need to create an unsigned one.
 
 Hub has a `signBundle()` gRPC method that allows you to sign bundles that withdraw from a Hub user's address.
 
-## Prerequisites
-
+:::info:
 Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
-
----
+:::
 
 1. In Hub, pass the unsigned bundle hash and the swept address to the `signBundle()` method
 
