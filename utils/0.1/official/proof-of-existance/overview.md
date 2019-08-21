@@ -22,7 +22,7 @@ To complete this tutorial, you need the following:
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
 * An Internet connection
-* The [`@iota/poex-tool`](root://getting-started/0.1/tutorials/get-started.md) and the the [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) packages
+* The [`@iota/poex-tool`](root://getting-started/0.1/tutorials/get-started.md) and the [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) packages
 
 :::info:
 If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)
