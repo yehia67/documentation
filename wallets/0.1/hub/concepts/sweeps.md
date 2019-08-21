@@ -10,8 +10,6 @@ IOTA uses the Winternitz one-time signature scheme to create signatures. As a re
 
 Hub reduces the risk of a user withdrawing from the same address more than once by transferring IOTA tokens from users' deposit addresses to a Hub owner's address at regular intervals.
 
-This way, any withdrawals are managed by Hub to make sure that the user does not
-
 :::danger:
 You must make it clear on the exchange frontend that users' deposit addresses are for one-time use.
 :::
