@@ -1,6 +1,6 @@
 # Rescue IOTA tokens from a swept address
 
-**Signatures are created from the Winternitz one-time signature scheme. As a result, addresses are safe to withdraw from only once. After Hub sweeps an address, that address is spent and must never be withdrawn from again. But, sometimes users send IOTA tokens to old deposit addresses that have already been swept. In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To rescue the tokens from the swept address, you can try to transfer them to a new address before a potential attacker can.**
+**The Winternitz one-time signature scheme is used to sign bundles that withdraw IOTA tokens from addresses. As a result, addresses are safe to withdraw from only once. After Hub sweeps an address, that address is spent and must never be withdrawn from again. But, sometimes users send IOTA tokens to old deposit addresses that have already been swept. In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To rescue the tokens from the swept address, you can try to transfer them to a new address before a potential attacker can.**
 
 To rescue tokens from a swept address, you must create an unsigned bundle outside of Hub, use Hub to sign it, then send the complete bundle to a node.
 
