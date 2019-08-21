@@ -1,12 +1,12 @@
-# Proof of existance overview
+# Proof-of-existance provider overview
 
-**Files are an important means of transporting information such as contracts among different parties. Sometimes, one party may change a file without the others knowing. So, all parties need a way to reliably prove that the original file has not been changed so they can trust it. To prove that a file is unchanged, you can use the proof-of-existance utility to hash the file's contents and attach it to the Tangle. This way, any party can later hash the file and compare it to the one on the Tangle. If the hashes are the same, the file is unchanged.**
+**Files are important for transporting information such as contracts among different parties. Sometimes, one party may change a file without the others knowing. So, all parties need a way to reliably prove that a file has not been changed so they can trust it. To prove that a file is unchanged, you can use the proof-of-existance utility to hash the file's contents and attach it to the Tangle. This way, any party can later hash the file and compare it to the immutable one on the Tangle. If the hashes are the same, the file is unchanged.**
 
 ## Prove that a file is unchanged
 
 In this example, we use the [proof-of-existance library](https://github.com/iotaledger/iota-poex-tool) to prove that a file is unchanged.
 
-First, we create a file that we later want to prove is unchanged. Then, we hash that file and add that hash to a transaction before attaching it to the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) Tangle. The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
+First, we create a file that we later want to prove is unchanged. Then, we hash the file and add its hash to a transaction before attaching it to the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) Tangle. The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
 :::info:
 Transactions on the Tangle are immutable, so we can use the transaction as a source of truth.
@@ -51,6 +51,10 @@ If you've never used the IOTA client libraries before, we recommend completing [
     async function publish (file) {
     }
     ```
+    
+    :::info:
+    You can also pass this function binary data.
+    :::
 
 5. In the `publish` function, hash the file, then send it in a transaction to a Devnet node
 
