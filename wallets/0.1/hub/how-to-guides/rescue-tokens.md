@@ -112,7 +112,7 @@ Before Hub can sign a bundle, you need to create an unsigned one.
 Hub has a `signBundle()` gRPC method that allows you to sign bundles that withdraw from a Hub user's address.
 
 :::info:
-Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
+Before you use the `signBundle()` method, make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
 :::
 
 1. In Hub, pass the unsigned bundle hash and the swept address to the `signBundle()` method
