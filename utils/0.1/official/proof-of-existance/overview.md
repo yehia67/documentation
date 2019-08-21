@@ -1,6 +1,6 @@
 # Proof of existance overview
 
-**Files are an important means of transporting information such as contracts among different parties. Sometimes, one party may change a file without the others knowing. So, all parties need a way to reliably prove that a file has not been changed from an established state to be able to trust the file. To prove that a file is unchanged, you can use the proof-of-existance utility to hash the file's contents and attach it to the Tangle. This way, any party can later hash the file and compare it to the one on the Tangle. If the hashes are the same, the file is unchanged.**
+**Files are important for transporting information such as contracts among different parties. Sometimes, one party may change a file without the others knowing. So, all parties need a way to reliably prove that a file has not been changed so they can trust it. To prove that a file is unchanged, you can use the proof-of-existance utility to hash the file's contents and attach it to the Tangle. This way, any party can later hash the file and compare it to the immutable one on the Tangle. If the hashes are the same, the file is unchanged.**
 
 ## Prove that a file is unchanged
 
@@ -51,6 +51,10 @@ If you've never used the IOTA client libraries before, we recommend completing [
     async function publish (file) {
     }
     ```
+    
+    :::info:
+    You can also pass this function binary data.
+    :::
 
 5. In the `publish` function, hash the file, then send it in a transaction to a Devnet node
 
