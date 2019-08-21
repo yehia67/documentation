@@ -20,7 +20,7 @@ Store transaction trytes in a smaller memory space so you can later rebroadcast 
 ---
 
 #### **Proof-of-existance provider** ####
-[Link](../official/tryte-compress/overview.md)
+[Link](../official/proof-of-existance/overview.md)
 
 Prove that a file is unchanged so that all parties that trust it.
 ---------------
