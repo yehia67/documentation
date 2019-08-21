@@ -120,6 +120,10 @@ Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flag
 
 1. In Hub, pass the unsigned bundle hash and the swept address to the `signBundle()` method
 
+   ```
+   Hub@localhost:50051> client.signBundle({address:'ADDRESS...',bundleHash:'BUNDLEHASH...',authentication:'',validateChecksum:false},pr)
+   ```
+
 2. Copy the returned signature and paste it into the `trytesToTrits()` method to convert it to trits
 
     ```js
