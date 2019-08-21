@@ -15,7 +15,7 @@ You must make it clear on the exchange frontend that users' deposit addresses ar
 :::
 
 :::info:
-[Discover the details about spent addresses and why you must never withdraw from an address more than once](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse).
+[Discover the details about spent addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse) and why you must never withdraw from an address more than once.
 :::
 
 ## How sweeps work
