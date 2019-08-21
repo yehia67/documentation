@@ -24,7 +24,7 @@ If you've never used the IOTA client libraries before, we recommend completing [
 
 ## Step 1. Create an unsigned bundle
 
-Before Hub can sign a bundle, you need to create an unsigned one for it to sign. To do this, create a function that returns an unsigned bundle.
+Before Hub can sign a bundle, you need to create an unsigned one.
 
 1. Require the packages
 
@@ -77,13 +77,13 @@ Before Hub can sign a bundle, you need to create an unsigned one for it to sign.
 
     |**Field**|**Description**|**Notes**|
     |:----|:----------|:-----------|
-    |`outputAddress`|The new 81-tryte address (without a checksum) to which you want to transfer the tokens|This address does not need to be a Hub address. For example, you may want to send the tokens to an address on a hardware wallet. |
+    |`outputAddress`|The new 81-tryte address (without a checksum) to which you want to transfer the tokens on the swept address|This address does not need to be a Hub address. For example, you may want to send the tokens to an address on a hardware wallet. |
     |`inputAddress`|The swept 81-tryte address (without a checksum) that contains the IOTA tokens that you need to rescue|It's best practice to use the [`balanceSubscription()` method](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest) to check for incoming deposits into swept addresses. You can also use the [`getUserHistory()` method](../references/api-reference.md#hub.rpc.GetUserHistoryRequest) to check which spent addresses have a positive balance.|
     |`securityLevel`| The security level of the swept address|The default security level is 2. If you changed the security level in the [`keySecLevel` command-line flag](../references/command-line-flags.md#keySec), make sure you use that one. |
     |`value`|The total balance of the swept address in the `inputAddress` field|You can check the balance of any address on a Tangle explorer such as [thetangle.org](https://thetangle.org/) |
 
     :::info:
-    You need the security level of the swept address so that the `createUnsignedBundle()` function can create enough zero-value transactions to which you can add the signature fragments.
+    You need the security level of the swept address so that the `createUnsignedBundle()` function can create enough zero-value transactions to which you can add the [signature fragments](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#signatures).
     :::
 
     ```js
