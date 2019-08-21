@@ -44,7 +44,7 @@ To derive a private key, the subseed is absorbed and squeezed in a [sponge funct
 
 The result of the sponge function is a private key with a length that varies, depending on the [security level](../references/security-levels.md). The greater the security level, the longer and more secure the private key.
 
-## How addresses are derived
+## How addresses are derived from private keys
 
 To derive an address, the private key is split into **81-tryte segments**. Then, each segment is hashed 26 times. A group of 27 hashed segments is called a **key fragment**.
 
@@ -64,17 +64,9 @@ Some application such as Trinity require you to use addresses that include a 9-t
 Use the JavaScript client library to [derive addresses from private keys](../how-to-guides/derive-addresses-from-private-keys.md).
 :::
 
-## How private keys are used to sign bundles
+## Signatures
 
-Private keys sign the bundle hash of the transaction that withdraws IOTA tokens from the address, then the signature is put in the [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) of the transaction.
-
-By signing the bundle hash, it's impossible for attackers to intercept a bundle and change any transaction without changing the bundle hash and invalidating the signature.
-
-:::info:
-The bundle hash is derived from a hash of the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields. This bundle hash is included in each transaction's `bundle` field to seal the package. If the values of any of these fields were to change, the nodes would invalidate the bundle hash.
-:::
-
-### Signatures
+Signatures prove ownership of the private key that was used to derive an address.
 
 Signatures are created using the Winternitz one-time signature scheme (W-OTS). This signature scheme is quantum resistant, meaning that signatures are resistant to attacks from [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing). But, this signature scheme also reveals an unknown amount of the private key.
 <a id="address-reuse"></a>
@@ -82,6 +74,20 @@ Signatures are created using the Winternitz one-time signature scheme (W-OTS). T
 :::danger:Spent addresses
 If an address is withdrawn from (spent) more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens.
 :::
+
+To create a signature, private keys are used to sign the bundle hash of any transaction that withdraws IOTA tokens from the address. Then, the resulting signature is added to the transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md).
+
+:::info:
+Depending on the security level of the address/private key pair, the signature may be too large to fit in one transaction. In this case, the rest of the signature is fragmented across one or two zero-value transactions.
+:::
+
+By signing the bundle hash, it's impossible for attackers to intercept a bundle and change any transaction without changing the bundle hash and invalidating the signature.
+
+:::info:
+The bundle hash is derived from a hash of the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields. This bundle hash is included in each transaction's `bundle` field to seal the package. If the values of any of these fields were to change, the nodes would invalidate the bundle hash.
+:::
+
+### How private keys are used to create signatures
 
 To make sure that it's always safe to withdraw from an address once, first the bundle hash is normalized to make sure that only half of the private key is revealed in the signature.
 
@@ -101,9 +107,9 @@ Because a transaction's [`signatureMessageFragment` field](../references/structu
 
 Nodes verify a signature in a transaction by using the signature and the bundle hash to find the address of the input transaction.
 
-To verify a signature, the bundle hash of a transaction is normalized.
+To verify a signature, nodes normalize the bundle hash.
 
-Depending on the length of the signature, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of 81-tryte segments in a signature fragment.
+Then, depending on the length of the signature, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of 81-tryte segments in a signature fragment.
 
 The selected trytes of the normalized bundle hash are [converted to decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them:
 
@@ -113,4 +119,4 @@ The result of this calculation is the number of times that each of the 27 segmen
 
 Each key fragment is hashed once to derive the **key digests**, which are combined and hashed once to derive an 81-tryte address.
 
-If the address matches the one in the transaction, the signature is valid and the withdrawal is accepted.
+If the address matches the one in the transaction, the signature is valid and the transaction is considered valid.
