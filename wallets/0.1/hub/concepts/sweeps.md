@@ -1,6 +1,6 @@
 # Sweeps
 
-**A sweep is a bundle that balances users' withdrawals and deposits. When users deposit IOTA tokens into a Hub address or when users withdraw them from one, Hub combines those transfers into a sweep. If the total amount of withdrawals is less than the total amount of deposits, then Hub transfers the remaining balance to a new address that belongs to the Hub owner. If the total amount of deposits is less than the total amount of withdrawals, Hub transfers the remaining withdrawal balance from the Hub owner's addresses.**
+**A sweep is a bundle that balances users' withdrawals and deposits. When users deposit IOTA tokens into a Hub address or when users withdraw them from one, Hub combines those transfers into a sweep. If the total amount of withdrawals is less than the total amount of deposits, then Hub transfers the remaining balance to a new address that belongs to the Hub owner. If the total amount of deposits is less than the total amount of withdrawals, Hub uses the tokens in the Hub owner's addresses to fulfill the remaining withdrawal balance.**
 
 Sweeps are an optional safety feature that assure that deposited tokens are transferred to a secure address that belongs to the Hub owner.
 
