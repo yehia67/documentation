@@ -41,6 +41,7 @@
 |`--depth`|Value to use for the `depth` parameter of the [`getTransactionsToApprove` (GTTA)](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove) endpoint| 3|
 |`--minWeightMagnitude`| [Minimum weight magnitude (MWM)](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) to use for proof of work. To use Hub on the Mainnet, you must use a MWM of 14.| 9|
 |`--powMode`|[Proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) mode, local or remote|
+|`--useHttpsIRI`| Communicate with the IRI node through the HTTPS protocol (make sure that the node that's specified in the `--apiAddress` flag supports https)|`--nouseHttpsIRI`|
 
 ## Signing flags
 
