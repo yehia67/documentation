@@ -36,7 +36,7 @@
 
 | **Flag** |   **Description**| **Default values**|
 | :------------------------ | :--------------- | :--------|
-|`--apiAddress`| URL or IP address of the IRI node that Hub connects to. To avoid connecting to a malicious node, we recommend [running your own node](root://node-software/0.1/iri/introduction/overview.md) and connecting to it. Hub can't connect to nodes that use the HTTPS protocol.| "127.0.0.1:14265"|
+|`--apiAddress`| URL or IP address of the IRI node that Hub connects to. To avoid connecting to a malicious node, we recommend [running your own node](root://node-software/0.1/iri/introduction/overview.md) and connecting to it.| "127.0.0.1:14265"|
 |`--attachmentInterval`|Interval in milliseconds that Hub waits between [reattaching and promoting transactions](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md). 0=disabled.|240000|
 |`--depth`|Value to use for the `depth` parameter of the [`getTransactionsToApprove` (GTTA)](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove) endpoint| 3|
 |`--minWeightMagnitude`| [Minimum weight magnitude (MWM)](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) to use for proof of work. To use Hub on the Mainnet, you must use a MWM of 14.| 9|
