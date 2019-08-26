@@ -602,6 +602,10 @@ Get the confirmed balance of an address.
 
 If the `tips` parameter is missing, the returned balance is correct as of the latest confirmed milestone.
 
+:::info:
+This API call only executes on fully synchronized nodes. Using this API on a node that is not synchronized is not supported.  
+:::
+
  ### Parameters
 	
 |**Parameters**s |**Required or Optional**|**Description** |Type
@@ -724,6 +728,10 @@ Get the inclusion states of a set of transactions.
 This endpoint determines if a transaction is confirmed by the network (referenced by a valid milestone).
 
 You can search for multiple tips (and thus, milestones) to get past inclusion states of transactions.
+
+:::info:
+This API call only executes on fully synchronized nodes. Using this API on a node that is not synchronized is not supported.  
+:::
 
  ### Parameters
 	
@@ -1167,6 +1175,10 @@ curl http://localhost:14265 \
 ## getTransactionsToApprove
 
 Get two consistent tip transaction hashes to use as branch/trunk transactions.
+
+:::info:
+This API call only executes on fully synchronized nodes. Using this API on a node that is not synchronized is not supported.  
+:::
 
 ### Parameters
 
