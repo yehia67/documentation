@@ -11,7 +11,7 @@ To make it easier to find the options you want to change, we've separated them i
 * **Network:** How your node communicates with neighbors
 * **Proof of work:** How your node does [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)
 * **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes
-* **Testnet:** What coordinator your node should follow when it's not running on the Mainnet
+* **Testnet:** Which coordinator your node should follow when it's not running on the Mainnet
 * **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md)
 * **ZMQ:** How clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
 
