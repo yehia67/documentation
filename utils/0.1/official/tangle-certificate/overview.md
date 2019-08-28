@@ -222,7 +222,7 @@ When you come to create a certificate, you can specify the content that will rep
     })();
     ```
 
-Replace the `<ORG_ID>`, `<ADMIN_USER_ID>`, and `<ADMIN_PASS_PHRASE>` placeholders with your own credentials.
+Replace the `\<ORG_ID\>`, `\<ADMIN_USER_ID\>`, and `\<ADMIN_PASS_PHRASE\>` placeholders with your own credentials.
 
 ### Step 3. Run the code
 
