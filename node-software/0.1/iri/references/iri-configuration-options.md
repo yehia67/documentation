@@ -6,12 +6,12 @@ To make it easier to find the options you want to change, we've separated them i
 
 * **API:** How the API responds and which hosts can access it
 * **IXI:** How your node uses IXI modules
-* **Ledger:** What your node does with its ledger
+* **Database:** What your node does with its ledger
 * **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md)
 * **Network:** How your node communicates with neighbors
 * **Proof of work:** How your node does [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)
 * **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes
-* **Testnet:** Which coordinator your node should follow when it's not running on the Mainnet
+* **Testnet:** Which Coordinator your node should follow when it's not running on the Mainnet
 * **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md)
 * **ZMQ:** How clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
 
@@ -40,15 +40,7 @@ Use these settings to customize how the API behaves and which hosts can access i
 |<a name="remote-limit-api"></a>`--remote-limit-api` |`REMOTE_LIMIT_API`|Ignore requests to certain API endpoints |array of strings |[[addNeighbors](../references/api-reference.md#addNeighbors), [getNeighbors](../references/api-reference.md#getNeighbors), [removeNeighbors](../references/api-reference.md#removeNeighbors), [attachToTangle](../references/api-reference.md#attachToTangle), [interruptAttachToTangle](../references/api-reference.md#interruptAttachToTangle)] | This option allows you to protect your node against spammers that know the IRI node's URL or IP address.
 |<a name="remote-trusted-api-hosts"></a>`--remote-trusted-api-hosts` |`REMOTE_TRUSTED_API_HOSTS`|Hosts that may call any API endpoints, including those set in the `REMOTE_LIMIT_API` option |comma-separated list of strings |localhost | You must also set the `REMOTE` option to `true`|
 
-## IXI
-
-Use these settings to customize how your node uses IXI modules.
-
-| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
-| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="ixi-dir"></a>  `--ixi-dir` |`IXI_DIR`|Folder where IXI modules should be added for automatic discovery |string |ixi |
-
-## Ledger
+## Database
 
 Use these settings to customize what your node does with its ledger.
 
@@ -60,6 +52,14 @@ Use these settings to customize what your node does with its ledger.
 |<a name="db-path"></a> `--db-path`| `DB_PATH`|Set the path to the folder where the database is saved|string |mainnetdb |
 |<a name="rescan"></a> `--rescan`|`RESCAN_DB`|Rescan all transaction metadata (approvees, bundles, and tags) |boolean |false |
 |<a name="revalidate"></a>`--revalidate` |`REVALIDATE`|Reload data in the database about confirmed transactions, and transaction metadata | boolean| false|
+
+## IXI
+
+Use these settings to customize how your node uses IXI modules.
+
+| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
+| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
+|<a name="ixi-dir"></a>  `--ixi-dir` |`IXI_DIR`|Folder where IXI modules should be added for automatic discovery |string |ixi |
 
 ## Local snapshot
 
@@ -85,7 +85,7 @@ Use these settings to customize how your node communicates with neighbors.
 |<a name="cache-size"></a>`--cache-size` |`CACHE_SIZE_BYTES`|Set the maximum size of the network cache in bytes |number |150,000 |
 |<a name="dns-refresher"></a>`--dns-refresher` |`DNS_REFRESHER`|Reconnect to neighbors that have dynamic IP addresses |boolean |true |
 |<a name="dns-resolution"></a>`--dns-resolution` |`DNS_RESOLUTION`|Enable DNS for neighbor peering |boolean |true|
-|<a name="max-neighbors"></a>`--max-neighbors` |`MAX_NEIGHBORS`|Set the maximum number of neighbors |number |5 |This option should be set to at least the same number of URLs that you have in the `NEIGHBORS` option|
+|<a name="max-neighbors"></a>`--max-neighbors` |`MAX_NEIGHBORS`|Set the maximum number of neighbors |number |5 |This option should be set to at least the same number of URLs that you have in the `NEIGHBORS` option. We recommend that you don't connect to more than 8 neighbors. Otherwise, your node will find it difficult to synchronize.|
 |<a name="neighbors"></a>`-n`, `--neighbors` |`NEIGHBORS`|Set the URLs and IP addresses of [neighbors](../how-to-guides/find-neighbor-iri-nodes.md) |array of strings |[""] |
 |<a name="neighboring-socket-address"></a>`--neighboring-socket-address` |`NEIGHBORING_SOCKET_ADDRESS`|Bind the TCP server socket for the gossip protocol to an address |string |0.0.0.0|The default address binds the TCP server socket to every network interface. Change this option if your node has multiple IP addresses and you only want to bind to a specific one.|
 |<a name="neighboring-socket-port"></a>`--neighboring-socket-port` |`NEIGHBORING_SOCKET_PORT`|Bind the TCP server socket for the gossip protocol to a port |string |15600|
@@ -100,7 +100,7 @@ Use these settings to customize how your node does [proof of work](root://dev-es
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="pow-threads"></a>`--pow-threads`|`POW_THREADS`   | Number of threads to use for proof-of-work calculations |number  | 0  |
+|<a name="pow-threads"></a>`--pow-threads`|`POW_THREADS`   | Number of threads to use for proof-of-work calculations |number  | 0  | If this parameter is set to 0, the number of PoW threads varies, depending on the number of cores that your device has
 
 ## Protocol
 
@@ -120,7 +120,7 @@ Use these settings to customize how your node validates and confirms transaction
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|:----|
-|<a name="testnet"></a>`--testnet` |`TESTNET`|Enable the node to run on a network other than the Mainnet |boolean |false|This parameter must be set to `true` for the IRI to read any other testnet parameters|
+|<a name="testnet"></a>`--testnet` |`TESTNET`|Enable the node to run on a network other than the Mainnet |boolean |false|This parameter must be set to `true` for the IRI to read any other testnet parameters. If you include only this flag, the default testnet configuration options are for the Devnet.|
 | `--testnet-coordinator`|`COORDINATOR` | Set the 81-trytes address of the testnet Coordinator|81-tryte string |"EQQFCZBIHRHWPXKMTOLMYUYPCN9XLMJPYZVFJSAY9FQHCCLWTOLLUGKKMXYFDBOOYFBLBI9WUEILGECYM"|This address is the Coordinator's Merkle root|
 |`--testnet-no-coo-validation`|`DONT_VALIDATE_TESTNET_MILESTONE_SIG`|Disable the validation of milestones |boolean|false |
 | `--testnet-coordinator-security-level`|`COORDINATOR_SECURITY_LEVEL`|Set the security level of the Coordinator's addresses and private keys|number|1|
