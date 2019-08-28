@@ -42,9 +42,7 @@ integrations@iota.org
 
 Before you can create a certificate, you need a background SVG image.
 
-This SVG image can include the placeholders that are wrapped in double percentage signs (%%).
-
-When you come to create a certificate, you can specify the content that will replace the placeholders.
+This SVG image can include placeholders that are wrapped in double percentage signs (%%). When you come to create a certificate, you can specify the content to replace the placeholders.
 
 1. Create a file called `background.svg` in your working directory and copy in the following code
 
