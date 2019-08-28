@@ -111,9 +111,9 @@ When you come to create a certificate, you can specify the content that will rep
     const axios = require('axios');
 
     const API_ENDPOINT = 'https://certification-api.iota.works';
-    const ORG_ID = '<ORG_ID>'
-    const ADMIN_USER_ID = '<ADMIN_USER_ID>';
-    const ADMIN_PASS_PHRASE = '<ADMIN_PASS_PHRASE>';
+    const ORG_ID = '$ORG_ID'
+    const ADMIN_USER_ID = '$ADMIN_USER_ID';
+    const ADMIN_PASS_PHRASE = '$ADMIN_PASS_PHRASE';
     const BACKGROUND_PATH = 'background.svg';
 
     const ax = axios.create({ baseURL: API_ENDPOINT });
@@ -222,7 +222,7 @@ When you come to create a certificate, you can specify the content that will rep
     })();
     ```
 
-Replace the `\<ORG_ID\>`, `\<ADMIN_USER_ID\>`, and `\<ADMIN_PASS_PHRASE\>` placeholders with your own credentials.
+Replace the `$ORG_ID`, `$ADMIN_USER_ID`, and `$ADMIN_PASS_PHRASE` placeholders with your own credentials.
 
 ### Step 3. Run the code
 
