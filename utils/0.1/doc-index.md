@@ -10,8 +10,8 @@
 
 [Official support/IOTA area codes/Get started](/official/iota-area-codes/overview.md)
 
-[Official support/Trytes compressor/Get started](/official/tryte-compress/overview.md)
-
 [Official support/Proof of existance/Get started](/official/proof-of-existance/overview.md)
 
 [Official support/Tangle certificate creator/Get started](/official/tangle-certificate/overview.md)
+
+[Official support/Trytes compressor/Get started](/official/tryte-compress/overview.md)
