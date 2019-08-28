@@ -28,7 +28,7 @@ To complete this tutorial, you need the following:
 
 To use the Tangle certificate API, you need access to the IOTA Foundation server.
 
-All backgrounds, templates, issuers, and certificates are stored under a unique organization ID.
+All backgrounds, templates, issuers, and certificates are stored on the server under a unique organization ID.
 
 To create, read, update, or delete any of an organization's certificate data, you need the administrator ID and the administrator passphrase.
 
@@ -41,6 +41,10 @@ integrations@iota.org
 ### Step 2. Create a background
 
 Before you can create a certificate, you need a background SVG image.
+
+This SVG image can include the placeholders that are wrapped in double percentage signs (%%).
+
+When you come to create a certificate, you can specify the content that will replace the placeholders.
 
 1. Create a file called `background.svg` in your working directory and copy in the following code
 
@@ -217,6 +221,7 @@ Before you can create a certificate, you need a background SVG image.
         }
     })();
     ```
+
 Replace the `<ORG_ID>`, `<ADMIN_USER_ID>`, and `<ADMIN_PASS_PHRASE>` placeholders with your own credentials.
 
 ### Step 3. Run the code
@@ -242,7 +247,7 @@ Created certificate FAZLSJRLEPPBRVITOPBZNTIVEJWPEQARIOEHNMHBEOJDGABLKPYIHWPMAJWV
 
 ## Next steps
 
-To verify your certificate, open a web browser and go to the URL that was printed to the console.
+To verify your certificate, open a web browser and go to the URL that was printed to the console: https://certification.iota.works/FAZLSJRLEPPBRVITOPBZNTIVEJWPEQARIOEHNMHBEOJDGABLKPYIHWPMAJWVZTJXFIAFGSVXPGOCBQ999
 
 ![Test certificate](../images/test-certificate.png)
 
