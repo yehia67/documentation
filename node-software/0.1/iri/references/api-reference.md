@@ -603,7 +603,9 @@ Get the confirmed balance of an address.
 If the `tips` parameter is missing, the returned balance is correct as of the latest confirmed milestone.
 
 :::info:
-This API call only executes on fully synchronized nodes. Using this API on a node that is not synchronized is not supported.  
+This API endpoint returns data only if the node is synchronized.
+
+[Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request).
 :::
 
  ### Parameters
@@ -730,7 +732,9 @@ This endpoint determines if a transaction is confirmed by the network (reference
 You can search for multiple tips (and thus, milestones) to get past inclusion states of transactions.
 
 :::info:
-This API call only executes on fully synchronized nodes. Using this API on a node that is not synchronized is not supported.  
+This API endpoint returns data only if the node is synchronized.
+
+[Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request).
 :::
 
  ### Parameters
@@ -1177,7 +1181,9 @@ curl http://localhost:14265 \
 Get two consistent tip transaction hashes to use as branch/trunk transactions.
 
 :::info:
-This API call only executes on fully synchronized nodes. Using this API on a node that is not synchronized is not supported.  
+This API endpoint returns data only if the node is synchronized.
+
+[Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request).
 :::
 
 ### Parameters
