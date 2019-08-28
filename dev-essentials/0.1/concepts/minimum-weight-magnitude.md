@@ -4,7 +4,7 @@
 
 ## About proof of work
 
-A proof of work (PoW) is a piece of data that is calculated using trial and error to meet certain requirements. The key to PoW is that it's difficult to produce, but easy to verify.
+A proof of work (PoW) is a piece of data that is calculated using trial and error to meet certain requirements. The key to PoW is that it's difficult to do, but easy to check.
 
 PoW was introduced as a concept to reduce large amounts of email spam. This concept is known as [hashcash](https://en.wikipedia.org/wiki/Hashcash), and is a method of preventing email spam by requiring a proof of work for the contents of every email.
 
