@@ -23,6 +23,12 @@ Store transaction trytes in a smaller memory space so you can later rebroadcast 
 [Link](../official/proof-of-existance/overview.md)
 
 Prove that a file is unchanged so that all parties that trust it.
+---
+
+#### **Tangle certificate creator** ####
+[Link](../official/tangle-certificate/overview.md)
+
+Create a custom immutable certificate and control who can issue it.
 ---------------
 
 ### __Community support__ ###
