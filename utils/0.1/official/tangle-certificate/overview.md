@@ -6,13 +6,11 @@
 
 In this example, we use the [Tangle certificate API](https://certification-api.iota.org/docs/#iota-certification-api) to attach a certificate to the Tangle, using the development environment.
 
-First, we create a certificate background that we can use to create a template. Then, we create an issuer who has access to the template and can attach it to the Tangle.
+First, we create a certificate background that we can use to create a template. Then, we create an issuer who has access to the template and can create certificates from it.
 
 :::info:
 Transactions on [the Tangle](root://dev-essentials/0.1/concepts/the-tangle.md) are immutable, so we can use the transaction as a source of truth.
 :::
-
-Then, we use the web interface to read the certificate from the Tangle and to verify that it's authentic.
 
 ### Prerequisites
 
@@ -44,65 +42,67 @@ Before you can create a certificate, you need a background SVG image.
 
 This SVG image can include placeholders that are wrapped in double percentage signs (%%). When you come to create a certificate, you can specify the content to replace the placeholders.
 
-1. Create a file called `background.svg` in your working directory and copy in the following code
+Create a file called `background.svg` in your working directory and copy in the following code
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-    <svg width="100%" height="100%" viewBox="0 0 842 596" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="0" width="842" height="596" style="fill:white;"/>
-    <rect x="30.81" y="30.82" width="779.66" height="533.38" style="fill:none;stroke:rgb(189,190,192);stroke-width:12px;"/>
-    <text x="100" y="100"> %%TEMPLATE-ADDITIONAL%%</text>
-    <text x="100" y="480" class="signature"> %%ISSUER-SIGNATURE%%</text>
-    <text x="50%" y="165" class="caption" text-anchor="middle">Certificate Of Attendance</text>
-    <text x="50%" y="220" class="training-title" text-anchor="middle">%%TRAINING-TITLE%%</text>
-    <text x="50%" y="295" class="participant" text-anchor="middle">%%PARTICIPANT%%</text>
-    <text x="50%" y="352" class="participation-date" text-anchor="middle">%%PARTICIPATION-DATE%%</text>
-    <text x="50%" y="390" class="info" text-anchor="middle">This certificate confirms that the training specified was attended and completed by the person on the date shown.</text>
-    <text x="50%" y="410" class="info" text-anchor="middle">You can validate the authenticity of this certificate by scanning the QR code, or by visiting %%AUTH-DOMAIN%%</text>
-    <text x="50%" y="420" class="info" text-anchor="middle">and entering the hash shown at the bottom of this certificate.</text>
-    <text x="17%" y="545" class="hash" text-anchor="start">Hash: %%HASH%%</text>
-    <text x="83%" y="545" class="hash" text-anchor="end">Issued On: %%ISSUED-DATE%%</text>
-    <svg x="44%" y="430">%%QR-CODE%%</svg>
-    <style>
-    .signature {
-        font-family:"FreestyleScript-Regular", "Freestyle Script", cursive;
-        font-size:33.333px;
-    }
-    .caption {
-        font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        font-weight: 300;
-        font-size: 26px;
-    }
-    .training-title {
-        font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        font-weight: 600;
-        font-size: 32px;
-    }
-    .participant {
-        font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        font-weight: 600;
-        font-size: 25px;
-    }
-    .participation-date {
-        font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        font-weight: normal;
-        font-size: 18px;
-    }
-    .info {
-        font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        font-weight: 300;
-        font-size: 10px;
-    }
-    .hash {
-        font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        font-weight: normal;
-        font-size: 8px;
-    }
-    </svg>
-    ```
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 842 596" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<rect x="0" y="0" width="842" height="596" style="fill:white;"/>
+<rect x="30.81" y="30.82" width="779.66" height="533.38" style="fill:none;stroke:rgb(189,190,192);stroke-width:12px;"/>
+<text x="100" y="100"> %%TEMPLATE-ADDITIONAL%%</text>
+<text x="100" y="480" class="signature"> %%ISSUER-SIGNATURE%%</text>
+<text x="50%" y="165" class="caption" text-anchor="middle">Certificate Of Attendance</text>
+<text x="50%" y="220" class="training-title" text-anchor="middle">%%TRAINING-TITLE%%</text>
+<text x="50%" y="295" class="participant" text-anchor="middle">%%PARTICIPANT%%</text>
+<text x="50%" y="352" class="participation-date" text-anchor="middle">%%PARTICIPATION-DATE%%</text>
+<text x="50%" y="390" class="info" text-anchor="middle">This certificate confirms that the training specified was attended and completed by the person on the date shown.</text>
+<text x="50%" y="410" class="info" text-anchor="middle">You can validate the authenticity of this certificate by scanning the QR code, or by visiting %%AUTH-DOMAIN%%</text>
+<text x="50%" y="420" class="info" text-anchor="middle">and entering the hash shown at the bottom of this certificate.</text>
+<text x="17%" y="545" class="hash" text-anchor="start">Hash: %%HASH%%</text>
+<text x="83%" y="545" class="hash" text-anchor="end">Issued On: %%ISSUED-DATE%%</text>
+<svg x="44%" y="430">%%QR-CODE%%</svg>
+<style>
+.signature {
+    font-family:"FreestyleScript-Regular", "Freestyle Script", cursive;
+    font-size:33.333px;
+}
+.caption {
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 300;
+    font-size: 26px;
+}
+.training-title {
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 600;
+    font-size: 32px;
+}
+.participant {
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 600;
+    font-size: 25px;
+}
+.participation-date {
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: normal;
+    font-size: 18px;
+}
+.info {
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 300;
+    font-size: 10px;
+}
+.hash {
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: normal;
+    font-size: 8px;
+}
+</svg>
+```
 
-2. Create a new file called `index.js` in the same directory as the `background.svg` file, then copy in the following code
+## Step 3. Set up the sample
+
+1. Create a new file called `index.js` in the same directory as the `background.svg` file, then copy in the following code. Replace the `$ORG_ID`, `$ADMIN_USER_ID`, and `$ADMIN_PASS_PHRASE` placeholders with your own credentials.
 
     ```js
     const fs = require('fs');
@@ -220,9 +220,7 @@ This SVG image can include placeholders that are wrapped in double percentage si
     })();
     ```
 
-Replace the `$ORG_ID`, `$ADMIN_USER_ID`, and `$ADMIN_PASS_PHRASE` placeholders with your own credentials.
-
-### Step 3. Run the code
+### Step 4. Run the code
 
 You can run the sample code by using the following command
 
@@ -250,6 +248,8 @@ To verify your certificate, open a web browser and go to the URL that was printe
 ![Test certificate](../images/test-certificate.png)
 
 Use the [administration portal](https://certification-admin.iota.org/) to create new certificates or check for existing ones.
+
+Use the [API](https://certification-api.iota.org/docs/#iota-certification-api) to manage your certificates.
 
 
 
