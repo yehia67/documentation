@@ -80,9 +80,7 @@ To encode a geo-location into an IAC, you need some latitude and longitude coord
 
 To tag a transaction with some coordinates, you need to encode them as an IAC.
 
-To do so, you can use the [IAC API](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md).
-
-In this example, we tag a transaction on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
+In this example, we use the [IAC API](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md) to create an IAC from coordinates, then we add the IAC to the `tag` field of a transaction and send it to the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
 1. Create a new file called `index.js` in your working directory, then require the IOTA client libraries
 

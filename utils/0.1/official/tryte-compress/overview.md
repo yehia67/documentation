@@ -26,7 +26,7 @@ To complete this tutorial, you need the following:
 If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)
 :::
 
-### Step 1. Create the sample code
+### Step 1. Set up the sample
 
 1. Create a new file called `index.js` in your working directory, then require the libraries
 
