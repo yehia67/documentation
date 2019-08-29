@@ -6,4 +6,4 @@ This repository contains the content which is utilised by the documentation plat
 
 ## Contribute
 
-If you'd like to help us write new content, or to edit existing content, please refer to the [style guide](./docs/style-guide.md).
+If you'd like to help us write new content, or to edit existing content, please refer to the [style guide](./contribution/0.1/style-guide.md).

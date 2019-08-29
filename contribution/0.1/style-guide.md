@@ -7,9 +7,9 @@ To contribute new content:
 1. See our [open issues](https://github.com/iotaledger/documentation/issues)
 2. Choose something that you'd like to work on, or create a new issue to suggest new content
 3. [Set up GitHub](#set-up-github)
-4. Comment on the issue that you'd like to work on
-5. Start writing your content using our [style guide](#writing-guide)
-7. [Push your content to our GitHub repository](#push-content-to-our-github-repository)
+4. Comment on the issue to let us know that you'd like to work on it
+5. Start writing your content, following our [style guide](#writing-guide)
+6. [Push your content to our GitHub repository](#push-content-to-our-github-repository)
 
 To make suggestions to existing content:
 
@@ -71,9 +71,11 @@ When you create a new branch make sure each branch addresses only one article to
 
 Please follow our [style guide](#style-guide) when you write and edit articles.
 
-## Push content to our GitHub repository
+### Push content to our GitHub repository
 
-1. After writing or editing content in your local copy of the branch, add your changes
+After writing or editing content in your local copy of the branch, the next step is to push them to our repository.
+
+1. Add your changes
 
     ```bash
     git add .
@@ -167,7 +169,7 @@ node buildProjects getting-started
 
 The content in the `documentation` directory is structured in a way that allows us to render it on a webpage.
 
-## Top level navigation
+### Top level navigation
 
 The `projects.md` file contains the top level navigation labels and links for the following:
 
@@ -188,7 +190,7 @@ The content of the file is a list of markdown links.
 [Essentials](/dev-essentials)
 ```
 
-## Home page
+### Home page
 
 The `home.md` file of a project contains the content to display on the home page. The file contains a level 1 heading, which determines the description for that section. In addition there are links followed by level 2 header which contain the direct links into the content.
 
@@ -204,7 +206,7 @@ The links must be relative to the location of the `home.md` file.
 ## Learn about the basic ideas and concepts
 ```
 
-## Version directories
+### Version directories
 
 Under each project directory is another directory that's named after the version number for the content. If more than one version directory exists, the version selector will be displayed. This version selector allows the reader to choose which version of the content they want to see.
 
@@ -215,8 +217,8 @@ The links must be relative to the `doc-index.md` file.
 ```markdown
 [Overview](/overview.md)
 [Concept](/concept.md)
-[Sub Item 1](/items/sub-item-1.md)
-[Sub Item 2](/items/sub-item-2.md)
+[Sub-item 1](/items/sub-item-1.md)
+[Sub-item 2](/items/sub-item-2.md)
 ```
 
 If you want to link to another project, use the following:
@@ -260,7 +262,7 @@ This is the content in tab page 2.
 The h3 heading is the tab label.
 :::
 
-![Tabbed Control](./tabbed-control.png)
+![Tabbed Control](../images/tabbed-control.png)
 
 #### Cards
 
@@ -290,9 +292,9 @@ To create a colored heading, use the following syntax:
 ### __COMMUNITY SUPPORT__ ###
 ```
 
-![Heading Label](./heading-label-primary.png)
+![Heading Label](../images/heading-label-primary.png)
 
-![Heading Label](./heading-label-secondary.png)
+![Heading Label](../images/heading-label-secondary.png)
 
 #### Colored bullets
 
@@ -315,7 +317,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.
 ---------------
 ```
 
-![Project Topics](./project-topics.png)
+![Project Topics](../images/project-topics.png)
 
 #### Emoji
 
@@ -332,7 +334,7 @@ To create an emoji, use the following syntax:
 :laughing:
 ```
 
-![Emojis](./emojis.png)
+![Emojis](../images/emojis.png)
 
 For a list of available emoji, see this JSON file: [https://github.com/muan/emojilib/blob/master/emojis.json](https://github.com/muan/emojilib/blob/master/emojis.json)
 
@@ -360,7 +362,7 @@ A Google map can be embedded in your content by surrounding it with `¬¬¬` fen
 ¬¬¬
 ```
 
-![Google Maps for IOTA](./maps.png)
+![Google Maps for IOTA](../images//maps.png)
 
 #### Data feeds
 
@@ -378,7 +380,7 @@ A feed can be embedded in your content by surrounding it with `¬¬¬` fencing. 
 
 The `displayType` field specifies how the content will be rendered on the page and the `context` field is used to determine where the data is retrieved from using the documentation api e.g. `https://docs-api.iota.org/feed/training`. The feeds list supports paging and will show it when necessary. The table of contents for the page is dynamically generated from any h2 headers in the rendered items.
 
-![Event Feed](./feed.png)
+![Event Feed](../images/feed.png)
 
 ### Message boxes
 
@@ -404,7 +406,7 @@ Will Robinson :bomb:
 :::
 ```
 
-![Message Boxes](./message-boxes.png)
+![Message Boxes](../images/message-boxes.png)
 
 :::info:
 Use an `info` box to bring attention to informations. For example, you may want to give the reader a hint. Without an `info` box, a user may lose precious time and become frustrated while trying to understand why something is not working.
