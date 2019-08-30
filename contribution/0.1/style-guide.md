@@ -185,26 +185,11 @@ An item will appear in the navigation only if the corresponding sub-directory fo
 
 The content of the file is a list of markdown links.
 
-```markdown
-[Getting Started](/getting-started)
-[Essentials](/dev-essentials)
-```
-
 ### Home page
 
 The `home.md` file of a project contains the content to display on the home page. The file contains a level 1 heading, which determines the description for that section. In addition there are links followed by level 2 header which contain the direct links into the content.
 
 The links must be relative to the location of the `home.md` file.
-
-```markdown
-# Description for project
-
-[Item 1](/0.1/overview.md)
-## An overview of the project
-
-[Item 2](/0.1/concepts.md)
-## Learn about the basic ideas and concepts
-```
 
 ### Version directories
 
@@ -214,18 +199,7 @@ Each version directory contains all of the content required for that project ver
 
 The links must be relative to the `doc-index.md` file.
 
-```markdown
-[Overview](/overview.md)
-[Concept](/concept.md)
-[Sub-item 1](/items/sub-item-1.md)
-[Sub-item 2](/items/sub-item-2.md)
-```
-
-If you want to link to another project, use the following:
-
-```markdown
-[Another Project](root://another-project/0.1/some-content.md)
-```
+If you want to link to another project, use the following structure `root://another-project/0.1/some-content.md`.
 
 ## Style guide
 
@@ -248,7 +222,7 @@ Tabbed controls are useful for creating content for different users or use cases
 
 To create tabbed code samples, use the following syntax:
 
-```markup
+```markdown
 --------------------
 ### Tab Page 1
 This is the content in tab page 1.
@@ -262,7 +236,7 @@ This is the content in tab page 2.
 The h3 heading is the tab label.
 :::
 
-![Tabbed Control](../images/tabbed-control.png)
+![Tabbed Control](images/tabbed-control.png)
 
 #### Cards
 
@@ -270,15 +244,15 @@ Cards are useful for project landing pages, where you need to list more than one
 
 To create a card, use the following syntax:
 
-```markup
+```markdown
 -------------------------
-![Data Marketplace](../images/blueprint-data-marketplace.png)
-## [Data Marketplace](../data-marketplace/overview.md)
+Image
+## Title with link to file
 Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses IOTA MAM channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.
 -------------------------
 ```
 
-![Cards](./card.png)
+![Cards](images/card.png)
 
 #### Colored headings
 
@@ -286,15 +260,15 @@ Colored headings are useful for showing a clearer distinction between to differe
 
 To create a colored heading, use the following syntax:
 
-```markup
+```markdown
 ### **OFFICIAL SUPPORT** ###
 
 ### __COMMUNITY SUPPORT__ ###
 ```
 
-![Heading Label](../images/heading-label-primary.png)
+![Heading Label](images/heading-label-primary.png)
 
-![Heading Label](../images/heading-label-secondary.png)
+![Heading Label](images/heading-label-secondary.png)
 
 #### Colored bullets
 
@@ -302,10 +276,10 @@ Colored bullets are useful for listing content under colored headings.
 
 To create a colored bullet, use the following syntax:
 
-```markup
+```markdown
 ---------------
 #### **JavaScript Library** ####
-[Link](./1.0/library/JavaScript)
+Link to file
 
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.
 ---
@@ -317,7 +291,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.
 ---------------
 ```
 
-![Project Topics](../images/project-topics.png)
+![Project Topics](images/project-topics.png)
 
 #### Emoji
 
@@ -329,12 +303,12 @@ Certain emoji have different meanings in different cultures. For example, in Bra
 
 To create an emoji, use the following syntax:
 
-```markup
+```markdown
 :smile:
 :laughing:
 ```
 
-![Emojis](../images/emojis.png)
+![Emojis](images/emojis.png)
 
 For a list of available emoji, see this JSON file: [https://github.com/muan/emojilib/blob/master/emojis.json](https://github.com/muan/emojilib/blob/master/emojis.json)
 
@@ -342,7 +316,7 @@ For a list of available emoji, see this JSON file: [https://github.com/muan/emoj
 
 A Google map can be embedded in your content by surrounding it with `¬¬¬` fencing. You can then specify the type as `[map]` and provide the JSON configuration for the object as follows:
 
-```markup
+```markdown
 ¬¬¬
 [map]
 {
@@ -362,13 +336,13 @@ A Google map can be embedded in your content by surrounding it with `¬¬¬` fen
 ¬¬¬
 ```
 
-![Google Maps for IOTA](../images//maps.png)
+![Google Maps for IOTA](images/maps.png)
 
 #### Data feeds
 
 A feed can be embedded in your content by surrounding it with `¬¬¬` fencing. You can then specify the type as `[feed]` and provide the JSON configuration for the object as follows:
 
-```markup
+```markdown
 ¬¬¬
 [feed]
 {
@@ -380,7 +354,7 @@ A feed can be embedded in your content by surrounding it with `¬¬¬` fencing. 
 
 The `displayType` field specifies how the content will be rendered on the page and the `context` field is used to determine where the data is retrieved from using the documentation api e.g. `https://docs-api.iota.org/feed/training`. The feeds list supports paging and will show it when necessary. The table of contents for the page is dynamically generated from any h2 headers in the rendered items.
 
-![Event Feed](../images/feed.png)
+![Event Feed](images/feed.png)
 
 ### Message boxes
 
@@ -388,7 +362,7 @@ Message boxes are useful for bringing attention to certain information.
 
 To create a message box, use the following syntax:
 
-```markup
+```markdown
 :::success:A Success
 This is the content,
 on multiple lines :tada:
@@ -406,7 +380,7 @@ Will Robinson :bomb:
 :::
 ```
 
-![Message Boxes](../images/message-boxes.png)
+![Message Boxes](images/message-boxes.png)
 
 :::info:
 Use an `info` box to bring attention to informations. For example, you may want to give the reader a hint. Without an `info` box, a user may lose precious time and become frustrated while trying to understand why something is not working.
