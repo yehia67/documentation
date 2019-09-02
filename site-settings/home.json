@@ -6,20 +6,24 @@
             "name": "iota.org"
         },
         {
-            "href": "https://blog.iota.org/",
-            "name": "news"
+            "href": "https://ecosystem.iota.org/",
+            "name": "ecosystem"
         },
         {
-            "href": "https://trinity.iota.org/",
-            "name": "wallet"
+            "href": "https://blog.iota.org/",
+            "name": "news"
         },
         {
             "href": "https://qubic.iota.org/",
             "name": "qubic"
         },
         {
-            "href": "https://ecosystem.iota.org/",
-            "name": "ecosystem"
+            "href": "https://utils.iota.org/",
+            "name": "utils"
+        },
+        {
+            "href": "https://trinity.iota.org/",
+            "name": "wallet"
         }
     ],
     "popularTopics": [
@@ -37,7 +41,7 @@
         },
         {
             "query": "set up a private tangle",
-            "name": "Set up a private Tangle"
+            "name": "Private Tangle"
         }
     ],
     "cards": [

@@ -6,4 +6,4 @@ One example of the differences between the IRI and the cIRI is the database. Whi
 
 ## Limitations
 
-At the moment, the cIRI does not have an API layer. Therefore, clients, for example the [Trinity wallet](root://trinity/0.1/introduction/overview.md), can't connect to cIRI nodes.
+At the moment, the cIRI does not have an API layer. Therefore, clients, for example the [Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md), can't connect to cIRI nodes.

@@ -41,7 +41,7 @@ Wallet funding and token transfer operations are completed only after the node c
 
 Cloud functions can be configured to change the default values of the following:
 
-* `depth` and [`minWeightMagnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) fields, which are typically different for IOTA Devnet and Mainnet nodes 
+* `depth` and [`minWeightMagnitude`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) fields, which are typically different for IOTA Devnet and Mainnet nodes 
 * Whitelist page, where administrator users with predefined email addresses are allowed to administer devices
 
 ## Sensors and data

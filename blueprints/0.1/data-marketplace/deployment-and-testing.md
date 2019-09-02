@@ -80,7 +80,7 @@ Instead of deploying your own data marketplace, you can test our demo app by add
     * **Company**: Provide the name of the company that owns and maintains the sensor. This information creates more trust between sensor owners and Data Marketplace users who are interested in purchasing the data stream. 
     * **Location (city / country)**: This information helps to identify if the sensor data is relevant for purchasing. For example, some users might be interested in purchasing data streams from weather or environmental sensors located in a specific region. 
     * **GPS Coordinates (latitude / longitude)**: You can use a service like https://www.gps-coordinates.net/ to get the right GPS data for your sensor. We accept coordinates as a number of digits ([0–9]), that could be prepended by a hyphen (“-”) for negative value, and a decimal separator (“.”). Please do not enter any letters or special characters. 
-    * **Price of the data stream**: Here you can define the cost of the sensor data. We do not restrict you with defining the value, but please keep in mind that without a preview and refund options, only a few customers will be ready to pay a fortune for a data stream. On the other hand, setting a very low price might result in a total collected payment under 1/1000 of a cent. We encourage you to check the [current price](https://coinmarketcap.com/currencies/iota/) of 1Mi, which is 1000000 (one million) IOTA tokens. We suggest that you set the price within the range of 1000i to 50000i, depending on the cost and maintenance efforts of the sensor. 
+    * **Price of the data stream**: Here you can define the cost of the sensor data. We do not restrict you with defining the value, but please keep in mind that without a preview and refund options, only a few customers will be ready to pay a fortune for a data stream. On the other hand, setting a very low price might result in a total collected payment under 1/1000 of a cent. We encourage you to check the [current price](https://coinmarketcap.com/currencies/iota/) of 1 Mi, which is 1000000 (one million) IOTA tokens. We suggest that you set the price within the range of 1000 i to 50000 i, depending on the cost and maintenance efforts of the sensor. 
     * **Data Fields**: The most essential part of the sensor configuration. Please provide information for every parameter that will be captured by the sensor and stored on the Tangle. You can add or remove fields by pressing the **+** and **X** buttons on the right.
 
     Parameter information consist of 3 fields:
@@ -109,7 +109,7 @@ Instead of deploying your own data marketplace, you can test our demo app by add
 
 ### Create and fund a new wallet
 
-You can fund a device's wallet with free IOTA tokens. We usually transfer between 100000i and 1000000i of Devnet tokens for free to your new device's wallet.
+You can fund a device's wallet with free IOTA tokens. We usually transfer between 100000 i and 1000000 i of Devnet tokens for free to your new device's wallet.
 
 :::info:
 Devnet tokens can't be used on the Mainnet or exchanged on any cryptocurrency exchange.

@@ -1,6 +1,6 @@
-# Send test IOTA tokens
+# Transfer test IOTA tokens
 
-**You may want to send IOTA tokens to someone in exchange for goods or services. In this tutorial we send test tokens from one of your addresses to another.**
+**You may want to transfer IOTA tokens to someone in exchange for goods or services. In this tutorial we send test tokens from one of your addresses to another.**
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ To complete this tutorial, you need the following:
 [Get some free test tokens](../tutorials/receive-test-tokens.md)
 :::
 
-## Send test tokens to one of your other addresses
+## Transfer test tokens to one of your other addresses
 
 In this example, we send a bundle to a [Devnet node](../references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any bundles that you send to the Devnet do not exist on other networks such as the Mainnet.
 
@@ -73,7 +73,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     :::info:
     This seed will be used to prove that you own the address from which you want to withdraw IOTA tokens.
 
-    [Learn how a seed is used to prove ownership of an address](root://iota-basics/0.1/concepts/addresses-and-signatures.md).
+    [Learn how a seed is used to prove ownership of an address](root://dev-essentials/0.1/concepts/addresses-and-signatures.md).
     :::
 
 7. Derive a new address from your seed. You will send your tokens to this address.
@@ -88,10 +88,10 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     :::warning:
     Be sure that this is not a spent address (one that you have withdrawn from before).
 
-    [Learn why you should never use spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse).
+    [Learn why you should never use spent addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse).
     :::
 
-8. Create a transfer object that specifies the amount of IOTA tokens you want to send, the tag you want to add to the transaction, and the address to send the tokens to
+8. Create a `transfers` object that specifies the amount of IOTA tokens you want to transfer, the tag you want to add to the transaction, and the address to send the tokens to
 
     ```js
     const transfers = [
@@ -103,7 +103,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     ]
     ```
 
-9. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](../introduction/what-is-a-node.md)
+9. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the [node](../introduction/what-is-a-node.md)
 
     ```js
     // Construct bundle and convert to trytes
@@ -117,7 +117,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     :::
     
     :::info:Minimum weight magnitude (MWM)
-    The [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW.
+    The [`minimum weight magnitude`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW.
     
     Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed.
     :::
@@ -128,7 +128,7 @@ You've just sent your value transaction. Your transaction is attached to [the Ta
 
 In the console, you'll see information about the transaction in the [bundle](../introduction/what-is-a-bundle.md) that you sent.
 
-The transactions in your bundle will propagate through the network until all the nodes have it in their ledgers.
+The transactions in your bundle will be forwarded through the network until all the nodes have it in their copy of the Tangle.
 
 ## Run the code
 
@@ -139,12 +139,12 @@ Before you run this sample code, replace the seed with your own test seed.
 :::danger:Important
 If you own IOTA tokens on the Mainnet, we recommend creating a new test seed to use on the Devnet.
 
-If you don't have any test tokens, [request some](../tutorials/receive-test-tokens.md).
+If you don't have any test tokens, [request some from the Devnet faucet](../tutorials/receive-test-tokens.md).
 :::
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Send-IOTA-tokens-on-the-Devnet?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Next steps
 
-[Check if your transaction is confirmed](root://iota-basics/0.1/how-to-guides/check-transaction-confirmation.md).
+[Check if your transaction is confirmed](root://dev-essentials/0.1/how-to-guides/check-transaction-confirmation.md).
 
