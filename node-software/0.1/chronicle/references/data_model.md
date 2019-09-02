@@ -52,7 +52,7 @@ The edge tables stores transaction data, where the partion key can be any of the
 
 - `transaction_hash`: Transaction hash
 
-- `tip`: Trunk or branch transactions in the tail transaction of the bundle
+- `tip`: Trunk or branch transactions of the head transaction of the bundle
 
 
 ![edge table sample](../images/edge-table.png)
