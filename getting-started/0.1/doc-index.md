@@ -26,6 +26,8 @@
 
 [Tutorials/Send your first data transaction (Trinity)](/tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)
 
+[References/Developer handbook](/references/quickstart-dev-handbook.md)
+
 [References/IOTA networks](/references/iota-networks.md)
 
 [References/Use cases](/references/use-cases.md)
