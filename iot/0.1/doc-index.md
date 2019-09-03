@@ -6,7 +6,7 @@
 
 [Concepts/IPv6 mesh network](/concepts/ipv6-mesh-network.md)
 
-[How-to Guides/Getting started with microcontrollers](/how-to-guides/getting-started-with-microcontrollers.md)
+[How-to Guides/Getting started with microcontrollers](/how-to-guides/get-started-with-microcontrollers.md)
 
 [How-to Guides/Set up an nrf52 microcontroller](/how-to-guides/set-up-nrf52-microcontroller.md)
 

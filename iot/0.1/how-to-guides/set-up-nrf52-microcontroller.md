@@ -112,7 +112,7 @@ Now that you can compile code and flash it to your microcontroller, you're ready
 
 Follow one of the our microcontroller guides:
 
-- [Read sensor data](../how-to-guides/create-a-low-budget-bosch-xdk-clone.md)
+- [Read sensor data](../how-to-guides/read-sensor-data.md)
 - [Run an environment sensor server and client](../how-to-guides/run-an-environment-sensor-and-client.md)
 - [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md)
 
