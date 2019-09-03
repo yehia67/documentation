@@ -1,32 +1,27 @@
 # Set up a single-board computer
 
-**A single board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable and much more power efficient then multi-board computers such as desktops. You can set up an SBC for a purpose-built embedded application that uses IOTA technology.**
+**A single board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable and more power efficient then multi-board computers such as desktops. You can set up an SBC for a purpose-built embedded application that uses IOTA technology.**
 
 ## Prerequisites
 
 To complete this guide, you need the following:
 
 - A Linux-based operating system (OS) with installed SSH client and a configured network. 
-In this guide, we use Ubuntu, however other Linux distributions as well as MacOS should work.
+In this guide we use Ubuntu, but you can use other Linux distributions or macOS.
 
     :::info:Windows users
-    You can use [a virtual machine (VM)](../how-to-guides/set-up-virtual-machine.md) 
-    or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10). 
-    With the subsystem, you can run Linux without the overhead of a VM. 
-    If you are an advanced user, you can also replace the Linux tools with the Windows equivalents.
+    You can use [a virtual machine (VM)](../how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
     :::
 
-- An SBC. Our recommendation: Rasperry Pi Zero W
+- An SBC such as the Rasperry Pi Zero W
 
-- If possible, you should use a display and a keyboard to set up your device.
+- If possible, you should have a display and a keyboard to use for setting up your device. If you don't have a display or a keyboard, use a USB-to-UART connector. The [CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) is a well-known and inexpensive adapter, but your SBC might have an integrated one. To find out, see the documentation for your SBC.
 
-- If your SBC doesn't have an Ethernet port, use a USB-to-UART adapter. The [CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) is a well-known and inexpensive adapter, but your SBC might have an integrated one. To find out, look at the documentation for your SBC.
-
-## Prepare your SD card
+## Step 1. Prepare your SD card
 
 :::info:
 This process is similar for many SBCs such as the Orange Pi. 
-If you have a separate guide for your SBC, you should follow that. Otherwise, use [Armbian](https://www.armbian.com/download/) because it supports many development boards.
+If you have a separate guide for your SBC, you should follow that. Otherwise, use [Armbian](https://www.armbian.com/download/), which supports many development boards.
 :::
 
 In single-board computers, the operating system must be flashed onto an SD card.
@@ -35,15 +30,17 @@ In single-board computers, the operating system must be flashed onto an SD card.
 
 2. Insert your SD card and turn on your SBC
 
-## Continue with the setup for your specific device
+## Step 2. Set up your SBC
 
-- If you can use a display and keyboard at your device, follow the ["Set up devices with keyboard and display"](#set-up-devices-with-keyboard-and-display) guide
-- If you do not have display and keyboard, but an USB-to-UART-Adapter, follow the ["Set up your device through a USB-to-UART adapter"](#set-up-your-device-through-a-usb-to-uart-adapter) guide
-- If you only have Ethernet, follow the ["Set up Ethernet devices"](#set-up-ethernet-devices) guide
+You have the following options for setting up your SBC:
 
-## Set up devices with keyboard and display
+- If you have a display and a keyboard, follow the ["Set up devices with keyboard and display"](#use-a-display-and-keyboard) guide
+- If you don't have a display and a keyboard, but you do have a USB-to-UART connector, follow the ["Set up your device through a USB-to-UART adapter"](#set-up-your-device-through-a-usb-to-uart-adapter) guide
+- If you have only an Ethernet port, follow the ["Set up Ethernet devices"](#set-up-ethernet-devices) guide
 
-1. Connect keyboard and display to your SBC
+### Use a display and a keyboard
+
+1. Connect the display and the keyboard to your SBC
 
 2. Log in with the default user and password
 
@@ -97,17 +94,16 @@ In single-board computers, the operating system must be flashed onto an SD card.
     If you found your IP address, you should connect to your SBC through SSH. 
     Use the following command on your host-system:
     ```bash
-    ssh USERNAME@IP_ADRESS
+    ssh USERNAME@IP_ADDRESS
     ```
 
 :::success:Congratulations! :tada:
 You're connected to your SBC through SSH. Now you can run commands on your SBC.
 :::
 
+## Set up your device through a USB-to-UART connector
 
-## Set up your device through a USB-to-UART adapter
-
-You must execute these commands on your host-system.
+You must execute these commands on your host system.
 
 1. Install PlatformIO
 
@@ -115,38 +111,33 @@ You must execute these commands on your host-system.
     We recommend [PlatformIO](https://docs.platformio.org/en/latest/userguide/cmd_device.html?highlight=monitor#platformio-device-monitor).
     PlatformIO provides a simple command tool to interact with your SBC.
 
-2. Plug in your USB-to-UART adapter
+2. Plug in your USB-to-UART connector
 
-3. Find the right USB port
+3. Find the path to your USB-to-UART connector by removing it, executing the `ls /dev/ttyUSB*` command, plugging the USB-to-UART connector back into your PC, then executing the `ls /dev/ttyUSB*` command again. The new entry is your connector.
 
-    USB ports are available at /dev/ttyUSBX. X is the number of the USB port.
-    The simplest way to find the right USB port is to plug out the USB-Adapter, check for the USB SBCs with
-    ```ls /dev/ttyUSB*```, plug in the USB-Adapter and check again. The new added USB-port is the one you are looking for.
+4. Change the permissions for your USB-to-UART connector. Replace the `$USB_PORT` placeholder with the path to your USB-to-UART connector such as `/dev/ttyUSB0`.
 
-4. Some adapters have an unexpected behavior with their access permissions. Just in case, change the permissions
-
-    ```
-    sudo chmod 777 /dev/ttyUSBX
-    ```
-
-5. Connect to your USB port
-
-    Take a look at the documentation for your SBC to find its baud rate. In case of the Orange Pi Zero it is 115200.
     ```bash
-    platformio SBC monitor -b BAUD_RATE -p /dev/ttyUSBX
+    sudo chmod 777 $USB_PORT
     ```
+
+5. Connect to your USB port. Replace the `$USB_PORT` and `$BAUD_RATE` placeholders with the path to your USB-to-UART connector such as `/dev/ttyUSB0` and the baud rate of your SBC.
+
+    ```bash
+    platformio SBC monitor -b $BAUD_RATE -p $USB_PORT
+    ```
+
+    :::info:
+    See the documentation for your SBC to find its baud rate. For the Orange Pi Zero, the baud rate is 115200.
+    :::
 
 6. Restart your SBC
 
-7. Log in to your SBC
+7. When the system asks for it, log in with the default username and password. You should change the root password and create a new user. Most systems require this change after the first login.
 
     :::info:
     If you don't know the default username or password, search the website of your Linux distribution.
     :::
-    
-    When the system asks for it, log in with the default username and password.
-    You should change the root password and create a new user.
-    Most systems require this change after the first login.
 
 8. If available and needed, connect your device to your router through Ethernet
 
@@ -165,18 +156,20 @@ You must execute these commands on your host-system.
     ping iota.org
     ```
 
-10. Get your IP address
+10. Find your IP address
 
-    You can now find your IP address with the  `ifconfig` command. 
-    The interfaces starting with `eth` are Ethernet network interfaces, 
-    and the ones starting with `wl` are the WiFi network interfaces.
-
-11. Connect to your SBC through SSH
-
-    If you found your IP address, you should connect to your SBC through SSH. 
-    Use the following command on your host-system:
     ```bash
-    ssh USERNAME@IP_ADRESS
+    ifconfig
+    ```
+
+    :::info:
+    The interfaces that start with `eth` are Ethernet network interfaces, and the ones that start with `wl` are the WiFi network interfaces.
+    :::
+
+11. Connect to your SBC through SSH. Replace the `USERNAME` and `IP_ADDRESS` placeholders with your username and IP address.
+
+    ```bash
+    ssh USERNAME@IP_ADDRESS
     ```
 
 :::success:Congratulations! :tada:
@@ -186,19 +179,19 @@ You're connected to your SBC through SSH. Now you can run commands on your SBC.
 ## Set up Ethernet devices
 
 :::warning:
-This task is only for IPv4 networks.
+This task is for IPv4 networks.
 :::
 
-You must execute these commands on your host-system.
+You must execute these commands on your host system.
 
 1. Find IP addresses in your local network
 
-    The subnet bytes to be set to zero and the netmask must be set in nmap.
-    So, in my case:
+    The subnet bytes must be set to zero and the netmask must be set in nmap.
+    For example:
     Internal IP address: 10.197.0.57
     Netmask: 255.255.255.0
     
-    The netmask is 24, because every place in the IP address takes 8 bits (256 states) and the netmask is set on 3 bytes. 3x8=24.
+    Here, the netmask is 24, because every place in the IP address takes 8 bits (256 states) and the netmask is set on 3 bytes. 3x8=24.
     
     ```bash
     nmap -sn 10.197.0.0/24
@@ -224,9 +217,13 @@ You must execute these commands on your host-system.
     If you found more than one IP address, just try every IP address until you found your address.
     Use the following command on your host-system:
     ```bash
-    ssh USERNAME@IP_ADRESS
+    ssh USERNAME@IP_ADDRESS
     ```
 
 :::success:Congratulations! :tada:
 You're connected to your SBC through SSH. Now you can run commands on your SBC.
 :::
+
+## Next steps
+
+

@@ -29,7 +29,7 @@ To run a Linux server on a Windows or Mac operating system, you must install a v
 
 6. Enter a name for your server, and use the slider to select the amount of RAM memory you'd like to dedicate to it
 
-    ![Create a new virtual machine](../virtual-machine-setup.png) 
+    ![Create a new virtual machine](../images/virtual-machine-setup.png) 
 
 7. Follow the on-screen instructions and choose the default settings
 
@@ -37,7 +37,7 @@ To run a Linux server on a Windows or Mac operating system, you must install a v
 
 9. In the window, open the file explorer and select the Ubuntu Server file that you downloaded in step 3
 
-    ![Virtual machine window](../select-virtual-image.png)
+    ![Virtual machine window](../images/select-virtual-image.png)
 
 Congratulations :tada: You've got a Linux server running on your computer!
 
@@ -83,7 +83,7 @@ Before your Linux server can understand messages that use the SSH protocol, you 
 
 7. Make a note of the `inet` IP address
 
-    ![Linux server IP address](../linux-server-ip-address.png)
+    ![Linux server IP address](../images/linux-server-ip-address.png)
 
 ### Establish an SSH connection to your Linux server
 
@@ -107,7 +107,7 @@ To establish an SSH connection to your Linux server on a **Windows**, do the fol
 
 3. Enter the IP address of your Linux server and click **Open**
 
-    ![PuTTy configuration](../connect-putty-to-linux-server.PNG)
+    ![PuTTy configuration](../images/connect-putty-to-linux-server.PNG)
 
 You're now connected to your Linux server over SSH. Enter Linux commands in the PuTTy or host terminal to run them on your Linux server.
 
