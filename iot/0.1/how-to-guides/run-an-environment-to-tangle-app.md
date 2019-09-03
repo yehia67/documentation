@@ -1,4 +1,4 @@
-# Environment sensor to Tangle
+# Attach sensor data to the Tangle
 
 **In this guide, we run an application that collects environment sensor data and attaches it to the Tangle on MAM channels, using MAMv1**
 

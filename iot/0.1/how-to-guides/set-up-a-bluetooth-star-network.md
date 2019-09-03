@@ -5,7 +5,7 @@
 ## Prerequisites
 
 - [Configure a Linux-based PC as a border router](../how-to-guides/set-up-a-ble-ipv6-border-router.md)
-- [Configure and flash the microcontroller to use as a sensor server](../how-to-guides/set-up-ipv6-ble-host.md) node
+- [Configure and flash the microcontroller to use as a sensor server](../how-to-guides/set-up-ipv6-ble-host-example.md) node
 
 :::info:
 To create the star network, we use 6LoWPAN. You may want to read about [IPv6 mesh network concepts](../concepts/ipv6-mesh-network.md) before you complete this guide.
@@ -35,4 +35,4 @@ To create the star network, we use 6LoWPAN. You may want to read about [IPv6 mes
     
     ```bash
     echo "connect 00:AA:BB:XX:YY:ZZ 1" >> /sys/kernel/debug/bluetooth/6lowpan_control
-    ``` 
+    ```

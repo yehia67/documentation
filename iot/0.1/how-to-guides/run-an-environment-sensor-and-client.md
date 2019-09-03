@@ -11,17 +11,12 @@ To complete this guide, you need the following:
 
 ## Architecture
 
-The environment sensor runs a server application, which uses the request-response message pattern by opening a UDP port and waiting for incoming requests.
+The environment sensor runs a server application that waits for incoming UDP requests.
 
 The response is sent back to the client on the same port the client sends a message. For example, if the client (the SBC or the PC) sends a UDP packet on port 90 (outgoing-port at the SBC) to port 51037 (incoming-port on the sensor), 
-the sensor will send the response to port 90 (SBC or PC).
+the sensor sends the response to port 90 (SBC or PC).
 
-Technically, both devices run a server to receive UDP packets. 
-On an abstract level, this design is still a request-response message pattern, 
-because the sensor only responds with UDP packets when it receives a correct request. This design is necessary only to keep the traffic as small as possible.
-UDP is a connection-less protocol, which is more efficient and more resilient than TCP.
-
-![Environment sensor architecture](../images/architecture_visualisation.png)
+The server accepts UDP packets instead of TCP ones because UDP is a connection-less protocol, which is more efficient and more resilient than TCP.
 
 ## Run the sensor server and client
 
