@@ -4,7 +4,7 @@ This quickstart guide gives you a brief walk through the IOTA technology to help
 
 ## What is an IOTA network?
 
-An IOTA network is a collection of interconnected nodes that each store a copy of the Tangle. In each IOTA network the Tangle contains different transactions, so the distribution of IOTA tokens is different in each one.
+An IOTA network is a collection of interconnected nodes that each store a copy of the Tangle. In each IOTA network, the Tangle contains different transactions, so the distribution of IOTA tokens is different in each one.
 
 The IOTA Foundation maintains three permissionless networks, where anyone can run a node, connect to them, and read/write transactions.
 
