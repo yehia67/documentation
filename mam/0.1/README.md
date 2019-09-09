@@ -51,31 +51,31 @@ To install the IOTA JavaScript client library and its dependencies, you can use 
     yarn add @iota/mam
     ```
 
-## API reference
+## API references
 
-For details on all available API methods, see the [reference page](https://github.com/iotaledger/mam.client.js/blob/master/README.md).
+For details on all available API methods, see the [references page](https://github.com/iotaledger/mam.client.js/blob/master/README.md).
 
 ## API
 
-For details on all available API methods, see the [reference page](root://mam/0.1/reference/api.md).
+For details on all available API methods, see the [references page](root://mam/0.1/references/api.md).
 
-- [init](root://mam/0.1/reference/api.md#init)
+- [init](root://mam/0.1/references/api.md#init)
 
-- [changeMode](root://mam/0.1/reference/api.md#changeMode)
+- [changeMode](root://mam/0.1/references/api.md#changeMode)
 
-- [getRoot](root://mam/0.1/reference/api.md#getRoot)
+- [getRoot](root://mam/0.1/references/api.md#getRoot)
 
-- [decode](root://mam/0.1/reference/api.md#decode)
+- [decode](root://mam/0.1/references/api.md#decode)
 
-- [subscribe](root://mam/0.1/reference/api.md#subscribe)
+- [subscribe](root://mam/0.1/references/api.md#subscribe)
 
-- [listen](root://mam/0.1/reference/api.md#listen)
+- [listen](root://mam/0.1/references/api.md#listen)
 
-- [attach](root://mam/0.1/reference/api.md#attach)
+- [attach](root://mam/0.1/references/api.md#attach)
 
-- [fetch](root://mam/0.1/reference/api.md#fetch)
+- [fetch](root://mam/0.1/references/api.md#fetch)
 
-- [fetchSingle](root://mam/0.1/reference/api.md#fetchSingle)
+- [fetchSingle](root://mam/0.1/references/api.md#fetchSingle)
 
 
 ### Update documentation

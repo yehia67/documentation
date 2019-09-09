@@ -29,6 +29,14 @@ The official Java client library. This library includes the official API and add
 
 The official Go client library. This library includes the official API and additional features.
 
+---
+
+#### **MAM library** ####
+[Link](root://mam/0.1/README.md)
+
+The official MAM client library. This library enables user to create, send & decode MAM messages.
+
+
 ---------------
 
 ### __Community support__ ###
