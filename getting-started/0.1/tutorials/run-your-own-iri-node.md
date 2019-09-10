@@ -72,7 +72,7 @@ To complete this tutorial, you need the following:
 4. Run the IRI
 
     ```bash
-    docker run --name iri iotaledger/iri:latest --remote -p 14265
+    docker run --name iri iotaledger/iri:latest --remote true -p 14265
     ```
     
     Your IRI node is now running and you can interact with it through the [IRI API](root://node-software/0.1/iri/references/api-reference.md) at the following URL:
