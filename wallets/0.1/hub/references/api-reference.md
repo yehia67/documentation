@@ -19,19 +19,20 @@ If you’re not familiar with gRPC and protobuf, we recommend following the [gRP
 | **Method name**          | **Request type**                                                 | **Response type**                                                | **Description**                                                  |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | CreateUser           | [CreateUserRequest](#hub.rpc.CreateUserRequest)              | [CreateUserReply](#hub.rpc.CreateUserRequest)                | Create a new user on the Hub                                |
+| GetAddressInfo       | [GetAddressInfoRequest](#hub.rpc.GetAddressInfoRequest)      | [GetAddressInfoReply](#hub.rpc.GetAddressInfoRequest)        | Get the ID of the user that owns a deposit address |
 | GetBalance           | [GetBalanceRequest](#hub.rpc.GetBalanceRequest)              | [GetBalanceReply](#hub.rpc.GetBalanceRequest)                | Get the available balance for a user                     |
-| GetDepositAddress    | [GetDepositAddressRequest](#hub.rpc.GetDepositAddressRequest) | [GetDepositAddressReply](#hub.rpc.GetDepositAddressRequest)  | Create a new deposit address for a user                     |
-| UserWithdraw         | [UserWithdrawRequest](#hub.rpc.UserWithdrawRequest)          | [UserWithdrawReply](#hub.rpc.UserWithdrawRequest)            | Submit a withdrawal request for a user.                     |
-| UserWithdrawCancel   | [UserWithdrawCancelRequest](#hub.rpc.UserWithdrawCancelRequest) | [UserWithdrawCancelReply](#hub.rpc.UserWithdrawCancelRequest) | Submit a request to cancel a withdrawal. A cancelation is possible only if it isn't already included in a sweep. |
+| GetDepositAddress    | [GetDepositAddressRequest](#hub.rpc.GetDepositAddressRequest) | [GetDepositAddressReply](#hub.rpc.GetDepositAddressRequest)  | Create a new deposit address for a user|
+| GetStats             | [StatsRequest](#hub.rpc.StatsRequest)                        | [StatsReply](#hub.rpc.StatsRequest)                          | Get the total balance of all users that Hub currently manages                            |
 | GetUserHistory       | [GetUserHistoryRequest](#hub.rpc.GetUserHistoryRequest)      | [GetUserHistoryReply](#hub.rpc.GetUserHistoryRequest)        | Get a user's balance history |
 | ProcessTransferBatch | [ProcessTransferBatchRequest](#hub.rpc.ProcessTransferBatchRequest) | [ProcessTransferBatchReply](#hub.rpc.ProcessTransferBatchRequest) | Process a batch of buys/sells from the exchange. Note that the total amount of this batch must sum to 0. |
 | BalanceSubscription  | [BalanceSubscriptionRequest](#hub.rpc.BalanceSubscriptionRequest) | [BalanceEvent](#hub.rpc.BalanceSubscriptionRequest)          | Monitor a stream of all balance changes since the provided timestamp |
-| GetStats             | [StatsRequest](#hub.rpc.StatsRequest)                        | [StatsReply](#hub.rpc.StatsRequest)                          | Get the total balance of all users that Hub currently manages                            |
-| SweepSubscription    | [SweepSubscriptionRequest](#hub.rpc.SweepSubscriptionRequest) | [SweepEvent](#SweepEvent)              | Monitor a stream of all sweeps since the provided timestamp |
-| GetAddressInfo       | [GetAddressInfoRequest](#hub.rpc.GetAddressInfoRequest)      | [GetAddressInfoReply](#hub.rpc.GetAddressInfoRequest)        | Get the ID of the user that owns a deposit address |
-| SweepInfo            | [SweepInfoRequest](#hub.rpc.SweepInfoRequest)                | [SweepEvent](#SweepEvent)                      | Get information about the sweep for the given withdrawal or bundle hash |
+|RecoverFunds|[RecoverFundsRequest](#hub.rpc.RecoverFundsRequest)|[RecoverFundsReply](#hub.rpc.RecoverFundsReply)|Recover IOTA tokens from a spent address
 | SignBundle           | [SignBundleRequest](#hub.rpc.SignBundleRequest)              | [SignBundleReply](#hub.rpc.SignBundleRequest)                | Get a signature for a bundle                       |
 | SweepDetail          | [SweepDetailRequest](#hub.rpc.SweepDetailRequest)            | [SweepDetailReply](#hub.rpc.SweepDetailRequest)              | Get detailed information about a sweep |
+| SweepInfo            | [SweepInfoRequest](#hub.rpc.SweepInfoRequest)                | [SweepEvent](#SweepEvent)                      | Get information about the sweep for the given withdrawal or bundle hash |
+| SweepSubscription    | [SweepSubscriptionRequest](#hub.rpc.SweepSubscriptionRequest) | [SweepEvent](#SweepEvent)              | Monitor a stream of all sweeps since the provided timestamp |
+| UserWithdraw         | [UserWithdrawRequest](#hub.rpc.UserWithdrawRequest)          | [UserWithdrawReply](#hub.rpc.UserWithdrawRequest)            | Submit a withdrawal request for a user.                     |
+| UserWithdrawCancel   | [UserWithdrawCancelRequest](#hub.rpc.UserWithdrawCancelRequest) | [UserWithdrawCancelReply](#hub.rpc.UserWithdrawCancelRequest) | Submit a request to cancel a withdrawal. A cancelation is possible only if it isn't already included in a sweep. |
 | WasWithdrawalCancelled          | [WasWithdrawalCancelledRequest](#hub.rpc.WasWithdrawalCancelledRequest)            | [WasWithdrawalCancelledReply](#hub.rpc.WasWithdrawalCancelledReply)              | Find out if a withdrawal was canceled |
 
 <a name="messages.proto"></a>
@@ -177,7 +178,23 @@ Currently not used.
 | userId | [string](#string) |  singular     |   ID of the user whose balance you want to use during the transfer          |
 | amount | [int64](#int64)   |  singular     |   Amount of tokens for the transfer          |
 
-<a name="hub.rpc.SignBundleRequest"></a>
+### RecoverFundsRequest
+
+<a name="hub.rpc.RecoverFundsRequest"></a>
+
+| **Field**     | **Type**| **Rules**    | **Description** |
+| --------- | ------------------------------------------------------------ | -------- | ----------- |
+| userId | [string](#string) |  singular     |   ID of the user whose spent address you want to recover the funds from          |
+| address | [string](#string) |  singular     |   User's spent address (without checksum)          |
+| validateChecksum | [string](#string) |  singular     |   Whether to validate the address          |
+| payoutAddress | [string](#string) |  singular     |   Address to which to transfer the total balance of the address in the `address` field        |
+
+
+<a name="hub.rpc.RecoverFundsReply"></a>
+
+### RecoverFundsReply
+
+Currently not used.
 
 ### SignBundleRequest
 
@@ -381,13 +398,18 @@ These are all the error codes that can be returned by the Hub.
 | BATCH_INCONSISTENT              | 5      | The batch is inconsistent (attempt to remove funds from a user's account without sufficient balance) |
 | BATCH_AMOUNT_ZERO               | 6      | The amount associated with the transfer is invalid (should be greater or less than 0) |
 | UNKNOWN_ADDRESS                 | 7      | The address is not known to the hub                          |
-| WITHDRAWAL_CAN_NOT_BE_CANCELLED | 8      | Either the withdrawal has been swept or cancelled already    |
-| INELIGIBLE_ADDRESS              | 9      | Address was not eligible for the requested operation.        |
-| INVALID_AUTHENTICATION          | 10     | Provided authentication token was invalid.                   |
-| CHECKSUM_INVALID                | 11     | Provided address contained invalid checksum                  |
+| WITHDRAWAL_CAN_NOT_BE_CANCELLED | 8      | Either the withdrawal has been swept or canceled already    |
+| INELIGIBLE_ADDRESS              | 9      | Address is not eligible for the requested operation        |
+| INVALID_AUTHENTICATION          | 10     | Provided authentication token is invalid           |
+| CHECKSUM_INVALID                | 11     | Provided address contains invalid checksum                  |
 | SIGNING_FAILED                  | 12     | Call to rpc signing_server failed (GetSignatureForUUID)      |
 | GET_ADDRESS_FAILED              | 13     | Call to rpc signing_server failed (GetAddressForUUID)        |
 | GET_SECURITY_LEVEL_FAILED       | 14     | Call to rpc signing_server failed (GetSecurityLevel)         |
+| IRI_CLIENT_UNAVAILABLE|15|Call to the node's API failed|
+|ADDRESS_WAS_ALREADY_SPENT |16|Provided address is already spent|
+|INVALID_UUID|17|Provided UUID is invalid|
+| WRONG_USER_ADDRESS|18|Provided address does not belong to a Hub user|
+|ADDRESS_BALANCE_ZERO|19|Provided address contains no IOTA tokens|
 
 ## Scalar Value Types
 
