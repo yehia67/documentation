@@ -1,15 +1,16 @@
-# Publishing public messages
+# Publishing with a custom tag
 
-**Using this example you can publish a public message.  Public is the MAM privacy mode which allows messages to be viewed by anyone**
+**Using this example you can publish a message with a custom tag**
 
 Import the MAM client library and the ascii to tryte and tryte to ascii converters
-```
+
+```js
 const Mam = require('../lib/mam.client.js')
 const { asciiToTrytes, trytesToAscii } = require('@iota/converter')
 ```
 Set the privacy mode to public.  Configure the provider.  This example uses the IOTA testbed, called "Devnet".  Configure the mamExplorerLink.  This example uses the IOTA MAM explorer.
 
-```
+```js
 const mode = 'public'
 const provider = 'https://nodes.devnet.iota.org'
 
@@ -31,30 +32,35 @@ const publish = async packet => {
     // Save new mamState
     mamState = message.state
 ```
-Send your message to the Tangle. You will get the message root which is the MAM channel ID for this MAM stream
+Set the tag to 'CUSTOMTAG' when you send the message to the Tangle.  You will get the message root which is the MAM channel ID for this MAM stream
 ```
     // Attach the payload
-    await Mam.attach(message.payload, message.address, 3, 9)
+    await Mam.attach(message.payload, message.address, 3, 9, 'CUSTOMTAG')
 
     console.log('Published', packet, '\n');
     return message.root
 }
+
 ```
 Publish three messages
 ```
+
 const publishAll = async () => {
   const root = await publish({
     message: 'Message from Alice',
+    customTag: 'CUSTOMTAG',
     timestamp: (new Date()).toLocaleString()
   })
 
   await publish({
     message: 'Message from Bob',
+    customTag: 'CUSTOMTAG',
     timestamp: (new Date()).toLocaleString()
   })
 
   await publish({
     message: 'Message from Charlie',
+    customTag: 'CUSTOMTAG',
     timestamp: (new Date()).toLocaleString()
   })
 
@@ -86,4 +92,5 @@ Print the command line for viewing these messages in the MAM Explorer
 
 You should see three messages
 
-![screen capture verifying publishing and fetching](images/mamSimple.png)
+![screen capture verifying publishing and fetching](../images/customTag.png)
+

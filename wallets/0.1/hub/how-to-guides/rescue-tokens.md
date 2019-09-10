@@ -4,7 +4,7 @@
 
 To rescue tokens from a swept address, you must create an unsigned bundle outside of Hub, use Hub to sign it, then send the complete bundle to a node.
 
-In this guide, we use the JavaScript client library to create and send the bundle, but we also have other [official and community libraries](root://client-libraries/0.1/introduction/overview.md), including Go, Java, and Python.
+In this guide, we use the JavaScript Core client library to create and send the bundle, but we also have other [official and community libraries](root://client-libraries/0.1/introduction/overview.md), including Go, Java, and Python.
 
 ## Prerequisites
 

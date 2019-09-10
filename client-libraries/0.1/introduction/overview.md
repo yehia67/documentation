@@ -13,30 +13,21 @@ The client libraries are currently in beta. Their use in production is not suppo
 #### **JavaScript library** ####
 [Link](root://iota-js/0.1/README.md)
 
-The official JavaScript client library. This library includes the official API and additional features.
+The official JavaScript client library. This library includes the official Core library, the account module, and MAM.
 
 ---
 
 #### **Java library** ####
 [Link](root://iota-java/0.1/README.md)
 
-The official Java client library. This library includes the official API and additional features.
+The official Java client library. This library includes the official Core library and the account module.
 
 ---
 
 #### **Golang library** ####
 [Link](root://iota-go/0.1/README.md)
 
-The official Go client library. This library includes the official API and additional features.
-
----
-
-#### **MAM library** ####
-[Link](root://mam/0.1/README.md)
-
-The official MAM client library. This library enables user to create, send & decode MAM messages.
-
-
+The official Go client library. This library includes the official Core library and the account module.
 ---------------
 
 ### __Community support__ ###
@@ -59,7 +50,7 @@ A C# .NET 4.6 client library. This library includes core and extended functional
 
 ## Useful links
 
-- **[Tangle explorer](https://www.thetangle.org):** View transactions on the Tangle
+- **[Tangle explorer](https://utils.iota.org):** View transactions on the Tangle
 - **[Official Discord](https://discord.iota.org):** Join the discussion in language-specific channels.
 
 ## IoT experiments

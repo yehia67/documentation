@@ -1,5 +1,5 @@
 //require('./errorhandling')
-// If using babel polyfill library
+// If using Babel polyfill library
 //global._babelPolyfill = false
 
 const Mam = require('@iota/mam')

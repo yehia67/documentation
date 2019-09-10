@@ -21,13 +21,13 @@ Fetched and parsed CHARLIE
 Use the MAM Explorer to verify
 
 
-![screen capture showing these three MAM messages](images/webMAM.png)
+![screen capture showing these three MAM messages](../images/webMAM.png)
 
 ## Adding MAM in HTML
 
 Use the ```<html>``` tag to create your HTML page.  Set the character set to "utf-8".  In the ```<head>``` section, give your page a title.  Start the body of your webpage using the ```<body``` tag.  Set a division within the body using the ```<div>``` tag and give it an ID="output" so your script knows where to send the output.
 
-```
+```html
 <html>
 <meta charset="utf-8" />
 
@@ -41,13 +41,13 @@ Use the ```<html>``` tag to create your HTML page.  Set the character set to "ut
 
 Tell the script where to find mam.web.min.js
 
-```
+```html
     <script src="../lib/mam.web.min.js"></script>
 ```
 
 Define the tryte alphabet.  Add functions to convert ascii characters to trytes and trytes to ascii
 
-```
+```html
     <script>
         const TRYTE_ALPHABET = '9ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -69,9 +69,10 @@ Define the tryte alphabet.  Add functions to convert ascii characters to trytes 
             return ascii;
         };
 ```
+
 Configure the provider.  This example uses the IOTA testbed, called "Devnet".  Configure the mamExplorerLink.  This example uses the IOTA MAM explorer.  Set the HTML output to ```output```
 
-```
+```js
         (async function () {
             const mode = 'public'
             const provider = 'https://nodes.devnet.iota.org'
@@ -81,15 +82,16 @@ Configure the provider.  This example uses the IOTA testbed, called "Devnet".  C
             const outputHtml = document.querySelector("#output");
 
 ```
+
 Tell MAM to use the provider
 
-```
+```js
             // Initialise MAM State
             let mamState = Mam.init(provider)
 ```
 For each message, convert to trytes, then send it.  You will get the message root which is the MAM channel ID for this MAM stream
 
-```
+```js
             // Publish to tangle
             const publish = async packet => {
                 // Create MAM Payload - STRING OF TRYTES
@@ -107,7 +109,7 @@ For each message, convert to trytes, then send it.  You will get the message roo
             }
 ```
 Publish three messages
-```
+```js
             const publishAll = async () => {
                 const root = await publish('ALICE')
 
@@ -119,8 +121,10 @@ Publish three messages
             }
 
 ```
+
 Fetch three messages
-```
+
+```js
             // Callback used to pass data out of the fetch
             const logData = data => outputHtml.innerHTML += `Fetched and parsed ${JSON.parse(trytesToAscii(data))}<br/>`;
 
@@ -136,17 +140,13 @@ Fetch three messages
             });
 
 ```
+
 Provide a link so these transactions can be verified using the MAM Explorer
-```
+
+```js
             outputHtml.innerHTML += `Verify with MAM Explorer:<br/><a target="_blank" href="${mamExplorerLink}${root}">${mamExplorerLink}${root}</a>`;
         })();
     </script>
-
-```
-End the script by close the body and the HTML tags
-
-```
-</body>
-
+    </body>
 </html>
 ```
