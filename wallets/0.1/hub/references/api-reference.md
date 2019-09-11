@@ -180,6 +180,8 @@ Currently not used.
 
 ### RecoverFundsRequest
 
+To use this method, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-flags.md#recoverFunds). 
+
 <a name="hub.rpc.RecoverFundsRequest"></a>
 
 | **Field**     | **Type**| **Rules**    | **Description** |
@@ -197,6 +199,8 @@ Currently not used.
 Currently not used.
 
 ### SignBundleRequest
+
+To use this method, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-flags.md#signBundle).
 
 |**Field**|**Type**|**Rules**|**Description**|
 | ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
