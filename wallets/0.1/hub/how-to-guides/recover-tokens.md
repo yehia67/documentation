@@ -1,10 +1,12 @@
-# Rescue IOTA tokens from a swept address
+# Recover IOTA tokens from a swept address
 
-**The Winternitz one-time signature scheme is used to sign bundles that withdraw IOTA tokens from addresses. As a result, addresses are safe to withdraw from only once. After Hub sweeps an address, that address is spent and must never be withdrawn from again. But, sometimes users send IOTA tokens to old deposit addresses that have already been swept. In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To rescue the tokens from the swept address, you can try to transfer them to a new address before a potential attacker can.**
+**The Winternitz one-time signature scheme is used to sign bundles that withdraw IOTA tokens from addresses. As a result, addresses are safe to withdraw from only once. After Hub sweeps an address, that address is spent and must never be withdrawn from again. But, sometimes users send IOTA tokens to old deposit addresses that have already been swept. In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To recover the tokens from the swept address, you can try to transfer them to a new address before a potential attacker can.**
 
-To rescue tokens from a swept address, you must create an unsigned bundle outside of Hub, use Hub to sign it, then send the complete bundle to a node.
+:::info:
+In this guide, we use the `signBundle()` method to recover IOTA tokens from a spent address. This method is useful for creating a custom bundle that deposits any amount of the spent address's total balance into one or more output addresses.
 
-In this guide, we use the JavaScript client library to create and send the bundle, but we also have other [official and community libraries](root://client-libraries/0.1/introduction/overview.md), including Go, Java, and Python.
+To transfer the total balance of a spent address into a single output address, it's easier to use the [`recoverFunds()` method](../references/api-reference.md#hub.rpc.RecoverFundsRequest).
+:::
 
 ## Prerequisites
 
@@ -24,6 +26,10 @@ If you've never used the IOTA client libraries before, we recommend completing [
 ## Step 1. Create an unsigned bundle
 
 Before Hub can sign a bundle, you need to create an unsigned one.
+
+:::info:
+In this guide, we use the JavaScript client library to create and send the bundle, but we also have other [official and community libraries](root://client-libraries/0.1/introduction/overview.md), including Go, Java, and Python.
+:::
 
 1. Require the packages
 
@@ -77,7 +83,7 @@ Before Hub can sign a bundle, you need to create an unsigned one.
     |**Field**|**Description**|**Notes**|
     |:----|:----------|:-----------|
     |`outputAddress`|The new 81-tryte address (without a checksum) to which you want to transfer the tokens on the swept address|This address does not need to be a Hub address. For example, you may want to send the tokens to an address on a hardware wallet. |
-    |`inputAddress`|The swept 81-tryte address (without a checksum) that contains the IOTA tokens that you need to rescue|It's best practice to use the [`balanceSubscription()` method](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest) to check for incoming deposits into swept addresses. You can also use the [`getUserHistory()` method](../references/api-reference.md#hub.rpc.GetUserHistoryRequest) to check which spent addresses have a positive balance.|
+    |`inputAddress`|The swept 81-tryte address (without a checksum) that contains the IOTA tokens that you need to recover|It's best practice to use the [`balanceSubscription()` method](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest) to check for incoming deposits into swept addresses. You can also use the [`getUserHistory()` method](../references/api-reference.md#hub.rpc.GetUserHistoryRequest) to check which spent addresses have a positive balance.|
     |`securityLevel`| The security level of the swept address|The default security level is 2. If you changed the security level in the [`keySecLevel` command-line flag](../references/command-line-flags.md#keySec), make sure you use that one. |
     |`value`|The total balance of the swept address in the `inputAddress` field|You can check the balance of any address on a Tangle explorer such as [thetangle.org](https://thetangle.org/) |
 
@@ -199,7 +205,7 @@ After adding the signature fragments to the input transactions in your bundle, i
    :::
 
 :::success:
-You've sent a signed bundle that rescues IOTA tokens from a swept address.
+You've sent a signed bundle that recovers IOTA tokens from a swept address.
 :::
 
 :::warning:
