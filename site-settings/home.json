@@ -52,12 +52,12 @@
         },
         {
             "href": "/docs/getting-started/0.1/tutorials/get-started",
-            "image": "2.png",
+            "image": "3.png",
             "name": "Getting Started"
         },
         {
             "href": "/docs/getting-started/0.1/references/quickstart-dev-handbook",
-            "image": "3.png",
+            "image": "2.png",
             "name": "Developer Handbook"
         }
     ]
