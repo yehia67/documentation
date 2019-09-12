@@ -96,7 +96,7 @@ Install the library with Yarn:
 yarn add @iota/core
 ```
 
-[See the JavaScript documentation](root://iota-js/0.1/README.md).
+[See the JavaScript documentation](root://iota-js/0.1/introduction/overview.md).
 ---
 ### Java
 Download the library with Gradle
@@ -118,7 +118,7 @@ dependencies {
 }
 ```
 
-[See the Java documentation](root://iota-java/0.1/README.md).
+[See the Java documentation](root://iota-java/0.1/introduction/overview.md).
 ---
 ### Go
 To download the IOTA Go client library and its dependencies, we recommend that you use [Go modules](https://github.com/golang/go/wiki/Modules) (available since version 1.11) to manage dependencies in your project.
@@ -137,7 +137,7 @@ $ go get github.com/iotaledger/iota.go/api
 ```
 This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file.
 
-[See the Go documentation](root://iota-go/0.1/README.md).
+[See the Go documentation](root://iota-go/0.1/introduction/overview.md).
 --------------------
 
 ## Step 3. Make a test API request
@@ -167,7 +167,7 @@ The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are a
 --------------------
 ### JavaScript
 ```js
-// Require the IOTA library
+// Require the core package
 const Iota = require('@iota/core');
 
 // Create a new instance of the IOTA API object

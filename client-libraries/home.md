@@ -3,8 +3,8 @@
 [Client libraries overview](/0.1/introduction/overview.md)
 ## Learn what client libraries are, why they're useful, and which projects are using them
 
-[JavaScript](root://iota-js/0.1/README.md)
+[JavaScript](root://iota-js/0.1/introduction/overview.md)
 ## Familiarize yourself with the IOTA JavaScript client library
 
 [Libraries](/0.1/introduction/overview.md)
-## Learn about the official client libraries for [JavaScript](root://iota-js/0.1/README.md), [GoLang](root://iota-go/0.1/README.md), [Java](root://iota-java/0.1/README.md)
+## Learn about the official client libraries for [JavaScript](root://iota-js/0.1/introduction/overview.md), [GoLang](root://iota-go/0.1/introduction/overview.md), [Java](root://iota-java/0.1/introduction/overview.md)

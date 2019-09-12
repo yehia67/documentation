@@ -141,7 +141,7 @@ Compressed tail transaction trytes were saved to: MZGKBEXTDCVNBRZYFLFPWWQKWT9OB9
 ## Sample code
 
 ```js
-// Require the libraries
+// Require the packages
 const Iota = require('@iota/core');
 const Compressor = require('@iota/tryte-compress');
 const Converter = require('@iota/converter');

@@ -1,9 +1,9 @@
 # Client libraries overview
 
-**The IOTA client libraries abstract the complexity of the IOTA protocol into simple functions that allow you to create, send, receive, and request transactions.**
+**The IOTA client libraries abstract the complexity of the IOTA protocol into simple methods that allow you to create, send, receive, and request transactions.**
 
 :::warning:Beta software
-The client libraries are currently in beta. Their use in production is not supported.
+The client libraries are currently in beta and you should not use them in production environments.
 :::
 
 ### **Official support** ###
@@ -11,23 +11,23 @@ The client libraries are currently in beta. Their use in production is not suppo
 ---------------
 
 #### **JavaScript library** ####
-[Link](root://iota-js/0.1/README.md)
+[Link](root://iota-js/0.1/introduction/overview.md)
 
-The official JavaScript client library. This library includes the official Core library, the account module, and MAM.
+The official JavaScript client library. This library includes the core package, the account module packages, and the MAM package.
 
 ---
 
 #### **Java library** ####
-[Link](root://iota-java/0.1/README.md)
+[Link](root://iota-java/0.1/introduction/overview.md)
 
-The official Java client library. This library includes the official Core library and the account module.
+The official Java client library. This library includes the core library and the account module.
 
 ---
 
 #### **Golang library** ####
-[Link](root://iota-go/0.1/README.md)
+[Link](root://iota-go/0.1/introduction/overview.md)
 
-The official Go client library. This library includes the official Core library and the account module.
+The official Go client library. This library includes the core library and the account module.
 ---------------
 
 ### __Community support__ ###

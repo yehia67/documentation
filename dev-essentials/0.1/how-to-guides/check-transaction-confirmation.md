@@ -23,7 +23,7 @@ To complete this guide, you need the following:
 
 In this example, we check if a transaction is confirmed on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
-1. Require the IOTA client library
+1. Require the `core` package
 
     ```js
     const Iota = require('@iota/core');

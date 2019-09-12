@@ -22,7 +22,7 @@ To complete this guide, you need the following:
 
 In this example, we use the [`signing` package](https://github.com/iotaledger/iota.js/tree/next/packages/signing) of the iota.js library to derive private keys from a seed and then to derive addresses from those private keys.
 
-1. Require the IOTA libraries
+1. Require the packages
 
     ```js
     const Iota = require('@iota/core');
