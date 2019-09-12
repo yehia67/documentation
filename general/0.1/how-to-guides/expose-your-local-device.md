@@ -18,7 +18,9 @@ To complete this guide, you must have a Linux Ubuntu 18.04 server. If you don't 
 
 ---
 
-**Note:** Many ways exists to get a static IP on your local network, and this guide is just one way of doing so.
+:::info:
+You can get a static IP on your local network in many ways. This guide is just one way of doing so.
+:::
 
 1. Find your gateway IP address (router's IP address) and make a note of it
 
@@ -32,7 +34,9 @@ To complete this guide, you must have a Linux Ubuntu 18.04 server. If you don't 
     ifconfig | grep netmask
     ```
 
-    **Note:** In the output, the internal IP address is next to `inet`. Ignore the 127.0.0.1 IP address, this is your localhost. For the netmask, 255 represents 8 bits. Therefore the netmask length in this example is 3*8, which results in a length of 24.
+    :::info:
+    In the output, the internal IP address is next to `inet`. Ignore the 127.0.0.1 IP address, this is your localhost. For the netmask, 255 represents 8 bits. Therefore the netmask length in this example is 3*8, which results in a length of 24.
+    :::
 
 3. Open the network configuration file
 
@@ -40,7 +44,7 @@ To complete this guide, you must have a Linux Ubuntu 18.04 server. If you don't 
     sudo nano /etc/netplan/01-netcfg.yaml
     ```
 
-4. Copy and paste the following into the file
+4. Copy and paste the following into the file. Replace the value of the `gateway4` field to your gateway IP address. In the `addresses` field, replace the value on the left of the forward slash (/) with the internal IP address of your Linux server and replace the value on the right with the netmask length.
 
     ```yaml
     # This file describes the network interfaces available on your system
@@ -57,22 +61,24 @@ To complete this guide, you must have a Linux Ubuntu 18.04 server. If you don't 
         nameservers:
             addresses: [1.1.1.1,8.8.8.8]
     ```
-
-    **Note:** Replace the value of the `gateway4` field to your gateway IP address. In the `addresses` field, replace the value on the left of the forward slash (/) with the internal IP address of your Linux server and replace the value on the right with the netmask length.
-
+    
 5. Apply your changes
 
     ```bash
     sudo netplan apply
     ```
 
-**Important:** If your network configuration changes, for example you change your router, you may lose connection to your device. In this case, you should physically connect to your device and update the 01-netcfg.yaml file with a new static IP address.
+    :::warning:
+    If your network configuration changes, for example you change your router, you may lose connection to your device. In this case, you should physically connect to your device and update the 01-netcfg.yaml file with a new static IP address.
+    :::
 
 ## Get a domain name for your router
 
 To allow external devices to connect to your device through the Internet, your router needs a static IP address on the Internet. Unfortunately, Internet service providers often give your router a dynamic IP address, which changes at regular intervals. As a result, any connections to your device will be lost when its IP address changes. Therefore, you need to use a dynamic DNS (DDNS) service to get a public domain name that is linked to your dynamic IP address. With a DDNS, your device will report the actual public IP to the DDNS server every few minutes, so it can update its records for your domain name.
 
-**Note:** In this task, we use Duck DNS, but many other DDNS services exist.
+:::info:
+In this task, we use Duck DNS, but you can choose to use any other DDNS services.
+:::
 
 1. [Create a Duck DNS account](https://www.duckdns.org/) and add a subdomain
 
