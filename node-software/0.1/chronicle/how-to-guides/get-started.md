@@ -45,7 +45,6 @@ When setting up your Scylla cluster, consider the following:
 
 3. In the `__ DATA_CENTERS__` object, change the IP address from `127.0.0.1` to the IP address of your ScyllaDB
 
-
 4. Open the broker `config.exs` file
 
     ```bash
@@ -132,7 +131,7 @@ You should see something like the following:
 You can successfully query the data in the Chronicle database.
 :::
 
-## Step 5. Contribute
+## Step 5. Contribute to the project
 
 Now that you've got Chronicle running, see the [GitHub repository](https://github.com/iotaledger/chronicle) to contribute to issues and to keep up to date with development.
 
