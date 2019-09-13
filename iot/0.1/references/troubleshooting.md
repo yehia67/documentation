@@ -4,7 +4,7 @@
 
 ## Set up a IPv6 over Bluetooth Low Energy border router
 
-### None already mounted or mount point busy.
+### None already mounted or mount point busy
 
 If you see this response, ignore it. The file system is probably already mounted.
 
