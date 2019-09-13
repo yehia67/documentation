@@ -156,10 +156,19 @@ If you have more than one IRI node, you can add load balancing to evenly distrib
     }
     ```
 
-3. In the `upstream` block directive, add one `server` simple directives for each IP address of your IRI nodes
+4. In the `upstream` block directive, add the [`ip_hash`](http://nginx.org/en/docs/http/load_balancing.html#nginx_load_balancing_with_ip_hash) directive.
 
     ```shell
     upstream iri {
+    ip_hash;
+    }
+    ```
+
+4. In the `upstream` block directive, add one `server` simple directives for each IP address of your IRI nodes
+
+    ```shell
+    upstream iri {
+    ip_hash;
     server 127.0.0.3:8000;
     server 127.0.0.3:8001;
     server 192.168.0.1:8000;
@@ -167,7 +176,7 @@ If you have more than one IRI node, you can add load balancing to evenly distrib
     }
     ```
 
-4. In the `server` block directive, change the value of the `proxy_pass` simple directive to http://iri. Change `iri` to the name of your `upstream` block directive.
+5. In the `server` block directive, change the value of the `proxy_pass` simple directive to http://iri. Change `iri` to the name of your `upstream` block directive.
 
 Now, when Nginx receives multiple requests, it evenly distributes them among your IRI nodes that are listed in the `upstream` block directive.
 
