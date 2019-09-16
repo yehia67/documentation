@@ -124,7 +124,7 @@ You can configure the node by passing [configuration options](../references/iri-
 1. Run the IRI with the `-p` flag to specify the API port
 
     ```bash
-    docker run --name iri iotaledger/iri:latest --remote -p 14265
+    docker run --name iri iotaledger/iri:latest --remote true -p 14265
     ```
 
     If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a config.ini file in the `/path/to/conf/config.ini` on your Docker host, then add `-c /path/to/conf/config.ini` to the DOCKER RUN command.

@@ -67,7 +67,7 @@ Terms are listed in alphabetical order by category.
 
 <a name="branch"></a><dl><dt>branch transaction</dt><dd>Transaction that is referenced by another transaction.</dd></dl>
 
-<dl><dt>bundle</dt><dd>Group of transactions that are sent together to an IRI node. Bundles are atomic. Either all transactions inside the bundle are accepted or none of them are.</dd></dl>
+<dl><dt>bundle</dt><dd>Group of transactions that are sent together to an IRI node.  Bundles are atomic. Either all transactions inside the bundle are accepted or none of them are.</dd></dl>
 
 <dl><dt>confirmed</dt><dd>State of a transaction when it's been approved by a milestone</dd></dl>
 
