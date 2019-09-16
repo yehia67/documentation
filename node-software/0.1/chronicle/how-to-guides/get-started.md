@@ -51,7 +51,7 @@ When setting up your Scylla cluster, consider the following:
     sudo nano apps/broker/config/config.exs
     ```
 
-5. In the `sn_trytes` and `tx_trytes` arrays, add the URL of one or more nodes that have ZMQ enabled
+5. In the `tx_trytes` array, add the URL of one or more nodes that have ZMQ enabled
 
     ```bash
     {'zmq.iota.org',5556}

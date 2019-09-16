@@ -6,9 +6,9 @@
 
 A permanode stores the full history of Tangle and enables high-demand applications to find the data through an extended API.
 
-## Why run a permanode?
+## Why run a Chronicle?
 
-IOTA is a permissionless network. Anyone can store data on the Tangle, and any amount of data can be stored for free (just a small amount of proof of work per transaction).
+IOTA is a permissionless network. Anyone can store any amount of data on the Tangle for free (just a small amount of proof of work per transaction).
 
 Over time, the ledger of an IRI node accumulates many transactions, which often cause it to become larger than the node's available memory. To stop the ledger from becoming too large, these nodes often do local snapshots that prune transactions.
 
@@ -16,15 +16,13 @@ For many business use cases, data in the IOTA Tangle needs to be stored for long
 
 Chronicle makes it easy for node owners to store all the IOTA transactions in a secure, scalable, and distributed Scylla database.
 
-Node owners can choose to offer Chronicle data as a service, or monetize it by charging for API calls.
-
 :::info:
 Chronicle will be ported to Rust to align with the future strategy of the IOTA technology stack.
 :::
 
 ![Chronicle architecture](../images/architecture.png)
 
-Chronicle communicates with IRI nodes through the `tx_trytes` and `sn_trytes` [ZMQ events](root://node-software/0.1/iri/references/zmq-events.md) to receive information about the transactions in their ledgers . When Chronicle receives transactions, it processes them through the umbrella project, then it stores them in the Scylla database.
+Chronicle communicates with IRI nodes through the `tx_trytes` [ZMQ event](root://node-software/0.1/iri/references/zmq-events.md) to receive information about the transactions in their ledgers . When Chronicle receives transactions, it processes them through the umbrella project, then it stores them in the Scylla database.
 
 :::info:
 [Ready to run Chronicle](../how-to-guides/get-started.md)?
