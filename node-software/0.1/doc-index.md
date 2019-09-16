@@ -27,7 +27,7 @@
 [IRI/References/ZMQ events](/iri/references/zmq-events.md)
 [IRI/References/Troubleshooting](/iri/references/troubleshooting.md)
 [Chronicle/Introduction/Overview](/chronicle/introduction/overview.md)
-[Chronicle/How-to Guides/Run Chronicle](/chronicle/how-to-guides/run-chronicle-on-linux.md)
+[Chronicle/How-to Guides/Run Chronicle](/chronicle/how-to-guides/get-started.md)
 [Chronicle/References/API reference](/chronicle/references/api-reference.md)
 [Chronicle/References/Data model](/chronicle/references/data-model.md)
 [Chronicle/References/Design goals](/chronicle/references/design-goals.md)
