@@ -1,12 +1,34 @@
 # Chronicle overview
 
-**Chronicle is a type of node software that allows you to store all transactions that reach an [IRI node](root://node-software/0.1/iri/introduction/overview.md) in a distributed database that scales well and has many security options.**
+**Chronicle is a permanode solution that allows you to store all transactions that reach an [IRI node](root://node-software/0.1/iri/introduction/overview.md) in a distributed database that scales well and has many security options.**
 
-Over time, the ledger of an IRI node accumulates many transactions, which often cause it to become larger than the node's available memory. To stop the ledger from becoming too large, these nodes often do local snapshots that prune transactions. To allow an IRI node to store all transactions without pruning any, Chronicle stores them in a distributed Scylla database.
+## What is a permanode?
+
+A permanode stores the full history of Tangle and enables high-demand applications to find the data through an extended API.
+
+## Why run a permanode?
+
+IOTA is a permissionless network. Anyone can store data on the Tangle, and any amount of data can be stored for free (just a small amount of proof of work per transaction).
+
+Over time, the ledger of an IRI node accumulates many transactions, which often cause it to become larger than the node's available memory. To stop the ledger from becoming too large, these nodes often do local snapshots that prune transactions.
+
+For many business use cases, data in the IOTA Tangle needs to be stored for long periods of time. For example, financial data must be stored for 10 years in some cases, and identity data needs to be kept for the lifetime of the identity.
+
+Chronicle makes it easy for node owners to store all the IOTA transactions in a secure, scalable, and distributed Scylla database.
+
+Node owners can choose to offer Chronicle data as a service, or monetize it by charging for API calls.
+
+:::info:
+Chronicle will be ported to Rust to align with the future strategy of the IOTA technology stack.
+:::
 
 ![Chronicle architecture](../images/architecture.png)
 
-Chronicle communicates with IRI nodes through the `tx_trytes` and `sn` [ZMQ events](root://node-software/0.1/iri/references/zmq-events.md) to receive information about the transactions in their ledgers . When Chronicle receives transactions, it processes them through the umbrella project, then it stores them in the Scylla database.
+Chronicle communicates with IRI nodes through the `tx_trytes` and `sn_trytes` [ZMQ events](root://node-software/0.1/iri/references/zmq-events.md) to receive information about the transactions in their ledgers . When Chronicle receives transactions, it processes them through the umbrella project, then it stores them in the Scylla database.
+
+:::info:
+[Ready to run Chronicle](../how-to-guides/get-started.md)?
+:::
 
 ## Chronicle architecture
 
@@ -16,6 +38,7 @@ In this diagram, the Chronicle node consists of the green components between the
 ![Chronicle architecture](../images/chronicle-node.jpg)
 
 #### Umbrella project
+
 An Umbrella project is a space where independent apps coexist and communicate through Inter-Process Communication (IPC). Each app runs under its own supervision tree, which allows it to grow and easily migrate to its own rack (a cluster with its own umbrella project).
 
 To allow Chronicle to scale up, it uses Elixir [umbrella projects](https://elixir-lang.org/getting-started/mix-otp/dependencies-and-umbrella-projects.html#umbrella-projects) to split code into multiple apps and arrange them under an umbrella project.
@@ -57,7 +80,11 @@ When you send a data request to a Chronicle, it requests the data from the Scyll
 
 ### Physical location of the database
 
-A Scylla database may be physically located on multiple computers in multiple datacenters. To accomplish this, build one Scylla node by installing ScyllaDB on one computer. Next, build more nodes to create a Scylla cluster. These nodes do not share memory or hard-drive space. They share their state via the Gossip protocol. Finally, add Scylla clusters to a Scylla swarm. Visualize a swarm as a ring of clusters. Scylla swarms can be located in one or more datacenters. Now, you have a distributed database. 
+A Scylla database may be physically located on multiple computers in multiple datacenters. To accomplish this, build one Scylla node by installing ScyllaDB on one computer. Next, build more nodes to create a Scylla cluster. These nodes do not share memory or hard-drive space. They share their state via the Gossip protocol. Finally, add Scylla clusters to a Scylla swarm. Visualize a swarm as a ring of clusters. Scylla swarms can be located in one or more datacenters. Now, you have a distributed database.
+
+:::info:
+Take a look at the [Scylla documentation](https://university.scylladb.com/setup-a-scylla-cluster/) for help with clusters.
+:::
 
 ### Logical location of the data
 
@@ -73,13 +100,6 @@ Here is a diagram showing how data flows through Chronicle:
 
 ![Data flow in Chronicle](../images/dataflow.png)
 
-### Data security
+## Next steps
 
-IOTA transactions provide a trustworthy record of data and value, so securing this data in Chronicle is important.
-
-Because Chronicle data is stored in a Scylla database, you can follow the [official instructions](https://docs.scylladb.com/operating-scylla/security/security_checklist/) for setting up the following data security measures:
-
-* Authorization
-* Authentication
-* Encryption
-* Security audits
+[Run Chronicle](../how-to-guides/get-started.md) to get started with storing transactions.

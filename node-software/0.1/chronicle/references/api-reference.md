@@ -117,7 +117,9 @@ curl http://localhost:4000 \
 Find transactions that contain the given values in their transaction fields.
 The parameters define the transaction fields to search for, including `bundles`, `addresses`, `tags`, `approvees`, and `hints`.
 
-Using multiple transaction fields, returns transactions hashes at the intersection of those values.
+:::info:
+You can pass only one parameter to each call.
+:::
 
 ### Parameters
 	

@@ -2,8 +2,6 @@
 
 **When you run Chronicle, it subscribes to transaction events on one or more IRI nodes, then saves that transaction data to a ScyllaDB cluster. This way, all transaction data is saved no matter when/if the IRI node prunes it from its ledger during a local snapshot.**
 
-These instructions will get you a copy of the project up and running on your local machine for testing purposes.
-
 :::warning:
 This project is not intended for production use. We are currently working on a Rust version for the final release.
 :::
@@ -12,7 +10,7 @@ This project is not intended for production use. We are currently working on a R
 
 To complete this guide, you need the following:
 
-- Independent running Scylla cluster using [ScyllaDB](https://docs.scylladb.com/getting-started/) version 3.0.6 or later
+- Scylla cluster that uses [ScyllaDB](https://docs.scylladb.com/getting-started/) version 3.0.6 or later
 
 - [Elixir](https://elixir-lang.org/install.html) version 1.8.1 or later 
 
@@ -27,6 +25,8 @@ When setting up your Scylla cluster, consider the following:
 - **Data transmission:** We recommend frames with an MTU (maximum transmission unit) of at least 9000 bytes for communications between ScyllaDB and Chronicle.  
 
 - **Power outage:** Devices running Chronicle and ScyllaDB should have a backup power supply and Internet connection. A power outage for a number of nodes will not affect data consistency if you have at least one active node writing the same queries.
+
+- **Data security:** IOTA transactions provide a trustworthy record of data and value, so securing this data in Chronicle is important. Because Chronicle data is stored in a Scylla database, you can follow the [official instructions](https://docs.scylladb.com/operating-scylla/security/security_checklist/) for setting up authorization, authentication, encryption, and security audits.
 
 ## Step 1. Configure Chronicle
 
@@ -51,7 +51,7 @@ When setting up your Scylla cluster, consider the following:
     sudo nano apps/broker/config/config.exs
     ```
 
-5. Under the `config:broker __ TOPICS__, sn_trytes`, add the URL of any IRI node that has ZMQ enabled
+5. In the `sn_trytes` and `tx_trytes` arrays, add the URL of one or more nodes that have ZMQ enabled
 
     ```bash
     {'zmq.iota.org',5556}
@@ -93,7 +93,7 @@ SECRET_KEY_BASE=theGenerated64-byteSecretString PORT=4000 HOST=localhost MIX_ENV
 :::info:
 If the host is localhost, then the value of the `--name` flag can be `Chronicle@localhost`. Otherwise, replace localhost with your hostname.
 
-The value of the `--cookie` flag should be kept secret.
+Keep the value of the `--cookie` flag secret.
 :::
 
 :::success: Congratulations :tada:
