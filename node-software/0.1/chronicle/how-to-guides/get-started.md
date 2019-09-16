@@ -96,6 +96,14 @@ If the host is localhost, then the value of the `--name` flag can be `Chronicle@
 Keep the value of the `--cookie` flag secret.
 :::
 
+You should see something like the following:
+
+```bash
+20:57:18.560 [info] TxFeeder is ready, topic: tx_trytes, host: zmq.iota.org
+20:57:18.807 [info] Running ExtendedApiWeb.Endpoint with cowboy 2.6.3 at :::4000 (http)
+20:57:18.822 [info] Access ExtendedApiWeb.Endpoint at http://localhost:4000
+```
+
 :::success: Congratulations :tada:
 Chronicle is now saving all transaction data that it receives from your node to your Scylla cluster.
 :::
@@ -104,9 +112,9 @@ Chronicle is now saving all transaction data that it receives from your node to 
 
 To make sure that Chronicle is receiving transaction data, use the API to query your Scylla cluster.
 
-1. Go to the-tangle.org and copy a transaction hash to your clipboard
+1. Go to [thetangle.org](https://thetangle.org/) and copy a transaction hash to your clipboard
 
-2. In the command prompt create a cURL request to the `getTrytes` endpoint of the Chronicle API. Paste your transaction hash into the `hashes` array.
+2. In the command prompt create a cURL request to the `getTrytes` endpoint of the Chronicle API. Paste your transaction hash into the `hashes` array, and replace the URL with the URL of your Chronicle node such as http://localhost:4000/api
 
     ```bash
     curl http://host:port/api \
@@ -123,9 +131,21 @@ You should see something like the following:
 
 ```json
 {
-"trytes": [{"address":"JPYUAV9MBDZG9ZX9BAPBBMYFEVORNBIOOZCYPZDZNRGKQYT9HFEXXXBG9TULULJIOWJWQMXSPLILOJGJG","attachmentTimestamp":1567166602904,"attachmentTimestampLowerBound":0,"attachmentTimestampUpperBound":12,"branchTransaction":"OLZDBGOWXCLNZPJZMFUVYPL9COCBSHPIJGIN9L9SNUMMYVZQNDVOCWOYYGJXKHEJGWANXWRBVELB99999","bundle":"VVCRIZWRJ9GOUJRXRBWDEULYKIBIZNKIWGCWZCWVBTVIBAHKVTWLGYQNIZ9JCZJKVEAXABBAUEIGNGWP9","currentIndex":0,"lastIndex":0,"nonce":"JVF9999999RMF99999999999999","obsoleteTag":"HUIWONTO9999999999999999999","signatureMessageFragment":"ODGAHDLDGDNCGDIDRCRCTCTCSCTCSCGADBZAABZACBCBXAABQAGAHDLDGDNCUCPCXC9DTCSCGADB9BBBABQAGAQCPCSCNCQCFDPCBDRCWCGADBVAUAVAZAQAGAQCPCSCNCHDFDIDBDZCGADBVAUAVAZAQAGAQCPCSCNCHDF...","timestamp":1567166602,"trunkTransaction":"BXZWFMSFBAYWJKJUAKWYTUCZRY9GMNETX9MLN9UKRR9ORGRRIENPERNWCLHBCE9XBMYHAMGFYRRL99999","value":0}]
+"trytes": [{"address":"JPYUAV9MBDZG9ZX9BAPBBMYFEVORNBIOOZCYPZDZNRGKQYT9HFEXXXBG9TULULJIOWJWQMXSPLILOJGJG","attachmentTimestamp":1567166602904,"attachmentTimestampLowerBound":0,"attachmentTimestampUpperBound":12,"branchTransaction":"OLZDBGOWXCLNZPJZMFUVYPL9COCBSHPIJGIN9L9SNUMMYVZQNDVOCWOYYGJXKHEJGWANXWRBVELB99999","bundle":"VVCRIZWRJ9GOUJRXRBWDEULYKIBIZNKIWGCWZCWVBTVIBAHKVTWLGYQNIZ9JCZJKVEAXABBAUEIGNGWP9","currentIndex":0,"lastIndex":0,"nonce":"JVF9999999RMF99999999999999","obsoleteTag":"HUIWONTO9999999999999999999","signatureMessageFragment":"ODGAHDLDGDNCGDIDRCRCTCTCSCTCSCGADBZAABZACBCBXAABQAGAHDLDGDNCUCPCXC9DTCSCGADB9BBBABQAGAQCPCSCNCQCFDPCBDRCWCGADBVAUAVAZAQAGAQCPCSCNCHDFDIDBDZCGADBVAUAVAZAQAGAQCPCSCNCHDF...","snapshotIndex":null,"tag":"999GOPOW9ATTACHTOTANGLE9ZIG","timestamp":1567166602,"trunkTransaction":"BXZWFMSFBAYWJKJUAKWYTUCZRY9GMNETX9MLN9UKRR9ORGRRIENPERNWCLHBCE9XBMYHAMGFYRRL99999","value":0}]
 }
 ```
+
+:::info:
+The `snapshotIndex` field is the index of the milestone that confirmed the transaction.
+
+If this field is `null`, the transaction is pending.
+:::
+
+:::warning:
+At the moment, Chronicle does not know when a transaction is confirmed.
+
+This issue will be solved when the next version of the IRI is released with [this  pull request](https://github.com/iotaledger/iri/pull/1551).
+:::
 
 :::success: Congratulations :tada:
 You can successfully query the data in the Chronicle database.
