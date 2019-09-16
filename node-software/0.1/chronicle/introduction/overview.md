@@ -6,7 +6,7 @@
 
 A permanode stores the full history of Tangle and enables high-demand applications to find the data through an extended API.
 
-## Why run a Chronicle?
+## Why run Chronicle?
 
 IOTA is a permissionless network. Anyone can store any amount of data on the Tangle for free (just a small amount of proof of work per transaction).
 
