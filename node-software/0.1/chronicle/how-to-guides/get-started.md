@@ -57,6 +57,18 @@ When setting up your Scylla cluster, consider the following:
     {'zmq.iota.org',5556}
     ```
 
+6. [Download the historical Tangle data](https://history.iota.org) from November 2016 to July 2019
+
+7. Move the downloaded files to the `/historical/data` directory
+
+8. Change into the `historical` directory
+
+    ```bash
+    cd ..
+    ```
+
+9. Make sure that the `dmps.txt` file has all the names of the files that you moved to the `/historical/data` directory (without the `.dmp` file extension), then close the file
+
 ## Step 2. Compile Chronicle
 
 1. Install the dependencies
@@ -103,6 +115,8 @@ You should see something like the following:
 20:57:18.807 [info] Running ExtendedApiWeb.Endpoint with cowboy 2.6.3 at :::4000 (http)
 20:57:18.822 [info] Access ExtendedApiWeb.Endpoint at http://localhost:4000
 ```
+
+When Chronicle starts, you can open the `dmps.txt` file. If the file is empty, the historical-data import was successful.
 
 :::success: Congratulations :tada:
 Chronicle is now saving all transaction data to your Scylla cluster.

@@ -29,6 +29,7 @@
 [Chronicle/Introduction/Overview](/chronicle/introduction/overview.md)
 [Chronicle/How-to Guides/Run Chronicle](/chronicle/how-to-guides/get-started.md)
 [Chronicle/References/API reference](/chronicle/references/api-reference.md)
+[Chronicle/References/Architecture](/chronicle/references/architecture.md)
 [Chronicle/References/Data model](/chronicle/references/data-model.md)
 [Chronicle/References/Design goals](/chronicle/references/design-goals.md)
 [GoShimmer/Introduction/Overview](/goshimmer/introduction/overview.md)
