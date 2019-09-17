@@ -1,6 +1,6 @@
 # Get started with Masked Authenticated Messaging
 
-**The MAM package includes methods for interacting with the Tangle. You can use this library to use the core IOTA protocol. For example, you can connect to nodes, create bundles, and promote and reattach pending transactions.**
+**Masked Authenticated Messaging (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, over the Tangle. You can use the MAM package to connect to nodes as well as read, write, and manage channels.**
 
 :::warning:Beta software
 The client libraries are currently in beta and you should not use them in production environments.
@@ -8,7 +8,7 @@ The client libraries are currently in beta and you should not use them in produc
 
 ## Audience
 
-This documentation is designed for people who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [bundles, and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md).
+This documentation is designed for developers who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [bundles, and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md).
 
 ## Prerequisites
 

@@ -90,7 +90,7 @@ When you've created your bundle, you need to send it to a node along with two ot
 * Depth
 * Minimum weight magnitude
 
-The depth affects how far back in the Tangle the node starts the [tip selection algorithm](../concepts/the-tangle.md#tip-selection). Nodes use this algorithm to find two existing tail transactions in the Tangle that a new transaction can reference in the `branchTransaction` and `trunkTransaction` fields.
+The depth affects how far back in the Tangle the node starts the [tip selection algorithm](../concepts/the-tangle.md#tip-selection). Nodes use this algorithm to find two existing tail transactions on the Tangle that a new transaction can reference in the `branchTransaction` and `trunkTransaction` fields.
 
 :::info:
 The greater the depth, the farther back in the Tangle the node starts, so a greater depth makes tip selection take longer and makes the node use more computational power.

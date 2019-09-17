@@ -1,6 +1,6 @@
 # Publish restricted messages
 
-**If you want to publish secret messages to a channel that only permitted users can read, you can use a restricted channel. A restricted channel is one where the channel ID is a hash of root of the Merkle tree and an encryption key called a side key. As a result, any user can find the message on the Tangle, but only those with the side key can decrypt it. This type of channel is useful for private communications.**
+**If you want to publish secret messages to a channel that only permitted users can read, you can use a restricted channel. These channels are open for any user to find, but only those with the side key can decrypt it. This type of channel is useful for private communications.**
 
 Here, we connect to a node on the Devnet, which is one of the [IOTA networks](root://getting-started/0.1/references/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free.
 
