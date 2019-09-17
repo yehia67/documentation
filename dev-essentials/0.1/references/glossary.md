@@ -24,7 +24,7 @@ Terms are listed in alphabetical order by category.
 
 ### Cryptography
 
-<dl><dt>checksum</dt><dd>Hashed data that allows you to detect errors and verify that you entered the correct data.  For example, in Trinity, a 9-character checksum is appended to the 81-tryte address so users can easily differentiate between their seed (81-trytes) and their address (90-characters) </dd></dl>
+<dl><dt>checksum</dt><dd>Hashed data that allows you to detect errors and verify that you entered the correct data. For example, in Trinity, a 9-character checksum is appended to the 81-tryte address so users can easily differentiate between their seed (81-trytes) and their address (90-characters) </dd></dl>
 
 <dl><dt>Curl</dt><dd>Main hash function that's used in IOTA. Curl is based on a sponge construction, which was invented by the [Keccak creators](https://en.wikipedia.org/wiki/SHA-3) (SHA-3). Curl is designed for the Internet of things (IoT).
 </dd></dl>

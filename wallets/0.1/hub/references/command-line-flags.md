@@ -49,7 +49,10 @@
 | :------------------------ | :--------------- | :--------|
 |`--authProvider`| Provider to use to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method. This value can be "none" or "hmac"| "none"|
 |`--hmacKeyPath` |Path to the HMAC key used to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method|"/dev/null"|
+<<<<<<< HEAD:wallets/0.1/hub/references/command-line-flags.md
+=======
 |<a name="recoverFunds"></a>`--RecoverFunds_enabled`|Whether you can use the `RecoverFunds` endpoint|`--noRecoverFunds_enabled`|
+>>>>>>> 35c3f6d983c4742850404b358879f685e6b435c6:wallets/0.1/hub/references/command-line-flags.md
 |<a name="signBundle"></a>`--SignBundle_enabled`|Whether you can use the [`SignBundle` endpoint](../references/api-reference.md#hub.rpc.SignBundleRequest)|false|
 |`--signingMode`|Method to use to sign bundles. This value can be "local" or "remote" (if you run a signing server) |"local"|
 |`--signingProviderAddress`|URL or IP address of the signing server. Where you have the "remote" value for the `--signingMode`, you must also use this flag.|"0.0.0.0:50052"|

@@ -16,7 +16,7 @@ A common requirement for nearly all use cases or applications is that data must 
 However, the Tangle is not a database. The Tangle is an immutable, distributed ledger which allows you to store a hash of data and a pointer to its location in third-party data storage.
 
 :::info:
-Although permanent storage on the Tangle isn't currently possible, the IOTA Foundation are developing a solution that will allow it. This solution is called permanodes.
+Although permanent storage on the Tangle isn't currently possible, the IOTA Foundation are developing a solution that will allow it. This solution is called [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md).
 :::
 
 ### Solution

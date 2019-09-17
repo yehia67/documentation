@@ -178,6 +178,10 @@ The IRI runs in a Java virtual machine. Therefore, before you run the IRI, you n
 
 If you want to run a permanode (keep all transactions in the ledger), set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](../references/iri-configuration-options.md#local-snapshots-enabled) to `false`.
 
+:::info:
+You can also store all transactions in a separate database with the [Chronicle node software](root://node-software/0.1/chronicle/introduction/overview.md).
+:::
+
 ### Configure a Devnet node
 
 If you want to run a Devnet node, you must set the `TESTNET` configuration option to `true`, and add other Devnet nodes to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration parameter.
