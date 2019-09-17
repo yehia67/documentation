@@ -119,7 +119,7 @@ You should see something like the following:
 20:57:18.822 [info] Access ExtendedApiWeb.Endpoint at http://localhost:4000
 ```
 
-When Chronicle starts, you can open the `dmps.txt` file. If the file is empty, the historical-data import was successful.
+When Chronicle starts, you should see the `imported the last dmp 'milestone' file` message. When you see this message, you can check that the import was successful by opening the `dmps.txt` file and seeing that it's empty.
 
 :::success: Congratulations :tada:
 Chronicle is now saving all transaction data to your Scylla cluster.
