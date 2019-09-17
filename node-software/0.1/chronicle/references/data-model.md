@@ -54,7 +54,6 @@ The edge tables stores transaction data, where the partion key can be any of the
 
 - `tip`: Trunk or branch transactions of the head transaction of the bundle
 
-
 ![edge table sample](../images/edge-table.png)
 
 All the rows with the same partition key are stored in the same partition and replicated across the same replicas. This allows you to look up data by any partition key.
@@ -67,7 +66,7 @@ A tag table can be one of two types:
 
 - Full tag and IOTA area code
 	
-Any number of transactions can have the same tag. As a result, this table can become too large for any node to store. One solution is to remove transactions after a given period of time. For example, the tag table has a predefined TTL which acts as a real-time index. When TTL is set to 1000 seconds, the row will be deleted after that time. Searches based on tags only work for transactions that were saved before the TTL.
+Any number of transactions can have the same tag. As a result, this table can become too large for any node to store. One solution is to remove transactions after a given period of time. For example, the tag table has a predefined TTL which acts as a real-time index. When the TTL is set to 1000 seconds, the row will be deleted after that time. Searches by tag only work for transactions that were saved before the TTL.
 
 ## Zero_value table
 

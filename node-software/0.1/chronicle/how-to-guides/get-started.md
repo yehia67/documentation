@@ -3,24 +3,24 @@
 **When you run Chronicle, it subscribes to transaction events on one or more IRI nodes, then saves that transaction data to a ScyllaDB cluster. This way, all transaction data is saved no matter when/if the IRI node prunes it from its ledger during a local snapshot.**
 
 :::warning:
-This project is not intended for production use. We are currently working on a Rust version for the final release.
+This project is not intended for production use.
+
+This is an alpha project that we will continue to develop and rewrite in Rust, which is faster and more efficient than Elixir in terms of resource and memory management.
 :::
 
 ## Prerequisites
 
 To complete this guide, you need the following:
 
-- Scylla cluster that uses [ScyllaDB](https://docs.scylladb.com/getting-started/) version 3.0.6 or later
+- [Create a Scylla cluster on a single data center](https://docs.scylladb.com/operating-scylla/procedures/cluster-management/create_cluster/) (Scylla version 3.0.6 or later). At the moment, Chronicle supports only clusters in a single data center.
 
-- [Elixir](https://elixir-lang.org/install.html) version 1.8.1 or later 
+- [Install Elixir](https://elixir-lang.org/install.html) version 1.8.1 or later 
 
-- [Phoenix](https://hexdocs.pm/phoenix/installation.html)
+- [Install Phoenix](https://hexdocs.pm/phoenix/installation.html)
 
-- [Bazel](https://docs.bazel.build/versions/master/install.html)
+- [Install Bazel](https://docs.bazel.build/versions/master/install.html)
 
 When setting up your Scylla cluster, consider the following:
-
-- **Location:** Chronicle and ScyllaDB must be in the same datacenter, but can run on different devices. In future releases, Chronicle will support multiple datacenters.
 
 - **Data transmission:** We recommend frames with an MTU (maximum transmission unit) of at least 9000 bytes for communications between ScyllaDB and Chronicle.  
 
@@ -43,7 +43,7 @@ When setting up your Scylla cluster, consider the following:
     sudo nano apps/core/config/config.exs
     ```
 
-3. In the `__ DATA_CENTERS__` object, change the IP address from `127.0.0.1` to the IP address of your ScyllaDB
+3. In the `__ DATA_CENTERS__` object, change the IP address from `127.0.0.1` to the IP address of your Scylla cluster
 
 4. Open the broker `config.exs` file
 
@@ -59,21 +59,21 @@ When setting up your Scylla cluster, consider the following:
 
 ## Step 2. Compile Chronicle
 
-1. Install the required dependencies
+1. Install the dependencies
 
     ```bash
     mix deps.get
     ```
 
-2. Generate the phoenix secret and then copy the 64-bytes secret string
+2. Generate the phoenix secret and copy it to the clipboard
 
-    ```
+    ```bash
     mix phx.gen.secret
     ```
 
 3. Compile the project
 
-    ```
+    ```bash
     mix deps.compile
     mix compile
     ```
@@ -105,7 +105,7 @@ You should see something like the following:
 ```
 
 :::success: Congratulations :tada:
-Chronicle is now saving all transaction data that it receives from your node to your Scylla cluster.
+Chronicle is now saving all transaction data to your Scylla cluster.
 :::
 
 ## Step 4. Test Chronicle

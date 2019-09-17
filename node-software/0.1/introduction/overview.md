@@ -11,7 +11,7 @@ The IRI (IOTA reference implementation) is open-source Java software that runs o
 -------------------------
 ![Chronicle](../images/Chronicle.png)
 ## [Chronicle](../chronicle/introduction/overview.md)
-Chronicle is an addition to the IRI node software that allows you to store all transactions that reach an IRI node in a distributed database that scales well and has many security options.
+Chronicle is an addition to the IRI node software that allows you to store all transactions in a separate distributed database that's secure and scales well.
 -------------------------
 
 -------------------------
