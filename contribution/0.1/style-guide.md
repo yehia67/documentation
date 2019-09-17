@@ -438,7 +438,7 @@ We always write in US English.
 
 ### First paragraph
 
-Always embolded the first paragraph of an article. This paragraph should explain the main purpose or point of the article in as few words as possible.
+Always embolden the first paragraph of an article. This paragraph should explain the main purpose or point of the article in as few words as possible.
 
 Make sure you answer the following questions:
 * What is the article about?
