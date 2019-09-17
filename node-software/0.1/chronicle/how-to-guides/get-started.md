@@ -57,7 +57,10 @@ When setting up your Scylla cluster, consider the following:
     {'zmq.iota.org',5556}
     ```
 
-6. [Download the historical Tangle data](http://dbfiles.iota.org/data) from November 2016 to July 2019
+6. [Download the historical Tangle data](http://u204324-sub2.your-storagebox.de/) from November 2016 to July 2019
+
+    **Username:** u204324-sub2
+    **Password:** Ldtd22LiXaztAPUg
 
 7. Move the downloaded files to the `/historical/data` directory
 
