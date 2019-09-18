@@ -1,10 +1,12 @@
 # Get started with Masked Authenticated Messaging
 
-**Masked Authenticated Messaging (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, on the Tangle. You can use the MAM package to publish messages to channels, subscribe to them, and manage them.**
+**Masked Authenticated Messaging (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, on the Tangle. You can use the MAM package to publish encrypted and authenticated messages to channels.**
 
 The Tangle allows you to attach zero-value transactions to it, but these transactions are not signed or checked by nodes to verify their authenticity.
 
 With MAM, all messages are signed by the owner of a seed. This way, those with access to a [channel](../concepts/channels.md) can verify the signature and decrypt the messages.
+
+Many use cases such as the [Data Marketplace](root://blueprints/0.1/data-marketplace/overview.md) use MAM to allow users to pay for access to channels and decrypt the messages.
 
 You can [learn more about the details of MAM](https://medium.com/coinmonks/iota-mam-eloquently-explained-d7505863b413) in this blog post.
 
