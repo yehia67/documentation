@@ -14,7 +14,7 @@ To complete this guide, you need the following:
 
 - [Create a Scylla cluster on a single data center](https://docs.scylladb.com/operating-scylla/procedures/cluster-management/create_cluster/) (Scylla version 3.0.6 or later). At the moment, Chronicle supports only clusters in a single data center.
 
-- [Install Elixir](https://elixir-lang.org/install.html) version 1.8.1 or later 
+- [Install Elixir](https://elixir-lang.org/install.html) version 1.8.1 or later and Erlang VM version 22 or later (included with Elixir). If your package manager doesn't offer these versions, use [this tool](https://github.com/asdf-vm/asdf ).
 
 - [Install Phoenix](https://hexdocs.pm/phoenix/installation.html)
 
@@ -56,6 +56,21 @@ When setting up your Scylla cluster, consider the following:
     ```bash
     {'zmq.iota.org',5556}
     ```
+
+6. [Download the historical Tangle data](http://u204324-sub2.your-storagebox.de/) from November 2016 to July 2019
+
+    **Username:** u204324-sub2
+    **Password:** Ldtd22LiXaztAPUg
+
+7. Move the downloaded files to the `/historical/data` directory
+
+8. Change into the `historical` directory
+
+    ```bash
+    cd ..
+    ```
+
+9. Make sure that the `dmps.txt` file has all the names of the files that you moved to the `/historical/data` directory (without the `.dmp` file extension), then close the file
 
 ## Step 2. Compile Chronicle
 
@@ -103,6 +118,8 @@ You should see something like the following:
 20:57:18.807 [info] Running ExtendedApiWeb.Endpoint with cowboy 2.6.3 at :::4000 (http)
 20:57:18.822 [info] Access ExtendedApiWeb.Endpoint at http://localhost:4000
 ```
+
+When Chronicle starts, you should see the `imported the last dmp 'milestone' file` message. When you see this message, you can check that the import was successful by opening the `dmps.txt` file and seeing that it's empty.
 
 :::success: Congratulations :tada:
 Chronicle is now saving all transaction data to your Scylla cluster.
