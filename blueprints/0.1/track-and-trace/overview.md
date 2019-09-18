@@ -77,7 +77,7 @@ See this website for a [demonstration of the application](http://tradedemo.iota.
 
 ---------------
 #### iota.js client library ####
-[Link](root://iota-js/0.1/README.md)
+[Link](root://iota-js/0.1/introduction/overview.md)
 
 Learn how to use the iota.js client library to create, send, and receive transactions.
 ---

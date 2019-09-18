@@ -18,7 +18,7 @@ To complete this guide, you need the following:
 
 In this example, we convert a message to trytes, then convert it back to ASCII characters using the [`converter` package](https://github.com/iotaledger/iota.js/tree/next/packages/converter) of the iota.js library.
 
-1. Require the IOTA client library
+1. Require the `converter` package
 
     ```js
     const Converter = require('@iota/converter');

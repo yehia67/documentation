@@ -25,7 +25,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     mkdir iota-example
     ```
 
-2. Change into the `iota-example` directory and install the `core` and `converter` IOTA client libraries
+2. Change into the `iota-example` directory and install the `core` and `converter` packages
 
     ```bash
     cd iota-example
@@ -45,10 +45,9 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
 
 3. In the `iota-example` directory, create a new file called `value-transaction.js`
 
-4. Require the `core` IOTA client library
+4. Require the `core` package
 
     ```js
-    // Require the IOTA library
     const Iota = require('@iota/core');
     ```
 

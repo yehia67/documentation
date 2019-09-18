@@ -1,9 +1,9 @@
 # Client libraries overview
 
-**The IOTA client libraries abstract the complexity of the IOTA protocol into simple functions that allow you to create, send, receive, and request transactions.**
+**The IOTA client libraries abstract the complexity of the IOTA protocol into simple methods that allow you to create, send, receive, and request transactions.**
 
 :::warning:Beta software
-The client libraries are currently in beta. Their use in production is not supported.
+The client libraries are currently in beta and you should not use them in production environments.
 :::
 
 ### **Official support** ###
@@ -11,32 +11,23 @@ The client libraries are currently in beta. Their use in production is not suppo
 ---------------
 
 #### **JavaScript library** ####
-[Link](root://iota-js/0.1/README.md)
+[Link](root://iota-js/0.1/introduction/overview.md)
 
-The official JavaScript client library. This library includes the official API and additional features.
+The official JavaScript client library. This library includes the core package, the account module packages, and the MAM package.
 
 ---
 
 #### **Java library** ####
-[Link](root://iota-java/0.1/README.md)
+[Link](root://iota-java/0.1/introduction/overview.md)
 
-The official Java client library. This library includes the official API and additional features.
+The official Java client library. This library includes the core library and the account module.
 
 ---
 
 #### **Golang library** ####
-[Link](root://iota-go/0.1/README.md)
+[Link](root://iota-go/0.1/introduction/overview.md)
 
-The official Go client library. This library includes the official API and additional features.
-
----
-
-#### **MAM library** ####
-[Link](root://mam/0.1/README.md)
-
-The official MAM client library. This library enables user to create, send & decode MAM messages.
-
-
+The official Go client library. This library includes the core library and the account module.
 ---------------
 
 ### __Community support__ ###
@@ -59,7 +50,7 @@ A C# .NET 4.6 client library. This library includes core and extended functional
 
 ## Useful links
 
-- **[Tangle explorer](https://www.thetangle.org):** View transactions on the Tangle
+- **[Tangle explorer](https://utils.iota.org):** View transactions on the Tangle
 - **[Official Discord](https://discord.iota.org):** Join the discussion in language-specific channels.
 
 ## IoT experiments

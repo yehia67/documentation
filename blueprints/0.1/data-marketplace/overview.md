@@ -81,7 +81,7 @@ Interact with the Data Marketplace through the REST API.
 Read the code and some quickstart instructions to test this blueprint.
 ---
 #### iota.js client library ####
-[Link](root://iota-js/0.1/README.md)
+[Link](root://iota-js/0.1/introduction/overview.md)
 
 Learn how to use the iota.js client library to create, send, and receive transactions.
 ---

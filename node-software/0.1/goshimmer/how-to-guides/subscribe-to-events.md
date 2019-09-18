@@ -25,7 +25,7 @@ To use the sample code in this guide, you must have the following:
 
 You can subscribe to the `tx` event to monitor a node for recently received transactions.
 
-1\. Install the zeromq library
+1\. Install the zeromq package
 
 --------------------
 ### Node.js

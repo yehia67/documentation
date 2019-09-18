@@ -33,7 +33,7 @@ You can subscribe to the `sn` event on the ZMQ of a node to listen for recently 
 * The index of the first milestone that referenced the transaction
 * The transaction hash
 
-1\. Install the zeromq library
+1\. Install the `zeromq` package
 
 --------------------
 ### Node.js

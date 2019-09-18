@@ -34,7 +34,7 @@ Create a new file called `contract.txt` in your working directory, then copy in 
 
 ### Step 2. Set up the sample
 
-1. Create a new file called `index.js` in the same directory as the `contract.txt` file, then require the libraries
+1. Create a new file called `index.js` in the same directory as the `contract.txt` file, then require the packages
 
     ```js
     require('regenerator-runtime');

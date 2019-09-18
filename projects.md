@@ -9,6 +9,5 @@
 [IOTA Go](/iota-go)
 [IOTA Java](/iota-java)
 [IOTA JS](/iota-js)
-[MAM](/mam)
 [General](/general)
 [Contribution](/contribution)

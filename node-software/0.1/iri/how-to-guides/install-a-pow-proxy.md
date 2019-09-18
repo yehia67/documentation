@@ -114,7 +114,7 @@ To complete this guide, you need the following:
     :::
 
     ```js
-    // Require the IOTA libraries
+    // Require the packages
     const Iota = require('@iota/core');
     const Converter = require('@iota/converter');
 
