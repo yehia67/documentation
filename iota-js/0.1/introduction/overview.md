@@ -17,5 +17,5 @@ An account is an object that makes it easier to send and receive transactions. A
 -------------------------
 ![Masked Authenticated Messaging](../images/mam.png)
 ## [Masked Authenticated Messaging](../mam/introduction/overview.md)
-Although the supply of energy is often automated, the payment system is expensive to integrate and often requires manual intervention. By creating a peer-to-peer energy grid with IOTA, you can automate the transfer of power and the payment for that power. This automation makes your infrastructure more dynamic and easier to update.
+Masked Authenticated Messaging (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, on the Tangle. You can use the MAM package to publish encrypted and authenticated messages to channels.
 -------------------------
