@@ -34,4 +34,4 @@ This mode is useful for devices that want to communicate in private among each o
 
 Restricted channels adds an authorization key, called the side key, to private mode. The address of the transaction that contains the MAM message (channel ID) is the hash of the side key and the root. As a result, only those with the original root and the side key can decrypt messages in a private channel.
 
-This mode is useful for being able to revoke access to the channel by changing the side key. When a key change event occurs the new side key needs to be distributed to the parties that are allowed to follow the channel.
+This mode is useful for being able to revoke access to the channel by changing the side key. When you change a side key, you just need to distribute it to the parties that are allowed to follow the rest of the channel.

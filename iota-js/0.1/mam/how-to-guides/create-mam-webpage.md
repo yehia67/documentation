@@ -1,4 +1,4 @@
-# Publishing to a webpage with MAM
+# Publish and display public messages on a webpage
 
 **In the `mam` package is a minified JavaScript file that you can use in webpages. This way, you can build web applications that publish MAM messages and display them.**  
 

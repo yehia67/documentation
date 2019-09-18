@@ -159,7 +159,7 @@ For example, you can serialize these fields to create a magnet link.
 
 ### Serialize a CDA into a magnet link
 
-The built-in method for serializing a CDA is to create a magent link.
+The built-in method for serializing a CDA is to create a magnet link.
 
 1. To serialize a CDA into a magnet link, use the `serializeCDAMagnet()` method in the [`@iota/cda` module](https://github.com/iotaledger/iota.js/tree/next/packages/cda)
 
@@ -170,7 +170,7 @@ The built-in method for serializing a CDA is to create a magent link.
     // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1
     ```
 
-2. To send a transaction to a CDA that's been serialized into a magnet link, pass the magent link to the `parseCDAMagnet()` method, then and pass the result to the`sendToCDA()` method
+2. To send a transaction to a CDA that's been serialized into a magnet link, pass the magnet link to the `parseCDAMagnet()` method, then and pass the result to the`sendToCDA()` method
 
     ```js
      const magnetLink = 'iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0';

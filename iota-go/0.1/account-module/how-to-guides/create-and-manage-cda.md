@@ -170,16 +170,16 @@ For example, you can serialize these fields to create a magnet link.
 
 ### Serialize a CDA into a magnet link
 
-The built-in method for serializing a CDA is to create a magent link.
+The built-in method for serializing a CDA is to create a magnet link.
 
-1. To serialize the CDA into a magent link, use the `AsMagnetLink()` method of the CDA object
+1. To serialize the CDA into a magnet link, use the `AsMagnetLink()` method of the CDA object
 
     ```go
     fmt.Println(cda.AsMagnetLink())
     // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0
     ```
 
-2. To send a transaction to a CDA that's been serialized into a magnet link, deserialize the magent link into a CDA
+2. To send a transaction to a CDA that's been serialized into a magnet link, deserialize the magnet link into a CDA
 
     ```go
     cda, err := deposit.ParseMagnetLink(cda.AsMagnetLink())

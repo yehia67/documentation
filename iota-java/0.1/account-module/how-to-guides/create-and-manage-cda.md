@@ -116,7 +116,7 @@ For example, you can serialize these fields to create a magnet link.
 
 ### Serialize a CDA into a magnet link
 
-The built-in method for serializing a CDA is to create a magent link.
+The built-in method for serializing a CDA is to create a magnet link.
 
 1. To serialize a CDA to a magnet link, do the following:
 
@@ -127,7 +127,7 @@ The built-in method for serializing a CDA is to create a magent link.
     // iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000
     ```
 
-2. To send a transaction to a CDA that's been serialized into a magnet link, first deserialize the magent link into a CDA
+2. To send a transaction to a CDA that's been serialized into a magnet link, first deserialize the magnet link into a CDA
 
     ```java
      String magnet = "iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000";

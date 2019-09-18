@@ -1,6 +1,12 @@
 # Get started with Masked Authenticated Messaging
 
-**Masked Authenticated Messaging (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, on the Tangle. You can use the MAM package to publish messages to channels, subscribe to channels, and manage channels.**
+**Masked Authenticated Messaging (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, on the Tangle. You can use the MAM package to publish messages to channels, subscribe to them, and manage them.**
+
+The Tangle allows you to attach zero-value transactions to it, but these transactions are not signed or checked by nodes to verify their authenticity.
+
+With MAM, all messages are signed by the owner of a seed. This way, those with access to a [channel](../concepts/channels.md) can verify the signature and decrypt the messages.
+
+You can [learn more about the details of MAM](https://medium.com/coinmonks/iota-mam-eloquently-explained-d7505863b413) in this blog post.
 
 :::warning:Beta software
 The client libraries are currently in beta and you should not use them in production environments.
@@ -8,7 +14,7 @@ The client libraries are currently in beta and you should not use them in produc
 
 ## Audience
 
-This documentation is designed for developers who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [bundles, and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md).
+This documentation is designed for developers who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [bundles, transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md), and [signatures](root://dev-essentials/0.1/concepts/addresses-and-signatures.md).
 
 ## Prerequisites
 
