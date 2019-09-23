@@ -13,6 +13,7 @@
 [Trinity/How-to Guides/Create a QR code](/trinity/how-to-guides/create-a-qr-code.md)
 [Trinity/How-to Guides/Create a deep link](/trinity/how-to-guides/create-deep-link.md)
 [Trinity/How-to Guides/Connect to a custom node](/trinity/how-to-guides/connect-to-a-custom-node.md)
+[Trinity/How-to Guides/Outsource proof of work](/trinity/how-to-guides/outsource-pow.md)
 [Trinity/How-to Guides/Manage your account](/trinity/how-to-guides/manage-your-account.md)
 [Trinity/How-to Guides/Manage your security settings](/trinity/how-to-guides/manage-your-security-settings.md)
 [Trinity/How-to Guides/Change the general settings](/trinity/how-to-guides/change-the-general-settings.md)
