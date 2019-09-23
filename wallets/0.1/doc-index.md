@@ -17,7 +17,7 @@
 [Trinity/How-to Guides/Manage your account](/trinity/how-to-guides/manage-your-account.md)
 [Trinity/How-to Guides/Manage your security settings](/trinity/how-to-guides/manage-your-security-settings.md)
 [Trinity/How-to Guides/Change the general settings](/trinity/how-to-guides/change-the-general-settings.md)
-[Trinity/How-to Guides/Change the advanced settings](/trinity/how-to-guides/change-the-advanced-settings.md)
+[Trinity/How-to Guides/Help your transactions be confirmed](/trinity/how-to-guides/auto-promote.md)
 [Trinity/How-to Guides/Perform a snapshot transition](/trinity/how-to-guides/perform-a-snapshot-transition.md)
 [Trinity/How-to Guides/Develop features on Trinity](/trinity/how-to-guides/develop-features-on-trinity.md)
 [Trinity/References/Troubleshooting](/trinity/references/troubleshooting.md)

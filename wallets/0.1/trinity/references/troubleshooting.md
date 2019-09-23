@@ -18,7 +18,7 @@ If you think your balance is wrong (and a [global snapshot](../how-to-guides/per
 
 When you send a transaction, it has a pending status until it's confirmed.
 
-If a transaction is pending for a long time, make sure that the [Auto-promotion setting](../how-to-guides/change-the-advanced-settings.md) is set to **Enabled**.
+If a transaction is pending for a long time, make sure that the [Auto-promotion setting](../how-to-guides/auto-promote.md) is set to **Enabled**.
 
 :::info:
 Auto-promotion is available on mobile devices only when Trinity is in the foreground.
