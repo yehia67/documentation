@@ -45,5 +45,3 @@ Trinity stores your seeds for you (unless you use a [hardware wallet](../concept
 To change the login password on a desktop, go to **Settings** > **Change password**.
 
 To change the login password on a mobile device, go to **Settings** > **Security settings** > **Change password**.
-
-![Change password](../images/settings-password.jpg)
