@@ -249,7 +249,7 @@ To verify your certificate, open a web browser and go to the URL that was printe
 
 Use the [administration portal](https://certification-admin.iota.org/) to create new certificates or check for existing ones.
 
-Use the [API](https://certification-api.iota.org/docs/#iota-certification-api) to manage your certificates.
+Use the [API](https://certification-api.iota.org/docs/#iota-certification-api) to manage your certificates. For example, if you make a mistake on a certificate and want to invalidate it, use the [`setBlacklist` endpoint](https://certification-api.iota.org/docs/#setblacklist).
 
 
 
