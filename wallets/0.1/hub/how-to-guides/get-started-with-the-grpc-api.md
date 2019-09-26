@@ -3,7 +3,7 @@
 **Hub exposes some gRPC methods that you can call using any gRPC client. These methods allow you to manage users' tokens by interfacing with the database and an IOTA network. In this guide, you'll learn the basics of the gRPC API to create a new user with some new deposit addresses.**
 
 :::info:
-This guide helps you to test the gRPC API with [this CLI client](https://github.com/njpatel/grpcc). For production environments, we recommend generating client code from one of the available [gRPC libraries](https://grpc.io/about/).
+This guide helps you to test the gRPC API with [this command-line client](https://github.com/njpatel/grpcc). For production environments, we recommend generating client code from one of the available [gRPC libraries](https://grpc.io/about/).
 :::
 
 ## Prerequisites
@@ -76,7 +76,7 @@ You must have [installed Hub](../how-to-guides/install-hub.md) and it must be ru
     ```
 
     :::info:
-    You can see in the console from step 3 that the `createUser` method takes a `CreateUserRequest` object. You can search for that object in the [API reference](../references/api-reference.md#hub.rpc.CreateUserRequest).
+    You can see in the console from step 3 that the `createUser()` method takes a `CreateUserRequest` object. You can search for that object in the [API reference](../references/grpc-api-reference.md#hub.rpc.CreateUserRequest).
 
     The `pr` argument is a pre-built callback function that prints the result to the console.
     :::
@@ -119,8 +119,8 @@ Each of these deposit addresses was derived from a unique seed.
 ## Next steps
 
 1. Deposit IOTA tokens into one of the user deposit addresses
-2. Use the [`sweepSubscription`](../references/api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. 
-3. Use the [`userWithdraw()`](../references/api-reference.md#hub.rpc.UserWithdrawRequest) method to make a withdrawal request from the deposit address
+2. Use the [`sweepSubscription()`](../references/grpc-api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. 
+3. Use the [`userWithdraw()`](../references/grpc-api-reference.md#hub.rpc.UserWithdrawRequest) method to make a withdrawal request from the deposit address
 
 
 

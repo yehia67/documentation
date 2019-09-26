@@ -6,9 +6,7 @@ For this guide, you'll need a new installation of [Ubuntu 18.04 LTS](https://www
 
 ![IOTA Hub architecture](../images/iota_hub.png)
 
-To get started with Hub, complete the following tasks in order.
-
-## Install the dependencies
+## Step 1. Install the dependencies
 
 The signing server needs to be compiled from source using the dependencies.
 
@@ -61,7 +59,7 @@ The signing server needs to be compiled from source using the dependencies.
 	sudo apt install -y git
 	```
 
-## Build the signing server
+## Step 2. Build the signing server
 
 1. Clone the GitHub repository
 
@@ -93,7 +91,7 @@ INFO: 1283 processes: 1283 linux-sandbox.
 INFO: Build completed successfully, 1412 total actions
 ```
 
-## Generate self-signed SSL certificates
+## Step 3. Generate self-signed SSL certificates
 
 SSL certificates are used for secure communication between your Hub and the signing server. The Hub repository includes some scripts to generate the certificates.
 
@@ -143,7 +141,7 @@ SSL certificates are used for secure communication between your Hub and the sign
 
 You should now have some SSL server and client certificates ready to use!
 
-## Run the signing server
+## Step 4. Run the signing server
 
 To run the signing server, you need to execute the binary file that was created during the build process. This binary file is located in the `./bazel-bin/signing_server/signing_server` directory.
 
@@ -241,7 +239,7 @@ signing                          RUNNING   pid 11740, uptime 0:00:02
 
 Now, you need to connect Hub to the signing server.
 
-### Connect Hub to the signing server
+### Step 5. Connect Hub to the signing server
 
 In the Hub server, you need to import the generated SSL certificates and edit the start.sh script to use them.
 

@@ -10,7 +10,7 @@ To get started with Hub, complete the following tasks in order.
 
 A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
 
-## Install the dependencies
+## Step 1. Install the dependencies
 
 To compile Hub, you need to install the dependencies.
 
@@ -78,7 +78,7 @@ To compile Hub, you need to install the dependencies.
 	sudo apt install -y git
 	```
 
-## Install the database server
+## Step 2. Install the database server
 
 Hub needs a database, in which to store data such as user IDs, addresses, and balances.
 
@@ -128,7 +128,7 @@ mysql  Ver 15.1 Distrib 10.3.10-MariaDB, for debian-linux-gnu (x86_64) using rea
  
 Here, you can see that MariaDB 10.3.10 is installed, which is a later version than the minimum of 10.2.1.
 
-## Build Hub
+## Step 3. Build Hub
 
 After setting up all these dependencies it's time to install Hub.
 
@@ -164,7 +164,7 @@ INFO: Build completed successfully, 1811 total actions
 ```
 :::
 
-## Create the database
+## Step 4. Create the database
 
 After Hub is installed, you need to create the database tables that store Hub's data.
 
@@ -190,7 +190,7 @@ In these commands, make sure to replace the `myrootpassword` placeholder with th
 	mysql -h127.0.0.1 -uroot -pmyrootpassword hub < schema/triggers.mariadb.sql
 	```
 
-## Run Hub
+## Step 5. Run Hub
 
 To run Hub, you need to execute the binary file that was created during the build process. This binary file is located in the `./bazel-bin/hub/hub` directory.
 
@@ -302,11 +302,14 @@ hub                              RUNNING   pid 9983, uptime 0:01:22
 ```
 :::
 
-## Test Hub
+## Step 6. Test Hub
 
-On startup, Hub provides a gRPC server for you to interact with. Hub has a [limited set of gRPC calls](../references/api-reference.md) that can be used to interact with it.
+On startup, Hub provides a gRPC server and a RESTful API server for you to interact with:
 
-You can communicate with Hub through any programming language that supports [gRPC](https://grpc.io/). In this guide, you'll use Python with some prebuilt examples.
+* [gRPC API reference](../references/grpc-api-reference.md)
+* [RESTful API reference](../references/restful-api-reference.md)
+
+You can communicate with the Hub gRPC API through any programming language that supports [gRPC](https://grpc.io/). In this guide, you'll use Python with some prebuilt examples.
 
 1. Download the sample code from GitHub
 
