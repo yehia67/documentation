@@ -8,7 +8,7 @@ This guide assumes that you installed Hub with a MYSQL database such as MariaDB,
 
 ## Prerequisites
 
-[Create a user who has a deposit address](../how-to-guides/get-started-with-the-api.md).
+[Create a user who has a deposit address](../how-to-guides/get-started-with-the-grpc-api.md).
 
 ---
 
