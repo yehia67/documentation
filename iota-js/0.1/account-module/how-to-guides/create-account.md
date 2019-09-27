@@ -99,7 +99,7 @@ Instead of using the default account settings, you can customize them to change 
       });
       ```
 
-2. To customize the database settings that your seed state, pass a `persistenceAdapter` factory to your account. This adapter creates a local database object to which the account can save the seed state. By default, the local database is saved in the root of the project. You can change the path to the local database in the `persistencePath` field.
+2. To customize the database settings that store your seed state, pass a `persistenceAdapter` factory to your account. This adapter creates a local database object to which the account can save the seed state. By default, the local database is saved in the root of the project. You can change the path to the local database in the `persistencePath` field.
 
       ```js
       const { createPersistenceAdapter }  = require('@iota/persistence-adapter-level')
