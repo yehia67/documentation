@@ -1675,8 +1675,8 @@ If this endpoint returns true, you should not deposit any more IOTA tokens into 
 
 |**Parameters** |**Required or Optional**|**Description** |**Type**
 |--|--|--|--|
-| `address`          |The user's deposit address whose spent status you want to check (may include a checksum) |string|
-| `validateChecksum` |Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum)
+| `address`          |Required|The user's deposit address whose spent status you want to check (may include a checksum) |string|
+| `validateChecksum` |Optional|Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum)
 
 ### Examples
 --------------------
