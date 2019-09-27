@@ -33,6 +33,7 @@ If you’re not familiar with gRPC and protobuf, we recommend following the [gRP
 | SweepSubscription    | [SweepSubscriptionRequest](#hub.rpc.SweepSubscriptionRequest) | [SweepEvent](#SweepEvent)              | Monitor a stream of all sweeps since a given time |
 | UserWithdraw         | [UserWithdrawRequest](#hub.rpc.UserWithdrawRequest)          | [UserWithdrawReply](#hub.rpc.UserWithdrawRequest)            | Submit a withdrawal request for a user                    |
 | UserWithdrawCancel   | [UserWithdrawCancelRequest](#hub.rpc.UserWithdrawCancelRequest) | [UserWithdrawCancelReply](#hub.rpc.UserWithdrawCancelRequest) | Submit a request to cancel a withdrawal. A cancelation is possible only if it isn't already included in a sweep |
+| WasAddressSpentFrom          | [WasAddressSpentFromRequest](#hub.rpc.WasAddressSpentFromRequest)            | [WasAddressSpentFromReply](#hub.rpc.WasAddressSpentFromReply)              | Find out if a deposit address has already been withdrawn from |
 | WasWithdrawalCancelled          | [WasWithdrawalCancelledRequest](#hub.rpc.WasWithdrawalCancelledRequest)            | [WasWithdrawalCancelledReply](#hub.rpc.WasWithdrawalCancelledReply)              | Find out if a withdrawal was canceled |
 
 <a name="messages.proto"></a>
@@ -367,6 +368,29 @@ To use this method, you must run Hub with the [`--SignBundle_enabled` flag](../r
 | withdrawalUUID  | [string](#string) |  singular     | Withdrawal UUID to check for cancelation |
 
 <a name="hub.rpc.WasWithdrawalCancelledReply"></a>
+
+<a name="hub.rpc.WasAddressSpentFromRequest"></a>
+
+### WasAddressSpentFromRequest
+
+Find out if a deposit address has already been withdrawn from.
+
+If this endpoint returns true, you should not deposit any more IOTA tokens into it.
+
+|**Field**|**Type**|**Rules**|**Description**|
+| ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
+| address          | [string](#string) | singular      | The user's deposit address whose spent status you want to check (may include a checksum)  |
+| validateChecksum | [bool](#bool)     |   singular    | Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum)                          |
+
+<a name="hub.rpc.WasAddressSpentFromReply"></a>
+
+### WasAddressSpentFromReply
+
+|**Field**|**Type**|**Rules** |**Description**|
+| --------- | ----------------- | ----- | ----------------------- |
+| wasAddressSpentFrom | [bool](#bool) |   singular    | Whether the address is spent |
+
+<a name="hub.rpc.StatsRequest"></a>
 
 ### WasWithdrawalCancelledReply
 

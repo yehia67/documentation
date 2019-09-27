@@ -1315,7 +1315,8 @@ curl http://localhost:50021 \
 {
     "bundleHash": "EWLCW9FFLSBUGZZOOLFQLTRJFKNGPUVCIOCQYTSDOSZLBCBJIIJZGPALGAKKANBTDYOBVQFOJHA9OVFOY",
     "timestamp": "1567577007000",
-    "uuid": ["4782e7d5-9ce4-477d-8fd0-32f5f3385db2"]
+    "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2",
+    "withdrawalUuid": "6784e7d5-9fe4-477d-8fd0-32f5f3785de2"
 }
 ```
 ---
@@ -1333,7 +1334,7 @@ curl http://localhost:50021 \
 |--|--|
 | `bundleHash` | The bundle hash of the sweep|
 | `timestamp` | The UNIX timestamp of when the sweep was created |
-|`uuid`|The UUIDs of the withdrawals that were actioned in the sweep|
+|`withdrawalUuid`|The UUIDs of the withdrawals that were actioned in the sweep|
 
 ## SweepSubscription
 
@@ -1663,6 +1664,110 @@ curl http://localhost:50021 \
 |**Return field** |**Description**|
 |--|--|
 | `success` | Whether the withdrawal was canceled |
+
+## wasAddressSpentFrom
+
+Find out if a deposit address has already been withdrawn from.
+
+If this endpoint returns true, you should not deposit any more IOTA tokens into it.
+
+### Parameters
+
+|**Parameters** |**Required or Optional**|**Description** |**Type**
+|--|--|--|--|
+| `address`          |The user's deposit address whose spent status you want to check (may include a checksum) |string|
+| `validateChecksum` |Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum)
+
+### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+command = {
+    "command": "wasAddressSpentFrom",
+    "address" : "LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD",
+    "validateChecksum": "true"
+}
+
+stringified = json.dumps(command)
+
+headers = {
+    'content-type': 'application/json',
+    'X-IOTA-API-Version': '1'
+}
+
+request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var command = {
+    "command": "wasAddressSpentFrom",
+    "address" : "LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD",
+    "validateChecksum": "true"
+}
+
+var options = {
+  url: 'http://localhost:50021',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+		'X-IOTA-API-Version': '1',
+    'Content-Length': Buffer.byteLength(JSON.stringify(command))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### Curl
+```bash
+curl http://localhost:50021 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+    "command": "wasAddressSpentFrom",
+    "address" : "LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD",
+    "validateChecksum": "true"
+}'
+```
+--------------------
+
+### Response examples
+--------------------
+### 200
+```json
+{
+"wasAddressSpentFrom": "true"
+}
+```
+---
+### 400
+```json
+{"error": "'command' parameter has not been specified"}
+```
+--------------------
+
+### Results
+
+|**Return field** |**Description**|
+|--|--|
+| `wasAddressSpentFrom` | Whether the address is spent|
 
 ## WasWithdrawalCancelled
 
