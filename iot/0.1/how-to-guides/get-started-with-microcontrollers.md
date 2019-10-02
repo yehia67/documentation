@@ -2,7 +2,7 @@
 
 **In this guide, you learn how to get started with the nRF5 series of  microcontrollers. When you've completed this guide, you'll be able to follow our series of tutorials for using IOTA on the Internet of Things.**
 
-The nrf52 series of microcontrollers are an ideal single-chip solution for wearables, toys, smart home devices and appliances, and wireless charging.
+The nRF52 series of microcontrollers are an ideal single-chip solution for wearables, toys, smart home devices and appliances, and wireless charging.
 
 We use this series of microcontrollers in these tutorials because they include Bluetooth and are usually cheap. 
 
@@ -10,8 +10,8 @@ We use this series of microcontrollers in these tutorials because they include B
     
 - nRF52832 breakout board by SparkFun
 - nRF52 development kit
-- nRF52832 micro development kit- nRF52832 USB dongle
-- nRF52832 module + nrf52832 minimum test board (Used in these tutorials)
+- nRF52832 micro development kit
+- nRF52832 module + nRF52832 minimum test board (Used in these tutorials)
 
     :::info:
     Make sure that the development board does not have half pin holes.

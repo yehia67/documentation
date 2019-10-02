@@ -21,7 +21,7 @@ To find out if your board has an integrated programmer and/or USB-to-UART connec
     
 1. If the pins on your microcontroller aren't soldered onto the board, solder them.
     
-    **chinese nRF52832 module + nrf52832 Minimum Test Board**
+    **chinese nRF52832 module + nRF52832 Minimum Test Board**
     ![chinese nRF52832 minimum test board soldered](../images/nrf52_cheap_board.png)
     
 2. If your microcontroller doesn't have an integrated programmer and/or USB-to-UART connector, [connect your programmer and/or USB-to-UART connector to it](../how-to-guides/connect-to-serial-interface.md)

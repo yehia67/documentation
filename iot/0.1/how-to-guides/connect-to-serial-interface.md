@@ -34,7 +34,7 @@ To complete this guide, you need the following:
 The microcontroller's pinout depends on the development board you use. In this guide, we use an nRF52832 module and an nrf52832 minimum test board.
     
 :::info:
-This breakout board is also compatible with the nrf51822 and nrf52832. If you are going to use the breakout board, make sure your microcontroller has 1.27mm pitch.
+This breakout board is also compatible with the nRF51822 and nRF52832. If you are going to use the breakout board, make sure your microcontroller has 1.27mm pitch.
 :::
 
 ![nRF52 breakout board](../images/nrf52_cheap_board.png)
