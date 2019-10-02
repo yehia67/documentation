@@ -35,6 +35,7 @@ Due to a bug in RIOT OS, only the nRF52832 is supported at the moment. An implem
     :::
 
 If everything went well, you should see no errors, and if you do `help`, you should see a list of available commands.
+`server` must be one of the available options.
 
 To see a list of all running processes, do `ps`.
 

@@ -10,8 +10,7 @@ We use this series of microcontrollers in these tutorials because they include B
     
 - nRF52832 breakout board by SparkFun
 - nRF52 development kit
-- nRF52832 micro development kit
-- nRF52832 USB dongle
+- nRF52832 micro development kit- nRF52832 USB dongle
 - nRF52832 module + nrf52832 minimum test board (Used in these tutorials)
 
     :::info:

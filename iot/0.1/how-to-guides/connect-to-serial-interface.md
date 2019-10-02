@@ -7,7 +7,7 @@
 To complete this guide, you need the following:
 
 - A USB-to-UART connector
-- **Optional:** DuPont cables to connect the USB-to-UART connector to your microcontroller
+- DuPont cables to connect the USB-to-UART connector to your microcontroller
 
 ---
 
