@@ -3,7 +3,7 @@
 **Trinity interacts with the Tangle through a [quorum](../concepts/node-quorum.md) of default nodes. You can choose to add one of your own nodes to the quorum, connect to a quorum of custom nodes, or connect to a specific node to use for proof of work.**
 
 :::info:
-All nodes in Trinity must use the HTTPS protocol.
+All nodes in Trinity must communicate over HTTPS.
 :::
 
 ![Node management in Trinity](../images/node-management.png)

@@ -13,7 +13,7 @@ The signing server needs to be compiled from source using the dependencies.
 1. Make sure that the local apt repository is up to date and contains the multiverse repository
 
 	```bash
-	sudo apt update \
+	sudo apt update
 	sudo apt upgrade
 	```
 
@@ -32,13 +32,13 @@ The signing server needs to be compiled from source using the dependencies.
 4. Download the binary installer for the [latest version of Bazel](https://github.com/bazelbuild/bazel/releases)
 
 	```bash
-	wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
+	wget https://github.com/bazelbuild/bazel/releases/download/0.29.0/bazel-0.29.0-installer-linux-x86_64.sh
 	```
 
 5. Make sure that you can execute the installer script
 
 	```bash
-	chmod +x bazel-0.18.0-installer-linux-x86_64.sh
+	chmod +x bazel-0.29.0-installer-linux-x86_64.sh
 	```
 
 6. Install Bazel under your active user using the `--user` flag:
@@ -64,13 +64,13 @@ The signing server needs to be compiled from source using the dependencies.
 1. Clone the GitHub repository
 
 	```bash
-	git clone https://github.com/iotaledger/rpchub.git
+	git clone https://github.com/iotaledger/hub.git
 	```
 
-2. Change into the `rpchub` directory
+2. Change into the `hub` directory
 
 	```bash
-	cd rpchub
+	cd hub
 	```
 
 3. Build Hub from the source code:
@@ -171,7 +171,7 @@ Before you can run the binary file, you need to configure it.
 	Use the same salt as the one you used in the [Hub configuration](../how-to-guides/install-hub.md#run-hub).
 	:::
 
-3. Make the start.sh file executable
+3. Make the `start.sh` file executable
 
 	```bash
 	chmod a+x start.sh
@@ -204,17 +204,17 @@ Before you can run the binary file, you need to configure it.
 	sudo nano /etc/supervisor/conf.d/signing.conf
 	```
 
-7. Add the following lines to the signing.conf file. Change the value of the `user` field, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` field are correct.
+7. Add the following lines to the signing.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` field are correct.
 
 	```shell
 	[program:hub]
-	command=/home/dave/rpchub/start.sh
-	directory=/home/dave/rpchub/
+	command=/home/dave/hub/start.sh
+	directory=/home/dave/hub/
 	user=dave
 	autostart=true
 	autorestart=true
-	stderr_logfile=/home/dave/rpchub/err.log
-	stdout_logfile=/home/dave/rpchub/info.log
+	stderr_logfile=/home/dave/hub/err.log
+	stdout_logfile=/home/dave/hub/info.log
 	```
 
 8. Save the signing.conf file and reload supervisor
@@ -243,10 +243,10 @@ Now, you need to connect Hub to the signing server.
 
 In the Hub server, you need to import the generated SSL certificates and edit the start.sh script to use them.
 
-1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the hub server. You can do this in any way you prefer. For this example, send them over SSH, using the `scp` command. Change 192.168.2.212 to the URL or IP address of your Hub server. Change the `/home/dave/rpchub/` directory to the path where your Hub is installed.
+1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the hub server. You can do this in any way you prefer. For this example, send them over SSH, using the `scp` command. Change 192.168.2.212 to the URL or IP address of your Hub server. Replace the `/home/dave/hub/` directory with the path where your Hub is installed.
 
 	```bash
-	scp client.crt client.key ca.crt 192.168.2.212:/home/dave/rpchub/
+	scp client.crt client.key ca.crt 192.168.2.212:/home/dave/hub/
 	``` 
 
 	The output should display something like the following:
@@ -294,7 +294,7 @@ In the Hub server, you need to import the generated SSL certificates and edit th
 	--signingServerSslCert ca.crt 
 	```
 	
-6. Save the start.sh file and restart Hub
+6. Save the `start.sh` file and restart Hub
 
 	```bash
 	sudo supervisorctl restart hub

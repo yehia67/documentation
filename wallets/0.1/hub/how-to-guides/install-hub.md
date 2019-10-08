@@ -4,8 +4,6 @@
 
 ![IOTA Hub architecture](../images/iota_hub.png)
 
-To get started with Hub, complete the following tasks in order.
-
 ## Prerequisites
 
 A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
@@ -17,7 +15,7 @@ To compile Hub, you need to install the dependencies.
 1. Make sure that your local `apt` repository is up to date
 
 	```bash
-	sudo apt update \
+	sudo apt update 
 	sudo apt upgrade
 	```
 
@@ -36,7 +34,7 @@ To compile Hub, you need to install the dependencies.
 4. Download the binary installer for the [latest version of Bazel](https://github.com/bazelbuild/bazel/releases)
 
 	```bash
-	wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
+	wget https://github.com/bazelbuild/bazel/releases/download/0.29.1/bazel-0.29.1-installer-linux-x86_64.sh
 	```
 	The download may take some time.
 	
@@ -49,13 +47,13 @@ To compile Hub, you need to install the dependencies.
 5. Give yourself permission to execute the script
 
 	```bash
-	chmod +x bazel-0.18.0-installer-linux-x86_64.sh
+	chmod +x bazel-0.29.1-installer-linux-x86_64.sh
 	```
 
 6. Install Bazel
 
 	```bash
-	./bazel-0.18.0-installer-linux-x86_64.sh --user
+	./bazel-0.29.1-installer-linux-x86_64.sh --user
 	```
 
 	The `--user` flag installs Bazel to the `$HOME/bin` directory on your system.
@@ -80,7 +78,7 @@ To compile Hub, you need to install the dependencies.
 
 ## Step 2. Install the database server
 
-Hub needs a database, in which to store data such as user IDs, addresses, and balances.
+Hub stores data such as user IDs, addresses, and balances in a database.
 
 By default, Hub uses [MariaDB 10.2.1+](https://mariadb.com/) because it supports CHECK constraints. A CHECK constraint restricts the data you can add to the table. If you attempt to insert invalid data in a column, MariaDB throws an error.
 
@@ -112,7 +110,7 @@ The default repositories for Ubuntu 18.04 LTS don't provide a package that can b
 
 	During the installation, you'll be prompted to enter a root password for MariaDB. Enter a secure password and remember it. You will need it later on.
 
-	![MariaDB password prompt](../images/mariapassword.png "Choose your password")
+	![MariaDB password prompt](../images/mariapassword.png)
 
 5. Make sure that MySQL is installed
 
@@ -135,13 +133,13 @@ After setting up all these dependencies it's time to install Hub.
 1. Clone the GitHub repository
 
 	```bash
-	git clone https://github.com/iotaledger/rpchub.git
+	git clone https://github.com/iotaledger/hub.git
 	```
 
-2. Change into the `rpchub` directory
+2. Change into the `hub` directory
 
 	```bash
-	cd rpchub
+	cd hub
 	```
 
 3. Build Hub from the source code:
@@ -218,15 +216,15 @@ Before you can run the binary file, you need to configure it.
 	```
 
 	:::warning:Warning
-	Change the value of the `salt` flag to a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
+	Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
 
 	To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md).
 	:::
 
 	:::info:
-	This example assumes that you have a local IRI node connected to port `14265`. We recommend this option. If you want to connect to a trusted remote node, replace the value of the `apiAddress` field with the URL or IP address of the node that you want to connect to.
+	This example assumes that you have a local IRI node connected to port `14265`. We recommend this option.
 	
-	Hub can't connect to nodes that use the HTTPS protocol. [View a list of available nodes](https://iota.dance/).
+	If you want to connect to a trusted remote node, replace the value of the `apiAddress` field with the URL or IP address of the node that you want to connect to.
 	
 	To view the available [command line flags](../references/command-line-flags.md), do the following:
 
@@ -267,17 +265,17 @@ Before you can run the binary file, you need to configure it.
 	sudo nano /etc/supervisor/conf.d/hub.conf
 	```
 
-7. Add the following lines to the hub.conf file. Change the value of the `user` field, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user.
+7. Add the following lines to the hub.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user.
 
 	```shell
 	[program:hub]
-	command=/home/dave/rpchub/start.sh
-	directory=/home/dave/rpchub/
+	command=/home/dave/hub/start.sh
+	directory=/home/dave/hub/
 	user=dave
 	autostart=true
 	autorestart=true
-	stderr_logfile=/home/dave/rpchub/err.log
-	stdout_logfile=/home/dave/rpchub/info.log
+	stderr_logfile=/home/dave/hub/err.log
+	stdout_logfile=/home/dave/hub/info.log
 	```
 
 8. Save the hub.conf file and reload supervisor
@@ -304,10 +302,16 @@ hub                              RUNNING   pid 9983, uptime 0:01:22
 
 ## Step 6. Test Hub
 
-On startup, Hub provides a gRPC server and a RESTful API server for you to interact with:
+On startup, Hub provides either a gRPC server or a RESTful API server for you to interact with:
 
 * [gRPC API reference](../references/grpc-api-reference.md)
 * [RESTful API reference](../references/restful-api-reference.md)
+
+In this guide, we expose the gRPC API.
+
+:::info:
+If you want to use the RESTful API, you must start Hub with the `--serverType http` command line flag.
+:::
 
 You can communicate with the Hub gRPC API through any programming language that supports [gRPC](https://grpc.io/). In this guide, you'll use Python with some prebuilt examples.
 
