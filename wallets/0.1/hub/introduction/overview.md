@@ -53,4 +53,4 @@ If a user deposits tokens into a spent address, you can use the `recoverFunds` m
 
 ## Repository
 
-Go to the Hub source code on [Github](https://github.com/iotaledger/rpchub)
+Go to the Hub source code on [Github](https://github.com/iotaledger/hub)

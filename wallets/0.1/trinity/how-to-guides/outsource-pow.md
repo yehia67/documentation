@@ -5,7 +5,7 @@
 You can use the **Outsouce proof of work** option to ask a specific node to do the proof of work for your transactions.
 
 :::info:
-All nodes in Trinity must use the HTTPS protocol.
+All nodes in Trinity must communicate over HTTPS.
 :::
 
 1. Go to **Settings** > **Node** > **Add custom nodes**,  and enter the URL or IP address of the nodes you want to add

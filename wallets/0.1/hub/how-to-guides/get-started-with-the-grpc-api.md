@@ -24,10 +24,10 @@ You must have [installed Hub](../how-to-guides/install-hub.md) and it must be ru
     sudo npm install -g grpcc
     ```
 
-3. Change into the `rpchub` directory
+3. Change into the `hub` directory
 
     ```bash
-    cd rpchub
+    cd hub
     ```
 
 3. Start the gRPC client
