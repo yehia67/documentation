@@ -1,6 +1,6 @@
 # Set up a sensor server
 
-**In this guide, we are going to set up a sensor server that accepts UDP packages on port 51037.**
+**By setting up a sensor as a server, you can allow other devices to request data from it over the internet. This is useful for applications that need to access this data and perform calculations on it.**
 
 :::info:
 Due to a bug in RIOT OS, only the nRF52832 is supported at the moment. An implementation for state-of-the-art hardware such as the nRF52840 is in progress.

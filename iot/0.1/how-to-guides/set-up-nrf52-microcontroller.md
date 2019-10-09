@@ -1,6 +1,6 @@
 # Set up an nRF52 microcontroller
 
-**Some nRF52 series microcontrollers do not have an integrated programmer or soldered pins. In this case, you need to solder the pins, In this guide, we set up a nRF52 development board that doesn't have an integrated programmer or soldered pins.**
+**Before you can start using your microcontroller, you need to set it up with the correct hardware and software requirements.**
 
 ## Prerequisites
 
@@ -21,10 +21,13 @@ To find out if your board has an integrated programmer and/or USB-to-UART connec
     
 1. If the pins on your microcontroller aren't soldered onto the board, solder them.
     
-    **chinese nRF52832 module + nRF52832 Minimum Test Board**
-    ![chinese nRF52832 minimum test board soldered](../images/nrf52_cheap_board.png)
+    :::info:
+    This is a [useful soldering guide](https://learn.pimoroni.com/tutorial/sandyj/the-ultimate-guide-to-soldering).
+    :::
     
-2. If your microcontroller doesn't have an integrated programmer and/or USB-to-UART connector, [connect your programmer and/or USB-to-UART connector to it](../how-to-guides/connect-to-serial-interface.md)
+2. If your microcontroller doesn't have an integrated programmer, [connect your external one to it](../how-to-guides/connect-programmer.md)
+
+3. If your microcontroller doesn't have an integrated USB-to-UART connector, [connect your external one to it](../how-to-guides/connect-to-serial-interface.md)
 
 ## Step 2. Set up the software on your PC
 
@@ -32,7 +35,7 @@ To program and flash a microcontroller, you need a Linux-based PC that has the n
 
 1. [Install Git](https://help.github.com/en/articles/set-up-git)
 
-2. [Install the ARM toolchain](install-arm-gcc-toolchain.md), which allows you to compile code into binary that your microcontroller can run
+2. [Install the ARM toolchain](../how-to-guides/install-arm-gcc-toolchain.md), which allows you to compile code into binary that your microcontroller can run
 
 3. [Install OpenOCD](https://github.com/RIOT-OS/RIOT/wiki/OpenOCD), which includes scripts to make it easy to flash the binary onto your microcontroller
 
