@@ -6,6 +6,7 @@
 [Wallets](/wallets)
 [Utilities](/utils)
 [App Blueprints](/blueprints)
+[IoT](/iot)
 [IOTA Go](/iota-go)
 [IOTA Java](/iota-java)
 [IOTA JS](/iota-js)
