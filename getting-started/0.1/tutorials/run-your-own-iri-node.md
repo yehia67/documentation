@@ -20,7 +20,7 @@ If you're using a Linux operating system, add `sudo` before all the commands in 
 To complete this tutorial, you need the following:
 
 * Access to a command prompt
-* An Internet connection
+
 
 ## Run an IRI node
 

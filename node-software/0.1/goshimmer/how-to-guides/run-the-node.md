@@ -19,7 +19,7 @@ Some of the advantages of running a node in a Docker container include the follo
 To complete this guide, you need the following:
 
 * [Git](https://git-scm.com/downloads)
-* An Internet connection
+
 * [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
 * A public IP address
 * [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms)
@@ -148,7 +148,7 @@ If you don't have any accepted neighbors, make sure that you've forwarded your `
 
 ## Build a node from source
 
-When you build the node from the source code, you need to make sure that you have the dependencies in the prerequisites such as GCC, and the Go programming language.
+When you build the node from the source code, you need to make sure that you have the prerequisites such as GCC, and the Go programming language.
 
 ### Prerequisites
 
@@ -157,7 +157,7 @@ To complete this guide, you need the following:
 * At least version 1.12 of the Go programming language (we recommend the latest version)
 * GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
 * [Git](https://git-scm.com/downloads)
-* An Internet connection
+
 * [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
 * A public IP address
 

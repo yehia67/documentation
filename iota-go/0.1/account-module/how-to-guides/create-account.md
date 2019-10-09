@@ -32,7 +32,7 @@ To complete this tutorial, you need the following:
 
 * Access to a command prompt
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* An Internet connection
+
 * Follow our [Getting started guide](../introduction/overview.md) 
 
 :::warning: Create a new seed

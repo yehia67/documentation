@@ -8,7 +8,7 @@ To complete this guide, you need the following:
 
 * 4GB RAM
 * 64-bit processor
-* An Internet connection
+
 * A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04))
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 * [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
@@ -200,7 +200,7 @@ The following Devnet nodes have auto-peering enabled, so they will automatically
 
 If you want to run a Spamnet node, you must include only the following configuration parameters in your configuration file:
 
-```
+```bash
 [IRI]
 ZMQ_ENABLED = TRUE
 TESTNET = TRUE
@@ -218,7 +218,7 @@ NEIGHBORS = tcp://p101.spamnet.iota.cafe:15600 tcp://p102.spamnet.iota.cafe:1560
 
 You must also create a snapshot file to define an address that contains the entire supply of tokens on the Spamnet. The location of this file must be set in the `SNAPSHOT_FILE` configuration parameter.
 
-```
+```bash
 WYF9OOFCQJRTLTRMREDWPOBQ9KNDMFVZSROZVXACAWKUMXAIYTFQCPAYZHNGKIWZZGKCSHSSTRDHDAJCW;2779530283277761
 ```
 

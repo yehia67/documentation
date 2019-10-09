@@ -12,7 +12,7 @@ To complete this guide, you need the following:
 
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* An Internet connection
+
 
 ## Create a new address
 

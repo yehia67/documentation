@@ -15,7 +15,7 @@ To complete this guide, you need the following:
 
 * 4GB RAM
 * 64-bit processor
-* An Internet connection
+
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 * [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
 

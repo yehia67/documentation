@@ -122,6 +122,8 @@ Each of these deposit addresses was derived from a unique seed.
 2. Use the [`sweepSubscription()`](../references/grpc-api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. 
 3. Use the [`userWithdraw()`](../references/grpc-api-reference.md#hub.rpc.UserWithdrawRequest) method to make a withdrawal request from the deposit address
 
+When you're comfortable with these methods, you're ready to [integrate Hub into your exchange](../how-to-guides/integrate-hub.md).
+
 
 
 

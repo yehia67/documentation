@@ -3,7 +3,7 @@
 **Sometimes users send IOTA tokens to spent deposit addresses that have already been swept. In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To recover the tokens from the swept address, you can try to transfer them to a new address before a potential attacker can. Doing so exposes more of the address's private key, but this is inevitable to transfer the tokens to a safe address.**
 
 :::info:
-In this guide, we use the `signBundle()` method to recover IOTA tokens from a spent address. This method is useful for creating a custom bundle that deposits any amount of the spent address's total balance into one or more output addresses.
+In this guide, we use the `signBundle()` gRPC API call to recover IOTA tokens from a spent address. This method is useful for creating a custom bundle that deposits any amount of the spent address's total balance into one or more output addresses.
 
 To transfer the total balance of a spent address into a single output address, it's easier to use the [`recoverFunds()` method](../references/grpc-api-reference.md#hub.rpc.RecoverFundsRequest).
 :::
@@ -15,7 +15,7 @@ To complete this guide, you need the following:
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
-* An Internet connection
+
 * The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages
 * Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
 
@@ -40,7 +40,7 @@ In this guide, we use the JavaScript client library to create and send the bundl
     const Converter = require('@iota/converter');
     ```
 
-2. Create a `createUnsignedBundle()` function to create and save an unsigned bundle
+2. Write a function that creates an unsigned bundle and saves it to a file
 
     ```js
     async function createUnsignedBundle({ outputAddress, inputAddress, securityLevel, value }) {
@@ -141,7 +141,6 @@ Before you use the `signBundle()` method, make sure that Hub's [`SignBundle_enab
 
 4. Add the signature to the unsigned bundle
 
-
    ```js
    bundle.set(Bundle.addSignatureOrMessage(bundle, signature, 1));
    ```
@@ -205,7 +204,7 @@ After adding the signature fragments to the input transactions in your bundle, i
    :::
 
 :::success:
-You've sent a signed bundle that recovers IOTA tokens from a swept address.
+You've sent a signed bundle that recovers IOTA tokens from a swept address by depositing them into a safe one.
 :::
 
 :::warning:
