@@ -21,10 +21,7 @@ To find out if your board has an integrated programmer and/or USB-to-UART connec
     
 1. If the pins on your microcontroller aren't soldered onto the board, solder them.
     
-    **nRF52832 USB dongle**
-    ![nRF52832 USB dongle soldered pins](../images/nrf52832_usb_dongle_soldered_pins.png)
-    
-    **chinese nRF52832 module + nrf52832 Minimum Test Board**
+    **chinese nRF52832 module + nRF52832 Minimum Test Board**
     ![chinese nRF52832 minimum test board soldered](../images/nrf52_cheap_board.png)
     
 2. If your microcontroller doesn't have an integrated programmer and/or USB-to-UART connector, [connect your programmer and/or USB-to-UART connector to it](../how-to-guides/connect-to-serial-interface.md)
@@ -35,7 +32,7 @@ To program and flash a microcontroller, you need a Linux-based PC that has the n
 
 1. [Install Git](https://help.github.com/en/articles/set-up-git)
 
-2. [Install the ARM toolchain](https://gnu-mcu-eclipse.github.io/toolchain/arm/install/#gnulinux-1), which allows you to compile code into binary that your microcontroller can run
+2. [Install the ARM toolchain](install-arm-gcc-toolchain.md), which allows you to compile code into binary that your microcontroller can run
 
 3. [Install OpenOCD](https://github.com/RIOT-OS/RIOT/wiki/OpenOCD), which includes scripts to make it easy to flash the binary onto your microcontroller
 

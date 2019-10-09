@@ -62,18 +62,17 @@
     
 5. To read the data from a particular sensor, execute the `saul read` command followed by an ID. To read the data from all sensors, execute the `saul read all` command.
 
-
     ```bash
     saul read 5
     ```
 
-You should see something like the following:
-
-```
-2019-09-02 16:54:30,904 - INFO #  saul read 5
-2019-09-02 16:54:30,907 - INFO # Reading from #5 (bme280|SENSE_PRESS)
-2019-09-02 16:54:30,909 - INFO # Data:         1631 hPa
-```
+    You should see something like the following:
+    
+    ```
+    2019-09-02 16:54:30,904 - INFO #  saul read 5
+    2019-09-02 16:54:30,907 - INFO # Reading from #5 (bme280|SENSE_PRESS)
+    2019-09-02 16:54:30,909 - INFO # Data:         1631 hPa
+    ```
 
 ## Next steps
 

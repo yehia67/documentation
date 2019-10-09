@@ -15,7 +15,7 @@ If you're using use the BME/BMP 280 sensor without the board, you need to do the
 
 2. [Connect the BME/BMP 280 sensor to your microcontroller](connect-a-I2C-sensor.md)
 
-3. Connect the SDO pin to the VDDIO pin to give the BME/BMP 280 the [I2C device address 0x77.](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001.pdf)(See "5.2 I²C Interface" for more information.)
+3. Connect the SDO pin to the VDDIO pin to give the BME/BMP 280 the [I2C device address 0x77.](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001.pdf) (See "5.2 I²C Interface" for more information.)
 
     :::info:
     If you want to use the BMP 180 and BME/BMP 280 together on one I2C bus, 
