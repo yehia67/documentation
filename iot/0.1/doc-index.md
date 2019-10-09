@@ -12,6 +12,8 @@
 
 [How-to Guides/Set up a single-board computer](/how-to-guides/setup-sbc.md)
 
+[How-to Guides/Install Go on an SBC](/how-to-guides/install-go-on-sbc.md)
+
 [How-to Guides/Read sensor data from a microcontroller](/how-to-guides/read-sensor-data.md)
 
 [How-to Guides/Set up a border router](/how-to-guides/set-up-a-ble-ipv6-border-router.md)
@@ -31,7 +33,5 @@
 [How-to Guides/Connect to the serial interface](/how-to-guides/connect-to-serial-interface.md)
 
 [How-to Guides/Connect an I2C sensor](/how-to-guides/connect-a-I2C-sensor.md)
-
-[How-to Guides/Install Go on an SBC](/how-to-guides/install-go-on-sbc.md)
 
 [References/Troubleshooting](/references/troubleshooting.md)

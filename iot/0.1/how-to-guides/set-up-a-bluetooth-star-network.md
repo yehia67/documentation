@@ -1,6 +1,6 @@
 # Set up a Bluetooth star network (6LoWPAN network)
 
-**In this guide, we set up a a Bluetooth star network, using state-of-the-art IoT industry standards.**
+**In this guide, you set up a a Bluetooth star network, using state-of-the-art IoT industry standards.**
 
 ## Prerequisites
 

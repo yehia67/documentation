@@ -1,13 +1,13 @@
 # Attach sensor data to the Tangle
 
-**In this guide, we run an application that collects environment sensor data and attaches it to the Tangle on MAM channels, using MAMv1**
+**In this guide, you run an application that collects environment sensor data and attaches it to the Tangle on MAM channels using Masked Authenticated Messaging (MAM).**
 
 ## Prerequisites
 
 To complete this guide, you need the following:
 
 - [Set up a Bluetooth star network](../how-to-guides/set-up-a-bluetooth-star-network.md)
-- [Install Bazel](https://docs.bazel.build/versions/master/install.html)
+- [Install Bazel on your SBC](https://docs.bazel.build/versions/master/install.html)
 
 ## Architecture
 

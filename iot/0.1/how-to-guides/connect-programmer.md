@@ -1,4 +1,4 @@
-# Connect a programmer to your nRF52 series microcontroller
+# Connect to a programmer
 
 **To flash anything to your nRF52 series microcontroller, you need a programmer. Some microcontrollers don't an integrated programmer, in which case, you need to connect an external one.**
 
