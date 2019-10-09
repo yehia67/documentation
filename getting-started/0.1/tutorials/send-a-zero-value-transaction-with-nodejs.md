@@ -11,7 +11,7 @@ To complete this tutorial, you need the following:
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
-* An Internet connection
+
 
 ## Step 1. Attach an immutable message to the Tangle
 

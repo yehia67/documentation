@@ -17,7 +17,9 @@ To action a trade, you can use the `processTransfers` or the `userWithdraw` API 
 
 :::info:
 When you use the `processTransfers` API call, no tokens are transferred on the Tangle. Instead, the users' balances are updated in the database, which affects how many tokens users can request to withdraw.
+:::
 
+:::
 When you use the `userWithdraw` API call, the tokens are transferred on the Tangle and the users' balances are updated in the database.
 :::
 
@@ -66,6 +68,12 @@ To process withdrawal requests, you may need to transfer IOTA tokens back into H
 3. Restore the seed UUID for the addresses in the Hub database
 
 4. Restart Hub
+
+### Video tutorial
+
+To help you set up integration option 1, we made this video tutorial that integrates Hub into a sample exchange.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O2ukIXqJTls" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Integration option 2. Manage user balances outside of Hub
 

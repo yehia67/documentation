@@ -79,7 +79,7 @@ CDAs can be used only in an account and not in the generic client library method
     :::
 
     :::info:
-    The last 9 characters of a CDA are the checksum, which is a hash of the address and all of its conditions. This checksum is not compatible with Trinity or the Devent faucet because they don't yet support CDAs.
+    The last 9 characters of a CDA are the checksum, which is a hash of the address and all of its conditions. This checksum is not compatible with Trinity or the Devnet faucet because they don't yet support CDAs.
     
     Remove the checksum before pasting your address into the input field of either of these applications.
     :::

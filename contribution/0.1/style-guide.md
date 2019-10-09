@@ -95,7 +95,7 @@ After writing or editing content in your local copy of the branch, the next step
 2. Commit your changes
 
     ```bash
-    git commit -v -a -m "<Describe the changes you made>"
+    git commit -m "<Describe the changes you made>"
     ```
 
     :::info:
@@ -159,7 +159,7 @@ To enhance the spell checker, you can add words to the dictionary.json file, whi
 }
 ```
 
-If you want to validate just a single project you can run the script with a command line option of the specific folder name. For example:
+If you want to validate just a single project you can run the script with a command-line option of the specific folder name. For example, to validate only the content in the `getting-started` directory:
 
 ```shell
 node buildProjects getting-started

@@ -1,6 +1,6 @@
 # Install Hub
 
-**Hub allows you to create new users, manage their seeds, and action deposits and withdrawals by using any programming language that supports the gRPC framework.**
+**By installing Hub, you can create new users, manage their seeds, and issue deposits and withdrawals by using simple API calls.**
 
 ![IOTA Hub architecture](../images/iota_hub.png)
 
@@ -194,52 +194,80 @@ To run Hub, you need to execute the binary file that was created during the buil
 
 Before you can run the binary file, you need to configure it.
 
-1. Create a shell script file called `start.sh`
+1\. Create a shell script file called `start.sh`
 
 	```bash
 	nano start.sh
 	```
 
-2. In the start.sh file, add the command for running hub with any [command line flags](../references/command-line-flags.md) that you want to use:
+2\. In the start.sh file, add the command for running hub with the [command line flags](../references/command-line-flags.md) that you want to use
 
-	```shell
-	#!/bin/bash
-		
-	./bazel-bin/hub/hub \
-		--salt CHANGETHIS \
-		--db hub \
-		--dbUser root \
-		--dbPassword myrootpassword \
-		--apiAddress 127.0.0.1:14265 \
-		--minWeightMagnitude 14 \
-		--listenAddress 127.0.0.1:50051
-	```
+--------------------
+### Best practice
 
-	:::warning:Warning
-	Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
+This example assumes that you have a local Mainnet node connected to port `14265`. We recommend this option. If you don't have a local Mainnet node, [follow our guides to setting one up](root://node-software/0.1/iri/introduction/overview.md).
 
-	To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md).
-	:::
+If you connect to a remote node, make sure that you trust it because it is responsible for giving Hub information about the Tangle such as the state of a transaction (pending or confirmed).
 
-	:::info:
-	This example assumes that you have a local IRI node connected to port `14265`. We recommend this option.
+```shell
+#!/bin/bash
 	
-	If you want to connect to a trusted remote node, replace the value of the `apiAddress` field with the URL or IP address of the node that you want to connect to.
+./bazel-bin/hub/hub \
+	--salt CHANGETHIS \
+	--db hub \
+	--dbUser root \
+	--dbPassword myrootpassword \
+	--apiAddress 127.0.0.1:14265 \
+	--minWeightMagnitude 14 \
+	--listenAddress 127.0.0.1:50051
+```
+---
+### HTTPS Devnet node
+
+For testing purposes, you may want to connect to a remote Devnet node. Most remote nodes use an HTTPS connection, so you need to set the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) to `true`.
+
+The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
+
+:::info:
+Use the Devnet faucet to [get some free test tokens](../tutorials/receive-test-tokens.md)
+:::
+
+```shell
+#!/bin/bash
 	
-	To view the available [command line flags](../references/command-line-flags.md), do the following:
+./bazel-bin/hub/hub \
+	--salt CHANGETHIS \
+	--db hub \
+	--dbUser root \
+	--dbPassword myrootpassword \
+	--apiAddress nodes.devnet.iota.org:443 \
+	--minWeightMagnitude 9 \
+	--listenAddress 127.0.0.1:50051 \
+	--useHttpsIRI true
+```
+--------------------
 
-	```bash
-	./bazel-bin/hub/hub --help
-	```
-	:::
+:::warning:Warning
+Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
 
-3. Give yourself permission to execute the script
+To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md).
+:::
+
+:::info:
+To view the available [command line flags](../references/command-line-flags.md) in Hub, you can also do the following:
+
+```bash
+./bazel-bin/hub/hub --help
+```
+:::
+	
+3\. Give yourself permission to execute the script
 
 	```bash
 	chmod a+x start.sh
 	```
 
-4. Run the shell script to start Hub
+4\. Run the shell script to start Hub
 
 	```bash
 	./start.sh
@@ -253,19 +281,19 @@ Before you can run the binary file, you need to configure it.
 
 	For this tutorial, you'll use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. 
 
-5. Install the `supervisor` package (press `CTRL+C` to exit the current shell session):
+5\. Install the `supervisor` package (press `CTRL+C` to exit the current shell session):
 
 	```bash
 	sudo apt install -y supervisor
 	```
 
-6. Create a configuration file for the supervised process
+6\. Create a configuration file for the supervised process
 
 	```bash
 	sudo nano /etc/supervisor/conf.d/hub.conf
 	```
 
-7. Add the following lines to the hub.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user.
+7\. Add the following lines to the hub.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user.
 
 	```shell
 	[program:hub]
@@ -278,7 +306,7 @@ Before you can run the binary file, you need to configure it.
 	stdout_logfile=/home/dave/hub/info.log
 	```
 
-8. Save the hub.conf file and reload supervisor
+8\. Save the hub.conf file and reload supervisor
 
 	```bash
 	sudo supervisorctl reload
@@ -286,7 +314,7 @@ Before you can run the binary file, you need to configure it.
 
 	Hub should now be running in the background and should automatically start again after a server reboot or a crash.
 
-9. Check the supervisor status
+9\. Check the supervisor status
 
 	```bash
 	sudo supervisorctl status
@@ -385,7 +413,7 @@ events {
 }
 ```
 
-If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into a another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a sweep.
+If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into a another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md).
 
 ## Next steps
 

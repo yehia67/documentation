@@ -1,22 +1,17 @@
 # Hub overview
 
-**Hub is a headless multi-user wallet for cryptocurrency exchanges. Hub offers you a secure way to manage deposits and withdrawals of users' IOTA tokens through a RESTful API and a gRPC API.**
+**Hub is a headless multi-user wallet for cryptocurrency exchanges. Through its application programming interfaces (APIs), Hub offers you an easy way to integrate IOTA into an exchange. You can choose to use either the RESTful or gRPC API, which provide simple calls to help you safely manage users' deposits and withdrawals of IOTA tokens.**
 
-Hub helps you to integrate IOTA into your own applications through the following processes:
+Hub has two types of account:
 
-* [Transaction monitoring](#transaction-monitoring)
-* [Seed creation](#seed-creation)
-* [Token protection](#token-protection)
-
-You can use Hub to build applications that allow users to deposit IOTA tokens into it. When users deposit IOTA tokens, Hub keeps a record of their balances in a database. Then, Hub transfers those tokens to the Hub owner's IOTA address. This way the Hub owner has control over the tokens and can keep them safe for the users. If a user later requests a withdrawal, the Hub owner can issue that withdrawal by checking the user's balance and sending a bundle of transactions to a node.
-
-All Hub functions such as deposits and withdrawals are done by calling either [gRPC API endpoints](../how-to-guides/get-started-with-the-grpc-api.md) or [RESTful API endpoints](../references/restful-api-reference.md).
+* User accounts: Allow users to deposit and withdraw IOTA tokens from the exchange
+* Hub owner account: Stores users' deposited IOTA tokens until they request a withdrawal
 
 ## Transaction monitoring
 
 Before any transaction is accepted by an IOTA network, it must be confirmed. When a user deposits IOTA tokens into one of their addresses, or when the Hub owner issues a withdrawal, the transactions may become stuck in a pending state. So, to avoid delays in confirmation, Hub keeps a database of pending transactions so that it can automatically [reattach and promote](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md) them.
 
-## Seed creation
+## Seed management
 
 Each client in an IOTA network has a secret password called a [seed](root://getting-started/0.1/introduction/what-is-a-seed.md), which is used to create [addresses and to sign bundles of transactions](root://dev-essentials/0.1/concepts/addresses-and-signatures.md). Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address.
 
@@ -31,7 +26,7 @@ The database contains a record of how many IOTA tokens a user has. The IOTA toke
 
 ## Token protection
 
-IOTA uses the Winternitz one-time signature scheme to sign bundles. As a result, each signature exposes around half of the private key. Signing a bundle once with a private key is safe. So, when a user withdraws from an address, that address is considered 'spent' and must never be withdrawn from again.
+IOTA uses the Winternitz one-time signature scheme to sign bundles. As a result,addresses can be safely withdrawn from only once. So, when a user withdraws from an address, that address is considered 'spent' and must never be withdrawn from again.
 
 :::info:
 [learn about signatures in IOTA and why you must never withdraw from an address more than once](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse).
@@ -43,13 +38,13 @@ To help users not to withdraw from spent addresses, Hub has the following featur
  
 **Deposit address management:** Hub derives a new address from a new seed for every deposit. To do so, Hub uses the withdrawal management to check whether an address was already withdrawn from. If an address has been withdrawn from, Hub creates a new seed UUID to use to derive a new deposit address.
 
-**Sweeps:** When actioning a user's withdrawal request, Hub creates a bundle, called a [sweep](../concepts/sweeps.md), that also moves funds from users' deposit addresses to one of the Hub owner's addresses.
+**Sweeps:** When issuing a withdrawal, Hub creates a bundle, called a [sweep](../concepts/sweeps.md), that also moves funds from users' deposit addresses to one of the Hub owner's addresses.
 
 ## Limitations
 
 Hub helps to stop users from withdrawing from spent addresses, but it doesn't stop users from depositing into them.
 
-If a user deposits tokens into a spent address, you can use the `recoverFunds` method in one of the APIs.
+If a user deposits tokens into a spent address, you can use the `recoverFunds` API call in one of the APIs.
 
 ## Repository
 

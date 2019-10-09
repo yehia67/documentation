@@ -32,7 +32,7 @@ To complete this tutorial, you need the following:
 
 * Access to a command prompt
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* An Internet connection
+
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 
 :::warning: Create a new seed

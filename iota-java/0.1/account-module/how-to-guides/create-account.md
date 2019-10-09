@@ -32,7 +32,7 @@ To complete this tutorial, you need the following:
 
 * Access to a command prompt
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* An Internet connection
+
 * Java 6 (or higher)
 * [Install the client library](../introduction/overview.md#install-the-library)
 
