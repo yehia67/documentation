@@ -8,7 +8,7 @@
 
 [How-to Guides/Getting started with microcontrollers](/how-to-guides/get-started-with-microcontrollers.md)
 
-[How-to Guides/Set up an nrf52 microcontroller](/how-to-guides/set-up-nrf52-microcontroller.md)
+[How-to Guides/Set up an nRF52 microcontroller](/how-to-guides/set-up-nrf52-microcontroller.md)
 
 [How-to Guides/Set up a single-board computer](/how-to-guides/setup-sbc.md)
 
