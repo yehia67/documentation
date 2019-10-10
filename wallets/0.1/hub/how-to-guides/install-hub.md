@@ -229,7 +229,7 @@ For testing purposes, you may want to connect to a remote Devnet node. Most remo
 The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
 :::info:
-Use the Devnet faucet to [get some free test tokens](../tutorials/receive-test-tokens.md)
+Use the Devnet faucet to [get some free test tokens](root://getting-started/0.1/tutorials/receive-test-tokens.md)
 :::
 
 ```shell
