@@ -862,6 +862,7 @@ Depending on the value of the `type` field, the following data is returned:
 #### USER_ACCOUNT
 
 |**Return field** | **Description** |
+| ----------- | ------------------------------------------------------------ |
 |`type`|The `USER_ACCOUNT` type is for changes to the balance of a user's account|
 |`reason`|  The type of [event that caused a change to the account balance](#balance-change-events-for-user-accounts)    |
 | `userId`          | ID of the user whose account's balance changed |
