@@ -85,7 +85,7 @@ To program and flash a microcontroller, you need a Linux-based PC that has the n
     :::
 
     ```bash
-     BOARD=BOARD PORT=/dev/ttyUSB0 make flash term
+    BOARD=BOARD PORT=/dev/ttyUSB0 make flash term
     ```
 
     :::info:
@@ -99,10 +99,6 @@ To program and flash a microcontroller, you need a Linux-based PC that has the n
     2019-08-27 09:17:09,359 - INFO # Hello World!
     2019-08-27 09:17:09,361 - INFO # You are running RIOT on a(n) nrf52832-mdk board.
     ```
-
-    :::info:
-    If you don't see this in the shell, press the reset button on your microcontroller.
-    :::
 
 :::success: Congratulations :tada:
 Now that you can compile code and flash it to your microcontroller, you're ready to build some real applications.

@@ -1,6 +1,6 @@
 # Read sensor data from a microcontroller
 
-**In this guide, you create a low-budget sensor application that has similar features to the Bosch XDK.**
+**In this guide, you create a low-budget application that allows you to read data from a sensor that's connected to an nRF52 series microcontroller.**
 
 ## Prerequisites
 
@@ -77,6 +77,6 @@ After configuring the code to use the correct sensor drivers, you can compile it
 
 ## Next steps
 
-You should read sensor data from a shell session only while you debug an application.
+Reading sensor data from a shell session like this is useful only while you debug an application.
 
 For a production application, you can [set up a sensor server](../how-to-guides/run-an-environment-sensor-and-client.md) that allows clients to connect to it and read its data. 

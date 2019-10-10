@@ -13,6 +13,6 @@
 
 4. If you have a BME/BMP 280 sensor without the board, you need to do the following to select the I2C interface:
 - [Pull up the SCL and SDA lines](https://electronics.stackexchange.com/a/1852/201179)
-- [Connect the CSB (chip select) pin to the VDDIO pin](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001.pdf)
+- [Connect the CSB pin to the VDDIO pin](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001.pdf)
  (see "5.1 Interface selection" for more information)
 
