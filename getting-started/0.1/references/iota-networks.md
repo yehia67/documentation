@@ -83,10 +83,6 @@ The Spamnet is for applications that send spam transactions.
 
 On this network, you can test your applications and build proof of concepts that use free Spamnet tokens.
 
-:::info:Receive free Spamnet tokens
-The [faucet website](https://faucet.spamnet.iota.org) sends 1Ki (1000) Spamnet tokens to your specified address.
-:::
-
 ![Spamnet configuration](../images/spamnet-topology.png)
 
 ### Minimum weight magnitude

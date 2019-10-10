@@ -197,7 +197,7 @@ The IOTA community maintains some client library wrappers that allow you to use 
 
 ## Smart contracts
 
-We are developing our own solution to smart contracts, called Qubic. IOTA smart contracts will go beyond the simple transfer of funding when a specific condition is met. In fact, the ambition of Qubic is to not only allow smart contracts, but also provide outsourced quroum computing for IoT devices. 
+We are developing our own solution to smart contracts, called Qubic. IOTA smart contracts will go beyond the simple transfer of funding when a specific condition is met. In fact, the ambition of Qubic is to not only allow smart contracts, but also provide outsourced quorum computing for IoT devices. 
 
 :::info:
 [Learn more about Qubic and see what's on the roadmap](https://qubic.iota.org/intro).

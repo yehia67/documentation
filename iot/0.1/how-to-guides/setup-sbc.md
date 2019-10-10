@@ -1,6 +1,6 @@
 # Set up a single-board computer
 
-**A single board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable, and more power efficient than multi-board computers such as desktops. You can set up an SBC for a purpose-built embedded application that uses IOTA technology.**
+**A single-board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable, and more power efficient than multi-board computers such as desktops. You can set up an SBC for a purpose-built embedded application that uses IOTA technology.**
 
 ## Prerequisites
 

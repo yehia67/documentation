@@ -1,6 +1,6 @@
 # Set up a border router
 
-**To be able to connect the star network of sensor servers to the Internet, you need a border router.**
+**To allow the sensor servers in a star network to access the Internet, you need a border router that can pass on their data. In this guide, you use set up a border router on a Linux device.**
 
 ## Prerequisites
 
@@ -88,7 +88,7 @@ You need to do these steps for every session. So, if you close your session, for
         TX bytes:2558 acl:0 sco:0 commands:92 errors:0
     ```
 
-7. Reset the device you want to use. Replace the `YOUR_DEVICE_ID` placeholder with the ID of your device.
+7. To test your connection to a device, reset one. Replace the `YOUR_DEVICE_ID` placeholder with the ID of your device.
 
     ```bash
     hciconfig YOUR_DEVICE_ID reset
@@ -100,6 +100,15 @@ You need to do these steps for every session. So, if you close your session, for
     hciconfig hci0 reset
     ```
 
-    The Bluetooth device should reset.
+The Bluetooth device should reset.
+
+## Next steps
+
+If you haven't already set up a sensor server, [do it now](../how-to-guides/set-up-ipv6-ble-host-example.md).
+
+If you've already set up a sensor server, then you have a complete Bluetooth star network, and you're ready to try one of our sample applications:
+
+* [Request data from the sensor server](../how-to-guides/run-an-environment-sensor-and-client.md)
+* [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md)
 
 

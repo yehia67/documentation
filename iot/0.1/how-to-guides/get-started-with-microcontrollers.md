@@ -9,13 +9,9 @@ We use this series of microcontrollers in these tutorials because they include B
 1\. Buy one of the following nRF52 microcontrollers from a specialized electronic retailer
     
 - nRF52832 breakout board by SparkFun
-- nRF52 development kit
-- nRF52832 micro development kit
-- nRF52832 module + nRF52832 minimum test board (Used in these tutorials)
-
-:::info:
-Make sure that the development board does not have half pin holes.
-:::
+- nRF52 development kit 
+- nRF52832 micro development kit (tested on these tutorials)
+- nRF52832 module + nRF52832 minimum test board (tested on these tutorials)
 
 When you buy a microcontroller, keep the following in mind:
 
@@ -24,15 +20,20 @@ When you buy a microcontroller, keep the following in mind:
     
 2\. If you buy a microcontroller that doesn't have an integrated programmer (sometimes called a debugger), buy one and [connect it](../how-to-guides/connect-programmer.md).
 
-:::info:
+
 A programmer is used to flash the code onto the microcontroller. 
 [Read more about what a programmer is.](https://www.engineersgarage.com/tutorials/microcontroller-programmer-burner)
+
+:::info:
+If you want a cheap option for flashing an nRF52 series microcontroller, consider buying a J-Link on-board (OB) clone.
+
+The standard J-link programmers are more expensive because they can also be used on microprocessors.
 :::
     
-3\. If you buy a microcontroller that doesn't have an integrated USB-to-UART conncector, buy one and [use it to connect to your microcontroller's serial interface](../how-to-guides/connect-to-serial-interface.md).
+3\. If you buy a microcontroller that doesn't have an integrated USB-to-UART connector, buy one and [use it to connect to your microcontroller's serial interface](../how-to-guides/connect-to-serial-interface.md).
     
 :::info:
-Buy one that works with your operating system.
+Be sure to buy a connector that's compatible with your operating system.
 :::
     
 4\. **Optional:** Buy a breadboard, DuPont cables, and pin headers
@@ -64,9 +65,9 @@ The most commonly used header has a male-to-male connection.
     
 6\. **Optional:** Buy a single-board computer
 
-:::info:
 A single-board computer (SBC) is often more powerful and has more memory than a microcontroller. As a result, you can use one to connect to your microcontroller or even to run an [IOTA node](root://ciri/0.1/how-to-guides/run-a-ciri-node-on-an-sbc.md).
 
+:::info:
 Some of the cheapest SBCs include the Raspberry Pi Zero or Orange Pi Zero. 
 We recommend a device with Wi-Fi and Bluetooth LE (version >= 4.0) so that you can easily connect to it.
 :::
