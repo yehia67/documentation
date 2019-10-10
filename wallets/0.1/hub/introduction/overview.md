@@ -4,7 +4,7 @@
 
 Hub has two types of account:
 
-* User accounts: Allow users to deposit and withdraw IOTA tokens from the exchange
+* User accounts: Allow users to deposit IOTA tokens into Hub and to request withdrawals
 * Hub owner account: Stores users' deposited IOTA tokens until they request a withdrawal
 
 ## Transaction monitoring

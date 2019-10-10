@@ -13,6 +13,7 @@ All the following commands must include an HTTP header.
 | X-IOTA-API-Version | 1 | Required |
 | Content-Type | application/json | Optional |
 
+
 :::warning:
 This API is in beta, and is subject to change. We recommend that you don't use this API in production applications.
 :::
