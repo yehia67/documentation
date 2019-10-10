@@ -72,9 +72,9 @@ Some of the cheapest SBCs include the Raspberry Pi Zero or Orange Pi Zero.
 We recommend a device with Wi-Fi and Bluetooth LE (version >= 4.0) so that you can easily connect to it.
 :::
 
-7. Buy an I2C environment sensor such as the Bosch BME/BMP 280 sensor
+7\. Buy an I2C environment sensor such as the Bosch BME/BMP 280 sensor
 
-:::info
+:::info:
 We use an operating system called RIOT OS in our tutorials.
 
 Before buying any other sensors, check the [RIOT OS sensor driver list](http://riot-os.org/api/group__drivers__sensors.html) to make sure that they are supported.
