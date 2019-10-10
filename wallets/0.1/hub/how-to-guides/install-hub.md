@@ -196,9 +196,9 @@ Before you can run the binary file, you need to configure it.
 
 1\. Create a shell script file called `start.sh`
 
-	```bash
-	nano start.sh
-	```
+```bash
+nano start.sh
+```
 
 2\. In the start.sh file, add the command for running hub with the [command line flags](../references/command-line-flags.md) that you want to use
 
@@ -265,62 +265,62 @@ To view the available [command line flags](../references/command-line-flags.md) 
 	
 3\. Give yourself permission to execute the script
 
-	```bash
-	chmod a+x start.sh
-	```
+```bash
+chmod a+x start.sh
+```
 
 4\. Run the shell script to start Hub
 
-	```bash
-	./start.sh
-	```
+```bash
+./start.sh
+```
 
-	:::success:Congratulations
-	:tada: Hub is now running!
-	:::
+:::success:Congratulations
+:tada: Hub is now running!
+:::
 
-	You're running Hub in your shell session. If you close this session, Hub will stop. Therefore, you might want to consider running Hub in a screen/tmux session, a system-wide service, or a supervised process.
+You're running Hub in your shell session. If you close this session, Hub will stop. Therefore, you might want to consider running Hub in a screen/tmux session, a system-wide service, or a supervised process.
 
-	For this tutorial, you'll use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. 
+For this tutorial, you'll use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. 
 
 5\. Install the `supervisor` package (press `CTRL+C` to exit the current shell session):
 
-	```bash
-	sudo apt install -y supervisor
-	```
+```bash
+sudo apt install -y supervisor
+```
 
 6\. Create a configuration file for the supervised process
 
-	```bash
-	sudo nano /etc/supervisor/conf.d/hub.conf
-	```
+```bash
+sudo nano /etc/supervisor/conf.d/hub.conf
+```
 
 7\. Add the following lines to the hub.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user.
 
-	```shell
-	[program:hub]
-	command=/home/dave/hub/start.sh
-	directory=/home/dave/hub/
-	user=dave
-	autostart=true
-	autorestart=true
-	stderr_logfile=/home/dave/hub/err.log
-	stdout_logfile=/home/dave/hub/info.log
-	```
+```shell
+[program:hub]
+command=/home/dave/hub/start.sh
+directory=/home/dave/hub/
+user=dave
+autostart=true
+autorestart=true
+stderr_logfile=/home/dave/hub/err.log
+stdout_logfile=/home/dave/hub/info.log
+```
 
 8\. Save the hub.conf file and reload supervisor
 
-	```bash
-	sudo supervisorctl reload
-	```
+```bash
+sudo supervisorctl reload
+```
 
-	Hub should now be running in the background and should automatically start again after a server reboot or a crash.
+Hub should now be running in the background and should automatically start again after a server reboot or a crash.
 
 9\. Check the supervisor status
 
-	```bash
-	sudo supervisorctl status
-	```
+```bash
+sudo supervisorctl status
+```
 
 :::success:Success
 The output should display something like the following:
@@ -385,7 +385,7 @@ You can communicate with the Hub gRPC API through any programming language that 
 
 	The output should display the following:
 
-	```shell
+	```bash
 	New user with id 'user-1' created!
 	```
 
