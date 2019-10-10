@@ -205,9 +205,13 @@ Before you can run the binary file, you need to configure it.
 --------------------
 ### Best practice
 
-This example assumes that you have a local Mainnet node connected to port `14265`. We recommend this option. If you don't have a local Mainnet node, [follow our guides to setting one up](root://node-software/0.1/iri/introduction/overview.md).
+We recommend connecting Hub to a local Mainnet node that you control. If you don't have a local Mainnet node, [read about the IRI node software](root://node-software/0.1/iri/introduction/overview.md) for guides on setting one up.
 
-If you connect to a remote node, make sure that you trust it because it is responsible for giving Hub information about the Tangle such as the state of a transaction (pending or confirmed).
+This command connects to a local Mainnet node on port 14265.
+
+Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
+
+Replace the value of the `dbPassword` flag with the root password you chose when you installed MariaDB.
 
 ```shell
 #!/bin/bash
@@ -224,13 +228,13 @@ If you connect to a remote node, make sure that you trust it because it is respo
 ---
 ### HTTPS Devnet node
 
-For testing purposes, you may want to connect to a remote Devnet node. Most remote nodes use an HTTPS connection, so you need to set the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) to `true`.
+For testing purposes, you may want to connect to a remote Devnet node. Most remote nodes use an HTTPS connection, so this command has the the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) set to `true`.
 
 The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
-:::info:
-Use the Devnet faucet to [get some free test tokens](root://getting-started/0.1/tutorials/receive-test-tokens.md)
-:::
+Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
+
+Replace the value of the `dbPassword` flag with the root password you chose when you installed MariaDB.
 
 ```shell
 #!/bin/bash
@@ -248,8 +252,6 @@ Use the Devnet faucet to [get some free test tokens](root://getting-started/0.1/
 --------------------
 
 :::warning:Warning
-Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
-
 To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md).
 :::
 
