@@ -11,7 +11,7 @@ To complete this guide, you need the following:
 - A J-Link, J-Link on-board clone, or DAPLink [programmer](https://www.engineersgarage.com/tutorials/microcontroller-programmer-burner) 
 - A USB-to-UART connector
 
-:::info
+:::info:
 Some development boards have an integrated programmer and/or an integrated USB-to-UART connector. If you have one of these boards, you don't need an additional programmer and/or USB-to-UART connector.
 
 To find out if your board has an integrated programmer and/or USB-to-UART connector, see its datasheet.
@@ -60,15 +60,15 @@ To program and flash a microcontroller, you need a Linux-based PC that has the n
 
 7. Clone our forked RIOT OS repository and change into the `BLE-environment-sensor/examples/hello-world` directory
 
-    :::info:
-    RIOT OS is a modular [microkernel operating system](https://wiki.osdev.org/Microkernel).
-    The modularity helps keep the operating system as small as possible by allowing you to compile only the modules that are essential for your application. This feature is beneficial for microcontrollers because they often have a small amount of available memory space.
-    :::
-
     ```bash
     git clone https://github.com/iota-community/BLE-environment-sensor.git
     cd BLE-environment-sensor/examples/hello-world
     ```
+
+    :::info:
+    RIOT OS is a modular [microkernel operating system](https://wiki.osdev.org/Microkernel).
+    The modularity helps keep the operating system as small as possible by allowing you to compile only the modules that are essential for your application. This feature is beneficial for microcontrollers because they often have a small amount of available memory space.
+    :::
 
 8. Find the path to your USB-to-UART connector by removing it, executing the `ls /dev/ttyUSB*` command, plugging the USB-to-UART connector back into your PC, then executing the `ls /dev/ttyUSB*` command again. The new entry is your connector.
 
@@ -108,7 +108,7 @@ Now that you can compile code and flash it to your microcontroller, you're ready
 
 Follow one of the our microcontroller guides:
 
-- [Read sensor data](../how-to-guides/read-sensor-data.md)
+- [Read data from a sensor on your microcontroller](../how-to-guides/read-sensor-data.md)
 - [Run an environment sensor server and client](../how-to-guides/run-an-environment-sensor-and-client.md)
 - [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md)
 
