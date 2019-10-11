@@ -122,7 +122,7 @@ Get the ID of the user that owns a given deposit address.
 	
 |**Parameter** |**Required or Optional** |**Description** |**Type**|
 |--|--|--|--|
-| `address` |Required| The 81-tryte deposit address for which you want to find the owner (without checksum) | string|
+| `address` |Required| The 81-tryte deposit address (without checksum) | string|
 
 ### Examples
 --------------------
@@ -213,17 +213,17 @@ curl http://localhost:50051 \
 
 |**Return field** | **Description** |
 |--|--|
-| `userId` | The ID of the Hub user that owns the deposit address|
+| `userId` | The ID of the user that owns the deposit address|
 
 ## GetBalance
 
-Get a Hub user's available balance.
+Get a user's available balance.
 
 ### Parameters
 	
 |**Parameters** |**Required or Optional** |**Description** |**Type**
 |--|--|--|--|
-| `userId` |Required| The ID of the Hub user whose available balance you want to check | string
+| `userId` |Required| The ID of the user | string
 
 ### Examples
 --------------------
@@ -323,7 +323,7 @@ Create a new deposit address for a given user.
 
 |**Parameter** | **Required or Optional**|**Description** |**Type**
 |--|--|--|--|
-| `userId` |Required| The ID of the Hub user for whom you want to create a new deposit address | string
+| `userId` |Required| The ID of the user | string
 
 ### Examples
 --------------------
@@ -515,7 +515,7 @@ Get the history of a user's balance.
 
 |**Parameter** | **Required or Optional**|**Description** |**Type**
 |--|--|--|--|
-| `userId` |Required| The ID of the Hub user for whom you want to get a balance history | string
+| `userId` |Required| The ID of the user | string
 
 ### Examples
 --------------------
@@ -649,7 +649,7 @@ This endpoint affects users' balances in the Hub database. No transactions are s
 	
 |**Parameters** |**Required or Optional**|**Description** |**Type**
 |--|--|--|--|
-| `userId` |Required| The ID of the Hub user whose balance you want to update during the transfer |string|
+| `userId` |Required| The ID of the user whose balance you want to update during the transfer |string|
 | `amount` |Required| The amount of IOTA tokens to add or subtract from the user's balance  | integer|
 
 ### Examples

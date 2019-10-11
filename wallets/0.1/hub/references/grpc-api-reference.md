@@ -20,7 +20,7 @@ If you’re not familiar with gRPC and protobuf, we recommend following the [gRP
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | CreateUser           | [CreateUserRequest](#hub.rpc.CreateUserRequest)              | [CreateUserReply](#hub.rpc.CreateUserRequest)                | Create a new user on Hub                                |
 | GetAddressInfo       | [GetAddressInfoRequest](#hub.rpc.GetAddressInfoRequest)      | [GetAddressInfoReply](#hub.rpc.GetAddressInfoRequest)        | Get the ID of the user that owns a given deposit address |
-| GetBalance           | [GetBalanceRequest](#hub.rpc.GetBalanceRequest)              | [GetBalanceReply](#hub.rpc.GetBalanceRequest)                | Get a Hub user's available balance                     |
+| GetBalance           | [GetBalanceRequest](#hub.rpc.GetBalanceRequest)              | [GetBalanceReply](#hub.rpc.GetBalanceRequest)                | Get a user's available balance                     |
 | GetDepositAddress    | [GetDepositAddressRequest](#hub.rpc.GetDepositAddressRequest) | [GetDepositAddressReply](#hub.rpc.GetDepositAddressRequest)  | Create a new deposit address for a given user|
 | GetStats             | [StatsRequest](#hub.rpc.StatsRequest)                        | [StatsReply](#hub.rpc.StatsRequest)                          | Get the total amount of IOTA tokens that are stored in Hub                            |
 | GetUserHistory       | [GetUserHistoryRequest](#hub.rpc.GetUserHistoryRequest)      | [GetUserHistoryReply](#hub.rpc.GetUserHistoryRequest)        | Get the history of a user's balance |
@@ -436,7 +436,7 @@ These are all the error codes that can be returned by the Hub.
 | IRI_CLIENT_UNAVAILABLE|15|Call to the node's API failed|
 |ADDRESS_WAS_ALREADY_SPENT |16|Provided address is already spent|
 |INVALID_UUID|17|Provided UUID is invalid|
-| WRONG_USER_ADDRESS|18|Provided address does not belong to a Hub user|
+| WRONG_USER_ADDRESS|18|Provided address does not belong to a user|
 |ADDRESS_BALANCE_ZERO|19|Provided address contains no IOTA tokens|
 
 ## Scalar Value Types
