@@ -48,6 +48,6 @@ AstroPiOTA is written in JavaScript and sends Sense HAT data to the Tangle in th
 
 [Run using Headless mode](../how-to-guides/connect.md)
 
-[Customize AstroPiOTA](../how-to-guides/customize.md) - AstroPiOTA sample code was inspired by [Dave de Fijter's High Mobility MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam).
+[Customize AstroPiOTA](../how-to-guides/customize.md)
 
 [Sense Hat specifications](../references/sensehat-specs.md)
