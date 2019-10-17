@@ -20,7 +20,7 @@ To calculate the PoW for a transaction, [its contents](root://dev-essentials/0.1
 
 Minimum weight magnitude (MWM) defines the requirements for proof of work.
 
-During proof of work, the transaction hash is repeatedly hashed until it ends in the same number of 0 trits as the MWM. The higher the MWM, the harder the proof of work.
+During proof of work, the transaction is repeatedly hashed until the transaction hash ends in the same number of 0 trits as the MWM. The higher the MWM, the harder the proof of work.
 
 :::info:
 [Three 0 trits are encoded as a 9 in trytes](root://dev-essentials/0.1/references/tryte-alphabet.md).
