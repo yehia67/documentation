@@ -32,7 +32,7 @@
 
 [How-to Guides/Connect an I2C sensor](/how-to-guides/connect-a-I2C-sensor.md)
 
-[How-to Guides/Install ARM gcc toolchain](/how-to-guides/install-arm-gcc-toolchain)
+[How-to Guides/Install ARM GCC toolchain](/how-to-guides/install-arm-gcc-toolchain)
 
 [How-to Guides/Install Go on an SBC](/how-to-guides/install-go-on-sbc.md)
 
