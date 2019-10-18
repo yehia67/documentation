@@ -23,11 +23,10 @@ To complete this guide, you need the following:
 
 Before you can start integrating Hub into the demo exchange, you need to set it up to run as a server on your device.
 
-1. Install Python 3 and version 3 of the `pip` installer
+1. Install Python 3
 
     ```bash
     sudo apt-get install -y python3-all
-    sudo apt-get install -y python-pip3
     ```
 
 2. If your Linux distribution has Python 2 pre-installed, make sure that it uses Python 3 by default
@@ -72,7 +71,6 @@ Before you can start integrating Hub into the demo exchange, you need to set it 
 
 	```bash
 	pip install -r requirements.txt
-    pip install 
 	```
 
 8. Prepare the database
@@ -234,7 +232,7 @@ Each time users wants to deposit IOTA tokens, it's best practice to create a new
 8. Exit the shell session by pressing **Ctrl**+**D**, and open the `models.py` file in the 'users' directory
 
     ```bash
-    sudo nano users/models.py
+    nano users/models.py
     ```
 
 9. Find the `deposit_address()` function and replace its contents with the following:
@@ -275,7 +273,7 @@ To make sure this balance is kept up to date, you can monitor Hub user addresses
 
     ```bash
     cd exchange
-    sudo nano models.py
+    nano models.py
     ```
 
 2. In the `Coin` class, under the `price_in_usd` variable, add a new variable to contain the last time the user balances were updated
@@ -461,13 +459,7 @@ Now, whenever users makes a deposit, their balance will be updated on the exchan
 
 To withdraw IOTA tokens from their accounts, users need to request a withdrawal from Hub.
 
-1. Install the IOTA Python client library
-
-    ```bash
-    pip install pyota
-    ```
-
-2. In the `iota.py` file, create a function to withdraw IOTA tokens with the `UserWithdraw` endpoint 
+1. In the `iota.py` file, create a function to withdraw IOTA tokens with the `UserWithdraw` endpoint 
 
     ```py
     def withdraw(self, user_id, amount, address, validate_checksum=True, tag='FAKEXCHANGE'):
@@ -487,13 +479,13 @@ To withdraw IOTA tokens from their accounts, users need to request a withdrawal 
             return False
     ```
 
-3. Save the file and open the `check_changes.py` file
+2. Save the file and open the `check_changes.py` file
 
     ```bash
     sudo nano exchange/management/commands/check_changes.py
     ``` 
 
-4. Add the following:
+3. Add the following:
 
     ```py
     for wr in WithdrawalRequest.objects.filter(processed=False, coin=coin):
