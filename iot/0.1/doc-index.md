@@ -10,6 +10,8 @@
 
 [How-to Guides/Set up an nRF52 microcontroller](/how-to-guides/set-up-nrf52-microcontroller.md)
 
+[How-to Guides/Install ARM GCC toolchain](/how-to-guides/install-arm-gcc-toolchain)
+
 [How-to Guides/Set up a single-board computer](/how-to-guides/setup-sbc.md)
 
 [How-to Guides/Install Go on an SBC](/how-to-guides/install-go-on-sbc.md)
