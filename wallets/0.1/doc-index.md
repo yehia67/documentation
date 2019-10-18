@@ -26,7 +26,7 @@
 [Hub/How-to Guides/Run Hub](/hub/how-to-guides/install-hub.md)
 [Hub/How-to Guides/Install the signing server](/hub/how-to-guides/install-the-signing-server.md)
 [Hub/How-to Guides/Get started with the gRPC API](/hub/how-to-guides/get-started-with-the-grpc-api.md)
-[Hub/How-to Guides/Get started with the Restful API](/hub/how-to-guides/get-started-with-rest-api.md)
+[Hub/How-to Guides/Get started with the RESTful API](/hub/how-to-guides/get-started-with-rest-api.md)
 [Hub/How-to Guides/Query the database](/hub/how-to-guides/query-the-database.md)
 [Hub/How-to Guides/Create a demo exchange](/hub/how-to-guides/create-a-demo-exchange.md)
 [Hub/How-to Guides/Integrate Hub into an exchange](/hub/how-to-guides/integrate-hub.md)

@@ -85,7 +85,7 @@ Before you can start integrating Hub into the demo exchange, you need to set it 
 	python manage.py loaddata coins
 	```
 
-10. Run the server
+10.   Run the server
 
 	```
 	python manage.py runserver
@@ -255,7 +255,7 @@ Each time users wants to deposit IOTA tokens, it's best practice to create a new
         return '1CFBdvaiZgZPTZERqnezAtDQJuGHKoHSzg'
     ```
 
-10. Save the file and run the server again
+10.  Save the file and run the server again
 
 Now, when you click **Deposit** > **Request one** in the user interface, a new deposit address should appear.
 
@@ -284,16 +284,15 @@ To make sure this balance is kept up to date, you can monitor Hub user addresses
 
 3. Save the file, then in the `iota.py` file, create a function that subscribes to balance changes by calling the [`BalanceSubscription`](../references/restful-api-reference.md#BalanceSubscription) endpoint
 
-
     ```py
     def get_balance_changes(self, since=None):
-            if since:
-                since = since.strftime('%s000')
-            else:
-                since = 0
+        if since:
+            since = since.strftime('%s000')
+        else:
+            since = 0
 
-            ret = self.request({'command': 'BalanceSubscription', 'newerThan': since})
-            return ret
+        ret = self.request({'command': 'BalanceSubscription', 'newerThan': since})
+        return ret
     ```
 
 4. Create two more functions: One to get active users and another to get their balances
@@ -334,7 +333,6 @@ To make sure this balance is kept up to date, you can monitor Hub user addresses
     from exchange.models import Coin, WithdrawalsRequest
     from user.models import User
 
-
     class Command(BaseCommand):
 
         help = "Check if there's anything in Hub that needs to be processed"
@@ -374,7 +372,7 @@ To make sure this balance is kept up to date, you can monitor Hub user addresses
     In the guide, replace the `receivingAddress` variable with your deposit address.
     :::
 
-10. Wait for 5 minutes to give the transaction time to be confirmed, then call the `check_changes` command
+10.  Wait for 5 minutes to give the transaction time to be confirmed, then call the `check_changes` command
 
     ```bash
     python manage.py check_changes
@@ -411,7 +409,6 @@ To do this, you can create a normal Hub user and transfer all IOTA tokens to tha
 
 1. In the `iota.py` file, create a function to update the Hub database so that all incoming deposits are added to the exchange owner's `hot-wallet` user
 
-
     ```py
     def batch_to_exchange(self, batch):
         self.create_user('hot-wallet')
@@ -433,7 +430,7 @@ To do this, you can create a normal Hub user and transfer all IOTA tokens to tha
             return False
     ```
 
-    This function calls the `ProcessTransferBatch` endpoint, which updates the Hub database. This way, the `hot-wallet` user has access to all users' IOTA tokens, allowing the exchange to withdraw them from Hub into a cold wallet for storage.
+    This function calls the [`ProcessTransferBatch`](../references/restful-api-reference.md#ProcessTransferBatch) endpoint, which updates the Hub database. This way, the `hot-wallet` user has access to all users' IOTA tokens, allowing the exchange to withdraw them from Hub into a cold wallet for storage.
 
     :::warning:Warning
     When you transfer tokens outside of Hub, you're at risk of not having enough funds to be able to process withdrawal requests.
