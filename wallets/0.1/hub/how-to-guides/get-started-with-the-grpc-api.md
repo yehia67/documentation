@@ -1,16 +1,20 @@
 # Get started with the gRPC API
 
-**Hub exposes some gRPC methods that you can call using any gRPC client. These methods allow you to manage users' tokens by interfacing with the database and an IOTA network. In this guide, you'll learn the basics of the gRPC API to create a new user with some new deposit addresses.**
-
-:::info:
-This guide helps you to test the gRPC API with [this command-line client](https://github.com/njpatel/grpcc). For production environments, we recommend generating client code from one of the available [gRPC libraries](https://grpc.io/about/).
-:::
+**Hub exposes some gRPC methods that you can call using any gRPC client. These methods allow you to manage users' tokens by interfacing with the Hub database and an IOTA node. In this guide, you learn the basics of the gRPC API to create a new user with some new deposit addresses.**
 
 ## Prerequisites
 
-You must have [installed Hub](../how-to-guides/install-hub.md) and it must be running on the same server as the one you'll use in this guide.
+You must have [installed Hub](../how-to-guides/install-hub.md) and it must be running on the same server as the one you use in this guide.
 
----
+## Step 1. Set up the gRPC client
+
+Before you can send API calls, you need a gRPC client that can create them.
+
+:::info:
+This guide helps you to test the gRPC API with [a GRPCC command-line client](https://github.com/njpatel/grpcc).
+
+For production environments, we recommend generating client code from one of the available [gRPC libraries](https://grpc.io/about/).
+:::
 
 1. Install npm
 
@@ -69,25 +73,33 @@ You must have [installed Hub](../how-to-guides/install-hub.md) and it must be ru
     Hub@localhost:50051> (node:6023) DeprecationWarning: grpc.load: Use the @grpc/proto-loader module with grpc.loadPackageDefinition instead
     ```
 
-4. Create a new user
+    :::info:
+    These methods are all documented in the [gRPC API reference](../references/grpc-api-reference.md).
+    :::
+
+## Step 2. Deposit IOTA tokens into Hub
+
+When you have a gRPC client, you can use it to send API calls to Hub to manage users and their deposits.
+
+1. Create a new user
 
     ```bash
     client.createUser({userId: "Jake"}, pr)
     ```
 
     :::info:
-    You can see in the console from step 3 that the `createUser()` method takes a `CreateUserRequest` object. You can search for that object in the [API reference](../references/grpc-api-reference.md#hub.rpc.CreateUserRequest).
+    The `createUser()` method takes a `CreateUserRequest` object. You can search for that object in the [API reference](../references/grpc-api-reference.md#hub.rpc.CreateUserRequest).
 
     The `pr` argument is a pre-built callback function that prints the result to the console.
     :::
 
-    Now, you'll have a new user in the database.
+    Now, you have a new user in the database.
 
     :::info:
-     You can see this user in the database by [querying the `user_account` table](../how-to-guides/query-the-database.md).
-     :::
+    You can see this user in the Hub database by [querying the `user_account` table](../how-to-guides/query-the-database.md).
+    :::
 
-5. Create a new deposit address for the user
+2. Create a new deposit address for the user
 
     ```bash
     client.getDepositAddress({userId: "Jake"}, pr)
@@ -95,34 +107,55 @@ You must have [installed Hub](../how-to-guides/install-hub.md) and it must be ru
 
     You should see a new deposit address in the console.
 
-6. Create a new address with the checksum
+3. Create a new deposit address with the checksum
 
     ```bash
     client.getDepositAddress({userId: "Jake", includeChecksum: true}, pr)
     ```
 
-    Now, that user will have two addresses that were created from two different `seeduuid` fields. You can see this data in the database by [querying the `user_address` table](../how-to-guides/query-the-database.md).
+    Now, the user has two addresses that were created from two different `seeduuid` fields. You can see this data in the database by [querying the `user_address` table](../how-to-guides/query-the-database.md).
 
     :::info:
     In the database, addresses are always saved without the checksum.
-
-    All addresses are created from unique seeds, and all seeds are created from a hash of the values of the `seeduuid` field and the [`salt`](../references/command-line-flags.md) parameter (if provided).
     :::
 
-7. Press **Ctrl**+**C** twice to stop the gRPC client
+4. Send some IOTA tokens to one of the user's deposit addresses
+
+    :::info:
+    [Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA wallet, which makes it easy to send IOTA tokens.
+    ::: 
+
+5. Get the balance and history for the user  
+
+	```bash
+	client.getBalance({userId: "Jake"}, pr)
+	```
+
+If you sent IOTA tokens to the deposit address in step 4, the output should display something like the following:
+
+```shell
+10 i available for 'Jake'
+History:
+events {
+	timestamp: 1540856214000
+	type: DEPOSIT
+	amount: 10
+}
+```
+
+If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into a another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md).
+
+6. Press **Ctrl**+**C** twice to stop the gRPC client
 
 :::success:Congratulations :tada:
-You've successfully used two gRPC methods to create a new user with two different deposit addresses.
-Each of these deposit addresses was derived from a unique seed.
+You've successfully created a new user and tested how Hub handles deposits of IOTA tokens.
 :::
 
 ## Next steps
 
-1. Deposit IOTA tokens into one of the user deposit addresses
-2. Use the [`sweepSubscription()`](../references/grpc-api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. 
-3. Use the [`userWithdraw()`](../references/grpc-api-reference.md#hub.rpc.UserWithdrawRequest) method to make a withdrawal request from the deposit address
+[Set up a demo exchange](../how-to-guides/create-a-demo-exchange.md) to test an integration of Hub.
 
-When you're comfortable with these methods, you're ready to [integrate Hub into your exchange](../how-to-guides/integrate-hub.md).
+[Integrate Hub into your exchange](../how-to-guides/integrate-hub.md).
 
 
 

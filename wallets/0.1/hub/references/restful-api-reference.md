@@ -1,9 +1,9 @@
 # RESTful API reference
 
-**This list contains the commands for communicating with Hub through the RESTful API.**
+**Hub has a RESTful API that simplifies connections to the Tangle and the Hub database. Use this API reference to find endpoints and learn what they do.**
 
 :::info:
-If you want to use the RESTful API, you must start Hub with the `--serverType http` command line flag.
+If you want to use the RESTful API, you must start Hub with the `--serverType http` command-line flag.
 :::
 
 All the following commands must include an HTTP header.
@@ -82,7 +82,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -178,7 +178,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -279,7 +279,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -311,7 +311,7 @@ curl http://localhost:50051 \
 
 ### Results
 
-|**Return field** | **Description** |
+|**Return field**  |**Description** |
 |--|--|
 | `available` | The total amount of IOTA tokens that a user has available on Hub |
 
@@ -323,7 +323,8 @@ Create a new deposit address for a given user.
 
 |**Parameter** | **Required or Optional**|**Description** |**Type**
 |--|--|--|--|
-| `userId` |Required| The ID of the user | string
+| `userId` |Required| The ID of the user | string|
+|`includeChecksum`|Optional|Whether to include the 9-tryte checksum at the end of the address|boolean
 
 ### Examples
 --------------------
@@ -379,7 +380,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -472,7 +473,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -505,7 +506,7 @@ curl http://localhost:50051 \
 
 |**Return field** | **Description** |
 |--|--|
-| `totalBalance` | The total balance of IOTA tokens that are stored in Hub|
+| `totalBalance` | The total amount of IOTA tokens that are stored in the Hub owner's account|
 
 ## GetUserHistory
 
@@ -571,7 +572,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -706,7 +707,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -802,7 +803,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -975,7 +976,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -1090,7 +1091,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -1190,7 +1191,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -1211,11 +1212,9 @@ curl http://localhost:50051 \
     "confirmed": "false",
     "trytes": "...SOMETRANSACTIONTRYTES...",
     "trytes": "...SOMETRANSACTIONTRYTESFORREATTACHMENTTRANSACTION...",
-    ....
     "tailHash": "G9POQLBHRQZOZUV9XEROHSANPAIMHUQORSFQFRJM9JGUXHOHORDFWNTNUDWDCKXPUPJKXZDEBHXDDN999",
     "tailHash": "EOBRJDZTYTAXIMSEPXUWPZJBRMPJENHCFXLJGSHGIESTCQOGSGQLNOKTDYE9VKCAAGGINGKTEDYWYD999",
-    "tailHash": "ATVRPYELRHPUHBAL9CSTQEJFEQCSENDNGF9AXHEFCYFJTAMQFUPPPPSVFXXXHPTQCAJJCEYJGVBARW999",
-    ..... (more tails)
+    "tailHash": "ATVRPYELRHPUHBAL9CSTQEJFEQCSENDNGF9AXHEFCYFJTAMQFUPPPPSVFXXXHPTQCAJJCEYJGVBARW999"
 }
 ```
 ---
@@ -1298,7 +1297,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -1403,7 +1402,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -1526,7 +1525,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -1632,7 +1631,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -1737,7 +1736,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \
@@ -1836,7 +1835,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:50051 \
 -X POST \

@@ -14,7 +14,7 @@ For example, in the glass manufacturing industry, a glass rack is a returnable a
 
 When multiple parties use a returnable asset, it's easy for the owner to lose track of it.
 
-Misplacement of such assets represents an economic loss for asset owners. When assets are missing, it affects the owners ability to fulfil deliveries and wastes their time and resources on recovering them. 
+Misplacement of such assets represents an economic loss for asset owners. When assets are missing, it affects the owners ability to fulfill deliveries and wastes their time and resources on recovering them. 
 
 The table below summarizes the different stakeholders and roles considered in our example business case. The table also shows how complex it is to keep track of all the relations involved in the handling of returnable assets. 
 
