@@ -16,13 +16,13 @@ To complete this guide, you need the following:
 
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* An Internet connection
+
 
 ## Derive addresses from private keys
 
 In this example, we use the [`signing` package](https://github.com/iotaledger/iota.js/tree/next/packages/signing) of the iota.js library to derive private keys from a seed and then to derive addresses from those private keys.
 
-1. Require the IOTA libraries
+1. Require the packages
 
     ```js
     const Iota = require('@iota/core');

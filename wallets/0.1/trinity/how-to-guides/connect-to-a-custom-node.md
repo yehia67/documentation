@@ -1,16 +1,16 @@
 # Connect to custom nodes
 
-**You can connect to one or more custom nodes either instead of the default [node quorum](../concepts/node-quorum.md) or in addition to it. For example, you may want to be able to connect to your own nodes or even connect to nodes on the Devnet.**
+**Trinity interacts with the Tangle through a [quorum](../concepts/node-quorum.md) of default nodes. You can choose to add one of your own nodes to the quorum, connect to a quorum of custom nodes, or connect to a specific node to use for proof of work.**
 
 :::info:
-All nodes in Trinity must use the HTTPS protocol.
+All nodes in Trinity must communicate over HTTPS.
 :::
 
 ![Node management in Trinity](../images/node-management.png)
 
-## Connect to custom nodes
+## Connect Trinity to a quorum of custom nodes
 
-As well as connecting to a single custom node, you can also add multiple custom nodes and use them as a node quorum. This way, you aren't restricted to using the built-in remote list of nodes that Trinity uses.
+As well as connecting to a single custom node, you can also add multiple custom nodes and use them as a node quorum. This way, you aren't restricted to using the built-in remote list of Trinity nodes.
 
 1. Go to **Settings** > **Node** > **Add custom nodes**,  and enter the URL or IP address of the nodes you want to add
 
@@ -23,15 +23,15 @@ As well as connecting to a single custom node, you can also add multiple custom 
 3. Disable the **Primary node autoswitching** option
 
     :::warning:
-    When enabled, this option switches to a different node from Trinity's list of defaults if the primary one goes offline.
+    When enabled, this option allows Trinity to connect to one of its defaults nodes if the primary one goes offline.
 
-    If your node goes offline, Trinity won't be able to connect to any nodes to update the information it displays.
+    By disabling this option, Trinity won't be able to connect to any nodes if the primary node goes offline.
     :::
 
 4. Select your node from the dropdown menu
 
     :::warning:Devnet nodes
-    If your custom node is a Devnet node, you must also disable the **Use remote list** and **Primary node autoswitching** options. The nodes in that list are Mainnet nodes, so they're incompatible with the Devnet.
+    If your custom node is a Devnet node, you must also disable the **Use remote list** option. The nodes in that list are Mainnet nodes, so they're incompatible with the Devnet.
     :::
 
 5. Click **Save**
@@ -39,6 +39,14 @@ As well as connecting to a single custom node, you can also add multiple custom 
 :::success:Congratulations! :tada:
 All the information that Trinity displays about the Tangle is now sent from your custom nodes.
 :::
+
+## Outsource proof of work
+
+Before you send a transaction, it must include a [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md). Proof of work requires a computer to use energy to do computations. By default proof of work is done on the computer that is running Trinity.
+
+You can use the Outsouce proof of work option to ask a specific node to do the proof of work for your transactions
+
+
 
 
 

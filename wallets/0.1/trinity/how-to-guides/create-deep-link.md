@@ -37,4 +37,4 @@ Accounts that are linked to hardware wallets can't send value transactions with 
     You currently can't add spaces to the message in deep links.
     :::
 
-To test your deep link, copy and paste the link into a browser's address bar. Trinity will open and you will see the auto-populated transaction fields.
+To test your deep link, copy and paste the link into a browser's address bar. When Trinity opens, you will see the auto-populated transaction fields.

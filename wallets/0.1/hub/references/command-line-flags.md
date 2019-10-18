@@ -21,16 +21,18 @@
 | :------------------------ | :--------------- | :--------|
 |`--argon2MCost`|Memory cost of Argon2 in bytes. [See this Stack Exchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.| 1 << 17|
 |`--argon2TCost` |Time cost of Argon2. [See this Stack Exchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.|4|
-|`--argon2Mode` |Argon2 mode to use: 1=argon2i, 2=argon2id|2|
+|`--argon2Mode` |Argon2 mode to use: `1` is for the [argon2i hashing function](https://www.argon2i.com/), `2` is for the [argon2id hashing function](https://www.argon2d.com/)|2|
 |`--argon2Parallelism`|Number of threads to use in parallel for Argon2. [See this Stack Exchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.|1|
 |`--authMode`|Type of connection encryption that Hub uses. This flag accepts "none" or "ssl" as the value. When set to "ssl", you must also use the `--sslKey`, `--sslCert`, and `sslCA` flags. and |"none"|
 |<a name="keySec"></a>`--keySecLevel` |[Security level](root://dev-essentials/0.1/references/security-levels.md) to use for IOTA [addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)|2|
 |`--listenAddress`| Host to which the Hub API will listen. The default host allows any IP address to access the API.| "0.0.0.0:50051"|
 |`--maxConcurrentArgon2Hash`|Maximum number of concurrent Argon2 hash processes| 4|
 |`--salt`| Characters that are hashed together with the `seed_uuid` field to create seeds for each deposit address. This value should be at least 20 characters long.   |   ""    |
+|`-serverType`| Type of API to expose (`grpc` or `http`)|grpc|
 |`--sslCert` |Path to the SSL certificate |"/dev/null"|
 |`--sslCA` |Path to the certificate authority (CA) root |"/dev/null"|
 |`--sslKey` |Path to the SSL certificate key |"/dev/null"|
+|`--sslDH`| Path to Diffie Hellman parameters (when using the RESTful API server type| "/dev/null"|
 
 ## IOTA protocol flags
 
@@ -41,16 +43,16 @@
 |`--depth`|Value to use for the `depth` parameter of the [`getTransactionsToApprove` (GTTA)](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove) endpoint| 3|
 |`--minWeightMagnitude`| [Minimum weight magnitude (MWM)](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) to use for proof of work. To use Hub on the Mainnet, you must use a MWM of 14.| 9|
 |`--powMode`|[Proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) mode, local or remote|
-|`--useHttpsIRI`| Communicate with the IRI node through the HTTPS protocol (make sure that the node that's specified in the `--apiAddress` flag supports https)|`--nouseHttpsIRI`|
+|`--useHttpsIRI`| Communicate with the IRI node through HTTPS (make sure that the node that's specified in the `--apiAddress` flag supports HTTPS)|false|
 
 ## Signing flags
 
 | **Flag** |   **Description**| **Default values**|
 | :------------------------ | :--------------- | :--------|
-|`--authProvider`| Provider to use to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method. This value can be "none" or "hmac"| "none"|
-|`--hmacKeyPath` |Path to the HMAC key used to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method|"/dev/null"|
-|<a name="recoverFunds"></a>`--RecoverFunds_enabled`|Whether you can use the `RecoverFunds` endpoint|`--noRecoverFunds_enabled`|
-|<a name="signBundle"></a>`--SignBundle_enabled`|Whether you can use the [`SignBundle` endpoint](../references/api-reference.md#hub.rpc.SignBundleRequest)|false|
+|`--authProvider`| Provider to use to authenticate the `signBundle` method. This value can be "none" or "hmac"| "none"|
+|`--hmacKeyPath` |Path to the HMAC key used to authenticate the `signBundle` method|"/dev/null"|
+|<a name="recoverFunds"></a>`--RecoverFunds_enabled`|Whether you can use the `RecoverFunds` endpoint|false|
+|<a name="signBundle"></a>`--SignBundle_enabled`|Whether you can use the `SignBundle` endpoint|false|
 |`--signingMode`|Method to use to sign bundles. This value can be "local" or "remote" (if you run a signing server) |"local"|
 |`--signingProviderAddress`|URL or IP address of the signing server. Where you have the "remote" value for the `--signingMode`, you must also use this flag.|"0.0.0.0:50052"|
 |`--signingServerChainCert`|If you configure Hub to use SSL encryption (`--authMode="ssl"`) and you have a [signing server](../how-to-guides/install-the-signing-server.md), you must pass the path to the SSL certificate chain to this flag|"/dev/null"|

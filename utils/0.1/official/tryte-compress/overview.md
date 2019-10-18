@@ -19,7 +19,7 @@ To complete this tutorial, you need the following:
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
-* An Internet connection
+
 * The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js) packages
 
 :::info:
@@ -141,7 +141,7 @@ Compressed tail transaction trytes were saved to: MZGKBEXTDCVNBRZYFLFPWWQKWT9OB9
 ## Sample code
 
 ```js
-// Require the libraries
+// Require the packages
 const Iota = require('@iota/core');
 const Compressor = require('@iota/tryte-compress');
 const Converter = require('@iota/converter');

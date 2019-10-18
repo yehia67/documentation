@@ -17,13 +17,13 @@ To complete this guide, you need the following:
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
-* An Internet connection
+
 
 ## Check if a transaction is confirmed
 
 In this example, we check if a transaction is confirmed on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
-1. Require the IOTA client library
+1. Require the `core` package
 
     ```js
     const Iota = require('@iota/core');

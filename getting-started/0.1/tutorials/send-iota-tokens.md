@@ -9,7 +9,7 @@ To complete this tutorial, you need the following:
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
-* An Internet connection
+
 
 :::info:
 [Get some free test tokens](../tutorials/receive-test-tokens.md)
@@ -25,7 +25,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     mkdir iota-example
     ```
 
-2. Change into the `iota-example` directory and install the `core` and `converter` IOTA client libraries
+2. Change into the `iota-example` directory and install the `core` and `converter` packages
 
     ```bash
     cd iota-example
@@ -45,10 +45,9 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
 
 3. In the `iota-example` directory, create a new file called `value-transaction.js`
 
-4. Require the `core` IOTA client library
+4. Require the `core` package
 
     ```js
-    // Require the IOTA library
     const Iota = require('@iota/core');
     ```
 

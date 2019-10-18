@@ -1,23 +1,21 @@
 # Install Hub
 
-**Hub allows you to create new users, manage their seeds, and action deposits and withdrawals by using any programming language that supports the gRPC framework.**
+**By installing Hub, you can create new users, manage their seeds, and issue deposits and withdrawals by using simple API calls.**
 
 ![IOTA Hub architecture](../images/iota_hub.png)
-
-To get started with Hub, complete the following tasks in order.
 
 ## Prerequisites
 
 A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
 
-## Install the dependencies
+## Step 1. Install the dependencies
 
 To compile Hub, you need to install the dependencies.
 
 1. Make sure that your local `apt` repository is up to date
 
 	```bash
-	sudo apt update \
+	sudo apt update 
 	sudo apt upgrade
 	```
 
@@ -36,7 +34,7 @@ To compile Hub, you need to install the dependencies.
 4. Download the binary installer for the [latest version of Bazel](https://github.com/bazelbuild/bazel/releases)
 
 	```bash
-	wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
+	wget https://github.com/bazelbuild/bazel/releases/download/0.29.1/bazel-0.29.1-installer-linux-x86_64.sh
 	```
 	The download may take some time.
 	
@@ -49,13 +47,13 @@ To compile Hub, you need to install the dependencies.
 5. Give yourself permission to execute the script
 
 	```bash
-	chmod +x bazel-0.18.0-installer-linux-x86_64.sh
+	chmod +x bazel-0.29.1-installer-linux-x86_64.sh
 	```
 
 6. Install Bazel
 
 	```bash
-	./bazel-0.18.0-installer-linux-x86_64.sh --user
+	./bazel-0.29.1-installer-linux-x86_64.sh --user
 	```
 
 	The `--user` flag installs Bazel to the `$HOME/bin` directory on your system.
@@ -78,9 +76,9 @@ To compile Hub, you need to install the dependencies.
 	sudo apt install -y git
 	```
 
-## Install the database server
+## Step 2. Install the database server
 
-Hub needs a database, in which to store data such as user IDs, addresses, and balances.
+Hub stores data such as user IDs, addresses, and balances in a database.
 
 By default, Hub uses [MariaDB 10.2.1+](https://mariadb.com/) because it supports CHECK constraints. A CHECK constraint restricts the data you can add to the table. If you attempt to insert invalid data in a column, MariaDB throws an error.
 
@@ -112,7 +110,7 @@ The default repositories for Ubuntu 18.04 LTS don't provide a package that can b
 
 	During the installation, you'll be prompted to enter a root password for MariaDB. Enter a secure password and remember it. You will need it later on.
 
-	![MariaDB password prompt](../images/mariapassword.png "Choose your password")
+	![MariaDB password prompt](../images/mariapassword.png)
 
 5. Make sure that MySQL is installed
 
@@ -128,20 +126,20 @@ mysql  Ver 15.1 Distrib 10.3.10-MariaDB, for debian-linux-gnu (x86_64) using rea
  
 Here, you can see that MariaDB 10.3.10 is installed, which is a later version than the minimum of 10.2.1.
 
-## Build Hub
+## Step 3. Build Hub
 
 After setting up all these dependencies it's time to install Hub.
 
 1. Clone the GitHub repository
 
 	```bash
-	git clone https://github.com/iotaledger/rpchub.git
+	git clone https://github.com/iotaledger/hub.git
 	```
 
-2. Change into the `rpchub` directory
+2. Change into the `hub` directory
 
 	```bash
-	cd rpchub
+	cd hub
 	```
 
 3. Build Hub from the source code:
@@ -164,7 +162,7 @@ INFO: Build completed successfully, 1811 total actions
 ```
 :::
 
-## Create the database
+## Step 4. Create the database
 
 After Hub is installed, you need to create the database tables that store Hub's data.
 
@@ -190,109 +188,139 @@ In these commands, make sure to replace the `myrootpassword` placeholder with th
 	mysql -h127.0.0.1 -uroot -pmyrootpassword hub < schema/triggers.mariadb.sql
 	```
 
-## Run Hub
+## Step 5. Run Hub
 
 To run Hub, you need to execute the binary file that was created during the build process. This binary file is located in the `./bazel-bin/hub/hub` directory.
 
 Before you can run the binary file, you need to configure it.
 
-1. Create a shell script file called `start.sh`
+1\. Create a shell script file called `start.sh`
 
-	```bash
-	nano start.sh
-	```
+```bash
+nano start.sh
+```
 
-2. In the start.sh file, add the command for running hub with any [command line flags](../references/command-line-flags.md) that you want to use:
+2\. In the start.sh file, add the command for running hub with the [command line flags](../references/command-line-flags.md) that you want to use
 
-	```shell
-	#!/bin/bash
-		
-	./bazel-bin/hub/hub \
-		--salt CHANGETHIS \
-		--db hub \
-		--dbUser root \
-		--dbPassword myrootpassword \
-		--apiAddress 127.0.0.1:14265 \
-		--minWeightMagnitude 14 \
-		--listenAddress 127.0.0.1:50051
-	```
+--------------------
+### Best practice
 
-	:::warning:Warning
-	Change the value of the `salt` flag to a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
+We recommend connecting Hub to a local Mainnet node that you control. If you don't have a local Mainnet node, [read about the IRI node software](root://node-software/0.1/iri/introduction/overview.md) for guides on setting one up.
 
-	To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md).
-	:::
+This command connects to a local Mainnet node on port 14265.
 
-	:::info:
-	This example assumes that you have a local IRI node connected to port `14265`. We recommend this option. If you want to connect to a trusted remote node, replace the value of the `apiAddress` field with the URL or IP address of the node that you want to connect to.
+Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
+
+Replace the value of the `dbPassword` flag with the root password you chose when you installed MariaDB.
+
+```shell
+#!/bin/bash
 	
-	Hub can't connect to nodes that use the HTTPS protocol. [View a list of available nodes](https://iota.dance/).
+./bazel-bin/hub/hub \
+	--salt CHANGETHIS \
+	--db hub \
+	--dbUser root \
+	--dbPassword myrootpassword \
+	--apiAddress 127.0.0.1:14265 \
+	--minWeightMagnitude 14 \
+	--listenAddress 127.0.0.1:50051
+```
+---
+### HTTPS Devnet node
+
+For testing purposes, you may want to connect to a remote Devnet node. Most remote nodes use an HTTPS connection, so this command has the the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) set to `true`.
+
+The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
+
+Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
+
+Replace the value of the `dbPassword` flag with the root password you chose when you installed MariaDB.
+
+```shell
+#!/bin/bash
 	
-	To view the available [command line flags](../references/command-line-flags.md), do the following:
+./bazel-bin/hub/hub \
+	--salt CHANGETHIS \
+	--db hub \
+	--dbUser root \
+	--dbPassword myrootpassword \
+	--apiAddress nodes.devnet.iota.org:443 \
+	--minWeightMagnitude 9 \
+	--listenAddress 127.0.0.1:50051 \
+	--useHttpsIRI true
+```
+--------------------
 
-	```bash
-	./bazel-bin/hub/hub --help
-	```
-	:::
+:::warning:Warning
+To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md).
+:::
 
-3. Give yourself permission to execute the script
+:::info:
+To view the available [command line flags](../references/command-line-flags.md) in Hub, you can also do the following:
 
-	```bash
-	chmod a+x start.sh
-	```
+```bash
+./bazel-bin/hub/hub --help
+```
+:::
+	
+3\. Give yourself permission to execute the script
 
-4. Run the shell script to start Hub
+```bash
+chmod a+x start.sh
+```
 
-	```bash
-	./start.sh
-	```
+4\. Run the shell script to start Hub
 
-	:::success:Congratulations
-	:tada: Hub is now running!
-	:::
+```bash
+./start.sh
+```
 
-	You're running Hub in your shell session. If you close this session, Hub will stop. Therefore, you might want to consider running Hub in a screen/tmux session, a system-wide service, or a supervised process.
+:::success:Congratulations
+:tada: Hub is now running!
+:::
 
-	For this tutorial, you'll use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. 
+You're running Hub in your shell session. If you close this session, Hub will stop. Therefore, you might want to consider running Hub in a screen/tmux session, a system-wide service, or a supervised process.
 
-5. Install the `supervisor` package (press `CTRL+C` to exit the current shell session):
+For this tutorial, you'll use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. 
 
-	```bash
-	sudo apt install -y supervisor
-	```
+5\. Install the `supervisor` package (press `CTRL+C` to exit the current shell session):
 
-6. Create a configuration file for the supervised process
+```bash
+sudo apt install -y supervisor
+```
 
-	```bash
-	sudo nano /etc/supervisor/conf.d/hub.conf
-	```
+6\. Create a configuration file for the supervised process
 
-7. Add the following lines to the hub.conf file. Change the value of the `user` field, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user.
+```bash
+sudo nano /etc/supervisor/conf.d/hub.conf
+```
 
-	```shell
-	[program:hub]
-	command=/home/dave/rpchub/start.sh
-	directory=/home/dave/rpchub/
-	user=dave
-	autostart=true
-	autorestart=true
-	stderr_logfile=/home/dave/rpchub/err.log
-	stdout_logfile=/home/dave/rpchub/info.log
-	```
+7\. Add the following lines to the hub.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user.
 
-8. Save the hub.conf file and reload supervisor
+```shell
+[program:hub]
+command=/home/dave/hub/start.sh
+directory=/home/dave/hub/
+user=dave
+autostart=true
+autorestart=true
+stderr_logfile=/home/dave/hub/err.log
+stdout_logfile=/home/dave/hub/info.log
+```
 
-	```bash
-	sudo supervisorctl reload
-	```
+8\. Save the hub.conf file and reload supervisor
 
-	Hub should now be running in the background and should automatically start again after a server reboot or a crash.
+```bash
+sudo supervisorctl reload
+```
 
-9. Check the supervisor status
+Hub should now be running in the background and should automatically start again after a server reboot or a crash.
 
-	```bash
-	sudo supervisorctl status
-	```
+9\. Check the supervisor status
+
+```bash
+sudo supervisorctl status
+```
 
 :::success:Success
 The output should display something like the following:
@@ -302,11 +330,20 @@ hub                              RUNNING   pid 9983, uptime 0:01:22
 ```
 :::
 
-## Test Hub
+## Step 6. Test Hub
 
-On startup, Hub provides a gRPC server for you to interact with. Hub has a [limited set of gRPC calls](../references/api-reference.md) that can be used to interact with it.
+On startup, Hub provides either a gRPC server or a RESTful API server for you to interact with:
 
-You can communicate with Hub through any programming language that supports [gRPC](https://grpc.io/). In this guide, you'll use Python with some prebuilt examples.
+* [gRPC API reference](../references/grpc-api-reference.md)
+* [RESTful API reference](../references/restful-api-reference.md)
+
+In this guide, we expose the gRPC API.
+
+:::info:
+If you want to use the RESTful API, you must start Hub with the `--serverType http` command line flag.
+:::
+
+You can communicate with the Hub gRPC API through any programming language that supports [gRPC](https://grpc.io/). In this guide, you'll use Python with some prebuilt examples.
 
 1. Download the sample code from GitHub
 
@@ -348,7 +385,7 @@ You can communicate with Hub through any programming language that supports [gRP
 
 	The output should display the following:
 
-	```shell
+	```bash
 	New user with id 'user-1' created!
 	```
 
@@ -378,7 +415,7 @@ events {
 }
 ```
 
-If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into a another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a sweep.
+If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into a another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md).
 
 ## Next steps
 

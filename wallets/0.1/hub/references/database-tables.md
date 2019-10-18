@@ -39,7 +39,7 @@ This table contains information about updates to the balance of the Hub owner's 
 | `id`          | Unique ID of the balance update event |NULL
 | `hub_address` | ID of the address in the `hub_address` table|NULL
 | `amount`      | Total amount of IOTA tokens in the address |0
-| `reason`      |One of [three reasons](../references/api-reference.md#hub.rpc.HubAddressBalanceReason) for the balance update event|NULL
+| `reason`      |One of three reasons for the balance update event|NULL
 | `sweep`       | ID of the sweep in the `sweep` table|NULL
 | `occured_at`  |Date and time that the balance was updated in the following format: `YYYY-MM-DD HH:MM:SS` |The current date and time|
 
@@ -94,7 +94,7 @@ This table contains information about the balances of users' Hub accounts.
 |:----------------|:--------------------------|:--------|
 | `user_id`    | ID of the user's account in the `user_account` table    | NULL|
 | `amount`     | Total amount of IOTA tokens that the user owns in Hub  | NULL |     
-| `reason`     | One of [three reasons](../references/api-reference.md#hub.rpc.HubAddressBalanceReason) for the balance update event    | NULL                |
+| `reason`     | One of three reasons for the balance update event    | NULL                |
 | `sweep`      | ID of the sweep that caused the balance update. This ID is in the `sweep` table.     | NULL                |
 | `withdrawal` | ID of the withdrawal in the `withdrawal` table    | NULL                |
 | `occured_at` | Date and time that the user's balance was updated in the following format: `YYYY-MM-DD HH:MM:SS` | The current date and time |
@@ -122,7 +122,7 @@ This table contains information about the balance of users' deposit addresses.
 | `id`           |  Unique ID of the user's balance update event|NULL|
 | `user_address` | ID of the user's address in the `user_address` table    | NULL                |
 | `amount`       | Total amount of IOTA tokens on the address | NULL                |
-| `reason`       | One of [three reasons](../references/api-reference.md#hub.rpc.HubAddressBalanceReason) for the balance update event    | NULL                |
+| `reason`       | One of three reasons for the balance update event    | NULL                |
 | `tail_hash`    | 81-tryte tail transaction hash of the sweep   | NULL                |
 | `sweep`        | ID of the sweep that caused the balance update. This ID is in the `sweep` table.    | NULL                |
 |`message`| Contents (in trytes) of the `signatureMessageFragment` field of the output transaction in a deposit bundle

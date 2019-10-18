@@ -11,7 +11,7 @@ To complete this tutorial, you need the following:
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
-* An Internet connection
+
 
 ## Step 1. Attach an immutable message to the Tangle
 
@@ -23,7 +23,7 @@ In this example, we connect to a [Devnet node](../references/iota-networks.md#de
     mkdir iota-example
     ```
 
-2. Change into the `iota-example` directory and install the `core` and `converter` IOTA client libraries
+2. Change into the `iota-example` directory and install the `core` and `converter` packages
 
     ```bash
     cd iota-example
@@ -43,10 +43,9 @@ In this example, we connect to a [Devnet node](../references/iota-networks.md#de
 
 3. In the `iota-example` directory, create a new file called `data-transaction.js`
 
-4. Require the IOTA client libraries
+4. Require the packages
 
     ```js
-    // Require the IOTA libraries
     const Iota = require('@iota/core');
     const Converter = require('@iota/converter');
     ```

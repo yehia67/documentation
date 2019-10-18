@@ -1,4 +1,4 @@
-# IOTA introduces new concepts that are essential to learn before you start using IOTA for IoT
+# IOTA allows devices on the Internet of Things to use the Tangle as a single source of truth, where they can buy, sell, or simply send data among each other for zero fees.
 
 [IoT overview](/0.1/introduction/overview.md)
 ## Learn the essentials of IoT and become familiar with the basic terms and concepts

@@ -1,6 +1,6 @@
 # Data Marketplace overview
 
-**Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses IOTA masked authenticated messaging (MAM) channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.**
+**Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses Masked Authenticated Messaging (MAM) channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.**
 
 Data is one of the most fundamental ingredients in the machine economy and the connected world. It is the foundation of the Data — Information — Knowledge — Wisdom [(DIKW) pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid).
 
@@ -81,7 +81,7 @@ Interact with the Data Marketplace through the REST API.
 Read the code and some quickstart instructions to test this blueprint.
 ---
 #### iota.js client library ####
-[Link](root://iota-js/0.1/README.md)
+[Link](root://iota-js/0.1/introduction/overview.md)
 
 Learn how to use the iota.js client library to create, send, and receive transactions.
 ---

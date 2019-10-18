@@ -1,6 +1,6 @@
-# Find out the seed UUID of a user's address
+# Query the Hub database
 
-**To keep track of user data, Hub stores it in database tables. Some of the data in these tables isn't exposed to the gRPC API. For example, you may want to find out the seed UUID for an address so that you can recreate the seed. This guide shows you the basics to get started with querying the Hub database tables.**
+**To keep track of user data, Hub stores it in database tables. Some of the data in these tables isn't exposed to the APIs. For example, you may want to find out the seed UUID for an address so that you can recreate the seed. This guide shows you the basics to get started with querying the Hub database tables.**
 
 :::info:
 This guide assumes that you installed Hub with a MYSQL database such as MariaDB, which is the one we use in our installation guide.
@@ -8,7 +8,7 @@ This guide assumes that you installed Hub with a MYSQL database such as MariaDB,
 
 ## Prerequisites
 
-[Create a user who has a deposit address](../how-to-guides/get-started-with-the-api.md).
+[Create a user who has a deposit address](../how-to-guides/get-started-with-the-grpc-api.md).
 
 ---
 

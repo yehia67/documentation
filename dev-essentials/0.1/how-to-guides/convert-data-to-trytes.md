@@ -12,13 +12,13 @@ To complete this guide, you need the following:
 
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* An Internet connection
+
 
 ## Convert a message to trytes
 
 In this example, we convert a message to trytes, then convert it back to ASCII characters using the [`converter` package](https://github.com/iotaledger/iota.js/tree/next/packages/converter) of the iota.js library.
 
-1. Require the IOTA client library
+1. Require the `converter` package
 
     ```js
     const Converter = require('@iota/converter');

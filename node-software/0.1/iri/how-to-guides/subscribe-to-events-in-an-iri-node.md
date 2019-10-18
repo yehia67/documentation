@@ -24,7 +24,7 @@ To use the code samples in this guide, you must have the following:
 * [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
-* An Internet connection
+
 
 ## Listen for recently confirmed transactions
 
@@ -33,7 +33,7 @@ You can subscribe to the `sn` event on the ZMQ of a node to listen for recently 
 * The index of the first milestone that referenced the transaction
 * The transaction hash
 
-1\. Install the zeromq library
+1\. Install the `zeromq` package
 
 --------------------
 ### Node.js

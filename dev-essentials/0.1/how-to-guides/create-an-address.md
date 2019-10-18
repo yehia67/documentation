@@ -12,13 +12,13 @@ To complete this guide, you need the following:
 
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* An Internet connection
+
 
 ## Create a new address
 
 In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
-1. Require the IOTA libraries
+1. Require the `core` package
 
     ```js
     const Iota = require('@iota/core');

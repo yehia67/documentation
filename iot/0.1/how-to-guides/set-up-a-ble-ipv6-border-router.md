@@ -1,6 +1,6 @@
 # Set up a border router
 
-**We are setting up an 6LoWPAN over Bluetooth interface on Linux. This makes it possible to use a UDP/IP (IPv6) stack on an IoT BLE devices**
+**To allow the sensor servers in a star network to access the Internet, you need a border router that can pass on their data. In this guide, you use set up a border router on a Linux device.**
 
 ## Prerequisites
 
@@ -20,14 +20,11 @@ Due to [a bug in RIOT OS](https://github.com/RIOT-OS/RIOT/issues/11147), you nee
     uname -a
     ```
 
-    If you see a version number that's greater than 4.12, continue with this guide. Otherwise, skip the rest of these steps and install the 6LoWPAN dependencies.
+    If you see a version number that's greater than 4.12, continue to step 2. Otherwise, skip the rest of these steps and install the 6LoWPAN dependencies.
 
 2. Select your architecture and download the generic kernel image from the 
     [Ubuntu Linux mainline kernel builds](https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.11.12/)
 
-    :::info:
-    
-    :::
 
 3. Install the kernel
 
@@ -35,15 +32,14 @@ Due to [a bug in RIOT OS](https://github.com/RIOT-OS/RIOT/issues/11147), you nee
     sudo dpkg -i linux-image*.deb
     ```
 
-4. Restart your system while holding the SHIFT key until you see the option to select a kernel 
+4. Restart your system while holding the `SHIFT` key until you see the option to select a kernel 
     
 5. Select the kernel version 4.11.12
 
 ## Step 2. Install the 6LoWPAN dependencies
 
 :::info:
-You need to do these steps for every session. So, if you close your session,
-for example after a reboot, you have to reinstall the dependencies.
+You need to do these steps for every session. So, if you close your session, for example after a reboot, you have to reinstall these dependencies.
 :::
 
 1. Install bluez
@@ -52,7 +48,7 @@ for example after a reboot, you have to reinstall the dependencies.
     sudo apt-get install -y bluez
     ```
 
-2. Log in as root
+2. Log in as the root user
 
     ```bash
     sudo su
@@ -92,7 +88,7 @@ for example after a reboot, you have to reinstall the dependencies.
         TX bytes:2558 acl:0 sco:0 commands:92 errors:0
     ```
 
-7. Reset the device you want to use. Replace the `YOUR_DEVICE_ID` placeholder with the ID of your device.
+7. To test your connection to a device, reset one. Replace the `YOUR_DEVICE_ID` placeholder with the ID of your device.
 
     ```bash
     hciconfig YOUR_DEVICE_ID reset
@@ -104,6 +100,15 @@ for example after a reboot, you have to reinstall the dependencies.
     hciconfig hci0 reset
     ```
 
-    The Bluetooth device should reset.
+The Bluetooth device should reset.
+
+## Next steps
+
+If you haven't already set up a sensor server, [do it now](../how-to-guides/set-up-ipv6-ble-host-example.md).
+
+If you've already set up a sensor server, then you have a complete Bluetooth star network, and you're ready to try one of our sample applications:
+
+* [Request data from the sensor server](../how-to-guides/run-an-environment-sensor-and-client.md)
+* [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md)
 
 

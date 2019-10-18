@@ -1,6 +1,6 @@
-# Connect a programmer to your nRF52 series microcontroller
+# Connect to an external programmer
 
-**To flash anything to your nRF52 series microcontroller, you need a programmer. Some microcontrollers don't an integrated programmer, in which case, you need to connect an external one.**
+**To flash anything to your nRF52 series microcontroller, you need a programmer. Some microcontrollers don't have an integrated programmer, in which case, you need to connect an external one.**
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ To complete this guide, you need the following:
 :::info:
 If you want a cheap option for flashing an nRF52 series microcontroller, consider buying a J-Link on-board (OB) clone.
 
-The standard J-link programmers can also be used on microprocessors.
+The standard J-link programmers are more expensive because they can also be used on microprocessors.
 :::
 
 ---

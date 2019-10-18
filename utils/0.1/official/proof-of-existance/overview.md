@@ -21,7 +21,7 @@ To complete this tutorial, you need the following:
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
-* An Internet connection
+
 * The [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool) and the [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) packages
 
 ### Step 1. Create an example contract
@@ -34,7 +34,7 @@ Create a new file called `contract.txt` in your working directory, then copy in 
 
 ### Step 2. Set up the sample
 
-1. Create a new file called `index.js` in the same directory as the `contract.txt` file, then require the libraries
+1. Create a new file called `index.js` in the same directory as the `contract.txt` file, then require the packages
 
     ```js
     require('regenerator-runtime');

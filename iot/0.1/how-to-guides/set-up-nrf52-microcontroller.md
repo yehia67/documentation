@@ -1,6 +1,6 @@
 # Set up an nRF52 microcontroller
 
-**Some nRF52 series microcontrollers do not have an integrated programmer or soldered pins. In this case, you need to solder the pins, In this guide, we set up a nRF52 development board that doesn't have an integrated programmer or soldered pins.**
+**Before you can start using your microcontroller, you need to set it up with the correct hardware and software requirements.**
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ To complete this guide, you need the following:
 - A J-Link, J-Link on-board clone, or DAPLink [programmer](https://www.engineersgarage.com/tutorials/microcontroller-programmer-burner) 
 - A USB-to-UART connector
 
-:::info
+:::info:
 Some development boards have an integrated programmer and/or an integrated USB-to-UART connector. If you have one of these boards, you don't need an additional programmer and/or USB-to-UART connector.
 
 To find out if your board has an integrated programmer and/or USB-to-UART connector, see its datasheet.
@@ -21,10 +21,13 @@ To find out if your board has an integrated programmer and/or USB-to-UART connec
     
 1. If the pins on your microcontroller aren't soldered onto the board, solder them.
     
-    **chinese nRF52832 module + nRF52832 Minimum Test Board**
-    ![chinese nRF52832 minimum test board soldered](../images/nrf52_cheap_board.png)
+    :::info:
+    This is a [useful soldering guide](https://learn.pimoroni.com/tutorial/sandyj/the-ultimate-guide-to-soldering).
+    :::
     
-2. If your microcontroller doesn't have an integrated programmer and/or USB-to-UART connector, [connect your programmer and/or USB-to-UART connector to it](../how-to-guides/connect-to-serial-interface.md)
+2. If your microcontroller doesn't have an integrated programmer, [connect your external one to it](../how-to-guides/connect-programmer.md)
+
+3. If your microcontroller doesn't have an integrated USB-to-UART connector, [connect your external one to it](../how-to-guides/connect-to-serial-interface.md)
 
 ## Step 2. Set up the software on your PC
 
@@ -32,7 +35,7 @@ To program and flash a microcontroller, you need a Linux-based PC that has the n
 
 1. [Install Git](https://help.github.com/en/articles/set-up-git)
 
-2. [Install the ARM toolchain](install-arm-gcc-toolchain.md), which allows you to compile code into binary that your microcontroller can run
+2. [Install the ARM toolchain](../how-to-guides/install-arm-gcc-toolchain.md), which allows you to compile code into binary that your microcontroller can run
 
 3. [Install OpenOCD](https://github.com/RIOT-OS/RIOT/wiki/OpenOCD), which includes scripts to make it easy to flash the binary onto your microcontroller
 
@@ -57,15 +60,15 @@ To program and flash a microcontroller, you need a Linux-based PC that has the n
 
 7. Clone our forked RIOT OS repository and change into the `BLE-environment-sensor/examples/hello-world` directory
 
-    :::info:
-    RIOT OS is a modular [microkernel operating system](https://wiki.osdev.org/Microkernel).
-    The modularity helps keep the operating system as small as possible by allowing you to compile only the modules that are essential for your application. This feature is beneficial for microcontrollers because they often have a small amount of available memory space.
-    :::
-
     ```bash
     git clone https://github.com/iota-community/BLE-environment-sensor.git
     cd BLE-environment-sensor/examples/hello-world
     ```
+
+    :::info:
+    RIOT OS is a modular [microkernel operating system](https://wiki.osdev.org/Microkernel).
+    The modularity helps keep the operating system as small as possible by allowing you to compile only the modules that are essential for your application. This feature is beneficial for microcontrollers because they often have a small amount of available memory space.
+    :::
 
 8. Find the path to your USB-to-UART connector by removing it, executing the `ls /dev/ttyUSB*` command, plugging the USB-to-UART connector back into your PC, then executing the `ls /dev/ttyUSB*` command again. The new entry is your connector.
 
@@ -82,7 +85,7 @@ To program and flash a microcontroller, you need a Linux-based PC that has the n
     :::
 
     ```bash
-     BOARD=BOARD PORT=/dev/ttyUSB0 make flash term
+    BOARD=BOARD PORT=/dev/ttyUSB0 make flash term
     ```
 
     :::info:
@@ -97,10 +100,6 @@ To program and flash a microcontroller, you need a Linux-based PC that has the n
     2019-08-27 09:17:09,361 - INFO # You are running RIOT on a(n) nrf52832-mdk board.
     ```
 
-    :::info:
-    If you don't see this in the shell, press the reset button on your microcontroller.
-    :::
-
 :::success: Congratulations :tada:
 Now that you can compile code and flash it to your microcontroller, you're ready to build some real applications.
 :::
@@ -109,7 +108,7 @@ Now that you can compile code and flash it to your microcontroller, you're ready
 
 Follow one of the our microcontroller guides:
 
-- [Read sensor data](../how-to-guides/read-sensor-data.md)
+- [Read data from a sensor on your microcontroller](../how-to-guides/read-sensor-data.md)
 - [Run an environment sensor server and client](../how-to-guides/run-an-environment-sensor-and-client.md)
 - [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md)
 

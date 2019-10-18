@@ -1,6 +1,6 @@
 # IOTA developer's handbook
 
-This quickstart guide gives you a brief walk through the IOTA technology to help you to identify how best you can leverage it in your own applications. 
+This handbook gives you a walk through the IOTA technology to help you to identify how best you can leverage it in your own applications. 
 
 ## What is an IOTA network?
 
@@ -8,7 +8,7 @@ An IOTA network is a collection of interconnected nodes that each store a copy o
 
 The IOTA Foundation maintains three permissionless networks, where anyone can run a node, connect to them, and read/write transactions.
 
-Permissionless networks are public, so any data you send in a transaction is open to anyone.  But, you can always protect the data in transactions through encryption and the use of MAM Channels. 
+Permissionless networks are public, so any data you send in a transaction is open to anyone. But, you can always protect the data in transactions through encryption and the use of MAM channels. 
 
 |**Type** |**Status**|**Description**|
 :-----|:------|:---------|
@@ -66,7 +66,7 @@ The easiest way to send transactions on the Mainnet is to use our client librari
 Your application or service needs to connect to a node on the IOTA Mainnet. In the client libraries such as JavaScript, you usually define which node to connect to in the `provider` field.
 
 ```js
-// Require the IOTA libraries
+// Require the core package
 const Iota = require('@iota/core');
 
 // Create a new instance of the IOTA object
@@ -122,18 +122,16 @@ iota.prepareTransfers(seed, transfers)
 [See our tutorial for sending a transaction](../tutorials/send-a-zero-value-transaction-with-nodejs.md).
 :::
 
-#### Advantages and disadvantages of using third-party nodes on the Mainnet
+#### Things to consider when using third-party nodes on the Mainnet
 
-Connecting to third-party nodes is convenient, but comes at a disadvantage if you need a reliable service.
+Connecting to third-party nodes is convenient, but comes at a disadvantage if you need a reliable service. For example:
 
-|**Advantages**|**Disadvantages**|
-|:-------------|:----------------|
-|You can use the IOTA network as a service|Your transactions will compete with other transactions received by the same node and will be processed with a priority decided by the third party node
-| |You might be requested to pay for fast PoW computation or to provide a transaction that includes already PoW
-| |A copy of your transactions might be retained only for a limited time decided by the node
-| |A permanode option (e.g. permanent store of your transactions) might require payment of a fee
+* Your transactions will compete with other transactions that the node receives and will be processed with a priority that the node decides
+* You might be requested to pay for fast PoW computation or to provide a transaction that includes PoW
+* A copy of your transactions might be kept only for a limited time that's decided by the node
+* A permanode option (e.g. permanent storage of your transactions) might require a fee
 
-To overcome these disadvantages, we recommend you run your own node and connect your application to it for direct access to the Tangle. Your own node gives you more control on how fast your transactions are attached to the Tangle and allows you to store them permanently.
+To overcome these disadvantages, we recommend that you run your own node and connect your application to it for direct access to the Tangle. Your own node gives you more control on how fast your transactions are attached to the Tangle and allows you to store them permanently.
 
 :::info:
 You can [run a node in a Docker container](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-in-docker.md) or [download and run it on a Linux server](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-on-linux.md).
@@ -171,7 +169,7 @@ The goal of IOTA is to allow devices on the Internet of Things (IoT) to transfer
 While most IoT devices have enough computational power to sign and send IOTA transactions, some low-end devices are not powerful enough to calculate the necessary proof of work. For these devices, we recommend choosing another option for calculating proof of work.
 
 :::info:
-A example of a device that can do proof of work is the [STM X-Cube-IOTA1](https://www.st.com/en/embedded-software/x-cube-iota1.html). This devices uses the IOTA C client library as middleware.
+An example of a device that can do proof of work is the [STM X-Cube-IOTA1](https://www.st.com/en/embedded-software/x-cube-iota1.html). This devices uses the IOTA C client library as middleware.
 :::
 
 We are also currently working on how best to integrate IOTA into cloud IoT environments (such as AWS IoT and Google Cloud IoT). This integration will allow you to seamlessly transfer IoT data among physical devices through the Tangle.
@@ -197,9 +195,9 @@ The IOTA community maintains some client library wrappers that allow you to use 
 
 * [Wrapper for LoRA devices](https://github.com/xdk2mam/xdk2mam/tree/Workbench-3.6/lora-sdcard)
 
-## A note on smart contracts
+## Smart contracts
 
-IOTA is developing its own solution to smart contracts, called Qubic. IOTA smart contracts will go beyond the simple transfer of funding when a specific condition is met. In fact, the ambition of Qubic is to not only allow smart contracts, but also provide outsourced quroum computing for IoT devices. 
+We are developing our own solution to smart contracts, called Qubic. IOTA smart contracts will go beyond the simple transfer of funding when a specific condition is met. In fact, the ambition of Qubic is to not only allow smart contracts, but also provide outsourced quorum computing for IoT devices. 
 
 :::info:
 [Learn more about Qubic and see what's on the roadmap](https://qubic.iota.org/intro).

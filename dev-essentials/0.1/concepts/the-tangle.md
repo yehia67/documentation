@@ -2,7 +2,7 @@
 
 **The Tangle is the immutable data structure that contains IOTA transactions. All nodes in an IOTA network store a copy of the Tangle in their ledgers, read from it, attach new transactions to it, and reach a consensus on its contents.**
 
-Transactions in the Tangle are immutable because their contents are cryptographically referenced to the history of two other transactions. So, if any transaction were to change in that history, all the references would be broken.
+Transactions on the Tangle are immutable because their contents are cryptographically referenced to the history of two other transactions. So, if any transaction were to change in that history, all the references would be broken.
 
 :::info:
 These cryptographic references are transaction hashes. Each transaction has a unique transaction hash that's derived from its contents. As a result, the contents of a transaction are immutable.

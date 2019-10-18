@@ -12,7 +12,7 @@ All requests to the other IRI API endpoints are forwarded to the IRI node.
 
 To complete this guide, you need the following:
 
-* An Internet connection
+
 * At least version 1.12 of the Go programming language (we recommend the latest version)
 * GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
 * [Git](https://git-scm.com/downloads)
@@ -114,7 +114,7 @@ To complete this guide, you need the following:
     :::
 
     ```js
-    // Require the IOTA libraries
+    // Require the packages
     const Iota = require('@iota/core');
     const Converter = require('@iota/converter');
 

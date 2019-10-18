@@ -13,17 +13,19 @@ In this guide, we discuss two integration options:
 
 Hub supports user accounts that each have a tracked balance. This way,users can trade and withdraw only as many tokens as they own.
 
-To action a trade, you can use the `processTransfers()` or the `userWithdraw()` methods.
+To action a trade, you can use the `processTransfers` or the `userWithdraw` API calls.
 
 :::info:
-When you use the `processTransfers()` method, no tokens are transferred on the Tangle. Instead, the users' balances are updated in the database, which affects how many tokens users can request to withdraw.
-
-When you use the `userWithdraw()` method, the tokens are transferred on the Tangle and the users' balances are updated in the database.
+When you use the `processTransfers` API call, no tokens are transferred on the Tangle. Instead, the users' balances are updated in the database, which affects how many tokens users can request to withdraw.
 :::
 
-Because the `userWithdraw()` method allows you to withdraw only from a user address and not the Hub owner's addresses, it's difficult to store tokens outside of Hub (in a cold wallet).
+:::
+When you use the `userWithdraw` API call, the tokens are transferred on the Tangle and the users' balances are updated in the database.
+:::
 
-|**User action**|**Exchange action**|**Hub method**|
+Because the `userWithdraw` API call allows you to withdraw only from a user address and not the Hub owner's addresses, it's difficult to store tokens outside of Hub (in a cold wallet).
+
+|**User action**|**Exchange action**|**Hub API call**|
 |:----------|:--------------|:-----------|
 |Signs up for an IOTA account on the exchange|Creates a new user in Hub| `CreateUser`|
 |Requests a deposit address in which to deposit IOTA tokens|Creates a new deposit address for the user|`getDepositAddress`|
@@ -52,7 +54,7 @@ When you transfer tokens outside of Hub, you're at risk of not being able to pro
 6. Restart Hub
 
 :::info:
-If enough interest exists for storing tokens outside of Hub, we can create a specialized method that makes this task easier. Please reach out to us on [Discord](https://discord.iota.org).
+If enough interest exists for storing tokens outside of Hub, we can create a specialized API call that makes this task easier. Please reach out to us on [Discord](https://discord.iota.org).
 :::
 
 ### Send IOTA tokens back to Hub
@@ -67,6 +69,12 @@ To process withdrawal requests, you may need to transfer IOTA tokens back into H
 
 4. Restart Hub
 
+### Video tutorial
+
+To help you set up integration option 1, we made this video tutorial that integrates Hub into a sample exchange.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O2ukIXqJTls" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Integration option 2. Manage user balances outside of Hub
 
 By managing user balances outside of Hub, it's easier to store tokens outside of Hub. But, you need to keep track of users' balances in your own system.
@@ -78,7 +86,7 @@ By managing user balances outside of Hub, it's easier to store tokens outside of
 
 ---
 
-|**User action**|**Exchange action**|**Hub method**|
+|**User action**|**Exchange action**|**Hub API call**|
 |:----------|:--------------|:-----------|
 |Signs up for an IOTA account on the exchange|Creates a new user in Hub| `CreateUser`|
 |Requests a deposit address in which to deposit IOTA tokens|Creates a new deposit address for the user|`GetDepositAddress`|
@@ -95,7 +103,7 @@ To store IOTA tokens outside of Hub, you need to transfer them from the hot wall
 When you transfer tokens outside of Hub addresses, you're at risk of not being able to process withdrawal requests.
 :::
 
-1. Action a withdrawal from the hot wallet to a new address, using the `userWithdraw()` method
+1. Action a withdrawal from the hot wallet to a new address, using the `userWithdraw` API call
 
   :::warning:Warning
   In this scenario, Hub cannot check whether the new address was already withdrawn from.
@@ -105,7 +113,7 @@ When you transfer tokens outside of Hub addresses, you're at risk of not being a
 
 To process withdrawal requests, you may need to transfer IOTA tokens back into Hub so that it can use them in a sweep.
 
-1. Create a new deposit address for the hot wallet, using the `getDepositAddress()` method
+1. Create a new deposit address for the hot wallet, using the `getDepositAddress` API call
 
    :::warning:Warning
    Addresses must never be withdrawn from more than once.

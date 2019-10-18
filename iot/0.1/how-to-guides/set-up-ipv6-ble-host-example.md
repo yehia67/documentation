@@ -1,9 +1,9 @@
 # Set up a sensor server
 
-**In this guide, we are going to set up a sensor server that accepts UDP packages on port 51037.**
+**By setting up a sensor as a server, you can allow other devices to request data from it over the internet. This is useful for applications that need to access this data and perform calculations on it.**
 
 :::info:
-Due to a bug in RIOT OS, only the nRF52832 is supported at the moment. An implementation for state-of-the-art hardware such as the nRF52840 is in progress.
+Due to a bug in RIOT OS, the nRF52832 is the only supported microcontroller at the moment. An implementation for state-of-the-art hardware such as the nRF52840 is in progress.
 :::
 
 ## Prerequisites
@@ -56,3 +56,11 @@ For example, for Ubuntu, do the following:
 sudo apt-get install python-protobuf
 ```
 
+## Next steps
+
+If you haven't already set up a border router, [do it now](../how-to-guides/set-up-a-ble-ipv6-border-router.md).
+
+If you've already set up a border router, then you have a complete Bluetooth star network, and you're ready to try one of our sample applications:
+
+* [Request data from the sensor server](../how-to-guides/run-an-environment-sensor-and-client.md)
+* [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md)

@@ -6,11 +6,15 @@
 
 [Concepts/IPv6 mesh network](/concepts/ipv6-mesh-network.md)
 
-[How-to Guides/Getting started with microcontrollers](/how-to-guides/get-started-with-microcontrollers.md)
+[How-to Guides/Get started with microcontrollers](/how-to-guides/get-started-with-microcontrollers.md)
 
-[How-to Guides/Set up an nrf52 microcontroller](/how-to-guides/set-up-nrf52-microcontroller.md)
+[How-to Guides/Set up an nRF52 microcontroller](/how-to-guides/set-up-nrf52-microcontroller.md)
+
+[How-to Guides/Install ARM GCC toolchain](/how-to-guides/install-arm-gcc-toolchain)
 
 [How-to Guides/Set up a single-board computer](/how-to-guides/setup-sbc.md)
+
+[How-to Guides/Install Go on an SBC](/how-to-guides/install-go-on-sbc.md)
 
 [How-to Guides/Read sensor data from a microcontroller](/how-to-guides/read-sensor-data.md)
 
@@ -31,9 +35,5 @@
 [How-to Guides/Connect to the serial interface](/how-to-guides/connect-to-serial-interface.md)
 
 [How-to Guides/Connect an I2C sensor](/how-to-guides/connect-a-I2C-sensor.md)
-
-[How-to Guides/Install ARM GCC toolchain](/how-to-guides/install-arm-gcc-toolchain)
-
-[How-to Guides/Install Go on an SBC](/how-to-guides/install-go-on-sbc.md)
 
 [References/Troubleshooting](/references/troubleshooting.md)

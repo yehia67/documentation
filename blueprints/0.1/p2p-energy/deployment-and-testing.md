@@ -15,7 +15,7 @@ To deploy the P2P energy grid app, you must have the following:
 
 * [Node.js](https://nodejs.org/)
 
-* [MAM (masked authenticated messaging)](https://github.com/iotaledger/mam.client.js)
+* [MAM (Masked Authenticated Messaging)](https://github.com/iotaledger/mam.client.js)
 
 Choose from one of the following cloud services or a local server:
 
@@ -46,7 +46,7 @@ An understanding of MAM channels.
 
 ## Deploy the P2P energy grid app
 
-The deployment instructions are documented in the [GitHub repository](https://github.com/iotaledger/poc-p2p-energy).
+<!--The deployment instructions are documented in the [GitHub repository](https://github.com/iotaledger/poc-p2p-energy).-->
 
 :::info:
 The deployment instructions will be available in May.

@@ -16,7 +16,7 @@ This section explains how to use Trinity.
   - [How-to Guides/Manage your account](how-to-guides/manage-your-account.md)
   - [How-to Guides/Manage your security settings](how-to-guides/manage-your-security-settings.md)
   - [How-to Guides/Change the general settings](how-to-guides/change-the-general-settings.md)
-  - [How-to Guides/Change the advanced settings](how-to-guides/change-the-advanced-settings.md)
+  - [How-to Guides/Help your transactions to be confirmed](how-to-guides/auto-promote.md)
   - [How-to Guides/Perform a snapshot transition](how-to-guides/perform-a-snapshot-transition.md)
 
 - Concepts
@@ -40,7 +40,7 @@ This section is about Hub, which is a headless multi-user wallet that you can pl
 
     - [How-to Guides/Install Hub](how-to-guides/install-hub.md)
     - [How-to Guides/Install the signing server](how-to-guides/install-the-signing-server.md)
-    - [How-to Guides/Get started with the API](how-to-guides/get-started-with-the-api.md)
+    - [How-to Guides/Get started with the gRPC API](how-to-guides/get-started-with-the-grpc-api.md)
     - [How-to Guides/Query the database](how-to-guides/query-the-database.md)
     - [How-to Guides/Integrate Hub into an exchange](how-to-guides/integrate-hub.md)
     
@@ -50,7 +50,8 @@ This section is about Hub, which is a headless multi-user wallet that you can pl
 
 - References
 
-    - [References/API reference](references/api-reference.md)
+    - [References/gRPC API reference](references/grpc-api-reference.md)
+    - [References/RESTful API reference](references/restful-api-reference.md)
     - [References/Command line flags](references/command-line-flags.md)
     - [References/Database tables](references/database-tables.md)
     - [References/Security considerations](references/security-considerations.md)

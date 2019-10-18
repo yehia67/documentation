@@ -19,7 +19,7 @@ To complete this tutorial, you need the following:
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
-* An Internet connection
+
 * The [`axios`](https://www.npmjs.com/package/axios) package
 
 ### Step 1. Get API credentials
@@ -249,7 +249,7 @@ To verify your certificate, open a web browser and go to the URL that was printe
 
 Use the [administration portal](https://certification-admin.iota.org/) to create new certificates or check for existing ones.
 
-Use the [API](https://certification-api.iota.org/docs/#iota-certification-api) to manage your certificates.
+Use the [API](https://certification-api.iota.org/docs/#iota-certification-api) to manage your certificates. For example, if you make a mistake on a certificate and want to invalidate it, use the [`setBlacklist` endpoint](https://certification-api.iota.org/docs/#setblacklist).
 
 
 

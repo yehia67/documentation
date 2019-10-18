@@ -16,7 +16,7 @@ To complete this guide, you need the following:
 
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* An Internet connection
+
 
 ## Send a bundle of zero-value transactions
 
@@ -26,7 +26,7 @@ In this example, we create and send a bundle to a [Devnet node](root://getting-s
 A bundle can consist of any number of transactions. But, because of the time and resources that are involved during [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md), we recommend a maximum of 30 transactions in a bundle.
 :::
 
-1. Require the IOTA libraries
+1. Require the packages
 
     ```js
     const Iota = require('@iota/core');
