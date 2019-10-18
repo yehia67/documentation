@@ -1,6 +1,6 @@
-# Install Hub
+# Run Hub
 
-**By installing Hub, you can create new users, manage their seeds, and issue deposits and withdrawals by using simple API calls.**
+**Hub is a wallet management system that you can use to create new users, and manage their deposits and withdrawals of IOTA tokens. You have the option to expose either a gRPC API or a RESTful API that you can use to integrate Hub into your own applications or exchanges.**
 
 ![IOTA Hub architecture](../images/iota_hub.png)
 
@@ -192,8 +192,6 @@ In these commands, make sure to replace the `myrootpassword` placeholder with th
 
 To run Hub, you need to execute the binary file that was created during the build process. This binary file is located in the `./bazel-bin/hub/hub` directory.
 
-Before you can run the binary file, you need to configure it.
-
 1\. Create a shell script file called `start.sh`
 
 ```bash
@@ -202,16 +200,14 @@ nano start.sh
 
 2\. In the start.sh file, add the command for running hub with the [command line flags](../references/command-line-flags.md) that you want to use
 
---------------------
 ### Best practice
 
 We recommend connecting Hub to a local Mainnet node that you control. If you don't have a local Mainnet node, [read about the IRI node software](root://node-software/0.1/iri/introduction/overview.md) for guides on setting one up.
 
-This command connects to a local Mainnet node on port 14265.
+--------------------
+### gRPC API
 
-Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
-
-Replace the value of the `dbPassword` flag with the root password you chose when you installed MariaDB.
+This command connects to a local Mainnet node on port 14265, and exposes the gRPC API server on port 50051 of the localhost.
 
 ```shell
 #!/bin/bash
@@ -226,15 +222,29 @@ Replace the value of the `dbPassword` flag with the root password you chose when
 	--listenAddress 127.0.0.1:50051
 ```
 ---
+
+### RESTful API
+
+This command connects to a local Mainnet node on port 14265, and exposes the RESTful API server on port 50051 of the localhost.
+
+```shell
+#!/bin/bash
+	
+./bazel-bin/hub/hub \
+	--salt CHANGETHIS \
+	--db hub \
+	--dbUser root \
+	--dbPassword myrootpassword \
+	--apiAddress 127.0.0.1:14265 \
+	--minWeightMagnitude 14 \
+	--listenAddress 127.0.0.1:50051
+	--serverType http
+```
+---
+
 ### HTTPS Devnet node
 
-For testing purposes, you may want to connect to a remote Devnet node. Most remote nodes use an HTTPS connection, so this command has the the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) set to `true`.
-
-The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
-
-Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
-
-Replace the value of the `dbPassword` flag with the root password you chose when you installed MariaDB.
+For testing purposes, you may want to connect to a remote [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) node. Most remote nodes use an HTTPS connection, so this command has the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) set to `true`.
 
 ```shell
 #!/bin/bash
@@ -252,6 +262,8 @@ Replace the value of the `dbPassword` flag with the root password you chose when
 --------------------
 
 :::warning:Warning
+Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
+
 To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md).
 :::
 
@@ -330,93 +342,11 @@ hub                              RUNNING   pid 9983, uptime 0:01:22
 ```
 :::
 
-## Step 6. Test Hub
-
-On startup, Hub provides either a gRPC server or a RESTful API server for you to interact with:
-
-* [gRPC API reference](../references/grpc-api-reference.md)
-* [RESTful API reference](../references/restful-api-reference.md)
-
-In this guide, we expose the gRPC API.
-
-:::info:
-If you want to use the RESTful API, you must start Hub with the `--serverType http` command line flag.
-:::
-
-You can communicate with the Hub gRPC API through any programming language that supports [gRPC](https://grpc.io/). In this guide, you'll use Python with some prebuilt examples.
-
-1. Download the sample code from GitHub
-
-	```bash
-	cd ~
-	git clone https://github.com/fijter/rpchub-test.git \
-	cd rpchub-test
-	```
-
-2. This example code has dependencies. To avoid installing the dependencies in your global Python environment, create a virtual environment
-
-	```bash
-	sudo apt-add-repository multiverse && sudo apt update
-	sudo apt install -y python3-venv
-	python3 -m venv env
-	```
-
-3. Activate the virtual environment in a shell session
-
-	```bash
-	. env/bin/activate
-	```
-
-	:::info:
-	To exit the virtual environment, use the `deactivate` command.
-	:::
-
-4. Install the dependencies
-
-	```bash
-	pip install -r requirements.txt
-	```
-  
-5. Create a new user account in Hub
-
-	```bash
-	python examples/create_user.py
-	```
-
-	The output should display the following:
-
-	```bash
-	New user with id 'user-1' created!
-	```
-
-6. Create a new deposit address for the user
-
-	```bash
-	python examples/get_address.py
-	```
-
-	The output should display a new deposit address for user-1. Feel free to send it a couple of IOTA tokens to try it out with [Trinity](root://wallets/0.1/trinity/introduction/overview.md)!
-
-7. Get the balance and history for the user  
-
-	```bash
-	python examples/balance.py
-	```
-
-If you sent IOTA tokens to the deposit address in step 6, the output should display something like the following:
-
-```shell
-10 i available for test 'user-1'
-History:
-events {
-	timestamp: 1540856214000
-	type: DEPOSIT
-	amount: 10
-}
-```
-
-If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into a another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md).
-
 ## Next steps
+
+Depending on how you started Hub, it exposes either a gRPC API server or a RESTful API server for you to interact with:
+
+* [Get started with the gRPC API](../how-to-guides/get-started-with-the-grpc-api.md)
+* [Get started with the RESTful API](../how-to-guides/get-started-with-the-grpc-api.md)
 
 To improve the security of your Hub, connect it to a [signing server](../how-to-guides/install-the-signing-server.md).

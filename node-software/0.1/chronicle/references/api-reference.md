@@ -81,7 +81,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cUrl
 ```bash
 curl http://localhost:4000 \
 -X POST \

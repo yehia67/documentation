@@ -2,8 +2,6 @@
 
 **Nodes wait to receive transactions from clients on the API port that's set in the `PORT` configuration parameter. You can send HTTP requests to this port to interact with a node's REST API, which allows you to read/write data to the Tangle.**
 
-In the following how-to guide we use Node.js and Python to send requests to an IRI node on the Devnet.
-
 ## Prerequisites
 
 To use the code samples in this guide, you must have the following:

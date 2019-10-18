@@ -6,12 +6,12 @@ By default, Hub keeps a record of all user balances in a database, and allows us
 
 In this guide, we discuss two integration options:
 
-- **Manage user balances in Hub (default):** Easiest way to manage trades and user balances
-- **Manage user balances outside of Hub:** Easiest way to store all users' IOTA tokens outside of Hub
+- **Option 1: Manage user balances in Hub (default):** Easiest way to manage trades and user balances
+- **Option 2. Manage user balances outside of Hub:** Easiest way to store all users' IOTA tokens outside of Hub
 
 ## Integration option 1. Manage user balances in Hub
 
-Hub supports user accounts that each have a tracked balance. This way,users can trade and withdraw only as many tokens as they own.
+Hub supports user accounts that each have a tracked balance. This way, users can trade and withdraw only as many tokens as they own.
 
 To action a trade, you can use the `processTransfers` or the `userWithdraw` API calls.
 
@@ -19,7 +19,7 @@ To action a trade, you can use the `processTransfers` or the `userWithdraw` API 
 When you use the `processTransfers` API call, no tokens are transferred on the Tangle. Instead, the users' balances are updated in the database, which affects how many tokens users can request to withdraw.
 :::
 
-:::
+:::info:
 When you use the `userWithdraw` API call, the tokens are transferred on the Tangle and the users' balances are updated in the database.
 :::
 
@@ -69,12 +69,6 @@ To process withdrawal requests, you may need to transfer IOTA tokens back into H
 
 4. Restart Hub
 
-### Video tutorial
-
-To help you set up integration option 1, we made this video tutorial that integrates Hub into a sample exchange.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/O2ukIXqJTls" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Integration option 2. Manage user balances outside of Hub
 
 By managing user balances outside of Hub, it's easier to store tokens outside of Hub. But, you need to keep track of users' balances in your own system.
@@ -82,9 +76,7 @@ By managing user balances outside of Hub, it's easier to store tokens outside of
 ### Prerequisites
 
 1. Create a cold wallet, using a new seed
-2. Create a new Hub user to use as a hot wallet
-
----
+2. Create a new user to use as a hot wallet
 
 |**User action**|**Exchange action**|**Hub API call**|
 |:----------|:--------------|:-----------|
@@ -121,7 +113,7 @@ To process withdrawal requests, you may need to transfer IOTA tokens back into H
 
 2. Send tokens from the external address to this deposit address
 
-Hub receives the deposit and transfers them to a Hub owner's address as part of a sweep. The tokens in the Hub owner's addresses can be used to fulfil withdrawal requests if the total balance of deposits is not enough.
+Hub receives the deposit and transfers them to a Hub owner's address as part of a sweep. The tokens in the Hub owner's addresses can be used to fulfill withdrawal requests if the total balance of deposits is not enough.
 
 :::info:
 Find out more about [how sweeps work](../concepts/sweeps.md).
