@@ -2,13 +2,18 @@
 
 **This table contains the zero message queue (ZMQ) events that an IRI node can publish.**
 
-All events return at least one buffer object that contains space-separated data. The first item in the buffer is always the name of the event. The information in the Returned data column is displayed as though the buffer had been converted to a string and split on a space character into an array.
+All events return one or more buffer objects, which contain space-separated data. The first item in the buffer is always the name of the event. The information in the Returned data column is displayed as though the buffer had been converted to a string and split on a space character into an array.
 
-:::info:
-Index 0 of each array of returned data is not displayed because it is always the name of the event.
+Due to a [bug in the IRI](https://github.com/iotaledger/iri/issues/1597), the following events are currently unavailable:
 
-All events must be in lowercase letters except the trytes of the address event, which must be in uppercase letters.
-:::
+* `dnscv`
+* `dnscc`
+* `dnscu`
+* `hmr`
+* `antn`
+* `rntn`
+* `rstat`
+* `rtl`
 
 |  **Event and description** | **Returned data**
 | :----------| :----------|

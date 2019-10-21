@@ -5,7 +5,7 @@
 You may want to subscribe to events in the [zero message queue (ZMQ)](../concepts/zero-message-queue.md) to do the following:
 
 * Monitor an address for when a transaction is sent to it and confirmed
-* Create a Tangle visualisation website, such as [thetangle.org](https://thetangle.org/)
+* Create a Tangle visualization website, such as [thetangle.org](https://thetangle.org/)
 
 You can subscribe to events in the ZMQ by doing the following:
 
@@ -24,7 +24,6 @@ To use the code samples in this guide, you must have the following:
 * [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/)
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
-
 
 ## Listen for recently confirmed transactions
 
@@ -86,6 +85,10 @@ socket.connect('tcp://zmq.devnet.iota.org:5556')
 --------------------
 
 4\. Subscribe to the `sn` event. This event is for confirmed transactions.
+
+:::info:
+All events must be in lowercase letters except the trytes of the address event, which must be in uppercase letters.
+:::
 
 --------------------
 ### Node.js
