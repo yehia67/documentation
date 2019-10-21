@@ -4,7 +4,7 @@
 
 All events return one or more buffer objects, which contain space-separated data. The first item in the buffer is always the name of the event. The information in the Returned data column is displayed as though the buffer had been converted to a string and split on a space character into an array.
 
-Due to a [bug in the IRI](https://github.com/iotaledger/iri/issues/1597), the following events are currently unavailable:
+Due to [a bug in the IRI](https://github.com/iotaledger/iri/issues/1597), the following events are currently unavailable in version 1.8.0 or later:
 
 * `dnscv`
 * `dnscc`
