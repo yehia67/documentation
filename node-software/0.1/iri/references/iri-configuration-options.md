@@ -47,11 +47,14 @@ Use these settings to customize what your node does with its ledger.
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
 |<a name="db"></a>`--db` |`MAIN_DB`|Name the database that's used to store transactions  | string | rocksdb | Currently, the only supported database is RocksDB|
-|<a name="db-cache-size"></a>`--db-cache-size` |`DB_CACHE_SIZE`|Set the maximum size of the database cache in kilobytes | number|100,000 |
-|<a name="db-log-path"></a>`--db-log-path` |`DB_LOG_PATH`|Set the path to the file where the database logs are saved | string |mainnet.log|
-|<a name="db-path"></a> `--db-path`| `DB_PATH`|Set the path to the folder where the database is saved|string |mainnetdb |
-|<a name="rescan"></a> `--rescan`|`RESCAN_DB`|Rescan all transaction metadata (approvees, bundles, and tags) |boolean |false |
-|<a name="revalidate"></a>`--revalidate` |`REVALIDATE`|Reload data in the database about confirmed transactions, and transaction metadata | boolean| false|
+|<a name="db-cache-size"></a>`--db-cache-size` |`DB_CACHE_SIZE`|Sets the maximum size of the database cache in kilobytes | number|100,000 |
+|<a name="db-log-path"></a>`--db-log-path` |`DB_LOG_PATH`|Sets the path to the file where the database logs are saved | string |mainnet.log|
+|<a name="db-path"></a> `--db-path`| `DB_PATH`|Sets the path to the directory in which the database is saved|string |mainnetdb |
+|<a name="rescan"></a> `--rescan`|`RESCAN_DB`|Rescans all transaction metadata (approvees, bundles, and tags) |boolean |false |
+|<a name="revalidate"></a>`--revalidate` |`REVALIDATE`|Reloads data in the database about confirmed transactions, and transaction metadata | boolean| false|
+|`--spent-addresses-db-path`|`SPENT_ADDRESSES_DB_PATH`|Sets the path to the directory in which the spent addresses database is saved|string|"spent-addresses-db"|
+|`--spent-addresses-db-log-path`|`SPENT_ADDRESSES_DB_LOG_PATH`|Sets the path to the directory in which the logs for the spent addresses database are saved|string|"spent-addresses-log"|
+
 
 ## IXI
 
