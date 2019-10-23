@@ -1433,18 +1433,18 @@ curl http://localhost:50051 \
     "event_0": {
         "bundleHash": "EWLCW9FFLSBUGZZOOLFQLTRJFKNGPUVCIOCQYTSDOSZLBCBJIIJZGPALGAKKANBTDYOBVQFOJHA9OVFOY",
         "timestamp": "1563796442000",
-        "uuid": []
+        "withdrawalUuid": []
     },
     "event_1": {
         "bundleHash": "AJINYQCLKFYOCFWFLPESXAQGXYSZCHILJ9ZZCTNQOUGOFGTIOAXYZBCEWEXWDGAFFXBOXZJAPAUHVAZEC",
         "timestamp": "1567537268000",
-        "uuid": []
+        "withdrawalUuid": []
 
     },
     "event_2": {
         "bundleHash": "GOHZXSDAFYDJTJ9GZKKCBAFFKDCTFGFIYDXADGUH9SJGFYPGIOWXEOJXOYSIGYANNWXEII9KSKUZZCHGX",
         "timestamp": "1567537470000",
-        "uuid": []
+        "withdrawalUuid": []
     }
 }
 ```
@@ -1461,7 +1461,7 @@ curl http://localhost:50051 \
 |--|--|
 | `bundleHash` | The bundle hash of the sweep|
 | `timestamp` | The UNIX timestamp of when the sweep was created |
-|`uuid`|The UUIDs of the withdrawals that were actioned in the sweep|
+|`withdrawalUuid`|The UUIDs of the withdrawals that were actioned in the sweep|
 
 ## UserWithdraw
 
