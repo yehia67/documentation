@@ -4,7 +4,7 @@
 
 ## Clients
 
-Like an account number and sort code, an address in IOTA is a unique string of 81 characters ([trytes](../concepts/trinary.md)) that are unique to each seed.
+Like an bank account number and sort code, an address in IOTA is a unique string of 81 characters ([trytes](../concepts/trinary.md)) that are unique to each seed.
 
 :::info:
 Sometimes addresses have 90 trytes. The extra 9 trytes are called the checksum, which helps you make sure your address is correct.
@@ -32,7 +32,7 @@ Nodes [validate transactions](root://node-software/0.1/iri/concepts/transaction-
 
 You might be wondering how you can trust a node. After all, connecting to a node is the only way to read from and write to the Tangle. What if a node were to change the response to an API endpoint such as [`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getBalances)? How would you know what your real balance is?
 
-Well, IOTA is a [distributed ledger technology](root://getting-started/0.1/introduction/what-is-dlt.md). The word _distributed_ is the key. When a node receives a transaction, validates it, and appends it to its ledger, it doesn't stop there. The IOTA protocol states that all nodes must forward transactions onto other nodes, called their neighbors. This way, all nodes receive, validate, and store a consistent, distributed ledger of transactions, removing the need to trust any individual. As a result, you can send requests to multiple nodes and check the consistency of the returned data.
+Well, IOTA is a [distributed ledger technology](root://getting-started/0.1/introduction/dlt.md). The word _distributed_ is the key. When a node receives a transaction, validates it, and appends it to its ledger, it doesn't stop there. The IOTA protocol states that all nodes must forward transactions onto other nodes, called their neighbors. This way, all nodes receive, validate, and store a consistent, distributed ledger of transactions, removing the need to trust any individual. As a result, you can send requests to multiple nodes and check the consistency of the returned data.
 
 ### Immutability
 

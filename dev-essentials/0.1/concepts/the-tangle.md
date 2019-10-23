@@ -147,3 +147,14 @@ We have an active research department that focuses on developing the Tangle and 
 
 * [Academic Papers](https://www.iota.org/research/academic-papers)
 * [Roadmap](https://www.iota.org/research/roadmap)
+
+
+Transactions on the Tangle can be in one of two states: Pending or confirmed.
+
+To go from a pending state to a confirmed state, nodes must agree on the state of a transaction through a [consensus](root://dev-essentials/0.1/concepts/consensus.md) algorithm.
+
+At the moment, nodes consider a transaction confirmed if it is **directly or indirectly referenced by a milestone** (transaction that's created and sent by the Coordinator).
+
+:::info:
+If transaction 6 were a milestone, then transaction 5, 3, 2, and 1 would all be confirmed.
+:::

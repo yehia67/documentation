@@ -4,7 +4,7 @@
 
 A public IOTA network is one that anyone can join and send transactions to. All transactions in a public IOTA network are transparent. Anyone can see the transactions and balances of all addresses. You can see this for yourself in an application called a [Tangle explorer](https://thetangle.org/). These applications take data from the Tangle and publish them on a public website for everyone to see.
 
-IOTA has the following [public networks](../introduction/what-is-dlt.md):
+IOTA has the following [public networks](../introduction/dlt.md):
 * **Mainnet:** IOTA token
 * **Devnet:** Devnet token (free)
 * **Spamnet:** Spamnet token (free)

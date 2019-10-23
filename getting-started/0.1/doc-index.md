@@ -1,18 +1,18 @@
 # Index
 
-[Introduction/What is distributed ledger technology?](/introduction/what-is-dlt.md)
+[Introduction/What is distributed ledger technology?](/introduction/dlt.md)
 
-[Introduction/What is IOTA?](/introduction/what-is-iota.md)
+[Introduction/What is IOTA?](/introduction/iota.md)
 
-[Introduction/What is a node?](/introduction/what-is-a-node.md)
+[Introduction/What is a node?](/introduction/nodes.md)
 
-[Introduction/What is the Tangle?](/introduction/what-is-the-tangle.md)
+[Introduction/What is the Tangle?](/introduction/the-tangle.md)
 
-[Introduction/What is a seed?](/introduction/what-is-a-seed.md)
+[Introduction/What is a seed?](/introduction/seeds.md)
 
-[Introduction/What is a transaction?](/introduction/what-is-a-transaction.md)
+[Introduction/What is a transaction?](/introduction/transactions.md)
 
-[Introduction/What is a bundle?](/introduction/what-is-a-bundle.md)
+[Introduction/What is a bundle?](/introduction/bundles.md)
 
 [Tutorials/Get started](/tutorials/get-started.md)
 

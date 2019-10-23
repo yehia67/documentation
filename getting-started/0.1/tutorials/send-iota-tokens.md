@@ -102,7 +102,7 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     ]
     ```
 
-9. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the [node](../introduction/what-is-a-node.md)
+9. To construct a [bundle](../introduction/bundles.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the [node](../introduction/nodes.md)
 
     ```js
     // Construct bundle and convert to trytes
@@ -122,10 +122,10 @@ In this example, we send a bundle to a [Devnet node](../references/iota-networks
     :::
 
 :::success:Congratulations :tada:
-You've just sent your value transaction. Your transaction is attached to [the Tangle](../introduction/what-is-the-tangle.md). Now, you just need to wait until the transaction is confirmed before your balance can be updated.
+You've just sent your value transaction. Your transaction is attached to [the Tangle](../introduction/the-tangle.md). Now, you just need to wait until the transaction is confirmed before your balance can be updated.
 :::
 
-In the console, you'll see information about the transaction in the [bundle](../introduction/what-is-a-bundle.md) that you sent.
+In the console, you'll see information about the transaction in the [bundle](../introduction/bundles.md) that you sent.
 
 The transactions in your bundle will be forwarded through the network until all the nodes have it in their copy of the Tangle.
 

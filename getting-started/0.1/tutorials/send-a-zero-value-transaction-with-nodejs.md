@@ -1,6 +1,6 @@
 # Send your first message to the Tangle (Node.js)
 
-**IOTA allows you to send data (zero-value) transactions as well as IOTA tokens. These zero-value transactions are useful for applications that want to send and store immutable messages on the Tangle. To send only a zero-value [transaction](../introduction/what-is-a-transaction.md), you don't need any IOTA tokens.**
+**IOTA allows you to send data (zero-value) transactions as well as IOTA tokens. These zero-value transactions are useful for applications that want to send and store immutable messages on the Tangle. To send only a zero-value [transaction](../introduction/transactions.md), you don't need any IOTA tokens.**
 
 To send any transaction, you must connect to a node, create a bundle, then send that bundle to it.
 
@@ -11,7 +11,6 @@ To complete this tutorial, you need the following:
 * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 * Access to a command prompt
-
 
 ## Step 1. Attach an immutable message to the Tangle
 
@@ -108,7 +107,7 @@ In this example, we connect to a [Devnet node](../references/iota-networks.md#de
     ];
     ```
 
-10. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the [node](../introduction/what-is-a-node.md)
+10. To construct a [bundle](../introduction/bundles.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the [node](../introduction/nodes.md)
 
     ```js
     iota.prepareTransfers(seed, transfers)
@@ -135,10 +134,10 @@ In this example, we connect to a [Devnet node](../references/iota-networks.md#de
     :::
 
 :::success:Congratulations :tada:
-You've just sent your first zero-value transaction. Your transaction is attached to [the Tangle](../introduction/what-is-the-tangle.md), which makes your message immutable.
+You've just sent your first zero-value transaction. Your transaction is attached to [the Tangle](../introduction/the-tangle.md), which makes your message immutable.
 :::
 
-In the console, you'll see information about the the [bundle](../introduction/what-is-a-bundle.md) that you sent.
+In the console, you'll see information about the the [bundle](../introduction/bundles.md) that you sent.
 
 The transaction in your bundle will propagate through the network until all the nodes have it in their ledgers.
 

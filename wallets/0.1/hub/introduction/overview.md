@@ -13,7 +13,7 @@ Before any transaction is accepted by an IOTA network, it must be confirmed. Whe
 
 ## Seed management
 
-Each client in an IOTA network has a secret password called a [seed](root://getting-started/0.1/introduction/what-is-a-seed.md), which is used to create [addresses and to sign bundles of transactions](root://dev-essentials/0.1/concepts/addresses-and-signatures.md). Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address.
+Each client in an IOTA network has a secret password called a [seed](root://getting-started/0.1/introduction/seeds.md), which is used to create [addresses and to sign bundles of transactions](root://dev-essentials/0.1/concepts/addresses-and-signatures.md). Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address.
 
 Each user's deposit addresses is derived from a new seed, using the [Argon2](https://www.argon2.com/) hashing function. The following values are used to create a seed:
 

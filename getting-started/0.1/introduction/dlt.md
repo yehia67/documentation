@@ -1,6 +1,14 @@
 # What is distributed ledger technology?
 
-**Distributed ledger technology (DLT) is a database architecture that allows the owners of digital goods to transfer them from peer to peer.**
+**Distributed ledger technology (DLT) is a database architecture that allows the owners of digital goods to transfer them to one another without a middleman such as banks or social media sites.**
+
+In traditional networks such as the World Wide Web, you send your message to a centralized computer called a server.
+
+For example, to post a message on Facebook, you send that message to one of Facebook's servers, which validates that you own the Facebook account (that you are logged in) then saves it in the database to allow others to see it. If Facebook decides to delete your message from its database, no one will be able to see what you wrote.
+
+Distributed ledger technology replaces centralized servers with a distributed, peer-to-peer network. This way, all messages are sent to all the peers in the network (not just those owned by Facebook), resulting in new opportunities for innovation.
+
+Because all the peers in the network receive all the messages, the peers can work together to run algorithms that validate messages. As a result, you no longer need to trust a single entity to store and validate your identity. 
 
 Each transfer in a DLT is kept as a record in a distributed ledger.
 
@@ -20,4 +28,4 @@ DLT creates a single source of truth that all participants can trust. When data 
 
 ## Next steps
 
-[Learn about IOTA](../introduction/what-is-iota.md).
+[Learn about IOTA](../introduction/iota.md).

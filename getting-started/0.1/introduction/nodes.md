@@ -1,6 +1,10 @@
 # What is a node?
 
-**A node is a device that has read and write access to the Tangle in an IOTA network. All nodes store a copy of the Tangle and a record of addresses that hold IOTA tokens. Clients can send their bundles to any node in an IOTA network so it can validate the transactions, attach them to the Tangle, and forward them to other nodes.**
+**Nodes are the devices that make up an IOTA network. Like any distributed system, the nodes in an IOTA network are interconnected and gossip information among each other. So, when one node, no matter where it is in the world, receives a transaction, it will be forwarded to every other node in the network. This way, all nodes in an IOTA network can validate all transactions and store them.**
+
+The collection of transactions that the nodes store is called [the Tangle](../introduction/the-tangle.md), and only nodes have direct access to it.
+
+Because only nodes have access to the Tangle, the IOTA protocol uses a client/server model where clients connect to nodes to request access to it.
 
 IOTA is a permissionless DLT. So, anyone can run a node, including individuals and businesses.
 
