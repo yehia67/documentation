@@ -828,7 +828,8 @@ curl http://localhost:50051 \
         "userId": "user-1",
         "timestamp": "1563796442000",
         "sweepBundleHash": "EWLCW9FFLSBUGZZOOLFQLTRJFKNGPUVCIOCQYTSDOSZLBCBJIIJZGPALGAKKANBTDYOBVQFOJHA9OVFOY",
-        "withdrawalUuid": ""
+        "withdrawalUuid": "",
+	"amount":1000
     },
     "event_1": {
         "type": "USER_ACCOUNT",
@@ -836,7 +837,8 @@ curl http://localhost:50051 \
         "userId": "user-1",
         "timestamp": "1563796562000",
         "sweepBundleHash": "",
-        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2"
+        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2",
+	"amount":1000
     },
     "event_2": {
         "type": "USER_ACCOUNT",
@@ -844,7 +846,8 @@ curl http://localhost:50051 \
         "userId": "user-1",
         "timestamp": "1563796604000",
         "sweepBundleHash": "",
-        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2"
+        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2",
+	"amount":1000
     },
 }
 ```
