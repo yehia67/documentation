@@ -1,6 +1,6 @@
 # JavaScript client library
 
-**The JavaScript client library allows you to use any of the supported packages to write applications that act as a client or a server to interact with the Tangle.**
+**The JavaScript client library allows you to use any of the supported packages to write applications that interact with the Tangle.**
 
 -------------------------
 ![Core](../images/core.png)

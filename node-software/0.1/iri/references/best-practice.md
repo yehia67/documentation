@@ -24,13 +24,13 @@ Read our guide on [running a node on Linux](../how-to-guides/run-an-iri-node-on-
 
 ### Proof of work
 
-When you're setting up your nodes, you have the option to allow them to do [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md). When this feature is enabled, client applications can ask your node to do proof of work by calling the `attachToTangle` API endpoint. This option is called remote proof of work.
+When you're setting up your nodes, you have the option to allow them to do [proof of work](root://getting-started/0.1/basics/proof-of-work.md). When this feature is enabled, client applications can ask your node to do proof of work by calling the `attachToTangle` API endpoint. This option is called remote proof of work.
 
 ![Remote proof of work](../images/remote-pow.png)
 
 Proof of work takes time and uses your node's computational power. So, depending on how often you send transactions to your nodes, you may want to keep this feature disabled by default in the [remote-limit-api](../references/iri-configuration-options.md#remote-limit-api) configuration option.
 
-This way, client applications can use [other options for proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md#options-for-doing-proof-of-work) such as doing it themselves (local PoW) or outsourcing it to a PoW proxy server.
+This way, client applications can use [other options for proof of work](root://getting-started/0.1/basics/proof-of-work.md#minimum-weight-magnitude#options-for-doing-proof-of-work) such as doing it themselves (local PoW) or outsourcing it to a PoW proxy server.
 
 ![Local proof of work](../images/local-pow.png)
 
@@ -45,7 +45,7 @@ Learn how to [do local PoW in Node.js](https://github.com/iotaledger/ccurl.inter
 For a client application that will communicate with your nodes through API endpoints, it's best to use one of the IOTA client libraries on an instance of a serverless architecture such as [AWS Lambda](https://aws.amazon.com/lambda/). This way, your application is not restricted by hardware and has a high availability.
 
 :::info:
-[Get started with the IOTA client libraries](root://getting-started/0.1/tutorials/get-started.md).
+[Get started with the IOTA client libraries](root://getting-started/0.1/how-to-guides/get-started.md).
 :::
 
 ## Load balancer

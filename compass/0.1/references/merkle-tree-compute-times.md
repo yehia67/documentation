@@ -15,4 +15,4 @@
 |22|4,194,304|960|7 years 357 days 17 hours|
 |23|8,388,608|1,920|15 years 350 days 10 hours|
 
-* With 60-second milestone intervals
+- With 60-second milestone intervals

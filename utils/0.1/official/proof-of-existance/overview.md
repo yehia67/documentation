@@ -18,11 +18,11 @@ Then, we read the transaction from the Tangle to retrieve the file hash. When we
 
 To complete this tutorial, you need the following:
 
-* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
+- Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+- Access to a command-line interface
 
-* The [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool) and the [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) packages
+- The [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool) and the [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) packages
 
 ### Step 1. Create an example contract
 
@@ -106,7 +106,6 @@ Create a new file called `contract.txt` in your working directory, then copy in 
 
     [Find out more about IOTA networks](root://getting-started/0.1/references/iota-networks.md).
     :::
-
 
 :::success:Congratulations :tada:
 You can now use the Tangle as a single source of truth to verify that a file is still unchanged.

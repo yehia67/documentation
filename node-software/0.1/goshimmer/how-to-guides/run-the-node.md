@@ -10,24 +10,24 @@ When you run a node in a Docker container, it's similar to running it in a light
 
 Some of the advantages of running a node in a Docker container include the following:
 
-* You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language
-* The node runs in the same way on any supported system architecture
-* It's easier to run the node in the background, to stop it, and to see the logs
+- You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language
+- The node runs in the same way on any supported system architecture
+- It's easier to run the node in the background, to stop it, and to see the logs
 
 ### Prerequisites
 
 To complete this guide, you need the following:
 
-* [Git](https://git-scm.com/downloads)
+- [Git](https://git-scm.com/downloads)
 
-* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
-* A public IP address
-* [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms)
+- [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
+- A public IP address
+- [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms)
 
 The Docker container is suitable for the following operating systems:
-* Linux
-* macOS
-* Windows
+- Linux
+- macOS
+- Windows
 
 :::info:
 If you're using a Debian-based operating system, add `sudo` before all the commands in the following tasks.
@@ -136,11 +136,11 @@ You're now running a GoShimmer node.
 
 The status screen displays the following statistics in the top-right corner:
 
-* **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions.
-* **Node ID:** The node's public key that gives it a unique identity
-* **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it.
-* **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
-* **Uptime:** The total amount of time during which the node has been running
+- **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions.
+- **Node ID:** The node's public key that gives it a unique identity
+- **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it.
+- **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
+- **Uptime:** The total amount of time during which the node has been running
 
 :::info:
 If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device.
@@ -154,16 +154,16 @@ When you build the node from the source code, you need to make sure that you hav
 
 To complete this guide, you need the following:
 
-* At least version 1.12 of the Go programming language (we recommend the latest version)
-* GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
-* [Git](https://git-scm.com/downloads)
+- At least version 1.12 of the Go programming language (we recommend the latest version)
+- GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
+- [Git](https://git-scm.com/downloads)
 
-* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
-* A public IP address
+- [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
+- A public IP address
 
 ### Step 1. Download the code
 
-1. In the command prompt, check your `GOPATH` environment variable
+1. In the command-line interface, check your `GOPATH` environment variable
 
     ```bash
     go env GOPATH
@@ -199,8 +199,8 @@ When you run the node, it joins the network by autopeering with the entry node t
 
 3. Execute the `shimmer` file, according to your operating system:
 
-* **Linux and macOS:** `./shimmer --enable-node-plugins "spammer zeromq dashboard"`
-* **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node-enable-plugins "spammer zeromq dashboard"` in the command prompt
+- **Linux and macOS:** `./shimmer --enable-node-plugins "spammer zeromq dashboard"`
+- **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node-enable-plugins "spammer zeromq dashboard"` in the command-line interface
 
 Here, we run the run the node in the background, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
 
@@ -216,11 +216,11 @@ You're now running a GoShimmer node.
 
 The status screen displays the following statistics in the top-right corner:
 
-* **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions.
-* **Node ID:** The node's public key that gives it a unique identity
-* **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it.
-* **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
-* **Uptime:** The total amount of time during which the node has been running
+- **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions.
+- **Node ID:** The node's public key that gives it a unique identity
+- **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it.
+- **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
+- **Uptime:** The total amount of time during which the node has been running
 
 :::info:
 If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device.

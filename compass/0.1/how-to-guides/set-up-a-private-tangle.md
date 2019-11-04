@@ -16,10 +16,10 @@ The difference between setting up your own private Tangle and using the one-comm
 
 A Linux server with the following minimum requirements. If you are on a Windows or macOS operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
 
-* A new installation of an Ubuntu 18.04 Server / Virtual Machine
-* At least 8GB RAM
-* Preferably 4+ CPU cores, the more cores the faster the Merkle tree will be generated.
-* At least a 10GB SSD
+- A new installation of an Ubuntu 18.04 Server / Virtual Machine
+- At least 8GB RAM
+- Preferably 4+ CPU cores, the more cores the faster the Merkle tree will be generated.
+- At least a 10GB SSD
 
 ## Step 1. Install the dependencies
 
@@ -74,7 +74,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 
 ## Step 2. Compute the Merkle tree
 
-For this guide, we use a [Merkle tree](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them.
+For this guide, we use a [Merkle tree](root://getting-started/0.1/basics/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them.
 
 :::info:
 [See our example Merkle tree compute times](../references/merkle-tree-compute-times.md) that show how the `depth` parameter affects both the time it takes to compute the Merkle tree and the total network uptime.
@@ -211,12 +211,12 @@ The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first
 	:::
 
 	:::info:
-	If you see a `malformed snapshot state file` error, check the snapshot.txt file and make sure that you didn't include a line break at the en of the line.
+	If you see a `malformed snapshot state file` error, check the snapshot.txt file and make sure that you didn't include a line break at the end of the line.
 	
 	If you see a `NumberFormatException` error or an `IllegalArgumentException` error, check that no space characters are either side of the semicolon.
 	:::
 
-4. Press **Ctrl** + **C** in the command prompt. IRI will continue to run in the background.
+4. Press **Ctrl** + **C** in the command-line interface. IRI will continue to run in the background.
 
 :::danger:Important
 If the IRI node to which Compass is connected becomes compromised, an attacker could manipulate Compass to receive favorable treatment. Possible scenarios include the following:
@@ -271,7 +271,7 @@ For a list of API endpoints see the [IRI API reference](root://node-software/0.1
 
 --------------------
 ### getBalances
-Call the [`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances) endpoint to get the total balance of your seed. If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md).
+Call the [`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances) endpoint to get the total balance of your seed.
 
  ```js
  var request = require('request');
@@ -354,8 +354,6 @@ If you want to send and receive transactions on the network through a user inter
 
 ## Next steps
 
-* [Subscribe to events on your node](root://node-software/0.1/iri/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions.
-
-* Try adding multiple nodes to your network to make a similar architecture to the [Devnet](root://getting-started/0.1/references/iota-networks.md)
+- Try adding multiple nodes to your network to make a similar architecture to the [Devnet](root://getting-started/0.1/references/iota-networks.md)
 
 ![Multi-node private Tangle](../images/multi-node-tangle.svg)

@@ -1,0 +1,95 @@
+# IOTA overview
+
+**IOTA is an open-source [distributed ledger technology](../basics/dlt.md) that allows devices to transfer data and [IOTA tokens](../basics/token.md) for zero fees. With IOTA technology, any [connected device](https://en.wikipedia.org/wiki/Connected_Devices) can be given an identity on an IOTA network, allowing it to transact with other devices from smart phones to vehicles.**
+
+<iframe src="https://www.youtube.com/embed/Gr-LstcDcAw" width="400" height="200"></iframe>
+
+## How does IOTA work?
+
+An IOTA network consists of nodes and clients, and anyone is free to act as either in the [public IOTA networks](../references/iota-networks.md).
+
+### Nodes
+
+[Nodes] are the backbone of an IOTA network. They are the only devices that have read and write access to the immutable record of transactions called the [Tangle](../basics/the-tangle.md).
+
+### Clients
+
+All clients in an IOTA network have a secret password called a [seed](../basics/seeds.md), which acts as their identity. Seeds give clients access to [addresses](../basics/addresses.md), which are like accounts that have a balance of IOTA tokens that is stored by nodes.
+
+To transfer IOTA tokens or even to send only data, clients package the transfer instructions into objects called [transactions](../basics/transactions.md) and send them to a node to attach to the Tangle.
+
+## Why should I use IOTA?
+
+By using IOTA, you can build applications that benefit from the following:
+
+- **Authenticity:** Prove that you sent data and/or own IOTA tokens
+- **Integrity:** Prove that your data is unchanged
+- **Confidentiality:** Control who has access to your data through encryption
+- **Micropayments:** Send small amounts of IOTA tokens without paying any fees 
+
+IOTA networks have many benefits compared to traditional ways of transferring data or value.
+
+### Trust
+
+Each node in an IOTA network validates transactions, then sends them to other nodes that do the same. As a result, all valid transactions are agreed on by all nodes, removing the need to trust a single one in the network.
+
+You can even [run your own node](../how-to-guides/run-your-own-iri-node.md) to start validating transaction in the network.
+
+### Immutability
+
+All transactions in the Tangle are immutable and transparent.
+
+Each transaction references the transaction hashes of two previous ones. So, if the contents of any transaction were to change, the hashes would be invalid, making the transactions invalid.
+
+### Security
+
+IOTA uses quantum-resistant one-time [signatures](../basics/signatures.md) to stop attackers from stealing IOTA tokens.
+
+IOTA networks are peer-to-peer networks. No central authority controls the Tangle in a public network, instead all nodes hold a copy of it and reach a consensus on its contents.
+
+### Cost saving
+
+IOTA is free to use. You don't need to pay a subscription, or sign a contract. Even transactions are feeless.
+
+### Scalability
+
+For each transaction that's attached to the Tangle, two previous transactions are validated. This process makes IOTA incredibly scalable because more new transactions leads to faster validations.
+
+## What are some example use cases?
+
+IOTA is a secure platform for sharing and accessing data in a single source of truth. As such, IOTA can benefit many industries by improving efficiency, increasing production, and ensuring data integrity.
+
+- [Mobility](https://www.iota.org/verticals/mobility-automotive)
+- [Global trade and supply chains](https://www.iota.org/verticals/global-trade-supply-chains)
+- [Industrial IoT](https://www.iota.org/verticals/industrial-iot)
+- [Healthcare](https://www.iota.org/verticals/ehealth)
+- [Energy](https://www.iota.org/verticals/smart-energy)
+
+These are some applications of IOTA:
+
+| **Company**  | **Description** |  **References** |
+| :-------:| :-------:| :---------: |
+| bIOTAsphere|bIOTAsphere connected a Tesla car to an IOTA network. The car buys dynamic insurance with IOTA tokens |[YouTube video that showcases this use case](https://www.youtube.com/watch?v=2zvrA5KqeYw) |
+| High Mobility| High Mobility develop a standardized API platform for vehicles. This API can be combined with IOTA to create connected vehicle applications on the Tangle.|[High Mobility website](https://high-mobility.com/get-started) |
+| iampass|iampass is an identity and access management system that authenticates users by taking an encrypted scan of their palms and checking for that data on an IOTA network  | [iampass website](https://iampass.io/)|
+|+CityxChange consortium |CityxChange consortium is a project that builds smart cities that use IOTA as the secure data transfer layer |[+CityxChange website](http://cityxchange.eu/)|
+eCl@ss|eCl@ss is cooperating with IOTA to share and store ISO/IEC-compliant product classifications and descriptions|[eCl@ss website](https://www.eclass.eu/en/association/cooperation.html)|
+|Elaadnl| Elaadnl is creating electric car chargers that accept payment in IOTA tokens| [Elaadnl website](https://www.elaad.nl/news/worlds-first-iota-charging-station-released/)
+
+## Where do I start?
+
+**Non-developers:** Use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md) to create and store your seed, send and receive transactions, and more.
+
+**Developers:** [Get started with one of the client libraries](../how-to-guides/get-started.md)
+
+**Exchanges:** Use the [official Hub wallet](root://wallets/0.1/hub/introduction/overview.md) to integrate IOTA into your exchange.
+
+
+
+
+
+
+
+
+
+

@@ -16,9 +16,9 @@ Developers are encouraged to contribute to the [GitHub issues](https://github.co
 ## Prerequisites
 
 To develop on Trinity, your computer must have the following:
-* [An LTS version of Node.js](https://nodejs.org/en/) (we recommend version 10.15.3)
-* [Yarn](https://yarnpkg.com/lang/en/docs/install/)
-* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [An LTS version of Node.js](https://nodejs.org/en/) (we recommend version 10.15.3)
+- [Yarn](https://yarnpkg.com/lang/en/docs/install/)
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 :::info:
 Restart your computer after installing these programs.
@@ -117,7 +117,7 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 
 4. Now, you can either compile an executable file, or run Trinity in development mode
 
-* If you want an executable file, compile Trinity
+- If you want an executable file, compile Trinity
 
     ```bash
     npm run compile:mac
@@ -129,7 +129,7 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 
     When Trinity is compiled, the executable file and the installation files will be located in the `src/desktop/out/` directory.
 
-* If you want to run Trinity in development mode, start the app
+- If you want to run Trinity in development mode, start the app
 
     ```bash
     npm start

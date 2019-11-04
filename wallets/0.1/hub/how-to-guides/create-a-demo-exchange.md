@@ -16,8 +16,8 @@ To complement this guide, we created this video tutorial, which guides you throu
 
 To complete this guide, you need the following:
 
-* An instance of Hub that's connected to a Devnet node and that has an exposed RESTful API server
-* A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
+- An instance of Hub that's connected to a Devnet node and that has an exposed RESTful API server
+- A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
 
 ## Step 1. Set up the exchange server
 
@@ -366,7 +366,7 @@ To make sure this balance is kept up to date, you can monitor Hub user addresses
 
 8. Start the server, and request a new deposit address
 
-9. Use the Devnet faucet to [send some test IOTA tokens to your deposit address](root://getting-started/0.1/tutorials/send-iota-tokens.md)
+9. Use the Devnet faucet to [send some test IOTA tokens to your deposit address](root://iota-js/0.1/workshop/transfer-iota-tokens.md)
 
     :::info:
     In the guide, replace the `receivingAddress` variable with your deposit address.

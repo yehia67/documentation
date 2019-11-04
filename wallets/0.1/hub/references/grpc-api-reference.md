@@ -2,8 +2,6 @@
 
 **Hub has a gRPC API that simplifies connections to the Tangle and the Hub database. Use this API reference to find methods and learn what they do.**
 
-This documentation is written assuming you already have an understanding of gRPC.
-
 :::info:
 If you’re not familiar with gRPC and protobuf, we recommend following the [gRPC quickstart guide](https://grpc.io/docs/quickstart/).
 :::

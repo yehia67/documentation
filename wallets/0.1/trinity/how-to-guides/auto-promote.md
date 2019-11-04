@@ -1,6 +1,6 @@
 # Help your transactions to be confirmed
 
-**To make sure that transactions are confirmed, Trinity can auto-promote ([promote and reattach](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md)) them until they're confirmed.**
+**To make sure that transactions are confirmed, Trinity can auto-promote ([promote and reattach](root://getting-started/0.1/basics/reattach-rebroadcast-promote.md)) them until they're confirmed.**
 
 1. Go to **Settings** > **Advanced settings**
 

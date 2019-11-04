@@ -1,14 +1,6 @@
 # Get started with Masked Authenticated Messaging
 
-**Masked Authenticated Messaging (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, on the Tangle. You can use the MAM package to publish encrypted and authenticated messages to channels.**
-
-The Tangle allows you to attach zero-value transactions to it, but these transactions are not signed or checked by nodes to verify their authenticity.
-
-With MAM, all messages are signed by the owner of a seed. This way, those with access to a [channel](../concepts/channels.md) can verify the signature and decrypt the messages.
-
-Many use cases such as the [Data Marketplace](root://blueprints/0.1/data-marketplace/overview.md) use MAM to allow users to pay for access to channels and decrypt the messages.
-
-You can [learn more about the details of MAM](https://medium.com/coinmonks/iota-mam-eloquently-explained-d7505863b413) in this blog post.
+**[Masked Authenticated Messaging](root://getting-started/0.1/basics/masked-authenticated-messaging.md) (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, on the Tangle. You can use the MAM package to publish encrypted and authenticated messages to channels.**
 
 :::warning:Beta software
 The client libraries are currently in beta and you should not use them in production environments.
@@ -16,7 +8,7 @@ The client libraries are currently in beta and you should not use them in produc
 
 ## Audience
 
-This documentation is designed for developers who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [bundles, transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md), and [signatures](root://dev-essentials/0.1/concepts/addresses-and-signatures.md).
+This documentation is for developers who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with [basic IOTA concepts](root://getting-started/0.1/introduction/overview.md) such as [bundles](root://getting-started/0.1/basics/bundles.md), [transactions](root://getting-started/0.1/basics/transactions.md), [seeds](root://getting-started/0.1/basics/seeds.md), and [addresses](root://getting-started/0.1/basics/addresses.md).
 
 ## Prerequisites
 
@@ -30,7 +22,7 @@ To install [library packages](https://www.npmjs.com/org/iota), you must have one
 - [npm](https://www.npmjs.com/) (Included in Node.js [downloads](https://nodejs.org/en/download/))
 - [Yarn](https://yarnpkg.com/)
 
-You must also have a `package.json` file. Generate one by doing [`npm init`](https://docs.npmjs.com/cli/init) or [`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/) in the command prompt.
+You must also have a `package.json` file. Generate one by doing [`npm init`](https://docs.npmjs.com/cli/init) or [`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/) in the command-line interface.
 
 ## Install the package
 

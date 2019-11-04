@@ -32,10 +32,10 @@ The sources are kept as separate entities from the producers to allow for some r
 
 The grid usually does the majority of the work, which could be performed locally on the machine or outsourced to a wider infrastructure in the cloud::
 
-* Maintaining a database
-* Running a web server with a portal
-* Provisioning APIs
-* Running background tasks to process information
+- Maintaining a database
+- Running a web server with a portal
+- Provisioning APIs
+- Running background tasks to process information
 
 The grid maintains its own IRI node, which enables it to communicate with neighbours in the peer-to-peer network on which the Tangle operates. By running your own IRI node, the rest of the entities can live in a LAN network, with only the grid requiring WAN access to the rest of the Tangle for syncing. The alternative is for all entities to have WAN access directly to an IRI node on Tangle.
 

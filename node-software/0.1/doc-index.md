@@ -2,10 +2,7 @@
 
 [Introduction/Overview](/introduction/overview.md)
 [IRI/Introduction/Overview](/iri/introduction/overview.md)
-[IRI/Concepts/The ledger](/iri/concepts/the-ledger.md)
-[IRI/Concepts/Neighbor IRI node](/iri/concepts/neighbor-iri-node.md)
 [IRI/Concepts/Transaction validation](/iri/concepts/transaction-validation.md)
-[IRI/Concepts/Zero message queue](/iri/concepts/zero-message-queue.md)
 [IRI/Concepts/Local snapshot](/iri/concepts/local-snapshot.md)
 [IRI/Concepts/Tip selection](/iri/concepts/tip-selection.md)
 [IRI/How-to Guides/Run an IRI node on a Linux server](/iri/how-to-guides/run-an-iri-node-on-linux.md)
@@ -14,7 +11,6 @@
 [IRI/How-to Guides/Prune transactions from the ledger](/iri/how-to-guides/prune-transactions-from-the-ledger.md)
 [IRI/How-to Guides/Find neighbor IRI nodes](/iri/how-to-guides/find-neighbor-iri-nodes.md)
 [IRI/How-to Guides/Interact with an IRI node](/iri/how-to-guides/interact-with-an-iri-node.md)
-[IRI/How-to Guides/Subscribe to events in an IRI node](/iri/how-to-guides/subscribe-to-events-in-an-iri-node.md)
 [IRI/How-to Guides/Process big data transaction stream in near real-time](/iri/how-to-guides/flink-tangle-stream-processing.md)
 [IRI/How-to Guides/Install a proof of work proxy](/iri/how-to-guides/install-a-pow-proxy.md)
 [IRI/How-to Guides/Update the IRI](/iri/how-to-guides/update-the-iri.md)

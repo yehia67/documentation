@@ -4,9 +4,9 @@
 
 Trinity allows you to do the following:
 
-* Create a password-protected account to store and access your seeds
-* Read your balance and transaction history
-* Send and receive transactions
+- Create a password-protected account to store and access your seeds
+- Read your balance and transaction history
+- Send and receive transactions
 
 ![Trinity home](../images/trinity.png)
 

@@ -4,9 +4,9 @@
 
 For each of your accounts, you can do the following:
 
-* Access your seed (not available if you use a hardware wallet)
-* View your addresses and their available balance
-* Change the name of an account
+- Access your seed (not available if you use a hardware wallet)
+- View your addresses and their available balance
+- Change the name of an account
 
 Make sure that you select the correct account to manage before completing any of these tasks.
 
@@ -29,7 +29,7 @@ Each seed can be used to generate an almost unlimited number of addresses.
 To view the addresses that you've generated, go to Account management, and click **View addresses**.
 
 :::info:
-A red line through the center of an address means that the address has been spent. Trinity stops you from withdrawing IOTA tokens from spent addresses, so you must never deposit IOTA tokens into them. To find out why, [learn how signatures are created](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse).
+A red line through the center of an address means that the address has been spent. Trinity stops you from withdrawing IOTA tokens from [spent addresses](root://getting-started/0.1/basics/addresses.md#spent-addresses), so you must never deposit IOTA tokens into them.
 ::: 
 
 ## Change your account's name

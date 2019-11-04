@@ -12,16 +12,11 @@ To transfer the total balance of a spent address into a single output address, i
 
 To complete this guide, you need the following:
 
-* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
-
-* The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages
-* Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
-
-:::info:
-If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)
-:::
+- Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+- Access to a command-line interface
+- The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages
+- Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
 
 ## Step 1. Create an unsigned bundle
 
@@ -88,7 +83,7 @@ In this guide, we use the JavaScript client library to create and send the bundl
     |`value`|The total balance of the swept address in the `inputAddress` field|You can check the balance of any address on a Tangle explorer such as [thetangle.org](https://thetangle.org/) |
 
     :::info:
-    You need the security level of the swept address so that the `createUnsignedBundle()` function can create enough zero-value transactions to which you can add the [signature fragments](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#signatures).
+    You need the security level of the swept address so that the `createUnsignedBundle()` function can create enough zero-value transactions to which you can add the signature fragments.
     :::
 
     ```js
@@ -103,7 +98,7 @@ In this guide, we use the JavaScript client library to create and send the bundl
    }
     ```
 
-2. Call the `createUnsignedBundle()` function, and pass it the parameters you got from Hub
+4. Call the `createUnsignedBundle()` function, and pass it the parameters you got from Hub
 
     ```js
     createUnsignedBundle(parameters);
@@ -111,11 +106,11 @@ In this guide, we use the JavaScript client library to create and send the bundl
 
     This function saves the unsigned bundle to a binary file called `bundle` in your current directory.
 
-3. Execute the file, then copy the unsigned bundle hash from the console to the clipboard. Hub needs this bundle hash to create the signature.
+5. Execute the file, then copy the unsigned bundle hash from the console to the clipboard. Hub needs this bundle hash to create the signature.
 
 ## Step 2. Use Hub to sign the unsigned bundle
 
-Hub has a `signBundle()` gRPC method that allows you to sign bundles that withdraw from a Hub user's address.
+Hub has a `signBundle()` gRPC method that allows you to sign bundles that withdraw from a user's address.
 
 :::info:
 Before you use the `signBundle()` method, make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
@@ -177,16 +172,6 @@ After adding the signature fragments to the input transactions in your bundle, i
    const minWeightMagnitude = 14;
    ```
 
-   :::info:Depth
-   The `depth` argument affects [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md). The greater the depth, the farther back in the Tangle the weighted random walk starts.
-   :::
-   
-   :::info:Minimum weight magnitude
-   The [`minimum weight magnitude`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW.
-   
-   Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed.
-   :::
-
 4. Send the bundle's transaction trytes to the node
 
    ```js
@@ -210,7 +195,7 @@ You've sent a signed bundle that recovers IOTA tokens from a swept address by de
 :::warning:
 Until the bundle is confirmed, the tokens are still at risk of being withdrawn by an attacker.
 
-To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://dev-essentials/0.1/how-to-guides/confirm-pending-bundle.md).
+To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://iota-js/0.1/core/how-to-guides/confirm-pending-bundle.md).
 :::
 
 ## Sample code

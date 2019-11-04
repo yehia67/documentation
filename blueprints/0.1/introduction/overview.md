@@ -4,9 +4,9 @@
 
 Blueprints are designed to do the following:
 
-* Describe a problem and a solution
-* Present an architecture that shows you how to solve the problem with IOTA
-* Explain how you can test, edit, and deploy the blueprint
+- Describe a problem and a solution
+- Present an architecture that shows you how to solve the problem with IOTA
+- Explain how you can test, edit, and deploy the blueprint
 
 -------------------------
 ![Data Marketplace](../images/data-marketplace-thumbnail.png)

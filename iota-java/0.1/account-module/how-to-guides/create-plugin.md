@@ -8,8 +8,8 @@ To explain how to create a plugin, this guide helps you to create one that print
 
 To create a plugin class you can do one of the following:
 
-* Extend the `AccountPlugin` class
-* Implement the `Plugin` interface
+- Extend the `AccountPlugin` class
+- Implement the `Plugin` interface
 
 ### Extend the AccountPlugin class
 

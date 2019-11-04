@@ -22,7 +22,7 @@ When you buy a microcontroller, keep the following in mind:
 
 
 A programmer is used to flash the code onto the microcontroller. 
-[Read more about what a programmer is.](https://www.engineersgarage.com/tutorials/microcontroller-programmer-burner)
+[Read more about what a programmer is.](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner)
 
 :::info:
 If you want a cheap option for flashing an nRF52 series microcontroller, consider buying a J-Link on-board (OB) clone.

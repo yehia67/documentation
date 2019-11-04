@@ -1,6 +1,6 @@
 # One-command private Tangle
 
-**This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and [2.7Pi](root://dev-essentials/0.1/references/units-of-iota-tokens.md) (the maximum amount) of test IOTA tokens to use. You can use this application to test your ideas and applications without risking any monetary value.**
+**This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and 2.7Pi (the maximum amount) of test [IOTA tokens](root://getting-started/0.1/basics/token.md). You can use this application to test your ideas and applications without risking any monetary value.**
 
 :::info:Go to GitHub
 For quickstart instructions or to read the source code, [go to the GitHub repository](https://github.com/iota-community/one-command-tangle).
@@ -22,7 +22,7 @@ The test network runs one [IRI node](root://node-software/0.1/iri/introduction/o
 
 The IRI node receives transactions, validates them, and keeps an up-to-date record of users' balances.
 
-At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction.
+At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](root://getting-started/0.1/basics/the-tangle.md#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction.
 
 The total supply of tokens are stored on the first address of this seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`.
 
@@ -34,9 +34,9 @@ The purpose of this application is to allow you to quickly set up a test IOTA ne
 
 To use this application, you need the following:
 
-* At least 4GB of free RAM
-* [Docker and Docker Compose](https://docs.docker.com/compose/install/)
-* [Git](https://git-scm.com/downloads)
+- At least 4GB of free RAM
+- [Docker and Docker Compose](https://docs.docker.com/compose/install/)
+- [Git](https://git-scm.com/downloads)
 
 ## Step 1. Run the application
 
@@ -57,7 +57,7 @@ To use this application, you need the following:
  ![Compass and IRI node logs](../images/cli.gif)
 
  :::info:
- Compass uses a pre-built [Merkle tree](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals.
+ Compass uses a pre-built Merkle tree (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals.
  :::
 
 ### Host an optional utilities website for your private Tangle
@@ -70,11 +70,11 @@ You can host your own utilites website that makes it easier to use your private 
 
 If you want to use all the functionalities of the utilities website, you need the following configuration credentials:
 
-* For the [Tangle explorer](https://utils.iota.org/), you need [Amazon DynamoDB credentials](https://aws.amazon.com/dynamodb/)
+- For the [Tangle explorer](https://utils.iota.org/), you need [Amazon DynamoDB credentials](https://aws.amazon.com/dynamodb/)
 
-* For the [currency converter](https://utils.iota.org/currency-conversion), you need a [Fixer API key](https://rapidapi.com/fixer/api/fixer-currency) and a [CoinMarketCap API key](https://coinmarketcap.com/api/)
+- For the [currency converter](https://utils.iota.org/currency-conversion), you need a [Fixer API key](https://rapidapi.com/fixer/api/fixer-currency) and a [CoinMarketCap API key](https://coinmarketcap.com/api/)
 
-* For the [IOTA area codes map](https://utils.iota.org/area-codes), you need a [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key)
+- For the [IOTA area codes map](https://utils.iota.org/area-codes), you need a [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ---
 
@@ -98,7 +98,6 @@ See a list of [API endpoints](root://node-software/0.1/iri/references/api-refere
 ### GetBalances
 Using the [JavaScript client library](root://client-libraries/0.1/introduction/overview.md) with Node.js, you can call the [`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances) endpoint to get the total balance of the seed.
 
-If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md).
 
  ```js
  var request = require('request');
@@ -163,8 +162,8 @@ If you want to send and receive transactions through a user interface, you can c
 
 We have two wallets that you can use:
 
-* **Light wallet:** You can connect to your private Tangle without exposing your IRI node to the Internet
-* **Trinity:** You must expose your IRI node to the Internet through an HTTPS connection
+- **Light wallet:** You can connect to your private Tangle without exposing your IRI node to the Internet
+- **Trinity:** You must expose your IRI node to the Internet through an HTTPS connection
 
 ### Connect to the light wallet
 
@@ -182,7 +181,7 @@ The [IOTA Light Wallet](https://github.com/iotaledger/wallet/releases) is a basi
 
 ### Connect to Trinity
 
-[Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA  wallet for macOS, Windows, Linux, iOS, and Android. This wallet allows you to connect only to nodes that support the HTTPS protocol.
+[Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA  wallet for macOS, Windows, Linux, iOS, and Android. This wallet allows you to connect only to nodes that support the HTTPS.
 
 To connect to Trinity, you can configure the one-command Tangle's Docker container to start a secure Caddy proxy server that uses Let's Encrypt SSL certificates.
 
@@ -194,9 +193,9 @@ This application uses a pre-computed Merkle tree with a seed that's in the `dock
 
 You need the following:
 
-* A domain name whose [A-record](https://support.dnsimple.com/articles/a-record/) points to your public IP address
+- A domain name whose [A-record](https://support.dnsimple.com/articles/a-record/) points to your public IP address
 
-* A device that's running the one-command Tangle, which is exposed to the Internet on ports 80 and 443 (you may need to forward ports)
+- A device that's running the one-command Tangle, which is exposed to the Internet on ports 80 and 443 (you may need to forward ports)
 
 ---
 

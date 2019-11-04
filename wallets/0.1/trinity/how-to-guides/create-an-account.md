@@ -1,6 +1,12 @@
 # Create an account
 
-**Trinity accounts are password-protected to secure and store your seeds on your mobile device or computer.**
+**Trinity accounts are password-protected to secure and store your seeds on your mobile device or computer. You can create one account for each of your seeds.**
+
+## Prerequisites
+
+To complete this guide you must have [Trinity](https://trinity.iota.org/) installed on your device.
+
+---
 
 1. Open Trinity
 
@@ -25,3 +31,7 @@
     :::info:
     You can choose to add extra account security in the [Security settings](../how-to-guides/manage-your-security-settings.md)
     :::
+
+## Next steps
+
+[Send a transaction](../how-to-guides/send-a-transaction.md).

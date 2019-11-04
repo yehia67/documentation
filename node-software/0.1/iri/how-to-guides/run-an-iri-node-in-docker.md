@@ -3,9 +3,9 @@
 **When you run the IRI in a Docker container, your device becomes a Linux server for an IRI node, which gives you direct access to the Tangle. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.**
 
 The IRI Docker container is suitable for the following operating systems:
-* Linux
-* Mac
-* Windows
+- Linux
+- Mac
+- Windows
 
 If you're using a Linux operating system, add `sudo` before the commands in this guide.
 
@@ -13,19 +13,19 @@ If you're using a Linux operating system, add `sudo` before the commands in this
 
 To complete this guide, you need the following:
 
-* 4GB RAM
-* 64-bit processor
+- 4GB RAM
+- 64-bit processor
 
-* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
-* [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
+- A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
+- [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
 
     * **TCP neighbor peering port:** 15600
     * **TCP API port:** 14265
 
 The Docker container is suitable for the following operating systems:
-* Linux
-* macOS
-* Windows
+- Linux
+- macOS
+- Windows
 
 :::info:
 If you're using a Linux operating system, add `sudo` before all the commands in the following tasks.
@@ -80,8 +80,8 @@ The IRI is Java software, so it must be run in a Java runtime environment (JRE).
 The IRI Docker container contains the necessary software to run the IRI.
 
 You have two options for downloading the IRI Docker container:
-* [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option)
-* [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code)
+- [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option)
+- [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code)
   
 ### Download the pre-built IRI Docker container
 
@@ -94,8 +94,8 @@ docker pull iotaledger/iri:latest
 ### Build the IRI Docker container from the source code
 
 Instead of downloading the pre-built Docker container, you may want to build the file from the source code for any of the following reasons:
-* You want to be sure that the code you run is the same as the source code
-* You want to modify the code before you run it
+- You want to be sure that the code you run is the same as the source code
+- You want to modify the code before you run it
 
 1. [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
@@ -170,11 +170,11 @@ You can configure the node by passing [configuration options](../references/iri-
     }
     ```
     
-    You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to [neighbor IRI nodes](../concepts/neighbor-iri-node.md).
+    You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to neighbor IRI nodes.
 
 3. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.ini file
 
-Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
+Now that your node is up and running, it'll start to synchronize its ledger with the network. Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
 
 ## Step 3. Check that the node is synchronized
 
@@ -203,5 +203,4 @@ It may take some time for the IRI to synchronize. For help with any issues, read
 
 ## Next steps
 
-* [Interact with an IRI node](../how-to-guides/interact-with-an-iri-node.md)
-* [Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
+[Interact with your node](../how-to-guides/interact-with-an-iri-node.md).

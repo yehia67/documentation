@@ -6,12 +6,12 @@
 
 To complete this guide, you need the following:
 
-* 4GB RAM
-* 64-bit processor
+- 4GB RAM
+- 64-bit processor
 
-* A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04))
-* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
-* [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
+- A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04))
+- A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
+- [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
 
     * **TCP neighbor peering port:** 15600
     * **TCP API port:** 14265
@@ -21,8 +21,8 @@ To complete this guide, you need the following:
 The IRI is Java software, so it must be run in a Java runtime environment (JRE).
 
 You have two options for downloading the latest IRI software:
-* Download the pre-built Java file from GitHub (quickest option)
-* Build the Java file from the source code on GitHub 
+- Download the pre-built Java file from GitHub (quickest option)
+- Build the Java file from the source code on GitHub 
 
 ### Download the pre-built IRI Java file
 
@@ -86,8 +86,8 @@ Now that the IRI Java file and the `spent-addresses-db` directory are saved on y
 ### Build the IRI Java file from the source code
 
 Instead of downloading the pre-built IRI Java file, you may want to build the file from the source code the any of the following reasons:
-* You want to be sure that the code you run is the same as the source code
-* You want to modify the code before you run it
+- You want to be sure that the code you run is the same as the source code
+- You want to modify the code before you run it
 
 1. Download and install the Java 8 OpenJDK
 
@@ -188,45 +188,19 @@ If you want to run a Devnet node, you must set the `TESTNET` configuration optio
 
 The following Devnet nodes have auto-peering enabled, so they will automatically add you as neighbors:
 
-* tcp://p101.testnet.iota.cafe:14666
+- tcp://p101.testnet.iota.cafe:14666
 
-* tcp://p102.testnet.iota.cafe:14666
+- tcp://p102.testnet.iota.cafe:14666
 
-* tcp://p103.testnet.iota.cafe:14666
+- tcp://p103.testnet.iota.cafe:14666
 
-* tcp://p104.testnet.iota.cafe:14666
-
-### Configure a Spamnet node
-
-If you want to run a Spamnet node, you must include only the following configuration parameters in your configuration file:
-
-```bash
-[IRI]
-ZMQ_ENABLED = TRUE
-TESTNET = TRUE
-DB_PATH = spamnetdb
-DB_LOG_PATH = spamnetdb.log
-MWM = 7
-SNAPSHOT_FILE = spamnet.txt
-COORDINATOR = H9FXUMSYAWNZPVFINVTXOTYKFZXR9OBKA9KSTVWXTWHIZZRISFYZMXIMOQFXDXXQHNAJXAZFP9IHSFXRH
-NUMBER_OF_KEYS_IN_A_MILESTONE = 20
-SNAPSHOT_TIME = 1535760000
-MILESTONE_START_INDEX = 2
-DONT_VALIDATE_TESTNET_MILESTONE_SIG = true
-NEIGHBORS = tcp://p101.spamnet.iota.cafe:15600 tcp://p102.spamnet.iota.cafe:15600
-```
-
-You must also create a snapshot file to define an address that contains the entire supply of tokens on the Spamnet. The location of this file must be set in the `SNAPSHOT_FILE` configuration parameter.
-
-```bash
-WYF9OOFCQJRTLTRMREDWPOBQ9KNDMFVZSROZVXACAWKUMXAIYTFQCPAYZHNGKIWZZGKCSHSSTRDHDAJCW;2779530283277761
-```
+- tcp://p104.testnet.iota.cafe:14666
 
 ## Step 3. Run the IRI
 
 When you've downloaded, and configured the IRI, it's time to run it.
 
-1. Make a directory to keep the database and the IXI (IOTA exchange interface folders). Change `jake` to your Linux username.
+1. Make a directory to keep the database and the IXI (IOTA exchange interface) modules. Change `jake` to your Linux username.
 
     ```bash
     mkdir -p /home/jake/node/data
@@ -254,7 +228,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     You're now running an IRI node!
     :::
 
-3. Open a new terminal window on your Linux server, and install Curl and JQ. Curl is used to send REST API requests to your IRI node. JQ is a command-line processor that displays JSON data in an easy-to-read format.
+3. Open a new terminal window on your Linux server and install Curl and JQ. Curl is used to send REST API requests to your IRI node. JQ is a command-line processor that displays JSON data in an easy-to-read format.
 
     ```bash
     sudo apt install curl jq
@@ -294,7 +268,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     }
     ```
     
-    You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to [neighbor IRI nodes](../concepts/neighbor-iri-node.md).
+    You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to neighbor IRI nodes.
 
 5. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.ini file
 
@@ -302,7 +276,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     We recommend [setting up a reverse proxy](../how-to-guides/set-up-a-reverse-proxy.md) for your IRI node so that you can have more control over the requests that are made to it.
     :::
 
-Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
+Now that your node is up and running, it'll start to synchronize its ledger with the network. Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
 
 ## Step 4. Check that the node is synchronized
 
@@ -331,4 +305,4 @@ It may take some time for the IRI to synchronize. For help with any issues, read
 
 ## Next steps
 
-[Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
+[Interact with your node](../how-to-guides/interact-with-an-iri-node.md).

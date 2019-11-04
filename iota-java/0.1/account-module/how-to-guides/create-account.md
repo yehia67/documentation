@@ -6,11 +6,9 @@ One of the many benefits of using accounts is that you can define conditions in 
 
 ## Conditional deposit addresses
 
-In the IOTA protocol, IOTA tokens must be sent to [addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md), which are derived from your [seed](root://getting-started/0.1/introduction/seeds.md). These addresses may be withdrawn from only once. As a result, it's important that no one deposits IOTA tokens into a withdrawn address. But, it's difficult to know when or if someone is going to deposit IOTA tokens into your address before you withdraw from it.
-
 In accounts, addresses come with extra features that allow you to specify the conditions in which they may be used in payments. These addresses are called conditional deposit addresses (CDA).
 
-Accounts use CDAs to help reduce the [risk of withdrawing from spent addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA.
+Accounts use CDAs to help reduce the risk of withdrawing from [spent addresses](root://getting-started/0.1/basics/addresses.md#spent-addresses). When you request IOTA tokens from someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA.
 
 ## Seed state
 
@@ -30,14 +28,14 @@ Accounts use this data to keep a history of activity and to avoid making unneces
 
 To complete this tutorial, you need the following:
 
-* Access to a command prompt
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+- Access to a command-line interface
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 
-* Java 6 (or higher)
-* [Install the client library](../introduction/overview.md#install-the-library)
+- Java 6 (or higher)
+- [Install the client library](../introduction/overview.md#install-the-library)
 
 :::warning: Create a new seed
-If you have never created an account before, you must [create a new seed](root://getting-started/0.1/tutorials/get-started.md) because existing seed states are unknown.
+If you have never created an account before, you must [create a new seed](root://getting-started/0.1/how-to-guides/get-started.md) because existing seed states are unknown.
 :::
 
 ## Create a new account

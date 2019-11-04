@@ -346,7 +346,7 @@ hub                              RUNNING   pid 9983, uptime 0:01:22
 
 Depending on how you started Hub, it exposes either a gRPC API server or a RESTful API server for you to interact with:
 
-* [Get started with the gRPC API](../how-to-guides/get-started-with-the-grpc-api.md)
-* [Get started with the RESTful API](../how-to-guides/get-started-with-the-grpc-api.md)
+- [Get started with the gRPC API](../how-to-guides/get-started-with-the-grpc-api.md)
+- [Get started with the RESTful API](../how-to-guides/get-started-with-the-grpc-api.md)
 
 To improve the security of your Hub, connect it to a [signing server](../how-to-guides/install-the-signing-server.md).

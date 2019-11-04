@@ -14,8 +14,8 @@ All deep links must start with the `iota://` URI followed by a 90-tryte address 
 
 If you want to specify an amount or message, you can use the following query parameters:
 
-* `amount`
-* `message`
+- `amount`
+- `message`
 
 For example (you can click this link to test it):
 

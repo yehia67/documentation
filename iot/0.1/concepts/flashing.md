@@ -19,8 +19,8 @@ A bootloader is more use-friendly because you don't need additional hardware to 
 
 Microcontrollers have the following interfaces that are used for flashing:
 
-* [Serial Wire Debug](http://www.ti.com/lit/wp/spmy004/spmy004.pdf)
-* [JTAG](https://en.wikipedia.org/wiki/JTAG)
+- [Serial Wire Debug](http://www.ti.com/lit/wp/spmy004/spmy004.pdf)
+- [JTAG](https://en.wikipedia.org/wiki/JTAG)
 
 Both of these interfaces use the same protocol, but have different pin counts.
 

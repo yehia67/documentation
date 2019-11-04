@@ -8,7 +8,7 @@ The client libraries are currently in beta and you should not use them in produc
 
 ## Audience
 
-This documentation is designed for developers who are familiar with the Java programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md).
+This documentation is for developers who are familiar with the Java programming language and object-oriented programming concepts. You should also be familiar with [basic IOTA concepts](root://getting-started/0.1/introduction/overview.md) such as [bundles](root://getting-started/0.1/basics/bundles.md), [transactions](root://getting-started/0.1/basics/transactions.md), [seeds](root://getting-started/0.1/basics/seeds.md), and [addresses](root://getting-started/0.1/basics/addresses.md).
 
 ## Prerequisites
 
@@ -22,17 +22,17 @@ The IOTA Java client library is available on [JitPack][https://jitpack.io/].
 
 The Java library uses the following third-party libraries:
 
-* [Retrofit 2](https://square.github.io/retrofit/) type-safe HTTP client: `2.3.0`
-* [Simple Logging Facade for Java](http://www.slf4j.org/): `1.7.25`
-* [Apache Commons Lang](http://commons.apache.org/proper/commons-lang/): `3.6`
-* [Apache Commons IO](http://commons.apache.org/proper/commons-io/): `2.5`
-* [Legion of the Bouncy Castle](https://www.bouncycastle.org/java.html) Java cryptography APIs: `1.58`
+- [Retrofit 2](https://square.github.io/retrofit/) type-safe HTTP client: `2.3.0`
+- [Simple Logging Facade for Java](http://www.slf4j.org/): `1.7.25`
+- [Apache Commons Lang](http://commons.apache.org/proper/commons-lang/): `3.6`
+- [Apache Commons IO](http://commons.apache.org/proper/commons-io/): `2.5`
+- [Legion of the Bouncy Castle](https://www.bouncycastle.org/java.html) Java cryptography APIs: `1.58`
 
 To download the IOTA Java client library and its dependencies, you can use one of the following options:
 
-* Download the library with Gradle
-* Download the library with Maven
-* Download the library manually
+- Download the library with Gradle
+- Download the library with Maven
+- Download the library manually
 
 ### Install the library with Gradle
 

@@ -8,10 +8,10 @@ Data is one of the most fundamental ingredients in the machine economy and the c
 
 The different layers of this pyramid all rely on data. For example, sensors on cars can lead to the wisdom that allows drivers to bypass congestion:
 
-* **Data:** Sensors monitor the road and receive signals from the photons that reflect off the surface of their environment
-* **Information:** Sensor data is used to extract meaningful information about the speed of the moving objects and their relative positions
-* **Knowledge:** Information is contextualized and distilled into knowledge, telling the drivers on the road via over-the-air ​updates that the road may be congested due to a crash
-* **Wisdom:** Knowledge allows drivers to take an alternative route
+- **Data:** Sensors monitor the road and receive signals from the photons that reflect off the surface of their environment
+- **Information:** Sensor data is used to extract meaningful information about the speed of the moving objects and their relative positions
+- **Knowledge:** Information is contextualized and distilled into knowledge, telling the drivers on the road via over-the-air ​updates that the road may be congested due to a crash
+- **Wisdom:** Knowledge allows drivers to take an alternative route
 
 ## Business case
 
@@ -53,9 +53,9 @@ This Data Marketplace is not a launchpad for a future commercial service by the 
 
 The initiative’s objective was to do the following:
 
-* Produce an open source proof of concept
-* Explore business model innovation
-* Grow a co-creation ecosystem to foster permissionless innovation
+- Produce an open source proof of concept
+- Explore business model innovation
+- Grow a co-creation ecosystem to foster permissionless innovation
 
 Like its technology, the IOTA Foundation’s approach to enabling innovation is open and permissionless. Our ambition is to enable the ecosystem to co-create and develop new solutions and business models, but not to drive and push specific solutions to market.
 

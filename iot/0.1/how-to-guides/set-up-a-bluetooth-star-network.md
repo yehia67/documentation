@@ -37,5 +37,5 @@
 
 Now that you have a Bluetooth star network, you're ready to try one of our sample applications:
 
-* [Request data from the sensor server](../how-to-guides/run-an-environment-sensor-and-client.md)
-* [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md)
+- [Request data from the sensor server](../how-to-guides/run-an-environment-sensor-and-client.md)
+- [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md)
