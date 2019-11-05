@@ -14,10 +14,6 @@ This documentation is designed for developers who are familiar with the Java pro
 
 To use this library, you must have Java 6 (or later).
 
-## Install the library
-
-The IOTA Java client library is available on [JitPack][https://jitpack.io/].
-
 ### Dependencies
 
 The Java library uses the following third-party libraries:
@@ -28,7 +24,9 @@ The Java library uses the following third-party libraries:
 * [Apache Commons IO](http://commons.apache.org/proper/commons-io/): `2.5`
 * [Legion of the Bouncy Castle](https://www.bouncycastle.org/java.html) Java cryptography APIs: `1.58`
 
-To download the IOTA Java client library and its dependencies, you can use one of the following options:
+## Install the library
+
+The IOTA Java client library is available on [JitPack][https://jitpack.io/].  To download the IOTA Java client library and its dependencies, you can use one of the following options:
 
 * Download the library with Gradle
 * Download the library with Maven
