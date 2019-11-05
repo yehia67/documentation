@@ -2,20 +2,12 @@
 
 **When you run the IRI in a Docker container, your device becomes a Linux server for an IRI node, which gives you direct access to the Tangle. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.**
 
-The IRI Docker container is suitable for the following operating systems:
-- Linux
-- Mac
-- Windows
-
-If you're using a Linux operating system, add `sudo` before the commands in this guide.
-
 ## Prerequisites
 
 To complete this guide, you need the following:
 
 - 4GB RAM
 - 64-bit processor
-
 - A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 - [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
 
@@ -119,21 +111,22 @@ Instead of downloading the pre-built Docker container, you may want to build the
 
 ## Step 2. Run the IRI
 
-You can configure the node by passing [configuration options](../references/iri-configuration-options.md) to the `run` command as flags.
+You can configure the node by passing [configuration options](../references/iri-configuration-options.md) to the `run` command.
 
-1. Run the IRI with the `-p` flag to specify the API port
+1. Run the IRI with the `-p` option to specify the API port
 
     ```bash
     docker run --name iri iotaledger/iri:latest --remote true -p 14265
     ```
 
-    If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a config.ini file in the `/path/to/conf/config.ini` on your Docker host, then add `-c /path/to/conf/config.ini` to the DOCKER RUN command.
+    If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a `config.ini` file in the `/path/to/conf/config.ini` on your Docker host, then add `-c /path/to/conf/config.ini` to the `docker run` command.
 
     :::info:
-    If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`.
+    If you built the Docker container from source, you must change the value of the `-name` option to `iri iri:latest`.
     :::
+
     :::info:
-    To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the DOCKER RUN command.
+    To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the `docker run` command.
     :::
 
 2. Call the [getNodeInfo](../references/api-reference.md#getnodeinfo) endpoint to request general information about the IRI node
@@ -172,7 +165,7 @@ You can configure the node by passing [configuration options](../references/iri-
     
     You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to neighbor IRI nodes.
 
-3. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.ini file
+3. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your `config.ini` file
 
 Now that your node is up and running, it'll start to synchronize its ledger with the network. Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
 

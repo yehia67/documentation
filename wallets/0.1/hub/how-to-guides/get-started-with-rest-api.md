@@ -1,6 +1,6 @@
 # Get started with the RESTful API
 
-**When you expose Hub's RESTful API server, you can interact with it through HTTP endpoints. These endpoints allow you to manage users' tokens by interfacing with the Hub database and an IOTA node. In this guide, you learn the basics of the RESTful API to create a new user with some new deposit addresses.**
+**When you expose Hub's RESTful API server, you can interact with it through HTTP endpoints. These endpoints allow you to manage users' IOTA tokens by interfacing with the Hub database and a [node](root://getting-started/0.1/basics/nodes.md). In this guide, you learn the basics of the RESTful API to create a new user with some new deposit addresses.**
 
 ## Prerequisites
 
@@ -9,10 +9,6 @@ To use the code samples in this guide, you must have the following:
 - [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/)
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 - Access to a command-line interface
-
- :::info:
-The endpoints are all documented in the [RESTful API reference](../references/restful-api-reference.md).
-:::
 
 ## Step 1. Set up a connection to Hub
 
@@ -141,7 +137,7 @@ command = json.dumps({
 
 You should see a new deposit address in the console.
 
-3\. Create a new deposit address with the checksum
+3\. Create a new deposit address with a [checksum](root://getting-started/0.1/basics/checksums.md)
 
 --------------------
 ### Node.js
@@ -174,7 +170,7 @@ In the database, addresses are always saved without the checksum.
 4\. Send some IOTA tokens to one of the user's deposit addresses
 
 :::info:
-[Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA wallet, which makes it easy to send IOTA tokens.
+You can use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md) to send IOTA tokens.
 ::: 
 
 5\. Get the balance and history for the user  
@@ -214,14 +210,14 @@ events {
 If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md).
 
 :::success:Congratulations :tada:
-You've successfully created a new user and tested how Hub handles deposits of IOTA tokens.
+You've successfully created a new user and tested how Hub handles deposits.
 :::
 
 ## Next steps
 
 [Set up a demo exchange](../how-to-guides/create-a-demo-exchange.md) to test an integration of Hub.
 
-[Integrate Hub into your exchange](../how-to-guides/integrate-hub.md).
+[See our integration options](../how-to-guides/integrate-hub.md).
 
 
 

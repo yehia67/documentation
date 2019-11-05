@@ -4,7 +4,7 @@
 
 ## Salt
 
-To add an extra layer of security, improve the strength of your seed encryption algortithm by setting the [`salt`](../references/command-line-flags.md) flag. A salt removes the ability for an attacker to check the seed UUIDs in the database against a pre-computed dictionary attack. 
+To add an extra layer of security, improve the strength of your seed encryption algortithm by setting the [`salt`](../references/command-line-options.md) flag. A salt removes the ability for an attacker to check the seed UUIDs in the database against a pre-computed dictionary attack. 
 
 ## Signing server
 

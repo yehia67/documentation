@@ -10,12 +10,6 @@ You must have [installed Hub](../how-to-guides/install-hub.md) and it must be ru
 
 Before you can send API calls, you need a gRPC client that can create them.
 
-:::info:
-This guide helps you to test the gRPC API with [a GRPCC command-line client](https://github.com/njpatel/grpcc).
-
-For production environments, we recommend generating client code from one of the available [gRPC libraries](https://grpc.io/about/).
-:::
-
 1. Install npm
 
     ```bash
@@ -156,6 +150,8 @@ You've successfully created a new user and tested how Hub handles deposits of IO
 [Set up a demo exchange](../how-to-guides/create-a-demo-exchange.md) to test an integration of Hub.
 
 [Integrate Hub into your exchange](../how-to-guides/integrate-hub.md).
+
+For production environments, we recommend generating client code from one of the available [gRPC libraries](https://grpc.io/about/).
 
 
 

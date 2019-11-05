@@ -3,7 +3,7 @@
 **Hub has a gRPC API that simplifies connections to the Tangle and the Hub database. Use this API reference to find methods and learn what they do.**
 
 :::info:
-If you’re not familiar with gRPC and protobuf, we recommend following the [gRPC quickstart guide](https://grpc.io/docs/quickstart/).
+If you’re not familiar with gRPC and protobuf, we recommend following the [gRPC quickstart guide](https://grpc.io/docs/quickstart/). Or, you can [use the RESTful API](../references/restful-api-reference.md).
 :::
 
 <a name="hub.proto"></a>
@@ -179,7 +179,7 @@ Currently not used.
 
 ### RecoverFundsRequest
 
-To use this method, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-flags.md#recoverFunds). 
+To use this method, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-options.md#recoverFunds). 
 
 <a name="hub.rpc.RecoverFundsRequest"></a>
 
@@ -199,7 +199,7 @@ Currently not used.
 
 ### SignBundleRequest
 
-To use this method, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-flags.md#signBundle).
+To use this method, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-options.md#signBundle).
 
 |**Field**|**Type**|**Rules**|**Description**|
 | ---------------- | ----------------- | ----- | ------------------------------------------------------------ |

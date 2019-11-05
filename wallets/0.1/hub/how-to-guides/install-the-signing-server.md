@@ -1,14 +1,21 @@
 # Install the signing server
 
-**To improve the security of Hub, you can move the bundle signing operation and the salt (used to create seeds) to a signing server that only Hub can connect to. In this guide, you'll install and run a signing server that connects to Hub over an SSL-encrypted connection.**
+**To improve the security of Hub, you can move the bundle signing operation and the salt (used to generate seeds) to a signing server that only Hub can connect to. In this guide, you'll install and run a signing server that connects to Hub over an SSL-encrypted connection.**
 
-For this guide, you'll need a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
+:::info:
+For maximum security, it's best practice to run the signing server in a remote location. This way, if Hub is compromised, attackers can't steal IOTA tokens without access to the signing server.
+:::
 
-![IOTA Hub architecture](../images/iota_hub.png)
+## Prerequisites
+
+To complete this guide, you need the following:
+
+- A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
+- An instance of Hub
 
 ## Step 1. Install the dependencies
 
-The signing server needs to be compiled from source using the dependencies.
+To build and run the signing server, you need to install a compiler, Python, and Git.
 
 1. Make sure that the local apt repository is up to date and contains the multiverse repository
 
@@ -32,28 +39,36 @@ The signing server needs to be compiled from source using the dependencies.
 4. Download the binary installer for the [latest version of Bazel](https://github.com/bazelbuild/bazel/releases)
 
 	```bash
-	wget https://github.com/bazelbuild/bazel/releases/download/0.29.0/bazel-0.29.0-installer-linux-x86_64.sh
+	wget https://github.com/bazelbuild/bazel/releases/download/0.29.1/bazel-0.29.1-installer-linux-x86_64.sh
 	```
 
 5. Make sure that you can execute the installer script
 
 	```bash
-	chmod +x bazel-0.29.0-installer-linux-x86_64.sh
+	chmod +x bazel-0.29.1-installer-linux-x86_64.sh
 	```
 
-6. Install Bazel under your active user using the `--user` flag:
+6. Install Bazel
 
 	```bash
-	./bazel-0.18.0-installer-linux-x86_64.sh --user
+	./bazel-0.29.1-installer-linux-x86_64.sh --user
 	```
 
-7. Install the `pyparsing` package for Python
+	The `--user` flag installs Bazel in the `$HOME/bin` directory.
+
+7. Add the `$HOME/bin` directory to your `$PATH` variable
+
+	```BASH
+	PATH="$PATH:$HOME/bin"
+	```
+
+8. Install the `pyparsing` package for Python
 
 	```bash
 	sudo apt install -y python-pyparsing
 	```
 
-8. Install Git
+9. Install Git
 
 	```bash
 	sudo apt install -y git
@@ -73,7 +88,7 @@ The signing server needs to be compiled from source using the dependencies.
 	cd hub
 	```
 
-3. Build Hub from the source code:
+3. Build the signing server from the source code
 
 	```bash
 	bazel build -c opt //signing_server
@@ -93,21 +108,19 @@ INFO: Build completed successfully, 1412 total actions
 
 ## Step 3. Generate self-signed SSL certificates
 
-SSL certificates are used for secure communication between your Hub and the signing server. The Hub repository includes some scripts to generate the certificates.
+SSL certificates are used for secure communication between Hub and the signing server. The Hub repository includes scripts that generate the certificates.
 
-1. Open the generate_ca.sh file
+1. Open the `generate_ca.sh` file
 
 	```bash
 	nano docs/ssl/01_generate_ca.sh
 	```
 
-	The validity for the CA certificate is set to 365 days. Let's upgrade that to 9999 days so it won't expire anytime soon:
+2. To increase the expiry date of the certificate, replace `-days 365` with `-days 9999`, and save the file
 
-2. To increase the expiry date of the certificate, replace `-days 365` with `-days 9999`. Save the file
+3. Check the hostname for the signing server. In the example, the hostname is `signer`. You can check what your hostname is by executing the `hostname` command in the command line.
 
-3. Check the hostname for the signing server. In the example the hostname is `signer`. You can check what your hostname is by executing the `hostname` command in your shell.
-
-4. Open the generate-server file
+4. Open the `generate-server.sh` file
 
 	```bash
 	nano docs/ssl/02_generate_server.sh
@@ -115,13 +128,13 @@ SSL certificates are used for secure communication between your Hub and the sign
 
 5. Replace `-days 365` with `-days 9999`
 
-6. Change the `-subj` parameter so that the `CN=localhost` part contains the hostname of the signing server, for example `CN=signer`. Save the file.
+6. Change the `-subj` parameter so that the `CN=localhost` option contains the hostname of the signing server, for example `CN=signer`. Save the file.
 
 	The `openssl req` command should output something like the following:
 
 	openssl req -passin pass:1234 -new -key server.key -out server.csr -subj "/C=DE/ST=Berlin/L=Berlin/O=HUB/OU=Server/CN=signer"
 
-7. Open the generate_client file
+7. Open the `generate_client.sh` file
 
 	```bash
 	nano docs/ssl/03_generate_client.sh
@@ -145,21 +158,19 @@ You should now have some SSL server and client certificates ready to use!
 
 To run the signing server, you need to execute the binary file that was created during the build process. This binary file is located in the `./bazel-bin/signing_server/signing_server` directory.
 
-Before you can run the binary file, you need to configure it.
-
 1. Create a shell script called start.sh
 
 	```bash
 	nano start.sh
 	```
 
-2. In the start.sh file, add the command for running the signing server with any [command line flags](../references/command-line-flags.md) that you want to use:
+2. In the start.sh file, add the command for running the signing server with any [command line flags](../references/command-line-options.md) that you want to use:
 
 	```shell
 	#!/bin/bash
 
 	./bazel-bin/signing_server/signing_server \
-	--salt CHANGETHIS \
+	--salt CHANGETHISTOSOMETHINGMORESECURE \
 	--authMode ssl \
 	--sslKey docs/ssl/server.key \
 	--sslCert docs/ssl/server.crt \
@@ -183,9 +194,9 @@ Before you can run the binary file, you need to configure it.
 	./start.sh
 	```
 
-	:::success:Congratulations
-	:tada: The signing server is now running on your computer!
-	Whenever Hub creates a sweep, it will ask the signing server to sign the bundle and return the signature.
+	:::success:Congratulations :tada:
+	The signing server is now running.
+	Whenever Hub creates a sweep, it will ask the signing server to sign the bundle and to return the signature.
 	:::
 
 	You're running the signing server in your shell session. If you close this session, the server will stop. Therefore, you might want to consider running the signing server in a screen/tmux session, a system-wide service, or a supervised process.
@@ -243,7 +254,7 @@ Now, you need to connect Hub to the signing server.
 
 In the Hub server, you need to import the generated SSL certificates and edit the start.sh script to use them.
 
-1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the hub server. You can do this in any way you prefer. For this example, send them over SSH, using the `scp` command. Change 192.168.2.212 to the URL or IP address of your Hub server. Replace the `/home/dave/hub/` directory with the path where your Hub is installed.
+1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the Hub server. You can do this in any way you prefer. For this example, to send them over SSH, using the `scp` command, replace the 192.168.2.212 IP address with the URL or IP address of your Hub server. Then, replace the `/home/dave/hub/` directory with the path where Hub is installed.
 
 	```bash
 	scp client.crt client.key ca.crt 192.168.2.212:/home/dave/hub/
@@ -263,7 +274,7 @@ In the Hub server, you need to import the generated SSL certificates and edit th
 	sudo nano /etc/hosts
 	```
 
-3. In this file, map the hostname of the signing server to its IP address. Change 192.168.2.210 to the IP address of your signing server. Change `signer` to the hostname of your signing server.
+3. Map the hostname of the signing server to its IP address. Replace the 192.168.2.210 IP address with the IP address of your signing server. The, replace `signer` with the hostname of your signing server.
 
 	```shell
 	192.168.2.210   signer
@@ -301,10 +312,10 @@ In the Hub server, you need to import the generated SSL certificates and edit th
 	```
 
 :::success:Success
-If everything went well, Hub will be connected to your signing server. The salt is no longer on the same server as your Hub!
+If everything went well, Hub will be connected to your signing server. The salt is no longer on the same server as Hub, making the signing process more secure.
 :::
 
 ## Next steps
 
-Make sure that your signing server has a firewall whitelist. The fewer external services you expose, the less vulnerable the signing server is.
+Make sure that your signing server has a [firewall whitelist](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-ubuntu-18-04/). The fewer external services you expose, the less vulnerable the signing server is.
 

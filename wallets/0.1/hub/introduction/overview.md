@@ -1,47 +1,76 @@
 # Hub overview
 
-**Hub is a headless multi-user wallet for cryptocurrency exchanges. Through its application programming interfaces (APIs), Hub offers you an easy way to integrate IOTA into an exchange. You can choose to use either the RESTful or gRPC API, which provide simple calls to help you safely manage users' deposits and withdrawals of IOTA tokens.**
+**Hub is a wallet management system for cryptocurrency exchanges. Through its application programming interfaces (APIs), Hub offers you an easy way to integrate IOTA into an exchange by managing [seeds](root://getting-started/0.1/basics/seeds.md), [addresses](root://getting-started/0.1/basics/addresses.md), [transactions](root://getting-started/0.1/basics/transactions.md), and storage of [IOTA tokens](root://getting-started/0.1/basics/token.md).**
 
-## Account types
+![IOTA Hub architecture](../images/iota_hub.png)
 
-Hub has two types of account:
+To interact with an IOTA network, Hub communicates with the API of a [node](root://getting-started/0.1/basics/nodes.md). This connection gives Hub access to the [Tangle](root://getting-started/0.1/basics/token.md).
 
-- User accounts: Allow users to deposit IOTA tokens into Hub and to request withdrawals
+To allow you to interact with Hub, it has its own gRPC or RESTful API, which includes calls for creating new Hub users in the database, processing trades, and more.
+
+The Hub database has two types of account:
+
+- User accounts: Allows users to deposit IOTA tokens into Hub and to request withdrawals
 - Hub owner account: Stores users' deposited IOTA tokens until they request a withdrawal
 
-## Transaction monitoring
+## Security
 
-Before any transaction is accepted by an IOTA network, it must be confirmed. When a user deposits IOTA tokens into one of their addresses, or when the Hub owner issues a withdrawal, the transactions may become stuck in a pending state. So, to avoid delays in confirmation, Hub keeps a database of pending transactions so that it can automatically [reattach and promote](root://getting-started/0.1/basics/reattach-rebroadcast-promote.md) them.
+Hub comes with the following security features, making it a robust option for securing users' IOTA tokens.
 
-## Seed management
+### Transaction monitoring
 
-Each user's deposit addresses is derived from a new [seed](root://getting-started/0.1/basics/seeds.md), using the [Argon2](https://www.argon2.com/) hashing function.
+To avoid delays in transaction confirmation, Hub keeps a database of pending transactions so that it can automatically [reattach and promote](root://getting-started/0.1/basics/reattach-rebroadcast-promote.md) them.
 
-The following values are used to create a seed:
+### Seed management
 
-- Seed UUID: A randomly generated universally unique identifier that is stored in a [`seeduuid` field](../references/database-tables.md#user_account)
-- Salt: Characters that you can define in an optional [`salt` flag](../references/command-line-flags.md)
+Each deposit address is derived from a new seed, using the [Argon2](https://www.argon2.com/) hashing function, which takes the following values:
 
-:::info:
-The database contains a record of how many IOTA tokens a user has. The IOTA tokens are not kept on the user's addresses. Instead, they are transferred to the Hub owners address during a [sweep](../concepts/sweeps.md).
-:::
+- **Seed UUID:** A randomly generated, universally unique identifier
+- **Salt:** A 20-character [salt](https://en.wikipedia.org/wiki/Salt_(cryptography))
 
-## Token protection
+### External signing
+
+Hub comes with the option of a signing server, which stores the salt and signs bundles for Hub. This increases operational security by forcing potential attackers to gain control over both Hub and the signing server to be able to steal any IOTA tokens.
+
+For additional security, the communication between Hub and the signing server can also be encrypted using SSL. 
+
+### Token protection
 
 To help users not to withdraw from [spent addresses](root://getting-started/0.1/basics/addresses.md#spent-addresses), Hub has the following features:
 
-- **Withdrawal management:** Before withdrawing tokens from a user's address, Hub makes sure that no deposit transactions are pending for that same address, and that all previous deposit transactions have been confirmed. To keep track of which addresses have been withdrawn from, Hub stores the addresses in the database. When an address has been withdrawn from, Hub stops users from withdrawing from that address again.
+- **Withdrawal management:** Before withdrawing tokens from a user's address, Hub makes sure that no deposits are pending for that same address, and that all previous deposits have been confirmed. To keep track of which addresses are spent, Hub stores them in the database. When an address is spent, Hub stops users from withdrawing from that same address again.
  
-- **Deposit address management:** Hub derives a new address from a new seed for every deposit. To do so, Hub uses the withdrawal management to check whether an address was already withdrawn from. If an address has been withdrawn from, Hub creates a new seed UUID to use to derive a new deposit address.
+- **Deposit address management:** Hub derives a new address from a new seed for every deposit. To do so, Hub uses the withdrawal management to check whether an address is already spent. If an address is spent, Hub creates a new seed UUID to use to generate a new deposit address.
 
-- **Sweeps:** When issuing a withdrawal, Hub creates a bundle, called a [sweep](../concepts/sweeps.md), that also moves funds from users' deposit addresses to one of the Hub owner's addresses.
+- **Sweeps:** When issuing a withdrawal, Hub creates a bundle, called a [sweep](../concepts/sweeps.md), which also moves funds from users' deposit addresses to one of the Hub owner's addresses.
 
 ## Limitations
 
 Hub helps to stop users from withdrawing from spent addresses, but it doesn't stop users from depositing into them.
 
-If a user deposits tokens into a spent address, you can use the `recoverFunds` API call.
+If a user deposits tokens into a spent address, you can use the `recoverFunds` API call to try and transfer them to a safe address before an attacker steals them.
+
+## Blog posts
+
+Read the following blog posts about Hub:
+
+- [Introducing IOTA Hub](https://blog.iota.org/introducing-iota-hub-5349bb8a29cd)
+- [Hub Update: Easily Integrate IOTA With Your Exchange, Custody Solution, Or Product](https://blog.iota.org/hub-update-easily-integrate-iota-with-your-exchange-custody-solution-or-product-747181b33d37)
 
 ## Repository
 
 Go to the Hub source code on [Github](https://github.com/iotaledger/hub).
+
+## Discord channels
+
+[Join our Discord channel](https://discord.iota.org) where you can:
+
+- Take part in discussions with IOTA developers and the community
+- Ask for help
+- Share your knowledge to help others
+
+We have the following channels for Hub:
+
+- `hub-dev`: A read-only channel where developers discuss topics and where any GitHub updates are displayed
+
+- `hub-discussion`: An open channel where anyone is free to discuss Hub

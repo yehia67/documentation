@@ -1,6 +1,6 @@
 # Database tables
 
-**Hub manages users' IOTA tokens by recording information such as deposit addresses and withdrawal requests in database tables. You can find this information by using the gRPC API or by querying the database server.**
+**Hub manages users' IOTA tokens by recording information such as deposit addresses and withdrawal requests in database tables. You can find this information by using the API or by querying the database server.**
 
 
 | **Table**      | **Description**|
@@ -72,7 +72,7 @@ This table contains information that Hub uses to check if a sweep is confirmed.
 |:----------------|:--------------------------|:--------|
 | `hash`       |81-tryte tail transaction hash of the sweep | NULL |  
 | `sweep`      | ID of the sweep whose bundle includes the tail transaction. This ID is in the `sweep` table.  | NULL|
-| `confirmed`  | Whether the sweep is confirmed. 0=pending.  | 0 |
+| `confirmed`  | Whether the sweep is confirmed  | 0 (pending) |
 | `created_at` | Date and time that the table was created in the following format: `YYYY-MM-DD HH:MM:SS` | The current date and time |
 
 ## User_account
@@ -125,7 +125,7 @@ This table contains information about the balance of users' deposit addresses.
 | `reason`       | One of three reasons for the balance update event    | NULL                |
 | `tail_hash`    | 81-tryte tail transaction hash of the sweep   | NULL                |
 | `sweep`        | ID of the sweep that caused the balance update. This ID is in the `sweep` table.    | NULL                |
-|`message`| Contents (in trytes) of the `signatureMessageFragment` field of the output transaction in a deposit bundle
+|`message`| Contents (in trytes) of the `signatureMessageFragment` field of the output transaction in a deposit bundle|NULL|
 | `occured_at`   | Date and time that the balance was updated in the following format: `YYYY-MM-DD HH:MM:SS` |The current date and time|
 
 ## Withdrawal
@@ -139,7 +139,7 @@ This table contains information about the users' withdrawal requests.
 | `user_id`        | ID of the user's account in the `user_account` table |NULL                |
 | `amount`         | Total amount of the withdrawal |NULL                |
 | `payout_address` | Output address to which the tokens were sent   |  NULL    |
-| `tag`            | Value of the output transaction's [`tag` field](root://getting-started/0.1/basics/transactions.md#tag)   |  NULL    |
-| `sweep`          | ID of the sweep that actioned the withdrawal. This ID is in the `sweep` table.       | NULL     |
+| `tag`            | Value of the output transaction's `tag` field   |  NULL    |
+| `sweep`          | ID of the sweep that actioned the withdrawal       | NULL     |
 | `requested_at`   | Date and time that the user requested the withdrawal in the following format: `YYYY-MM-DD HH:MM:SS` | The current date and time |
 | `cancelled_at`   | Date and time that the withdrawal was canceled in the following format: `YYYY-MM-DD HH:MM:SS` | NULL |

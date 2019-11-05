@@ -4,7 +4,7 @@
 
 You can integrate Hub into an application in many ways. This guide uses integration option 2, which is the easiest way to store all users' IOTA tokens outside of Hub.
 
-For details about Hub integration options, see [our integrations guide](../how-to-guides/integrate-hub.md).
+For details about Hub integration options, see the [integrations guide](../how-to-guides/integrate-hub.md).
 
 The [source code for this guide](https://github.com/fijter/fakexchange) is available on GitHub. The `master` branch is the one without the Hub integration.
 
@@ -143,7 +143,7 @@ You'll see that this feature isn't available yet.
 
 At the moment, the exchange doesn't allow you to deposit or withdraw IOTA tokens. To add this functionality, you can make calls to the Hub RESTful API endpoints.
 
-Each time users wants to deposit IOTA tokens, it's best practice to create a new deposit address for them with the [`GetDepositAddress`](../references/restful-api-reference.md#GetDepositAddress) endpoint.
+Each time users wants to deposit IOTA tokens, it's best practice to create a new deposit address for them, using the [`GetDepositAddress`](../references/restful-api-reference.md#GetDepositAddress) endpoint.
 
 1. In the `exchange` directory, create an `iota.py` file
 
@@ -267,7 +267,7 @@ To deposit IOTA tokens into your exchange account, you can send IOTA tokens to t
 
 At the moment, if you send IOTA tokens to the deposit address, the balance in the user's exchange account doesn't update.
 
-To make sure this balance is kept up to date, you can monitor Hub user addresses for balance changes with the [`BalanceSubscription`](../references/restful-api-reference.md#BalanceSubscription) endpoint
+To make sure this balance is kept up to date, you can monitor Hub user addresses for balance changes, using the [`BalanceSubscription`](../references/restful-api-reference.md#BalanceSubscription) endpoint
 
 1. In the `exchange` directory, open the `models.py` file
 
@@ -401,11 +401,7 @@ To make sure that Hub regularly checks for changes, you can call this command in
 
 ## Step 5. Create a Hub user as a hot wallet
 
-By default, Hub keeps a record of user balances and it transfers any tokens to the Hub owner's account during a sweep.
-
-But, to action trades, exchanges often need to keep track of balances in their own database and they often want to store the tokens in a cold wallet (an offline wallet) for increased security.
-
-To do this, you can create a normal Hub user and transfer all IOTA tokens to that user when a balance change event occurs.
+To store the tokens in a cold wallet (an offline wallet), you can create a normal Hub user and transfer all IOTA tokens to that user when a balance change event occurs.
 
 1. In the `iota.py` file, create a function to update the Hub database so that all incoming deposits are added to the exchange owner's `hot-wallet` user
 
@@ -456,7 +452,7 @@ Now, whenever users makes a deposit, their balance will be updated on the exchan
 
 To withdraw IOTA tokens from their accounts, users need to request a withdrawal from Hub.
 
-1. In the `iota.py` file, create a function to withdraw IOTA tokens with the `UserWithdraw` endpoint 
+1. In the `iota.py` file, create a function to withdraw IOTA tokens, using the `UserWithdraw` endpoint 
 
     ```py
     def withdraw(self, user_id, amount, address, validate_checksum=True, tag='FAKEXCHANGE'):
@@ -507,9 +503,7 @@ Now, if you request another deposit address and send IOTA tokens to it, you can 
 
 ## Next steps
 
-This guide has shown you how to integrate IOTA into a demo exchange using integration option 2.
-
-You can continue to improve this demo integration by adding more functionality.
+Continue to improve this demo integration by adding more functionality. For example, you might want to check
 
 
 
