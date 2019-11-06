@@ -16,7 +16,7 @@ To use this library, you must have Java 6 (or later).
 
 ## Install the library
 
-The IOTA Java client library is available on [JitPack][https://jitpack.io/].
+The IOTA Java client library is available on [JitPack](https://jitpack.io/).
 
 ### Dependencies
 
