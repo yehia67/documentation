@@ -42,10 +42,17 @@ The official JavaScript client library. This library includes the core package, 
 
 The official Python client library. This library includes core and extended functionality.
 
+<<<<<<< HEAD
 ---------------
+=======
+The official Go client library. This library includes the core library and the account module.
+>>>>>>> Add Python lib documentation
 
-### __Community support__ ###
+---
+#### **Python library** ####
+[Link](root://iota-python/0.1/introduction/overview.md)
 
+<<<<<<< HEAD
 ---------------
 #### __C# library__ ####
 [Link](https://github.com/iota-community/tangle-.net)
@@ -63,8 +70,15 @@ A C# .NET 4.6 client library. This library includes core and extended functional
 [Link](https://utils.iota.org)
 
 Official utilities for developing on IOTA and interacting with the Tangle.
+=======
+A Python client library. This library includes core and extended functionality.
 
----
+---------------
+
+### __Community support__ ###
+>>>>>>> Add Python lib documentation
+
+---------------
 
 #### **Official Discord** ####
 [Link](https://discord.iota.org)

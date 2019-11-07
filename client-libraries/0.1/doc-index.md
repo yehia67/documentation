@@ -103,3 +103,9 @@
 [API reference/Python](https://github.com/iotaledger/iota.py/blob/master/docs/api.rst)
 
 
+<<<<<<< HEAD
+=======
+[Libraries/IOTA Go](root://iota-go/0.1/introduction/overview.md)
+
+[Libraries/IOTA Python](root://iota-python/0.1/introduction/overview.md)
+>>>>>>> Add Python lib documentation
