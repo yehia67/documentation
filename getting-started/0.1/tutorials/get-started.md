@@ -138,6 +138,28 @@ $ go get github.com/iotaledger/iota.go/api
 This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file.
 
 [See the Go documentation](root://iota-go/0.1/introduction/overview.md).
+---
+### Python
+To use the library, your computer must have one of the following supported versions of Python:
+
+* Python 2.7,
+* Python 3.5,
+* Python 3.6,
+* or Python 3.7.
+
+To download the IOTA Python client library and its dependencies, we recommend that you use [PyPi](https://pypi.org/project/PyOTA/).
+
+```bash
+pip install pyota
+```
+
+If you would like to use speed-ups or local PoW, install it with the extension:
+
+```bash
+$ pip install pyota[ccurl,pow]
+```
+
+[See the Python documentation](root://iota-python/0.1/introduction/overview.md).
 --------------------
 
 ## Step 3. Make a test API request
@@ -230,6 +252,21 @@ func handleErr(err error) {
 		panic(err)
 	}
 }
+```
+---
+### Python
+```python
+from iota import Iota
+from pprint import pprint
+
+# Create a new instance of the IOTA API class
+api = Iota(adapter = 'https://nodes.devnet.iota.org:443')
+
+# Send a request to a node, receive response
+response = api.get_node_info()
+
+# Print response
+pprint(response)
 ```
 --------------------
 

@@ -28,18 +28,18 @@ The official Java client library. This library includes the core library and the
 [Link](root://iota-go/0.1/introduction/overview.md)
 
 The official Go client library. This library includes the core library and the account module.
+
+---
+#### **Python library** ####
+[Link](root://iota-python/0.1/introduction/overview.md)
+
+A Python client library. This library includes core and extended functionality.
+
 ---------------
 
 ### __Community support__ ###
 
 ---------------
-
-#### __Python library__ ####
-[Link](https://github.com/iotaledger/iota.lib.py)
-
-A Python client library. This library includes core and extended functionality.
-
----
 
 #### __C# library__ ####
 [Link](https://github.com/iota-community/tangle-.net)

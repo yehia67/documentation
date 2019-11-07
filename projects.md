@@ -10,5 +10,6 @@
 [IOTA Go](/iota-go)
 [IOTA Java](/iota-java)
 [IOTA JS](/iota-js)
+[IOTA Python](/iota-python)
 [General](/general)
 [Contribution](/contribution)
