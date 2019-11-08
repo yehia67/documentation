@@ -1,6 +1,6 @@
 # Sweeps
 
-**A sweep is a [bundle](root://getting-started/0.1/basics/bundles.md) that balances users' withdrawals and deposits. When a user deposits IOTA tokens into an address, Hub tries to use those IOTA tokens to fulfill withdrawal requests. If the total amount of IOTA tokens in withdrawal requests is less than the total amount of deposited IOTA tokens, Hub transfers the remaining balance to a new address that belongs to the Hub owner for safe keeping. If the total amount of deposited IOTA tokens is less than the total amount of withdrawals, Hub uses the tokens in the Hub owner's addresses to fulfill the remaining withdrawal balance.**
+**A sweep is a [bundle](root://getting-started/0.1/basics/bundles.md) that balances users' withdrawals and deposits. When a user deposits IOTA tokens into an address, Hub tries to use those IOTA tokens to fulfill withdrawal requests.**
 
 ## The reason for sweeps
 
@@ -8,18 +8,22 @@ Hub reduces the risk of a user withdrawing from a [spent address](root://getting
 
 ## How sweeps work
 
-To do a sweep, Hub does the following at regular intervals that are defined by the [`--monitorInterval` and `--sweepInterval`](../references/command-line-options.md#monitorInterval) flags:
+Hub finds all deposit address that have a non-zero balance and that are not included in any pending sweeps.
 
-1. Find all deposit address that have a non-zero balance
+![Monitor interval](../images/monitorInterval.png)
 
-2. Check whether those deposit addresses are in any pending sweeps. Any deposit addresses that are in pending sweeps aren't included in a new sweep.
+Then, Hub checks for pending withdrawal requests.
 
-3. Check for pending user withdrawal requests
+Using this information, Hub creates a sweep that transfers any deposited IOTA tokens to the chosen withdrawal addresses.
 
-4. Create a new address for the Hub owner
+If the total amount of IOTA tokens in withdrawal requests is less than the total amount of deposited IOTA tokens, Hub creates an output [transaction](root://getting-started/0.1/basics/transactions.md) to deposit the remaining balance into a new address that belongs to the Hub owner for safe keeping.
 
-5. Create a sweep that transfers any deposited IOTA tokens to the chosen withdrawal addresses. The number of deposits and withdrawals that can be issued in a single sweep is limited by the [`--sweep_max_deposit` and `--sweep_max_withdrawal`](../references/command-line-options.md#sweepLimits) flags.
+If the total amount of deposited IOTA tokens is less than the total amount of withdrawals, Hub creates an input transaction to withdraw enough IOTA tokens from the Hub owner's addresses to fulfill the remaining withdrawal balance.
 
-6. Check the inclusion state of the tail transaction in the sweep to determine if it's been confirmed. Hub [reattaches and promotes](root://getting-started/0.1/basics/reattach-rebroadcast-promote.md) the tail transaction until the transactions in the sweep are confirmed.
+![Sweep interval](../images/sweepInterval.png)
 
-7. Update the users' balances in the database tables when the transactions in the sweep are confirmed
+After Hub sends the sweep to a node, Hub monitors the tail transaction for confirmation and [reattaches and promotes](root://getting-started/0.1/basics/reattach-rebroadcast-promote.md) it until it's confirmed.
+
+When the transactions in the sweep are confirmed, Hub updates the users' balances in the database tables.
+
+![Reattachment interval](../images/reattachmentInterval.png)

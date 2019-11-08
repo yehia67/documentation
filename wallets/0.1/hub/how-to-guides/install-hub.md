@@ -1,103 +1,6 @@
-# Run Hub
+# Run Hub on Linux
 
-**By running Hub, you expose an API that your application can use to manage users' accounts. In this guide, you'll install and run an instance of Hub as a service on a Linux server.**
-
-You have two options for running Hub. You either can run Hub as a service in a Docker container, or you can build it from source.
-
-## Run Hub in a Docker container
-
-When you run Hub in a Docker container, it's similar to running it in a lightweight virtual machine.
-
-Some of the advantages of running Hub in a Docker container include the following:
-
-- You don't need to install all the tools and dependencies yourself such as a compiler
-- Hub runs in the same way on any supported system architecture
-- It's easier to run Hub in the background, to stop it, and to see the logs
-
-### Prerequisites
-
-To complete this guide, you need [Docker](https://docs.docker.com/install/#supported-platforms).
-
-:::info:
-If you're using a Debian-based operating system, add `sudo` before all the commands in the following tasks.
-:::
-
-### Step 1. Install the database server
-
-By default, Hub uses [MariaDB 10.2.1+](https://mariadb.com/) because it supports CHECK constraints, which restrict the data you can add to the table.
-
-1. Create a network called hub
-
-	```bash
-	sudo docker network create hub
-	```
-
-2. Install the MariaDB Docker image
-    
-    ```bash
-    docker run \
-	--name mariadb \
-	--rm \
-	--hostname mariadb.local \
-	--net=hub \
-	-e MYSQL_ROOT_PASSWORD=arootpassword \
-	-e MYSQL_USER=hubuser \
-	-e MYSQL_PASSWORD=hubpassword \
-	-e MYSQL_DATABASE=hubdb \
-	-v ~/db-conf:/conf \
-	-v ~/db-data:/var/lib/mysql \
-	mariadb/server:10.3
-    ```
-
-2. Change into the `goshimmer` directory
-
-    ```bash
-    cd goshimmer
-    ```
-
-3. Build the Docker image
-
-    ```bash
-    docker build -t goshimmer .
-    ```
-
-4. Run the Docker image
-
-    Here, we run the Docker image in the background, forward the ports from your host device to the Docker container, and and use the [command-line options](../references/command-line-options.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
-
-    :::info:
-    If you have [Docker Compose](https://docs.docker.com/compose/), you can also use the `docker-compose up -d` command.
-    :::
-
-    ```bash
-    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer --node-enable-plugins "spammer zeromq dashboard"
-    ```
-
-    The container ID is displayed in the console.
-
-    :::info:
-    To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command.
-   :::
-
-5. Copy the container ID, and use it to read the node's logs. Replace the `$ContainerID` placeholder with your container ID.
-
-    ```bash
-    docker logs -f $ContainerID
-    ```
-
-6. To see the status screen, attach the Docker container by doing the following. Replace the `$ContainerID` placeholder with your container ID.
-
-    ```bash
-    docker attach $ContainerID
-    ```
-
-:::success:Congratulations :tada:
-You're now running a GoShimmer node.
-:::
-
-## Build a node from source
-
-When you build the node from the source code, you need to make sure that you have the prerequisites such as GCC, and the Go programming language.
+**By running Hub, you expose an API that your application can use to manage users' accounts. In this guide, you'll install and run an instance of Hub on a Linux server.**
 
 ## Prerequisites
 
@@ -235,13 +138,13 @@ After setting up all these dependencies, you need to install and build Hub.
 	cd hub
 	```
 
-3. Build Hub from the source code:
+3. Build Hub from the source code
 
 	```bash
 	bazel build -c opt //hub:hub
 	```
 
-	This process can take a while, depending on the hardware or virtual machine.
+	This process can take a while, depending on your hardware or your virtual machine settings.
 
 	After the build is complete, the output should display something like the following:
 
@@ -258,7 +161,7 @@ After setting up all these dependencies, you need to install and build Hub.
 After Hub is installed, you need to create the database tables that store Hub's data.
 
 :::info:
-In these commands, make sure to replace the `myrootpassword` placeholder with the root password you chose when you installed the MariaDB database.
+In these commands, make sure to replace the `myrootpassword` placeholder with the password you chose when you installed the MariaDB database.
 :::
 
 1. Create a database called hub
@@ -281,19 +184,23 @@ In these commands, make sure to replace the `myrootpassword` placeholder with th
 
 ## Step 5. Run Hub
 
-To run Hub, you need to execute the binary file that was created during the build process. This binary file is located in the `./bazel-bin/hub/hub` directory.
+To run Hub, you need to execute the binary file that was created during the build process.
 
-1\. Create a shell script file called `start.sh`
+1\. [Plan your Hub configuration](../how-to-guides/configure-hub.md)
+
+2\. Create a shell script file called `start.sh`
 
 ```bash
 nano start.sh
 ```
 
-2\. In the start.sh file, add the command for running hub with the [command line options](../references/command-line-options.md) that you want to use
+3\. In the start.sh file, add the command for running hub with the [command line options](../references/command-line-options.md) that you want to use
 
-### Best practice
+:::info:
+To see the logs in the console, use the Google logging library. For example, you could use the following command: `GLOG_logtostderr=1 GLOG_v=7`.
+:::
 
-To avoid connecting to a malicious node, we recommend connecting Hub to a local Mainnet node that you control. If you don't have a local Mainnet node, [read about the IRI node software](root://node-software/0.1/iri/introduction/overview.md) for guides on setting one up.
+These are some example configurations.
 
 --------------------
 ### gRPC API
@@ -356,13 +263,13 @@ For testing purposes, you may want to connect to a remote [Devnet](root://gettin
 Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
 :::
 	
-3\. Give yourself permission to execute the script
+4\. Give yourself permission to execute the script
 
 ```bash
 chmod a+x start.sh
 ```
 
-4\. Run the shell script to start Hub
+5\. Run the shell script to start Hub
 
 ```bash
 ./start.sh
@@ -372,19 +279,19 @@ You're running Hub in your shell session. If you close this session, Hub will st
 
 For this guide, you'll use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. 
 
-5\. Install the `supervisor` package (press `CTRL+C` to exit the current shell session):
+6\. Install the `supervisor` package (press `CTRL+C` to exit the current shell session):
 
 ```bash
 sudo apt install -y supervisor
 ```
 
-6\. Create a configuration file for the supervised process
+7\. Create a configuration file for the supervised process
 
 ```bash
 sudo nano /etc/supervisor/conf.d/hub.conf
 ```
 
-7\. Add the following lines to the hub.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user.
+8\. Add the following lines to the `hub.conf` file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user.
 
 ```shell
 [program:hub]
@@ -397,7 +304,7 @@ stderr_logfile=/home/dave/hub/err.log
 stdout_logfile=/home/dave/hub/info.log
 ```
 
-8\. Save the hub.conf file and reload supervisor
+9\. Save the hub.conf file and reload supervisor
 
 ```bash
 sudo supervisorctl reload
@@ -405,7 +312,7 @@ sudo supervisorctl reload
 
 Hub should now be running in the background and should automatically start again after a server reboot or a crash.
 
-9\. Check the supervisor status
+10\. Check the supervisor status
 
 ```bash
 sudo supervisorctl status
@@ -428,4 +335,10 @@ Depending on how you started Hub, it exposes either a gRPC API server or a RESTf
 - [Get started with the gRPC API](../how-to-guides/get-started-with-the-grpc-api.md)
 - [Get started with the RESTful API](../how-to-guides/get-started-with-the-grpc-api.md)
 
-To improve the security of your Hub, connect it to a [signing server](../how-to-guides/install-the-signing-server.md).
+To [secure the API](../how-to-guides/secure-hub-api.md), you can use the SSL protocol.
+
+To improve the security of Hub, connect it to a [signing server](../how-to-guides/install-the-signing-server.md).
+
+[Make sure that your Hub server is secure](https://hostadvice.com/how-to/how-to-harden-your-ubuntu-18-04-server/).
+
+

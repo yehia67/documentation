@@ -15,7 +15,7 @@ To make it easier to find the options you want to change, we've separated them i
 If you've downloaded Hub, you can also run it with the `--help` flag to see a list of all the configuration options.
 :::
 
-## Database options
+## Database
 
 |**Option** |**Description**| **Accepted argument** | **Default**|**Notes** |
 | :------------------------ | :--------------- | :--------|:----|:-----|
@@ -27,9 +27,9 @@ If you've downloaded Hub, you can also run it with the `--help` flag to see a li
 |`--dbType`|Type of database| string|"mariadb"||
 |`--dbUser` |Database username| string|"user"||
 |`--fetchTransactionMessages`| Whether Hub stores any messages in the bundle of a deposit |true: Store messages, false: Do not store messages|false||
-|`--salt`| Salt that is hashed together with a seed UUID to generate a new seed for each deposit address  | string of at least 20 characters|  ""    |To keep the salt safe, we recommend [setting up a signing server](../how-to-guides/install-the-signing-server.md)|
+|`--salt`| Salt that is hashed together with a seed UUID to generate a new seed for each deposit address  | string of at least 20 characters|  ""    ||
 
-## Argon2 hash function options
+## Argon2 hash function
  
 | **Option** |   **Description**|**Accepted argument** | **Default**|**Notes** |
 | :------------------------ | :--------------- | :--------|:---|:---|
@@ -39,31 +39,32 @@ If you've downloaded Hub, you can also run it with the `--help` flag to see a li
 |`--argon2Parallelism`|Number of threads to use in parallel|integer|1|For a discussion about this option, [see this Stack Exchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options)|
 |`--maxConcurrentArgon2Hash`|Maximum number of concurrent Argon2 hash processes| integer|4||
 
-## API options
+## API
 
 | **Option** |   **Description**|**Accepted argument** | **Default**|**Notes** |
 | :------------------------ | :--------------- | :--------|:---|:---|
-|`--authMode`|Type of connection encryption that Hub uses|"none": Do not use encryption, "ssl" Use SSL encryption|"none"|If you use SSL encryption, you must also make sure to use the `--sslKey`, `--sslCert`, and `sslCA` arguments |
+|`--authMode`|Type of connection encryption that Hub uses|"none": Do not use encryption, "ssl" Use SSL encryption|"none"|If you use SSL encryption, you must also make sure to use the `--sslKey` and `--sslCert` options as well as either the `sslCA` or `--sslDH` option  |
 |`--listenAddress`| Host to which the Hub API will listen|string |"0.0.0.0:50051"|The default host allows any IP address to access the API|
 |`-serverType`| Type of API to expose |"grpc": Expose the gRPC API, "http": Expose the RESTful API|"grpc"|
 |`--sslCert` |Path to the SSL certificate |string|"/dev/null"||
-|`--sslCA` |Path to the certificate authority (CA) root |string|"/dev/null"||
+|`--sslCA` |Path to the certificate authority (CA) root |string|"/dev/null"|This option is needed only when you expose the gRPC API server type|
 |`--sslKey` |Path to the SSL certificate key |string|"/dev/null"||
-|`--sslDH`| Path to Diffie Hellman parameters (when using the RESTful API server type)|string |"/dev/null"||
+|`--sslDH`| Path to Diffie Hellman parameters|string |"/dev/null"|This option is needed only when you expose the RESTful API server type|
 
-## IOTA protocol options
+## IOTA protocol
 
 | **Option** |   **Description**|**Accepted argument** | **Default**|**Notes** |
 | :------------------------ | :--------------- | :--------|:---|:---|
-|`--apiAddress`| URL or IP address of the IRI node that Hub connects to| string|"127.0.0.1:14265"|To avoid connecting to a malicious node, we recommend connecting to a local Mainnet node that you control|
+|<a name="apiAddress"></a>`--apiAddress`| URL or IP address of the IRI node that Hub connects to| string|"127.0.0.1:14265"||
 |`--attachmentInterval`|Interval in milliseconds that Hub waits between [reattaching and promoting transactions](root://getting-started/0.1/basics/reattach-rebroadcast-promote.md)|integer|240000|To disable this feature, set this option to 0|
 |`--depth`|Value to use for the [depth](root://getting-started/0.1/basics/depth.md) argument of the [`getTransactionsToApprove`](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove) endpoint|integer |3||
-|<a name="keySec"></a>`--keySecLevel` |[Security level](root://getting-started/0.1/basics/security-levels.md) to use for generating deposit addresses|2||
-|`--minWeightMagnitude`| [Minimum weight magnitude (MWM)](root://getting-started/0.1/basics/proof-of-work.md#minimum-weight-magnitude) to use for proof of work|integer |9|To use Hub on the Mainnet, you must use a MWM of 14|
-|`--powMode`|Where [proof of work](root://getting-started/0.1/basics/proof-of-work.md) is done| "local": Do proof of work on the device that is running Hub, "remote": Use the `attachToTangle` endpoint to ask the node to do proof of work|"remote"|To use the remote mode, the IRI node in the `--apiAddress` option must support remote PoW|
-|<a name="useHttpsIRI"></a>`--useHttpsIRI`| Whether to communicate with the IRI node through HTTPS|true: Use HTTPS, false: Use HTTP|false| To use HTTPS, make sure that the IRI node in the `--apiAddress` option supports HTTPS|
+|<a name="keySecLevel"></a>`--keySecLevel` |[Security level](root://getting-started/0.1/basics/security-levels.md) to use for generating deposit addresses|2||
+|<a name="minWeightMagnitude"></a>`--minWeightMagnitude`| [Minimum weight magnitude (MWM)](root://getting-started/0.1/basics/proof-of-work.md#minimum-weight-magnitude) to use for proof of work|integer |9|To use Hub on the Mainnet, you must use a MWM of 14|
+|`--numBundlesToMine`| Number of different bundle hashes to generate to find one that reveals the least amount of the private key in the signature for a spent address|integer| 5000000| Bundles are mined only when you use the `RecoverFunds` API call|
+|<a name="powMode"></a>`--powMode`|Where [proof of work](root://getting-started/0.1/basics/proof-of-work.md) is done| "local": Do proof of work on the device that is running Hub, "remote": Use the `attachToTangle` endpoint to ask the node to do proof of work|"remote"|To use the remote mode, the IRI node in the `--apiAddress` option must support remote PoW|
+|<a name="useHttpsIRI"></a>`--useHttpsIRI`| Whether to use the SSL protocol to communicate with the node's API|true: Use the SSL protocol, false: Do not use the SSL protocol|false| |
 
-## Signing options
+## Signing
 
 | **Option** |   **Description**|**Accepted argument** | **Default**|**Notes** |
 | :------------------------ | :--------------- | :--------|:---|:---|
@@ -77,11 +78,11 @@ If you've downloaded Hub, you can also run it with the `--help` flag to see a li
 |`--signingServerKeyCert`|SSL certificate key for Hub|string|"/dev/null"|If you configure Hub to use SSL encryption and you have a signing server, you must use this option|
 |`--signingServerSslCert`|SSL certificate for Hub|string|"/dev/null"|If you configure Hub to use SSL encryption and you have a signing server, you must use this option|
 
-## Sweep options
+## Sweeps
 
 | **Option** |   **Description**|**Accepted argument** | **Default**|**Notes** |
 | :------------------------ | :--------------- | :--------|:---|:---|
 |<a name="monitorInterval"></a>`--monitorInterval`|Interval in milliseconds that Hub checks deposit addresses for IOTA tokens|integer|60000|To disable this feature, set this option to 0. Any deposit addresses that contain IOTA tokens are included in the next sweep.|
-|`--sweepInterval` |Interval in milliseconds that Hub waits between sweeps|integer|600000|To disable this feature, set this option to 0|
+|<a name="sweepInterval"></a>`--sweepInterval` |Interval in milliseconds that Hub waits between sweeps|integer|600000|To disable this feature, set this option to 0|
 |<a name="sweepLimits"></a>`--sweep_max_deposit`|Maximum number of user deposit addresses to use in input transactions in a sweep|integer|5|| 
-|`--sweep_max_withdraw`|Maximum number of withdrawal requests in a sweep|integer|7|If you increase this integer, you should also increase the `--sweep_max_deposit` integer to make sure that Hub has enough IOTA tokens to fulfill the withdrawals. Keep in mind that the more transactions that are included in a sweep, the more proof of work that must be done. As a result, a larger sweep will take longer to create, and may take longer to be confirmed.
+|`--sweep_max_withdraw`|Maximum number of withdrawal requests in a sweep|integer|7||

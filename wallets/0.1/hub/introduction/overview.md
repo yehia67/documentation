@@ -2,8 +2,6 @@
 
 **Hub is a wallet management system for cryptocurrency exchanges. Through its application programming interfaces (APIs), Hub offers you an easy way to integrate IOTA into an exchange by managing [seeds](root://getting-started/0.1/basics/seeds.md), [addresses](root://getting-started/0.1/basics/addresses.md), [transactions](root://getting-started/0.1/basics/transactions.md), and storage of [IOTA tokens](root://getting-started/0.1/basics/token.md).**
 
-![IOTA Hub architecture](../images/iota_hub.png)
-
 To interact with an IOTA network, Hub communicates with the API of a [node](root://getting-started/0.1/basics/nodes.md). This connection gives Hub access to the [Tangle](root://getting-started/0.1/basics/token.md).
 
 To allow you to interact with Hub, it has its own gRPC or RESTful API, which includes calls for creating new Hub users in the database, processing trades, and more.
@@ -13,26 +11,30 @@ The Hub database has two types of account:
 - User accounts: Allows users to deposit IOTA tokens into Hub and to request withdrawals
 - Hub owner account: Stores users' deposited IOTA tokens until they request a withdrawal
 
+![IOTA Hub architecture](../images/iota_hub.png)
+
 ## Security
 
 Hub comes with the following security features, making it a robust option for securing users' IOTA tokens.
 
 ### Transaction monitoring
 
-To avoid delays in transaction confirmation, Hub keeps a database of pending transactions so that it can automatically [reattach and promote](root://getting-started/0.1/basics/reattach-rebroadcast-promote.md) them.
+To avoid delays in transaction confirmation, Hub keeps a database of pending transactions so that it can automatically [promote and reattach](root://getting-started/0.1/basics/reattach-rebroadcast-promote.md) them.
 
 ### Seed management
 
-Each deposit address is derived from a new seed, using the [Argon2](https://www.argon2.com/) hashing function, which takes the following values:
+Each deposit address is derived from a new seed, using the [Argon2](https://www.argon2.com/) hash function, which takes the following values:
 
 - **Seed UUID:** A randomly generated, universally unique identifier
 - **Salt:** A 20-character [salt](https://en.wikipedia.org/wiki/Salt_(cryptography))
 
-### External signing
+The seed UUID is randomly generated when a user requests a new deposit address through the `GetDepositAddress` API call.
 
-Hub comes with the option of a signing server, which stores the salt and signs bundles for Hub. This increases operational security by forcing potential attackers to gain control over both Hub and the signing server to be able to steal any IOTA tokens.
+To mitigate the risk of an attacker gaining access to the Hub database and regenerating the seed, you can store the salt on a separate signing server, which is also responsible for signing bundles and returning the signature to Hub.
 
-For additional security, the communication between Hub and the signing server can also be encrypted using SSL. 
+For additional security, the communication between Hub and the signing server can also be encrypted using the SSL protocol. 
+
+This way, attackers must gain access to both Hub and the signing server to be able to find the seed UUID and the salt, which are needed to regenerate the seed.
 
 ### Token protection
 

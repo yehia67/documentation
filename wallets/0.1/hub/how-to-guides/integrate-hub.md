@@ -63,7 +63,7 @@ By managing user balances outside of Hub, it's easier to store tokens outside of
 
 ### Prerequisites
 
-1. Create a cold wallet, using a new seed
+1. Create a cold wallet address outside of Hub
 2. Create a new user to use as a hot wallet
 
 |**User action**|**Exchange action**|**Hub API call**|

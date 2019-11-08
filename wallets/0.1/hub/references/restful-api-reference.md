@@ -1029,7 +1029,7 @@ To use this endpoint, you must run Hub with the [`--SignBundle_enabled` flag](..
 |--|--|--|--|
 | `address`          |The user's deposit address that you want to withdraw from (may include a checksum) |string|
 | `bundleHash`       | The bundle hash that needs signing   |string|
-| `authentication`   |Optional |Authentication token for the endpoint |string|
+| `authentication`   |Optional |HMAC key for the endpoint |string|
 | `validateChecksum` |Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum)
 
 ### Examples

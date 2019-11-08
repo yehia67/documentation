@@ -1,6 +1,6 @@
 # Run an IRI node on a Linux server
 
-**When you run the IRI software, your device becomes a node that gives you direct access to the Tangle. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
+**When you run the IRI node software, your device becomes a node that gives you direct access to the Tangle. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
 
 ## Prerequisites
 

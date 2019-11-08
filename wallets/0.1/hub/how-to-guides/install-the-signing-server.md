@@ -10,8 +10,8 @@ For maximum security, it's best practice to run the signing server in a remote l
 
 To complete this guide, you need the following:
 
+- An [instance of Hub](../how-to-guides/install-hub.md)
 - A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
-- An instance of Hub
 
 ## Step 1. Install the dependencies
 
@@ -94,7 +94,7 @@ To build and run the signing server, you need to install a compiler, Python, and
 	bazel build -c opt //signing_server
 	```
 
-This process can take a while, depending on the hardware or virtual machine.
+This process can take a while, depending on your hardware or virtual machine.
 
 After the build is complete, the output should display something like the following:
 
@@ -108,55 +108,59 @@ INFO: Build completed successfully, 1412 total actions
 
 ## Step 3. Generate self-signed SSL certificates
 
-SSL certificates are used for secure communication between Hub and the signing server. The Hub repository includes scripts that generate the certificates.
+SSL certificates are used to secure the communication between Hub and the signing server. The Hub repository includes scripts that generate self-signed certificates for testing purposes.
 
-1. Open the `generate_ca.sh` file
+:::info:
+If you want to use SSL certificates in a production environment, you should run a dedicated Certificate authority (CA).
+:::
+
+1. Open the `01_generate_ca.sh` file
 
 	```bash
-	nano docs/ssl/01_generate_ca.sh
+	nano docs/ssl/grpc/01_generate_ca.sh
 	```
 
-2. To increase the expiry date of the certificate, replace `-days 365` with `-days 9999`, and save the file
+2. To increase the expiry date of the certificate to 9999 days, replace `-days 365` with `-days 9999`
 
-3. Check the hostname for the signing server. In the example, the hostname is `signer`. You can check what your hostname is by executing the `hostname` command in the command line.
+3. Replace the common name in the `-subj` switch with the hostname of your device and save the file. For example, if your hostname is `signer`, replace `CN=localhost` with `CN=signer`.
 
-4. Open the `generate-server.sh` file
+    :::info:
+    To find out your hostname, enter the `hostname` command in the command line.
+    :::
+
+4. Open the `02_generate-server.sh` file
 
 	```bash
-	nano docs/ssl/02_generate_server.sh
+	nano docs/ssl/grpc/02_generate_server.sh
 	```
 
 5. Replace `-days 365` with `-days 9999`
 
-6. Change the `-subj` parameter so that the `CN=localhost` option contains the hostname of the signing server, for example `CN=signer`. Save the file.
+6. Replace the common name in the `-subj` switch with the hostname of your device and save the file
 
-	The `openssl req` command should output something like the following:
-
-	openssl req -passin pass:1234 -new -key server.key -out server.csr -subj "/C=DE/ST=Berlin/L=Berlin/O=HUB/OU=Server/CN=signer"
-
-7. Open the `generate_client.sh` file
+7. Open the `03_generate_client.sh` file
 
 	```bash
-	nano docs/ssl/03_generate_client.sh
+	nano docs/ssl/grpc/03_generate_client.sh
 	```
 
 8. Replace `-days 365` with `-days 9999`
 
-9. Change the `-subj` parameter so that the `CN=localhost` part contains the hostname of the signing server, for example `CN=signer`. Save the file.
+9. Replace the common name in the `-subj` switch with the hostname of your device and save the file
 
 10. Execute all three scripts
 
 	```bash
-	./docs/ssl/01_generate_ca.sh
-	./docs/ssl/02_generate_server.sh
-	./docs/ssl/03_generate_client.sh
+	./docs/ssl/grpc/01_generate_ca.sh
+	./docs/ssl/grpc/02_generate_server.sh
+	./docs/ssl/grpc/03_generate_client.sh
 	```
 
-You should now have some SSL server and client certificates ready to use!
+You should now have some SSL server and client certificate files.
 
 ## Step 4. Run the signing server
 
-To run the signing server, you need to execute the binary file that was created during the build process. This binary file is located in the `./bazel-bin/signing_server/signing_server` directory.
+To run the signing server, you need to execute the binary file that was created during the build process.
 
 1. Create a shell script called start.sh
 
@@ -164,25 +168,24 @@ To run the signing server, you need to execute the binary file that was created 
 	nano start.sh
 	```
 
-2. In the start.sh file, add the command for running the signing server with any [command line flags](../references/command-line-options.md) that you want to use:
+2. In the start.sh file, add the command for running the signing server with any [command line flags](../references/command-line-options.md) that you want to use. Replace the paths with the absolute paths to your SSL files.
 
-	```shell
+	```bash
 	#!/bin/bash
 
 	./bazel-bin/signing_server/signing_server \
 	--salt CHANGETHISTOSOMETHINGMORESECURE \
 	--authMode ssl \
-	--sslKey docs/ssl/server.key \
-	--sslCert docs/ssl/server.crt \
-	--sslCA docs/ssl/ca.crt \
-	--listenAddress 0.0.0.0:50051
+	--sslKey /home/jake/hub/docs/ssl/grpc/server.key \
+	--sslCert /home/jake/hub/docs/ssl/grpc/server.crt \
+	--sslCA /home/jake/hub/docs/ssl/grpc/ca.crt \
 	```
 
 	:::warning:Warning
-	Use the same salt as the one you used in the [Hub configuration](../how-to-guides/install-hub.md#run-hub).
+	Use the same salt as the one you used in the Hub configuration.
 	:::
 
-3. Make the `start.sh` file executable
+3. Give the current user permission to execute the `start.sh` file
 
 	```bash
 	chmod a+x start.sh
@@ -196,12 +199,12 @@ To run the signing server, you need to execute the binary file that was created 
 
 	:::success:Congratulations :tada:
 	The signing server is now running.
-	Whenever Hub creates a sweep, it will ask the signing server to sign the bundle and to return the signature.
+	Whenever Hub creates a bundle, it will ask the signing server to sign it and to return the signature.
 	:::
 
 	You're running the signing server in your shell session. If you close this session, the server will stop. Therefore, you might want to consider running the signing server in a screen/tmux session, a system-wide service, or a supervised process.
 
-	For this tutorial, you'll use supervisor to make sure the signing server always runs and automatically restarts after a reboot or a crash.
+	For this guide, you'll use supervisor to make sure the signing server always runs and automatically restarts after a reboot or a crash.
 
 5. Install supervisor (press `CTRL+C` to exit the current shell session):
 
@@ -215,7 +218,7 @@ To run the signing server, you need to execute the binary file that was created 
 	sudo nano /etc/supervisor/conf.d/signing.conf
 	```
 
-7. Add the following lines to the signing.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` field are correct.
+7. Add the following lines to the `signing.conf` file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` field are correct.
 
 	```shell
 	[program:hub]
@@ -228,7 +231,7 @@ To run the signing server, you need to execute the binary file that was created 
 	stdout_logfile=/home/dave/hub/info.log
 	```
 
-8. Save the signing.conf file and reload supervisor
+8. Save the `signing.conf` file and reload supervisor
 
 	```bash
 	sudo supervisorctl reload
@@ -252,9 +255,9 @@ Now, you need to connect Hub to the signing server.
 
 ### Step 5. Connect Hub to the signing server
 
-In the Hub server, you need to import the generated SSL certificates and edit the start.sh script to use them.
+On the Hub server, you need to import the SSL certificates and edit the `start.sh` script to use them.
 
-1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the Hub server. You can do this in any way you prefer. For this example, to send them over SSH, using the `scp` command, replace the 192.168.2.212 IP address with the URL or IP address of your Hub server. Then, replace the `/home/dave/hub/` directory with the path where Hub is installed.
+1. Copy the certificate files ( `client.crt`, `client.key`, and `ca.crt`) to the Hub server. You can do this in any way you prefer. In this example, we send them over SSH, using the `scp` command. Replace the 192.168.2.212 IP address with the URL or IP address of your Hub server. Then, replace the `/home/dave/hub/` directory with the absolute path to your `hub` directory.
 
 	```bash
 	scp client.crt client.key ca.crt 192.168.2.212:/home/dave/hub/
@@ -274,7 +277,7 @@ In the Hub server, you need to import the generated SSL certificates and edit th
 	sudo nano /etc/hosts
 	```
 
-3. Map the hostname of the signing server to its IP address. Replace the 192.168.2.210 IP address with the IP address of your signing server. The, replace `signer` with the hostname of your signing server.
+3. Map the hostname of the signing server to its IP address. Replace the 192.168.2.210 IP address with the IP address of your signing server. Then, replace `signer` with the hostname of your signing server.
 
 	```shell
 	192.168.2.210   signer
@@ -286,18 +289,17 @@ In the Hub server, you need to import the generated SSL certificates and edit th
 	nano start.sh
 	```
 
-5. Remove the `--salt` parameter. This parameter is not needed here anymore because the signing server has it. You should also reference the signing server (`signer:50051`) and the SSL certificates to use.
+5. Remove the `--salt` parameter. This parameter is not needed here anymore because the signing server has it. Then, configure the `--signingMode`, `--signingProviderAddress`, `--signingServerChainCert`, `--signingServerKeyCert`, and `--signingServerSslCert` options.
+
+	:::info:
+	Apart from the salt, make sure you keep any existing command-line options.
+	:::
 
 	```shell
 	#!/bin/bash
 
 	./bazel-bin/hub/hub \
-	--db hub \
-	--dbUser root \
-	--dbPassword myrootpassword \
-	--apiAddress 127.0.0.1:14265 \
-	--minWeightMagnitude 14 \
-	--listenAddress 127.0.0.1:50051 \
+	# Keep any existing command-line options
 	--signingMode remote \
 	--signingProviderAddress signer:50051 \
 	--signingServerChainCert client.crt \
@@ -317,5 +319,11 @@ If everything went well, Hub will be connected to your signing server. The salt 
 
 ## Next steps
 
-Make sure that your signing server has a [firewall whitelist](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-ubuntu-18-04/). The fewer external services you expose, the less vulnerable the signing server is.
+[Make sure that your signing server is secure](https://hostadvice.com/how-to/how-to-harden-your-ubuntu-18-04-server/).
+
+Depending on how you started Hub, it exposes either a gRPC API server or a RESTful API server for you to interact with:
+
+- [Get started with the gRPC API](../how-to-guides/get-started-with-the-grpc-api.md)
+- [Get started with the RESTful API](../how-to-guides/get-started-with-the-grpc-api.md)
+
 

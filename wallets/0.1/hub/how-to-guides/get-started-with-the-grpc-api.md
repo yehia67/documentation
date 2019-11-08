@@ -4,7 +4,11 @@
 
 ## Prerequisites
 
-You must have [installed Hub](../how-to-guides/install-hub.md) and it must be running on the same server as the one you use in this guide.
+To complete this guide, you must have the following:
+
+- An [instance of Hub](../how-to-guides/install-hub.md)
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+- Access to a command-line interface
 
 ## Step 1. Set up the gRPC client
 
@@ -28,7 +32,7 @@ Before you can send API calls, you need a gRPC client that can create them.
     cd hub
     ```
 
-3. Start the gRPC client
+3. Start the gRPC client. Replace the `localhost:50051` argument with the value of the `--listenAddress` command-line option that you used when you set up Hub.
 
     ```bash
     grpcc -i -a localhost:50051 -p proto/hub.proto
