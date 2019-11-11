@@ -79,7 +79,7 @@ See a [partial list of available Mainnet nodes](https://iota.dance/).
 :::
 
 :::warning:
-Not all the nodes support remote proof of work (PoW). So, if you want to send a transaction to one of these nodes, you will have to use [another PoW option](root://getting-started/0.1/basics/proof-of-work.md#options-for-doing-proof-of-work).
+Not all the nodes support remote proof of work (PoW). So, if you want to send a transaction to one of these nodes, you will have to use [another PoW option](root://getting-started/0.1/transactions/proof-of-work.md#options-for-doing-proof-of-work).
 :::
 
 When you're connected to a node, you need to build a transfer object that specifies what you want to send and to which address.
@@ -162,7 +162,7 @@ We are also currently working on how best to integrate IOTA into cloud IoT envir
 
 ## A note on Masked Authenticated Messaging
 
-[MAM (Masked Authenticated Messaging)](../basics/masked-authenticated-messaging.md) is a second layer communication protocol that allows you to create and read encrypted data streams on the IOTA Tangle. 
+[MAM (Masked Authenticated Messaging)](../transactions/masked-authenticated-messaging.md) is a second layer communication protocol that allows you to create and read encrypted data streams on the IOTA Tangle. 
 
 MAM is particularly suitable for streaming sensitive data on the Tangle. 
 

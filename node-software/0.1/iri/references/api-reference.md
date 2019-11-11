@@ -133,7 +133,7 @@ curl http://localhost:14265 \
 
 ## attachToTangle
 
-Do [proof of work](root://getting-started/0.1/basics/proof-of-work.md) on a node for the given transaction trytes.
+Do [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) on a node for the given transaction trytes.
 
  ### Parameters
 
@@ -143,7 +143,7 @@ Do [proof of work](root://getting-started/0.1/basics/proof-of-work.md) on a node
 |--|--|--|--|
 | `trunkTransaction` |Required| Trunk transaction hash | string|
 | `branchTransaction` |Required| Branch transaction hash | string|
-| `minWeightMagnitude` |Required| [Minimum weight magnitude](root://getting-started/0.1/basics/proof-of-work.md#minimum-weight-magnitude) | integer|
+| `minWeightMagnitude` |Required| [Minimum weight magnitude](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude) | integer|
 | `trytes` |Required| String of transaction trytes |array of strings|
 
 ### Examples

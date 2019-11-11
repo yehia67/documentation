@@ -1,6 +1,6 @@
 # IOTA reference implementation overview
 
-**The IRI (IOTA reference implementation) is open-source Java software that defines the IOTA protocol that currently runs on nodes in the [public IOTA networks](root://getting-started/0.1/references/iota-networks.md), where clients can transfer the IOTA token among each other.**
+**The IRI (IOTA reference implementation) is open-source Java software that defines the IOTA protocol that currently runs on nodes in the [public IOTA networks](root://getting-started/0.1/network/iota-networks.md), where clients can transfer the IOTA token among each other.**
 
 IRI nodes are the core of an IOTA network, and are responsible for the following key functions:
 
@@ -11,7 +11,7 @@ IRI nodes are the core of an IOTA network, and are responsible for the following
 By running your own IRI node you have the following benefits:
 
 - You have direct access to an IOTA network instead of having to connect to someone else's IRI node
-- You help the IOTA network to become more distributed by adding to the number of ledgers and validating the transactions in your [neighbor's](root://getting-started/0.1/basics/nodes.md#neighbors) ledgers
+- You help the IOTA network to become more distributed by adding to the number of ledgers and validating the transactions in your [neighbor's](root://getting-started/0.1/network/nodes.md#neighbors) ledgers
 
 ## Limitations
 

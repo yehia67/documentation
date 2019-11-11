@@ -1,6 +1,6 @@
 # Generate an address
 
-**To receive [IOTA tokens](root://getting-started/0.1/basics/token.md), you must give the sender one of your [addresses](root://getting-started/0.1/basics/addresses.md). You can generate a new address for a [seed](root://getting-started/0.1/basics/seeds.md) by either incrementing the index and/or using a different [security level](root://getting-started/0.1/basics/security-levels.md).**
+**To receive [IOTA tokens](root://getting-started/0.1/clients/token.md), you must give the sender one of your [addresses](root://getting-started/0.1/seeds/addresses.md). You can generate a new address for a [seed](root://getting-started/0.1/seeds/seeds.md) by either incrementing the index and/or using a different [security level](root://getting-started/0.1/seeds/security-levels.md).**
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ To complete this guide, you need the following:
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet).
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
 ---
 

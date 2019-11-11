@@ -1,10 +1,10 @@
 # Get test IOTA tokens
 
-**When testing IOTA, you may want to send [IOTA tokens](../basics/token.md) from one [address](root://getting-started/0.1/basics/addresses.md) to another. On the Mainnet, these tokens have a monetary value that can be traded on exchanges. To send test [transactions](../basics/transactions.md), you can use the [Devnet](../references/iota-networks.md), which uses free test tokens.**
+**When testing IOTA, you may want to send [IOTA tokens](../clients/token.md) from one [address](root://getting-started/0.1/seeds/addresses.md) to another. On the Mainnet, these tokens have a monetary value that can be traded on exchanges. To send test [transactions](../transactions/transactions.md), you can use the [Devnet](../network/iota-networks.md), which uses free test tokens.**
 
 ## Prerequisites
 
-To complete this guide, you need [an unspent address](../workshop/generate-an-address.md).
+To complete this guide, you need an unspent address.
 
 :::danger:Important
 If you own IOTA tokens on the Mainnet, we recommend creating a new seed to use on the Devnet.
@@ -28,7 +28,7 @@ To get some test tokens, you need to request some from the Devnet faucet website
 
 5. Click **Check balance**
 
-The link takes you to a Devnet Tangle explorer, which connects to nodes on the Devnet and requests information from them about the bundle that just transferred the free tokens to your address. When the bundle is confirmed, 1 Ki will be added to the balance of your address.
+This link takes you to a Devnet Tangle explorer, which connects to nodes on the Devnet and requests information from them about the bundle that just transferred the free tokens to your address. When the bundle is confirmed, 1 Ki will be added to the balance of your address.
 
 :::info:These tokens are valid only on the Devnet
 You can use these tokens only when you're connected to a Devnet node. Other IOTA networks have neither received nor validated the bundle that transferred the tokens to your address. As a result, they haven't updated the balance of your address.

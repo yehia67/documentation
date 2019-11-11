@@ -6,7 +6,7 @@
 
 If you start Hub and have data in the database, you must delete that data before changing any of these options:
 
-- [`--apiAddress`](../references/command-line-options.md#apiAddress): Nodes in an IOTA network keep a record of the balances of addresses. If you connect to a node in a different [IOTA network](root://getting-started/0.1/references/iota-networks.md), that node will not have the same record, so any balances in Hub will be invalid.
+- [`--apiAddress`](../references/command-line-options.md#apiAddress): Nodes in an IOTA network keep a record of the balances of addresses. If you connect to a node in a different [IOTA network](root://getting-started/0.1/network/iota-networks.md), that node will not have the same record, so any balances in Hub will be invalid.
 
 - [`--salt`](../references/command-line-options.md#salt): If you change the salt, Hub won't be able to generate the seed for any deposit addresses that are already in the database. As a result, Hub won't be able to generate the correct private keys to be able to sign sweeps that withdraw from those deposit addresses.
 
@@ -28,25 +28,25 @@ When choosing an IOTA network, you need to consider the following options:
 
 ### --apiAddress
 
-Hub needs to connect to a node's API to be able to interact with the [Tangle](root://getting-started/0.1/basics/the-tangle.md). To avoid connecting to a malicious node, we recommend connecting Hub to a local node that you control. If you don't have a local node, read about the [IRI node software](root://node-software/0.1/iri/introduction/overview.md) for guides on setting one up.
+Hub needs to connect to a node's API to be able to interact with the [Tangle](root://getting-started/0.1/network/the-tangle.md). To avoid connecting to a malicious node, we recommend connecting Hub to a local node that you control. If you don't have a local node, read about the [IRI node software](root://node-software/0.1/iri/introduction/overview.md) for guides on setting one up.
 
 #### Development environment
 
-When testing Hub in a development environment, you should consider connecting to a node on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet). This IOTA network requires less [proof of work](root://getting-started/0.1/basics/proof-of-work.md), which reduces the time it takes to create [sweeps](../concepts/sweeps.md), and it uses [free test IOTA tokens](root://getting-started/0.1/how-to-guides/get-test-tokens.md).
+When testing Hub in a development environment, you should consider connecting to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). This IOTA network requires less [proof of work](root://getting-started/0.1/transactions/proof-of-work.md), which reduces the time it takes to create [sweeps](../concepts/sweeps.md), and it uses [free test IOTA tokens](root://getting-started/0.1/how-to-guides/get-test-tokens.md).
 
 As well as the Devnet, you can also connect to a node in a [private Tangle](root://compass/0.1/introduction/overview.md), which allows you to configure your own IOTA network.
 
 #### Production environment
 
-When deploying Hub in a production environment, you should connect to a node on the [Mainnet](root://getting-started/0.1/references/iota-networks.md#mainnet). 
+When deploying Hub in a production environment, you should connect to a node on the [Mainnet](root://getting-started/0.1/network/iota-networks.md#mainnet). 
 
 ### --minWeightMagnitude
 
-Depending on the IOTA network of the node, set the correct [minimum weight magnitude](root://getting-started/0.1/basics/minimum-weight-magnitude.md).
+Depending on the IOTA network of the node, set the correct [minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md).
 
 ### --powMode
 
-Some nodes do not support remote [proof of work](root://getting-started/0.1/basics/proof-of-work.md). In this case, configure Hub to use local proof of work. This option uses computational power on the device that is running Hub.
+Some nodes do not support remote [proof of work](root://getting-started/0.1/transactions/proof-of-work.md). In this case, configure Hub to use local proof of work. This option uses computational power on the device that is running Hub.
 
 ### --useHttpsIRI
 
@@ -76,7 +76,7 @@ Large sweeps are not recommended because they contain more transactions, which e
 
 As a result, you should also consider the maximum amount of withdrawals and deposits you want to include in a single sweep.
 
-### --sweep_max_deposit, --sweep_max_withdrawal, and `--keySecLevel`
+### --sweep_max_deposit, --sweep_max_withdrawal, and --keySecLevel
 
 In a sweep, each deposit consists of an output transaction, and each withdrawal consists of at least one input transaction, depending on the security level of addresses in Hub.
 
@@ -86,7 +86,7 @@ For example, if you use security level 3, each withdrawal will consist of three 
 
 ### --attachmentInterval
 
-When Hub sends a sweep to a node, it monitors it to check for confirmation. If the sweep takes longer than the attachment interval to become confirmed, Hub [promotes and reattaches](root://getting-started/0.1/basics/reattach-rebroadcast-promote.md) its tail transaction.
+When Hub sends a sweep to a node, it monitors it to check for confirmation. If the sweep takes longer than the attachment interval to become confirmed, Hub [promotes and reattaches](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) its tail transaction.
 
 The attachment interval you choose should depend on the current rate of confirmed transactions per second (CTPS) on the Tangle. To check the current rate, see [tanglebeat.com](http://tanglebeat.com/).
 

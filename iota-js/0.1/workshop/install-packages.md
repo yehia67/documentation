@@ -14,7 +14,6 @@ To complete this guide, you need a [development environment](../workshop/set-up-
     The JavaScript client library has many packages to choose from. If you aren't sure which one you need, you can [find them all on GitHub](https://github.com/iotaledger/iota.js/tree/next/packages).
     :::
 
-
 2. In a command-line interface, change into the directory where you initialized your project, and install the packages
 
     ```bash

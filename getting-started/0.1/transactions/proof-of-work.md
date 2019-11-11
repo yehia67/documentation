@@ -1,12 +1,12 @@
 # Proof of work
 
-**A proof of work (PoW) is a piece of data that is calculated using trial and error to meet certain requirements. As a spam prevention measure like [hashcash](https://en.wikipedia.org/wiki/Hashcash), each [transaction](../basics/transactions.md) must include a proof of work to be valid. This proof of work is difficult to do, but easy for [nodes](../basics/nodes.md) to validate.**
+**A proof of work (PoW) is a piece of data that is calculated using trial and error to meet certain requirements. As a spam prevention measure such as [hashcash](https://en.wikipedia.org/wiki/Hashcash), each [transaction](../transactions/transactions.md) must include a proof of work to be valid. This proof of work is difficult to do, but easy for [nodes](../network/nodes.md) to validate.**
 
 ## How proof of work is calculated
 
-To calculate the PoW for a [transaction](../basics/transactions.md), the values of all the transaction fields are converted to [trits](../basics/ternary.md) and hashed, using the [Curl](https://github.com/iotaledger?utf8=%E2%9C%93&q=curl&type=&language=) [hash function](https://en.wikipedia.org/wiki/Hash_function).
+To calculate the PoW for a [transaction](../transactions/transactions.md), the values of all the transaction fields are converted to [trits](../introduction/ternary.md) and hashed, using the [Curl](https://github.com/iotaledger?utf8=%E2%9C%93&q=curl&type=&language=) [hash function](https://en.wikipedia.org/wiki/Hash_function).
 
-This process continues until the transaction hash ends in the same number of 0 trits as the ([minimum weight magnitude](root://getting-started/0.1/basics/proof-of-work.md#minimum-weight-magnitude)).
+This process continues until the transaction hash ends in the same number of 0 trits as the ([minimum weight magnitude](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude)).
 
 Whenever the transaction hash doesn't end in the correct number of 0 trits, the value of the transaction's `nonce` field is incremented and the transaction hash is hashed again.
 

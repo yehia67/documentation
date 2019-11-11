@@ -157,7 +157,7 @@ iotacafe/hub:9ccb094 \
 
 ### HTTPS Devnet node
 
-For testing purposes, you may want to connect to a remote [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) node. Most remote nodes use an HTTPS connection, so this command has the [`--useHttpsIRI` flag](../references/command-line-options.md#useHttpsIRI) set to `true`.
+For testing purposes, you may want to connect to a remote [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) node. Most remote nodes use an HTTPS connection, so this command has the [`--useHttpsIRI` flag](../references/command-line-options.md#useHttpsIRI) set to `true`.
 
 ```shell
 docker run \
@@ -449,7 +449,7 @@ This command connects to a local Mainnet node on port 14265, and exposes the RES
 
 ### HTTPS Devnet node
 
-For testing purposes, you may want to connect to a remote [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) node. Most remote nodes use an HTTPS connection, so this command has the [`--useHttpsIRI` flag](../references/command-line-options.md#useHttpsIRI) set to `true`.
+For testing purposes, you may want to connect to a remote [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) node. Most remote nodes use an HTTPS connection, so this command has the [`--useHttpsIRI` flag](../references/command-line-options.md#useHttpsIRI) set to `true`.
 
 ```shell
 #!/bin/bash

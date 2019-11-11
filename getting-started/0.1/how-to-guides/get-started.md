@@ -1,6 +1,6 @@
 # Get started
 
-**To start integrating IOTA into your app or website you need complete three simple steps: Create a [seed](../basics/seeds.md), install a [client library](root://client-libraries/0.1/introduction/overview.md), and connect to a [node](../basics/nodes.md).**
+**To start integrating IOTA into your app or website you need complete three simple steps: Create a [seed](../clients/seeds.md), install a [client library](root://client-libraries/0.1/introduction/overview.md), and connect to a [node](../network/nodes.md).**
 
 :::info:Not a developer?
 If you want to use IOTA without having to write code, you can use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md).
@@ -8,7 +8,7 @@ If you want to use IOTA without having to write code, you can use the [official 
 
 ## Step 1. Create a seed
 
-A seed is a unique password that gives you the ability to prove your ownership of either messages and/or any [IOTA tokens](../basics/token.md) that are held on your [addresses](../basics/addresses.md).
+A seed is a unique password that gives you the ability to prove your ownership of either messages and/or any [IOTA tokens](../clients/token.md) that are held on your [addresses](../seeds/addresses.md).
 
 :::warning:
 You must keep your seed safe and back it up. If you lose your seed, you can't recover it.
@@ -142,18 +142,18 @@ This command downloads the latest version of the IOTA Go client library and writ
 
 ## Step 3. Connect to a node
 
-It's best practice to make sure that you're connected to a [synchronized node](../basics/nodes.md#synchronized-nodes) before you start sending requests to it. This way, you know that it has an up-to-date [view of the Tangle](../basics/the-tangle.md).
+It's best practice to make sure that you're connected to a [synchronized node](../network/nodes.md#synchronized-nodes) before you start sending requests to it. This way, you know that it has an up-to-date view of [the Tangle](../network/the-tangle.md).
 
 1. Go to the IOTA Foundation [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels
 
     ![Entering !milestone on Discord](../images/discord-milestone-check.PNG)
 
-    The Discord bot should return the current `latestMilestoneIndex` field from a [node quorum](../basics/nodes.md#node-quorum).
+    The Discord bot should return the current `latestMilestoneIndex` field from a [node quorum](../network/nodes.md#node-quorum).
 
 2. To check if your node is synchronized, call the `getNodeInfo()` method
 
     :::info:
-    Here, we connect to a node on the [Devnet](../references/iota-networks.md#devnet), which is one of the IOTA networks that you can use for testing.
+    Here, we connect to a node on the [Devnet](../network/iota-networks.md#devnet), which is one of the IOTA networks that you can use for testing.
     :::
 
 --------------------

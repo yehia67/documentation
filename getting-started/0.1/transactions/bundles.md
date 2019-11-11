@@ -1,14 +1,14 @@
 # Bundles
 
-**A bundle is a group of [transactions](../basics/transactions.md) that rely on each other's validity. For example, a transaction that deposits [IOTA tokens](../basics/token.md) into an [address](../basics/addresses.md) relies on another transaction to withdraw those IOTA tokens from another address. Therefore, those transactions must be in the same bundle.**
+**A bundle is a group of [transactions](../transactions/transactions.md) that rely on each other's validity. For example, a transaction that deposits [IOTA tokens](../clients/token.md) into an [address](../seeds/addresses.md) relies on another transaction to withdraw those IOTA tokens from another address. Therefore, those transactions must be in the same bundle.**
 
 ## Structure of a bundle
 
 A bundle consists of a head, a body, and a tail, where the tail transaction is the one with a 0 in the `currentIndex` field (the first transaction in the bundle), and the head transaction is the one with the largest value in the `lastIndex` field (the last transaction in the bundle).
 
-All transactions in a bundle, except the head, are connected to each other through their `trunkTransaction` fields. These connections allow [nodes](../basics/nodes.md) to find all transactions in the same bundle and validate them.
+All transactions in a bundle, except the head, are connected to each other through their `trunkTransaction` fields. These connections allow [nodes](../network/nodes.md) to find all transactions in the same bundle and validate them.
 
-The other `branchTransaction` and `trunkTransaction` fields reference the tail transactions of two existing bundles in the [Tangle](../basics/the-tangle.md).
+The other `branchTransaction` and `trunkTransaction` fields reference the tail transactions of two existing bundles in the [Tangle](../network/the-tangle.md).
 
 ![Connections in a bundle](../images/bundle-structure.png)
 

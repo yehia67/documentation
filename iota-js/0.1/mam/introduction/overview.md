@@ -1,6 +1,6 @@
 # Get started with Masked Authenticated Messaging
 
-**[Masked Authenticated Messaging](root://getting-started/0.1/basics/masked-authenticated-messaging.md) (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, on the Tangle. You can use the MAM package to publish encrypted and authenticated messages to channels.**
+**[Masked Authenticated Messaging](root://getting-started/0.1/transactions/masked-authenticated-messaging.md) (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, on the Tangle. You can use the MAM package to publish encrypted and authenticated messages to channels.**
 
 :::warning:Beta software
 The client libraries are currently in beta and you should not use them in production environments.
@@ -8,7 +8,7 @@ The client libraries are currently in beta and you should not use them in produc
 
 ## Audience
 
-This documentation is for developers who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with [basic IOTA concepts](root://getting-started/0.1/introduction/overview.md) such as [bundles](root://getting-started/0.1/basics/bundles.md), [transactions](root://getting-started/0.1/basics/transactions.md), [seeds](root://getting-started/0.1/basics/seeds.md), and [addresses](root://getting-started/0.1/basics/addresses.md).
+This documentation is for developers who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with [basic IOTA concepts](root://getting-started/0.1/introduction/overview.md) such as [bundles](root://getting-started/0.1/transactions/bundles.md), [transactions](root://getting-started/0.1/transactions/transactions.md), [seeds](root://getting-started/0.1/clients/seeds.md), and [addresses](root://getting-started/0.1/seeds/addresses.md).
 
 ## Prerequisites
 

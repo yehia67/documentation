@@ -2,51 +2,49 @@
 
 [Introduction/IOTA overview](/introduction/overview.md)
 
-[Basics/Distributed ledger technology](/basics/dlt.md)
+[Introduction/Ternary](/introduction/ternary.md)]
 
-[Basics/IOTA token](/basics/token.md)
+[Network/IOTA networks](/network/iota-networks.md)
 
-[Basics/Seeds](/basics/seeds.md)
+[Network/Nodes](/network/nodes.md)
 
-[Basics/Addresses](/basics/addresses.md)
+[Network/Minimum weight magnitude](/network/minimum-weight-magnitude.md)
 
-[Basics/Checksums](/basics/checksums.md)
+[Network/The Tangle](/network/the-tangle.md)
 
-[Basics/Security levels](/basics/security-levels.md)
+[Network/The Coordinator](/network/the-coordinator.md)
 
-[Basics/Signatures](/basics/signatures.md)
+[Clients/Seeds](/clients/seeds.md)
 
-[Basics/Transactions](/basics/transactions.md)
+[Clients/IOTA tokens](/clients/token.md)
 
-[Basics/Bundles](/basics/bundles.md)
+[Clients/Addresses](/clients/addresses.md)
 
-[Basics/Nodes](/basics/nodes.md)
+[Clients/Checksums](/clients/checksums.md)
 
-[Basics/The Tangle](/basics/the-tangle.md)
+[Clients/Security levels](/clients/security-levels.md)
 
-[Basics/The Coordinator](/basics/the-coordinator.md)
+[Clients/Signatures](/clients/signatures.md)
 
-[Basics/Proof of work](/basics/proof-of-work.md)
+[Transactions/Transactions](/transactions/transactions.md)
 
-[Basics/Minimum weight magnitude](/basics/minimum-weight-magnitude.md)
+[Transactions/Bundles](/transactions/bundles.md)
 
-[Basics/Depth](/basics/depth.md)
+[Transactions/Proof of work](/transactions/proof-of-work.md)
 
-[Basics/Proof of work](/basics/proof-of-work.md)
+[Transactions/Depth](/transactions/depth.md)
 
-[Basics/Reattach, rebroadcast, and promote](/basics/reattach-rebroadcast-promote.md)
+[Transactions/Proof of work](/transactions/proof-of-work.md)
 
-[Basics/Ternary](/basics/ternary.md)
+[Transactions/Reattach, rebroadcast, and promote](/transactions/reattach-rebroadcast-promote.md)
 
-[Basics/Masked Authenticated Messaging](/basics/masked-authenticated-messaging.md)
+[Transactions/Masked Authenticated Messaging](/transactions/masked-authenticated-messaging.md)
 
 [Quickstart/Get started](/how-to-guides/get-started.md)
 
 [Quickstart/Run your own IRI node in Docker](/how-to-guides/run-your-own-iri-node.md)
 
 [References/Developer handbook](/references/quickstart-dev-handbook.md)
-
-[References/IOTA networks](/references/iota-networks.md)
 
 [References/Glossary](/references/glossary.md)
 

@@ -9,7 +9,7 @@ To make it easier to find the options you want to change, we've separated them i
 - **Database:** What your node does with its ledger
 - **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md)
 - **Network:** How your node communicates with neighbors
-- **Proof of work:** How your node does [proof of work](root://getting-started/0.1/basics/proof-of-work.md)
+- **Proof of work:** How your node does [proof of work](root://getting-started/0.1/transactions/proof-of-work.md)
 - **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes
 - **Testnet:** Which Coordinator your node should follow when it's not running on the Mainnet
 - **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md)
@@ -99,7 +99,7 @@ Use these settings to customize how your node communicates with neighbors.
 
 ## Proof of work
 
-Use these settings to customize how your node does [proof of work](root://getting-started/0.1/basics/proof-of-work.md).
+Use these settings to customize how your node does [proof of work](root://getting-started/0.1/transactions/proof-of-work.md).
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|

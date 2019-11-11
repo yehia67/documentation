@@ -1,10 +1,10 @@
 # Seeds
 
-**A seed is a unique password that gives you the ability to prove your ownership of either messages and/or any [IOTA tokens](../basics/token.md) that are held on your [addresses](../basics/addresses.md).**
+**A seed is a unique password that gives you the ability to prove your ownership of either messages and/or any [IOTA tokens](../clients/token.md) that are held on your [addresses](../seeds/addresses.md).**
 
 ## Seed format
 
-A seed is a string of 81 [trytes](../basics/ternary.md) (or 90 trytes with a [checksum](../basics/checksums.md)).
+A seed is a string of 81 [trytes](../introduction/ternary.md) (or 90 trytes with a [checksum](../clients/checksums.md)).
 
 ```
 PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX
@@ -16,9 +16,9 @@ The total number of possible seeds is almost unlimited (8.7 x 10<sup>115</sup>).
 
 ## How seeds are generated
 
-You are responsible for [creating your own seed](../how-to-guides/get-started.md#step-1-create-a-seed). If you lose your seed, you can't recover it.
+You are responsible for creating your own seed. If you lose your seed, you can't recover it.
 
-Anyone who has access to a seed is able to sign transactions and therefore has access to any IOTA tokens in the seed's addresses.
+Anyone who has access to a seed is able to sign transactions and therefore has access to any IOTA tokens that belong to the seed's addresses.
 
 ## Advice for storing seeds
 
@@ -40,23 +40,21 @@ This list offers you some advice for storing your seed:
 
 This list offers you some ways to avoid losing your seed:
 
-- Do not print your seed from a public computer
+- Do not print your seed with a public printer
 
 - Do not leave your seed on unprotected devices such as USB drives or external hard disks
 
-- Do not store your seed on a public cloud
+- Do not store your seed on a public cloud service
 
 - Do not share your seed with anyone
 
 ## Utilities
 
-You can use a wallet to simplify the process of securing your seed, sending transactions, and managing your balance.
+To simplify the process of securing your seed, sending transactions, and managing your balance, you can use one of the [official open-source wallets](root://wallets/0.1/introduction/overview.md), which are maintained by the IOTA Foundation.
 
 :::warning:
-You should be careful where you enter your seed. Some wallets may not be trustworthy
+Be careful where you enter your seed. Some unofficial wallets may not be trustworthy
 :::
-
-If you're unsure about which wallet to use, you can use the [official open-source wallets](root://wallets/0.1/introduction/overview.md), which are maintained by the IOTA Foundation.
 
 
 

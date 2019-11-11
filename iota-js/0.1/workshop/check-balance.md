@@ -1,6 +1,6 @@
 # Check the balance of an address
 
-**The balance of [addresses](root://getting-started/0.1/basics/addresses.md) is kept up to date by all [nodes](root://getting-started/0.1/basics/nodes.md) in an IOTA network. To request the balance from a node, you must send it the address whose balance you want to check.**
+**The balance of [addresses](root://getting-started/0.1/clients/addresses.md) is kept up to date by all [nodes](root://getting-started/0.1/network/nodes.md) in an IOTA network. To request the balance from a node, you must send it the address whose balance you want to check.**
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ To complete this guide, you need the following:
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet).
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
 ---
 

@@ -1,6 +1,6 @@
 # Checksums
 
-**A checksum is the name given to the [trytes](../basics/ternary.md) that are appended to the end of an address or a seed. Checksums are often appended to addresses and seeds in user interfaces to help you to detect typos.**
+**A checksum is the name given to the [trytes](../introduction/ternary.md) that are appended to the end of an address or a seed. Checksums are often appended to addresses and seeds in user interfaces to help you to detect typos.**
 
 ## Checksum format
 

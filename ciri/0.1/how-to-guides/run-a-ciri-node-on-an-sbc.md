@@ -74,7 +74,7 @@ uname -m
 You can customize these commands by editing the build flags.
 
 
-1. Choose which [IOTA network](root://getting-started/0.1/references/iota-networks.md) you want your node to run on. Replace `value` with `mainnet` or `testnet`.
+1. Choose which [IOTA network](root://getting-started/0.1/network/iota-networks.md) you want your node to run on. Replace `value` with `mainnet` or `testnet`.
 
 
     ```bash

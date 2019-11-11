@@ -1,6 +1,6 @@
 # Read transactions on the Tangle
 
-**To read transactions on the Tangle, you must connect to a node and ask it to filter [transactions](root://getting-started/0.1/basics/transactions.md) by their fields such as the `address` field.**
+**To read transactions on the Tangle, you must connect to a node and ask it to filter [transactions](root://getting-started/0.1/transactions/transactions.md) by their fields such as the `address` field.**
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ To complete this guide, you need the following:
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet).
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
 ---
 
@@ -30,7 +30,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/r
     });
     ```
 
-3. Define the [address](root://getting-started/0.1/basics/addresses.md) that you want to use to filter transactions 
+3. Define the [address](root://getting-started/0.1/clients/addresses.md) that you want to use to filter transactions 
 
     ```js
     const address =

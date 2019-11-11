@@ -1,10 +1,10 @@
 # Reattach, rebroadcast, and promote
 
-**A transaction in the [Tangle](../basics/the-tangle.md) may remain in a pending state for many reasons such as an increased load on the network or if it was attached to an inconsistent subtangle. To increase the chances of a bundle becoming confirmed, you can reattach, rebroadcast, or promote it.**
+**A transaction in the [Tangle](../network/the-tangle.md) may remain in a pending state for many reasons such as an increased load on the network or if it was attached to an inconsistent subtangle. To increase the chances of a bundle becoming confirmed, you can reattach, rebroadcast, or promote it.**
 
 ## Reattach
 
-Sometimes, transactions are attached to a part of the Tangle that is no longer considered valid. As a result, that transaction will never be referenced by a [milestone](../basics/the-coordinator.md#milestones), thus it will never be confirmed.
+Sometimes, transactions are attached to a part of the Tangle that is no longer considered valid. As a result, that transaction will never be referenced by a [milestone](../network/the-coordinator.md#milestones), thus it will never be confirmed.
 
 To reattach a bundle means to create a new one and attach it to a different part of the Tangle. This way, you give your transaction another chance at being included in the consensus.
 
@@ -22,7 +22,7 @@ When you reattach a bundle that transfers IOTA tokens, only one will ever be con
 
 ## Rebroadcast
 
-While your transactions are being sent to a node, it may go offline. In this case, the node may not forward your transactions to its neighbors, and the rest of the network won't ever see your transactions. As a result, that transaction will never be referenced by the [Coordinator](../basics/the-coordinator.md), thus it will never be confirmed.
+While your transactions are being sent to a node, it may go offline. In this case, the node may not forward your transactions to its neighbors, and the rest of the network won't ever see your transactions. As a result, that transaction will never be referenced by the [Coordinator](../network/the-coordinator.md), thus it will never be confirmed.
 
 To rebroadcast a bundle means to send the same bundle to a node again. This way, you give your transactions another chance at being forwarded to the rest of the network.
 

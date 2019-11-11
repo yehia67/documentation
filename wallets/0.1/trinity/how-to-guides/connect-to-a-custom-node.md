@@ -42,7 +42,7 @@ All the information that Trinity displays about the Tangle is now sent from your
 
 ## Outsource proof of work
 
-Before you send a transaction, it must include a [proof of work](root://getting-started/0.1/basics/proof-of-work.md). Proof of work requires a computer to use energy to do computations. By default proof of work is done on the computer that is running Trinity.
+Before you send a transaction, it must include a [proof of work](root://getting-started/0.1/transactions/proof-of-work.md). Proof of work requires a computer to use energy to do computations. By default proof of work is done on the computer that is running Trinity.
 
 You can use the Outsouce proof of work option to ask a specific node to do the proof of work for your transactions
 

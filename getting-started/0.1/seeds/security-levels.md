@@ -1,6 +1,6 @@
 # Security levels
 
-**When generating a new [address](../basics/addresses.md), you can specify a security level for it. The security level of an address affects how long the private key is, how secure a spent address is against brute-force attacks, and how many [transactions](../basics/transactions.md) are needed to contain the signature.**
+**When generating a new [address](../clients/addresses.md), you can specify a security level for it. The security level of an address affects how long the private key is, how secure a spent address is against brute-force attacks, and how many [transactions](../transactions/transactions.md) are needed to contain the signature.**
 
 Addresses can have a security level of 1, 2, or 3, and each one generates a different address for each index.
 
@@ -14,7 +14,11 @@ The greater the security level, the longer the address's private key, which resu
 
 The security level of an address corresponds to the same number of transactions that are needed to contain the signature.
 
-For example, security level 3 signatures are 6,561 trytes long, and the [`signatureMessageFragment` field](../basics/transactions.md#structure-of-a-transaction) of a single transaction can contain 2,187 trytes. As a result, you would need fragment the other 4,374 trytes of the signature over 2 additional zero-value transactions in the [bundle](../basics/bundles.md). These additional transactions must each contain a proof of work, which uses computational power.
+For example, security level 3 signatures are 6,561 trytes long, and the [`signatureMessageFragment` field](../transactions/transactions.md#structure-of-a-transaction) of a single transaction can contain 2,187 trytes. As a result, you would need fragment the other 4,374 trytes of the signature over 2 additional zero-value transactions in the [bundle](../transactions/bundles.md).
+
+:::info:
+These additional transactions must each contain a [proof of work](../transactions/proof-of-work.md), which uses computational power.
+:::
 
 ## Advice for choosing a security level
 
@@ -24,13 +28,9 @@ When choosing a security level, you should consider the following questions.
 
 If you're building an application where your users aren't familiar with IOTA and you are concerned about them depositing into spent addresses, you may want to use security level 3 as a precaution.
 
-By doing so, you give yourself more time to withdraw any IOTA tokens from the spent address before an attacker has a chance to complete a brute-force attack.
-
 ### How fast do you need to be able to sign transactions?
 
-If you're building an application that relies on fast transactions, you may want to use security level 2.
-
-This way, you can benefit from smaller bundles, less proof of work, and faster transaction signing.
+If you're building an application that relies on fast transactions, you may want to use security level 2. This way, you can benefit from smaller bundles, less proof of work, and faster transaction signing.
 
 ### How powerful is the device that is doing proof of work and/or signing transactions?
 

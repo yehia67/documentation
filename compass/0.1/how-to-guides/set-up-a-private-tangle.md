@@ -2,7 +2,7 @@
 
 **A private Tangle is one that you control and that contains only nodes that you know. You may want to set up a private Tangle if you want to test an application without using a public IOTA network such as the Mainnet or the Devnet where everyone can see your transactions in the public Tangle.**
 
-For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine with the same configuration settings as the [Devnet](root://getting-started/0.1/references/iota-networks.md).
+For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine with the same configuration settings as the [Devnet](root://getting-started/0.1/network/iota-networks.md).
 
 ![Single-node private Tangle](../images/single-node-tangle.svg)
 
@@ -74,7 +74,7 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 
 ## Step 2. Compute the Merkle tree
 
-For this guide, we use a [Merkle tree](root://getting-started/0.1/basics/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them.
+For this guide, we use a [Merkle tree](root://getting-started/0.1/network/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them.
 
 :::info:
 [See our example Merkle tree compute times](../references/merkle-tree-compute-times.md) that show how the `depth` parameter affects both the time it takes to compute the Merkle tree and the total network uptime.
@@ -354,6 +354,6 @@ If you want to send and receive transactions on the network through a user inter
 
 ## Next steps
 
-- Try adding multiple nodes to your network to make a similar architecture to the [Devnet](root://getting-started/0.1/references/iota-networks.md)
+- Try adding multiple nodes to your network to make a similar architecture to the [Devnet](root://getting-started/0.1/network/iota-networks.md)
 
 ![Multi-node private Tangle](../images/multi-node-tangle.svg)

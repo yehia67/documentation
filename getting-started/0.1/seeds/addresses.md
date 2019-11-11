@@ -1,10 +1,10 @@
 # Addresses
 
-**An address is like an account that belongs to a [seed](../basics/seeds.md) and that has a 0 or greater balance of [IOTA tokens](../basics/token.md). Addresses are the public half of a [public/private key pair](https://en.wikipedia.org/wiki/Public-key_cryptography). To transfer IOTA tokens from one address to another, you [sign](../basics/signatures.md) a transaction with the private key to prove to [nodes](../basics/nodes.md) that you own it. As such you can share addresses with anyone because only the seed owner knows the private key.**
+**An address is like an account that belongs to a [seed](../clients/seeds.md) and that has a 0 or greater balance of [IOTA tokens](../seeds/token.md). Addresses are the public half of a [public/private key pair](https://en.wikipedia.org/wiki/Public-key_cryptography). To transfer IOTA tokens from one address to another, you sign a transaction with the private key to prove to [nodes](../network/nodes.md) that you own it. As such you can share addresses with anyone because only the seed owner knows the private key.**
 
 ## Address format
 
-An address is a unique string of 81 [trytes](../basics/ternary.md) (or 90 trytes with a [checksum](../basics/checksums.md)).
+An address is a unique string of 81 [trytes](../introduction/ternary.md) (or 90 trytes with a [checksum](../clients/checksums.md)).
 
 ```
 OGMMQJUDMNNYSOAXMJWAMNAJPHWMGVAY9UWBXRGTXXVEDIEWSNYRNDQY99NDJQB9QQBPCRRNFAIUPGPLZ
@@ -12,7 +12,7 @@ OGMMQJUDMNNYSOAXMJWAMNAJPHWMGVAY9UWBXRGTXXVEDIEWSNYRNDQY99NDJQB9QQBPCRRNFAIUPGPL
 
 ## Maximum number of addresses
 
-A seed can have an almost unlimited number of addresses (9<sup>57</sup>), which each have a unique index and a [security level](../basics/security-levels.md):
+A seed can have an almost unlimited number of addresses (9<sup>57</sup>), which each have a unique index and a [security level](../clients/security-levels.md):
 
 * **Index:** Number between 0 and 9,007,199,254,740,991
 * **Security level:** Number between 1 and 3
@@ -34,7 +34,7 @@ For example, when you [generate addresses](#generate-addresses) for index 0 and 
 
 ## Spent addresses
 
-Because the IOTA protocol uses one-time signatures, after IOTA tokens have been withdrawn from an address, it is spent and must never be used again.
+Because the IOTA protocol uses [one-time signatures](../clients/signatures.md), after IOTA tokens have been withdrawn from an address, it is spent and must never be used again.
 
 If more IOTA tokens are later deposited into a spent address, they are at risk of being stolen in a [brute-force attack](https://en.wikipedia.org/wiki/Brute-force_attack) on the private key.
 
@@ -44,7 +44,9 @@ All addresses are generated using the [Kerl](https://github.com/iotaledger/kerl)
 
 First, the seed and index are converted to trits, then they're combined and hashed to generate a 243-trit subseed:
 
+```
 Kerl(seed + index)
+```
 
 The subseed is then absorbed and squeezed in a [sponge function](https://keccak.team/sponge_duplex.html) 27 times for each security level.
 

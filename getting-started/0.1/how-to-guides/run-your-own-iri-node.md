@@ -1,13 +1,13 @@
 # Run your own IRI node
 
-**An IRI [node](../basics/nodes.md) is a server that runs the IRI node software. This software is used on the [Mainnet and Devnet networks](../references/iota-networks.md).**
+**An IRI [node](../network/nodes.md) is a server that runs the IRI node software. This software is used to validate and store transactions on the [Mainnet and Devnet networks](../network/iota-networks.md).**
 
 By running your own IRI node, you have the following benefits:
 
-- You have your own direct access to a ledger on an IOTA network instead of having to connect to someone else's node
-- You help the IOTA network to become more distributed by adding to the number of ledgers and validating other users' transactions
+- You have your own direct access to the Tangle instead of having to connect to someone else's node
+- You help the IOTA network to become more distributed by validating other users' transactions
 
-In this guide, you're going to run your own IRI node in a [Docker](https://www.docker.com/) container.
+In this guide, you run your own IRI node in a [Docker](https://www.docker.com/) container.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ If you're using a Linux operating system, add `sudo` before the commands in the 
 
 ## IOTA network
 
-In this guide, we run a node on the [Mainnet](../references/iota-networks.md#mainnet).
+In this guide, we run a node on the [Mainnet](../network/iota-networks.md#mainnet).
 
 ---
 
@@ -113,7 +113,7 @@ In this guide, we run a node on the [Mainnet](../references/iota-networks.md#mai
     }
     ```
 
-You'll notice in the output that the value of the `neighbors` field is 0. This means that your node is not connected to an IOTA network. To do so, you need to connect to neighbors.
+In the output, the value of the `neighbors` field is 0. This means that your node is not connected to an IOTA network. To do so, you need to connect to neighbors.
 
 For help connecting to neighbors, go to the #help or #nodesharing channel on our [Discord](https://discord.iota.org).
 
