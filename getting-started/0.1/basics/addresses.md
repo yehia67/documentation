@@ -21,7 +21,7 @@ The same seed, index, and security level, will always result in the same address
 
 Likewise, the same seed with a different index and/or a different security level will result in a different address.
 
-For example, when you [generate addresses](#generate-addresses) for index 0 and index 1 of all security levels, they are all unique:
+For example, when you generate addresses for index 0 and index 1 of all security levels, they are all unique:
 
 |**Index**|**Security level**|**Address**|
 |:-----|:-----|:-----|

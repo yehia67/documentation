@@ -9,10 +9,6 @@ To complete this guide, you need the following:
 - [A developer environment](../workshop/set-up-a-developer-environment.md)
 - [The `core` package](../workshop/install-packages.md)
 
-## IOTA network
-
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet).
-
 ---
 
 1. Require the packages
