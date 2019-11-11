@@ -8,7 +8,7 @@ If you want to use IOTA without having to write code, you can use the [official 
 
 ## Step 1. Create a seed
 
-A seed is a unique password that gives you the ability to prove your ownership of either messages and/or any [IOTA tokens](../clients/token.md) that are held on your [addresses](../seeds/addresses.md).
+A seed is a unique password that gives you the ability to prove your ownership of either messages and/or any [IOTA tokens](../clients/token.md) that are held on your [addresses](../clients/addresses.md).
 
 :::warning:
 You must keep your seed safe and back it up. If you lose your seed, you can't recover it.

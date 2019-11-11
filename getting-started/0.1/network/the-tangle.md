@@ -27,7 +27,7 @@ These references form a transaction's history, whereby if a transaction is a **c
 
 A transaction can be valid only if it references two other transaction's whose history does not conflict with it.
 
-For example, if transaction 6 instructs a node to withdraw 10 Mi of [IOTA tokens](root://getting-started/0.1/clients/token.md) from an [address](root://getting-started/0.1/seeds/addresses.md), the history of that transaction's parents must lead to a point where that address is sent at least 10 Mi.
+For example, if transaction 6 instructs a node to withdraw 10 Mi of [IOTA tokens](root://getting-started/0.1/clients/token.md) from an [address](root://getting-started/0.1/clients/addresses.md), the history of that transaction's parents must lead to a point where that address is sent at least 10 Mi.
 
 ## Transaction states
 

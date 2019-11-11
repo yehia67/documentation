@@ -1,4 +1,4 @@
-# Listen to live transactions on the Tangle
+# Listen for live transactions on the Tangle
 
 **[Nodes](root://getting-started/0.1/network/nodes.md) that run the [IRI node software](root://node-software/0.1/iri/introduction/overview.md) can enable their [zero message queue (ZMQ)](https://zeromq.org/), which allows you to subscribe to events such as transaction confirmations. These events give you real-time data from an IOTA network.**
 
@@ -31,7 +31,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     sock.connect('tcp://zmq.devnet.iota.org:5556');
     ```
 
-4. If the script is executed with no additional arguments, subscribe to the [`tx`]((root://node-software/0.1/iri/references/zmq-events.md) event to see all transactions, otherwise subscribe to the address event to see only transactions that were sent to that address
+4. If the script is executed with no additional arguments, subscribe to the [`tx`](root://node-software/0.1/iri/references/zmq-events.md) event to see all transactions, otherwise subscribe to the address event to see only transactions that were sent to that address
 
     ```js
     // Check for a command-line argument

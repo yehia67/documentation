@@ -515,7 +515,8 @@ Get the history of a user's balance.
 
 |**Parameter** | **Required or Optional**|**Description** |**Type**
 |--|--|--|--|
-| `userId` |Required| The ID of the user | string
+| `userId` |Required| The ID of the user | string|
+| `newerThan` |Optional| The time and date from which to get the user's history. A `0` value means that Hub gets the entire history.|Unix timestamp
 
 ### Examples
 --------------------
@@ -826,7 +827,8 @@ curl http://localhost:50051 \
         "userId": "user-1",
         "timestamp": "1563796442000",
         "sweepBundleHash": "EWLCW9FFLSBUGZZOOLFQLTRJFKNGPUVCIOCQYTSDOSZLBCBJIIJZGPALGAKKANBTDYOBVQFOJHA9OVFOY",
-        "withdrawalUuid": ""
+        "withdrawalUuid": "",
+	"amount":1000
     },
     "event_1": {
         "type": "USER_ACCOUNT",
@@ -834,7 +836,8 @@ curl http://localhost:50051 \
         "userId": "user-1",
         "timestamp": "1563796562000",
         "sweepBundleHash": "",
-        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2"
+        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2",
+	"amount":1000
     },
     "event_2": {
         "type": "USER_ACCOUNT",
@@ -842,7 +845,8 @@ curl http://localhost:50051 \
         "userId": "user-1",
         "timestamp": "1563796604000",
         "sweepBundleHash": "",
-        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2"
+        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2",
+	"amount":1000
     },
 }
 ```

@@ -1,6 +1,6 @@
 # Transactions
 
-**A transaction is a single transfer instruction that can either withdraw [IOTA tokens](../clients/token.md) from an [address](../seeds/seeds.md), deposit them into an address, or have zero-value (contain data, a message, or a signature). If you want to send anything to an IOTA network, you must send it to a [node](../network/nodes.md) as a transaction.**
+**A transaction is a single transfer instruction that can either withdraw [IOTA tokens](../clients/token.md) from an [address](../clients/seeds.md), deposit them into an address, or have zero-value (contain data, a message, or a signature). If you want to send anything to an IOTA network, you must send it to a [node](../network/nodes.md) as a transaction.**
 
 ## Structure of a transaction
 

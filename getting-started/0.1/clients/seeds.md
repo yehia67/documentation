@@ -1,6 +1,6 @@
 # Seeds
 
-**A seed is a unique password that gives you the ability to prove your ownership of either messages and/or any [IOTA tokens](../clients/token.md) that are held on your [addresses](../seeds/addresses.md).**
+**A seed is a unique password that gives you the ability to prove your ownership of either messages and/or any [IOTA tokens](../clients/token.md) that are held on your [addresses](../clients/addresses.md).**
 
 ## Seed format
 

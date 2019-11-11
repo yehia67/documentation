@@ -1,6 +1,6 @@
 # Get test IOTA tokens
 
-**When testing IOTA, you may want to send [IOTA tokens](../clients/token.md) from one [address](root://getting-started/0.1/seeds/addresses.md) to another. On the Mainnet, these tokens have a monetary value that can be traded on exchanges. To send test [transactions](../transactions/transactions.md), you can use the [Devnet](../network/iota-networks.md), which uses free test tokens.**
+**When testing IOTA, you may want to send [IOTA tokens](../clients/token.md) from one [address](root://getting-started/0.1/clients/addresses.md) to another. On the Mainnet, these tokens have a monetary value that can be traded on exchanges. To send test [transactions](../transactions/transactions.md), you can use the [Devnet](../network/iota-networks.md), which uses free test tokens.**
 
 ## Prerequisites
 

@@ -8,7 +8,7 @@ If you complete this guide from beginning to end, you'll learn everything from i
 
 1. [Plan your Hub configuration](../how-to-guides/configure-hub.md)
 
-2. [Install and run Hub](../how-to-guides/install-hub.md)
+2. [Run Hub](../how-to-guides/install-hub.md)
 
 3. [Secure the Hub API](../how-to-guides/secure-hub-api.md)
 

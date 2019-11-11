@@ -16,7 +16,7 @@ An IOTA network consists of nodes and clients, and anyone is free to act as eith
 
 Clients are the devices that connect to nodes to be able to transact with each other or simply attach data to the Tangle.
 
-All clients in an IOTA network have a secret password called a [seed](../clients/seeds.md), which acts as their identity. Seeds give clients access to [addresses](../seeds/addresses.md), which are like accounts with a balance of IOTA tokens.
+All clients in an IOTA network have a secret password called a [seed](../clients/seeds.md), which acts as their identity. Seeds give clients access to [addresses](../clients/addresses.md), which are like accounts with a balance of IOTA tokens.
 
 To transfer IOTA tokens or even to send only data, clients package the transfer instructions into objects called [transactions](../transactions/transactions.md), group them into [bundles](../transactions/bundles.md), and send them to a node to attach to the Tangle.
 

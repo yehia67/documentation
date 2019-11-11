@@ -1,6 +1,6 @@
 # Addresses
 
-**An address is like an account that belongs to a [seed](../clients/seeds.md) and that has a 0 or greater balance of [IOTA tokens](../seeds/token.md). Addresses are the public half of a [public/private key pair](https://en.wikipedia.org/wiki/Public-key_cryptography). To transfer IOTA tokens from one address to another, you sign a transaction with the private key to prove to [nodes](../network/nodes.md) that you own it. As such you can share addresses with anyone because only the seed owner knows the private key.**
+**An address is like an account that belongs to a [seed](../clients/seeds.md) and that has a 0 or greater balance of [IOTA tokens](../clients/token.md). Addresses are the public half of a [public/private key pair](https://en.wikipedia.org/wiki/Public-key_cryptography). To transfer IOTA tokens from one address to another, you sign a transaction with the private key to prove to [nodes](../network/nodes.md) that you own it. As such you can share addresses with anyone because only the seed owner knows the private key.**
 
 ## Address format
 
@@ -21,7 +21,7 @@ The same seed, index, and security level, will always result in the same address
 
 Likewise, the same seed with a different index and/or a different security level will result in a different address.
 
-For example, when you [generate addresses](#generate-addresses) for index 0 and index 1 of all security levels, they are all unique:
+For example, when you generate addresses for index 0 and index 1 of all security levels, they are all unique:
 
 |**Index**|**Security level**|**Address**|
 |:-----|:-----|:-----|

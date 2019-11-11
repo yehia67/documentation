@@ -1,6 +1,6 @@
 # Bundles
 
-**A bundle is a group of [transactions](../transactions/transactions.md) that rely on each other's validity. For example, a transaction that deposits [IOTA tokens](../clients/token.md) into an [address](../seeds/addresses.md) relies on another transaction to withdraw those IOTA tokens from another address. Therefore, those transactions must be in the same bundle.**
+**A bundle is a group of [transactions](../transactions/transactions.md) that rely on each other's validity. For example, a transaction that deposits [IOTA tokens](../clients/token.md) into an [address](../clients/addresses.md) relies on another transaction to withdraw those IOTA tokens from another address. Therefore, those transactions must be in the same bundle.**
 
 ## Structure of a bundle
 
