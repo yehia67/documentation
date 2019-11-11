@@ -8,8 +8,8 @@ When you create a CDA, you specify the `timeoutAt` field to define whether it's 
 
 You can also specify one of the following recommended fields:
 
-* **multiUse (recommended):** A boolean that specifies if the address may receive more than one deposit.
-* **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to receive. When the address contains this amount, it's considered expired. We recommend specifying this condition.
+- **multiUse (recommended):** A boolean that specifies if the address may receive more than one deposit.
+- **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to receive. When the address contains this amount, it's considered expired. We recommend specifying this condition.
 
 :::info:
 You can't specify the `expected_amount` and `multi_use` fields in the same CDA. Please refer to the [FAQ](../references/cda-advice.md) for more advice about CDA conditions.
@@ -58,7 +58,7 @@ CDAs can be used only in an account and not in the generic client library method
     ```
 
     :::info
-    If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/tutorials/receive-test-tokens.md).
+    If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/how-to-guides/get-test-tokens.md).
     :::
 
     :::info:

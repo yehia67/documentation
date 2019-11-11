@@ -91,10 +91,10 @@
 
 },
 {
-    "cat": "trinary",
+    "cat": "ternary",
     "terms": {
-        "trinary": "Base-3 numeral system",
-        "trit": "Digit in a trinary number system. Trits are often represented by 1, 0, -1.",
+        "ternary": "Base-3 numeral system",
+        "trit": "Digit in a ternary number system. Trits are often represented by 1, 0, -1.",
         "tryte": "A tryte is 3 trits which can represent 27 values"
 
     }

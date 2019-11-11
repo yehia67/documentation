@@ -8,7 +8,7 @@ To complete this guide, you need the following:
 
 - An nRF52 series microcontroller
 - A Linux-based PC
-- A J-Link, J-Link on-board clone, or DAPLink [programmer](https://www.engineersgarage.com/tutorials/microcontroller-programmer-burner) 
+- A J-Link, J-Link on-board clone, or DAPLink [programmer](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner) 
 - A USB-to-UART connector
 
 :::info:

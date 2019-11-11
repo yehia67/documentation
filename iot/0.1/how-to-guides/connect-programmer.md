@@ -10,12 +10,6 @@ To complete this guide, you need the following:
 - A programmer (J-Link, J-Link OB clone, or DAPLink)
 - An nRF52 series microcontroller
 
-:::info:
-If you want a cheap option for flashing an nRF52 series microcontroller, consider buying a J-Link on-board (OB) clone.
-
-The standard J-link programmers are more expensive because they can also be used on microprocessors.
-:::
-
 ---
 
 1. Connect the programmer to your development board

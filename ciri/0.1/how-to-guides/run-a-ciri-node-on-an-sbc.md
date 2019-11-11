@@ -59,13 +59,13 @@ To cross compile cIRI, you need to execute one the following commands, depending
 uname -m
 ```
 
-* Command for Aarch64 (64-bit):
+- Command for Aarch64 (64-bit):
 
     ```bash
     bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool_top=@iota_toolchains//tools/aarch64--glibc--bleeding-edge-2018.07-1:toolchain --cpu=aarch64 --compiler='gcc' --host_crosstool_top=@bazel_tools//tools/cpp:toolchain //ciri
     ```
 
-* Command for ARMv7 (32-bit):
+- Command for ARMv7 (32-bit):
 
     ```bash
     bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool_top=@iota_toolchains//tools/armv7-eabihf--glibc--bleeding-edge-2018.07-1:toolchain --cpu='armeabi-v7a' --compiler='gcc' --host_crosstool_top=@bazel_tools//tools/cpp:toolchain //ciri
@@ -196,8 +196,8 @@ Your node stores the transactions that it receives in a sqlite3 database.
 ## Run cIRI
 
 Replace the values in the flags with the ones from these files:
-* [conf.bzl](https://raw.githubusercontent.com/iotaledger/entangled/develop/consensus/conf.bzl)
-* [snapshot.json](https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.json)
+- [conf.bzl](https://raw.githubusercontent.com/iotaledger/entangled/develop/consensus/conf.bzl)
+- [snapshot.json](https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.json)
 
 :::info:
 You should run cIRI in [tmux](https://github.com/tmux/tmux). 

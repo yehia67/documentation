@@ -46,12 +46,12 @@
     ],
     "cards": [
         {
-            "href": "/docs/getting-started/0.1/introduction/what-is-iota",
+            "href": "/docs/getting-started/0.1/introduction/iota",
             "image": "1.png",
             "name": "What is IOTA?"
         },
         {
-            "href": "/docs/getting-started/0.1/tutorials/get-started",
+            "href": "/docs/getting-started/0.1/how-to-guides/get-started",
             "image": "3.png",
             "name": "Getting Started"
         },

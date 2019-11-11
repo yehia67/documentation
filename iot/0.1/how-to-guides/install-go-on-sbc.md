@@ -6,7 +6,7 @@
 
 To complete this guide, you must have the following
 
-- A single board computer that uses an ARM system architecture (32-bit or 64-bit)
+- A single-board computer that uses an ARM system architecture (32-bit or 64-bit)
 - Linux-based operating system
 
 1. Check your system architecture

@@ -4,7 +4,7 @@
 
 In general, the tip selection algorithm selects transactions that have no parents. These transactions are called tips, hence the name 'tip selection'.
 
-Although the tip selection algorithm is embedded in the [IRI node software](root://node-software/0.1/iri/introduction/overview.md), it isn't enforced by the network. Instead, nodes are given an [incentive to use the tip selection algorithm](#incentives-to-use-tip-selection).
+Although the tip selection algorithm is embedded in the [IRI node software](root://node-software/0.1/iri/introduction/overview.md), it isn't enforced by the network. Instead, nodes are given an incentive to use the tip selection algorithm.
 
 ## The tip selection process
 
@@ -22,10 +22,6 @@ For the tip selection process, the milestone transaction for the subgraph is def
 
 The result of this calculation is equal to the index of the milestone transaction that is used to form the subgraph.
 
-:::info:
-The greater the value of the `depth` parameter, the more computations the node must do. To restrict the value of the `depth` parameter, nodes can change the [`MAX-DEPTH`](root://node-software/0.1/iri/references/iri-configuration-options.md#max-depth) configuration option.
-:::
-
 ### Weighted random walk
 
 A weighted random walk is an algorithm that nodes use to find a path to a tip transaction in a subgraph.
@@ -33,8 +29,8 @@ A weighted random walk is an algorithm that nodes use to find a path to a tip tr
 To increase the probability of selecting a path to new transactions, the algorithm favors a path through transactions that have a higher rating. This rating is called a cumulative weight.
 
 The cumulative weight of a transaction is calculated using the following variables:
-* **Future set:** Transactions that approves the transaction
-* **[`ALPHA` configuration parameter](root://node-software/0.1/iri/references/iri-configuration-options.md#alpha):** A number that affects the randomness of the tip selection process
+- **Future set:** Transactions that approves the transaction
+- **[`ALPHA` configuration parameter](root://node-software/0.1/iri/references/iri-configuration-options.md#alpha):** A number that affects the randomness of the tip selection process
 
 Nodes gives a high rating to a transaction with a large future set because it has a higher probability of being confirmed than one with a small future set. However, if a node were to rate transactions based only on this variable, the ledger would become a long, narrow chain of transactions, which are referenced by many other transactions. This would slow the rate of new transactions being appended to the ledger because new transactions would have to wait until they had a large enough future set before other transactions would reference them. So, to increase the speed at which new transactions are appended to the ledger, nodes also use the `ALPHA` configuration parameter to calculate the cumulative weight.
 
@@ -46,11 +42,7 @@ For more information about the weighted random walk, and for an in-depth explana
 
 The following information describes what nodes do when a client calls the [getTransactionsToApprove](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove) endpoint.
 
-Clients call this endpoint when they want to send a transaction. The endpoint results in two tip transaction hashes, which are used in the `trunkTransaction` and `branchTransaction` fields of the new transaction.
-
-:::info:
-Find out more about the [structure of a transaction](root://dev-essentials/0.1/references/structure-of-a-transaction.md).
-:::
+Clients call this endpoint when they want to send a transaction. The endpoint results in two tip transaction hashes, which are used in the [`trunkTransaction` and `branchTransaction` fields](root://getting-started/0.1/basics/transactions.md#trunkTransaction) of the new transaction.
 
 When this endpoint is called, a node starts the tip selection algorithm, which is separated into the following stages:
 
@@ -121,9 +113,9 @@ class CumulativeWeightCalculator(RatingCalculator):
 
 #### Optimizations
 
-* In order to preserve space while storing transaction's identifiers, we only store a portion of the transaction's hash bytes, truncating it to the `PREFIX_LENGTH` length. Currently, this value has been hardcoded to 44 bytes, corresponding to 220 trits.
+- In order to preserve space while storing transaction's identifiers, we only store a portion of the transaction's hash bytes, truncating it to the `PREFIX_LENGTH` length. Currently, this value has been hardcoded to 44 bytes, corresponding to 220 trits.
 
-* In order to cap the memory consumption of the algorithm, we allow to store up to `MAX_FUTURE_SET_SIZE` number of approvers for the transaction we are considering, under the assumption that a higher rating score won't contribute significantly to bias the walker. This value has been heuristically hardcoded to 5000. Please note that this optimization, while capping memory usage during runtime, makes the walk to behave more randomly closer the beginning of the considered subgraph since the future sets of those transactions are more likely to have been capped to `MAX_FUTURE_SET_SIZE`. The desired behavior is instead the contrary: we would like the beginning of the walk to be strongly biased towards the main branch while being more random closer to the tips, spreading the chance for any of them to get selected. 
+- In order to cap the memory consumption of the algorithm, we allow to store up to `MAX_FUTURE_SET_SIZE` number of approvers for the transaction we are considering, under the assumption that a higher rating score won't contribute significantly to bias the walker. This value has been heuristically hardcoded to 5000. Please note that this optimization, while capping memory usage during runtime, makes the walk to behave more randomly closer the beginning of the considered subgraph since the future sets of those transactions are more likely to have been capped to `MAX_FUTURE_SET_SIZE`. The desired behavior is instead the contrary: we would like the beginning of the walk to be strongly biased towards the main branch while being more random closer to the tips, spreading the chance for any of them to get selected. 
 
 ### Weighted random walk
 
@@ -228,13 +220,13 @@ class WalkerAlpha(Walker):
 
 A transaction is considered invalid if any of the following occur:
 
-* It is not solid and we cannot reconstruct its state, since a portion of the Tangle that this transaction references is unknown.
+- It is not solid and we cannot reconstruct its state, since a portion of the Tangle that this transaction references is unknown.
 
-* It references a transaction that's too far in the past, namely beyond `latestSolidMilestone - maxDepth`.
+- It references a transaction that's too far in the past, namely beyond `latestSolidMilestone - maxDepth`.
 
-* The ledger state is not consistent, such as trying to withdraw or deposit missing funds or double-spending.
+- The ledger state is not consistent, such as trying to withdraw or deposit missing funds or double-spending.
 
-* The validator maintains a list of transactions that have been checked for validity. Every time a new transaction is validated, it is also checked against these.
+- The validator maintains a list of transactions that have been checked for validity. Every time a new transaction is validated, it is also checked against these.
 
 ```python
 class WalkValidator:

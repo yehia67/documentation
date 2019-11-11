@@ -62,5 +62,5 @@ If you haven't already set up a border router, [do it now](../how-to-guides/set-
 
 If you've already set up a border router, then you have a complete Bluetooth star network, and you're ready to try one of our sample applications:
 
-* [Request data from the sensor server](../how-to-guides/run-an-environment-sensor-and-client.md)
-* [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md)
+- [Request data from the sensor server](../how-to-guides/run-an-environment-sensor-and-client.md)
+- [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md)

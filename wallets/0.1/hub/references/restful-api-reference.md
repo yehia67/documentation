@@ -6,13 +6,12 @@
 If you want to use the RESTful API, you must start Hub with the `--serverType http` command-line flag.
 :::
 
-All the following commands must include an HTTP header.
+The following commands must include an HTTP header.
 
 | **Header**       | **Value** | **Required or Optional** |
 |:---------------|:--------|:--------|
 | X-IOTA-API-Version | 1 | Required |
 | Content-Type | application/json | Optional |
-
 
 :::warning:
 This API is in beta, and is subject to change. We recommend that you don't use this API in production applications.
@@ -904,7 +903,7 @@ Depending on the value of the `type` field, the following data is returned:
 Transfer IOTA tokens from a spent address to an unspent one.
 
 :::info:
-To use this endpoint, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-flags.md#recoverFunds).
+To use this endpoint, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-options.md#recoverFunds).
 :::
 
 :::info:
@@ -1025,7 +1024,7 @@ If you want to transfer all the IOTA tokens of a spent address into a single add
 For an example of how to use this endpoint, follow our guide to [build a bundle and sign it with Hub](../how-to-guides/recover-tokens.md).
 
 :::info:
-To use this endpoint, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-flags.md#signBundle).
+To use this endpoint, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-options.md#signBundle).
 :::
 
 ### Parameters
@@ -1034,7 +1033,7 @@ To use this endpoint, you must run Hub with the [`--SignBundle_enabled` flag](..
 |--|--|--|--|
 | `address`          |The user's deposit address that you want to withdraw from (may include a checksum) |string|
 | `bundleHash`       | The bundle hash that needs signing   |string|
-| `authentication`   |Optional |Authentication token for the endpoint |string|
+| `authentication`   |Optional |HMAC key for the endpoint |string|
 | `validateChecksum` |Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum)
 
 ### Examples

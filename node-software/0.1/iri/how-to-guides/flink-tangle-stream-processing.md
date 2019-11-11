@@ -96,7 +96,7 @@ This code in this guide is available in the `MostUsedAddresses.scala` file on [t
 
 ## Prerequisites
 
-If you are not familiar with Flink, you should read [this documentation](https://ci.apache.org/projects/flink/flink-docs-master/tutorials/datastream_api.html#writing-a-flink-program).
+If you are not familiar with Flink, you should read [this documentation](https://ci.apache.org/projects/flink/flink-docs-master/how-to-guides/datastream_api.html#writing-a-flink-program).
 
 You must have [downloaded and installed the libraries](#download-and-install-the-libraries).
 

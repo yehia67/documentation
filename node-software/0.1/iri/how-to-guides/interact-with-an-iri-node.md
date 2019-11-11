@@ -6,9 +6,9 @@
 
 To use the code samples in this guide, you must have the following:
 
-* [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/)
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
+- [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/)
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+- Access to a command-line interface
 
 
 ## Request information about the node
@@ -97,6 +97,7 @@ print(json.dumps(results, indent=1, sort_keys=True))
 --------------------
 
 The output should display something like the following:
+
 ```json
 {
 "appName":"IRI Testnet",

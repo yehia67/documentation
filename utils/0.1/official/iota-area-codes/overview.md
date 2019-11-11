@@ -8,11 +8,11 @@ By using IACs, you can tag a transaction with an area and allow someone else to 
 
 ## About IACs
 
-IACs are a clone of [Open Location Codes](https://en.wikipedia.org/wiki/Open_Location_Code) (OLC), which includes some minor changes to make them compatible with [tryte encoding](root://dev-essentials/0.1/concepts/trinary.md):
+IACs are a clone of [Open Location Codes](https://en.wikipedia.org/wiki/Open_Location_Code) (OLC), which includes some minor changes to make them compatible with [tryte encoding](root://getting-started/0.1/basics/ternary.md):
 
-* The numbers and letters that make up a code are called _trytes_, which include the following: `FGHJKLMNOPQRSTUVXWYZ`
-* The separator that comes after the eighth tryte in an IAC is a `9` instead of a `+`
-* The `A` tryte is used for padding IACs instead of a `0`
+- The numbers and letters that make up a code are called _trytes_, which include the following: `FGHJKLMNOPQRSTUVXWYZ`
+- The separator that comes after the eighth tryte in an IAC is a `9` instead of a `+`
+- The `A` tryte is used for padding IACs instead of a `0`
 
 ## Reading IACs
 
@@ -52,15 +52,11 @@ In this example, we use the IOTA JavaScript library to create a zero-value trans
 
 To complete this tutorial, you need the following:
 
-* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
+- Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+- Access to a command-line interface
 
-* The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md) and [`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes) packages
-
-:::info:
-If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)
-:::
+- The [`@iota/core`](root://getting-started/0.1/how-to-guides/get-started.md) and [`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes) packages
 
 ### Step 1. Find some coordinates
 

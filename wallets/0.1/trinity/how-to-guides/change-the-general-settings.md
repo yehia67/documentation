@@ -24,5 +24,5 @@ The current value of the token is displayed in the currency that is selected in 
 
 Trinity has two modes:
 
-* **Standard mode:** Displays only the most relevant information for standard users
-* **Advanced mode:** Displays technical information, such as error logs, for advanced users
+- **Standard mode:** Displays only the most relevant information for standard users
+- **Advanced mode:** Displays technical information, such as error logs, for advanced users

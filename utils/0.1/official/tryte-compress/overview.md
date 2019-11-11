@@ -16,15 +16,11 @@ Then, we use the [trytes compressor API](https://github.com/iotaledger/tryte-com
 
 To complete this tutorial, you need the following:
 
-* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
+- Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+- Access to a command-line interface
 
-* The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js) packages
-
-:::info:
-If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)
-:::
+- The [`@iota/core`](root://getting-started/0.1/how-to-guides/get-started.md), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js) packages
 
 ### Step 1. Set up the sample
 
@@ -119,7 +115,6 @@ If you've never used the IOTA client libraries before, we recommend completing [
     Here, we use the transaction hash to name the file.
     :::
 
-
 :::success:Congratulations :tada:
 Whenever you send a transaction, you are now compressing the transaction trytes and storing them on your local device.
 :::
@@ -185,7 +180,6 @@ iota.prepareTransfers(seed, transfers)
     // Catch any errors
     console.log(error);
 });
-
 
 function storeTailTransaction (transactionHash, bundleTrytes) {
 

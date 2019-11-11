@@ -10,8 +10,8 @@ Storing, sharing and trading data is a cornerstone of business in the connected 
 
 A common requirement for nearly all use cases or applications is that data must be stored for later use, for example:
 
-* **Supply chain:** Shipping documents or images must be stored to form a permanent record of events
-* **Digital twin of a vehicle:** All data such as the odometer readings, maintenance record, and ownership change should be stored to form a permanent record of the entire lifecycle of the vehicle
+- **Supply chain:** Shipping documents or images must be stored to form a permanent record of events
+- **Digital twin of a vehicle:** All data such as the odometer readings, maintenance record, and ownership change should be stored to form a permanent record of the entire lifecycle of the vehicle
 
 However, the Tangle is not a database. The Tangle is an immutable, distributed ledger which allows you to store a hash of data and a pointer to its location in third-party data storage.
 

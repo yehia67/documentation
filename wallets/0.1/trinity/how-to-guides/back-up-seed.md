@@ -8,9 +8,9 @@ Anyone who has access to your seed has access to your IOTA tokens. Do not screen
 
 When you create an account (or [access your seed from the account management page](../how-to-guides/manage-your-account.md)) you can back up your seed, using one of the following options:
 
-* SeedVault file (most secure)
-* Paper copy
-* Printed copy (least secure)
+- SeedVault file (most secure)
+- Paper copy
+- Printed copy (least secure)
 
 After backing up your seed, Trinity asks you to re-enter your seed to make sure that you backed up the correct one.
 

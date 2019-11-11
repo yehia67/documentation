@@ -1,5 +1,4 @@
 [Getting Started](/getting-started)
-[Essentials](/dev-essentials)
 [Client Libraries](/client-libraries)
 [Node Software](/node-software)
 [Private Tangle](/compass)

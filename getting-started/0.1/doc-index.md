@@ -1,33 +1,56 @@
 # Index
 
-[Introduction/What is distributed ledger technology?](/introduction/what-is-dlt.md)
+[Introduction/IOTA overview](/introduction/overview.md)
 
-[Introduction/What is IOTA?](/introduction/what-is-iota.md)
+[Basics/Distributed ledger technology](/basics/dlt.md)
 
-[Introduction/What is a node?](/introduction/what-is-a-node.md)
+[Basics/IOTA token](/basics/token.md)
 
-[Introduction/What is the Tangle?](/introduction/what-is-the-tangle.md)
+[Basics/Seeds](/basics/seeds.md)
 
-[Introduction/What is a seed?](/introduction/what-is-a-seed.md)
+[Basics/Addresses](/basics/addresses.md)
 
-[Introduction/What is a transaction?](/introduction/what-is-a-transaction.md)
+[Basics/Checksums](/basics/checksums.md)
 
-[Introduction/What is a bundle?](/introduction/what-is-a-bundle.md)
+[Basics/Security levels](/basics/security-levels.md)
 
-[Tutorials/Get started](/tutorials/get-started.md)
+[Basics/Signatures](/basics/signatures.md)
 
-[Tutorials/Send your first data transaction (Node.js)](/tutorials/send-a-zero-value-transaction-with-nodejs.md)
+[Basics/Transactions](/basics/transactions.md)
 
-[Tutorials/Receive free test tokens](/tutorials/receive-test-tokens.md)
+[Basics/Bundles](/basics/bundles.md)
 
-[Tutorials/Send test IOTA tokens (Node.js)](/tutorials/send-iota-tokens.md)
+[Basics/Nodes](/basics/nodes.md)
 
-[Tutorials/Run your own IRI node (Docker)](/tutorials/run-your-own-iri-node.md)
+[Basics/The Tangle](/basics/the-tangle.md)
 
-[Tutorials/Send your first data transaction (Trinity)](/tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)
+[Basics/The Coordinator](/basics/the-coordinator.md)
+
+[Basics/Proof of work](/basics/proof-of-work.md)
+
+[Basics/Minimum weight magnitude](/basics/minimum-weight-magnitude.md)
+
+[Basics/Depth](/basics/depth.md)
+
+[Basics/Proof of work](/basics/proof-of-work.md)
+
+[Basics/Reattach, rebroadcast, and promote](/basics/reattach-rebroadcast-promote.md)
+
+[Basics/Ternary](/basics/ternary.md)
+
+[Basics/Masked Authenticated Messaging](/basics/masked-authenticated-messaging.md)
+
+[Quickstart/Get started](/how-to-guides/get-started.md)
+
+[Quickstart/Run your own IRI node in Docker](/how-to-guides/run-your-own-iri-node.md)
 
 [References/Developer handbook](/references/quickstart-dev-handbook.md)
 
 [References/IOTA networks](/references/iota-networks.md)
 
-[References/Use cases](/references/use-cases.md)
+[References/Glossary](/references/glossary.md)
+
+
+
+
+

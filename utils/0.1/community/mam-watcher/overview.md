@@ -18,9 +18,9 @@ Devices on the Internet of Things are often monitoring their environment and cre
 
 To use this application, you need the following:
 
-* [An LTS version or the latest version of Node.js and NPM](https://nodejs.org/en/download/)
+- [An LTS version or the latest version of Node.js and NPM](https://nodejs.org/en/download/)
 
-* [Git](https://git-scm.com/download/linux)
+- [Git](https://git-scm.com/download/linux)
 
 ## Run the application
 

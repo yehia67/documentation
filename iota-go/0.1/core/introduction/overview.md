@@ -8,7 +8,7 @@ The client libraries are currently in beta and you should not use them in produc
 
 ## Audience
 
-This documentation is designed for developers who are familiar with the Go programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md).
+This documentation is for developers who are familiar with the Go programming language and object-oriented programming concepts. You should also be familiar with [basic IOTA concepts](root://getting-started/0.1/introduction/overview.md) such as [bundles](root://getting-started/0.1/basics/bundles.md), [transactions](root://getting-started/0.1/basics/transactions.md), [seeds](root://getting-started/0.1/basics/seeds.md), and [addresses](root://getting-started/0.1/basics/addresses.md).
 
 ## Prerequisites
 

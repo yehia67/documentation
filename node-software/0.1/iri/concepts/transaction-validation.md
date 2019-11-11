@@ -1,16 +1,8 @@
-# Transaction validation
+# Transaction validation in IRI nodes
 
-**Each IRI node in an IOTA network is responsible for validating transactions to make sure that counterfeit transactions are never confirmed.**
+**IRI nodes validate transactions during the following stages: On receipt of new transactions and during the tip selection process**
 
-To protect the integrity of the ledger, IRI nodes append only valid transaction to their [ledgers](../concepts/the-ledger.md).
-
-IRI nodes validate transactions during the following stages:
-- On receipt of new transactions
-- During the tip selection process
-
-## Transaction validation on receipt of new transactions
-
-IRI nodes receive new transactions from both clients and neighbor nodes.
+## New transactions
 
 When an IRI node receives a new transaction, the transaction validator checks it for the following:
 
@@ -19,9 +11,7 @@ When an IRI node receives a new transaction, the transaction validator checks it
 - The transaction is not older than the last snapshot and not newer than two hours ahead of the node’s current time
 - The last trit of an address is 0 for value transactions
 
-## Validation during the tip selection process
-
-When clients ask an IRI node for tip transactions, it does the [tip selection](../concepts/tip-selection.md).
+## Tip selection
 
 The bundles of each transaction that the IRI node traverses during the tip selection process are checked by the bundle validator and the ledger validator.
 
@@ -37,6 +27,6 @@ During a [weighted random walk](../concepts/tip-selection.md), the bundle valida
 
 ### Ledger validator
 
-The ledger validator makes sure that double-spends are never confirmed.
+The ledger validator makes sure that double spends are never confirmed.
 
-During a [weighted random walk](../concepts/tip-selection.md), the ledger validator checks that each bundle does not lead to a double-spend by checking the values of all addresses in a bundle. If a double-spend is found, the weighted random walk steps back one transaction and finds another route to a tip transaction.
+During a [weighted random walk](../concepts/tip-selection.md), the ledger validator checks that each bundle does not lead to a double-spend by checking the values of all addresses in a bundle. If a double spend is found, the weighted random walk steps back one transaction and finds another route to a tip transaction.

@@ -16,9 +16,9 @@ To allow Chronicle to scale up, it uses Elixir [umbrella projects](https://elixi
 
 The Chronicle umbrella project includes a core app that communicates with the Scylla swarm to do the following:
 
-* Manage database changes
-* Forward the changes to the swarm
-* Monitor cluster supervisors
+- Manage database changes
+- Forward the changes to the swarm
+- Monitor cluster supervisors
 
 Other apps use the core app to communicate with the Scylla swarm through IPC. These apps can hold the business rules that need to interact with the core app.
 

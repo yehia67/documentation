@@ -6,14 +6,14 @@ All events return one or more buffer objects, which contain space-separated data
 
 Due to [a bug in the IRI](https://github.com/iotaledger/iri/issues/1597), the following events are currently unavailable in version 1.8.0 or later:
 
-* `dnscv`
-* `dnscc`
-* `dnscu`
-* `hmr`
-* `antn`
-* `rntn`
-* `rstat`
-* `rtl`
+- `dnscv`
+- `dnscc`
+- `dnscu`
+- `hmr`
+- `antn`
+- `rntn`
+- `rstat`
+- `rtl`
 
 |  **Event and description** | **Returned data**
 | :----------| :----------|
@@ -44,7 +44,7 @@ Due to [a bug in the IRI](https://github.com/iotaledger/iri/issues/1597), the fo
 |`sn`|
 | Transaction that has recently been confirmed| <ul><li>**Index 1:** Index of the milestone that confirmed the transaction</li><li>**Index 2:** Transaction hash</li><li>**Index 3:** Address</li><li>**Index 4:** Trunk transaction hash</li><li>**Index 5:** Branch transaction hash</li><li>**Index 6:** Bundle hash</li></ul>
 |`tx_trytes`|
-| Raw transaction trytes that the IRI node recently appended to its ledger| <ul><li>**Index 1:** [Raw transaction object](root://dev-essentials/0.1/references/structure-of-a-transaction.md)</li><li>**Index 2:** Transaction hash</li></ul>
+| Transaction trytes that the IRI node recently appended to its ledger| <ul><li>**Index 1:** Transaction trytes</li><li>**Index 2:** Transaction hash</li></ul>
 |<a name="tx"></a> `tx` |
 |Transaction that the IRI node has recently appended to the ledger| <ul><li>**Index 1:** Transaction hash</li><li>**Index 2:** Address</li><li>**Index 3:** Value</li><li>**Index 4:** Obsolete tag</li><li>**Index 5:** Value of the transaction's `timestamp` field</li><li>**Index 6:** Index of the transaction in the bundle</li><li>**Index 7:** Last transaction index of the bundle</li><li>**Index 8:** Bundle hash</li><li>**Index 9:** Trunk transaction hash</li><li>**Index 10:** Branch transaction hash</li><li>**Index 11:** Unix timestamp for when the IRI received the transaction</li><li>**Index 12:** Tag</li></ul>
 |<a name="address"></a>81-tryte address (uppercase characters)| 

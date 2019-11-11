@@ -1,17 +1,16 @@
 # Run an IRI node on a Linux server
 
-**When you run the IRI software, your device becomes a node that gives you direct access to the Tangle. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
+**When you run the IRI node software, your device becomes a node that gives you direct access to the Tangle. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.**
 
 ## Prerequisites
 
 To complete this guide, you need the following:
 
-* 4GB RAM
-* 64-bit processor
-
-* A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04))
-* A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
-* [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
+- 4GB RAM
+- 64-bit processor
+- A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04))
+- A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
+- [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node:
 
     * **TCP neighbor peering port:** 15600
     * **TCP API port:** 14265
@@ -21,8 +20,8 @@ To complete this guide, you need the following:
 The IRI is Java software, so it must be run in a Java runtime environment (JRE).
 
 You have two options for downloading the latest IRI software:
-* Download the pre-built Java file from GitHub (quickest option)
-* Build the Java file from the source code on GitHub 
+- Download the pre-built Java file from GitHub (quickest option)
+- Build the Java file from the source code on GitHub 
 
 ### Download the pre-built IRI Java file
 
@@ -35,13 +34,13 @@ The pre-built IRI Java file is available on the [IOTA GitHub repository](https:/
     sudo apt-get upgrade -y
     ```
 
-2. Make a directory in which to download the IRI Java file. Change `jake` to your Linux username.
+2. Make a directory in which to download the IRI Java file. Replace `jake` with your username.
 
     ```bash
     mkdir /home/jake/node
     ```
     :::info:
-    If you see 'mkdir: cannot create directory...' in the output, you probably copied and pasted the command without changing `jake` to your Linux username.
+    If you see 'mkdir: cannot create directory...' in the output, you may have copied and pasted the command without changing `jake` to your Linux username.
     :::
 
 3. Download and install the Java 8 OpenJDK
@@ -54,11 +53,11 @@ The pre-built IRI Java file is available on the [IOTA GitHub repository](https:/
     ```
 
     :::info:
-    To check that Java is installed, enter `java -version`. You should see a version number in the output.
+    To check that Java is installed, enter `java -version` in the command line. You should see a version number in the output.
     :::
 
 
-4. Download the latest IRI Java file into your `node` directory. Change `jake` to your Linux username and replace the `${VERSION}` variable with the [latest version](https://github.com/iotaledger/iri/releases) of the IRI. 
+4. Download the latest IRI Java file into your `node` directory. Replace `jake` with your username and replace the `${VERSION}` variable with the [latest version](https://github.com/iotaledger/iri/releases) of the IRI. 
 
     ```bash
     sudo wget -O /home/jake/node/iri-${VERSION}.jar https://github.com/iotaledger/iri/releases/download/v${VERSION}/iri-${VERSION}.jar
@@ -85,9 +84,10 @@ Now that the IRI Java file and the `spent-addresses-db` directory are saved on y
 
 ### Build the IRI Java file from the source code
 
-Instead of downloading the pre-built IRI Java file, you may want to build the file from the source code the any of the following reasons:
-* You want to be sure that the code you run is the same as the source code
-* You want to modify the code before you run it
+Instead of downloading the pre-built IRI Java file, you may want to build the file from the source code for any of the following reasons:
+
+- You want to be sure that the code you run is the same as the source code
+- You want to modify the code before you run it
 
 1. Download and install the Java 8 OpenJDK
 
@@ -152,7 +152,7 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
 
 The IRI runs in a Java virtual machine. Therefore, before you run the IRI, you need to set up some Java variables.
 
-1. Create the Java variables that'll be used to run the IRI in the Java virtual machine
+1. Define some Java variables to optimize the Java virtual machine
 
     ```bash
     export JAVA_OPTIONS="-XX:+UnlockExperimentalVMOptions -XX:+DisableAttachMechanism -XX:InitiatingHeapOccupancyPercent=60 -XX:G1MaxNewSizePercent=75 -XX:MaxGCPauseMillis=10000 -XX:+UseG1GC"
@@ -160,13 +160,13 @@ The IRI runs in a Java virtual machine. Therefore, before you run the IRI, you n
     export JAVA_MAX_MEMORY=4G
     ```
 
-    **JAVA_OPTIONS:** Commands that optimise the Java virtual machine
+    **JAVA_OPTIONS:** Commands that optimize the Java virtual machine
 
     **JAVA_MIN_MEMORY:** The initial memory allocation for the Java virtual machine
     
     **JAVA_MAX_MEMORY:** the maximum memory allocation for the Java virtual machine
     
-2. Create an IRI configuration file in the same directory as your IRI Java file. Change `jake` to your Linux username.
+2. Create an IRI configuration file in the same directory as your IRI Java file. Replace `jake` with your Linux username.
 
     ```bash
     nano /home/jake/node/config.ini
@@ -188,45 +188,19 @@ If you want to run a Devnet node, you must set the `TESTNET` configuration optio
 
 The following Devnet nodes have auto-peering enabled, so they will automatically add you as neighbors:
 
-* tcp://p101.testnet.iota.cafe:14666
+- tcp://p101.testnet.iota.cafe:14666
 
-* tcp://p102.testnet.iota.cafe:14666
+- tcp://p102.testnet.iota.cafe:14666
 
-* tcp://p103.testnet.iota.cafe:14666
+- tcp://p103.testnet.iota.cafe:14666
 
-* tcp://p104.testnet.iota.cafe:14666
-
-### Configure a Spamnet node
-
-If you want to run a Spamnet node, you must include only the following configuration parameters in your configuration file:
-
-```bash
-[IRI]
-ZMQ_ENABLED = TRUE
-TESTNET = TRUE
-DB_PATH = spamnetdb
-DB_LOG_PATH = spamnetdb.log
-MWM = 7
-SNAPSHOT_FILE = spamnet.txt
-COORDINATOR = H9FXUMSYAWNZPVFINVTXOTYKFZXR9OBKA9KSTVWXTWHIZZRISFYZMXIMOQFXDXXQHNAJXAZFP9IHSFXRH
-NUMBER_OF_KEYS_IN_A_MILESTONE = 20
-SNAPSHOT_TIME = 1535760000
-MILESTONE_START_INDEX = 2
-DONT_VALIDATE_TESTNET_MILESTONE_SIG = true
-NEIGHBORS = tcp://p101.spamnet.iota.cafe:15600 tcp://p102.spamnet.iota.cafe:15600
-```
-
-You must also create a snapshot file to define an address that contains the entire supply of tokens on the Spamnet. The location of this file must be set in the `SNAPSHOT_FILE` configuration parameter.
-
-```bash
-WYF9OOFCQJRTLTRMREDWPOBQ9KNDMFVZSROZVXACAWKUMXAIYTFQCPAYZHNGKIWZZGKCSHSSTRDHDAJCW;2779530283277761
-```
+- tcp://p104.testnet.iota.cafe:14666
 
 ## Step 3. Run the IRI
 
 When you've downloaded, and configured the IRI, it's time to run it.
 
-1. Make a directory to keep the database and the IXI (IOTA exchange interface folders). Change `jake` to your Linux username.
+1. Make a directory to keep the database and the IXI (IOTA exchange interface) modules. Change `jake` to your Linux username.
 
     ```bash
     mkdir -p /home/jake/node/data
@@ -254,7 +228,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     You're now running an IRI node!
     :::
 
-3. Open a new terminal window on your Linux server, and install Curl and JQ. Curl is used to send REST API requests to your IRI node. JQ is a command-line processor that displays JSON data in an easy-to-read format.
+3. Open a new terminal window on your Linux server and install Curl and JQ. Curl is used to send REST API requests to your IRI node. JQ is a command-line processor that displays JSON data in an easy-to-read format.
 
     ```bash
     sudo apt install curl jq
@@ -294,7 +268,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     }
     ```
     
-    You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to [neighbor IRI nodes](../concepts/neighbor-iri-node.md).
+    You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to neighbor IRI nodes.
 
 5. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.ini file
 
@@ -302,7 +276,7 @@ When you've downloaded, and configured the IRI, it's time to run it.
     We recommend [setting up a reverse proxy](../how-to-guides/set-up-a-reverse-proxy.md) for your IRI node so that you can have more control over the requests that are made to it.
     :::
 
-Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
+Now that your node is up and running, it'll start to synchronize its ledger with the network. Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing.
 
 ## Step 4. Check that the node is synchronized
 
@@ -331,4 +305,4 @@ It may take some time for the IRI to synchronize. For help with any issues, read
 
 ## Next steps
 
-[Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
+[Interact with your node](../how-to-guides/interact-with-an-iri-node.md).
