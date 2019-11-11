@@ -1,12 +1,219 @@
-# Run Hub on Linux
+# Run Hub
 
-**By running Hub, you expose an API that your application can use to manage users' accounts. In this guide, you'll install and run an instance of Hub on a Linux server.**
+**By running Hub, you expose an API that your application can use to manage users' accounts. In this guide, you install and run an instance of Hub.**
 
-## Prerequisites
+You have two options for running Hub:
+
+- Run Hub in a Docker container
+- Build and run Hub on a Linux Ubuntu server
+
+## Run Hub in a Docker container
+
+In this guide, you download the Hub Docker image and run it in a Docker container.
+
+### Prerequisites
+
+To complete this guide, you need the following:
+
+- [Git](https://git-scm.com/downloads)
+- [Docker](https://docs.docker.com/install/#supported-platforms)
+
+:::info:
+If you're using a Debian-based operating system, add `sudo` before all the commands in the following tasks.
+:::
+
+### Step 1. Run the database server
+
+By default, Hub uses [MariaDB 10.2.1+](https://mariadb.com/) because it supports CHECK constraints, which restrict the data you can add to the tables.
+
+The easiest way to use MariaDB on Docker is choosing a MariaDB image and creating a container.
+
+
+1. Create a Docker network for Hub and the database server
+
+	```bash
+	docker network create hub
+	```
+
+2. Download the MariaDB Docker image and run it in a container
+
+	```bash
+	docker run \
+	-d \
+	--name mariadb \
+	--rm \
+	--hostname mariadb.local \
+	--net=hub \
+	-e MYSQL_ROOT_PASSWORD=myrootpassword \
+	-e MYSQL_USER=hubuser \
+	-e MYSQL_PASSWORD=hubpassword \
+	-e MYSQL_DATABASE=hubdb \
+	-v ~/db-conf:/conf \
+	-v ~/db-data:/var/lib/mysql \
+	mariadb/server:10.3
+	```
+
+	:::info:
+	For more details, see [Installing and using MariaDB with Docker](https://mariadb.com/kb/en/library/installing-and-using-mariadb-via-docker/).
+	:::
+
+### Step 2. Create the database tables
+
+After Hub is installed, you can create the database tables that store Hub's data.
+
+:::info:
+In these commands, make sure to replace the `myrootpassword` placeholder with the password you chose when you started the MariaDB container.
+:::
+
+1. Clone the Hub GitHub repository
+
+	```bash
+	git clone https://github.com/iotaledger/hub.git
+	```
+
+2. Copy the `schema.sql` and `triggers.mariadb.sql` files from the `hub/schema` directory to the `db-conf` directory
+
+3. Open a shell session inside the MariaDB Docker container
+
+	```bash
+	docker exec -it mariadb /bin/bash
+	```
+
+4. Load the database schema into the database
+
+	```bash
+	mysql -h127.0.0.1 -uroot -pmyrootpassword hubdb < conf/schema.sql
+	```
+
+5. Import the database triggers
+
+	```bash
+	mysql -h127.0.0.1 -uroot -pmyrootpassword hubdb < conf/triggers.mariadb.sql
+	```
+
+### Step 3. Run Hub
+
+To run Hub, you download and run the Hub Docker image and connect it to MariaDB.
+
+1\. [Plan your Hub configuration](../how-to-guides/configure-hub.md)
+
+2\. Download the Hub Docker image and run it with the [command line options](../references/command-line-options.md) that you want to use
+
+These are some example configurations.
+
+--------------------
+### gRPC API
+
+This command connects to a local Mainnet node on port 14265, and exposes the gRPC API server on port 50051 of the local host.
+
+```bash
+docker run \
+-d \
+--rm \
+--name hub \
+--net hub \
+--hostname hub.local \
+-p 50051:50051 \
+--expose 50051 \
+iotacafe/hub:9ccb094 \
+--salt REPLACEWITHYOURSAFESALT \
+--apiAddress 127.0.0.1:14265  \
+--db hubdb \
+--dbHost mariadb \
+--dbPort 3306 \
+--dbUser hubuser \
+--dbPassword hubpassword \
+--minWeightMagnitude 14 \
+--listenAddress 0.0.0.0:50051 \
+```
+---
+
+### RESTful API
+
+This command connects to a local Mainnet node on port 14265, and exposes the RESTful API server on port 50051 of the localhost.
+
+```shell
+docker run \
+-d \
+--rm \
+--name hub \
+--net hub \
+--hostname hub.local \
+-p 50051:50051 \
+--expose 50051 \
+iotacafe/hub:9ccb094 \
+--salt REPLACEWITHYOURSAFESALT \
+--apiAddress 127.0.0.1:14265  \
+--db hubdb \
+--dbHost mariadb \
+--dbPort 3306 \
+--dbUser hubuser \
+--dbPassword hubpassword \
+--minWeightMagnitude 14 \
+--listenAddress 0.0.0.0:50051 \
+--serverType http
+```
+---
+
+### HTTPS Devnet node
+
+For testing purposes, you may want to connect to a remote [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) node. Most remote nodes use an HTTPS connection, so this command has the [`--useHttpsIRI` flag](../references/command-line-options.md#useHttpsIRI) set to `true`.
+
+```shell
+docker run \
+-d \
+--rm \
+--name hub \
+--net hub \
+--hostname hub.local \
+-p 50051:50051 \
+--expose 50051 \
+iotacafe/hub:9ccb094 \
+--salt REPLACEWITHYOURSAFESALT \
+--apiAddress nodes.devnet.iota.org:443  \
+--db hubdb \
+--dbHost mariadb \
+--dbPort 3306 \
+--dbUser hubuser \
+--dbPassword hubpassword \
+--listenAddress 0.0.0.0:50051 \
+--useHttpsIRI true
+```
+--------------------
+
+:::warning:Warning
+Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
+:::
+
+3\. Check that Hub and MariaDB are running
+
+```bash
+docker ps
+```
+
+You should see something like the following in the output:
+
+```
+CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS              PORTS                      NAMES
+0a7fe9d77bfb        iotacafe/hub:9ccb094   "/app/hub/hub --salt…"   18 minutes ago      Up 18 minutes       0.0.0.0:50051->50051/tcp   hub
+cdd1be234729        mariadb/server:10.3    "docker-entrypoint.s…"   25 minutes ago      Up 25 minutes       3306/tcp                   mariadb
+```
+
+When the **STATUS** column shows a status of **Up**, the containers are running and listening on the port specified in the **PORTS** column.
+
+:::success:Congratulations :tada:
+Hub is running in the background! Now, you can use its API to start creating user accounts.
+:::
+
+## Install and run Hub on a Linux Ubuntu server
+
+In this guide, you install Hub on Ubuntu 18.04 and manage it in a supervisor process.
+
+### Prerequisites
 
 To complete this guide, you need an [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
 
-## Step 1. Install the dependencies
+### Step 1. Install the dependencies
 
 To build and run Hub, you need to install a compiler, Python, and Git.
 
@@ -74,9 +281,9 @@ To build and run Hub, you need to install a compiler, Python, and Git.
 	sudo apt install -y git
 	```
 
-## Step 2. Install the database server
+### Step 2. Install the database server
 
-By default, Hub uses [MariaDB 10.2.1+](https://mariadb.com/) because it supports CHECK constraints, which restrict the data you can add to the table.
+By default, Hub uses [MariaDB 10.2.1+](https://mariadb.com/) because it supports CHECK constraints, which restrict the data you can add to the tables.
 
 The default repositories for Ubuntu 18.04 LTS don't provide a package that can be used for the database. Instead, you can install a custom Personal Package Archive (PPA) for the official MariaDB repository.
 
@@ -122,9 +329,9 @@ mysql  Ver 15.1 Distrib 10.3.10-MariaDB, for debian-linux-gnu (x86_64) using rea
  
 Here, you can see that MariaDB 10.3.10 is installed, which is a later version than the minimum of 10.2.1.
 
-## Step 3. Build Hub
+### Step 3. Build Hub
 
-After setting up all these dependencies, you need to install and build Hub.
+After setting up all these dependencies, you can install and build Hub.
 
 1. Clone the GitHub repository
 
@@ -156,9 +363,9 @@ After setting up all these dependencies, you need to install and build Hub.
 	INFO: Build completed successfully, 1811 total actions
 	```
 
-## Step 4. Create the database
+### Step 4. Create the database
 
-After Hub is installed, you need to create the database tables that store Hub's data.
+After Hub is installed, you can create the database tables that store Hub's data.
 
 :::info:
 In these commands, make sure to replace the `myrootpassword` placeholder with the password you chose when you installed the MariaDB database.
@@ -182,9 +389,9 @@ In these commands, make sure to replace the `myrootpassword` placeholder with th
 	mysql -h127.0.0.1 -uroot -pmyrootpassword hub < schema/triggers.mariadb.sql
 	```
 
-## Step 5. Run Hub
+### Step 5. Run Hub
 
-To run Hub, you need to execute the binary file that was created during the build process.
+To run Hub, you execute the binary file that was created during the build process.
 
 1\. [Plan your Hub configuration](../how-to-guides/configure-hub.md)
 
@@ -253,7 +460,6 @@ For testing purposes, you may want to connect to a remote [Devnet](root://gettin
 	--dbUser root \
 	--dbPassword myrootpassword \
 	--apiAddress nodes.devnet.iota.org:443 \
-	--minWeightMagnitude 9 \
 	--listenAddress 127.0.0.1:50051 \
 	--useHttpsIRI true
 ```
@@ -277,7 +483,7 @@ chmod a+x start.sh
 
 You're running Hub in your shell session. If you close this session, Hub will stop. To keep Hub running in the background, you can use a screen/tmux session, a system-wide service, or a supervised process.
 
-For this guide, you'll use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. 
+In this guide, you use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. 
 
 6\. Install the `supervisor` package (press `CTRL+C` to exit the current shell session):
 

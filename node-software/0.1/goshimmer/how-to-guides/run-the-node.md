@@ -1,6 +1,6 @@
 # Run a GoShimmer node
 
-**When you run the GoShimmer software, your device becomes a node in the prototype network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become the Coordicide testnet, which is a release candidate for the next IOTA protocol.**
+**When you run the GoShimmer software, your device becomes a node in the prototype network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become a release candidate for the next IOTA protocol.**
 
 You have two options for running a node. You either can run the node as a service in a Docker container, or you can build the node from source.
 
