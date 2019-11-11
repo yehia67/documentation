@@ -1,6 +1,6 @@
 # Generate private keys and addresses
 
-**By deriving [addresses](root://getting-started/0.1/basics/addresses.md) from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
+**By deriving [addresses](root://getting-started/0.1/clients/addresses.md) from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 # Send a "hello world" transaction
 
-**To send a message to the [Tangle](root://getting-started/0.1/basics/the-tangle.md), you must send it to a [node](root://getting-started/0.1/basics/nodes.md) in a zero-value [transaction](root://getting-started/0.1/basics/transactions.md). These transactions are useful for storing immutable messages without having to send any [IOTA tokens](root://getting-started/0.1/basics/token.md).**
+**To send a message to the [Tangle](root://getting-started/0.1/network/the-tangle.md), you must send it to a [node](root://getting-started/0.1/network/nodes.md) in a zero-value [transaction](root://getting-started/0.1/transactions/transactions.md). These transactions are useful for storing immutable messages without having to send any [IOTA tokens](root://getting-started/0.1/clients/token.md).**
 
 ## Prerequisites
 
@@ -11,11 +11,11 @@ To complete this guide, you need the following:
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) with the following network settings:
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings:
 
-- **[Minimum weight magnitude](root://getting-started/0.1/basics/minimum-weight-magnitude.md)**: 9
+- **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
 
-- **[Depth](root://getting-started/0.1/basics/depth.md)**: 3
+- **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3
 
 ---
 
@@ -41,7 +41,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/r
     const minimumWeightMagnitude = 9;
     ```
 
-4. Define an [address](root://getting-started/0.1/basics/addresses.md) to which you want to send a message
+4. Define an [address](root://getting-started/0.1/clients/addresses.md) to which you want to send a message
 
     ```js
     const address =
@@ -49,7 +49,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/r
     ```
 
     :::info:
-    This address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://getting-started/0.1/basics/ternary.md).
+    This address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://getting-started/0.1/introduction/ternary.md).
     :::
 
 5. Define a seed
@@ -86,7 +86,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/r
     ];
     ```
 
-7. To create a bundle from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the [`sendTrytes()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://getting-started/0.1/basics/proof-of-work.md), and sending the bundle to the node
+7. To create a bundle from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the [`sendTrytes()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and sending the bundle to the node
 
     ```js
     iota.prepareTransfers(seed, transfers)

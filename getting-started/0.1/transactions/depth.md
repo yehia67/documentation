@@ -1,6 +1,6 @@
 # Depth
 
-**When sending a transaction to a node, you can specify a depth argument, which defines how many milestones in the past a [node](../basics/nodes.md) starts the [tip selection algorithm](../basics/the-tangle.md#tip-selection). The greater the depth, the farther back in the [Tangle](../basics/the-tangle.md) the node starts. A greater depth increases the time that nodes take to complete tip selection, making them use more computational power.**
+**When sending a transaction to a node, you can specify a depth argument, which defines how many milestones in the past the [node](../network/nodes.md) starts the [tip selection algorithm](../network/the-tangle.md#tip-selection). The greater the depth, the farther back in the [Tangle](../network/the-tangle.md) the node starts. A greater depth increases the time that nodes take to complete tip selection, making them use more computational power.**
 
 ## Advice for choosing a depth
 

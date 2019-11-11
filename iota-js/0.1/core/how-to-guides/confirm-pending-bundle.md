@@ -1,6 +1,6 @@
 # Help a bundle to become confirmed
 
-**To be referenced by a [milestone](root://getting-started/0.1/basics/the-coordinator.md), a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a [bundle](root://getting-started/0.1/basics/bundles.md) is stuck in a [pending state](root://getting-started/0.1/basics/the-tangle.md#transaction-states), the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote its tail transaction.**
+**To be referenced by a [milestone](root://getting-started/0.1/network/the-coordinator.md), a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a [bundle](root://getting-started/0.1/transactions/bundles.md) is stuck in a [pending state](root://getting-started/0.1/network/the-tangle.md#transaction-states), the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote its tail transaction.**
 
 ## Prerequisites
 
@@ -12,11 +12,11 @@ To complete this guide, you need the following:
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) with the following network settings:
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings:
 
-- **[Minimum weight magnitude](root://getting-started/0.1/basics/minimum-weight-magnitude.md)**: 9
+- **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
 
-- **[Depth](root://getting-started/0.1/basics/depth.md)**: 3
+- **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3
 
 ### Step 1. Create a timer function
 

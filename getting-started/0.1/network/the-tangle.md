@@ -1,8 +1,8 @@
 # The Tangle
 
-**The Tangle is the immutable data structure that contains an up-to-date history of [transactions](../basics/transactions.md). All [nodes](../basics/nodes.md) in an IOTA network store a copy of the Tangle and reach a consensus on its contents.**
+**The Tangle is the immutable data structure that contains an up-to-date history of [transactions](../transactions/transactions.md). All [nodes](../network/nodes.md) in an IOTA network store a copy of the Tangle and reach a consensus on its contents.**
 
-Each transaction in the Tangle is attached to two previous transactions by the transaction hashes in its [branch and trunk transaction fields](../basics/transactions.md#trunkTransaction).
+Each transaction in the Tangle is attached to two previous transactions by the transaction hashes in its [branch and trunk transaction fields](../transactions/transactions.md#trunkTransaction).
 
 These references form a data structure called a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), where transactions on the left come first in the sequence, and the transactions on the right come after.
 
@@ -27,7 +27,7 @@ These references form a transaction's history, whereby if a transaction is a **c
 
 A transaction can be valid only if it references two other transaction's whose history does not conflict with it.
 
-For example, if transaction 6 instructs a node to withdraw 10 Mi of [IOTA tokens](root://getting-started/0.1/basics/token.md) from an [address](root://getting-started/0.1/basics/addresses.md), the history of that transaction's parents must lead to a point where that address is sent at least 10 Mi.
+For example, if transaction 6 instructs a node to withdraw 10 Mi of [IOTA tokens](root://getting-started/0.1/clients/token.md) from an [address](root://getting-started/0.1/clients/addresses.md), the history of that transaction's parents must lead to a point where that address is sent at least 10 Mi.
 
 ## Transaction states
 
@@ -35,7 +35,7 @@ Because transactions can be attached to any part (subtangle) of the Tangle, it c
 
 As a result, all transactions start in a pending state and stay that way until the nodes reach a consensus on whether a transaction is confirmed.
 
-At the moment, nodes consider a transaction confirmed if it is **directly or indirectly referenced by a transaction that's created and sent by the [Coordinator](../basics/the-coordinator.md)** (milestone).
+At the moment, nodes consider a transaction confirmed if it is **directly or indirectly referenced by a transaction that's created and sent by the [Coordinator](../network/the-coordinator.md)** (milestone).
 
 :::info:
 If transaction 6 were a milestone, then transaction 5, 3, 2, and 1 would all be confirmed.

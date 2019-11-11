@@ -1,6 +1,6 @@
 # Ternary
 
-**IOTA represents data according to the [ternary numeral system](https://en.wikipedia.org/wiki/Ternary_numeral_system), which consists of trits and trytes. Compared to [binary](https://en.wikipedia.org/wiki/Binary_number), ternary computing is more efficient as it can represent data in three states rather then just two.**
+**In IOTA, data is represented according to the [ternary numeral system](https://en.wikipedia.org/wiki/Ternary_numeral_system), which consists of trits and trytes. Compared to [binary](https://en.wikipedia.org/wiki/Binary_number), ternary computing is considered to be more efficient as it can represent data in three states rather then just two.**
 
 In IOTA, data is represented in balanced ternary, which consists of 1, 0, or -1. These values are called trits, and three of them are equal to one tryte, which can have 27 (3<sup>3</sup>) possible values.
 

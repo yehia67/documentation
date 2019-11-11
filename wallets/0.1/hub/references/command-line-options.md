@@ -56,12 +56,12 @@ If you've downloaded Hub, you can also run it with the `--help` flag to see a li
 | **Option** |   **Description**|**Accepted argument** | **Default**|**Notes** |
 | :------------------------ | :--------------- | :--------|:---|:---|
 |<a name="apiAddress"></a>`--apiAddress`| URL or IP address of the IRI node that Hub connects to| string|"127.0.0.1:14265"||
-|`--attachmentInterval`|Interval in milliseconds that Hub waits between [reattaching and promoting transactions](root://getting-started/0.1/basics/reattach-rebroadcast-promote.md)|integer|240000|To disable this feature, set this option to 0|
-|`--depth`|Value to use for the [depth](root://getting-started/0.1/basics/depth.md) argument of the [`getTransactionsToApprove`](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove) endpoint|integer |3||
-|<a name="keySecLevel"></a>`--keySecLevel` |[Security level](root://getting-started/0.1/basics/security-levels.md) to use for generating deposit addresses|2||
-|<a name="minWeightMagnitude"></a>`--minWeightMagnitude`| [Minimum weight magnitude (MWM)](root://getting-started/0.1/basics/proof-of-work.md#minimum-weight-magnitude) to use for proof of work|integer |9|To use Hub on the Mainnet, you must use a MWM of 14|
+|`--attachmentInterval`|Interval in milliseconds that Hub waits between [reattaching and promoting transactions](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md)|integer|240000|To disable this feature, set this option to 0|
+|`--depth`|Value to use for the [depth](root://getting-started/0.1/transactions/depth.md) argument of the [`getTransactionsToApprove`](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove) endpoint|integer |3||
+|<a name="keySecLevel"></a>`--keySecLevel` |[Security level](root://getting-started/0.1/clients/security-levels.md) to use for generating deposit addresses|2||
+|<a name="minWeightMagnitude"></a>`--minWeightMagnitude`| [Minimum weight magnitude (MWM)](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude) to use for proof of work|integer |9|To use Hub on the Mainnet, you must use a MWM of 14|
 |`--numBundlesToMine`| Number of different bundle hashes to generate to find one that reveals the least amount of the private key in the signature for a spent address|integer| 5000000| Bundles are mined only when you use the `RecoverFunds` API call|
-|<a name="powMode"></a>`--powMode`|Where [proof of work](root://getting-started/0.1/basics/proof-of-work.md) is done| "local": Do proof of work on the device that is running Hub, "remote": Use the `attachToTangle` endpoint to ask the node to do proof of work|"remote"|To use the remote mode, the IRI node in the `--apiAddress` option must support remote PoW|
+|<a name="powMode"></a>`--powMode`|Where [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) is done| "local": Do proof of work on the device that is running Hub, "remote": Use the `attachToTangle` endpoint to ask the node to do proof of work|"remote"|To use the remote mode, the IRI node in the `--apiAddress` option must support remote PoW|
 |<a name="useHttpsIRI"></a>`--useHttpsIRI`| Whether to use the SSL protocol to communicate with the node's API|true: Use the SSL protocol, false: Do not use the SSL protocol|false| |
 
 ## Signing

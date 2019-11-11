@@ -2,7 +2,7 @@
 
 **If you want to publish messages to a channel that anyone can read, you can use a public channel. These channels are open for any user to find and decrypt the messages, using the address of the transaction that it's in. This type of channel is useful for public announcements or public social media applications that want the data to be immutable.**
 
-Here, we connect to a node on the Devnet, which is one of the [IOTA networks](root://getting-started/0.1/references/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free.
+Here, we connect to a node on the Devnet, which is one of the [IOTA networks](root://getting-started/0.1/network/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free.
 
 1. Require the packages
 

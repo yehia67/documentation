@@ -1,8 +1,8 @@
 # Hub overview
 
-**Hub is a wallet management system for cryptocurrency exchanges. Through its application programming interfaces (APIs), Hub offers you an easy way to integrate IOTA into an exchange by managing [seeds](root://getting-started/0.1/basics/seeds.md), [addresses](root://getting-started/0.1/basics/addresses.md), [transactions](root://getting-started/0.1/basics/transactions.md), and storage of [IOTA tokens](root://getting-started/0.1/basics/token.md).**
+**Hub is a wallet management system for cryptocurrency exchanges. Through its application programming interfaces (APIs), Hub offers you an easy way to integrate IOTA into an exchange by managing [seeds](root://getting-started/0.1/clients/seeds.md), [addresses](root://getting-started/0.1/clients/addresses.md), [transactions](root://getting-started/0.1/transactions/transactions.md), and storage of [IOTA tokens](root://getting-started/0.1/clients/token.md).**
 
-To interact with an IOTA network, Hub communicates with the API of a [node](root://getting-started/0.1/basics/nodes.md). This connection gives Hub access to the [Tangle](root://getting-started/0.1/basics/token.md).
+To interact with an IOTA network, Hub communicates with the API of a [node](root://getting-started/0.1/network/nodes.md). This connection gives Hub access to the [Tangle](root://getting-started/0.1/clients/token.md).
 
 To allow you to interact with Hub, it has its own gRPC or RESTful API, which includes calls for creating new Hub users in the database, processing trades, and more.
 
@@ -19,7 +19,7 @@ Hub comes with the following security features, making it a robust option for se
 
 ### Transaction monitoring
 
-To avoid delays in transaction confirmation, Hub keeps a database of pending transactions so that it can automatically [promote and reattach](root://getting-started/0.1/basics/reattach-rebroadcast-promote.md) them.
+To avoid delays in transaction confirmation, Hub keeps a database of pending transactions so that it can automatically [promote and reattach](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) them.
 
 ### Seed management
 
@@ -38,7 +38,7 @@ This way, attackers must gain access to both Hub and the signing server to be ab
 
 ### Token protection
 
-To help users not to withdraw from [spent addresses](root://getting-started/0.1/basics/addresses.md#spent-addresses), Hub has the following features:
+To help users not to withdraw from [spent addresses](root://getting-started/0.1/clients/addresses.md#spent-addresses), Hub has the following features:
 
 - **Withdrawal management:** Before withdrawing tokens from a user's address, Hub makes sure that no deposits are pending for that same address, and that all previous deposits have been confirmed. To keep track of which addresses are spent, Hub stores them in the database. When an address is spent, Hub stops users from withdrawing from that same address again.
  

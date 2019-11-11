@@ -24,13 +24,13 @@ Read our guide on [running a node on Linux](../how-to-guides/run-an-iri-node-on-
 
 ### Proof of work
 
-When you're setting up your nodes, you have the option to allow them to do [proof of work](root://getting-started/0.1/basics/proof-of-work.md). When this feature is enabled, client applications can ask your node to do proof of work by calling the `attachToTangle` API endpoint. This option is called remote proof of work.
+When you're setting up your nodes, you have the option to allow them to do [proof of work](root://getting-started/0.1/transactions/proof-of-work.md). When this feature is enabled, client applications can ask your node to do proof of work by calling the `attachToTangle` API endpoint. This option is called remote proof of work.
 
 ![Remote proof of work](../images/remote-pow.png)
 
 Proof of work takes time and uses your node's computational power. So, depending on how often you send transactions to your nodes, you may want to keep this feature disabled by default in the [remote-limit-api](../references/iri-configuration-options.md#remote-limit-api) configuration option.
 
-This way, client applications can use [other options for proof of work](root://getting-started/0.1/basics/proof-of-work.md#minimum-weight-magnitude#options-for-doing-proof-of-work) such as doing it themselves (local PoW) or outsourcing it to a PoW proxy server.
+This way, client applications can use [other options for proof of work](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude#options-for-doing-proof-of-work) such as doing it themselves (local PoW) or outsourcing it to a PoW proxy server.
 
 ![Local proof of work](../images/local-pow.png)
 

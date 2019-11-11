@@ -42,7 +42,7 @@ For more information about the weighted random walk, and for an in-depth explana
 
 The following information describes what nodes do when a client calls the [getTransactionsToApprove](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove) endpoint.
 
-Clients call this endpoint when they want to send a transaction. The endpoint results in two tip transaction hashes, which are used in the [`trunkTransaction` and `branchTransaction` fields](root://getting-started/0.1/basics/transactions.md#trunkTransaction) of the new transaction.
+Clients call this endpoint when they want to send a transaction. The endpoint results in two tip transaction hashes, which are used in the [`trunkTransaction` and `branchTransaction` fields](root://getting-started/0.1/transactions/transactions.md#trunkTransaction) of the new transaction.
 
 When this endpoint is called, a node starts the tip selection algorithm, which is separated into the following stages:
 

@@ -8,7 +8,7 @@ A permanode stores the full history of the Tangle and enables applications to se
 
 ## Why run Chronicle?
 
-IOTA is a permissionless network. Anyone can store any amount of data on the Tangle for free (just a small amount of [proof of work](root://getting-started/0.1/basics/proof-of-work.md) per transaction).
+IOTA is a permissionless network. Anyone can store any amount of data on the Tangle for free (just a small amount of [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) per transaction).
 
 Over time, the ledger of an IRI node accumulates many transactions, which often cause it to become larger than the node's available memory. To stop the ledger from becoming too large, these nodes often do [local snapshots](root://node-software/0.1/iri/concepts/local-snapshot.md) that prune old transactions.
 

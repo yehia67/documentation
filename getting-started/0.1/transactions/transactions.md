@@ -1,15 +1,15 @@
 # Transactions
 
-**A transaction is a single transfer instruction that can either withdraw [IOTA tokens](../basics/token.md) from an [address](../basics/seeds.md), deposit them into an address, or have zero-value (contain data, a message, or a signature). If you want to send anything to an IOTA network, you must send it to a [node](../basics/nodes.md) as a transaction.**
+**A transaction is a single transfer instruction that can either withdraw [IOTA tokens](../clients/token.md) from an [address](../clients/seeds.md), deposit them into an address, or have zero-value (contain data, a message, or a signature). If you want to send anything to an IOTA network, you must send it to a [node](../network/nodes.md) as a transaction.**
 
 ## Structure of a transaction
 
-A transaction consists of 2,673 [tryte-encoded](../basics/ternary.md#tryte-encoding) characters. When decoded, the transaction object contains the following fields.
+A transaction consists of 2,673 [tryte-encoded](../introduction/ternary.md#tryte-encoding) characters. When decoded, the transaction object contains the following fields.
 
 | **Field**                         | **Type**   | **Description**                                                                                                                                                                                                                   | **Length (trytes)** |
 | :----------------------------- | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ |
 |`hash`|string|Transaction hash|81|
-| <a name="signatureMessageFragment"></a>`signatureMessageFragment`      | string | A [signature](../basics/signatures.md) or a message, both of which may be _fragmented_ over many transactions in a [bundle](../basics/bundles.md). This field contains all 9's where no message is defined. | 2,187   |
+| <a name="signatureMessageFragment"></a>`signatureMessageFragment`      | string | A [signature](../clients/signatures.md) or a message, both of which may be _fragmented_ over many transactions in a [bundle](../transactions/bundles.md). This field contains all 9's where no message is defined. | 2,187   |
 |<a name="address"></a> `address`                       | string | Contains either the sender's or recipient's address. This field contains a recipient's address if the transaction is an [output transaction](#output-transactions).   | 81     |
 | `value`                    | integer    | Amount of IOTA tokens to either deposit (positive value) into an address or withdraw (negative value) from it                                                                                                                                                                                        | 27     |
 | `obsoleteTag`                   | string | User-defined tag (soon to be removed)                                                                                                                                                                                               | 27     |
@@ -17,10 +17,10 @@ A transaction consists of 2,673 [tryte-encoded](../basics/ternary.md#tryte-encod
 | `currentIndex`                  | integer  | Index of the current transaction in the bundle                                                                                                                                                                                                   | 9      |
 | `lastIndex`                     | integer    | Index of the last transaction in the bundle                                                                                                                                                                                           | 9      |
 | `bundle`                        | string | Bundle hash                               | 81     |
-| <a name="trunkTransaction"></a> `trunkTransaction`              | string |  Transaction hash of either an existing transaction in the [Tangle](../basics/the-tangle.md) or of the transaction with the next index in the bundle.                                                                                                                                 | 81     |
+| <a name="trunkTransaction"></a> `trunkTransaction`              | string |  Transaction hash of either an existing transaction in the [Tangle](../network/the-tangle.md) or of the transaction with the next index in the bundle.                                                                                                                                 | 81     |
 |<a name="branchTransaction"></a> `branchTransaction`             | string | Transaction hash of an existing transaction in the Tangle                                                                                                                                                                | 81     |
 | <a name="tag"></a> `attachmentTag`                | string | User-defined tag                                                                                                                                                                                                              | 27     |
-| `attachmentTimestamp`          | integer   | Unix epoch (milliseconds since Jan 1, 1970 after [proof of work](../basics/proof-of-work.md) was done)                                                                                                                                                                                                           | 9      |
+| `attachmentTimestamp`          | integer   | Unix epoch (milliseconds since Jan 1, 1970 after [proof of work](../transactions/proof-of-work.md) was done)                                                                                                                                                                                                           | 9      |
 | `attachmentTimestampLowerBound` | integer   | Lower limit of the `attachmentTimestamp` field (not currently used)                                                                                                                                                                                                      | 9      |
 | `attachmentTimestampUpperBound` | integer   | Upper limit of the `attachmentTimestamp` field (not currently used)                                                                                                                                                                                                         | 9      |
 | `nonce`                         | string | Trytes that represent the proof of work                                      | 27     |
@@ -28,11 +28,9 @@ A transaction consists of 2,673 [tryte-encoded](../basics/ternary.md#tryte-encod
 
 ## Transaction hash
 
-The transaction hash locks the contents of the transaction.
+The transaction hash is derived from the values of every transaction field and contains the [proof of work](../transactions/proof-of-work.md).
 
-This hash is derived from the values of every transaction field and it contains the [proof of work](../basics/proof-of-work.md).
-
-As a result, if any of the values were to change, the transaction hash would be invalid, which would also invalidate any other transactions in the Tangle that reference it in their `branchTransaction` or `trunkTransaction` fields.
+As a result, if any of the values in those fields were to change, the transaction hash would be invalid, which would also invalidate the transaction's parents and their entire history in [the Tangle](../network/the-tangle.md).
 
 ## Transaction types
 

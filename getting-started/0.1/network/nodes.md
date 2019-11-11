@@ -1,6 +1,6 @@
 # Nodes
 
-**Nodes are the core of an IOTA network. They run the [node software](root://node-software/0.1/introduction/overview.md) that gives them read and write access to the [Tangle](../basics/the-tangle.md). Like any [distributed system](https://en.wikipedia.org/wiki/Distributed_computing), the nodes in an IOTA network are connected to others called neighbors so they can gossip information among each other. When one node, no matter where it is in the world, receives a [transaction](../basics/transactions.md), it will try to forward it to all its neighbors. This way, all nodes eventually validate all transactions and store them in their local copy of the [Tangle](../basics/the-tangle.md) called a ledger.**
+**Nodes are the core of an IOTA network. They run the [node software](root://node-software/0.1/introduction/overview.md) that gives them read and write access to the [Tangle](../network/the-tangle.md). Like any [distributed system](https://en.wikipedia.org/wiki/Distributed_computing), the nodes in an IOTA network are connected to others called neighbors so they can gossip information among each other. When one node, no matter where it is in the world, receives a [transaction](../transactions/transactions.md), it will try to forward it to all its neighbors. This way, all nodes eventually validate all transactions and store them in their local copy of the [Tangle](../network/the-tangle.md) called a ledger.**
 
 ## How nodes work
 
@@ -22,7 +22,7 @@ When a node receives a new transaction, it checks that it has the history of its
 
 ## Solidification
 
-Solidification is the process in which a node asks its neighbors for the history of all [milestones](../basics/the-coordinator.md#milestones) in the Tangle, starting from an **entry point milestone** and ending at the latest one.
+Solidification is the process in which a node asks its neighbors for the history of all [milestones](../network/the-coordinator.md#milestones) in the Tangle, starting from an **entry point milestone** and ending at the latest one.
 
 When a node has a milestone's history up to the entry point milestone, it marks that milestone as **solid**, and starts the process again from the next milestone.
 
@@ -48,14 +48,14 @@ To validate a transaction, a node needs to have that transaction's history in it
 
 ## Validation
 
-Nodes are responsible for validating transactions in the [Tangle](../basics/the-tangle.md) to make sure that their histories do not conflict and that counterfeit transactions are never confirmed. To validate a transaction, nodes check the following:
+Nodes are responsible for validating transactions in the [Tangle](../network/the-tangle.md) to make sure that their histories do not conflict and that counterfeit transactions are never confirmed. To validate a transaction, nodes check the following:
 
-- [Proof of work](../basics/proof-of-work.md) is done according to the [minimum weight magnitude](../basics/minimum-weight-magnitude.md)
-- The value of any transaction doesn’t exceed the [total global supply](../basics/token.md)
+- [Proof of work](../transactions/proof-of-work.md) is done according to the [minimum weight magnitude](../network/minimum-weight-magnitude.md)
+- The value of any transaction doesn’t exceed the [total global supply](../clients/token.md)
 - The total value of all transactions in a [bundle] is 0 (all IOTA tokens that are withdrawn are also deposited into other addresses)
-- Any [signatures](../basics/signatures.md) in value transactions are valid
+- Any [signatures](../clients/signatures.md) in value transactions are valid
 
-Nodes don't know which client owns an address because they don't have the clients' seeds, so they use cryptography to [validate the signature in a transaction](../basics/signatures.md#how-nodes-validate-signatures).
+Nodes don't know which client owns an address because they don't have the clients' seeds, so they use cryptography to [validate the signature in a transaction](../clients/signatures.md#how-nodes-validate-signatures).
 
 ## Consensus
 
@@ -63,7 +63,7 @@ Consensus describes how nodes agree on which transactions are trustworthy and sh
 
 For a transaction to be considered confirmed, nodes must reach a consensus on when to consider it final before they can update the balances of addresses.
 
-A transaction is considered confirmed when it's solid and it's directly or indirectly referenced by a transaction that's signed by the [Coordinator](../basics/the-coordinator.md).
+A transaction is considered confirmed when it's solid and it's directly or indirectly referenced by a transaction that's signed by the [Coordinator](../network/the-coordinator.md).
 
 ## Node quorums
 

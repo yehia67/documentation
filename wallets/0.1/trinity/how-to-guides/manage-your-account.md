@@ -29,7 +29,7 @@ Each seed can be used to generate an almost unlimited number of addresses.
 To view the addresses that you've generated, go to Account management, and click **View addresses**.
 
 :::info:
-A red line through the center of an address means that the address has been spent. Trinity stops you from withdrawing IOTA tokens from [spent addresses](root://getting-started/0.1/basics/addresses.md#spent-addresses), so you must never deposit IOTA tokens into them.
+A red line through the center of an address means that the address has been spent. Trinity stops you from withdrawing IOTA tokens from [spent addresses](root://getting-started/0.1/clients/addresses.md#spent-addresses), so you must never deposit IOTA tokens into them.
 ::: 
 
 ## Change your account's name

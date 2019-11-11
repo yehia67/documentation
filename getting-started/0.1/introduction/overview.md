@@ -1,22 +1,24 @@
 # IOTA overview
 
-**IOTA is an open-source [distributed ledger technology](../basics/dlt.md) that allows devices to transfer data and [IOTA tokens](../basics/token.md) for zero fees. With IOTA technology, any [connected device](https://en.wikipedia.org/wiki/Connected_Devices) can be given an identity on an IOTA network, allowing it to transact with other devices from smart phones to vehicles.**
+**IOTA is an open-source distributed ledger technology that allows [connected devices](https://en.wikipedia.org/wiki/Connected_Devices) to transfer data and [IOTA tokens](../clients/token.md) among each other for zero fees.**
 
 <iframe src="https://www.youtube.com/embed/Gr-LstcDcAw" width="400" height="200"></iframe>
 
 ## How does IOTA work?
 
-An IOTA network consists of nodes and clients, and anyone is free to act as either in the [public IOTA networks](../references/iota-networks.md).
+An IOTA network consists of nodes and clients, and anyone is free to act as either in the [public IOTA networks](../network/iota-networks.md).
 
 ### Nodes
 
-[Nodes] are the backbone of an IOTA network. They are the only devices that have read and write access to the immutable record of transactions called the [Tangle](../basics/the-tangle.md).
+[Nodes] are the backbone of an IOTA network. They are the only devices that have read and write access to the immutable record of transactions called the [Tangle](../network/the-tangle.md).
 
 ### Clients
 
-All clients in an IOTA network have a secret password called a [seed](../basics/seeds.md), which acts as their identity. Seeds give clients access to [addresses](../basics/addresses.md), which are like accounts that have a balance of IOTA tokens that is stored by nodes.
+Clients are the devices that connect to nodes to be able to transact with each other or simply attach data to the Tangle.
 
-To transfer IOTA tokens or even to send only data, clients package the transfer instructions into objects called [transactions](../basics/transactions.md) and send them to a node to attach to the Tangle.
+All clients in an IOTA network have a secret password called a [seed](../clients/seeds.md), which acts as their identity. Seeds give clients access to [addresses](../clients/addresses.md), which are like accounts with a balance of IOTA tokens.
+
+To transfer IOTA tokens or even to send only data, clients package the transfer instructions into objects called [transactions](../transactions/transactions.md), group them into [bundles](../transactions/bundles.md), and send them to a node to attach to the Tangle.
 
 ## Why should I use IOTA?
 
@@ -43,7 +45,7 @@ Each transaction references the transaction hashes of two previous ones. So, if 
 
 ### Security
 
-IOTA uses quantum-resistant one-time [signatures](../basics/signatures.md) to stop attackers from stealing IOTA tokens.
+IOTA uses quantum-resistant one-time [signatures](../clients/signatures.md) to stop attackers from stealing IOTA tokens.
 
 IOTA networks are peer-to-peer networks. No central authority controls the Tangle in a public network, instead all nodes hold a copy of it and reach a consensus on its contents.
 
@@ -80,7 +82,7 @@ eCl@ss|eCl@ss is cooperating with IOTA to share and store ISO/IEC-compliant prod
 
 **Non-developers:** Use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md) to create and store your seed, send and receive transactions, and more.
 
-**Developers:** [Get started with one of the client libraries](../how-to-guides/get-started.md)
+**Developers:** [Get started with one of the client libraries](../how-to-guides/get-started.md) or [join an IOTA network by running your own node](../how-to-guides/run-your-own-iri-node.md)
 
 **Exchanges:** Use the [official Hub wallet](root://wallets/0.1/hub/introduction/overview.md) to integrate IOTA into your exchange.
 

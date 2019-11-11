@@ -1,6 +1,6 @@
 # Masked Authenticated Messaging
 
-**Masked Authenticated Messaging (MAM) is a data communication protocol that allows you to publish encrypted data streams, called channels, in [transactions](../basics/transactions.md) on the [Tangle](../basics/the-tangle.md).**
+**Masked Authenticated Messaging (MAM) is a data communication protocol that allows you to publish encrypted data streams, called channels, in transactions on the [Tangle](../network/the-tangle.md).**
 
 ## How MAM works
 

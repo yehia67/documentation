@@ -1,6 +1,6 @@
 # Transfer test IOTA tokens
 
-**To transfer IOTA tokens from one [address](root://getting-started/0.1/basics/addresses.md) to another, you need to send a [transfer bundle](root://getting-started/0.1/basics/bundles.md) to a [node](root://getting-started/0.1/basics/nodes.md).**
+**To transfer IOTA tokens from one [address](root://getting-started/0.1/clients/addresses.md) to another, you need to send a [transfer bundle](root://getting-started/0.1/transactions/bundles.md) to a [node](root://getting-started/0.1/network/nodes.md).**
 
 ## Prerequisites
 
@@ -12,11 +12,11 @@ To complete this guide, you need the following:
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) with following network settings:
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with following network settings:
 
-- **[Minimum weight magnitude](root://getting-started/0.1/basics/minimum-weight-magnitude.md)**: 9
+- **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
 
-- **[Depth](root://getting-started/0.1/basics/depth.md)**: 3
+- **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3
 
 ---
 
@@ -74,7 +74,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/r
     ]
     ```
 
-7. To create a [bundle](root://getting-started/0.1/basics/bundles.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the [`sendTrytes()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://getting-started/0.1/basics/proof-of-work.md), and sending the bundle to the [node](root://getting-started/0.1/basics/nodes.md)
+7. To create a [bundle](root://getting-started/0.1/transactions/bundles.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the [`sendTrytes()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and sending the bundle to the [node](root://getting-started/0.1/network/nodes.md)
 
     ```js
     // Construct bundle and convert to trytes

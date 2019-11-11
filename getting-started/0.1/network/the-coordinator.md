@@ -1,17 +1,17 @@
 # The Coordinator
 
-**The Coordinator is an application that's run by the IOTA Foundation and whose purpose is protect the [Tangle](../basics/the-tangle.md) from attacks such as [parasite chains](https://blog.iota.org/attack-analysis-the-simple-parasite-chain-42a34bfeaf23). [Nodes](../basics/nodes.md) use the Coordinator to reach a consensus on which transactions are confirmed.**
+**The Coordinator is an application that's run by the IOTA Foundation and whose purpose is protect the [Tangle](../network/the-tangle.md) from attacks such as [parasite chains](https://blog.iota.org/attack-analysis-the-simple-parasite-chain-42a34bfeaf23). [Nodes](../network/nodes.md) use the Coordinator to reach a consensus on which transactions are confirmed.**
 
 ## Milestones
 
-All nodes in the same [IOTA network](../references/iota-networks.md) are hard-coded with the [address](../basics/addresses.md) of a Coordinator.
+All nodes in the same [IOTA network](../network/iota-networks.md) are hard-coded with the [address](../clients/addresses.md) of a Coordinator.
 
-To prove to nodes that it owns the address, the Coordinator creates, signs, and sends [bundles](../basics/bundles.md) of transactions called milestones at regular intervals.
+To prove to nodes that it owns the address, the Coordinator creates, signs, and sends [bundles](../transactions/bundles.md) of transactions called milestones at regular intervals.
 
 These bundles contain the following:
 
 - Enough zero-value transactions that contain the fragmented signature
-- One transaction whose [`signatureMessageFragment` field](../basics/transactions.md#signatureMessageFragment) contains enough missing data from the Merkle tree to be able to rebuild it
+- One transaction whose [`signatureMessageFragment` field](../transactions/transactions.md#signatureMessageFragment) contains enough missing data from the Merkle tree to be able to rebuild it
 
 When a transaction in a valid milestone references an existing transaction in the Tangle, nodes mark the state of that existing transaction and its entire history as confirmed.
 
@@ -56,7 +56,7 @@ To verify the signature, nodes use the information in the milestones to rebuild 
 
 For example, as a node, we have seen a bundle that was signed with the private key of leaf 1.
 
-First, we [validate the signature](../basics/signatures.md#how-nodes-validate-signatures) to find out the address in leaf 1.
+First, we [validate the signature](../clients/signatures.md#how-nodes-validate-signatures) to find out the address in leaf 1.
 
 To help us calculate the Merkle root, one of the milestones in the bundle contains the following:
 

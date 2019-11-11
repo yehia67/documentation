@@ -10,7 +10,7 @@ To complete this guide, you need the following:
 - An address to include in the transaction
 
 :::info:
-Addresses must include the 9-tryte [checksum](root://getting-started/0.1/basics/checksums.md). If you generated a new address in Trinity, that address will already include the checksum.
+Addresses must include the 9-tryte [checksum](root://getting-started/0.1/clients/checksums.md). If you generated a new address in Trinity, that address will already include the checksum.
 :::
 
 ---
@@ -26,7 +26,7 @@ Addresses must include the 9-tryte [checksum](root://getting-started/0.1/basics/
 3. Enter either a message, or an amount of IOTA tokens, or both
 
     :::info:
-    The amount to send can be entered in [units of IOTA tokens](root://getting-started/0.1/basics/token.md#units-of-iota-tokens) or in the [currency of your choice](../how-to-guides/change-the-general-settings.md). Pay close attention to the amount that you're sending.
+    The amount to send can be entered in [units of IOTA tokens](root://getting-started/0.1/clients/token.md#units-of-iota-tokens) or in the [currency of your choice](../how-to-guides/change-the-general-settings.md). Pay close attention to the amount that you're sending.
     :::
 
     :::info:

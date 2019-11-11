@@ -1,6 +1,6 @@
-# Public IOTA networks
+# IOTA networks
 
-**IOTA has two public networks of [nodes](../basics/nodes.md). Each network has its own [Tangle](../basics/the-tangle.md) to which nodes can attach [transactions](../basics/transactions.md). You can choose to connect and send [bundles](../basics/bundles.md) to nodes on any public network.**
+**IOTA has two public networks of [nodes](../network/nodes.md). Each network has its own [Tangle](../network/the-tangle.md) to which nodes can attach [transactions](../transactions/transactions.md). You can choose to connect and send [bundles](../transactions/bundles.md) to nodes on any public network.**
 
 A public IOTA network is one that anyone can join and use. All transactions in a public IOTA network are transparent. Anyone can see the transactions and balances of all addresses.
 
@@ -10,15 +10,13 @@ IOTA has the following public networks:
 
 - **Devnet:** Devnet token (free)
 
-All permissionless networks consist of nodes and the Coordinator.
-
 :::info:
-If you want to create and test an application on a private network, you can do so by running an instance of the open-source Coordinator code called [Compass](root://compass/0.1/introduction/overview.md). This way, your transactions and balances are kept private, and the tokens have no real-world value.
+If you want to create and test an application on a private network, you can do so by running a [private Tangle](root://compass/0.1/introduction/overview.md). This way, your transactions and balances are kept private, and the tokens have no real-world value.
 :::
 
 ## Mainnet
 
-When you buy [IOTA tokens](../basics/token.md) from a cryptocurrency exchange, those tokens are valid on the Mainnet.
+When you buy [IOTA tokens](../clients/token.md) from a cryptocurrency exchange, those tokens are valid on the Mainnet.
 
 :::info:
 Cryptocurrency exchanges sell IOTA tokens in units of Mega IOTA (1,000,000), which is also written as MIOTA or Mi.
@@ -28,11 +26,11 @@ Cryptocurrency exchanges sell IOTA tokens in units of Mega IOTA (1,000,000), whi
 
 ### Minimum weight magnitude
 
-Transactions on the Mainnet must use a [minimum weight magnitude](root://getting-started/0.1/basics/proof-of-work.md#minimum-weight-magnitude) (MWM) of 14 to be valid.
+Transactions on the Mainnet must use a [minimum weight magnitude](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude) (MWM) of 14 to be valid.
 
 ### Coordinator address
 
-Nodes on the Mainnet are all hard-coded with the following address for the [Coordinator](../basics/the-coordinator.md):
+Nodes on the Mainnet are all hard-coded with the following address for the [Coordinator](../network/the-coordinator.md):
 
 ```
 EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9
@@ -48,13 +46,13 @@ On this network, you can test your applications and build proofs of concept that
 
 ### Minimum weight magnitude
 
-Transactions on the Devnet must use a [minimum weight magnitude](root://getting-started/0.1/basics/proof-of-work.md#minimum-weight-magnitude) (MWM) of 9 to be valid.
+Transactions on the Devnet must use a [minimum weight magnitude](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude) (MWM) of 9 to be valid.
 
 Compared to the Mainnet, this MWM reduces the time it takes for proof of work (PoW) to be completed. So, it takes less time and computational power to create and send a transaction.
 
 ### Coordinator address
 
-Nodes on the Devnet are all hard-coded with the following address for the [Coordinator](../basics/the-coordinator.md):
+Nodes on the Devnet are all hard-coded with the following address for the [Coordinator](../network/the-coordinator.md):
 
 ```
 EQQFCZBIHRHWPXKMTOLMYUYPCN9XLMJPYZVFJSAY9FQHCCLWTOLLUGKKMXYFDBOOYFBLBI9WUEILGECYM

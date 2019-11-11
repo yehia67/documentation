@@ -33,7 +33,7 @@
 [Hub/How-to Guides/Query the database](/hub/how-to-guides/query-the-database.md)
 [Hub/How-to Guides/Create a demo exchange](/hub/how-to-guides/create-a-demo-exchange.md)
 [Hub/How-to Guides/Integrate Hub into an exchange](/hub/how-to-guides/integrate-hub.md)
-[Hub/How-to Guides/Recover tokens from a swept address](/hub/how-to-guides/recover-tokens.md)
+[Hub/How-to Guides/Recover tokens from a spent address](/hub/how-to-guides/recover-tokens.md)
 [Hub/References/gRPC API reference](/hub/references/grpc-api-reference.md)
 [Hub/References/RESTful API reference](/hub/references/restful-api-reference.md)
 [Hub/References/Command line flags](/hub/references/command-line-options.md)

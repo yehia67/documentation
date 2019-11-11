@@ -1,6 +1,6 @@
 # Get started with the RESTful API
 
-**When you expose Hub's RESTful API server, you can interact with it through HTTP endpoints. These endpoints allow you to manage users' IOTA tokens by interfacing with the Hub database and a [node](root://getting-started/0.1/basics/nodes.md). In this guide, you learn the basics of the RESTful API to create a new user with some new deposit addresses.**
+**When you expose Hub's RESTful API server, you can interact with it through HTTP endpoints. These endpoints allow you to manage users' IOTA tokens by interfacing with the Hub database and a [node](root://getting-started/0.1/network/nodes.md). In this guide, you learn the basics of the RESTful API to create a new user with some new deposit addresses.**
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ You should see an empty object in the console, which means that the user was cre
 You can see this user in the Hub database by [querying the `user_account` table](../how-to-guides/query-the-database.md).
 :::
 
-2\. Create a new deposit address with a [checksum](root://getting-started/0.1/basics/checksums.md) 
+2\. Create a new deposit address with a [checksum](root://getting-started/0.1/clients/checksums.md) 
 
 --------------------
 ### Python
