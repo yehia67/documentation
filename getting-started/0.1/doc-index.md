@@ -2,7 +2,11 @@
 
 [Introduction/IOTA overview](/introduction/overview.md)
 
-[Introduction/Ternary](/introduction/ternary.md)]
+[Introduction/Ternary](/introduction/ternary.md)
+
+[Quickstart/Get started](/how-to-guides/get-started.md)
+
+[Quickstart/Run your own IRI node in Docker](/how-to-guides/run-your-own-iri-node.md)
 
 [Network/IOTA networks](/network/iota-networks.md)
 
@@ -39,10 +43,6 @@
 [Transactions/Reattach, rebroadcast, and promote](/transactions/reattach-rebroadcast-promote.md)
 
 [Transactions/Masked Authenticated Messaging](/transactions/masked-authenticated-messaging.md)
-
-[Quickstart/Get started](/how-to-guides/get-started.md)
-
-[Quickstart/Run your own IRI node in Docker](/how-to-guides/run-your-own-iri-node.md)
 
 [References/Developer handbook](/references/quickstart-dev-handbook.md)
 
