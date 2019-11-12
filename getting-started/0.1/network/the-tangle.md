@@ -2,7 +2,7 @@
 
 **The Tangle is the immutable data structure that contains an up-to-date history of [transactions](../transactions/transactions.md). All [nodes](../network/nodes.md) in an IOTA network store a copy of the Tangle and reach a consensus on its contents.**
 
-Each transaction in the Tangle is attached to two previous transactions by the transaction hashes in its [branch and trunk transaction fields](../transactions/transactions.md#trunkTransaction).
+To make the Tangle immutable, each transaction in it is attached to two previous transactions by the [transaction hashes](../transactions/transactions.md#transaction-hash) in its [branch and trunk transaction fields](../transactions/transactions.md#trunkTransaction).
 
 These references form a data structure called a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), where transactions on the left come first in the sequence, and the transactions on the right come after.
 
@@ -10,8 +10,6 @@ These references form a data structure called a [directed acyclic graph](https:/
 
     The arrows (also called edges) represent the references among transactions.
     The numbered boxes (also called a vertices) represent transactions
-
-Thanks to these references, all transactions in the Tangle are immutable because if any transaction were to change, all the transaction hashes would become invalid and break the structure.
 
 ## Reference types
 

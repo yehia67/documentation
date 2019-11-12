@@ -10,8 +10,8 @@ To prove to nodes that it owns the address, the Coordinator creates, signs, and 
 
 These bundles contain the following:
 
-- Enough zero-value transactions that contain the fragmented signature
-- One transaction whose [`signatureMessageFragment` field](../transactions/transactions.md#signatureMessageFragment) contains enough missing data from the Merkle tree to be able to rebuild it
+- Enough zero-value transactions to contain the fragmented signature
+- One transaction whose [`signatureMessageFragment` field](../transactions/transactions.md#signatureMessageFragment) contains enough missing data from the Merkle tree to allow the node to rebuild it
 
 When a transaction in a valid milestone references an existing transaction in the Tangle, nodes mark the state of that existing transaction and its entire history as confirmed.
 
@@ -19,7 +19,7 @@ When a transaction in a valid milestone references an existing transaction in th
 
 ## The Coordinator's Merkle tree
 
-Because signatures prove ownership of an address and IOTA uses one-time signatures, the Coordinator needs a way to prove to nodes that it owns an address without signing bundles with the same private key every time.
+Because [signatures](../clients/signatures.md) prove ownership of an address and IOTA uses one-time signatures, the Coordinator needs a way to prove to nodes that it owns an address without signing bundles with the same private key every time.
 
 To do so, the Coordinator's address is derived from a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree), where the address is the root, and the private keys are the leaves.
 
@@ -27,7 +27,13 @@ To do so, the Coordinator's address is derived from a [Merkle tree](https://en.w
 
 To generate the Merkle tree, first a number of addresses and private keys are generated from the Coordinator's seed.
 
-The total number of addresses that are generated depends on the depth of the Merkle tree: 2<sup>depth</sup>. In this example, the Merkle tree's depth is 2 because we have 4 leaves, which each represent an address.
+The total number of addresses that are generated depends on the depth of the Merkle tree in this formula:
+
+2<sup>depth</sup>
+
+### Example Merkle tree
+
+In this example, the Merkle tree's depth is 2 because we have 4 leaves, which each represent an address.
 
 ![Example Merkle tree](../images/merkle-tree-example.png) 
 
@@ -43,7 +49,7 @@ To generate the Coordinator's address, the leaves are hashed in pairs:
 
 Node 1 is a hash of the result of hashing leaf 1 and leaf 2. Node 2 is a hash of the result of hashing leaf 3 and leaf 4. The Coordinator's address is a hash of the result of hashing the hash of node 1 and node 2.
 
-### How nodes verify milestones
+## How nodes validate milestones
 
 When nodes see a transaction that's been sent from the Coordinator's address, they validate it by doing the following:
 
@@ -53,6 +59,8 @@ When nodes see a transaction that's been sent from the Coordinator's address, th
 ![Example Merkle tree](../images/merkle-tree-example.png)
 
 To verify the signature, nodes use the information in the milestones to rebuild the Merkle tree and find the Merkle root. If the rebuilt Merkle root is the same as the Coordinator's address, nodes know the milestone was sent by the Coordinator.
+
+### Example milestone validation
 
 For example, as a node, we have seen a bundle that was signed with the private key of leaf 1.
 

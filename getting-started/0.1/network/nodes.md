@@ -1,6 +1,6 @@
 # Nodes
 
-**Nodes are the core of an IOTA network. They run the [node software](root://node-software/0.1/introduction/overview.md) that gives them read and write access to the [Tangle](../network/the-tangle.md). Like any [distributed system](https://en.wikipedia.org/wiki/Distributed_computing), the nodes in an IOTA network are connected to others called neighbors so they can gossip information among each other. When one node, no matter where it is in the world, receives a [transaction](../transactions/transactions.md), it will try to forward it to all its neighbors. This way, all nodes eventually validate all transactions and store them in their local copy of the [Tangle](../network/the-tangle.md) called a ledger.**
+**Nodes are the core of an IOTA network. They run the [node software](root://node-software/0.1/introduction/overview.md) that gives them read and write access to the [Tangle](../network/the-tangle.md). Like any [distributed system](https://en.wikipedia.org/wiki/Distributed_computing), nodes are connected to others called neighbors to form an IOTA network. When one node, no matter where it is in the world, receives a [transaction](../transactions/transactions.md), it will try to forward it to all its neighbors. This way, all nodes eventually validate all transactions and store them in their local copy of the [Tangle](../network/the-tangle.md) called a ledger.**
 
 ## How nodes work
 

@@ -42,10 +42,6 @@ Bundles can be one of the following types:
 
 - Zero-value bundles
 
-:::warning:
-Because of the time it takes to do proof of work for each transaction in a bundle, it's best practice not to include more than 30 transactions in one bundle.
-:::
-
 ### Transfer bundles
 
 Transfer bundles contain at least one input transaction and one output transaction, and can also contain zero-value transactions.
