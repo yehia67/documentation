@@ -28,9 +28,9 @@ A transaction consists of 2,673 [tryte-encoded](../introduction/ternary.md#tryte
 
 ## Transaction hash
 
-The transaction hash is derived from the values of every transaction field and contains the [proof of work](../transactions/proof-of-work.md).
+The transaction hash is derived from the values of every transaction field and contains part of the [proof of work](../transactions/proof-of-work.md).
 
-As a result, if any of the values in those fields were to change, the transaction hash would be invalid, which would also invalidate the transaction's parents and their entire history in [the Tangle](../network/the-tangle.md).
+Along with the bundle hash, the transaction hash is part of what makes the Tangle immutable. If any of the values in the transaction fields were to change, the transaction hash would be invalid, which would also invalidate the transaction's children and whichever transactions directly or indirectly reference them in [the Tangle](../network/the-tangle.md).
 
 ## Transaction types
 

@@ -38,8 +38,6 @@
 
 [Transactions/Depth](/transactions/depth.md)
 
-[Transactions/Proof of work](/transactions/proof-of-work.md)
-
 [Transactions/Reattach, rebroadcast, and promote](/transactions/reattach-rebroadcast-promote.md)
 
 [Transactions/Masked Authenticated Messaging](/transactions/masked-authenticated-messaging.md)

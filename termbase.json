@@ -70,7 +70,7 @@
         "confirmed": "State of a transaction when it's been approved by a milestone. Value transactions must be confirmed before IOTA tokens are transferred.",
         "cumulative weight": "Rating that an IRI node gives to a transaction during tip selection",
         "depth": "Entry point milestone that's used to start a weighted random walk through a subgraph. The higher the value, the farther back in the subgraph the weighted random walk starts. A typical depth that wallets use is 3, which causes the weighted random walk to start 3 milestones in the past.",
-        "future set": "Group of transactions that approves the same transaction",
+        "future set": "Group of transactions that approve the same transaction",
         "inconsistent": "State of a transaction when it leads to a negative balance of IOTA tokens",
         "inclusion": "State of a transaction that's been referenced by given tip transactions or a milestone transaction",
         "invalid": "State of a transaction when it's either non-solid, inconsistent, or it references a transaction that's too old",
