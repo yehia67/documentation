@@ -82,7 +82,7 @@ This endpoint gives you access to the zero message queue of a node on the Devnet
 
 Use the ZMQ node to listen for live transaction on the Tangle.
 
-**URL:** tcp://zmq.testnet.iota.org:5556
+**URL:** tcp://zmq.devnet.iota.org:5556
 
 #### PoW node
 
