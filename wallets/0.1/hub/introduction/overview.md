@@ -28,13 +28,11 @@ Each deposit address is derived from a new seed, using the [Argon2](https://www.
 - **Seed UUID:** A randomly generated, universally unique identifier
 - **Salt:** A 20-character [salt](https://en.wikipedia.org/wiki/Salt_(cryptography))
 
-The seed UUID is randomly generated when a user requests a new deposit address through the `GetDepositAddress` API call.
+The same salt is always used, whereas a new seed UUID is randomly generated for every new deposit address.
 
-To mitigate the risk of an attacker gaining access to the Hub database and regenerating the seed, you can store the salt on a separate signing server, which is also responsible for signing bundles and returning the signature to Hub.
+To mitigate the risk of an attacker gaining access to the Hub database and regenerating the seed, you can store the salt on a separate signing server, which is also responsible for signing bundles and returning the signature to Hub. This way, attackers must gain access to both Hub and the signing server to be able to find the seed UUID and the salt, which are needed to regenerate the seed.
 
 For additional security, the communication between Hub and the signing server can also be encrypted using the SSL protocol. 
-
-This way, attackers must gain access to both Hub and the signing server to be able to find the seed UUID and the salt, which are needed to regenerate the seed.
 
 ### Token protection
 
