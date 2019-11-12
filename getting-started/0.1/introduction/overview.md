@@ -2,7 +2,7 @@
 
 **IOTA is an open-source distributed ledger technology that allows [connected devices](https://en.wikipedia.org/wiki/Connected_Devices) to transfer data and [IOTA tokens](../clients/token.md) among each other for zero fees.**
 
-<iframe src="https://www.youtube.com/embed/Gr-LstcDcAw"></iframe>
+<iframe src="https://www.youtube.com/embed/Gr-LstcDcAw" frameborder="0" width="560" height="315" style="max-width: 100%;"></iframe>
 
 ## How does IOTA work?
 
