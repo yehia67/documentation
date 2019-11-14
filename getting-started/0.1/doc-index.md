@@ -8,6 +8,8 @@
 
 [Quickstart/Run your own IRI node in Docker](/how-to-guides/run-your-own-iri-node.md)
 
+[Quickstart/Get test IOTA tokens](/how-to-guides/get-test-tokens.md)
+
 [Network/IOTA networks](/network/iota-networks.md)
 
 [Network/Nodes](/network/nodes.md)
