@@ -45,7 +45,7 @@ Learn how to [do local PoW in Node.js](https://github.com/iotaledger/ccurl.inter
 For a client application that will communicate with your nodes through API endpoints, it's best to use one of the IOTA client libraries on an instance of a serverless architecture such as [AWS Lambda](https://aws.amazon.com/lambda/). This way, your application is not restricted by hardware and has a high availability.
 
 :::info:
-[Get started with the IOTA client libraries](root://getting-started/0.1/how-to-guides/get-started.md).
+[Get started with the IOTA client libraries](root://getting-started/0.1/tutorials/get-started.md).
 :::
 
 ## Load balancer

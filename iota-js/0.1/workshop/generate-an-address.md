@@ -72,4 +72,4 @@ Click the green button to run the sample code in this guide and see the results 
 
 ## Next steps
 
-[Get test IOTA tokens](root://getting-started/0.1/how-to-guides/get-test-tokens.md).
+[Get test IOTA tokens](root://getting-started/0.1/tutorials/get-test-tokens.md).

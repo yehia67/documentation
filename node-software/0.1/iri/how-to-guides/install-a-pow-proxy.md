@@ -109,7 +109,7 @@ To complete this guide, you need the following:
 8. Send a transaction to your local PoW proxy server
 
     :::info:
-    If this is your first time sending a transaction, follow our [getting started guide with Node.js](root://getting-started/0.1/how-to-guides/get-started.md).
+    If this is your first time sending a transaction, follow our [getting started guide with Node.js](root://getting-started/0.1/tutorials/get-started.md).
     :::
 
     ```js
