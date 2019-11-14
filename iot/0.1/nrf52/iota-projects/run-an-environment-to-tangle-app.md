@@ -7,7 +7,7 @@
 To complete this guide, you need the following:
 
 - [A Bluetooth star network](../how-to-guides/set-up-a-bluetooth-star-network.md)
-- A Linux device such as the Raspberry Pi that has [Bazel](https://docs.bazel.build/versions/master/install.html) installed
+- A Linux device such as an [SBC](../../sbc/introduction/get-started.md) that has [Bazel](https://docs.bazel.build/versions/master/install.html) installed
 
 ## Architecture
 

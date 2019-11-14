@@ -1,14 +1,12 @@
 # Get started with single board computers
 
-**A single-board computer (SBC) is a small single circuit board that includes memory, input/output ports, a microprocessor and more. SBCs are lighter, more compact, more reliable, and more power efficient than multi-board computers such as desktops. In this guide, you choose the right board for you and set it up so that you can connect to it.**
+**A single-board computer (SBC) is a small single circuit board that includes memory, input/output ports, a microprocessor and more. SBCs are lighter, smaller, and more power efficient than multi-board computers such as desktops. In this guide, you choose the right board for you and set it up so that you can connect to it.**
 
 ## Hardware
 
 To complete this guide, you need the following:
 
-
 - SD card
-
 - A keyboard and a monitor
 - An Ethernet cable
 
@@ -38,7 +36,7 @@ In single-board computers, the operating system must be flashed onto an SD card.
 
 2. Insert your SD card and turn on your SBC
 
-## Step 2. Set up your SBC
+## Step 3. Set up your SBC
 
 You have the following options for setting up your SBC:
 

@@ -1,14 +1,20 @@
 # Install the ARM GCC toolchain
 
-**The ARM toolchain allows you to compile code into binary that your microcontroller can run.**
+**The ARM toolchain allows you to compile code into machine code that your microcontroller can run.**
 
-1. [Download the latest ARM toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
+## Hardware
 
-2. Remove the old ARM toolchain
+To complete this guide, you need a Linux PC.
+
+---
+
+1. Remove any existing ARM toolchain
 
     ```bash
     sudo apt remove binutils-arm-none-eabi gcc-arm-none-eabi libnewlib-arm-none-eabi
     ```
+
+2. [Download the latest ARM toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
 
 3. Untar the new ARM toolchain. Replace the `NAME_AND_VERSION_OF_TOOLCHAIN` placeholder with the name of the toolchain file you downloaded
     
@@ -33,3 +39,7 @@
     ```bash
     export PATH=$PATH:~/.local/bin/:/opt/GCC_ARM_DIRECTORY_NAME/bin
     ```
+
+## Next steps
+
+[Continue setting up your microcontroller](../introduction/get-started.md#step-2-set-up-your-development-environment).

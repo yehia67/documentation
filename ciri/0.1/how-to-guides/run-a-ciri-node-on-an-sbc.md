@@ -22,7 +22,7 @@ We recommended disabling proof of work (PoW) on small SBCs. Outsourcing the work
 
 ## Prerequisites
 
-To complete this guide, you need [an SBC](root://general/0.1/how-to-guides/setup-sbc.md) with the following minimum requirements:
+To complete this guide, you need [an SBC](root://iot/0.1/sbc/how-to-guides/get-started.md) with the following minimum requirements:
 
 - Ubuntu (or other Linux based OS, BSD should also work) with SSH enabled and a configured network. This guide uses Ubuntu. We recommend using Ubuntu if you consider yourself a beginner.
 - At least 512 MB of RAM

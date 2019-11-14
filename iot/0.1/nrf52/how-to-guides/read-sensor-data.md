@@ -6,8 +6,8 @@
 
 To complete this guide, you need the following:
 
-- [An nRF52 microcontroller](../how-to-guides/set-up-nrf52-microcontroller.md)
-- [A connected BME/BMP 280 sensor](../how-to-guides/connect-a-i2c-sensor.md)
+- [A prepared nRF52 microcontroller](../introduction/get-started.md)
+- [A connected BME/BMP 280 sensor](../setup-guides/connect-bosch-sensor.md)
 
 ## Step 1. Configure the sensor drivers
 
@@ -77,4 +77,4 @@ After configuring the code to use the correct sensor drivers, you can compile it
 
 Reading sensor data from a shell session like this is useful only while you debug an application.
 
-For a production application, you can [set up a Bluetooth star network](../how-to-guides/set-up-a-bluetooth-star-network.md) that allows clients to connect to a border router to read the sensor data. 
+For a production application, you can [set up a Bluetooth star network](../how-to-guides/set-up-a-bluetooth-star-network.md) that allows clients to connect to the sensor over the Internet. 

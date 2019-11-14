@@ -1,6 +1,6 @@
 # Connect to an external programmer
 
-**To transfer machine code onto a microcontroller, you need a programmer, and not all microcontroller have an integrated one. In this guide, you connect an external programmer to an nRF52-series microcontroller.**
+**To transfer machine code onto a microcontroller, you need a [programmer](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner), and not all microcontrollers have an integrated one. In this guide, you connect an external programmer to an nRF52-series microcontroller.**
 
 ## Hardware
 
@@ -20,9 +20,9 @@ You can use any of the following external programmers with an nRF52-series micro
 The standard J-link programmers are more expensive than the J-Link OB clones because they can also be used on microprocessors. Therefore, we recommend the J-Link OB clone.
 :::
 
-## Step 2. Wire your microcontroller to the external programmer
+## Step 2. Wire the external programmer to your microcontroller
 
-If your microcontroller does not have an integrated [programmer](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner) (sometimetimes called a debugger), you'll need to buy a separate one, wire it to your microcontroller, and plug it into your PC.
+To use your programmer, you need to wire it to your microcontroller.
     
 ### J-Link
 
@@ -41,7 +41,7 @@ If the connections are correct, your PC should detect that the J-Link is connect
     
 ### J-Link OB
 
-1. Connect the following pins from the nRF52 to the J-Link ON clone
+1. Connect the following pins from the nRF52 to the J-Link OB clone
 
 |    **nRF52**    |    **J-Link OB clone**   |
 |-------------|----------------|
