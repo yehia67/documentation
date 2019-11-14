@@ -34,7 +34,7 @@ To complete this tutorial, you need the following:
 - Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 
 :::warning: Create a new seed
-If you have never created an account before, you must [create a new seed](root://getting-started/0.1/how-to-guides/get-started.md) because existing seed states are unknown.
+If you have never created an account before, you must [create a new seed](root://getting-started/0.1/tutorials/get-started.md) because existing seed states are unknown.
 :::
 
 ## Create a new account

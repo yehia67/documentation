@@ -694,7 +694,7 @@ If the `tips` parameter is missing, the returned balance is correct as of the la
 :::info:
 This API endpoint returns data only if the node is synchronized.
 
-[Find out how to check if a node is synchronized](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request).
+[Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request).
 :::
 
  ### Parameters
@@ -823,7 +823,7 @@ You can search for multiple tips (and thus, milestones) to get past inclusion st
 :::info:
 This endpoint returns data only if the node is synchronized.
 
-[Find out how to check if a node is synchronized](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request).
+[Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request).
 :::
 
  ### Parameters
@@ -1359,7 +1359,7 @@ Get two consistent tip transaction hashes to use as branch/trunk transactions.
 :::info:
 This endpoint returns data only if the node is synchronized.
 
-[Find out how to check if a node is synchronized](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request).
+[Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request).
 :::
 
 ### Parameters

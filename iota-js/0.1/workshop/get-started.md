@@ -16,7 +16,7 @@ If you complete this guide from beginning to end, you'll learn everything from g
 
 5. [Generate an address](../workshop/generate-an-address.md)
 
-6. [Get test IOTA tokens](root://getting-started/0.1/how-to-guides/get-test-tokens.md)
+6. [Get test IOTA tokens](root://getting-started/0.1/tutorials/get-test-tokens.md)
 
 7. [Check the balance of an address](../workshop/check-balance.md)
 

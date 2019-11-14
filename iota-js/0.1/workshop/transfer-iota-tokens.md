@@ -8,7 +8,7 @@ To complete this guide, you need the following:
 
 - [A developer environment](../workshop/set-up-a-developer-environment.md)
 - [The `core` package](../workshop/install-packages.md)
-- [Test tokens](root://getting-started/0.1/how-to-guides/get-test-tokens.md)
+- [Test tokens](root://getting-started/0.1/tutorials/get-test-tokens.md)
 
 ## IOTA network
 
