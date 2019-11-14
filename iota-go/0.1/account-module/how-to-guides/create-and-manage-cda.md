@@ -75,7 +75,7 @@ CDAs can be used only in an account and not in the generic client library method
     ```
 
     :::info
-    If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/how-to-guides/get-test-tokens.md).
+    If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/tutorials/get-test-tokens.md).
     :::
 
     :::info:

@@ -254,7 +254,7 @@ The node returns a [response object](root://node-software/0.1/iri/references/api
 
 If the `latestMilestoneIndex` field is equal to the one you got from Discord and the `latestSolidSubtangleMilestoneIndex` field, the node is synchronized.
 
-If not, try connecting to a different node. The [iota.dance website](https://iota.dance/) includes a list of Mainnet nodes. Or, you can [run your own node](../how-to-guides/run-your-own-iri-node.md).
+If not, try connecting to a different node. The [iota.dance website](https://iota.dance/) includes a list of Mainnet nodes. Or, you can [run your own node](../tutorials/run-your-own-iri-node.md).
 
 :::success: Congratulations :tada:
 You've confirmed your connection to a synchronized node.

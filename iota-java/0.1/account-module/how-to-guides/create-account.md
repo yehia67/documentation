@@ -35,7 +35,7 @@ To complete this tutorial, you need the following:
 - [Install the client library](../introduction/overview.md#install-the-library)
 
 :::warning: Create a new seed
-If you have never created an account before, you must [create a new seed](root://getting-started/0.1/how-to-guides/get-started.md) because existing seed states are unknown.
+If you have never created an account before, you must [create a new seed](root://getting-started/0.1/tutorials/get-started.md) because existing seed states are unknown.
 :::
 
 ## Create a new account

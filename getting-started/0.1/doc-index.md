@@ -4,11 +4,11 @@
 
 [Introduction/Ternary](/introduction/ternary.md)
 
-[Quickstart/Get started](/how-to-guides/get-started.md)
+[Quickstart/Get started](/tutorials/get-started.md)
 
-[Quickstart/Run your own IRI node in Docker](/how-to-guides/run-your-own-iri-node.md)
+[Quickstart/Run your own IRI node in Docker](/tutorials/run-your-own-iri-node.md)
 
-[Quickstart/Get test IOTA tokens](/how-to-guides/get-test-tokens.md)
+[Quickstart/Get test IOTA tokens](/tutorials/get-test-tokens.md)
 
 [Network/IOTA networks](/network/iota-networks.md)
 

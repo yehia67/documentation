@@ -32,7 +32,7 @@ Hub needs to connect to a node's API to be able to interact with the [Tangle](ro
 
 #### Development environment
 
-When testing Hub in a development environment, you should consider connecting to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). This IOTA network requires less [proof of work](root://getting-started/0.1/transactions/proof-of-work.md), which reduces the time it takes to create [sweeps](../concepts/sweeps.md), and it uses [free test IOTA tokens](root://getting-started/0.1/how-to-guides/get-test-tokens.md).
+When testing Hub in a development environment, you should consider connecting to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). This IOTA network requires less [proof of work](root://getting-started/0.1/transactions/proof-of-work.md), which reduces the time it takes to create [sweeps](../concepts/sweeps.md), and it uses [free test IOTA tokens](root://getting-started/0.1/tutorials/get-test-tokens.md).
 
 As well as the Devnet, you can also connect to a node in a [private Tangle](root://compass/0.1/introduction/overview.md), which allows you to configure your own IOTA network.
 
