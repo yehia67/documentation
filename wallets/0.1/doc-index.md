@@ -23,7 +23,7 @@
 [Trinity/References/Troubleshooting](/trinity/references/troubleshooting.md)
 [Hub/Introduction/Overview](/hub/introduction/overview.md)
 [Hub/Concepts/Sweeps](/hub/concepts/sweeps.md)
-[Hub/How-to Guides/Hub quickstart](/hub/how-to-guides/quickstart.md)
+[Hub/How-to Guides/Get started](/hub/how-to-guides/get-started.md)
 [Hub/How-to Guides/Configure Hub](/hub/how-to-guides/configure-hub.md)
 [Hub/How-to Guides/Run Hub](/hub/how-to-guides/install-hub.md)
 [Hub/How-to Guides/Secure the Hub API](/hub/how-to-guides/secure-hub-api.md)

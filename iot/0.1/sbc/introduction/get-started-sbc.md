@@ -1,23 +1,31 @@
-# Set up a single-board computer
+# Get started with single board computers
 
-**A single-board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable, and more power efficient than multi-board computers such as desktops. You can set up an SBC for a purpose-built embedded application that uses IOTA technology.**
+**A single-board computer (SBC) is a small single circuit board that includes memory, input/output ports, a microprocessor and more. SBCs are lighter, more compact, more reliable, and more power efficient than multi-board computers such as desktops. In this guide, you choose the right board for you and set it up so that you can connect to it.**
 
-## Prerequisites
+## Hardware
 
 To complete this guide, you need the following:
 
-- A Linux-based operating system (OS) with installed SSH client and a configured network. 
-In this guide we use Ubuntu, but you can use other Linux distributions or macOS.
 
-    :::info:Windows users
-    You can use [a virtual machine (VM)](root://general/0.1/how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
-    :::
+- SD card
 
-- An SBC such as the Rasperry Pi Zero W
+- A keyboard and a monitor
+- An Ethernet cable
 
-- If possible, you should have a monitor and a keyboard to use for setting up your device. If you don't have a monitor or a keyboard, use a USB-to-UART connector. The [CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) is a well-known and inexpensive adapter, but your SBC might have an integrated one. To find out, see the documentation for your SBC.
+## Step 1. Choose an SBC
 
-## Step 1. Prepare your SD card
+When choosing an SBC, you should consider its features and decide whether it will meet your needs.
+
+For example, if you plan to use your SBC to run an IRI node, you need at least 4 GB of RAM.
+
+Wikipedia have a [list of different SBCs](https://en.wikipedia.org/wiki/Comparison_of_single-board_computers) and a comparison of their features. 
+
+:::info:
+Some of the cheapest SBCs include the Raspberry Pi Zero or Orange Pi Zero. 
+We recommend a device with Wi-Fi and Bluetooth LE (version >= 4.0) so that you can easily connect to it.
+:::
+
+## Step 2. Prepare your SD card
 
 :::info:
 This process is similar for many SBCs such as the Orange Pi. 
@@ -50,6 +58,53 @@ You have the following options for setting up your SBC:
 
 3. Configure your network interface
 
+### Use a USB-to-UART connector
+
+- A Linux-based device with an SSH client and a configured network. In this guide, we use Ubuntu, but you can use other Linux distributions or macOS.
+
+:::info:Windows users
+if your device has a Windows operating system, you can use [a virtual machine (VM)](root://general/0.1/how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+:::
+
+You need additional software to connect to the serial port. 
+We recommend PlatformIO, which provides a simple command-line tool to interact with your SBC.
+
+1. [Install PlatformIO](https://docs.platformio.org/en/latest/userguide/cmd_device.html?highlight=monitor#platformio-device-monitor)
+
+2. Plug your USB-to-UART connector into your Linux device
+
+3. Find the path to your USB-to-UART connector by removing it, executing the `ls /dev/ttyUSB*` command, plugging the USB-to-UART connector back into your PC, then executing the `ls /dev/ttyUSB*` command again. The new entry is your connector.
+
+4. Change the permissions for your USB-to-UART connector. Replace the `$USB_PORT` placeholder with the path to your USB-to-UART connector such as `/dev/ttyUSB0`.
+
+    ```bash
+    sudo chmod 777 $USB_PORT
+    ```
+
+5. Connect to your USB port. Replace the `$USB_PORT` and `$BAUD_RATE` placeholders with the path to your USB-to-UART connector such as `/dev/ttyUSB0` and the baud rate of your SBC.
+
+    ```bash
+    platformio SBC monitor -b $BAUD_RATE -p $USB_PORT
+    ```
+
+    :::info:
+    Search your SBC's documentation to find the baud rate. For example, the baud rate of the the Orange Pi Zero is 115200.
+    :::
+
+6. Restart your SBC
+
+7. Log in with the default username and password
+
+    :::info:
+    If you don't know the default username or password, search the website of your Linux distribution.
+    :::
+
+8. Configure your network interface
+
+## Configure your network interface
+
+### WiFi
+
     If you have Ethernet, connect your SBC to your router through the Ethernet port. 
     If you want to connect to your router through WiFi, do the following and replace `MY_SSID` with the name of your network and `MY_PASSWORD` with the password of your network
     
@@ -69,76 +124,7 @@ You have the following options for setting up your SBC:
 
 6. Connect to your device through SSH
 
---------------------
-### IPv4
-Replace the `USERNAME` placeholder with your username and the `IP_ADDRESS` placeholder with the IPv4 address of your SBC.
-
-```bash
-ssh USERNAME@IP_ADDRESS
-```
----
-### IPv6
-If you use IPv6, you must add the `-6` command-line argument and the the network interface name to the SSH command. 
-
-For example:
-
-```
-WiFi interface name: wlp3s0
-The SBCs' local IPv6 address: fe80::c0a2:76c6:4ed5:a44
-```
-    
-In this example, the host system and the SBC are both connected to the router through WiFi. As a result, this is the command to connect to the SBC through SSH:
-    
-```bash
-ssh -6 USERNAME@fe80::c0a2:76c6:4ed5:a442%wlp3s0
-``` 
---------------------
-
-:::success:Congratulations! :tada:
-You're connected to your SBC through SSH. Now you can run commands on your SBC.
-:::
-
-### Use a USB-to-UART connector
-
-You must execute these commands on your host system.
-
-1. Install PlatformIO
-
-    You need additional software to connect to the serial port. 
-    We recommend [PlatformIO](https://docs.platformio.org/en/latest/userguide/cmd_device.html?highlight=monitor#platformio-device-monitor).
-    PlatformIO provides a simple command-line tool to interact with your SBC.
-
-2. Plug in your USB-to-UART connector
-
-3. Find the path to your USB-to-UART connector by removing it, executing the `ls /dev/ttyUSB*` command, plugging the USB-to-UART connector back into your PC, then executing the `ls /dev/ttyUSB*` command again. The new entry is your connector.
-
-4. Change the permissions for your USB-to-UART connector. Replace the `$USB_PORT` placeholder with the path to your USB-to-UART connector such as `/dev/ttyUSB0`.
-
-    ```bash
-    sudo chmod 777 $USB_PORT
-    ```
-
-5. Connect to your USB port. Replace the `$USB_PORT` and `$BAUD_RATE` placeholders with the path to your USB-to-UART connector such as `/dev/ttyUSB0` and the baud rate of your SBC.
-
-    ```bash
-    platformio SBC monitor -b $BAUD_RATE -p $USB_PORT
-    ```
-
-    :::info:
-    See the documentation for your SBC to find its baud rate. For the Orange Pi Zero, the baud rate is 115200.
-    :::
-
-6. Restart your SBC
-
-7. When the system asks for it, log in with the default username and password. You should change the root password and create a new user. Most systems require this change after the first login.
-
-    :::info:
-    If you don't know the default username or password, search the website of your Linux distribution.
-    :::
-
-8. Configure your network interface
-
-    If you have Ethernet, connect your SBC to your router through the Ethernet port. 
+If you have an Ethernet cable, connect your SBC to your router through the Ethernet port. 
     If you want to connect to your router through WiFi, do the following and replace `MY_SSID` with the name of your network and `MY_PASSWORD` with the password of your network
     
     ```bash
@@ -171,10 +157,45 @@ You must execute these commands on your host system.
 You're connected to your SBC through SSH. Now you can run commands on your SBC.
 :::
 
+--------------------
+### IPv4
+Replace the `USERNAME` placeholder with your username and the `IP_ADDRESS` placeholder with the IPv4 address of your SBC.
+
+```bash
+ssh USERNAME@IP_ADDRESS
+```
+---
+### IPv6
+If you use IPv6, you must add the `-6` command-line argument and the network interface name to the SSH command. 
+
+For example:
+
+```
+WiFi interface name: wlp3s0
+The SBCs' local IPv6 address: fe80::c0a2:76c6:4ed5:a44
+```
+    
+In this example, the host system and the SBC are both connected to the router through WiFi. In this case, this command connects you to the SBC through SSH:
+    
+```bash
+ssh -6 USERNAME@fe80::c0a2:76c6:4ed5:a442%wlp3s0
+``` 
+--------------------
+
+:::success:Congratulations! :tada:
+You're connected to your SBC through SSH. Now you can run commands on your SBC.
+:::
+
 ### Use an Ethernet connection
 
+- A Linux-based device with an SSH client and a configured network. In this guide, we use Ubuntu, but you can use other Linux distributions or macOS.
+
+:::info:Windows users
+if your device has a Windows operating system, you can use [a virtual machine (VM)](root://general/0.1/how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+:::
+
 :::warning:
-You must be on an IPv4 network to complete this task.
+You must be on an IPv4 network to complete this guide.
 :::
 
 1. Find IP addresses in your local network
@@ -201,8 +222,8 @@ You must be on an IPv4 network to complete this task.
     ```
     
     Depending on the subnet, this process can take some time, since nmap needs to scan all IP addresses within the network. 
-    For a small subnet (netmask=24) is just takes some seconds, since nmap just need to scan 256 addresses.
-    In a bigger network that can take more time. For example netmask=16: nmap needs to scan 256*256 addresses. 
+    For a small subnet (netmask=24) is just takes some seconds, since nmap needs to scan only 256 addresses.
+    In a bigger network, this can take longer. For example netmask=16: nmap needs to scan 256*256 addresses. 
     In my test-case this took 2944.17 seconds. If you are in a huge local network, you should consider using another variant.
 
 2. Connect to the IP addresses. If you found more than one IP address, try every IP address until you find the address of your SBC.

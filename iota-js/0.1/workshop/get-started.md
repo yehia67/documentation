@@ -1,6 +1,6 @@
-# Beginner workshop overview
+# Get started with the JavaScript client library
 
-**To help you get started with the JavaScript client library, this workflow guide starts from the basics of using a seed up to transferring IOTA tokens and monitoring a node for live Tangle data.**
+**To help you get started with the JavaScript client library, this workflow guide walks you through the essentials from generating addresses to transferring IOTA tokens and monitoring a node for live Tangle data.**
 
 ## What you will learn
 

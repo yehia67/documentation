@@ -28,7 +28,7 @@
     sudo nano .bashrc
     ```
 
-6. At the bottom of the file, add the path to the ARM toolchain's `bin` directory
+6. At the bottom of the file, add the ARM toolchain's `bin` directory to your `PATH` variable
 
     ```bash
     export PATH=$PATH:~/.local/bin/:/opt/GCC_ARM_DIRECTORY_NAME/bin

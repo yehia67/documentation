@@ -2,7 +2,7 @@
 
 [Introduction/Overview](/introduction/overview.md)
 
-[Beginner workshop/Overview](/workshop/overview.md)
+[Beginner workshop/Get started](/workshop/get-started.md)
 
 [Beginner workshop/Set up a developer environment](/workshop/set-up-a-developer-environment.md)
 

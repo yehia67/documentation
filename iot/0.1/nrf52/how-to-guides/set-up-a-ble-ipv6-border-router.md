@@ -2,13 +2,11 @@
 
 **To allow the sensor servers in a star network to access the Internet, you need a border router that can pass on their data. In this guide, you use set up a border router on a Linux device.**
 
-## Prerequisites
+## Hardware
 
 To complete this guide, you need the following:
 
-- Either a single-board computer such as a Raspberry Pi or a Linux-based PC to use as the border router
-- A Linux distribution such as Ubuntu
-- Bluetooth <= 4.0 (USB dongle or integrated)
+- A Linux device that supports Bluetooth version 4.0 or less (USB dongle or integrated) and that is connected to a keyboard and a monitor
 
 ## Step 1. Install a compatible Linux kernel
 
@@ -20,10 +18,9 @@ Due to [a bug in RIOT OS](https://github.com/RIOT-OS/RIOT/issues/11147), you nee
     uname -a
     ```
 
-    If you see a version number that's greater than 4.12, continue to step 2. Otherwise, skip the rest of these steps and install the 6LoWPAN dependencies.
+    If you see a version number that's greater than 4.12, continue to step 2. Otherwise, skip the rest of these steps and [install the 6LoWPAN dependencies](#step-2-install-the-6lowpan-dependencies).
 
-2. Select your architecture and download the generic kernel image from the 
-    [Ubuntu Linux mainline kernel builds](https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.11.12/)
+2. Select your architecture and download version 4.11.12 of the generic kernel image from the [Ubuntu Linux mainline kernel builds](https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.11.12/)
 
 
 3. Install the kernel
@@ -34,7 +31,7 @@ Due to [a bug in RIOT OS](https://github.com/RIOT-OS/RIOT/issues/11147), you nee
 
 4. Restart your system while holding the `SHIFT` key until you see the option to select a kernel 
     
-5. Select the kernel version 4.11.12
+5. Select version 4.11.12
 
 ## Step 2. Install the 6LoWPAN dependencies
 
@@ -102,13 +99,22 @@ You need to do these steps for every session. So, if you close your session, for
 
 The Bluetooth device should reset.
 
+## Troubleshooting
+
+These are known issues that you may find while following this guide and some suggested steps to resolve them.
+
+### None already mounted or mount point busy
+
+If you see this response, ignore it. The file system is probably already mounted.
+
+```bash
+mount: /sys/kernel/debug: none already mounted or mount point busy.
+```
+
 ## Next steps
 
-If you haven't already set up a sensor server, [do it now](../how-to-guides/set-up-ipv6-ble-host-example.md).
+[Set up a sensor server node](../how-to-guides/set-up-ipv6-ble-host-example.md).
 
-If you've already set up a sensor server, then you have a complete Bluetooth star network, and you're ready to try one of our sample applications:
-
-- [Request data from the sensor server](../how-to-guides/run-an-environment-sensor-and-client.md)
-- [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md)
+If you've already set up a sensor server, then you're ready to [set up a Bluetooth star network](../how-to-guides/set-up-a-bluetooth-star-network.md).
 
 
