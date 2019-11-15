@@ -3,6 +3,6 @@
 [What is IOTA?](/0.1/introduction/overview.md)
 ## Learn what makes IOTA unique and how you can leverage it in your apps
 
-[Get started](/0.1/how-to-guides/get-started.md)
+[Get started](/0.1/tutorials/get-started.md)
 ## Start integrating IOTA into your applications
 
