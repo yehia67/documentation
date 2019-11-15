@@ -2,11 +2,9 @@
 
 **6LoWPAN is a networking system that combines the latest version of the Internet Protocol (IPv6) and Low-power Wireless Personal Area Networks (LoWPAN). 6LoWPAN, allows small devices with limited processing ability to transmit information wirelessly using an internet protocol for a variety of applications including wireless sensor networks.**
 
-All devices in the Internet of Things must be uniquely identifiable, so that direct communication between the devices is possible and each device can be individually addressed. One way of accomplishing this is to assign a unique IPv6 address to each device and handle all communication through IPv6.
+All devices in the Internet of Things must be uniquely identifiable, so that other devices can communicate with them.
 
-This SDK provides means to use BLE links to connect IoT devices to a BLE-enabled router, which in turn is connected to the Internet through IPv6. All IoT devices are assigned individual IPv6 addresses, and the BLE link is used to transmit the IPv6 packages.
-
-Each IoT device can directly communicate with other devices using their IPv6 address; no matter if the other device is connected to the same router or is located somewhere else on the Internet, and no matter if the other device is using a BLE link or not. In addition, all applications can use the same protocol (for example MQTT, CoAP, or even HTTP) to communicate, which means that heterogeneous types of devices - wired, wireless, or clouds - can communicate in a common language.
+With 6LoWPAN, each IoT device can directly communicate with other devices, using their IPv6 address. In addition, all applications can use standard protocols such as MQTT, CoAP, and HTTP to communicate, which means that wired and wireless devices can communicate in a common language.
 
 ### 6LoWPAN
 
