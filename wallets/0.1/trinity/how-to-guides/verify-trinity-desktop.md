@@ -170,3 +170,6 @@ To follow these instructions you need the `sha256sum` package, which is included
     gpg: Good signature from "IOTA Foundation (IOTA Foundation Identity) <contact@iota.org>"
     ```
     
+## Next steps
+
+[Create a Trinity account](../how-to-guides/create-an-account.md).

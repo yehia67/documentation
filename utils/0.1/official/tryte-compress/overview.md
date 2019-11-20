@@ -20,7 +20,7 @@ To complete this tutorial, you need the following:
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 - Access to a command-line interface
 
-- The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js) packages
+- The `@iota/core`, `@iota/converter`, and `@iota/tryte-compress` packages
 
 ### Step 1. Set up the sample
 

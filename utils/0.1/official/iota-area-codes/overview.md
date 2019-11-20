@@ -56,7 +56,7 @@ To complete this tutorial, you need the following:
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 - Access to a command-line interface
 
-- The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md) and [`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes) packages
+- The `@iota/core` and `@iota/area-codes` packages
 
 ### Step 1. Find some coordinates
 

@@ -13,3 +13,11 @@ To restrict the depth, nodes can define a maximum value for it in the [`MAX-DEPT
 If you aren't connected to your own node, you should consider doing so. This way, you can make sure that you're using a valid depth.
 
 If you want to use a third-party node, you can check the value of this configuration option by calling the [`getNodeAPIConfiguration`](root://node-software/0.1/iri/references/api-reference.md#getnodeapiconfiguration) endpoint.
+
+## Related guides
+
+[Send a "hello world" transaction in JavaScript](root://client-libraries/0.1/workshops/js/send-your-first-bundle.md).
+
+[Transfer IOTA tokens in JavaScript](root://client-libraries/0.1/workshops/js/transfer-iota-tokens.md).
+
+[Send a transaction in Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md).

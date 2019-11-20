@@ -14,38 +14,6 @@ Nodes are the core of an IOTA network, and are responsible for the following key
 Many applications such as [Trinity](root://wallets/0.1/trinity/introduction/overview.md) interact with a node's API through the [client libraries](root://client-libraries/0.1/introduction/overview.md).
 :::
 
-## Neighbor nodes
-
-Neighbors are nodes that are mutually connected and that communicate directly with each other on the same IOTA network. To synchronize their ledgers with the rest of the network, all nodes send and receive transactions among their neighbors.
-
-When a node receives a new transaction, it checks that it has the history of its children. If the node is missing any transactions, it starts to ask its neighbors for them in a process called solidification.
-
-## Solidification
-
-Solidification is the process in which a node asks its neighbors for the history of all [milestones](../network/the-coordinator.md#milestones) in the Tangle, starting from an **entry point milestone** and ending at the latest one.
-
-When a node has a milestone's history up to the entry point milestone, it marks that milestone as **solid**, and starts the process again from the next milestone.
-
-As a result, the older the entry point milestone, the longer solidification takes.
-
-## Synchronized nodes
-
-Because nodes are distributed throughout the world, they may have different transactions in their ledgers at any time.
-
-To make sure that all nodes eventually have the same transactions in their ledgers (the same copy of the Tangle), they must synchronize with the rest of the network.
-
-A node is synchronized when it has solidified all milestones up to the latest one.
-
-In the IRI and cIRI [node software](root://node-software/0.1/introduction/overview.md), which runs the Mainnet, a node is synchronized when the values of the  `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are equal.
-
-:::info:
-The `latestMilestoneIndex` field is accurate only when the node is connected to synchronized neighbors.
-:::
-
-## View of the Tangle
-
-To validate a transaction, a node needs to have that transaction's history in its ledger. The transactions in any node's ledger make up its **view of the Tangle**.
-
 ## Validation
 
 Nodes are responsible for validating transactions in the [Tangle](../network/the-tangle.md) to make sure that their histories do not conflict and that counterfeit transactions are never confirmed. To validate a transaction, nodes check the following:
@@ -56,6 +24,36 @@ Nodes are responsible for validating transactions in the [Tangle](../network/the
 - Any [signatures](../clients/signatures.md) in value transactions are valid
 
 Nodes don't know which client owns an address because they don't have the clients' seeds, so they use cryptography to [validate the signature in a transaction](../clients/signatures.md#how-nodes-validate-signatures).
+
+## Neighbor nodes
+
+Neighbors are nodes that are mutually connected and that communicate directly with each other on the same IOTA network. To synchronize their ledgers with the rest of the network, all nodes send and receive transactions among their neighbors.
+
+After receiving a new transaction, nodes check that they have the transaction's history in its ledger. If a node is missing any transactions, it starts to ask its neighbors for them to become synchronized with the rest of the network.
+
+## Synchronized nodes
+
+Because nodes are distributed throughout the world, they may have different transactions in their ledgers at any time.
+
+The transactions in any node's ledger make up its **view of the Tangle**.
+
+To make sure that all nodes eventually have the same view of the Tangle, they must synchronize with the rest of the network.
+
+A node is synchronized when it has solidified all milestones up to the latest one.
+
+In the IRI and cIRI [node software](root://node-software/0.1/introduction/overview.md), which runs the Mainnet, a node is synchronized when the values of the  `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are equal.
+
+:::info:
+The `latestMilestoneIndex` field is accurate only when the node is connected to synchronized neighbors.
+:::
+
+### Solidification
+
+Solidification is the process in which a node asks its neighbors for the history of all [milestones](../network/the-coordinator.md#milestones) in the Tangle, starting from an **entry point milestone** and ending at the latest one.
+
+When a node has a milestone's history up to the entry point milestone, it marks that milestone as **solid**, and starts the process again from the next milestone.
+
+As a result, the older the entry point milestone, the longer solidification takes.
 
 ## Consensus
 

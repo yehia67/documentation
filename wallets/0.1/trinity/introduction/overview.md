@@ -52,4 +52,4 @@ We have the following channels for Trinity:
 
 - `trinity-discussion`: An open channel where anyone is free to discuss Trinity
 
-`trinity-translators`: An open channel where anyone is free to contribute to translation-related discussions
+- `trinity-translators`: An open channel where anyone is free to contribute to translation-related discussions

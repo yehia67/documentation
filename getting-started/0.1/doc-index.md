@@ -4,9 +4,15 @@
 
 [Introduction/Ternary](/introduction/ternary.md)
 
-[Quickstart/Get started](/tutorials/get-started.md)
+[Quickstart/Get started for developers](root://client-libraries/0.1/getting-started/quickstart.md)
 
-[Quickstart/Run your own IRI node in Docker](/tutorials/run-your-own-iri-node.md)
+[Quickstart/Get started for exchanges](root://wallets/0.1/hub/how-to-guides/quickstart.md)
+
+[Quickstart/Get started with Trinity](root://wallets/0.1/trinity/how-to-guides/quickstart.md)
+
+[Quickstart/Get started with nodes](root://node-software/0.1/iri/how-to-guides/quickstart.md)
+
+[Quickstart/Create a seed](/tutorials/create-a-seed.md)
 
 [Quickstart/Get test IOTA tokens](/tutorials/get-test-tokens.md)
 
@@ -41,8 +47,6 @@
 [Transactions/Depth](/transactions/depth.md)
 
 [Transactions/Reattach, rebroadcast, and promote](/transactions/reattach-rebroadcast-promote.md)
-
-[Transactions/Masked Authenticated Messaging](/transactions/masked-authenticated-messaging.md)
 
 [References/Developer handbook](/references/quickstart-dev-handbook.md)
 

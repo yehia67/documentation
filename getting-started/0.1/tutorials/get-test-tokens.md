@@ -7,7 +7,7 @@
 To complete this guide, you need an unspent address.
 
 :::danger:Important
-If you own IOTA tokens on the Mainnet, we recommend creating a new seed to use on the Devnet.
+If you own IOTA tokens on the Mainnet, we recommend [creating a new seed](../tutorials/create-a-seed.md) to use on the Devnet.
 :::
 
 ---
@@ -33,3 +33,11 @@ This link takes you to a Devnet Tangle explorer, which connects to nodes on the 
 :::info:These tokens are valid only on the Devnet
 You can use these tokens only when you're connected to a Devnet node. Other IOTA networks have neither received nor validated the bundle that transferred the tokens to your address. As a result, they haven't updated the balance of your address.
 :::
+
+## Next steps
+
+You can transfer these tokens on the Devnet, using Trinity or one of the client libraries:
+
+- [Transfer your test tokens with Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md)
+
+- [Transfer your test tokens with the JavaScript client library](root://client-libraries/0.1/workshops/js/transfer-iota-tokens.md)

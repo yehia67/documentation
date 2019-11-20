@@ -6,7 +6,7 @@
 
 When choosing a minimum weight magnitude, you should consider the following questions.
 
-### Which IOTA network am I using?
+### Which IOTA network are you using?
 
 All nodes accept transactions whose hashes end in the same or higher number of 0 trits as their predefined MWM. If a transaction ends in fewer 0 trits than the MWM, the nodes in that network will reject it.
 

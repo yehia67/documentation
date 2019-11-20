@@ -31,3 +31,7 @@ If you're building an application that relies on fast transactions, you may want
 ### How powerful is the device that is doing proof of work and/or signing transactions?
 
 Devices such as those on the Internet of Things are often power-constrained. If your application is running on one of these devices and the addresses contain only small amounts of IOTA tokens, you may want to use security level 2 to reduce the amount of energy needed to do proof of work and to sign transactions.
+
+## Related guides
+
+[Generate an address in JavaScript](root://client-libraries/0.1/workshops/js/generate-an-address.md).

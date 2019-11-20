@@ -1,6 +1,6 @@
 # Change the general settings
 
-**You can use the general settings to change elements of the user interface, change your password, and change the nodes to which Trinity connects.**
+**The general settings allow you to change elements of the user interface, change your password, and change the nodes to which Trinity connects.**
 
 In Trinity, go to **Settings** to customize general settings. 
 

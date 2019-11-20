@@ -4,7 +4,7 @@
 
 ## Signature scheme
 
-IOTA uses the Winternitz [one-time signature scheme](https://en.wikipedia.org/wiki/Hash-based_cryptography#One-time_signature_schemes) (W-OTS) to generate [digital signatures](https://en.wikipedia.org/wiki/Digital_signature). This signature scheme is quantum resistant, meaning that signatures are resistant to attacks from quantum computers. But, the scheme also reveals an unknown amount of the private key. As a result, it's safe to withdraw from an address only once, after which it is a [spent address](../clients/addresses.md#spent-addresses).
+IOTA uses the Winternitz [one-time signature scheme](https://en.wikipedia.org/wiki/Hash-based_cryptography#One-time_signature_schemes) (W-OTS) to generate [digital signatures](https://en.wikipedia.org/wiki/Digital_signature). This signature scheme is quantum robust, meaning that signatures are resistant to attacks from quantum computers. But, the scheme also reveals an unknown amount of the private key. As a result, it's safe to withdraw from an address only once, after which it is a [spent address](../clients/addresses.md#spent-addresses).
 
 ### How signatures are generated
 

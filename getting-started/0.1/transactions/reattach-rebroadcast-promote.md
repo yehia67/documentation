@@ -32,3 +32,9 @@ To promote a bundle means to increase its chances of being selected during [tip 
 
 Promoting a bundle is often more effective than reattaching a bundle, unless the bundle you're promoting leads to an inconsistent state (double spend) or is older than the last six milestones.
 
+## Related guides
+
+[Check if a transaction is confirmed in JavaScript](root://client-libraries/0.1/tutorials/js/check-transaction-confirmation.md).
+
+[Help a transaction to be confirmed in JavaScript](root://client-libraries/0.1/tutorials/js/confirm-pending-bundle.md).
+

@@ -1,26 +1,16 @@
 # Hardware wallet
 
-**A hardware wallet, sometimes referred to as cold storage, is a physical electronic device that secures your funds.**
+**A hardware wallet, sometimes referred to as cold storage, is a physical electronic device that stores your seed and signs bundles for you offline. If you [create a Trinity account with a hardware wallet](https://trinity.iota.org/hardware), you can't send transactions without it.**
 
-Hardware wallets do the following:
-- Creates and stores seeds
-- Signs value transactions
+## How seeds are created and stored
 
-Hardware wallets are an extra layer of security. If you [create a Trinity account with a hardware wallet](https://trinity.iota.org/hardware), you can't send transactions without it.
+Seeds are created using a sequence of randomly generated words. These words are the key to your device. When you set up a hardware wallet, it will give you instructions to write down and never lose your randomly generated words.
 
-## Seed creation and seed storage
+After a seed has been created, it will never leave the device, even when you connect it to your computer. If you ever lose a hardware wallet, you can recreate your seed by entering your randomly generated words in another hardware wallet.
 
-Seeds are created using a sequence of randomly generated words. After a seed has been created, it will never leave the device, even when you connect it to your computer.
+## How bundles are signed
 
-When you set up a hardware wallet, it will give you instructions to both write down and never lose your randomly generated words. These words are the key to your device.
-
-If you ever lose a hardware wallet, you can still access your funds by entering your randomly generated words in another hardware wallet.
-
-## Transaction signing
-
-When you send a value transaction, it must contain a valid signature that was created using the correct private key.
-
-Bundles are signed on the device. Private keys never leave a hardware wallet, so it's impossible for an attacker to steal your IOTA tokens without it.
+Bundles are signed on the device, so it's impossible for an attacker to steal your IOTA tokens without it.
 
 ## Supported hardware wallets
 
@@ -39,5 +29,7 @@ To check the balances of your addresses, go to **Account management** > **View a
 - **Address 3:** 50 Mi
 
 You try to send 650 Mi from Trinity, using a Ledger Nano S. This transaction would require a bundle that withdraws from three addresses, so it won't be valid and won't send.
+
+For more information about this limitation, see this [community blog post](https://medium.com/@hbmy289/how-to-access-iota-funds-spread-over-too-many-inputs-on-ledger-nano-s-74708548fa6e).
 
 

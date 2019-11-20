@@ -20,3 +20,7 @@ As a security precaution, some applications such as [Trinity](root://wallets/0.1
 First, the address or the seed is converted to trits and hashed, using the [Kerl](https://github.com/iotaledger/kerl) [hash function](https://en.wikipedia.org/wiki/Hash_function).
 
 Then, the last 9 or 3 trytes of the resulting hash are appended to the end of the address or seed.
+
+## Related guides
+
+[Generate an address in JavaScript](root://client-libraries/0.1/workshops/js/generate-an-address.md).

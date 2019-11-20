@@ -72,5 +72,12 @@ You can use the following IOTA Tangle Utilities with addresses:
 
 * [Search for transactions that include an address](https://utils.iota.org/)
 
+## Related guides
+
+[Generate an address in JavaScript](root://client-libraries/0.1/workshops/js/generate-an-address.md).
+
+[Generate an address in Trinity](root://wallets/0.1/trinity/how-to-guides/receive-a-transaction.md).
+
+[Derive addresses from private keys in JavaScript](root://client-libraries/0.1/tutorials/js/derive-addresses-from-private-keys.md)
 
 
