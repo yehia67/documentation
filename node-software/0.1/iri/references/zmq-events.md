@@ -4,37 +4,10 @@
 
 All events return one or more buffer objects, which contain space-separated data. The first item in the buffer is always the name of the event. The information in the Returned data column is displayed as though the buffer had been converted to a string and split on a space character into an array.
 
-Due to [a bug in the IRI](https://github.com/iotaledger/iri/issues/1597), the following events are currently unavailable in version 1.8.0 or later:
-
-- `dnscv`
-- `dnscc`
-- `dnscu`
-- `hmr`
-- `antn`
-- `rntn`
-- `rstat`
-- `rtl`
-
 |  **Event and description** | **Returned data**
 | :----------| :----------|
 |`mctn`|
 |Number of transactions traversed during tip selection| <ul><li>**Index 1:** Total number of transactions that were traversed during tip selection</li></ul>
-|`dnscv` |
-|Neighbor DNS validations| <ul><li>**Index 1:** Neighbor's hostname</li><li>**Index 2:** Neighbor's IP address</li></ul>
-|`dnscc`|
-|Neighbor DNS confirmations| <ul><li>**Index 1:** Neighbor's hostname</li></ul>
-|`dnscu` |
-|Update to a Neighbor's IP address| <ul><li>**Index 1:** Neighbor's hostname</li></ul>
-|`hmr`|
-|The ratio of received transactions that the IRI node stored in cache (hit) to received transaction that the IRI node randomly removed (miss)| <ul><li>**Index 1:** Hit count</li><li>**Index 2:** Miss count</li></ul>
-|`antn` |
-|Information about non-tethered neighbors that were added (available only on the testnet network)| <ul><li>**Index 1:** URL of a non-tethered neighbor</li></ul>
-|`rntn`|
-|Information about non-tethered neighbors that were refused (available only on the testnet network)| <ul><li>**Index 1:** URL of the neighbor</li><li>**Index 2:** The maximum number of peers that are specified in the IRI configuration options</li></ul>
-|`rstat` |
-|Information about the tip transaction requester|<ul><li>**Index 1:** Number of received tip transactions that the IRI node is yet to process </li><li>**Index 2:** Number of tip transactions that the IRI node is yet to broadcast to its neighbors</li><li>**Index 3:** Number of tip transactions that the IRI node is yet to request from its neighbors</li><li>**Index 4:** Number of requested tip transaction that the IRI node is yet to send as a reply to its neighbors</li><li>**Index 5:** Number of stored transactions in the ledger</li></ul>
-|`rtl` |
-|Transaction that the IRI node randomly removed from the request queue| <ul><li>**Index 1:** Transaction hash that was removed</li></ul>
 |`lmi` |
 |The latest milestone index|<ul><li>**Index 1:** Index of the previous solid subtangle milestone</li><li>**Index 2:** Index of the latest solid subtangle milestone</li></ul>
 |`lmsi` |
