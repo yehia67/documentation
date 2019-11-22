@@ -2,12 +2,12 @@
 
 **In this guide, you run an application that collects environment sensor data and attaches it to the Tangle using Masked Authenticated Messaging (MAM).**
 
-## Prerequisites
+## Hardware
 
 To complete this guide, you need the following:
 
-- [Set up a Bluetooth star network](../how-to-guides/set-up-a-bluetooth-star-network.md)
-- [Install Bazel on your single-board computer (SBC) or PC](https://docs.bazel.build/versions/master/install.html)
+- [A Bluetooth star network](../how-to-guides/set-up-a-bluetooth-star-network.md)
+- A Linux device such as an [SBC](../../sbc/introduction/get-started.md) that has [Bazel](https://docs.bazel.build/versions/master/install.html) installed
 
 ## Architecture
 

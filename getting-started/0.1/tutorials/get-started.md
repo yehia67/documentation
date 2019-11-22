@@ -286,7 +286,7 @@ We have many channels, including the following:
 
 Now you're connected to a synchronized node, continue learning by completing our beginner's walkthrough in one of the following client libraries to learn the basics: 
 
-- [JavaScript](root://iota-js/0.1/workshop/overview.md)
+- [JavaScript](root://iota-js/0.1/workshop/get-started.md)
 
 If you've got an idea for building an application on IOTA, [read our developer's handbook](../references/quickstart-dev-handbook.md) for guidance on whether you should run your own node, whether you need a private IOTA network, and what you need to consider for both.
 

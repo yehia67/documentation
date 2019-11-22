@@ -1,21 +1,33 @@
-# Set up a single-board computer
+# Get started with single-board computers
 
-**A single-board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable, and more power efficient than multi-board computers such as desktops. You can set up an SBC for a purpose-built embedded application that uses IOTA technology.**
+**A single-board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable, and more power efficient than multi-board computers such as desktops. In this guide, you learn how to get started with SBCs. When you've completed this guide, you'll be able to connect to your SBC through the SSH protocol.**
 
-## Prerequisites
+## Hardware
 
 To complete this guide, you need the following:
 
-- A Linux-based operating system (OS) with installed SSH client and a configured network. 
-In this guide we use Ubuntu, but you can use other Linux distributions or macOS.
+- SD card
+- An Internet connection
+- A Linux PC with an SSH client. In this guide, we use Ubuntu, but you can use other Linux distributions or macOS.
 
-    :::info:Windows users
-    You can use [a virtual machine (VM)](root://general/0.1/how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
-    :::
+:::info:Windows users
+if your device has a Windows operating system, you can use [a virtual machine (VM)](root://general/0.1/how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+:::
 
-- An SBC such as the Rasperry Pi Zero W
+- A keyboard and a monitor (optional)
 
-- If possible, you should have a monitor and a keyboard to use for setting up your device. If you don't have a monitor or a keyboard, use a USB-to-UART connector. The [CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) is a well-known and inexpensive adapter, but your SBC might have an integrated one. To find out, see the documentation for your SBC.
+## Step 1. Choose an SBC
+
+When choosing an SBC, you should consider its features and decide whether it will meet your needs.
+
+For example, if you plan to use your SBC to run an IRI node, you need at least 4 GB of RAM.
+
+Wikipedia have a [list of different SBCs](https://en.wikipedia.org/wiki/Comparison_of_single-board_computers) and a comparison of their features. 
+
+:::info:
+Some of the cheapest SBCs include the Raspberry Pi Zero or Orange Pi Zero. 
+We recommend a device with Wi-Fi and Bluetooth LE (version >= 4.0) so that you can easily connect to it.
+:::
 
 ## Step 1. Prepare your SD card
 

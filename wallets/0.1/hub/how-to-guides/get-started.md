@@ -1,6 +1,6 @@
-# Hub quickstart
+# Get started with Hub
 
-**To get started with Hub, you can follow this workflow guide, which helps you to navigate the documentation.**
+**If you're new to Hub, you can follow this workflow guide to start learning from the beginning.**
 
 ## What you will learn
 

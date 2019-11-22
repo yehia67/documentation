@@ -1,15 +1,17 @@
 # Read sensor data from a microcontroller
 
-**In this guide, you create a low-budget application that allows you to read data from a sensor that's connected to an nRF52 series microcontroller.**
+**In this guide, you create a low-budget application that allows you to read data from a sensor that's connected to an nRF52-series microcontroller.**
 
-## Prerequisites
+## Hardware
 
-- [Set up an nRF52 microcontroller](../how-to-guides/set-up-nrf52-microcontroller.md)
-- [Connect a BME/BMP 280 sensor to the microcontroller](../how-to-guides/connect-bosch-bme-280-bmp-280.md)
+To complete this guide, you need the following:
+
+- [A prepared nRF52 microcontroller](../introduction/get-started.md)
+- [A connected BME/BMP 280 sensor](../setup-guides/connect-bosch-sensor.md)
 
 ## Step 1. Configure the sensor drivers
 
-To be able to read data from a sensor, you need to configure the code so that the sensor's drivers are compiled onto the microcontroller.
+To be able to read data from a sensor, you need to configure the code so that the sensor's drivers are compiled and flashed onto the microcontroller.
 
 1. Change into the `BLE-environment-sensor/examples/saul` directory
 
@@ -18,10 +20,6 @@ To be able to read data from a sensor, you need to configure the code so that th
     ```
 
 2. In the `Makefile` file, add `USEMODULE += bmx280` under `USEMODULE += ps` so that the driver for the BME/BMP 280 sensor can be compiled into your application
-
-    :::info:
-    All driver module names for the pattern `USEMODULE += DRIVER_NAME` are in the `drivers` directory.
-    :::
 
 ## Step 2. Compile and flash the application
 
@@ -34,7 +32,7 @@ After configuring the code to use the correct sensor drivers, you can compile it
     ```
 
     :::info:
-    See the RIOT documentation to [find the name of your board](https://api.riot-os.org/group__boards.html).
+    Search the RIOT documentation to [find the name of your board](https://api.riot-os.org/group__boards.html).
     :::
 
 2. Use the RIOT OS [hardware abstraction layer](https://en.wikipedia.org/wiki/Hardware_abstraction) ([SAUL](https://riot-os.org/api/group__drivers__saul.html)) to find a list of all available sensors
@@ -79,4 +77,4 @@ After configuring the code to use the correct sensor drivers, you can compile it
 
 Reading sensor data from a shell session like this is useful only while you debug an application.
 
-For a production application, you can [set up a sensor server](../how-to-guides/run-an-environment-sensor-and-client.md) that allows clients to connect to it and read its data. 
+For a production application, you can [set up a Bluetooth star network](../how-to-guides/set-up-a-bluetooth-star-network.md) that allows clients on the same local network to connect to the sensor and read its data.
