@@ -16,8 +16,8 @@ If you complete this guide from beginning to end, you'll learn everything from g
 
 3. [Generate an address](../go/generate-an-address.md)
 
-4. [Check the balance of an address](../go/check-balance.md)
+4. [Transfer IOTA tokens](../go/transfer-iota-tokens.md)
 
-5. [Transfer IOTA tokens](../go/transfer-iota-tokens.md)
+5. [Check the balance of an address](../go/check-balance.md)
 
 6. [Listen for live transactions on the Tangle](../go/listen-for-transactions.md)

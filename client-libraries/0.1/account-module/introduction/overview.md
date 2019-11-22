@@ -1,16 +1,26 @@
 # Account module overview
 
-**The account module is a stateful package that allows you to make payments without worrying about withdrawing from spent addresses or promoting and reattaching pending transactions.**
+**The account module is a stateful package that simplifies IOTA payments without you having to worry about withdrawing from spent addresses or promoting and reattaching pending transactions.**
 
 ## How the account module works
 
-The account module allows you to create an account object, which manages your seed's spent addresses and keeps track of pending bundle hashes in a local database. Each object can manage only one seed.
+The account module allows you to build an account object that keeps track of your seed state in a local database.
 
-|**Data**| **Purpose**|
+### Example seed state
+
+This is an example of an empty seed state. 
+
+```json
+{"id":"9KYMSUEUSOVQN9CPOHVHRNSYTZGBHTWYWR9LGJGYATUMQVNYFQXTEOLEMEACONMAR9AELKPVRCMGQ9MMD","date":"2019-11-22T12:50:35.7053709Z","key_index":0,"deposit_addresses":{},"pending_transfers":{}}
+```
+
+|**Field**| **Description**|**Purpose**|
 |:-----------------|:----------|
-|The last key index that was used to create a addresses| Create a new address that has never been used before|
-|All active address|Stop withdrawals from address that may receive deposits|
-|Pending transfers| Monitor pending transactions and rebroadcast or reattach them if necessary|
+|`id`|The account's ID is the hash of the account's address with index 0 and security level 2|Allows you to use the same database to keep track of more than one seed|
+|`date`| The last time that the seed state was updated|Allows you to check when your account was last used|
+|`key_index`|The latest index that was used to generate an address| Allows the account to make sure it generates a new address|
+|`deposit_addresses`|Active addresses|Allows the account to prevent withdrawals from addresses that may still receive deposits|
+|`pending_transfers`|Tail transaction hash of pending transfer bundles|Allows the account to monitor pending transactions and rebroadcast or reattach them if necessary|
 
 ## Conditional deposit addresses
 
@@ -30,8 +40,8 @@ You can also specify one of the following recommended fields:
 |  **Combination of fields** | **Withdrawal conditions**
 | :----------| :----------|
 |`timeoutAt` |The CDA can be used in withdrawals as long as it contains IOTA tokens|
-|`timeoutAt` and `multiUse` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it. See the [CDA FAQ](../references/cda-advice.md) on when to use addresses with the `multiUse` field set. |
-|`timeoutAt` and `expectedAmount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount. See the [CDA FAQ](../references/cda-advice.md) on when to use addresses with the `multi_use` field set.|
+|`timeoutAt` and `multiUse` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it|
+|`timeoutAt` and `expectedAmount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount|
 
 :::warning:Warning
 If a CDA was created with only the `timeoutAt` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. Therefore, to avoid withdrawing from a spent address, we recommend creating CDAs with either the `multiUse` field or with the `expectedAmount` field whenever possible.

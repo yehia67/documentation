@@ -1,6 +1,6 @@
 # Create an account
 
-**An account is an object that makes it easier to handle payments. You can use your account on any IOTA network to send and receive IOTA tokens.**
+**In this guide, you create an account to keep track of your seed state in a local database.**
 
 ## IOTA network
 
@@ -30,8 +30,6 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```
 
     :::danger:Protect your seed
-    You should never hard code a seed as we do here. Instead, we recommend that you read the seed from a protected file.
-
     If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `Builder()` constructor.
     :::
 
@@ -47,7 +45,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     As a result, you can use the same storage object for more than one account at the same time.
     :::
 
-4. Create the account, using your custom settings
+4. Create the account, using your custom settings. If you don't specify any custom settings, the account uses the [defaults](https://github.com/iotaledger/iota-java/blob/dev/jota/src/main/java/org/iota/jota/config/types/IotaDefaultConfig.java).
    
    ```java
    IotaAccount account = new IotaAccount.Builder(mySeed)
@@ -57,17 +55,13 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
                     .build();
     ```
 
-    :::info:Default settings
-    If you don't specify any custom settings, the account uses the [defaults](https://github.com/iotaledger/iota-java/blob/dev/jota/src/main/java/org/iota/jota/config/types/IotaDefaultConfig.java).
-    :::
-
 :::success:Congratulations! :tada:
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
 :::
 
 ### Connect to a quorum of nodes
 
-1. If you want to connect to multiple nodes, you can either create a `HttpConnector` object, or define a custom class.
+1. If you want to connect to more than one node, you can either create a `HttpConnector` object, or define a custom class.
 
     ```java
     // Create an HTTP node using the default settings
@@ -99,6 +93,6 @@ To import an existing seed state into an account, pass the storage object to the
 
 ## Next steps
 
-After certain events happen in your account, it emits them, and allows you to listen for them. For example, you may want to monitor your account for new payments. To do so, you need to [create an event listener](../how-to-guides/listen-to-events.md).
+After certain events happen in your account, it emits them, and allows you to listen for them. For example, you may want to monitor your account for new payments. To do so, you need to [create an event listener](../java/listen-to-events.md).
 
-Or, you can [create a plugin](../how-to-guides/create-plugin.md) that also emits events.
+Or, you can [create a plugin](../java/create-plugin.md) that also emits events.

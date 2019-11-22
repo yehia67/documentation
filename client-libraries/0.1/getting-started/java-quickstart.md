@@ -169,7 +169,7 @@ java -cp .;jota-[VERSION]-jar-with-dependencies.jar ConnectToNode
 ```
 --------------------
 
-The node returns a [response object](root://node-software/0.1/iri/references/api-reference.md#getNodeInfo):
+The node returns the following:
 
 ```json
 {
@@ -196,9 +196,17 @@ The node returns a [response object](root://node-software/0.1/iri/references/api
 }
 ```
 
+### Reading the response object
+
 If the `latestMilestoneIndex` field is equal to the one you got from Discord and the `latestSolidSubtangleMilestoneIndex` field, the node is synchronized.
 
 If not, try connecting to a different node. The [iota.dance website](https://iota.dance/) includes a list of Mainnet nodes. Or, you can [run your own node](root://node-software/0.1/iri/how-to-guides/quickstart.md).
+
+In the `features` array, you can see that this node also support [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md) (RemotePOW). As a result, you can use this node to do proof of work instead of doing it on your local device.
+
+Also, this node has its zero message queue (ZMQ) enabled, so you can use it to [listen for live transactions](../workshops/go/listen-for-transactions.md).
+
+For more information about these fields, see the [IRI API reference](root://node-software/0.1/iri/references/api-reference.md#getNodeInfo).
 
 :::success: Congratulations :tada:
 You've confirmed your connection to a synchronized node.

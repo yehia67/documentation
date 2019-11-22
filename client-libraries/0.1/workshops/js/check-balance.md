@@ -4,7 +4,7 @@
 
 ## Packages
 
-To complete this guide, you need to install the `core` package:
+To complete this guide, you need to install the following package:
 
 --------------------
 ### npm
@@ -22,6 +22,51 @@ yarn add @iota/core
 
 In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
+## Code walkthrough
+
+1. Require the packages
+
+    ```js
+    const Iota = require('@iota/core');
+    ```
+
+2. Connect to a node
+
+    ```js
+    const iota = Iota.composeAPI({
+    provider: 'https://nodes.devnet.iota.org:443'
+    });
+    ```
+
+3. Define the address whose balance you want to check
+
+    ```js
+    const address =
+    'NBZLOBCWG9BAQTODDKNF9LYYTBOUWSQSGCWFQVZZR9QXCOAIBRYDTZOEGBGMZKJYZOPPGRGFFWTXUKUKW';
+    ```
+
+4. Use the [`getBalances()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getBalances) method to ask the node for the current balance of the address
+
+    ```js
+    iota.getBalances([address], 100)
+      .then(({ balances }) => {
+      console.log(balances)
+      })
+      .catch(err => {
+      console.error(err)
+      });
+    ```
+
+    In the console, you should see a balance of [IOTA tokens](root://getting-started/0.1/clients/token.md).
+
+    ```
+    [500]
+    ```
+
+:::success:Congratulations :tada:
+You've just checked the balance of an address.
+:::
+
 ## Run the code
 
 We use the [REPL.it tool](https://repl.it) to allow you to run sample code in the browser.
@@ -30,14 +75,6 @@ Click the green button to run the sample code in this guide and see the results 
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Check-the-balance-of-an-address?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Code explanation
-
-This code uses the [`getBalances()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getBalances) method to request the balance of the given address from a node on the Devnet.
-
-:::success:Congratulations :tada:
-You've just checked the balance of an address.
-:::
-
 ## Next steps
 
-[Transfer IOTA tokens from one address to another](../js/transfer-iota-tokens.md).
+[Listen for live transactions on the Tangle](../js/listen-for-transactions.md).

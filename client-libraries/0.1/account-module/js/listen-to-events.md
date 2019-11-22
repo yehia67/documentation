@@ -1,18 +1,12 @@
 # Listen to events in an account
 
-**An account object emits events when they happen. An example of an event is when you make or receive a payment. You can listen for these events and act on them.**
+**An account object emits events when they happen. An example of an event is when you make or receive a payment. In this guide, you listen for these events and log them to the console.**
 
-## Prerequisites
+## IOTA network
 
-[Create an account](../how-to-guides/create-account.md).
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
-This guide assumes that you understand the concept of [events in Node.js](https://nodejs.org/api/events.html). Event listeners are used to assign callbacks to specific event types. You should always [remove event listeners](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener) when you're finished with them.
-
-## Monitor your account for incoming and outgoing payments
-
-When your account's connected nodes receive a bundle that affects your balance, your account can trigger two types of event: One when the bundle is in a **pending** state, and one when it's in an **included** (confirmed) state.
-
-Any incoming payments to your account are called deposits, and outgoing payments are called withdrawals.
+## Code walkthrough
 
 1. Attach listeners to your account for deposit and withdrawal events
 
@@ -71,6 +65,6 @@ You're account can now emit events that you can listen to and act on.
 
 ## Next steps
 
-Now that you have an event listener, start [making payments to/from your account](../how-to-guides/create-and-manage-cda.md) to test it.
+Now that you have an event listener, start [making payments to/from your account](../js/make-payment.md) to test it.
 
 

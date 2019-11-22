@@ -1,42 +1,35 @@
 # Create an account plugin in Go
 
-**Plugins extend the functionality of an account. All plugins run in their own goroutine and start and shut down together with an account.**
+**Plugins extend the functionality of an account. In this guide, you create a plugin that prints your accounts events to the console.**
 
-## Prerequisites
+## Packages
 
-[Create an account](../how-to-guides/create-account.md).
+To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
 
-This guide assumes that you've followed our [Getting started guide](../introduction/overview.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
+```bash
+go get github.com/iotaledger/iota.go/api
+go get github.com/iotaledger/iota.go/badger
+go get github.com/iotaledger/iota.go/builder
+go get github.com/iotaledger/iota.go/timesrc
+go get github.com/iotaledger/iota.go/trinary
+go get github.com/iotaledger/iota.go/account
+go get github.com/iotaledger/iota.go/account/event
+go get github.com/iotaledger/iota.go/account/event/listener
+```
 
-## Create a plugin that prints events to the screen
+## IOTA network
 
-To explain how to create a plugin, this guide helps you to create one that prints events to the screen as they happen.
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
-:::info:
-See the list of all possible [channel events](https://github.com/iotaledger/iota.go/blob/master/account/event/listener/channel_listener.go).
-:::
+## Step 1. Create the event logger
 
-1. Create a new file called `event_logger.go`
+1. Create a new file called `eventLogger.go`
 
-2. Import the required packages
-
-    ```go
-    package main
-
-    import (
-        "fmt"
-
-        "github.com/iotaledger/iota.go/account"
-        "github.com/iotaledger/iota.go/account/event"
-        "github.com/iotaledger/iota.go/account/event/listener"
-    )
-    ```
-
-3. Create a function that takes an `EventMachine` object as an argument and returns an `account.Plugin` object
+2. Create a function that takes an `EventMachine` object as an argument and returns an `account.Plugin` object
 
     ```go
-    // NewEventLoggerPlugin ...
-    func NewEventLoggerPlugin(em event.EventMachine) account.Plugin {
+    // NewLogPlugin ...
+    func NewLogPlugin(em event.EventMachine) account.Plugin {
         return &logplugin{em: em, exit: make(chan struct{})}
     }
 
@@ -56,10 +49,10 @@ See the list of all possible [channel events](https://github.com/iotaledger/iota
     ```
 
     :::info:
-    The `account` object uses this name in error messages to help you debug.
+    The `account` object uses this name in error messages to help with debugging.
     :::
 
-5. Create a `Start()` function that will be called when the account starts. When an account is started, all plugins take the `account` object as an argument.
+5. Create a `Start()` function that will be called when the account starts
 
     ```go
     func (l *logplugin) Start(acc account.Account) error {
@@ -68,6 +61,10 @@ See the list of all possible [channel events](https://github.com/iotaledger/iota
 	return nil
     }
     ```
+
+    :::info:
+    All plugins run in their own goroutine and start and shut down together with an account.
+    :::
 
 6. Create a `Shutdown()` function that shuts down the plugin at the same time as the account
 
@@ -128,9 +125,17 @@ See the list of all possible [channel events](https://github.com/iotaledger/iota
 
 8. Save the file
 
-9. Create a new file called `myAccount.go`
+## Step 2. Start your account with the event logger
 
-10. Build your account with the `NewEventLoggerPlugin()` function
+1. Create a new file called `account.go`
+
+2. Initialize an event machine
+
+    ```go
+    em := event.NewEventMachine()
+    ```
+
+3. Build your account with the `NewEventLoggerPlugin()` function
 
     ```go
     account, err = builder.NewBuilder().
@@ -145,11 +150,11 @@ See the list of all possible [channel events](https://github.com/iotaledger/iota
         // Load the time source to use during input selection
         WithTimeSource(timesource).
         // Load the EventMachine
-        .WithEvents(em)
+        WithEvents(em)
         // Load the default plugins that enhance the functionality of the account
         WithDefaultPlugins().
         // Load your custom plugin
-		Build( NewEventLoggerPlugin(em) )
+		Build( NewLogPlugin(em) )
     handleErr(err)
     ```
 
@@ -158,3 +163,23 @@ You've just created your first plugin.
 
 Now, when your account starts, you don't have to do anything to listen to events. Your plugin will print all events to the console as they happen.
 :::
+
+## Run the code
+
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+
+If you don't have a Go development environment or if this is your first time using the Go client library, complete our [getting started guide](../../getting-started/go-quickstart.md).
+
+In the command-line, do the following:
+
+```bash
+git clone https://github.com/JakeSCahill/getting-started-go-accounts.git
+cd getting-started-go-accounts
+go mod download
+go run create-plugin/account.go create-plugin/eventLogger.go
+```
+You should see that the event logger starts when your account does.
+
+## Next steps
+
+[Generate a conditional deposit address](../go/generate-cda.md).

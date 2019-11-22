@@ -181,7 +181,7 @@ You've sent a signed bundle that recovers IOTA tokens from a spent address by de
 :::warning:
 Until the bundle is confirmed, the tokens are still at risk of being withdrawn by an attacker.
 
-To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://client-libraries/0.1/tutorials/js/confirm-pending-bundle.md).
+To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://client-libraries/0.1/how-to-guides/js/confirm-pending-bundle.md).
 :::
 
 ## Sample code

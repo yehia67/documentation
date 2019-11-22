@@ -4,7 +4,7 @@
 
 ## Packages
 
-To complete this guide, you need to install the `core`, `converter`, and `signing` packages:
+To complete this guide, you need to install the following packages:
 
 --------------------
 ### npm

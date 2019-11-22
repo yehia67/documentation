@@ -4,7 +4,7 @@
 
 ## Packages
 
-To complete this guide, you need to install the `core` package:
+To complete this guide, you need to install the following package:
 
 --------------------
 ### npm

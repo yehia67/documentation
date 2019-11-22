@@ -1,56 +1,42 @@
 # Listen to account events in Go
 
-**An account object emits events when they happen. An example of an event is when you make or receive a payment. You can listen for these events and act on them.**
+**An account object emits events when they happen. An example of an event is when you make or receive a payment. In this guide, you listen for these events and log them to the console.**
 
-Accounts have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use callback listeners. If you're interested in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md).
+Accounts have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use callback listeners. If you're interested in using a channel listener, see our guide for [creating an event-listener plugin](../go/create-plugin.md).
 
-:::info:
-See the list of all possible [callback events](https://github.com/iotaledger/iota.go/blob/master/account/event/listener/callback_listener.go).
-:::
+## Packages
 
-## Prerequisites
+To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
 
-[Create an account](../how-to-guides/create-account.md).
+```bash
+go get github.com/iotaledger/iota.go/api
+go get github.com/iotaledger/iota.go/badger
+go get github.com/iotaledger/iota.go/builder
+go get github.com/iotaledger/iota.go/timesrc
+go get github.com/iotaledger/iota.go/trinary
+go get github.com/iotaledger/iota.go/account
+```
 
-## Monitor your account for incoming and outgoing payments
+## IOTA network
 
-When your account's connected nodes receive a bundle that affects your balance, your account can trigger two types of event: One when the bundle is in a **pending** state, and one when it's in an **included** (confirmed) state.
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
-Any incoming payments to your account are called deposits, and outgoing payments are called withdrawals.
-
+## Code walkthrough
 
 1. Build and start an account that has an `EventMachine` object
 
     ```go
-    node := "https://nodes.devnet.iota.org:443"
-    seed := "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX"
-
-    // API object that connects to a node
-    apiSettings := api.HTTPClientSettings{URI: node}
-    iotaAPI, err := api.ComposeAPI(apiSettings)
-    handleErr(err)
-
-    store, err := badger.NewBadgerStore("db")
-    handleErr(err)
-
-    em := event.NewEventMachine()
-
-    // Create an accurate time source (in this case Google's NTP server).
-    timesource := timesrc.NewNTPTimeSource("time.google.com")
-
     account, err = builder.NewBuilder().
-        // Load the IOTA API to use
-        WithAPI(iotaAPI).
-        // Load the database onject to use
-        WithStore(store).
-        // Load the seed of the account
-        WithSeed(seed).
-        // Use the minimum weight magnitude for the Devnet
-        WithMWM(9).
-        // Load the time source to use during input selection
-        WithTimeSource(timesource).
+        // Connect to a node
+		WithAPI(iotaAPI).
+		// Create the database
+		WithStore(store).
+		WithSeed(seed).
+		// Set the minimum weight magnitude for the Devnet
+		WithMWM(9).
+		WithTimeSource(timesource).
         // Load the EventMachine
-        .WithEvents(em)
+        WithEvents(em)
         // Load the default plugins that enhance the functionality of the account
         WithDefaultPlugins().
         Build()
@@ -99,4 +85,4 @@ You're account can now emit events that you can listen to and act on.
 
 ## Next steps
 
-Now that you have an event listener, start [making payments to/from your account](../how-to-guides/create-and-manage-cda.md) to test it.
+Now that you have an event listener, start [making payments to/from your account](../go/make-payment.md) to test it.

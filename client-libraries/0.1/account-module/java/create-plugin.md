@@ -1,6 +1,6 @@
 # Create a plugin
 
-**Plugins extend the functionality of an account. All plugins implement the `EventListener` interface and are added to the `EventManager`. As a result, when you create a plugin, you don't need to register a separate `EventListener` with your account.**
+**Plugins extend the functionality of an account. In this guide, you create a plugin that prints your accounts events to the console.**
 
 ## Step 1. Create a plugin that prints events to the screen
 
@@ -127,3 +127,7 @@ When the account loads the plugin, you'll see the following message: `Loaded plu
 
 Now, whenever a deposit or withdrawal is confirmed or promoted for your account, you'll receive a message from the plugin.
 :::
+
+## Next steps
+
+Now that you have an event listener, start [making payments to/from your account](../java/make-payment.md) to test it.

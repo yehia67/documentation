@@ -2,7 +2,31 @@
 
 **If you want to publish messages to a channel that anyone can read, you can use a public channel. These channels are open for any user to find and decrypt the messages, using the address of the transaction that it's in. This type of channel is useful for public announcements or public social media applications that want the data to be immutable.**
 
-Here, we connect to a node on the Devnet, which is one of the [IOTA networks](root://getting-started/0.1/network/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free.
+## Packages
+
+To complete this guide, you need to install the following packages:
+
+--------------------
+### npm
+```bash
+npm install @iota/mam @iota/converter
+```
+---
+### Yarn
+```bash
+yarn add @iota/mam @iota/converter
+```
+--------------------
+
+## IOTA network
+
+In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.md) on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings:
+
+- **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
+
+- **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3
+
+## Code walkthrough
 
 1. Require the packages
 
@@ -138,3 +162,7 @@ You've published messages to a restricted MAM channel. Anything you publish to t
 Click the green button to run the sample code and see the results in the web browser.
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/MAM-public?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+## Next steps
+
+[Publish private MAM messages](../js/create-restricted-channel.md).

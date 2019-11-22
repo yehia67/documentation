@@ -1,8 +1,12 @@
 # Publish and display public messages on a webpage
 
-**In the `mam` package is a minified JavaScript file that you can use in webpages. This way, you can build web applications that publish MAM messages and display them.**  
+**In the `mam` package is a minified JavaScript file that you can use in webpages. This way, you can build web applications that publish MAM messages and display them.**
 
-## Create a web page that displays MAM messages
+## IOTA network
+
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+
+## Code walkthrough
 
 1. Set up your HTML document, and create a `<div></div>` element with an `id` attribute set to `"output"` so your script knows where to send the MAM messages.
 
@@ -129,3 +133,7 @@ Fetched and parsed CHARLIE
 Click the green button to run the sample code in this guide and see the results in the web browser. 
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/MAM-webpage?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+## Next steps
+
+Take a look at the [MAM API reference](../api-reference/mam-api-reference.md) to learn more.

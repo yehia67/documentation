@@ -4,7 +4,7 @@
 
 ## Packages
 
-To complete this guide, you need to install the `converter` package:
+To complete this guide, you need to install the following package:
 
 --------------------
 ### npm

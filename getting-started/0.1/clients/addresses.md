@@ -78,6 +78,6 @@ You can use the following IOTA Tangle Utilities with addresses:
 
 [Generate an address in Trinity](root://wallets/0.1/trinity/how-to-guides/receive-a-transaction.md).
 
-[Derive addresses from private keys in JavaScript](root://client-libraries/0.1/tutorials/js/derive-addresses-from-private-keys.md)
+[Derive addresses from private keys in JavaScript](root://client-libraries/0.1/how-to-guides/js/derive-addresses-from-private-keys.md)
 
 
