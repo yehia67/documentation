@@ -5,6 +5,7 @@
 [IRI/Concepts/Transaction validation](/iri/concepts/transaction-validation.md)
 [IRI/Concepts/Local snapshot](/iri/concepts/local-snapshot.md)
 [IRI/Concepts/Tip selection](/iri/concepts/tip-selection.md)
+[IRI/How-to Guides/Get started with IRI](/iri/how-to-guides/quickstart.md)
 [IRI/How-to Guides/Run an IRI node](/iri/how-to-guides/install-iri.md)
 [IRI/How-to Guides/Set up a reverse proxy server](/iri/how-to-guides/set-up-a-reverse-proxy.md)
 [IRI/How-to Guides/Prune transactions from the ledger](/iri/how-to-guides/prune-transactions-from-the-ledger.md)
