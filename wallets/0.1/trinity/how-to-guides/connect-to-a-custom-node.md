@@ -14,7 +14,7 @@ As well as connecting to a single custom node, you can also add multiple custom 
     All nodes in Trinity must communicate over HTTPS.
     :::
 
-2. If you want to outsource [proof of work](root://getting-started/0.1/transactions/proof-of-work.md), enable the Outsouce proof of work option
+2. If you want to outsource [proof of work](root://getting-started/0.1/transactions/proof-of-work.md), enable the **Outsource proof of work** option
 
     :::info:
     By default proof of work is done on the computer that is running Trinity.
