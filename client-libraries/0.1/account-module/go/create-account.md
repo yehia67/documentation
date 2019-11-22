@@ -20,88 +20,105 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 
 ## Code walkthrough
 
-1. [Create a new seed](root://getting-started/0.1/tutorials/create-a-seed.md) to start with a new seed state
+1\. Create a new seed and back it up
 
-2. Define the seed that your account will use
+--------------------
+### Linux
+```bash
+cat /dev/urandom |tr -dc A-Z9|head -c${1:-81}
+```
+---
+### macOS
+```bash
+cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
+```
+---
+### Windows
+```bash
+$b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).GetBytes($b);-join($b|%{[char[]] (65..90+57..57)[$_%27]})
+```
+--------------------
 
-    ```go
-    var seed = trinary.Trytes("PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX")
-    ```
+2\. Define the seed that your account will use
 
-    :::danger:
-    If you want to use a seed from a particular location, for example a hardware wallet, create a custom `SeedProvider` object, and pass it to the `WithSeedProvider()` method.
-    :::
+```go
+var seed = trinary.Trytes("PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX")
+```
 
-3. Connect to a node
+:::danger:
+If you want to use a seed from a particular location, for example a hardware wallet, create a custom `SeedProvider` object, and pass it to the `WithSeedProvider()` method.
+:::
+
+3\. Connect to a node
    
-    ```go
-    apiSettings := api.HTTPClientSettings{URI: "https://nodes.devnet.iota.org:443"}
-    iotaAPI, err := api.ComposeAPI(apiSettings)
-    handleErr(err)
-    ```
+```go
+apiSettings := api.HTTPClientSettings{URI: "https://nodes.devnet.iota.org:443"}
+iotaAPI, err := api.ComposeAPI(apiSettings)
+handleErr(err)
+```
 
-4. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a BadgerDB database. Change `db` to the path where you want to save the database directory.
+4\. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a BadgerDB database. Change `db` to the path where you want to save the database directory.
 
-    ```go
-    store, err := badger.NewBadgerStore("db")
-    handleErr(err)
+```go
+store, err := badger.NewBadgerStore("db")
+handleErr(err)
 
-    // Make sure the database closes when the code stops
-	defer store.Close()
-    ```
+// Make sure the database closes when the code stops
+defer store.Close()
+```
 
-5. Create a `timesource` object that returns an accurate time, which the account will use to decide if your CDAs are still active. In this example, the time source is a [Google NTP (network time protocol) server](https://developers.google.com/time/faq).
+5\. Create a `timesource` object that returns an accurate time, which the account will use to decide if your CDAs are still active. In this example, the time source is a [Google NTP (network time protocol) server](https://developers.google.com/time/faq).
 
-     ```go
-    timesource := timesrc.NewNTPTimeSource("time.google.com")
-    ```
+```go
+timesource := timesrc.NewNTPTimeSource("time.google.com")
+```
 
-6. Build your account. If you don't specify any custom settings, the account uses the [defaults](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/account_default_settings.md).
+6\. Build your account. If you don't specify any custom settings, the account uses the [defaults](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/account_default_settings.md).
 
-    ```go
-    account, err := builder.NewBuilder().
-        // Connect to a node
-		WithAPI(iotaAPI).
-		// Create the database
-		WithStore(store).
-		WithSeed(seed).
-		// Set the minimum weight magnitude for the Devnet
-		WithMWM(9).
-		WithTimeSource(timesource).
-		// Load the default plugins that enhance the functionality of the account
-		WithDefaultPlugins().
-		Build()
-    handleErr(err)
-    ```
+```go
+account, err := builder.NewBuilder().
+    // Connect to a node
+    WithAPI(iotaAPI).
+    // Create the database
+    WithStore(store).
+    WithSeed(seed).
+    // Set the minimum weight magnitude for the Devnet
+    WithMWM(9).
+    WithTimeSource(timesource).
+    // Load the default plugins that enhance the functionality of the account
+    WithDefaultPlugins().
+    Build()
+handleErr(err)
+```
 
-    The default plugins include the `transfer-poller` and the `promoter-reattacher` plugins.
-    
-    Every 30 seconds, the `transfer-poller` plugin checks whether withdrawals have been confirmed or whether any deposits are pending.
-    
-    The `promoter-reattacher` plugin [promotes or reattaches](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) any pending withdrawal transactions that the `transfer-poller` finds.
+The default plugins include the `transfer-poller` and the `promoter-reattacher` plugins.
 
-    :::info:
-    You can customize the behavior of these plugins or build your own.
-    :::
+Every 30 seconds, the `transfer-poller` plugin checks whether withdrawals have been confirmed or whether any deposits are pending.
 
-7. Start the account and the plugins
+The `promoter-reattacher` plugin [promotes or reattaches](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) any pending withdrawal transactions that the `transfer-poller` finds.
 
-    ```go
-    handleErr(account.Start())
+:::info:
+You can customize the behavior of these plugins or build your own.
+:::
 
-    defer account.Shutdown()
-    ```
+7\. Start the account and the plugins
 
-8. Check your account's balance
+```go
+handleErr(account.Start())
 
-    ```go
-    balance, err := account.AvailableBalance()
-    handleErr(err)
-    fmt.Println("Total available balance: ")
-    fmt.Println(balance)
-    ```
+defer account.Shutdown()
+```
 
-    You should see your balance.
+8\. Check your account's balance
+
+```go
+balance, err := account.AvailableBalance()
+handleErr(err)
+fmt.Println("Total available balance: ")
+fmt.Println(balance)
+```
+
+You should see your balance.
 
 :::success:Congratulations! :tada:
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your seed.
