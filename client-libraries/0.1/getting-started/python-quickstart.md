@@ -18,10 +18,10 @@ Although it's not necessary, we recommend using [virtual environments](https://r
 
 1. [Install one of the supported version of Python](https://www.python.org/downloads/):
 
-    - Python 2.7,
-    - Python 3.5,
-    - Python 3.6,
-    - Python 3.7
+- Python 2.7,
+- Python 3.5,
+- Python 3.6,
+- Python 3.7
 
 2. If you installed Python 2.7, install the virtual environment package
 

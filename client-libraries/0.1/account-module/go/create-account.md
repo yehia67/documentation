@@ -45,7 +45,7 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
 var seed = trinary.Trytes("PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX")
 ```
 
-:::danger:
+:::info:
 If you want to use a seed from a particular location, for example a hardware wallet, create a custom `SeedProvider` object, and pass it to the `WithSeedProvider()` method.
 :::
 
@@ -128,7 +128,7 @@ You've created an account that will automatically promote and reattach transacti
 
 To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
-If you don't have a Go development environment or if this is your first time using the Go client library, complete our [getting started guide](../../getting-started/go-quickstart.md).
+If you don't have a Go development environment, or if this is your first time using the Go client library, complete our [getting started guide](../../getting-started/go-quickstart.md).
 
 In the command-line, do the following:
 

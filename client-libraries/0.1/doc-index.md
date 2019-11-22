@@ -72,7 +72,7 @@
 
 [Account module/JavaScript/Create an account](/account-module/js/create-account.md)
 
-[Account module/Java/Listen to events](/account-module/js/listen-to-events.md)
+[Account module/JavaScript/Listen to events](/account-module/js/listen-to-events.md)
 
 [Account module/JavaScript/Make a payment](/account-module/js/make-payment.md)
 
