@@ -29,7 +29,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     String mySeed = "PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
     ```
 
-    :::danger:Protect your seed
+    :::info:
     If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `Builder()` constructor.
     :::
 
