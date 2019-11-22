@@ -11,3 +11,7 @@
 :::info:
 Auto-promotion is available on mobile devices only when Trinity is in the foreground.
 :::
+
+## Next steps
+
+[Check your balance of IOTA tokens](../how-to-guides/read-your-balance.md).

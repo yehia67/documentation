@@ -18,6 +18,10 @@
             "name": "qubic"
         },
         {
+            "href": "https://training.iota.org/",
+            "name": "training"
+        },
+        {
             "href": "https://utils.iota.org/",
             "name": "utils"
         },
@@ -51,9 +55,9 @@
             "name": "What is IOTA?"
         },
         {
-            "href": "/docs/getting-started/0.1/tutorials/get-started",
+            "href": "/docs/client-libraries/0.1/getting-started/quickstart",
             "image": "3.png",
-            "name": "Getting Started"
+            "name": "Get Started"
         },
         {
             "href": "/docs/getting-started/0.1/references/quickstart-dev-handbook",

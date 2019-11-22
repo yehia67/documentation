@@ -8,7 +8,7 @@ You must know how to do the following:
 
 - [Deploy a Firebase server](https://firebase.google.com/)
 
-- [Connect to an IRI node](root://node-software/0.1/iri/how-to-guides/interact-with-an-iri-node.md)
+- [Connect to an IRI node](root://node-software/0.1/iri/how-to-guides/get-started-with-the-api.md)
 
 - Create a MAM channel and send messages through it using the [JavaScript client library](https://github.com/iotaledger/mam.client.js )
 

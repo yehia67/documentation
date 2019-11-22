@@ -19,4 +19,4 @@ The IRI receives transactions and records them in its ledger, it doesn't create 
 
 ## Next steps
 
-Run an IRI node on [Linux](../how-to-guides/run-an-iri-node-on-linux.md) or [Docker](../how-to-guides/run-an-iri-node-in-docker.md) to get started with validating and storing transactions.
+[Run an IRI node](../how-to-guides/install-iri.md)to get started with validating and storing transactions.

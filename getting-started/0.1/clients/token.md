@@ -36,3 +36,8 @@ You can use a service such as [IOTA Tangle Utilities](https://utils.iota.org/cur
 
 You can also use a Tangle explorer to search for statistics such as the [richest addresses](https://thetangle.org/statistics/richest-addresses).
 
+## Related guides
+
+[Send a transaction in Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md).
+
+[Transfer IOTA tokens in JavaScript](root://client-libraries/0.1/workshops/js/transfer-iota-tokens.md).

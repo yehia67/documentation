@@ -2,8 +2,6 @@
 
 **IOTA has two public networks of [nodes](../network/nodes.md), and each one has its own [Tangle](../network/the-tangle.md) to which nodes can attach [transactions](../transactions/transactions.md).**
 
-A public IOTA network is one that anyone can join and use. All transactions in a public IOTA network are transparent, and anyone can see them and the balances of all addresses by connecting to a node.
-
 IOTA has the following public networks:
 
 - **Mainnet:** IOTA token
@@ -91,3 +89,36 @@ This endpoint gives you access to a node that can do remote proof of work.
 Use the PoW node to save power on small devices.
 
 **URL:** https://powbox.devnet.iota.org
+
+## Advice for choosing an IOTA network
+
+When choosing a minimum weight magnitude, you should consider the following questions.
+
+### Do you want to send test transactions that transfer IOTA tokens?
+
+When testing IOTA in a development environment, you should consider connecting to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). This IOTA network requires less [proof of work](root://getting-started/0.1/transactions/proof-of-work.md), which reduces the time it takes to create transactions, and it uses [free test IOTA tokens](root://getting-started/0.1/tutorials/get-test-tokens.md).
+
+### Do you want to control the performance of the network?
+
+When testing IOTA, you may want more control over the performance of an IOTA network and/or who has access to the Tangle. In this case, you can run a [private Tangle](root://compass/0.1/introduction/overview.md).
+
+### Do you want to use the valuable IOTA token?
+
+When deploying your application in a production environment, you should connect to a node on the [Mainnet](root://getting-started/0.1/network/iota-networks.md#mainnet). This network uses the IOTA token that's traded on cryptocurrency exchanges.
+
+### Should you use a third-party node?
+
+Connecting to third-party nodes is convenient, but comes at a disadvantage if you need a reliable service. For example:
+
+- Your transactions will compete with other transactions that the node receives and will be processed with a priority that the node decides
+- You might be requested to pay for fast PoW computation or to provide a transaction that includes PoW
+- A copy of your transactions might be kept only for a limited time that's decided by the node
+- A permanode option (permanent storage of your transactions) might require a fee
+
+To overcome these disadvantages, we recommend that you run your own node and connect your application to it for direct access to the Tangle. Your own node gives you more control on how fast your transactions are attached to the Tangle and allows you to store them permanently.
+
+A public IOTA network is one that anyone can join and use. All transactions in a public IOTA network are transparent, and anyone can see them and the balances of all addresses by connecting to a node.
+
+## Related guides
+
+[Connect to a node in JavaScript](root://client-libraries/0.1/getting-started/js-quickstart.md).

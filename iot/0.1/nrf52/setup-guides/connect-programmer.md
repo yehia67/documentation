@@ -26,7 +26,7 @@ To use your programmer, you need to wire it to your microcontroller.
     
 ### J-Link
 
-1. Connect the following pins from the nRF52 to the J-Link.
+1. Connect the following pins from the nRF52 to the J-Link
 
     |    **nRF52**    |    **J-Link (pin number)**   |
     |-------------|-------------------|
@@ -56,7 +56,7 @@ If the connections are correct, your PC should detect that the J-Link is connect
 
 ## Next steps
 
-[Continue setting up your microcontroller](../introduction/get-started.md#find-next-section).
+[Continue setting up your microcontroller](../introduction/get-started.md#step-2-set-up-).
 
 
 

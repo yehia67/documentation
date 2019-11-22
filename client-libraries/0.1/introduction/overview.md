@@ -10,24 +10,28 @@ The client libraries are currently in beta and you should not use them in produc
 
 ---------------
 
-#### **JavaScript library** ####
-[Link](root://iota-js/0.1/introduction/overview.md)
+#### **Go library** ####
+[Link](../getting-started/go-quickstart.md)
 
-The official JavaScript client library. This library includes the core package, the account module packages, and the MAM package.
+The official Go client library. This library includes the core library and the account module.
 
 ---
 
 #### **Java library** ####
-[Link](root://iota-java/0.1/introduction/overview.md)
+[Link](../getting-started/java-quickstart.md)
 
 The official Java client library. This library includes the core library and the account module.
 
 ---
 
-#### **Golang library** ####
-[Link](root://iota-go/0.1/introduction/overview.md)
+#### **JavaScript library** ####
+[Link](../getting-started/js-quickstart.md)
 
-The official Go client library. This library includes the core library and the account module.
+The official JavaScript client library. This library includes the core package, the account module packages, and the MAM package.
+
+---
+
+
 ---------------
 
 ### __Community support__ ###

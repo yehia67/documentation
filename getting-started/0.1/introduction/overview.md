@@ -37,7 +37,7 @@ IOTA networks have many benefits compared to traditional ways of transferring da
 
 Each node in an IOTA network validates transactions, then sends them to other nodes that do the same. As a result, all valid transactions are agreed on by all nodes, removing the need to trust a single one in the network.
 
-You can even [run your own node](../tutorials/run-your-own-iri-node.md) to start validating transaction in the network.
+You can even run your own node to start validating transaction in the network.
 
 ### Immutability
 
@@ -47,7 +47,7 @@ Each transaction references the transaction hashes of two previous ones. So, if 
 
 ### Security
 
-IOTA uses quantum-resistant one-time [signatures](../clients/signatures.md) to stop attackers from stealing IOTA tokens.
+IOTA uses quantum-robust one-time [signatures](../clients/signatures.md) to stop attackers from stealing IOTA tokens.
 
 IOTA networks are peer-to-peer networks where no central authority controls the Tangle. Instead, all nodes hold a copy of it and reach a consensus on its contents.
 
@@ -85,7 +85,7 @@ eCl@ss|eCl@ss is cooperating with IOTA to share and store ISO/IEC-compliant prod
 
 **Non-developers:** Use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md) to create and store your seed, send and receive transactions, and more.
 
-**Developers:** [Get started with one of the client libraries](../tutorials/get-started.md) or [join an IOTA network by running your own node](../tutorials/run-your-own-iri-node.md)
+**Developers:** [Get started with one of the client libraries](root://client-libraries/0.1/getting-started/quickstart.md) or [join an IOTA network by running your own node](root://node-software/0.1/iri/how-to-guides/quickstart.md)
 
 **Exchanges:** Use the [official Hub wallet](root://wallets/0.1/hub/introduction/overview.md) to integrate IOTA into your exchange.
 

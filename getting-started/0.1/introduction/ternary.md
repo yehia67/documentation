@@ -45,3 +45,7 @@ You can use the following IOTA Tangle Utilities with ternary data:
 - [Convert data to/from trytes](https://utils.iota.org/text-conversion)
 
 - [Compress trytes for storage](https://utils.iota.org/compress)
+
+## Related guides
+
+[Convert data to/from trytes in JavaScript](root://client-libraries/0.1/how-to-guides/js/convert-data-to-trytes.md)

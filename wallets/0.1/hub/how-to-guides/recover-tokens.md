@@ -13,7 +13,7 @@ To transfer the total balance of a spent address into a single output address, i
 To complete this guide, you need the following:
 
 - An [instance of Hub](../how-to-guides/install-hub.md)
-- [A Node.js developer environment](root://iota-js/0.1/workshop/set-up-a-developer-environment.md)
+- [A Node.js developer environment](root://client-libraries/0.1/getting-started/js-quickstart.md)
 - The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages
 - The [`SignBundle_enabled` flag](../references/command-line-options.md#signBundle) set to `true`.
 
@@ -181,7 +181,7 @@ You've sent a signed bundle that recovers IOTA tokens from a spent address by de
 :::warning:
 Until the bundle is confirmed, the tokens are still at risk of being withdrawn by an attacker.
 
-To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://iota-js/0.1/core/how-to-guides/confirm-pending-bundle.md).
+To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://client-libraries/0.1/how-to-guides/js/confirm-pending-bundle.md).
 :::
 
 ## Sample code

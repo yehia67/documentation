@@ -6,8 +6,5 @@
 [Utilities](/utils)
 [App Blueprints](/blueprints)
 [IoT Projects](/iot)
-[IOTA Go](/iota-go)
-[IOTA Java](/iota-java)
-[IOTA JS](/iota-js)
 [General](/general)
 [Contribution](/contribution)

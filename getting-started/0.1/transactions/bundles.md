@@ -167,3 +167,11 @@ For example, this bundle contains one transaction that has a tryte-encoded messa
 You can use the following IOTA Tangle Utilities with bundles:
 
 [Search for transactions in a given bundle](https://utils.iota.org/) by their bundle hash.
+
+## Related guides
+
+[Send a "hello world" transaction in JavaScript](root://client-libraries/0.1/workshops/js/send-your-first-bundle.md).
+
+[Transfer IOTA tokens in JavaScript](root://client-libraries/0.1/workshops/js/transfer-iota-tokens.md).
+
+[Send a transaction in Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md).

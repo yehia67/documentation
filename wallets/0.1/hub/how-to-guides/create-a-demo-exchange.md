@@ -366,7 +366,7 @@ To make sure this balance is kept up to date, you can monitor Hub user addresses
 
 8. Start the server, and request a new deposit address
 
-9. Use the Devnet faucet to [send some test IOTA tokens to your deposit address](root://iota-js/0.1/workshop/transfer-iota-tokens.md)
+9. Use the Devnet faucet to [send some test IOTA tokens to your deposit address](root://client-libraries/0.1/workshops/js/transfer-iota-tokens.md)
 
     :::info:
     In the guide, replace the `receivingAddress` variable with your deposit address.
