@@ -77,4 +77,4 @@ After configuring the code to use the correct sensor drivers, you can compile it
 
 Reading sensor data from a shell session like this is useful only while you debug an application.
 
-For a production application, you can [set up a Bluetooth star network](../how-to-guides/set-up-a-bluetooth-star-network.md) that allows clients to connect to the sensor over the Internet. 
+For a production application, you can [set up a Bluetooth star network](../how-to-guides/set-up-a-bluetooth-star-network.md) that allows clients on the same local network to connect to the sensor and read its data.

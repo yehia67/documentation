@@ -23,7 +23,7 @@ The standard is defined in the following documents:
 [RFC 6282](https://datatracker.ietf.org/doc/rfc6282/), 
 [RFC 8066](https://datatracker.ietf.org/doc/rfc8066/)
 
-![6LoWPAN network stack](../nrf52/images/6LoWPAN.png)
+![6LoWPAN network stack](../images/6LoWPAN.png)
 
 ### 6LoWPAN over Bluetooth Low Energy
 
@@ -32,7 +32,7 @@ The 6LoWPAN over Bluetooth Low Energy protocol uses 6LoWPAN techniques to enable
 
 The complete IP standard for Bluetooth is defined in the [Bluetooth 4.2 specification](https://www.bluetooth.org/DocMan/handlers/DownloadDoc.ashx?doc_id=286439).
 
-![6LoWPAN over Bluetooth Low Energy network stack](../nrf52/images/ipv6onnrf51.png)
+![6LoWPAN over Bluetooth Low Energy network stack](../images/ipv6onnrf51.png)
 
 ## Network topologies
 
@@ -48,7 +48,7 @@ The star topology is the simplest form of network topology. In the star topology
 |Easy to extend|The border router is a single point of failure|
 |Fast data transfer|
 
-![Star network topology](../nrf52/images/star_topology.png)
+![Star network topology](../images/star_topology.png)
 
 ### Mesh tree
 
@@ -59,7 +59,7 @@ A mesh tree topology is a network topology in which all the network nodes are co
 |Easy to diagnose a faulty device|Can be difficult to add more devices to the network|
 |Secure and private connections|
 
-![Mesh tree network topology](../nrf52/images/mesh.png)
+![Mesh tree network topology](../images/mesh.png)
 
 ## Naming conventions
 
