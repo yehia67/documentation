@@ -16,7 +16,7 @@ In the star topology, all devices directly communicate with the border router, w
 
 You could connect more than one sensor server node to the border router, but in this example we connect only one.
 
-![Star network topology](../images/star_topology.png)
+![Star network topology](../../images/star_topology.png)
 
 ## Step 1. Set up a sensor server node
 
