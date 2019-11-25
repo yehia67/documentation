@@ -74,7 +74,7 @@ You can use the following IOTA Tangle Utilities with addresses:
 
 ## Related guides
 
-[Generate an address in JavaScript](root://client-libraries/0.1/workshops/js/generate-an-address.md).
+[Generate an address in JavaScript](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md).
 
 [Generate an address in Trinity](root://wallets/0.1/trinity/how-to-guides/receive-a-transaction.md).
 
