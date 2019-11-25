@@ -10,7 +10,7 @@ If you complete this guide from beginning to end, you'll learn how to install, r
 
 2. [Run IRI](../how-to-guides/install-iri.md)
 
-3. [Get started with the IRI API](../how-to-guides/get-started-with-api.md)
+3. [Get started with the IRI API](../how-to-guides/get-started-with-the-api.md)
 
 4. [Set up a reverse proxy server](../how-to-guides/set-up-a-reverse-proxy.md)
 

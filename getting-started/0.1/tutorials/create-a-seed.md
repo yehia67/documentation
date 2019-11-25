@@ -34,13 +34,13 @@ cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
 1\. Do the following in Powershell:
 
 ```bash
-$b=[byte[]](1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).GetBytes($b);-join($b|%{[char[]](65..90+57..57)[$_%27]})
+$b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).GetBytes($b);-join($b|%{[char[]] (65..90+57..57)[$_%27]})
 ```
 
 2\. Copy and paste your seed into a file and store it in a safe place
 --------------------
 
-## Use Keepass
+## Use KeePass
 
 KeePass is a password manager that stores passwords in encrypted databases, which can be unlocked with one master password or key file.
 
@@ -60,7 +60,7 @@ These instructions are for Windows, but you can also use KeePass on Linux or mac
 
 5. Click **Generate a password**
 
-    ![Selecting the Keepass password generator](../images/keypass-password-generator.png)
+    ![Selecting the KeePass password generator](../images/keypass-password-generator.png)
 
 6. Select only the following options and click **OK**:
 

@@ -168,7 +168,7 @@ Now, when your account starts, you don't have to do anything to listen to events
 
 To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
-If you don't have a Go development environment or if this is your first time using the Go client library, complete our [getting started guide](../../getting-started/go-quickstart.md).
+If you don't have a Go development environment, or if this is your first time using the Go client library, complete our [getting started guide](../../getting-started/go-quickstart.md).
 
 In the command-line, do the following:
 
