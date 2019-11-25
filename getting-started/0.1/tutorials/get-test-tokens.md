@@ -40,4 +40,4 @@ You can transfer these tokens on the Devnet, using Trinity or one of the client 
 
 - [Transfer your test tokens with Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md)
 
-- [Transfer your test tokens with the JavaScript client library](root://client-libraries/0.1/workshops/js/transfer-iota-tokens.md)
+- [Transfer your test tokens with the JavaScript client library](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md)

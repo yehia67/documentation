@@ -150,8 +150,8 @@ These IOTA Tangle utilities are useful for working with transactions:
 
 ## Related guides
 
-[Send a "hello world" transaction in JavaScript](root://client-libraries/0.1/workshops/js/send-your-first-bundle.md).
+[Send a "hello world" transaction in JavaScript](root://client-libraries/0.1/how-to-guides/js/send-your-first-bundle.md).
 
-[Transfer IOTA tokens in JavaScript](root://client-libraries/0.1/workshops/js/transfer-iota-tokens.md).
+[Transfer IOTA tokens in JavaScript](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md).
 
 [Send a transaction in Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md).

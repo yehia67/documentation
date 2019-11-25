@@ -100,4 +100,4 @@ This list offers you some ways to avoid losing your seed:
 
 ## Next steps
 
-Use the JavaScript client library to [generate an unspent address for your seed](root://client-libraries/0.1/workshops/js/generate-an-address.md).
+Use the JavaScript client library to [generate an unspent address for your seed](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md).
