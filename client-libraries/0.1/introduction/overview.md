@@ -38,7 +38,7 @@ The official JavaScript client library. This library includes the core package, 
 ---
 
 #### **Python library** ####
-[Link](https://github.com/iotaledger/iota.lib.py)
+[Link](../getting-started/python-quickstart.md)
 
 The official Python client library. This library includes core and extended functionality.
 
