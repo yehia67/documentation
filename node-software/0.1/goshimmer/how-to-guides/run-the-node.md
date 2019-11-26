@@ -78,7 +78,7 @@ To build the Docker container, you must install Docker 17.05+ (for multi-stage b
 
 ### Step 2. Run the node
 
-When you run the node, it joins the network by autopeering with the entry node that's run by us at the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors.
+When you run the node, it joins the network by autopeering with the entry node that's run by the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors.
 
 1. Clone the `goshimmer` repository
     
@@ -100,14 +100,14 @@ When you run the node, it joins the network by autopeering with the entry node t
 
 4. Run the Docker image
 
-    Here, we run the Docker image in the background, forward the ports from your host device to the Docker container, and and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
+    Here, we run the Docker image in the background, forward the ports from your host device to the Docker container, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
 
     :::info:
     If you have [Docker Compose](https://docs.docker.com/compose/), you can also use the `docker-compose up -d` command.
     :::
 
     ```bash
-    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer --node-enable-plugins "spammer zeromq dashboard"
+    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer --node.enablePlugins "spammer zeromq dashboard"
     ```
 
     The container ID is displayed in the console.
@@ -199,8 +199,8 @@ When you run the node, it joins the network by autopeering with the entry node t
 
 3. Execute the `shimmer` file, according to your operating system:
 
-- **Linux and macOS:** `./shimmer --enable-node-plugins "spammer zeromq dashboard"`
-- **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node-enable-plugins "spammer zeromq dashboard"` in the command-line interface
+- **Linux and macOS:** `./shimmer --node.enablePlugins "spammer zeromq dashboard"`
+- **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node.enablePlugins "spammer zeromq dashboard"` in the command-line interface
 
 Here, we run the run the node in the background, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
 
