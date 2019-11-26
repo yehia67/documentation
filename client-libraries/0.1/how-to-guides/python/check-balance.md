@@ -48,7 +48,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     In the console, you should see a balance of [IOTA tokens](root://getting-started/0.1/clients/token.md).
 
     ```
-    [500]
+    The balance for your seed is: 500
     ```
 
 :::success:Congratulations :tada:
