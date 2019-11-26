@@ -10,7 +10,7 @@
 
 [Official support/IOTA area codes/Get started](/official/iota-area-codes/overview.md)
 
-[Official support/Proof of existance/Get started](/official/proof-of-existance/overview.md)
+[Official support/Proof of existence/Get started](/official/proof-of-existence/overview.md)
 
 [Official support/Tangle certificate creator/Get started](/official/tangle-certificate/overview.md)
 

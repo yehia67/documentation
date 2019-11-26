@@ -1,10 +1,10 @@
-# Proof-of-existance provider overview
+# Proof-of-existence provider overview
 
-**Files are important for transporting information such as contracts among different parties. Sometimes, one party may change a file without the others knowing. So, all parties need a way to reliably prove that a file has not been changed so they can trust it. To prove that a file is unchanged, you can use the proof-of-existance utility to hash the file's contents and attach it to the Tangle. This way, any party can later hash the file and compare it to the immutable one on the Tangle. If the hashes are the same, the file is unchanged.**
+**Files are important for transporting information such as contracts among different parties. Sometimes, one party may change a file without the others knowing. So, all parties need a way to reliably prove that a file has not been changed so they can trust it. To prove that a file is unchanged, you can use the proof-of-existence utility to hash the file's contents and attach it to the Tangle. This way, any party can later hash the file and compare it to the immutable one on the Tangle. If the hashes are the same, the file is unchanged.**
 
 ## Prove that a file is unchanged
 
-In this example, we use the [proof-of-existance library](https://github.com/iotaledger/iota-poex-tool) to prove that a file is unchanged.
+In this example, we use the [proof-of-existence library](https://github.com/iotaledger/iota-poex-tool) to prove that a file is unchanged.
 
 First, we create a file that we later want to prove is unchanged. Then, we hash the file and add its hash to a transaction before attaching it to the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) Tangle. The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
@@ -119,7 +119,7 @@ Click the green button to run the sample code in this tutorial and see the resul
 In this example, we don't use a file. Instead, we pass a string to the `publish` function and specify that it's a binary input in the second argument.
 :::
 
-<iframe height="600px" width="100%" src="https://repl.it/@jake91/proof-of-existance-utility?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/proof-of-existence-utility?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 You can also run the sample code on your own device by using the following command
 
@@ -137,4 +137,4 @@ File verified: The file matches the hash on the Tangle
 
 Use what you've learned to build an application that secures signed documents on the Tangle. You can use the [document immutability blueprint](root://blueprints/0.1/doc-immutability/overview.md) for inspiration.
 
-Use our proof-of-existance user interface to [upload a file hash to the Tangle](https://iota-poex.dag.sh).
+Use our proof-of-existence user interface to [upload a file hash to the Tangle](https://iota-poex.dag.sh).

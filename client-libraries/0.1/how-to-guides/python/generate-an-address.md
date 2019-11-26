@@ -42,11 +42,18 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
 
     If an address with the given index is spent, the index is incremented until the node finds one that isn't spent.
 
-    Because of local snapshots, a node have pruned these input transactions from its ledger. Therefore, we should also check the node's record of spent addresses.
+    Because of local snapshots, a node may have pruned these input transactions from its ledger. Therefore, we should also check the node's record of spent addresses.
 
 6. Check if the address has ever been spent, according to the connected node
     
-    
+    ```python
+    is_spent = api.were_addresses_spent_from([receiver_address])['states'][0]
+
+    if is_spent:
+        print('Address %s has been spent from before!' % receiver_address.__str__() )
+    else:
+        print('Your address is: %s' % receiver_address.__str__() )
+    ```
 
     :::warning:
     This way of generating addresses replies on the node to return valid data about your addresses. To have more control over your addresses, we recommend using the [account module](../../account-module/introduction/overview.md) to keep track of spent addresses in your own local database.
