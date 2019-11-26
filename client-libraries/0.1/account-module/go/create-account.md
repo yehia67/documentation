@@ -33,7 +33,7 @@ cat /dev/urandom |tr -dc A-Z9|head -c${1:-81}
 cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
 ```
 ---
-### Windows
+### Windows PowerShell
 ```bash
 $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).GetBytes($b);-join($b|%{[char[]] (65..90+57..57)[$_%27]})
 ```

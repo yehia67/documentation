@@ -2,6 +2,14 @@
 
 **In this guide, you send a "hello world" message in a zero-value transaction. These transactions are useful for storing messages on the [Tangle](root://getting-started/0.1/network/the-tangle.md) without having to send any [IOTA tokens](root://getting-started/0.1/clients/token.md).**
 
+## Packages
+
+To complete this guide, you need to install the following package (if you're using Go modules, you just need to reference this package):
+
+```bash
+pip install pyota
+```
+
 ## IOTA network
 
 In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.md) on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings:

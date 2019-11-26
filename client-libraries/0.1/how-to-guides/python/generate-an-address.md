@@ -2,6 +2,14 @@
 
 **In this guide, you learn how to generate a new address for a [seed](root://getting-started/0.1/clients/seeds.md) with a given [security level](root://getting-started/0.1/clients/security-levels.md).**
 
+## Packages
+
+To complete this guide, you need to install the following package (if you're using Go modules, you just need to reference this package):
+
+```bash
+pip install pyota
+```
+
 ## IOTA network
 
 In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.md) on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
@@ -25,6 +33,10 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     ```python
     api = Iota('https://nodes.devnet.iota.org:443', seed, testnet = True)
     ```
+
+    :::info:
+    The `testnet` argument sets the [minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md) to 9.
+    :::
 
 4. Define the security level that you want to use for your address
 
@@ -50,7 +62,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     is_spent = api.were_addresses_spent_from([receiver_address])['states'][0]
 
     if is_spent:
-        print('Address %s has been spent from before!' % receiver_address.__str__() )
+        print('Address %s is spent!' % receiver_address.__str__() )
     else:
         print('Your address is: %s' % receiver_address.__str__() )
     ```
@@ -75,7 +87,7 @@ We use the [REPL.it tool](https://repl.it) to allow you to run sample code in th
 
 Click the green button to run the sample code in this guide and see the results in the window.
 
-<iframe height="600px" width="100%" src="https://repl.it/@jake91/Generate-an-address-Go?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/Generate-an-address-Python?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Next steps
 

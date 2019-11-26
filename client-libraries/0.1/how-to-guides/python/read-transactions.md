@@ -2,6 +2,14 @@
 
 **In this guide, you get [transactions](root://getting-started/0.1/transactions/transactions.md) from the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to filter them by their bundle hash. Then, you decode the message in the transaction and print it to the console.**
 
+## Packages
+
+To complete this guide, you need to install the following package (if you're using Go modules, you just need to reference this package):
+
+```bash
+pip install pyota
+```
+
 ## IOTA network
 
 In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
@@ -14,7 +22,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     from iota import Iota
     from iota import Transaction
     ```
-    
+
 2. Connect to a node
 
     ```python

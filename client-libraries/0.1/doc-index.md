@@ -48,6 +48,20 @@
 
 [How-to guides/JavaScript/Derive addresses from private keys](/how-to-guides/js/convert-data-to-trytes.md)
 
+[How-to guides/Python/Get started](/how-to-guides/python/get-started.md)
+
+[How-to guides/Python/Send a "hello world" transaction](/how-to-guides/python/send-your-first-bundle.md)
+
+[How-to guides/Python/Read transactions on the Tangle](/how-to-guides/python/read-transactions.md)
+
+[How-to guides/Python/Generate a new address](/how-to-guides/python/generate-an-address.md)
+
+[How-to guides/Python/Check the balance of an address](/how-to-guides/python/check-balance.md)
+
+[How-to guides/Python/Transfer test IOTA tokens](/how-to-guides/python/transfer-iota-tokens.md)
+
+[How-to guides/Python/Listen for live transactions on the Tangle](/how-to-guides/python/listen-for-transactions.md)
+
 [Account module/Introduction/Overview](/account-module/introduction/overview.md)
 
 [Account module/Go/Get started](/account-module/go/get-started.md)
