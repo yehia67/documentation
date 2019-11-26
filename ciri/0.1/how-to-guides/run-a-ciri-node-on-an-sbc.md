@@ -22,7 +22,7 @@ We recommended disabling proof of work (PoW) on small SBCs. Outsourcing the work
 
 ## Prerequisites
 
-To complete this guide, you need [an SBC](root://general/0.1/how-to-guides/setup-sbc.md) with the following minimum requirements:
+To complete this guide, you need [an SBC](root://iot/0.1/sbc/how-to-guides/get-started.md) with the following minimum requirements:
 
 - Ubuntu (or other Linux based OS, BSD should also work) with SSH enabled and a configured network. This guide uses Ubuntu. We recommend using Ubuntu if you consider yourself a beginner.
 - At least 512 MB of RAM
@@ -59,13 +59,13 @@ To cross compile cIRI, you need to execute one the following commands, depending
 uname -m
 ```
 
-* Command for Aarch64 (64-bit):
+- Command for Aarch64 (64-bit):
 
     ```bash
     bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool_top=@iota_toolchains//tools/aarch64--glibc--bleeding-edge-2018.07-1:toolchain --cpu=aarch64 --compiler='gcc' --host_crosstool_top=@bazel_tools//tools/cpp:toolchain //ciri
     ```
 
-* Command for ARMv7 (32-bit):
+- Command for ARMv7 (32-bit):
 
     ```bash
     bazel build -c opt --define network=mainnet --define trit_encoding=5 --crosstool_top=@iota_toolchains//tools/armv7-eabihf--glibc--bleeding-edge-2018.07-1:toolchain --cpu='armeabi-v7a' --compiler='gcc' --host_crosstool_top=@bazel_tools//tools/cpp:toolchain //ciri
@@ -74,7 +74,7 @@ uname -m
 You can customize these commands by editing the build flags.
 
 
-1. Choose which [IOTA network](root://getting-started/0.1/references/iota-networks.md) you want your node to run on. Replace `value` with `mainnet` or `testnet`.
+1. Choose which [IOTA network](root://getting-started/0.1/network/iota-networks.md) you want your node to run on. Replace `value` with `mainnet` or `testnet`.
 
 
     ```bash
@@ -196,8 +196,8 @@ Your node stores the transactions that it receives in a sqlite3 database.
 ## Run cIRI
 
 Replace the values in the flags with the ones from these files:
-* [conf.bzl](https://raw.githubusercontent.com/iotaledger/entangled/develop/consensus/conf.bzl)
-* [snapshot.json](https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.json)
+- [conf.bzl](https://raw.githubusercontent.com/iotaledger/entangled/develop/consensus/conf.bzl)
+- [snapshot.json](https://raw.githubusercontent.com/iotaledger/snapshots/master/mainnet/20181222/snapshot.json)
 
 :::info:
 You should run cIRI in [tmux](https://github.com/tmux/tmux). 

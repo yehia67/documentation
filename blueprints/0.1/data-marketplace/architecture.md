@@ -41,8 +41,8 @@ Wallet funding and token transfer operations are completed only after the node c
 
 Cloud functions can be configured to change the default values of the following:
 
-* `depth` and [`minWeightMagnitude`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) fields, which are typically different for IOTA Devnet and Mainnet nodes 
-* Whitelist page, where administrator users with predefined email addresses are allowed to administer devices
+- `depth` and [`minWeightMagnitude`](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude) fields, which are typically different for IOTA Devnet and Mainnet nodes 
+- Whitelist page, where administrator users with predefined email addresses are allowed to administer devices
 
 ## Sensors and data
 
@@ -50,10 +50,10 @@ The Data Marketplace is agnostic to the sensors and the data that you connect to
  
 ### Example sensors
 
-* [Netatmo Weather Station](https://www.netatmo.com/en-us/weather)
-* [Bosch XDK](https://xdk.bosch-connectivity.com/) 
-* [Nordic Semiconductor Thingy:52](https://www.nordicsemi.com/Software-and-Tools/Development-Tools/Nordic-Thingy-52-App)
-* [Raspberry Pi with a sensor kit](https://www.adafruit.com/product/2733) 
+- [Netatmo Weather Station](https://www.netatmo.com/en-us/weather)
+- [Bosch XDK](https://xdk.bosch-connectivity.com/) 
+- [Nordic Semiconductor Thingy:52](https://www.nordicsemi.com/Software-and-Tools/Development-Tools/Nordic-Thingy-52-App)
+- [Raspberry Pi with a sensor kit](https://www.adafruit.com/product/2733) 
 
 ### Data fields
 

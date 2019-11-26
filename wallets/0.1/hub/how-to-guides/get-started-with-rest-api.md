@@ -1,113 +1,86 @@
 # Get started with the RESTful API
 
-**When you expose Hub's RESTful API server, you can interact with it through HTTP endpoints. These endpoints allow you to manage users' tokens by interfacing with the Hub database and an IOTA node. In this guide, you learn the basics of the RESTful API to create a new user with some new deposit addresses.**
+**When you expose Hub's RESTful API server, you can interact with it through HTTP endpoints. These endpoints allow you to manage users' IOTA tokens by interfacing with the Hub database and a [node](root://getting-started/0.1/network/nodes.md). In this guide, you learn the basics of the RESTful API to create a new user with some new deposit addresses.**
 
 ## Prerequisites
 
 To use the code samples in this guide, you must have the following:
 
-* [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/)
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
+- An [instance of Hub](../how-to-guides/install-hub.md)
+- [Node.js (8+)](https://nodejs.org/en/), [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/), or [cURL](https://curl.haxx.se/download.html)
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+- Access to a command-line interface
 
- :::info:
-The endpoints are all documented in the [RESTful API reference](../references/restful-api-reference.md).
-:::
+---
 
-## Step 1. Set up a connection to Hub
-
-1\. Install the libraries
+1\. Create a new user. Replace the `http://localhost:50051` URL with value of the `--listenAddress` flag that you used when you set up Hub.
 
 --------------------
-### Node.js
-
-```bash
-npm install request --save
-```
----
 ### Python
 
-```bash
-pip install urllib3
-```
---------------------
-
-2\. Import the libraries
-
---------------------
-### Node.js
-
-```bash
-var request = require('request');
-```
----
-### Python
-
-```bash
+```python
+import urllib2
 import json
-import urllib3
-```
---------------------
 
-3\. Set up the request body. Replace the `http://127.0.0.1:50051` URL with value of the `--listenAddress` flag that you used when you set up Hub.
-
---------------------
-### Node.js
-
-```bash
-var options = {
-url: 'http://127.0.0.1:50051',
-method: 'POST',
-headers: {
-    'Content-Type': 'application/json',
-    'X-IOTA-API-Version': '1',
-    'Content-Length': Buffer.byteLength(JSON.stringify(command))
-},
-json: command
-};
-
-request(options, function (error, response, data) {
-    if (!error && response.statusCode == 200) {
-        console.log(JSON.stringify(data));
-    }
-});
-```
----
-### Python
-
-```bash
-http = urllib3.PoolManager()
-
-response = http.request('POST', 'http://127.0.0.1:50051',
-                 headers={'Content-Type': 'application/json', 'X-IOTA-API-Version': '1'},
-                 body=command)
-
-results = json.loads(response.data.decode('utf-8'))
-print(json.dumps(results, indent=1, sort_keys=True))
-```
---------------------
-
-## Step 2. Deposit IOTA tokens into Hub
-
-1\. Create a new user
-
---------------------
-### Node.js
-
-```bash
 command = {
   "command": "CreateUser",
   "userId": "Jake"
 }
+
+stringified = json.dumps(command)
+
+headers = {
+    'content-type': 'application/json',
+    'X-IOTA-API-Version': '1'
+}
+
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
 ```
 ---
-### Python
+### Node.js
 
-```bash
-command = json.dumps({
+```js
+var request = require('request');
+
+command = {
   "command": "CreateUser",
   "userId": "Jake"
-})
+}
+
+var options = {
+  url: 'http://localhost:50051',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+		'X-IOTA-API-Version': '1',
+    'Content-Length': Buffer.byteLength(JSON.stringify(command))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
+
+```bash
+curl http://localhost:50051 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+  "command": "CreateUser",
+  "userId": "Jake"
+}'
 ```
 --------------------
 
@@ -117,89 +90,168 @@ You should see an empty object in the console, which means that the user was cre
 You can see this user in the Hub database by [querying the `user_account` table](../how-to-guides/query-the-database.md).
 :::
 
-2\. Create a new deposit address for the user
+2\. Create a new deposit address with a [checksum](root://getting-started/0.1/clients/checksums.md) 
 
 --------------------
-### Node.js
-
-```bash
-command = {
-  "command": "GetDepositAddress",
-  "userId": "Jake"
-}
-```
----
 ### Python
 
-```bash
-command = json.dumps({
-  "command": "GetDepositAddress",
-  "userId": "Jake"
-})
-```
---------------------
+```python
+import urllib2
+import json
 
-You should see a new deposit address in the console.
-
-3\. Create a new deposit address with the checksum
-
---------------------
-### Node.js
-
-```bash
 command = {
   "command": "GetDepositAddress",
-  "includeChecksum": true,
-  "userId": "Jake"
+  "userId": "Jake",
+  "includeChecksum": "true"
 }
+
+stringified = json.dumps(command)
+
+headers = {
+    'content-type': 'application/json',
+    'X-IOTA-API-Version': '1'
+}
+
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
 ```
 ---
-### Python
+### Node.js
+
+```js
+var request = require('request');
+
+command = {
+  "command": "GetDepositAddress",
+  "userId": "Jake",
+  "includeChecksum": "true"
+}
+
+var options = {
+  url: 'http://localhost:50051',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+		'X-IOTA-API-Version': '1',
+    'Content-Length': Buffer.byteLength(JSON.stringify(command))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
 
 ```bash
-command = json.dumps({
+curl http://localhost:50051 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
   "command": "GetDepositAddress",
-  "includeChecksum": true,
-  "userId": "Jake"
-})
+  "userId": "Jake",
+  "includeChecksum": "true"
+}'
 ```
 --------------------
 
-Now, the user has two addresses that were created from two different `seeduuid` fields. You can see this data in the database by [querying the `user_address` table](../how-to-guides/query-the-database.md).
+In the output, you should see a 90-tryte deposit address.
+
+```
+"address": "RDZVDZKRBX9T9L9XXONXDVJDRKYPAABWMQLORGCDCWHDDTSOPRZPCQB9AIZZWZAQ9NBZNVUUUSPQHRGWDYZUVP9WSC"
+```
 
 :::info:
 In the database, addresses are always saved without the checksum.
 :::
 
-4\. Send some IOTA tokens to one of the user's deposit addresses
+3\. Send some IOTA tokens to the user's deposit addresses
 
 :::info:
-[Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA wallet, which makes it easy to send IOTA tokens.
+You can use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md) to send IOTA tokens.
 ::: 
 
-5\. Get the balance and history for the user  
+4\. Get the balance and history for the user 
 
 --------------------
-### Node.js
+### Python
 
-```bash
+```python
+import urllib2
+import json
+
 command = {
   "command": "GetBalance",
   "userId": "Jake"
 }
+
+stringified = json.dumps(command)
+
+headers = {
+    'content-type': 'application/json',
+    'X-IOTA-API-Version': '1'
+}
+
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
 ```
 ---
-### Python
+### Node.js
 
-```bash
-command = json.dumps({
+```js
+var request = require('request');
+
+command = {
   "command": "GetBalance",
   "userId": "Jake"
-})
+}
+
+var options = {
+  url: 'http://localhost:50051',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+		'X-IOTA-API-Version': '1',
+    'Content-Length': Buffer.byteLength(JSON.stringify(command))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
+
+```bash
+curl http://localhost:50051 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+  "command": "GetBalance",
+  "userId": "Jake"
+}'
 ```
 --------------------
 
-If you sent IOTA tokens to the deposit address in step 4, the output should display something like the following:
+If you sent IOTA tokens to the deposit address, the output should display something like the following:
 
 ```shell
 10 i available for 'Jake'
@@ -214,14 +266,14 @@ events {
 If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md).
 
 :::success:Congratulations :tada:
-You've successfully created a new user and tested how Hub handles deposits of IOTA tokens.
+You've successfully created a new user and tested how Hub handles deposits.
 :::
 
 ## Next steps
 
 [Set up a demo exchange](../how-to-guides/create-a-demo-exchange.md) to test an integration of Hub.
 
-[Integrate Hub into your exchange](../how-to-guides/integrate-hub.md).
+[See our integration options](../how-to-guides/integrate-hub.md).
 
 
 

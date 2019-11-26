@@ -8,7 +8,7 @@ To verify the authenticity of Trinity Desktop, you can use the SHA256 hash and c
 
 ### Verify the SHA256 hash
 
-1. Open a command prompt
+1. Open a command-line interface
 
 2. Create a SHA256 hash of the Trinity Desktop `.exe` file. Replace the path with the path to your Trinity `.exe` file.
 
@@ -170,3 +170,6 @@ To follow these instructions you need the `sha256sum` package, which is included
     gpg: Good signature from "IOTA Foundation (IOTA Foundation Identity) <contact@iota.org>"
     ```
     
+## Next steps
+
+[Create a Trinity account](../how-to-guides/create-an-account.md).

@@ -29,7 +29,7 @@ If you already have a GitHub account and Git is set up on your computer, go stra
 1. [Create a new GitHub account](https://github.com/) if you don't already have one
 2. [Set up Git](https://help.github.com/articles/set-up-git/)
 3. Go to our [documentation repository](https://github.com/iotaledger/documentation.git) and click **Fork** at the top of the page
-4. Copy your fork to your local machine by doing the following in the command prompt:
+4. Copy your fork to your local machine by doing the following in the command-line interface:
 
     ```bash
     git clone https://github.com/{your username}/documentation
@@ -54,7 +54,7 @@ When you create a new branch make sure each branch addresses only one article to
 - A new article ( a single markdown file)
 - Grammar edits and spelling corrections, and any other suggestions for an existing article
 
-1. Open a command prompt
+1. Open a command-line interface
 
 2. Do the following:
 
@@ -173,9 +173,9 @@ The content in the `documentation` directory is structured in a way that allows 
 
 The `projects.md` file contains the top level navigation labels and links for the following:
 
-* Home page floating menu
-* Footer
-* Burger menu navigation
+- Home page floating menu
+- Footer
+- Burger menu navigation
 
 The order of the items in the file determines the order in the navigation.
 
@@ -205,10 +205,10 @@ If you want to link to another project, use the following structure `root://anot
 
 If you are creating or editing an article, please follow our style guide to help us do the following:
 
-* Create and maintain a consistent tone of voice 
-* Offer documentation in a standard format
-* Make our documentation straightforward to read for non-native English readers
-* Make sure that our documentation educates our readers
+- Create and maintain a consistent tone of voice 
+- Offer documentation in a standard format
+- Make our documentation straightforward to read for non-native English readers
+- Make sure that our documentation educates our readers
 
 If you have a question about writing that we don't cover in this guide, use the [Google style guide](https://developers.google.com/style/).
 
@@ -423,9 +423,9 @@ We always write in US English.
 
 ### Punctuation
 
-* Always use a capital letter after colons
-* Always use an oxford comma (comma before and in a list, for example 'The Mainnet, Devnet, and Spamnet')
-* Don't use periods at the end of single sentence lists. Use periods only when list items consists of more than one sentence
+- Always use a capital letter after colons
+- Always use an oxford comma (comma before and in a list, for example 'The Mainnet, Devnet, and Spamnet')
+- Don't use periods at the end of single sentence lists. Use periods only when list items consists of more than one sentence
 
 ### Article titles
 
@@ -441,8 +441,8 @@ We always write in US English.
 Always embolden the first paragraph of an article. This paragraph should explain the main purpose or point of the article in as few words as possible.
 
 Make sure you answer the following questions:
-* What is the article about?
-* Why do users care about or need the information in the article?
+- What is the article about?
+- Why do users care about or need the information in the article?
 
 ### How-to guides
 
@@ -450,8 +450,8 @@ A how-to guide is an article that helps users achieve a task.
 
 When you write how-to guides, follow these general guidelines:
 
-* [Write one task per article](#write-one-task-per-article)
-* [Create subtasks to organize long how-to guides](#create-subtasks-to-organize-long-how-to-guides)
+- [Write one task per article](#write-one-task-per-article)
+- [Create subtasks to organize long how-to guides](#create-subtasks-to-organize-long-how-to-guides)
 
 Each how-to guide should explain not only **how** to perform the scenario, but also **why** a user would want to perform the scenario. What does it achieve? Why is it needed?
 
@@ -480,11 +480,11 @@ If you start writing a task that contains more than 10 steps, separate them into
 
 Concept articles can be written to do any of the following:
 
-* Describe a system, product, or solution
-* Introduce tools and technology
-* Explain features, components, characteristics, restrictions, and capabilities
-* Define terms in more details than you would find in a glossary
-* Describe benefits or help users to make choices between options
+- Describe a system, product, or solution
+- Introduce tools and technology
+- Explain features, components, characteristics, restrictions, and capabilities
+- Define terms in more details than you would find in a glossary
+- Describe benefits or help users to make choices between options
 
 You should write concept articles to support tasks and user goals.
 

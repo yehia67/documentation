@@ -133,7 +133,7 @@ curl http://localhost:14265 \
 
 ## attachToTangle
 
-Do [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) on a node for the given transaction trytes.
+Do [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) on a node for the given transaction trytes.
 
  ### Parameters
 
@@ -141,9 +141,9 @@ Do [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.m
 	
 |**Parameter** |**Required or Optional** |**Description** |**Type**|
 |--|--|--|--|
-| `trunkTransaction` |Required| [Trunk transaction](root://dev-essentials/0.1/references/structure-of-a-transaction.md) hash | string|
-| `branchTransaction` |Required| [Branch transaction](root://dev-essentials/0.1/references/structure-of-a-transaction.md) hash | string|
-| `minWeightMagnitude` |Required| [Minimum weight magnitude](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) | integer|
+| `trunkTransaction` |Required| Trunk transaction hash | string|
+| `branchTransaction` |Required| Branch transaction hash | string|
+| `minWeightMagnitude` |Required| [Minimum weight magnitude](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude) | integer|
 | `trytes` |Required| String of transaction trytes |array of strings|
 
 ### Examples
@@ -364,9 +364,9 @@ curl http://localhost:14265 \
 ## checkConsistency
 
 Check the consistency of transactions. A consistent transaction is one where the following statements are true:
-* The node isn't missing the transaction's branch or trunk transactions
-* The transaction's bundle is valid
-* The transaction's branch and trunk transactions are valid
+- The node isn't missing the transaction's branch or trunk transactions
+- The transaction's bundle is valid
+- The transaction's branch and trunk transactions are valid
 
 ### Parameters
 
@@ -693,8 +693,6 @@ If the `tips` parameter is missing, the returned balance is correct as of the la
 
 :::info:
 This API endpoint returns data only if the node is synchronized.
-
-[Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request).
 :::
 
  ### Parameters
@@ -822,8 +820,6 @@ You can search for multiple tips (and thus, milestones) to get past inclusion st
 
 :::info:
 This endpoint returns data only if the node is synchronized.
-
-[Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request).
 :::
 
  ### Parameters
@@ -1358,8 +1354,6 @@ Get two consistent tip transaction hashes to use as branch/trunk transactions.
 
 :::info:
 This endpoint returns data only if the node is synchronized.
-
-[Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request).
 :::
 
 ### Parameters

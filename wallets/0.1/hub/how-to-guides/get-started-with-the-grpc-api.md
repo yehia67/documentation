@@ -4,17 +4,15 @@
 
 ## Prerequisites
 
-You must have [installed Hub](../how-to-guides/install-hub.md) and it must be running on the same server as the one you use in this guide.
+To complete this guide, you must have the following:
+
+- An [instance of Hub](../how-to-guides/install-hub.md)
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+- Access to a command-line interface
 
 ## Step 1. Set up the gRPC client
 
 Before you can send API calls, you need a gRPC client that can create them.
-
-:::info:
-This guide helps you to test the gRPC API with [a GRPCC command-line client](https://github.com/njpatel/grpcc).
-
-For production environments, we recommend generating client code from one of the available [gRPC libraries](https://grpc.io/about/).
-:::
 
 1. Install npm
 
@@ -34,7 +32,7 @@ For production environments, we recommend generating client code from one of the
     cd hub
     ```
 
-3. Start the gRPC client
+3. Start the gRPC client. Replace the `localhost:50051` argument with the value of the `--listenAddress` command-line option that you used when you set up Hub.
 
     ```bash
     grpcc -i -a localhost:50051 -p proto/hub.proto
@@ -99,39 +97,29 @@ When you have a gRPC client, you can use it to send API calls to Hub to manage u
     You can see this user in the Hub database by [querying the `user_account` table](../how-to-guides/query-the-database.md).
     :::
 
-2. Create a new deposit address for the user
-
-    ```bash
-    client.getDepositAddress({userId: "Jake"}, pr)
-    ```
-
-    You should see a new deposit address in the console.
-
-3. Create a new deposit address with the checksum
+2. Create a new deposit address with the checksum
 
     ```bash
     client.getDepositAddress({userId: "Jake", includeChecksum: true}, pr)
     ```
 
-    Now, the user has two addresses that were created from two different `seeduuid` fields. You can see this data in the database by [querying the `user_address` table](../how-to-guides/query-the-database.md).
-
     :::info:
     In the database, addresses are always saved without the checksum.
     :::
 
-4. Send some IOTA tokens to one of the user's deposit addresses
+3. Send some IOTA tokens to one of the user's deposit addresses
 
     :::info:
     [Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA wallet, which makes it easy to send IOTA tokens.
     ::: 
 
-5. Get the balance and history for the user  
+4. Get the balance and history for the user  
 
 	```bash
 	client.getBalance({userId: "Jake"}, pr)
 	```
 
-If you sent IOTA tokens to the deposit address in step 4, the output should display something like the following:
+If you sent IOTA tokens to the deposit address, the output should display something like the following:
 
 ```shell
 10 i available for 'Jake'
@@ -145,7 +133,7 @@ events {
 
 If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md).
 
-6. Press **Ctrl**+**C** twice to stop the gRPC client
+5. Press **Ctrl**+**C** twice to stop the gRPC client
 
 :::success:Congratulations :tada:
 You've successfully created a new user and tested how Hub handles deposits of IOTA tokens.
@@ -156,6 +144,8 @@ You've successfully created a new user and tested how Hub handles deposits of IO
 [Set up a demo exchange](../how-to-guides/create-a-demo-exchange.md) to test an integration of Hub.
 
 [Integrate Hub into your exchange](../how-to-guides/integrate-hub.md).
+
+For production environments, we recommend generating client code from one of the available [gRPC libraries](https://grpc.io/about/).
 
 
 

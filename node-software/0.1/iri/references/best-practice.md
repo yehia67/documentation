@@ -18,19 +18,15 @@ To increase the chances of your application connecting to an available node, it'
 
 To host these nodes it's best to make sure that the host device has enough computational power to run reliably. For example, a good benchmark is to run each node on an instance of a virtual private server such as an [Amazon Web Services (AWS) R5 Large server](https://aws.amazon.com/ec2/instance-types/r5/) with 16 GB RAM and two virtual CPUs.
 
-:::info:
-Read our guide on [running a node on Linux](../how-to-guides/run-an-iri-node-on-linux.md), or on [running a node in a Docker container](../how-to-guides/run-an-iri-node-in-docker.md).
-:::
-
 ### Proof of work
 
-When you're setting up your nodes, you have the option to allow them to do [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md). When this feature is enabled, client applications can ask your node to do proof of work by calling the `attachToTangle` API endpoint. This option is called remote proof of work.
+When you're setting up your nodes, you have the option to allow them to do [proof of work](root://getting-started/0.1/transactions/proof-of-work.md). When this feature is enabled, client applications can ask your node to do proof of work by calling the `attachToTangle` API endpoint. This option is called remote proof of work.
 
 ![Remote proof of work](../images/remote-pow.png)
 
 Proof of work takes time and uses your node's computational power. So, depending on how often you send transactions to your nodes, you may want to keep this feature disabled by default in the [remote-limit-api](../references/iri-configuration-options.md#remote-limit-api) configuration option.
 
-This way, client applications can use [other options for proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md#options-for-doing-proof-of-work) such as doing it themselves (local PoW) or outsourcing it to a PoW proxy server.
+This way, client applications can use [other options for proof of work](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude#options-for-doing-proof-of-work) such as doing it themselves (local PoW) or outsourcing it to a PoW proxy server.
 
 ![Local proof of work](../images/local-pow.png)
 
@@ -43,10 +39,6 @@ Learn how to [do local PoW in Node.js](https://github.com/iotaledger/ccurl.inter
 ## Client applications
 
 For a client application that will communicate with your nodes through API endpoints, it's best to use one of the IOTA client libraries on an instance of a serverless architecture such as [AWS Lambda](https://aws.amazon.com/lambda/). This way, your application is not restricted by hardware and has a high availability.
-
-:::info:
-[Get started with the IOTA client libraries](root://getting-started/0.1/tutorials/get-started.md).
-:::
 
 ## Load balancer
 

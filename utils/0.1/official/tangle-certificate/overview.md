@@ -1,6 +1,6 @@
 # Tangle certificate creator overview
 
-**A certificate is an official document that proves a fact about the bearer. But, when certificates are digital, they are subject to fraud. Digital certificates can be copied and edited, which affects their authenticity and credibility. To prove that a certificate is authentic, credible, and unchanged, you can attach it to the Tangle.**
+**A certificate is an official document that proves a fact about the bearer. But, when certificates are digital, they are subject to fraud. Digital certificates can be copied and edited, which affects their authenticity and credibility. To prove that a certificate is authentic, credible, and unchanged, you can attach it to the [Tangle](root://getting-started/0.1/network/the-tangle.md).**
 
 ## Create an immutable certificate
 
@@ -8,19 +8,15 @@ In this example, we use the [Tangle certificate API](https://certification-api.i
 
 First, we create a certificate background that we can use to create a template. Then, we create an issuer who has access to the template and can create certificates from it.
 
-:::info:
-Transactions on [the Tangle](root://dev-essentials/0.1/concepts/the-tangle.md) are immutable, so we can use the transaction as a source of truth.
-:::
-
 ### Prerequisites
 
 To complete this tutorial, you need the following:
 
-* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
+- Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+- Access to a command-line interface
 
-* The [`axios`](https://www.npmjs.com/package/axios) package
+- The [`axios`](https://www.npmjs.com/package/axios) package
 
 ### Step 1. Get API credentials
 

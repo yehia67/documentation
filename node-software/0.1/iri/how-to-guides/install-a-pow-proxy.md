@@ -12,14 +12,13 @@ All requests to the other IRI API endpoints are forwarded to the IRI node.
 
 To complete this guide, you need the following:
 
-
-* At least version 1.12 of the Go programming language (we recommend the latest version)
-* GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
-* [Git](https://git-scm.com/downloads)
+- At least version 1.12 of the Go programming language (we recommend the latest version)
+- GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
+- [Git](https://git-scm.com/downloads)
 
 ## Download, build, and run the proxy server
 
-1. In the command prompt, check your `GOPATH` environment variable
+1. In the command-line interface, check your `GOPATH` environment variable
 
     ```bash
     go env GOPATH
@@ -91,7 +90,7 @@ To complete this guide, you need the following:
     If you want to the connection between the client and the PoW proxy server to be secure, remove the hash symbol (#) before the `tls` directive and change the paths to point to your SSL certificates.
     :::
 
-7. To execute this file on Linux or macOS, do `./caddy`. To execute this file on Windows, double click it, or do `.\caddy` in the command prompt.
+7. To execute this file on Linux or macOS, do `./caddy`. To execute this file on Windows, double click it, or do `.\caddy` in the command-line interface.
 
     When the PoW proxy server starts, you should see something like the following:
 
@@ -104,14 +103,10 @@ To complete this guide, you need the following:
     ```
 
     :::warning:
-    If you close the command prompt, the PoW proxy will shut it down. To make sure that it always runs, you can run it as a service.
+    If you close the command-line interface, the PoW proxy will shut it down. To make sure that it always runs, you can run it as a service.
     :::
 
 8. Send a transaction to your local PoW proxy server
-
-    :::info:
-    If this is your first time sending a transaction, follow our [getting started guide with Node.js](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md).
-    :::
 
     ```js
     // Require the packages

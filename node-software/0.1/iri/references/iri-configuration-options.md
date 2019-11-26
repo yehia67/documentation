@@ -4,16 +4,16 @@
 
 To make it easier to find the options you want to change, we've separated them into the following categories:
 
-* **API:** How the API responds and which hosts can access it
-* **IXI:** How your node uses IXI modules
-* **Database:** What your node does with its ledger
-* **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md)
-* **Network:** How your node communicates with neighbors
-* **Proof of work:** How your node does [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)
-* **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes
-* **Testnet:** Which Coordinator your node should follow when it's not running on the Mainnet
-* **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md)
-* **ZMQ:** How clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
+- **API:** How the API responds and which hosts can access it
+- **IXI:** How your node uses IXI modules
+- **Database:** What your node does with its ledger
+- **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md)
+- **Network:** How your node communicates with neighbors
+- **Proof of work:** How your node does [proof of work](root://getting-started/0.1/transactions/proof-of-work.md)
+- **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes
+- **Testnet:** Which Coordinator your node should follow when it's not running on the Mainnet
+- **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md)
+- **ZMQ:** How clients can subscribe to your node's ZMQ events
 
 :::info:
 If you've downloaded the IRI, you can also run it with the `--help` flag to see a list of all the configuration options.
@@ -99,7 +99,7 @@ Use these settings to customize how your node communicates with neighbors.
 
 ## Proof of work
 
-Use these settings to customize how your node does [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md).
+Use these settings to customize how your node does [proof of work](root://getting-started/0.1/transactions/proof-of-work.md).
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
@@ -151,12 +151,12 @@ Use these settings to customize the length and randomness of the weighted random
 
 ## ZMQ
 
-Use these settings to customize how clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md).
+Use these settings to customize how clients can subscribe to your node's ZMQ events.
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="zmq-enabled"></a>  `--zmq-enable-ipc` | `ZMQ_ENABLE_IPC`|Enable [zero message queue](../concepts/zero-message-queue.md) subscriptions through IPC at the `ipc://iri` address| boolean|false |Set the `ZMQ_IPC` option to change the default address|
-|`--zmq-enable-tcp` | `ZMQ_ENABLE_TCP`|Enable [zero message queue](../concepts/zero-message-queue.md) subscriptions through TCP on port 5556|boolean|false |Set the `ZMQ_PORT` option to change the default port|
+|<a name="zmq-enabled"></a>  `--zmq-enable-ipc` | `ZMQ_ENABLE_IPC`|Enable zero message queue subscriptions through IPC at the `ipc://iri` address| boolean|false |Set the `ZMQ_IPC` option to change the default address|
+|`--zmq-enable-tcp` | `ZMQ_ENABLE_TCP`|Enable zero message queue subscriptions through TCP on port 5556|boolean|false |Set the `ZMQ_PORT` option to change the default port|
 |<a name="zmq-ipc"></a>`--zmq-ipc` |`ZMQ_IPC`|Set the address that is used to communicate with ZMQ through IPC| string|  ipc://iri|
 |<a name="zmq-port"></a> `--zmq-port`|`ZMQ_PORT`|Set the port that is used to connect to the ZMQ through TCP|string | 5556|
 |<a name="zmq-threads"></a> `--zmq-threads`|`ZMQ_THREADS`|Set the maximum number of threads that the ZMQ publisher can use|number | 1|

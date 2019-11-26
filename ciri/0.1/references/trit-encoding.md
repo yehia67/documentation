@@ -1,6 +1,6 @@
 # Trit encoding
 
-**Because IOTA uses [trinary](root://dev-essentials/0.1/concepts/trinary.md)-based computing and our current processors understand only binary, you need to encode trinary data into bytes. The cIRI has five encoding options, which correspond to the number of trits that are stored in one byte. The more trits stored in a byte, the more efficient the storage. However, because trits need to be extracted from a byte before being used by the hashing algorithm, the more trits in a byte, the more processing power is needed.** 
+**Because IOTA uses [ternary](root://getting-started/0.1/introduction/ternary.md)-based computing and our current processors understand only binary, you need to encode ternary data into bytes. The cIRI has five encoding options, which correspond to the number of trits that are stored in one byte. The more trits stored in a byte, the more efficient the storage. However, because trits need to be extracted from a byte before being used by the hashing algorithm, the more trits in a byte, the more processing power is needed.** 
 
 The trit encoding is defined during the build phase, therefore you need to recompile the source code if you want to change the encoding. For example:
 

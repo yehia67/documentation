@@ -1,18 +1,18 @@
 # Set up a Linux server on a virtual machine
 
-**Many of the IOTA tutorials and guides require a Linux operating system. If your computer is running a different operating system, you can use Linux inside a virtual machine.**
+**Many guides require a Linux operating system. If your device is running a different operating system, you can use Linux inside a virtual machine.**
 
 Linux is an open-source operating system, which can come in packages called distributions. Each Linux distribution includes different built-in software for different goals.
 
 One of the most popular Linux distributions is Ubuntu, which is the distribution that we use in our examples.
 
 Linux is beneficial for the following reasons:
-* Linux runs on many hardware platforms
-* Linux distributions are open-source and almost all of them are free to use
-* Linux is secure, reliable, and lightweight
+- Linux runs on many hardware platforms
+- Linux distributions are open-source and almost all of them are free to use
+- Linux is secure, reliable, and lightweight
 
 :::info:
-If you don't want to run a Linux virtual machine on your own computer, you can rent the use of a cloud computer from a company such as Amazon. By using this approach, you don't need to worry about port forwarding or running out of memory. Amazon AWS has a setup guide for [launching a Linux virtual machine on their cloud](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/).
+If you don't want to run a Linux virtual machine on your own computer, you can rent the use of a cloud computer from a company such as Amazon. By using this approach, you don't need to worry about port forwarding or running out of memory. Amazon AWS has a setup guide for [launching a Linux virtual machine on their cloud](https://aws.amazon.com/getting-started/how-to-guides/launch-a-virtual-machine/).
 :::
 
 ## Set up a Linux server
@@ -43,7 +43,7 @@ To run a Linux server on a Windows or Mac operating system, you must install a v
 
 Congratulations :tada: You've got a Linux server running on your computer!
 
-Our guides always require the use of a command prompt, so navigate to the Terminal application and open it.
+Our guides always require the use of a command-line interface, so navigate to the Terminal application and open it.
 
 ## Connect to your Linux server
 

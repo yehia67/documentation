@@ -1,6 +1,6 @@
 # Change the general settings
 
-**You can use the general settings to change elements of the user interface, change your password, and change the nodes to which Trinity connects.**
+**The general settings allow you to change elements of the user interface, change your password, and change the nodes to which Trinity connects.**
 
 In Trinity, go to **Settings** to customize general settings. 
 
@@ -24,5 +24,5 @@ The current value of the token is displayed in the currency that is selected in 
 
 Trinity has two modes:
 
-* **Standard mode:** Displays only the most relevant information for standard users
-* **Advanced mode:** Displays technical information, such as error logs, for advanced users
+- **Standard mode:** Displays only the most relevant information for standard users
+- **Advanced mode:** Displays technical information, such as error logs, for advanced users

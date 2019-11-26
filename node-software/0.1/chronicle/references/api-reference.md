@@ -81,7 +81,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### cUrl
+### cURL
 ```bash
 curl http://localhost:4000 \
 -X POST \
@@ -191,7 +191,7 @@ request(options, function (error, response, data) {
 });
 ```
 ---
-### Curl
+### cURL
 ```bash
 curl http://localhost:4000 \
 -X POST \

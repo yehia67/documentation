@@ -1,6 +1,6 @@
 # Query the Hub database
 
-**To keep track of user data, Hub stores it in database tables. Some of the data in these tables isn't exposed to the APIs. For example, you may want to find out the seed UUID for an address so that you can recreate the seed. This guide shows you the basics to get started with querying the Hub database tables.**
+**To keep track of user data, Hub stores it in database tables. Some of the data in these tables isn't exposed to the APIs. For example, you may want to find out the seed UUID for an address so that you can generate the seed. This guide shows you the basics to get started with querying the Hub database tables.**
 
 :::info:
 This guide assumes that you installed Hub with a MYSQL database such as MariaDB, which is the one we use in our installation guide.
@@ -57,8 +57,8 @@ This guide assumes that you installed Hub with a MYSQL database such as MariaDB,
     QUIT
     ```
 
-:::info:
-To learn about MYSQL and the different commands, [see their website](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html).
-::: 
+## Next steps
+
+To learn about MYSQL and the different commands, [see the MYSQL documentation](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html).
 
 

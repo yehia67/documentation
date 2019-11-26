@@ -24,7 +24,7 @@ This blueprint can be replicated in any scenario where a resource is distributed
 
 ---------------
 #### iota.js client library ####
-[Link](root://iota-js/0.1/introduction/overview.md)
+[Link](root://client-libraries/0.1/getting-started/js-quickstart.md)
 
 Learn how to use the iota.js client library to create, send, and receive transactions.
 ---

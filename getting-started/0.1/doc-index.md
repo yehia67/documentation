@@ -1,33 +1,58 @@
 # Index
 
-[Introduction/What is distributed ledger technology?](/introduction/what-is-dlt.md)
+[Introduction/IOTA overview](/introduction/overview.md)
 
-[Introduction/What is IOTA?](/introduction/what-is-iota.md)
+[Introduction/Ternary](/introduction/ternary.md)
 
-[Introduction/What is a node?](/introduction/what-is-a-node.md)
+[Quickstart/Get started for developers](root://client-libraries/0.1/getting-started/quickstart.md)
 
-[Introduction/What is the Tangle?](/introduction/what-is-the-tangle.md)
+[Quickstart/Get started for exchanges](root://wallets/0.1/hub/how-to-guides/quickstart.md)
 
-[Introduction/What is a seed?](/introduction/what-is-a-seed.md)
+[Quickstart/Get started with Trinity](root://wallets/0.1/trinity/how-to-guides/quickstart.md)
 
-[Introduction/What is a transaction?](/introduction/what-is-a-transaction.md)
+[Quickstart/Get started with nodes](root://node-software/0.1/iri/how-to-guides/quickstart.md)
 
-[Introduction/What is a bundle?](/introduction/what-is-a-bundle.md)
+[Quickstart/Create a seed](/tutorials/create-a-seed.md)
 
-[Tutorials/Get started](/tutorials/get-started.md)
+[Quickstart/Get test IOTA tokens](/tutorials/get-test-tokens.md)
 
-[Tutorials/Send your first data transaction (Node.js)](/tutorials/send-a-zero-value-transaction-with-nodejs.md)
+[Network/IOTA networks](/network/iota-networks.md)
 
-[Tutorials/Receive free test tokens](/tutorials/receive-test-tokens.md)
+[Network/Nodes](/network/nodes.md)
 
-[Tutorials/Send test IOTA tokens (Node.js)](/tutorials/send-iota-tokens.md)
+[Network/Minimum weight magnitude](/network/minimum-weight-magnitude.md)
 
-[Tutorials/Run your own IRI node (Docker)](/tutorials/run-your-own-iri-node.md)
+[Network/The Tangle](/network/the-tangle.md)
 
-[Tutorials/Send your first data transaction (Trinity)](/tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)
+[Network/The Coordinator](/network/the-coordinator.md)
+
+[Clients/Seeds](/clients/seeds.md)
+
+[Clients/IOTA tokens](/clients/token.md)
+
+[Clients/Addresses](/clients/addresses.md)
+
+[Clients/Checksums](/clients/checksums.md)
+
+[Clients/Security levels](/clients/security-levels.md)
+
+[Clients/Signatures](/clients/signatures.md)
+
+[Transactions/Transactions](/transactions/transactions.md)
+
+[Transactions/Bundles](/transactions/bundles.md)
+
+[Transactions/Proof of work](/transactions/proof-of-work.md)
+
+[Transactions/Depth](/transactions/depth.md)
+
+[Transactions/Reattach, rebroadcast, and promote](/transactions/reattach-rebroadcast-promote.md)
 
 [References/Developer handbook](/references/quickstart-dev-handbook.md)
 
-[References/IOTA networks](/references/iota-networks.md)
+[References/Glossary](/references/glossary.md)
 
-[References/Use cases](/references/use-cases.md)
+
+
+
+

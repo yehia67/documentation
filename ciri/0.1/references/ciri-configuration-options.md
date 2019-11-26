@@ -3,8 +3,8 @@
 **This table contains the configuration options for the cIRI.**
 
 You can choose to configure cIRI by specifying the configuration options in the following ways:
-* As flags in the command line
-* As parameters in the conf.yaml (cIRI configuration file)
+- As flags in the command line
+- As parameters in the conf.yaml (cIRI configuration file)
 
 ### Command line flags
 

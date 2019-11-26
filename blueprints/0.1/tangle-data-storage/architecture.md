@@ -41,16 +41,16 @@ The API implements two methods:
 
 To store a file using the API, the client does the following:
 
-* Select the file to upload
-* Generate SHA256 hash of the file content
-* Capture additional file meta data
-* Send the meta data, SHA256 hash, and file contents to the IPFS node (POST /ipfs)
+- Select the file to upload
+- Generate SHA256 hash of the file content
+- Capture additional file meta data
+- Send the meta data, SHA256 hash, and file contents to the IPFS node (POST /ipfs)
 
 Behind the scenes, the API does the following:
 
-* Upload the file content to IPFS, which returns the IPFS hash
-* Store the metadata, SHA256 and IPFS hash on the Tangle, which returns a transaction hash
-* Return the Tangle transaction hash to the client
+- Upload the file content to IPFS, which returns the IPFS hash
+- Store the metadata, SHA256 and IPFS hash on the Tangle, which returns a transaction hash
+- Return the Tangle transaction hash to the client
 
 ![Data Storage PoC - IOTA/IPFS - Store File](../images/data-storage-store.png)
 
@@ -138,10 +138,10 @@ The bundle returned from the `sendTrytes()` method contains the transaction hash
 
 To retrieve a file and validate its contents the client does the following:
 
-* Request the metadata, SHA256 and IPFS hash using the transaction hash from the API (GET /ipfs)
-* Get the file contents from IPFS using the IPFS hash
-* Perform a SHA256 on the retrieved file content
-* Compare the calculated SHA256 with the one returned from the API
+- Request the metadata, SHA256 and IPFS hash using the transaction hash from the API (GET /ipfs)
+- Get the file contents from IPFS using the IPFS hash
+- Perform a SHA256 on the retrieved file content
+- Compare the calculated SHA256 with the one returned from the API
 
 ![Data Storage PoC - IOTA/IPFS - Retrieve File](../images/data-storage-retrieve.png)
 

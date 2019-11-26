@@ -1,27 +1,21 @@
-# Recover IOTA tokens from a swept address
+# Recover IOTA tokens from a spent address
 
-**Sometimes users send IOTA tokens to spent deposit addresses that have already been swept. In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To recover the tokens from the swept address, you can try to transfer them to a new address before a potential attacker can. Doing so exposes more of the address's private key, but this is inevitable to transfer the tokens to a safe address.**
+**Sometimes users deposit IOTA tokens into [spent addresses](root://getting-started/0.1/clients/addresses.md#spent-addresses) that have already been included in a [sweep](../concepts/sweeps.md). In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To recover the tokens from the spent address, you can try to transfer them to a new address before a potential attacker can. Doing so exposes more of the address's private key, but this is inevitable to transfer the IOTA tokens to a safe address.**
+
+In this guide, we use the `signBundle()` gRPC method to recover IOTA tokens from a spent address. This method is useful for creating a custom bundle that deposits any amount of the spent address's total balance into one or more output addresses.
 
 :::info:
-In this guide, we use the `signBundle()` gRPC API call to recover IOTA tokens from a spent address. This method is useful for creating a custom bundle that deposits any amount of the spent address's total balance into one or more output addresses.
-
-To transfer the total balance of a spent address into a single output address, it's easier to use the [`recoverFunds()` method](../references/grpc-api-reference.md#hub.rpc.RecoverFundsRequest).
+To transfer the total balance of a spent address into a single output address, it's easier to use the `recoverFunds()` API call.
 :::
 
 ## Prerequisites
 
 To complete this guide, you need the following:
 
-* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
-
-* The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages
-* Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
-
-:::info:
-If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)
-:::
+- An [instance of Hub](../how-to-guides/install-hub.md)
+- [A Node.js developer environment](root://client-libraries/0.1/getting-started/js-quickstart.md)
+- The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages
+- The [`SignBundle_enabled` flag](../references/command-line-options.md#signBundle) set to `true`.
 
 ## Step 1. Create an unsigned bundle
 
@@ -31,16 +25,7 @@ Before Hub can sign a bundle, you need to create an unsigned one.
 In this guide, we use the JavaScript client library to create and send the bundle, but we also have other [official and community libraries](root://client-libraries/0.1/introduction/overview.md), including Go, Java, and Python.
 :::
 
-1. Require the packages
-
-    ```js
-    const Iota = require('@iota/core');
-    const Bundle = require('@iota/bundle');
-    const Transaction = require('@iota/transaction');
-    const Converter = require('@iota/converter');
-    ```
-
-2. Write a function that creates an unsigned bundle and saves it to a file
+1. Write a function that creates an unsigned bundle and saves it to a file
 
     ```js
     async function createUnsignedBundle({ outputAddress, inputAddress, securityLevel, value }) {
@@ -78,17 +63,17 @@ In this guide, we use the JavaScript client library to create and send the bundl
     }
     ```
 
-3. Get the following values from Hub and add them to the `parameters` object:
+2. Get the following values from Hub and add them to the `parameters` object:
 
     |**Field**|**Description**|**Notes**|
     |:----|:----------|:-----------|
-    |`outputAddress`|The new 81-tryte address (without a checksum) to which you want to transfer the tokens on the swept address|This address does not need to be a Hub address. For example, you may want to send the tokens to an address on a hardware wallet. |
-    |`inputAddress`|The swept 81-tryte address (without a checksum) that contains the IOTA tokens that you need to recover|It's best practice to use the [`balanceSubscription()` method](../references/grpc-api-reference.md#hub.rpc.BalanceSubscriptionRequest) to check for incoming deposits into swept addresses. You can also use the [`getUserHistory()` method](../references/grpc-api-reference.md#hub.rpc.GetUserHistoryRequest) to check which spent addresses have a positive balance.|
-    |`securityLevel`| The security level of the swept address|The default security level is 2. If you changed the security level in the [`keySecLevel` command-line flag](../references/command-line-flags.md#keySec), make sure you use that one. |
-    |`value`|The total balance of the swept address in the `inputAddress` field|You can check the balance of any address on a Tangle explorer such as [thetangle.org](https://thetangle.org/) |
+    |`outputAddress`|The new 81-tryte address (without a checksum) to which you want to transfer the IOTA tokens from the spent address|This address does not need to be a Hub address. For example, you may want to send the tokens to an address on a hardware wallet. |
+    |`inputAddress`|The spent 81-tryte address (without a checksum) that contains the IOTA tokens that you need to recover|It's best practice to use the [`balanceSubscription()` method](../references/grpc-api-reference.md#hub.rpc.BalanceSubscriptionRequest) to check for incoming deposits into spent addresses. You can also use the [`getUserHistory()` method](../references/grpc-api-reference.md#hub.rpc.GetUserHistoryRequest) to check which spent addresses have a positive balance.|
+    |`securityLevel`| The security level of the spent address|The default security level is 2. If you changed the security level in the [`keySecLevel` command-line option](../references/command-line-options.md#keySecLevel), make sure you use that one. |
+    |`value`|The total balance of the spent address in the `inputAddress` field|You can check the balance of any address on a Tangle explorer such as [thetangle.org](https://thetangle.org/) |
 
     :::info:
-    You need the security level of the swept address so that the `createUnsignedBundle()` function can create enough zero-value transactions to which you can add the [signature fragments](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#signatures).
+    You need the security level of the spent address so that the `createUnsignedBundle()` function can create enough zero-value transactions to which you can add the signature fragments.
     :::
 
     ```js
@@ -103,7 +88,7 @@ In this guide, we use the JavaScript client library to create and send the bundl
    }
     ```
 
-2. Call the `createUnsignedBundle()` function, and pass it the parameters you got from Hub
+3. Call the `createUnsignedBundle()` function, and pass it the parameters you got from Hub
 
     ```js
     createUnsignedBundle(parameters);
@@ -111,17 +96,13 @@ In this guide, we use the JavaScript client library to create and send the bundl
 
     This function saves the unsigned bundle to a binary file called `bundle` in your current directory.
 
-3. Execute the file, then copy the unsigned bundle hash from the console to the clipboard. Hub needs this bundle hash to create the signature.
+4. Execute the file, then copy the unsigned bundle hash from the console to the clipboard. Hub needs this bundle hash to create the signature.
 
 ## Step 2. Use Hub to sign the unsigned bundle
 
-Hub has a `signBundle()` gRPC method that allows you to sign bundles that withdraw from a Hub user's address.
+Hub has a `signBundle()` gRPC method, which allows you to sign bundles that withdraw from a user's deposit address.
 
-:::info:
-Before you use the `signBundle()` method, make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
-:::
-
-1. In Hub, pass the unsigned bundle hash and the swept address to the `signBundle()` method
+1. In Hub, pass the unsigned bundle hash and the spent address to the `signBundle()` method
 
    ```
    Hub@localhost:50051> client.signBundle({address:'ADDRESS...',bundleHash:'BUNDLEHASH...',authentication:'',validateChecksum:false},pr)
@@ -177,16 +158,6 @@ After adding the signature fragments to the input transactions in your bundle, i
    const minWeightMagnitude = 14;
    ```
 
-   :::info:Depth
-   The `depth` argument affects [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md). The greater the depth, the farther back in the Tangle the weighted random walk starts.
-   :::
-   
-   :::info:Minimum weight magnitude
-   The [`minimum weight magnitude`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW.
-   
-   Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed.
-   :::
-
 4. Send the bundle's transaction trytes to the node
 
    ```js
@@ -204,18 +175,18 @@ After adding the signature fragments to the input transactions in your bundle, i
    :::
 
 :::success:
-You've sent a signed bundle that recovers IOTA tokens from a swept address by depositing them into a safe one.
+You've sent a signed bundle that recovers IOTA tokens from a spent address by depositing them into a safe one.
 :::
 
 :::warning:
 Until the bundle is confirmed, the tokens are still at risk of being withdrawn by an attacker.
 
-To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://dev-essentials/0.1/how-to-guides/confirm-pending-bundle.md).
+To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://client-libraries/0.1/how-to-guides/js/confirm-pending-bundle.md).
 :::
 
 ## Sample code
 
-This is the code for an example swept address that we used to test this tutorial.
+This is the code for an example spent address that we used to test this tutorial.
 
 You can [see the history of this address](https://thetangle.org/address/LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD) on a Tangle explorer.
 
@@ -267,13 +238,13 @@ let outputAddress = Converter.trytesToTrits('LYRGKMBCVZMTPRRMPDNNRXFVKIXTZCJTZDO
 let inputAddress = Converter.trytesToTrits('LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD');
 
 const params = {
-   // Address in trits to send the tokens from the swept address (without checksum)
+   // Address in trits to send the tokens from the spent address (without checksum)
    outputAddress: outputAddress,
    // Swept address in trits (without checksum)
    inputAddress: inputAddress,
-   // Security level of the swept address
+   // Security level of the spent address
    securityLevel: 2,
-   // Total amount of IOTA tokens to withdraw from the swept address
+   // Total amount of IOTA tokens to withdraw from the spent address
    value: 1 
 }
 

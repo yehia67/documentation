@@ -101,9 +101,9 @@ To run Chronicle, execute the following command:
 SECRET_KEY_BASE=theGenerated64-byteSecretString PORT=4000 HOST=localhost MIX_ENV=prod elixir --name app@hostname --cookie "MySecretChronicleCookie" -S mix run --no-halt
 ```
 
-* `SECRET_KEY_BASE`: Your Phoenix secret from step 2.2
-* `PORT`: The port that you want the API server to listen to
-* `HOST`: The hostname or IP address that you want the API to listen to
+- `SECRET_KEY_BASE`: Your Phoenix secret from step 2.2
+- `PORT`: The port that you want the API server to listen to
+- `HOST`: The hostname or IP address that you want the API to listen to
 
 :::info:
 If the host is localhost, then the value of the `--name` flag can be `Chronicle@localhost`. Otherwise, replace localhost with your hostname.
@@ -131,7 +131,7 @@ To make sure that Chronicle is receiving transaction data, use the API to query 
 
 1. Go to [thetangle.org](https://thetangle.org/) and copy a transaction hash to your clipboard
 
-2. In the command prompt create a cURL request to the `getTrytes` endpoint of the Chronicle API. Paste your transaction hash into the `hashes` array, and replace the URL with the URL of your Chronicle node such as http://localhost:4000/api
+2. In the command-line interface create a cURL request to the `getTrytes` endpoint of the Chronicle API. Paste your transaction hash into the `hashes` array, and replace the URL with the URL of your Chronicle node such as http://localhost:4000/api
 
     ```bash
     curl http://host:port/api \
