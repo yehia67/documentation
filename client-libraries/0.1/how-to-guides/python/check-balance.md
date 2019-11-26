@@ -34,7 +34,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     api = Iota('https://nodes.devnet.iota.org:443', seed)
     ```
 
-4. Use the [`get_account_data()`](https://github.com/iotaledger/iota.py/blob/master/docs/api.rst#get_account_data) method to ask the node for the current balance of the seed's addresses
+4. Use the [`get_account_data()`](https://pyota.readthedocs.io/en/latest/api.html#get-account-data) method to ask the node for the current balance of the seed's addresses
 
     ```python
     balance = api.get_account_data()

@@ -149,7 +149,7 @@ If not, try connecting to a different node. The [iota.dance website](https://iot
 
 In the `features` array, you can see that this node also support [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md) (RemotePOW). As a result, you can use this node to do proof of work instead of doing it on your local device.
 
-Also, this node has its zero message queue (ZMQ) enabled, so you can use it to [listen for live transactions](../how-to-guides/go/listen-for-transactions.md).
+Also, this node has its zero message queue (ZMQ) enabled, so you can use it to [listen for live transactions](../how-to-guides/python/listen-for-transactions.md).
 
 For more information about these fields, see the [IRI API reference](root://node-software/0.1/iri/references/api-reference.md#getNodeInfo).
 

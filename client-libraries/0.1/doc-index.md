@@ -114,4 +114,4 @@
 
 [API reference/JavaScript](https://github.com/iotaledger/iota.js/blob/next/api_reference.md)
 
-[API reference/Python](https://github.com/iotaledger/iota.py/blob/master/docs/api.rst)
+[API reference/Python](https://pyota.readthedocs.io/en/latest/)
