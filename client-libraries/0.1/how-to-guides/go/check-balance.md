@@ -1,6 +1,6 @@
 # Check the balance of an address in Go
 
-**The balance of [addresses](root://getting-started/0.1/clients/addresses.md) is kept up to date by all [nodes](root://getting-started/0.1/network/nodes.md) in an IOTA network. To request the balance from a node, you must send it the address whose balance you want to check.**
+**The balance of [IOTA tokens](root://getting-started/0.1/clients/token.md) on [addresses](root://getting-started/0.1/clients/addresses.md) is kept up to date by all [nodes](root://getting-started/0.1/network/nodes.md) in an IOTA network. To request the balance from a node, you must send it the address whose balance you want to check.**
 
 ## Packages
 
@@ -47,13 +47,13 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```go
     balances, err := api.GetBalances(trinary.Hashes{address}, 100)
     must(err)
-    fmt.Println("\nBalance:", balances.Balances[0])
+    fmt.Println("\nBalance: ", balances.Balances[0])
     ```
 
-    In the console, you should see a balance of [IOTA tokens](root://getting-started/0.1/clients/token.md).
+    In the console, you should see a balance of IOTA tokens:
 
     ```
-    [500]
+    Balance: 500
     ```
 
 :::success:Congratulations :tada:
@@ -71,3 +71,5 @@ Click the green button to run the sample code in this guide and see the results 
 ## Next steps
 
 [Listen for live transactions on the Tangle](../go/listen-for-transactions.md).
+
+You can also check the balance of an address, using a utility such as the [Tangle explorer](https://utils.iota.org).

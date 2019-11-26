@@ -125,3 +125,5 @@ Click the green button to run the sample code in this guide and see the results 
 ## Next steps
 
 Make a note of the bundle hash so you can [read the transaction data on the Tangle](../go/read-transactions.md).
+
+You can also read your transaction, using a utility such as the [Tangle explorer](https://utils.iota.org).
