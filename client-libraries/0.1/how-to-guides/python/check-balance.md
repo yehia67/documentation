@@ -1,6 +1,6 @@
 # Check the balance of an address in Python
 
-**The balance of [addresses](root://getting-started/0.1/clients/addresses.md) is kept up to date by all [nodes](root://getting-started/0.1/network/nodes.md) in an IOTA network. To request the balance from a node, you must send it the address whose balance you want to check. In this guide, you check the total balance of addresses that belong to a seed.**
+**The balance of [IOTA tokens](root://getting-started/0.1/clients/token.md) on [addresses](root://getting-started/0.1/clients/addresses.md) is kept up to date by all [nodes](root://getting-started/0.1/network/nodes.md) in an IOTA network. To request the balance from a node, you must send it the address whose balance you want to check. In this guide, you check the total balance of addresses that belong to a seed.**
 
 ## Packages
 
@@ -34,7 +34,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     api = Iota('https://nodes.devnet.iota.org:443', seed)
     ```
 
-4. Use the [`get_account_data()`](https://github.com/iotaledger/iota.py/blob/master/docs/api.rst#get_account_data) method to ask the node for the current balance of the seed's addresses
+4. Use the [`get_account_data()`](https://pyota.readthedocs.io/en/latest/api.html#get-account-data) method to ask the node for the current balance of the seed's addresses
 
     ```python
     balance = api.get_account_data()
@@ -42,10 +42,10 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```
 
     :::info:
-    This method starts from index 0 and increments it until an unspent address with no balance is found.
+    This method starts from index 0 and asks the node if it has one or more input transactions that withdraw from the address. If the node has input transactions that withdraw from the address, the index is incremented and this process continues until an unspent address is found.
     :::
 
-    In the console, you should see a balance of [IOTA tokens](root://getting-started/0.1/clients/token.md).
+    In the console, you should see a balance of IOTA tokens:
 
     ```
     The balance for your seed is: 500
@@ -66,3 +66,5 @@ Click the green button to run the sample code in this guide and see the results 
 ## Next steps
 
 [Listen for live transactions on the Tangle](../python/listen-for-transactions.md).
+
+You can also check the balance of an address, using a utility such as the [Tangle explorer](https://utils.iota.org).

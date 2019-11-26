@@ -35,7 +35,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     bundle = 'IYPHGPIAO99XFAIBRXB9BEQLTZBCXTAGHUXL9UUXGGHHNKEBVEANQIBOALKSO9KLHTEEZXXPB9IOBK9RB'
     ```
 
-4. Use the [`find_transaction_objects()`](https://github.com/iotaledger/iota.py/blob/master/docs/api.rst#find_transaction_objects) method to get transactions by the value of their `bundle` field
+4. Use the [`find_transaction_objects()`](https://pyota.readthedocs.io/en/latest/api.html#find-transaction-objects) method to get transactions by the value of their `bundle` field
 
     ```go
     transactions = api.find_transactions(bundles=[bundle])

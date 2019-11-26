@@ -68,7 +68,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     ```
 
     :::warning:
-    This way of generating addresses replies on the node to return valid data about your addresses. To have more control over your addresses, we recommend using the [account module](../../account-module/introduction/overview.md) to keep track of spent addresses in your own local database.
+    This way of generating addresses replies on the node to return valid data about your addresses. To have more control over your addresses, we recommend keeping a record of spent ones in your own local database.
     :::
 
     In the console, you should see an address.

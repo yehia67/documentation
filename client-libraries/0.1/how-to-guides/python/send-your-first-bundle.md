@@ -4,7 +4,7 @@
 
 ## Packages
 
-To complete this guide, you need to install the following package:
+To complete this guide, you need to install the following package (if you're using Go modules, you just need to reference this package):
 
 ```bash
 pip install pyota
@@ -72,7 +72,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     The Python library makes a disctinction between proposed and regular transaction objects. Proposed transaction objects are those that you can edit because they are not yet attached to the Tangle. In contrast, regular transaction objects are immutable because they are already attached to the Tangle.
     :::
 
-6. Pass your `ProposedTransaction` object to the [`send_transfer()`](https://github.com/iotaledger/iota.py/blob/master/docs/api.rst#send_transfer) method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and to send the bundle to the node
+6. Pass your `ProposedTransaction` object to the [`send_transfer()`](https://pyota.readthedocs.io/en/latest/api.html#send-transfer) method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and to send the bundle to the node
 
     ```python
     result = api.send_transfer(transfers = [tx])
@@ -98,3 +98,5 @@ Click the green button to run the sample code in this guide and see the results 
 ## Next steps
 
 Make a note of the bundle hash so you can [read the transaction data on the Tangle](../python/read-transactions.md).
+
+You can also read your transaction, using a utility such as the [Tangle explorer](https://utils.iota.org).

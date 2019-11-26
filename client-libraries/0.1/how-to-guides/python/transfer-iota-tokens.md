@@ -4,7 +4,7 @@
 
 ## Packages
 
-To complete this guide, you need to install the following package:
+To complete this guide, you need to install the following package (if you're using Go modules, you just need to reference this package):
 
 ```bash
 pip install pyota
@@ -78,7 +78,6 @@ To transfer your test tokens from one address to another, you need to create and
     The `testnet` argument sets the [minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md) to 9.
     :::
 
-
 4. Define the address to which you want to send your IOTA token
 
     ```python
@@ -94,7 +93,7 @@ To transfer your test tokens from one address to another, you need to create and
     )
     ```
 
-6. To create a transfer bundle from your `ProposedTransaction` object, pass it to the [`send_transfer()`](https://github.com/iotaledger/iota.py/blob/master/docs/api.rst#send_transfer) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and sending the bundle to the [node](root://getting-started/0.1/network/nodes.md)
+6. To create a transfer bundle from your `ProposedTransaction` object, pass it to the [`send_transfer()`](https://pyota.readthedocs.io/en/latest/api.html#send-transfer) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and sending the bundle to the [node](root://getting-started/0.1/network/nodes.md)
 
     ```python
     result = api.send_transfer(transfers=[tx] )
