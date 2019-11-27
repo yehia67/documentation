@@ -84,10 +84,9 @@ Regardless of the package manager you are using, remember to specify the latest 
     
     ```xml
     <dependency>
-        <groupId>com.github.iotaledger.iota-java</groupId>
-        <artifactId>jota</artifactId>
-        <classifier>jar-with-dependencies</classifier>
-        <version>[VERSION_INFORMATION]</version>
+      <groupId>org.iota</groupId>
+      <artifactId>jota</artifactId>
+      <version>[VERSION_INFORMATION]</version>
     </dependency>
     ```
 ---
@@ -138,9 +137,10 @@ The Discord bot should return the current `latestMilestoneIndex` field from a [n
 3\. To check if your node is synchronized, copy and paste the following code into the `ConnectToNode.java` file
 
 ```java
-import jota.IotaAPI;
-import jota.dto.response.getNodeInfo;
-import jota.error.ArgumentException;
+package com.iota;
+
+import org.iota.jota.IotaAPI;
+import org.iota.jota.dto.response.GetNodeInfoResponse;
 
 class ConnectToNode {
 public static void main(String[] args) throws ArgumentException {
@@ -150,7 +150,7 @@ public static void main(String[] args) throws ArgumentException {
         IotaAPI api = new IotaAPI.Builder()
             .protocol("https")
             .host("nodes.devnet.thetangle.org")
-            .port("443")
+            .port(443)
             .build();
 
         // Call the `getNodeInfo()` method for information about the node and the Tangle
@@ -160,13 +160,13 @@ public static void main(String[] args) throws ArgumentException {
 }
 ```
 
-4\. Save your changes and compile this Java class from the command line
+4\. If you installed the library manually, save your changes and compile this Java class from the command line
 
 ```bash
 javac -cp jota-[VERSION]-jar-with-dependencies.jar ConnectToNode.java
 ```
 
-5\. Run the compiled code from the command line
+5\. If you installed the library manually, run the compiled code from the command line
 
 --------------------
 ### macOS and Linux
