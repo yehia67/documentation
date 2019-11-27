@@ -55,7 +55,9 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     ```
 
     :::info:
-    The `from_unicode()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
+    The `from_unicode()` method supports encoding non-ASCII (UTF-8) characters, but this
+    functionality is experimental and has not yet been evaluated by the IOTA community.
+    Until this functionality is standardized, it is recommended that you only use [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters).
     :::
 
 5. Define a zero-value transaction that sends the message to the address

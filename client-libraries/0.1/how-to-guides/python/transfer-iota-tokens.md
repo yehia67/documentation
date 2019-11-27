@@ -41,6 +41,14 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
 ```
 --------------------
 
+Alternatively, you could make use of the library to generate a random seed
+
+```python
+from iota.crypto.types import Seed
+seed = Seed.random()
+print(seed)
+```
+
 2\. [Generate a new address for your seed](../python/generate-an-address.md)
 
 3\. Copy and paste your address into the [Devnet faucet](https://faucet.devnet.iota.org), then wait for the tokens to be transferred to your address
@@ -110,6 +118,8 @@ To transfer your test tokens from one address to another, you need to create and
     If the amount you want to transfer is less than the balance of your withdrawn addresses, the library creates another output transaction to transfer the remainder to an unspent address that belongs to your seed.
 
     In the console, you should see the bundle hash of the transaction you just sent.
+
+    You can also observe the bundle and the transactions in it by using a utility such as the [Tangle explorer](https://utils.iota.org).
 
 :::success:Congratulations :tada:
 You've just sent your first transfer bundle. Your transactions are attached to the Tangle and will be forwarded to the rest of the network. Now, you just need to wait until the transaction is confirmed for your balance to be updated.

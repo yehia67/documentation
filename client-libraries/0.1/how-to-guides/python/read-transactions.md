@@ -37,13 +37,15 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 
 4. Use the [`find_transaction_objects()`](https://pyota.readthedocs.io/en/latest/api.html#find-transaction-objects) method to get transactions by the value of their `bundle` field
 
-    ```go
-    transactions = api.find_transactions(bundles=[bundle])
+    ```python
+    transactions = api.find_transaction_objects(bundles=[bundle])
     ```
 
 5. Convert the message in the bundle's first transaction to ASCII characters and print it to the console
 
     ```python
+    # Note, that the python api returns a python dictionary with a 'transactions'
+    # key and a list of transaction objects as value for it.
     message = transactions['transactions'][0].signature_message_fragment
     print(message.decode())
     ```
