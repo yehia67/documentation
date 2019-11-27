@@ -137,7 +137,7 @@ $ go get github.com/iotaledger/iota.go/api
 ```
 This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file.
 
-[See the Go documentation](root://iota-go/0.1/introduction/overview.md).
+[See the Go documentation](root://client-libraries/0.1/getting-started/go-quickstart.md).
 ---
 ### Python
 To use the library, your computer must have one of the following supported versions of Python:

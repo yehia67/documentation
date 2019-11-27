@@ -102,7 +102,18 @@ Inside the project, you'll have a `jota` and `jota-parent` directory
 3. In the `jota` directory, install the dependencies
 
     ```bash
-    mvn clean install
+    mvn install -DskipTests
+    ```
+
+    You should see something like the following:
+
+    ```bash
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time:  03:41 min
+    [INFO] Finished at: 2019-11-27T10:14:45Z
+    [INFO] ------------------------------------------------------------------------
     ```
 
 Now, you have a `jota-[VERSION]-jar-with-dependencies.jar` file, depending on your version of the library.
