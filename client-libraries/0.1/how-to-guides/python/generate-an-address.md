@@ -4,7 +4,7 @@
 
 ## Packages
 
-To complete this guide, you need to install the following package (if you're using Go modules, you just need to reference this package):
+To complete this guide, you need to install the following package:
 
 ```bash
 pip install pyota
@@ -44,7 +44,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     security_level = 2
     ```
 
-5. Use the [`GetNewAddress()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_get_new_address.md) method to generate an unspent address. If the connected node has an input transaction that withdraws from the address with the given index, the node knows that the address is spent, so the library returns the next unspent address.
+5. Use the [`get_new_address()`](https://pyota.readthedocs.io/en/latest/api.html#get-new-addresses) method to generate an unspent address. If the connected node has an input transaction that withdraws from the address with the given index, the node knows that the address is spent, so the library returns the next unspent address.
 
     ```python
     receiver_address = api.get_new_addresses(index=0, count=1, security_level = security_level)['addresses'][0]
@@ -91,4 +91,4 @@ Click the green button to run the sample code in this guide and see the results 
 
 ## Next steps
 
-[Send test IOTA tokens to your new address](../go/transfer-iota-tokens.md).
+[Send test IOTA tokens to your new address](../python/transfer-iota-tokens.md).
