@@ -59,6 +59,7 @@ A C# .NET 4.6 client library. This library includes core and extended functional
 ### **Official support** ###
 
 ---------------
+
 #### **IOTA Utilities** ####
 [Link](https://utils.iota.org)
 
@@ -66,7 +67,7 @@ Official utilities for developing on IOTA and interacting with the Tangle.
 
 ---
 
-#### **Official Discord** ####
+#### **Discord** ####
 [Link](https://discord.iota.org)
 
 The official Discord server where community members and the IOTA Foundation discuss projects and related subjects.

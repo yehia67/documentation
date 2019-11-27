@@ -1,6 +1,6 @@
 # Generate an address in Go
 
-**In this guide, you learn how to generate a new address for a [seed](root://getting-started/0.1/clients/seeds.md) by either incrementing the index and/or using a different [security level](root://getting-started/0.1/clients/security-levels.md).**
+**In this guide, you learn how to generate a new address for a [seed](root://getting-started/0.1/clients/seeds.md) with a given [security level](root://getting-started/0.1/clients/security-levels.md).**
 
 ## Packages
 
@@ -48,7 +48,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     const seed = trinary.Trytes("PUETPSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX")
     ```
 
-5. Use the [`GetNewAddress()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_get_new_address.md) method to generate an unspent address. If the connected node has an input transaction that withdraws from the address with the given index, the node knows that the address is spent, so the library returns the next unspent address.
+5. Use the [`GetNewAddress()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_get_new_address.md) method to generate an unspent address
 
     ```go
     addresses, err := api.GetNewAddress(seed, GetNewAddressOptions{Security:securityLevel})
@@ -57,8 +57,15 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     fmt.Println("\nYour address is: ", addresses[0])
     ```
 
+    Starting from the given index, the connected node checks the following:
+
+    - If any input transactions (pending or confirmed) in its view of the Tangle withdraw from the address
+    - If the address is in the node's list of spent addresses (addresses that were withdrawn from in confirmed transactions)
+    
+    If an address with the given index is spent, the index is incremented until the node finds one that isn't spent.
+
     :::warning:
-    Nodes don't always know if an address is spent because they often remove old transactions from their ledgers during a [local snapshot](root://node-software/0.1/iri/concepts/local-snapshot.md). Therefore, we recommend using the [account module](../../account-module/introduction/overview.md) to keep track of spent addresses in your own local database.
+    This way of generating addresses replies on the node to return valid data about your addresses. To have more control over your addresses, we recommend using the [account module](../../account-module/introduction/overview.md) to keep track of spent addresses in your own local database.
     :::
 
     In the console, you should see an address.

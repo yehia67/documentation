@@ -11,3 +11,6 @@
 
 [JavaScript quickstart](/0.1/getting-started/js-quickstart.md)
 ## Get started with the JavaScript client library
+
+[Python quickstart](/0.1/getting-started/python-quickstart.md)
+## Get started with the Python client library

@@ -37,7 +37,7 @@ cat /dev/urandom |tr -dc A-Z9|head -c${1:-81}
 cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
 ```
 ---
-### Windows
+### Windows PowerShell
 ```bash
 $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).GetBytes($b);-join($b|%{[char[]] (65..90+57..57)[$_%27]})
 ```
@@ -97,24 +97,34 @@ To transfer your test tokens from one address to another, you need to create and
     const address = trinary.Trytes("ZLGVEQ9JUZZWCZXLWVNTHBDX9G9KZTJP9VEERIIFHY9SIQKYBVAHIMLHXPQVE9IXFDDXNHQINXJDRPFDXNYVAPLZAW")
     ```
 
-6. Create a `transfers` object that specifies the amount of IOTA tokens you want to transfer, the tag you want to add to the transaction, and the address to send the tokens to
+6. Create a `transfers` object that specifies the amount of IOTA tokens you want to transfer and the address to send the tokens to
 
     ```go
     transfers := bundle.Transfers{
         {
             Address: address,
             Value: 1,
-            Tag: trinary.Trytes("MYFIRSTVALUETRANSACTION"),
         },
     }
     ```
 
-7. To create a transfer bundle from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_prepare_transfers.md) method. Then, pass the returned bundle trytes to the [`sendTrytes()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_send_trytes.md) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and sending the bundle to the node
+7. To create a transfer bundle from your `transfers` object, pass it to the [`PrepareTransfers()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_prepare_transfers.md) method
 
     ```go
     trytes, err := api.PrepareTransfers(seed, transfers, PrepareTransfersOptions{})
     must(err)
+    ```
+    This method asks the node to check the balance of your seed's addresses. If your addresses have enough IOTA tokens to complete the transfer, the library creates input transactions to withdraw the full balance from enough of your addresses to fulfill the transfer. Then, the library adds those transactions to the transfer bundle and signs the bundle with the private keys of any withdrawn addresses.
+
+    :::info:
+    Your seed never leaves your device. The library generates addresses and sends them to the node.
+    :::
+
+    If the amount you want to transfer is less than the balance of your withdrawn addresses, the library creates another output transaction to transfer the remainder to an unspent address that belongs to your seed.
     
+8. Pass the bundle trytes to the [`SendTrytes()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_send_trytes.md) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and sending the bundle to the node
+
+    ```go
     myBundle, err := api.SendTrytes(trytes, depth, minimumWeightMagnitude)
     must(err)
 

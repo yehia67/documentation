@@ -13,8 +13,8 @@ The following utilities are maintained by us at the IOTA Foundation. Use these l
 Tag an IOTA transaction with a geo-location, and find others with the same tag.
 ---
 
-#### **Proof-of-existance provider** ####
-[Link](../official/proof-of-existance/overview.md)
+#### **Proof-of-existence provider** ####
+[Link](../official/proof-of-existence/overview.md)
 
 Prove that a file is unchanged so that all parties that trust it.
 ---
