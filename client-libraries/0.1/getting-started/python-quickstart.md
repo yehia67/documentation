@@ -61,9 +61,11 @@ Now you are ready to start installing packages.
 
 ## Step 2. Install packages
 
-The Python client library is organized in packages, which contain related methods.
+The Python client library, or commonly known as PyOTA, is organized in packages,
+which contain related methods.
 
-To install the library packages, use the [PIP package manager](https://pip.pypa.io/en/stable/).
+To install the library packages from [PyPi](https://pypi.org/project/PyOTA/),
+use the [PIP package manager](https://pip.pypa.io/en/stable/).
 
 ```bash
 pip install pyota
@@ -102,7 +104,7 @@ Whenever you connect to a node, you need to know which [IOTA network](root://get
     # Specify which node to connect to
     api = Iota(adapter = 'https://nodes.devnet.iota.org:443')
 
-    # Call the `getNodeInfo()` method for information about the node and the Tangle
+    # Call the `get_node_info()` method for information about the node and the Tangle
     response = api.get_node_info()
 
     print(response)
@@ -184,3 +186,5 @@ We have many channels, including the following:
 Continue learning with our [Python workshop](../how-to-guides/python/get-started.md).
 
 Read our [developer's handbook](root://getting-started/0.1/references/quickstart-dev-handbook.md) for guidance on whether you should run your own node, whether you need a private IOTA network, and what you need to consider for both.
+
+Find the in-depth Python library documentation on the [PyOTA documentation page](https://pyota.readthedocs.io/en/latest/).
