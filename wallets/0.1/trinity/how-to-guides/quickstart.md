@@ -8,8 +8,10 @@ If you complete this guide from beginning to end, you'll learn everything from i
 
 1. [Create an account](../how-to-guides/create-an-account.md)
 
-2. [Receive a transaction](../how-to-guides/receive-a-transaction.md)
+2. [Back up your seed](../how-to-guides/back-up-seed.md)
 
-3. [Read your balance](../how-to-guides/read-your-balance.md)
+3. [Buy IOTA tokens](../how-to-guides/buy-iota.md)
 
-4. [Send a transaction](../how-to-guides/send-a-transaction.md)
+4. [Read your balance](../how-to-guides/read-your-balance.md)
+
+5. [Send a transaction](../how-to-guides/send-a-transaction.md)
