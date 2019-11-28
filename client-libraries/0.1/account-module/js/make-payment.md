@@ -1,6 +1,22 @@
-# Make payments to/from your account
+# Make payments with your account in JavaScript
 
-**To make payments, both the sender and the receiver need to have a conditional deposit address (CDA). The sender needs an expired CDA that contains IOTA tokens, and the receiver needs an active CDA to send tokens to.**
+**In this guide, you use your account to deposit IOTA tokens into a pre-defined CDA.**
+
+## Packages
+
+To complete this guide, you need to install the following packages:
+
+--------------------
+### npm
+```bash
+npm install @iota/account @iota/cda @iota/transaction-converter ntp-client
+```
+---
+### Yarn
+```bash
+yarn add @iota/account @iota/cda @iota/transaction-converter ntp-client
+```
+--------------------
 
 ## IOTA network
 
@@ -8,168 +24,112 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 
 ## Code walkthrough
 
-1. Create a CDA and set it to expire tomorrow
+To make a payment, your account needs to have one or more CDAs that contains IOTA tokens.
+
+1. If you dont have a CDA that contains IOTA tokens, follow this guide to [generate a CDA](../js/generate-cda.md) and send test IOTA tokens to it
+
+2. Use the `parseCDAMagnet()` method to deserialize the magnet link into a CDA 
 
     ```js
-    const cda = account
-        .generateCDA({
-            timeoutAt: Date.now() + 24 * 60 * 60 * 1000,
-            expectedAmount: 1000
-        });
+    const magnetLink = "iota://BWNYWGULIIAVRYOOFWZTSDFXFPRCFF9YEHGVBOORLGCPCJSKTHU9OKESUGZGWZXZZDLESFPPTGEHVKTTXG9BQLSIGP/?timeout_at=5174418337&multi_use=1&expected_amount=0";
+
+    const cda = CDA.parseCDAMagnet(
+        magnetLink
+    );
     ```
 
     :::info:
-    If you created an account with a `timeSource()` method, you can call that method in the `timeoutAt` field.
+    The given magent link is for an example CDA that expires in over 100 years.
+    If you want to make a payment to a different CDA, use that one instead.
     :::
 
-2. After making sure that the CDA is still active, send a deposit to it
+3. Make sure that the CDA is still active
 
     ```js
-    cda
-        .tap(cda => console.log('Sending to:', cda.address))
-        .then(cda =>
-            account.sendToCDA({
-                ...cda,
-                value: 1000
-            })
-            .then((trytes) => {
-            console.log('Successfully prepared transaction trytes:', trytes)
-        })
-        )
-        .catch(err => {
-            // Handle errors here...
-        });
+    // Get the current time to use to compare to the CDA's timeout
+    ntpClient.getNetworkTime("time.google.com", 123, function(err, date) {
+        if(err) {
+            console.error(err);
+            return;
+        } else if (!(CDA.isAlive(date, cda))) {
+            isActive = false
+        }
+    });
     ```
 
-    :::info:
-    If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/tutorials/get-test-tokens.md).
-    :::
-
-    :::info:
-    The last 9 characters of a CDA are the checksum, which is a hash of the address and all of its conditions. This checksum is not compatible with Trinity or the Devnet faucet because they don't yet support CDAs.
+3. Send a deposit to the CDA
     
-    Remove the checksum before pasting your address into the input field of either of these applications.
-    :::
+    ```js
+    // Send the payment only if the CDA is active
+    if (isActive) {
+        account.sendToCDA({
+            ...cda,
+            value: 1000
+        })
+        .then((trytes) => {
+            // Get the tail transaction and convert it to an object
+            let bundle = TransactionConverter.asTransactionObject(trytes[trytes.length - 1]);
+            let bundleHash = bundle.bundle;
+            let address = bundle.address
+            let value = bundle.value;
+            console.log(`Sent ${value} IOTA tokens to ${address} in bundle:  ${bundleHash}`);
+        })
+        .catch(error => {
+            console.log(error);
+            // Close the database and stop any ongoing reattachments
+            account.stop();
+        });
 
-In the output, you should see an address and a tail transaction hash when the transaction is pending, and the same address and tail transaction hash when the transaction is confirmed.
+    } else {
+        console.log('CDA is expired. Use an active CDA.');
+        // Close the database and stop any ongoing reattachments
+        account.stop();
+        return;
+    }
+    ```
 
-The account's attachment routine will keep attaching unconfirmed transactions until they are confirmed.
+    You should see that how many IOTA tokens were sent to your address as well as the bundle hash:
 
-You can start or stop the attachment routine by calling the `startAttaching()` and
-`stopAttaching()` methods.
+    ```
+    Sent 1000 to TIZJIRDCZPRJMMVKSGROPKE9VGIQKOLOUSX9MCUTOEQBBHPMLYBVKBPCXJKY9SDWX9FVMOZTWNMVVEYKX in bundle:  RXIA9CBEOASNY9IRIARZFGDLK9YNGW9ZHJGJLUXOUKVGCZLPNDKALFHZWHZKQQXFTIHEIJJPN9EURO9K9
+    ```
+
+Your account will reattach and promote your bundle until it's confirmed.
+
+You can stop the reattachment routine by calling the `stopAttaching()` method.
+
+To restart the reattachment routine, call the `startAttaching()` method with your network settings.
 
 ```js
+account.stopAttaching();
+
 account.startAttaching({
     depth: 3,
     minWeightMagnitude: 9,
     delay: 30 * 1000
-
-    // How far back in the Tangle to start the tip selection
-    depth: 3,
-
-    // The minimum weight magnitude is 9 on the Devnet
-    minWeightMagnitude: 9,
-
-    // How long to wait before the next attachment round
-    delay: 1000 * 30,
-
-    // The depth at which transactions are no longer promotable
-    // Those transactions are automatically re-attached
     maxDepth: 6
 });
-
-account.stopAttaching();
 ```
 
-## Transfer your entire available balance to one CDA
+## Run the code
 
-You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. To do so, you can transfer you available balance to a new CDA.
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
-:::info:
-Available balance is the total balance of all expired CDAs. This balance is safe to withdraw.
+If you don't have a JavaScript development environment, or if this is your first time using the JavaScript client library, complete our [getting started guide](../../getting-started/js-quickstart.md).
 
-Your account's total balance includes CDAs that are still active as well as expired. This balance is unsafe to withdraw.
-:::
+In the command-line, do the following:
 
-1. Create a CDA that has your account's total available balance as its expected amount, then transfer your total available balance to that CDA
-
-    ```js
-    account.getAvailableBalance()
-    .then(balance => {
-        const cda = account.generateCDA({
-                timeoutAt: Date.now() + 24 * 60 * 60 * 1000,
-                expectedAmount: balance
-            })
-            .then(cda => {
-                account.sendToCDA({
-                ...cda,
-                value: balance
-            })
-            .then((trytes) => {
-                console.log('Successfully prepared transaction trytes:', trytes)
-            })
-        })
-    })
-    .catch(err => {
-            // Handle errors here...
-    });
-    ```
-
-## Send someone your CDA
-
-If you want a depositer to transfer IOTA tokens to your account, you need to send them your CDA.
-
-Because CDAs are descriptive objects, you can serialize them into any format before sending them. The `generateCDA()` method returns a CDA object with the following fields. You can serialize a CDA into any format before distributing it to senders.
-
-```js
-{
-   address, // The last 9 trytes are the checksum
-   timeoutAt,
-   multiUse,
-   expectedAmount
-}
+```bash
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/js/account-module
+npm i
+node make-payment/make-payment.js
 ```
 
-For example, you can serialize these fields to create a magnet link.
+You should see that the deposit was sent.
 
-### Serialize a CDA into a magnet link
+Your seed state will contain this pending bundle until it is confirmed.
 
-The built-in method for serializing a CDA is to create a magnet link.
+## Next steps
 
-1. To serialize a CDA into a magnet link, use the `serializeCDAMagnet()` method in the [`@iota/cda` module](https://github.com/iotaledger/iota.js/tree/next/packages/cda)
-
-    ```js
-    const CDA = require('@iota/cda');
-    
-    const magnetLink = CDA.serializeCDAMagnet(cda);
-    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1
-    ```
-
-2. To send a transaction to a CDA that's been serialized into a magnet link, pass the magnet link to the `parseCDAMagnet()` method, then and pass the result to the`sendToCDA()` method
-
-    ```js
-     const magnetLink = 'iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0';
-     const { address, timeoutAt, multiUse, expectedAmount } = parseCDAMagnet(
-        magnetLink
-    );
-
-    account.sendToCDA({
-        address,
-        timeoutAt,
-        multiUse,
-        expectedAmount,
-        value: 1000
-    })
-        .then((trytes) => {
-            console.log('Successfully prepared the transaction:', trytes)
-        })
-        .catch(err => {
-            // Handle errors here...
-        });
-
-    account.startAttaching({
-        depth: 3,
-        minWeightMagnitude : 9,
-        delay: 30 * 1000 // 30 second delay
-    });
-    ```
+[Try exporting your seed state so you back it up or import it onto another device](../js/export-seed-state.md).

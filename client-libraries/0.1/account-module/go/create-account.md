@@ -22,6 +22,10 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 
 1\. Create a new seed and back it up
 
+:::info:
+Existing seeds are not safe to use because their state is unknown. As such, these seeds may have spent addresses that the account is not aware of.
+:::
+
 --------------------
 ### Linux
 ```bash
@@ -45,10 +49,6 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
 var seed = trinary.Trytes("PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX")
 ```
 
-:::info:
-If you want to use a seed from a particular location, for example a hardware wallet, create a custom `SeedProvider` object, and pass it to the `WithSeedProvider()` method.
-:::
-
 3\. Connect to a node
    
 ```go
@@ -60,7 +60,7 @@ handleErr(err)
 4\. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a BadgerDB database. Change `db` to the path where you want to save the database directory.
 
 ```go
-store, err := badger.NewBadgerStore("db")
+store, err := badger.NewBadgerStore("seed-state-database")
 handleErr(err)
 
 // Make sure the database closes when the code stops
@@ -133,8 +133,8 @@ If you don't have a Go development environment, or if this is your first time us
 In the command-line, do the following:
 
 ```bash
-git clone https://github.com/JakeSCahill/getting-started-go-accounts.git
-cd getting-started-go-accounts
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/go/account-module
 go mod download
 go run create-account/create-account.go
 ```

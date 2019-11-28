@@ -49,6 +49,8 @@ Regardless of the package manager you are using, remember to specify the latest 
 --------------------
 ### Gradle
 
+To use the [Gradle](https://gradle.org/install/) build tool, you need to install it.
+
 1. Add the JitPack repository to your root `build.gradle` file
 
     ```gradle
@@ -63,11 +65,13 @@ Regardless of the package manager you are using, remember to specify the latest 
 
     ```gradle
     dependencies {
-        compile 'com.github.iotaledger:iota-java:1.0.0-beta3'
+        compile 'com.github.iotaledger:iota-java:[VERSION]'
     }
     ```
 ---
 ### Maven
+
+To use the [Maven](https://maven.apache.org/download.cgi) build tool, you need to install it.
 
 1. Add the JitPack repository to your root `pom.xml` file
     
@@ -80,13 +84,13 @@ Regardless of the package manager you are using, remember to specify the latest 
     </repositories>
     ```
 
-2. Add the iotaledger dependency to your module `pom.xml` file. Replace the `[VERSION_INFORMATION]` placeholder with either the latest release number such as `1.0.0-beta3` or the first 10 characters of a Git commit hash such as `a98de8ea50`.
+2. Add the iotaledger dependency to your module `pom.xml` file. Replace the `[VERSION]` placeholder with either the latest release number such as `1.0.0-beta3` or the first 10 characters of a Git commit hash such as `a98de8ea50`.
     
     ```xml
     <dependency>
       <groupId>org.iota</groupId>
       <artifactId>jota</artifactId>
-      <version>[VERSION_INFORMATION]</version>
+      <version>[VERSION]</version>
     </dependency>
     ```
 ---
