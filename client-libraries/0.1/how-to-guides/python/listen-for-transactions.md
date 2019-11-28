@@ -25,6 +25,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 2. Connect the socket to a node's ZMQ port
 
     ```python
+    context = zmq.Context()
 	socket = context.socket(zmq.SUB)
     socket.connect('tcp://zmq.devnet.iota.org:5556')
     ```
