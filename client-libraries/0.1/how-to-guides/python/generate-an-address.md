@@ -64,7 +64,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     if is_spent:
         print('Address %s is spent!' % address.__str__() )
     else:
-        print('Your address is: %s' % address.__str__() )
+        print('Your address is: %s' % address )
     ```
 
     :::warning:
