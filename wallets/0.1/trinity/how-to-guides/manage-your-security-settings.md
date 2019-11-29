@@ -1,14 +1,16 @@
 # Set up biometric authentication (mobile devices only)
 
-**Biometric authentication is a security process that allows you to log into Trinity with your fingerprint. When you set up biometric authentication, you'll have the option to log into Trinity using either your fingerprint or your password.**
-
-To access security settings on a mobile device, go to **Settings** > **Security settings**.
-
-1. Click **Biometric authentication**
-
-2. Click **Enable**
-
-3. Click **Done**
+**Biometric authentication is a security process that allows you to log into Trinity with your fingerprint. In this guide, you set up biometric authentication so that you have the option to log into Trinity, using either your fingerprint or your password.**
 
 ![Biometric authentication](../images/2fa.jpg)
+
+1. Go to **Settings** > **Security settings**
+
+2. Click **Biometric authentication**
+
+3. Click **Enable**
+
+4. Click **Done**
+
+
 

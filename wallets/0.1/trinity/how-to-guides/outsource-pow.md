@@ -1,17 +1,11 @@
 # Outsource proof of work
 
-**Before you send a transaction, it must include a [proof of work](root://getting-started/0.1/transactions/proof-of-work.md). Proof of work requires a computer to use energy to do computations. By default proof of work is done on the computer that is running Trinity.**
+**By default [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) is done on the computer that is running Trinity. In this guide, you learn how to ask one of the connected nodes to do proof of work instead.**
 
-You can use the **Outsource proof of work** option to ask a specific node to do the proof of work for your transactions.
-
-:::info:
-All nodes in Trinity must communicate over HTTPS.
-:::
-
-1. Go to **Settings** > **Node** > **Add custom nodes**,  and enter the URL or IP address of the nodes you want to add
+1. Go to **Settings** > **Node** > **Add custom nodes**,  and enter the URL or IP address of one or more nodes that you want to add
 
     :::info:
-    To connect to a quorum of custom nodes, add more than one.
+    All nodes in Trinity must communicate over HTTPS.
     :::
 
 2. Enable the **Outsource proof of work** option
@@ -27,3 +21,7 @@ All nodes in Trinity must communicate over HTTPS.
 :::success:Congratulations! :tada:
 Whenever you send a transaction, the proof of work is done by your custom proof-of-work node.
 :::
+
+## Next steps
+
+[Send a transaction](../how-to-guides/send-a-transaction.md)

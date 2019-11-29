@@ -9,7 +9,6 @@
 [Trinity/How-to Guides/Create an account](/trinity/how-to-guides/create-an-account.md)
 [Trinity/How-to Guides/Back up your seed](/trinity/how-to-guides/back-up-seed.md)
 [Trinity/How-to Guides/Buy IOTA tokens](/trinity/how-to-guides/buy-iota.md)
-[Trinity/How-to Guides/Read your balance](/trinity/how-to-guides/read-your-balance.md)
 [Trinity/How-to Guides/Send a transaction](/trinity/how-to-guides/send-a-transaction.md)
 [Trinity/How-to Guides/Receive a transaction](/trinity/how-to-guides/receive-a-transaction.md)
 [Trinity/How-to Guides/Create a QR code](/trinity/how-to-guides/create-a-qr-code.md)

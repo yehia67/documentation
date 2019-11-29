@@ -1,6 +1,6 @@
 # Develop features on Trinity
 
-**As well as an application, Trinity is an open-source platform on which you can develop new features.**
+**As well as an application, Trinity is an open-source platform on which you can develop new features. In this guide, you learn how to develop your own features for Trinity.**
 
 To get started with Trinity development, do the following:
 
