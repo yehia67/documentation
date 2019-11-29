@@ -62,7 +62,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     is_spent = api.were_addresses_spent_from([address])['states'][0]
 
     if is_spent:
-        print('Address %s is spent!' % address.__str__() )
+        print('Address %s is spent!' % address )
     else:
         print('Your address is: %s' % address )
     ```
