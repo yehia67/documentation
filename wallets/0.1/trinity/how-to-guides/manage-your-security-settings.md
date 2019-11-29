@@ -12,5 +12,15 @@
 
 4. Click **Done**
 
+:::success:
+Now you can log in with your fingerprint.
+:::
+
+## Next steps
+
+[Buy IOTA tokens](../how-to-guides/buy-iota.md).
+
+[Send a transaction](../how-to-guides/send-a-transaction.md).
+
 
 

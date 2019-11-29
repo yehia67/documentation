@@ -38,11 +38,11 @@ When you're connected to a node on your chosen IOTA network, you can send it a t
     If your account is linked to a hardware wallet, you can send either IOTA tokens or a message, but not both.
     :::
 
-    ![IOTA units](../images/sending-value-highlighted.jpg)
+    ![IOTA units](../images/sending-value-highlighted.png)
     
 4. Click **Send**
 
-    ![Sending IOTA tokens](../images/send.jpg)
+    ![Sending IOTA tokens](../images/send.png)
 
     :::info:
     If you minimize Trinity Mobile, the sending process pauses until you reopen it.

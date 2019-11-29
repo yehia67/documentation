@@ -12,7 +12,7 @@
     On Android devices, any application can read the content of keyboard presses and modify it. Be careful when pasting an address into another app and make sure that the address you have pasted is the same one that you copied.
     :::
 
-    ![Receiving a transaction](../images/receive.jpg)
+    ![Receiving a transaction](../images/receive.png)
     
 4. When you either receive or send a transaction, it appears on the home page. Click a transaction from the list to view information about it.
 
