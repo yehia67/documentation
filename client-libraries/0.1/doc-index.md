@@ -90,7 +90,7 @@
 
 [Account module/Java/Listen to events](/account-module/java/listen-to-events.md)
 
-[Account module/JavaScript/Get started](/account-module/java/get-started.md)
+[Account module/JavaScript/Get started](/account-module/js/get-started.md)
 
 [Account module/JavaScript/Create an account](/account-module/js/create-account.md)
 
