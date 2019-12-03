@@ -29,11 +29,13 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 2. Create a new CDA. This one expires tomorrow.
 
     ```js
-    account.generateCDA({
-        timeoutAt: Date.now() + 24 * 60 * 60 * 1000
+    const timeSource = () => util.promisify(ntpClient.getNetworkTime)("time.google.com");
+    
+    timeSource().then((time => account.generateCDA({
+        timeoutAt: time + 24 * 60 * 60 * 1000, // 1 day from now
     }).then(cda => {
-
-    })
+    
+    });
     ```
 
 3. Use the `AsMagnetLink()` method to serialize the CDA into a magnet link and print it to the console
