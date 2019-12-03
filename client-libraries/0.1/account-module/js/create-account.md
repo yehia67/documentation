@@ -76,7 +76,6 @@ const maxDepth = 6;
 3\. Create a `timeSource` function that returns a promise, which the account will use to decide if your CDAs are still active. In this example, we use the [ntp-client](https://www.npmjs.com/package/ntp-client) package to connect to the [Google NTP (network time protocol) servers](https://developers.google.com/time/faq).
 
 ```js
-const util = require('util');
 const timeSource = () => util.promisify(ntpClient.getNetworkTime)("time.google.com");
 ```
 
