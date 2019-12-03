@@ -42,7 +42,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
             console.log('error', err);
         } else {
             console.log('Seed state saved')
-        }
+        });
     ```
 
     :::info:
