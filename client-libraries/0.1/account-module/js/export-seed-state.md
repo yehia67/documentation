@@ -22,7 +22,7 @@ yarn add @iota/account ntp-client
 
 In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
-## Step 1. Export your seed state
+## Code walkthrough
 
 1. Export your account's seed state
 
@@ -49,25 +49,19 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     It's best practice to back up your seed state at regular intervals.
     :::
 
-:::success:Congratulations! :tada:
-You've exported your seed state. Now, you can back it up or import it into an account on another device.
-:::
-
-## Step 2. Import your seed state
-
-1. Read your exported seed state
+3. Read your exported seed state
 
     ```js
     let JSONSeedState = fs.readFileSync("exported-seed-state.json");
     ```
 
-2. Deserialize your JSON seed state into an object
+4. Deserialize your JSON seed state into an object
 
     ```js
     let importedState = JSON.parse(JSONSeedState);
     ```
 
-3. Import your seed state into your account's database
+5. Import your seed state into your account's database
 
     ```js
     account.importState(importedState).then(err => {
