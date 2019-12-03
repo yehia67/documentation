@@ -29,7 +29,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 2. Create a new CDA. This one expires tomorrow.
 
     ```js
-    const timeSource = () => util.promisify(ntpClient.getNetworkTime)("time.google.com");
+    const timeSource = () => util.promisify(ntpClient.getNetworkTime)("time.google.com", 123);
     
     timeSource().then((time => account.generateCDA({
         timeoutAt: time + 24 * 60 * 60 * 1000, // 1 day from now
