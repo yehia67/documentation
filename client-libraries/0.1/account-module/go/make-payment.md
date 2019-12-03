@@ -2,7 +2,7 @@
 
 **In this guide, you use your account to deposit IOTA tokens into a pre-defined CDA.**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
 

@@ -2,7 +2,7 @@
 
 **In this guide, you create an account to keep track of your seed state in a local database and print your account's balance to the console.**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
 
@@ -117,8 +117,6 @@ handleErr(err)
 fmt.Println("Total available balance: ")
 fmt.Println(balance)
 ```
-
-You should see your balance.
 
 :::success:Congratulations! :tada:
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your seed.

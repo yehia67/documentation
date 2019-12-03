@@ -2,7 +2,7 @@
 
 **In this guide, you generate a conditional deposit address, serialize it into a magnet link, and send test IOTA tokens to it.**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need the following packages (if you're using Go modules, you just need to reference these packages):
 
@@ -77,6 +77,7 @@ cd iota-samples/go/account-module
 go mod download
 go run generate-cda/generate-cda.go
 ```
+
 You should see the magnet link in the console.
 
 ```bash

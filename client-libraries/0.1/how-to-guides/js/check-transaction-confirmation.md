@@ -2,7 +2,7 @@
 
 **Before IOTA tokens can be transferred, the transactions in the [bundle](root://getting-started/0.1/transactions/bundles.md) that transfers them must be confirmed. Transactions in a bundle remain in a pending state until the tail transaction is referenced and approved by a [milestone](root://getting-started/0.1/network/the-coordinator.md).**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need to install the following package:
 

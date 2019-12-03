@@ -1,73 +1,44 @@
-# Make payments to/from your account
+# Make payments with your account in Go
 
-**To make payments, both the sender and the receiver need to have a conditional deposit address (CDA). The sender needs an expired CDA that contains IOTA tokens, and the receiver needs an active CDA to send tokens to.**
+**In this guide, you use your account to deposit IOTA tokens into a pre-defined CDA.**
+
+## IOTA packages
+
+To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
+
+```bash
+go get github.com/iotaledger/iota.go/account/builder
+go get github.com/iotaledger/iota.go/account/deposit
+go get github.com/iotaledger/iota.go/account/oracle
+go get github.com/iotaledger/iota.go/account/oracle/time
+go get github.com/iotaledger/iota.go/account/store/badger
+go get github.com/iotaledger/iota.go/account/timesrc
+go get github.com/iotaledger/iota.go/api
+```
 
 ## IOTA network
 
 In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
-## Step 1. Create a conditional deposit address
+## Code walkthrough
 
-1. [Plan the conditions](../introduction/overview.md#advice-for-creating-cdas) you would like your conditional deposit address to have
-
-2. Define an expiration time for the CDA. This one expires tomorrow.
-  
-    ```java
-    Date hours = new Date(System.currentTimeMillis() + 24000 * 60 * 60);
-    
-    ```
-
-2. Create a new CDA with an expiration time and expected amount
+1. Use the `ParseMagnetLink()` method to deserialize the predefined magnet link into a CDA 
 
     ```java
-    Future<ConditionalDepositAddress> cda = account.newDepositAddress(hours, false, 1000).get();
-    ```
+    String magnet = "iota://BWNYWGULIIAVRYOOFWZTSDFXFPRCFF9YEHGVBOORLGCPCJSKTHU9OKESUGZGWZXZZDLESFPPTGEHVKTTXG9BQLSIGP/?timeout_at=5174418337&multi_use=1&expected_amount=0";
 
-If you want senders to transfer IOTA tokens to your account, you need to send them your CDA.
-
-Because CDAs are descriptive objects with the following fields, you can serialize them into any format before sending them:
-
-```js
-{
-   address, // The last 9 trytes are the checksum
-   timeout_at,
-   multi_use,
-   expected_amount
-}
-```
-
-For example, you can serialize these fields to create a magnet link.
-
-### Optional: Serialize a CDA into a magnet link
-
-1. To serialize a CDA to a magnet link, do the following:
-
-    ```java
-    String magnet = DepositFactory.get().build(cda.get(), MagnetMethod.class);
-    
-    System.out.println(magnet);
-    // iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000
-    ```
-
-2. To deserialize the magnet link into a CDA, do the following
-
-    ```java
-     String magnet = "iota://YWEQLREFJQORXXKKEBBBDKOPAXHXJRGVPBUTBJFSRPPYVWWYUWSBDJTIUBJVFREXEAUZWRICKH9VBSQE9KPNLTCLNC/?timeout_at=1554472983208&multi_use=false&expected_amount=1000";
     ConditionalDepositAddress cda = DepositFactory.get().parse(magnet, MagnetMethod.class);
     ```
 
-## Step 2. Make a payment 
-
-1. Copy and paste your address into the [Devnet faucet](https://faucet.devnet.iota.org), then wait for the tokens to be transferred to your address
-
     :::info:
-    The last 9 characters of a CDA are the checksum, which is a hash of the address and all of its conditions.
-
-    Make sure to remove the checksum before requesting IOTA tokens from the Devnet faucet.
+    The given magent link is for an example CDA that expires in over 100 years.
+    If you want to make a payment to a different CDA, use that one instead.
     :::
 
 
-2. After making sure that the CDA is still active, send a deposit to it
+2. If you dont have a CDA that contains IOTA tokens, follow [this guide](../go/generate-cda.md)
+
+3. After making sure that the CDA is still active, send a deposit to it
 
     ```java
     Future<Bundle> bundle = account.send(
@@ -77,32 +48,33 @@ For example, you can serialize these fields to create a magnet link.
     bundle.get();
     ```
 
+    You should see something like the following in the output:
+
+    ```
+    Sent deposit to DL9CSYICJVKQRUTWBFUCZJQZ9WNBSRJOA9MGOISQZGGHOCZTXVSKDIZN9HBORNGDWRBBAFTKXGEJIAHKDTMAUX9ILA in the bundle with the following tail transaction hash WZEATTRJYENRALJTWPVGDQZHETIDJXPUROUM9BBPS9RJEELDMU9YNZFBSDGPQHZHMXBVCKITSMDEEQ999
+    ```
+
 Your account will reattach and promote your bundle until it's confirmed.
 
-### Optional: Combine your entire available balance into one CDA
+## Run the code
 
-You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. To do so, you can transfer you available balance to a new CDA.
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
-1. Create a CDA that has your account's total available balance as its expected amount
+If you don't have a Go development environment, or if this is your first time using the Go client library, complete our [getting started guide](../../getting-started/go-quickstart.md).
 
-    ```java
-	Date hours = new Date(System.currentTimeMillis() + 10000 * 60 * 60);
-    ConditionalDepositAddress cda = account.newDepositAddress(hours, false, account.availableBalance()).get();
-    ```
+In the command-line, do the following:
 
-    :::info:
-    Available balance is the total balance of all expired CDAs, which is safe to withdraw.
+```bash
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/go/account-module
+go mod download
+go run make-payment/make-payment.go
+```
+You should see that the deposit was sent.
 
-    Your account's total balance includes CDAs that are still active as well as expired, which is unsafe to withdraw.
-    :::
+Your seed state will contain this pending bundle until it is confirmed.
 
-2. Transfer your total available balance to the CDA
+## Next steps
 
-    ```java
-    Future<Bundle> bundle = account.send(
-            address.getDepositAddress().getHashCheckSum(), 
-            address.getRequest().getExpectedAmount(), 
-            Optional.of("Sweep of all addresses"),
-            Optional.of("IOTA9SWEEP"));
-    bundle.get();
-    ```
+[Try exporting your seed state so you back it up or import it onto another device](../java/export-seed-state.md).
+

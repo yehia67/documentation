@@ -2,7 +2,7 @@
 
 **In this guide, you create an account to keep track of your seed state in a local database and learn how to display your available balance.**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need to install the following packages:
 

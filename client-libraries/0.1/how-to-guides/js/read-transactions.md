@@ -2,7 +2,7 @@
 
 **In this guide, you read your "hello world" [transaction](root://getting-started/0.1/transactions/transactions.md) on the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to return only transactions with a given bundle hash.**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need to install the following packages:
 

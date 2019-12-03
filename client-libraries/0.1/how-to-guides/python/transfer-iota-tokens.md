@@ -2,7 +2,7 @@
 
 **To transfer IOTA tokens from one [address](root://getting-started/0.1/clients/addresses.md) to another, you need to send a [transfer bundle](root://getting-started/0.1/transactions/bundles.md) to a [node](root://getting-started/0.1/network/nodes.md). In this guide, you send a micropayment of 1 IOTA.**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need to install the following package:
 

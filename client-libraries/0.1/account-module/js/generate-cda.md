@@ -2,7 +2,7 @@
 
 **In this guide, you generate a conditional deposit address, serialize it into a magnet link, and send test IOTA tokens to it.**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need to install the following packages:
 

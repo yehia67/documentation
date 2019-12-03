@@ -2,7 +2,7 @@
 
 **The values of transaction fields must be represented in [trytes](root://getting-started/0.1/introduction/ternary.md). To facilitate data conversion, the IOTA client libraries have built-in functions to convert data to/from trytes, trits, and ASCII characters.**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need to install the following package:
 

@@ -2,7 +2,7 @@
 
 **[Nodes](root://getting-started/0.1/network/nodes.md) that run the [IRI node software](root://node-software/0.1/iri/introduction/overview.md) can enable their [zero message queue (ZMQ)](https://zeromq.org/), which allows you to subscribe to events such as transaction confirmations. In this guide, you subscribe to all transactions and those that were sent to a specific address.**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need to install the following package:
 

@@ -1,4 +1,4 @@
-# Import/export an existing seed state in Go
+# Import/export an existing seed state in Java
 
 **When you use your account to make payments, your account updates your seed state. In this guide, you learn how to export your account's seed state so that you can import it on another device or simply back it up.**
 

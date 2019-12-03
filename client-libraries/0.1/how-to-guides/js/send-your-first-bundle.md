@@ -2,7 +2,7 @@
 
 **In this guide, you send a "hello world" message in a zero-value transaction. These transactions are useful for storing messages on the [Tangle](root://getting-started/0.1/network/the-tangle.md) without having to send any [IOTA tokens](root://getting-started/0.1/clients/token.md).**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need to install the following packages:
 

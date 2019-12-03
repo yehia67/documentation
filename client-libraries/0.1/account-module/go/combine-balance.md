@@ -2,7 +2,7 @@
 
 **You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.**
 
-## Packages
+## IOTA packages
 
 To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
 
