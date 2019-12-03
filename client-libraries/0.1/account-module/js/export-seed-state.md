@@ -64,7 +64,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 5. Import your seed state into your account's database
 
     ```js
-    account.importState(importedState).then(err => {
+    account.importState(state).then(err => {
         if (err) {
             console.log('error', err);
             // Close the database and stop any ongoing reattachments
