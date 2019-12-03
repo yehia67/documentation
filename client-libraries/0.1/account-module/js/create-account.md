@@ -94,20 +94,13 @@ const account = createAccount({
 });
 ```
 
-
 By default, the account includes a plugin that reattaches and promotes the tail transactions of any pending bundles that your account sends.
 
 :::info:
 You can customize the behavior of these plugins by changing the network settings or you can build your own.
 :::
 
-5\. Start the account and any plugins, and open the database
-
-```js
-account.start();
-```
-
-6\. Check your account's balance
+5\. Check your account's balance
 
 ```js
 account.getAvailableBalance()
