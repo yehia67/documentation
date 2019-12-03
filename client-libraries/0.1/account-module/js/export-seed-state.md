@@ -58,7 +58,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 4. Deserialize your JSON seed state into an object
 
     ```js
-    let importedState = JSON.parse(JSONSeedState);
+    let state = JSON.parse(JSONSeedState);
     ```
 
 5. Import your seed state into your account's database
