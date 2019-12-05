@@ -36,12 +36,19 @@ Oracles take an oracle source as an argument and return `true` if the oracle sou
     sendOracle := oracle.New(timeDecider)
     ```
 
-2. Use the `ParseMagnetLink()` method To deserialize the magnet link into a CDA 
+2. Use the `ParseMagnetLink()` method to deserialize the predefined magnet link into a CDA 
 
     ```go
+    magnetLink := "iota://BWNYWGULIIAVRYOOFWZTSDFXFPRCFF9YEHGVBOORLGCPCJSKTHU9OKESUGZGWZXZZDLESFPPTGEHVKTTXG9BQLSIGP/?timeout_at=5174418337&multi_use=1&expected_amount=0"
+
     cda, err := deposit.ParseMagnetLink(cda)
     handleErr(err)
     ```
+
+    :::info:
+    The given magent link is for an example CDA that expires in over 100 years.
+    If you want to make a payment to a different CDA, use that one instead.
+    :::
 
 3. To call the oracle, pass the CDA to the `OkToSend()` method of the `sendOracle` object
 
@@ -56,7 +63,7 @@ Oracles take an oracle source as an argument and return `true` if the oracle sou
 
 ## Step 2. Make a payment
 
-To make a payment, your account need to have one or more CDAs that contains IOTA tokens.
+To make a payment, your account needs to have one or more CDAs that contains IOTA tokens.
 
 1. If you dont have a CDA that contains IOTA tokens, follow [this guide](../go/generate-cda.md)
 
@@ -95,8 +102,8 @@ If you don't have a Go development environment, or if this is your first time us
 In the command-line, do the following:
 
 ```bash
-git clone https://github.com/JakeSCahill/getting-started-go-accounts.git
-cd getting-started-go-accounts
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/go/account-module
 go mod download
 go run make-payment/make-payment.go
 ```

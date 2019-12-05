@@ -49,6 +49,8 @@ Regardless of the package manager you are using, remember to specify the latest 
 --------------------
 ### Gradle
 
+To use the [Gradle](https://gradle.org/install/) build tool, you need to install it.
+
 1. Add the JitPack repository to your root `build.gradle` file
 
     ```gradle
@@ -63,11 +65,13 @@ Regardless of the package manager you are using, remember to specify the latest 
 
     ```gradle
     dependencies {
-        compile 'com.github.iotaledger:iota-java:1.0.0-beta3'
+        compile 'com.github.iotaledger:iota-java:[VERSION]'
     }
     ```
 ---
 ### Maven
+
+To use the [Maven](https://maven.apache.org/download.cgi) build tool, you need to install it.
 
 1. Add the JitPack repository to your root `pom.xml` file
     
@@ -80,14 +84,13 @@ Regardless of the package manager you are using, remember to specify the latest 
     </repositories>
     ```
 
-2. Add the iotaledger dependency to your module `pom.xml` file. Replace the `[VERSION_INFORMATION]` placeholder with either the latest release number such as `1.0.0-beta3` or the first 10 characters of a Git commit hash such as `a98de8ea50`.
+2. Add the iotaledger dependency to your module `pom.xml` file. Replace the `[VERSION]` placeholder with either the latest release number such as `1.0.0-beta3` or the first 10 characters of a Git commit hash such as `a98de8ea50`.
     
     ```xml
     <dependency>
-        <groupId>com.github.iotaledger.iota-java</groupId>
-        <artifactId>jota</artifactId>
-        <classifier>jar-with-dependencies</classifier>
-        <version>[VERSION_INFORMATION]</version>
+      <groupId>org.iota</groupId>
+      <artifactId>jota</artifactId>
+      <version>[VERSION]</version>
     </dependency>
     ```
 ---
@@ -138,9 +141,10 @@ The Discord bot should return the current `latestMilestoneIndex` field from a [n
 3\. To check if your node is synchronized, copy and paste the following code into the `ConnectToNode.java` file
 
 ```java
-import jota.IotaAPI;
-import jota.dto.response.getNodeInfo;
-import jota.error.ArgumentException;
+package com.iota;
+
+import org.iota.jota.IotaAPI;
+import org.iota.jota.dto.response.GetNodeInfoResponse;
 
 class ConnectToNode {
 public static void main(String[] args) throws ArgumentException {
@@ -150,7 +154,7 @@ public static void main(String[] args) throws ArgumentException {
         IotaAPI api = new IotaAPI.Builder()
             .protocol("https")
             .host("nodes.devnet.thetangle.org")
-            .port("443")
+            .port(443)
             .build();
 
         // Call the `getNodeInfo()` method for information about the node and the Tangle
@@ -160,13 +164,13 @@ public static void main(String[] args) throws ArgumentException {
 }
 ```
 
-4\. Save your changes and compile this Java class from the command line
+4\. If you installed the library manually, save your changes and compile this Java class from the command line
 
 ```bash
 javac -cp jota-[VERSION]-jar-with-dependencies.jar ConnectToNode.java
 ```
 
-5\. Run the compiled code from the command line
+5\. If you installed the library manually, run the compiled code from the command line
 
 --------------------
 ### macOS and Linux

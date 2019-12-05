@@ -96,7 +96,13 @@
 
 [Account module/JavaScript/Listen to events](/account-module/js/listen-to-events.md)
 
+[Account module/JavaScript/Generate a CDA](/account-module/js/generate-cda.md)
+
 [Account module/JavaScript/Make a payment](/account-module/js/make-payment.md)
+
+[Account module/JavaScript/Export your seed state](/account-module/js/export-seed-state.md)
+
+[Account module/JavaScript/Combine your balance](/account-module/js/combine-balance.md)
 
 [MAM/Introduction/Overview](/mam/introduction/overview.md)
 

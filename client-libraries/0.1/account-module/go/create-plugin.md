@@ -173,8 +173,8 @@ If you don't have a Go development environment, or if this is your first time us
 In the command-line, do the following:
 
 ```bash
-git clone https://github.com/JakeSCahill/getting-started-go-accounts.git
-cd getting-started-go-accounts
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/go/account-module
 go mod download
 go run create-plugin/account.go create-plugin/eventLogger.go
 ```

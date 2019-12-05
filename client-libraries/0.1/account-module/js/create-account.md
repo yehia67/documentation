@@ -1,6 +1,22 @@
-# Create an account
+# Create an account in JavaScript
 
-**In this guide, you create an account to keep track of your seed state in a local database.**
+**In this guide, you create an account to keep track of your seed state in a local database and learn how to display your available balance.**
+
+## Packages
+
+To complete this guide, you need to install the following packages:
+
+--------------------
+### npm
+```bash
+npm install @iota/account ntp-client
+```
+---
+### Yarn
+```bash
+yarn add @iota/account ntp-client
+```
+--------------------
 
 ## IOTA network
 
@@ -8,95 +24,126 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 
 ## Code walkthrough
 
-1. Create an `account` object with a new seed and connect to a node
-   
-      ```js
-      const { createAccount }  = require('@iota/account')
+1\. Create a new seed and back it up
 
-      const seed = 'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
-
-      // Connect to a node;
-      const provider = 'https://nodes.devnet.iota.org:443';
-
-      const account = createAccount({
-            seed,
-            provider
-      });
-      ```
-
-      By default, the local database is saved in the root of the project
-
-      :::warning:Protect your seed
-      Never hard code a seed as we do here. Instead, we recommend that you read the seed from a protected file.
-      :::
-
-      :::danger:Create one account instance per seed
-      You must not create multiple instances of an account with the same seed. Doing so could lead to a race condition where the seed state would be overwritten.
-      :::
-
-:::success:Congratulations! :tada:
-You've created an account that will automatically promote and reattach transactions as well as manage the state of your addresses.
+:::info:
+Existing seeds are not safe to use because their state is unknown. As such, these seeds may have spent addresses that the account is not aware of.
 :::
 
-## Customize your account
+--------------------
+### Linux
+```bash
+cat /dev/urandom |tr -dc A-Z9|head -c${1:-81}
+```
+---
+### macOS
+```bash
+cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
+```
+---
+### Windows PowerShell
+```bash
+$b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).GetBytes($b);-join($b|%{[char[]] (65..90+57..57)[$_%27]})
+```
+--------------------
 
-Instead of using the default account settings, you can customize them to change how your account behaves.
+2\. Define the seed that your account will use
 
-1. To change how your account interacts with its connected nodes, customize the values of the `depth`, `minWeightMagnitude`, `delay`, and `maxDepth` fields
+```js
+const seed = 'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
+```
 
-      ```js
-      const account = createAccount({
-            seed,
-            provider,
+2\. Define your network settings
 
-            // How far back in the Tangle to start the tip selection
-            depth: 3,
+```js
+// The node to connect to
+const provider = 'https://nodes.devnet.iota.org:443';
 
-            // The minimum weight magnitude is 9 on the Devnet
-            minWeightMagnitude: 9,
+// How far back in the Tangle to start the tip selection
+const depth = 3;
 
-            // How long to wait before the next attachment round
-            delay: 1000 * 30,
+// The minimum weight magnitude is 9 on the Devnet
+const minWeightMagnitude = 9;
 
-            // The depth at which transactions are no longer promotable
-            // Those transactions are automatically re-attached
-            maxDepth: 6
-      });
-      ```
+// How long to wait before the next attachment round
+const delay = 1000 * 30;
 
-2. To customize the database settings that store your seed state, pass a `persistenceAdapter` factory to your account. This adapter creates a local database object to which the account can save the seed state. By default, the local database is saved in the root of the project. You can change the path to the local database in the `persistencePath` field.
+// The depth at which transactions are no longer promotable
+// Those transactions are automatically re-attached
+const maxDepth = 6;
+```
 
-      ```js
-      const { createPersistenceAdapter }  = require('@iota/persistence-adapter-level')
+3\. Create a `timeSource` function that returns a promise, which the account will use to decide if your CDAs are still active. In this example, we use the [ntp-client](https://www.npmjs.com/package/ntp-client) package to connect to the [Google NTP (network time protocol) servers](https://developers.google.com/time/faq).
 
-      const account = createAccount({
-            seed,
-            provider,
-            persistencePath: './',
-            persistenceAdapter: createPersistenceAdapter
-      });
-      ```
+```js
+const timeSource = () => util.promisify(ntpClient.getNetworkTime)("time.google.com", 123);
+```
 
-      :::info:
-      The [persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level) package is the default. This adapter stores the seed state in the `leveldown` flavor of the [LevelDB database](https://github.com/google/leveldb). You can customize this adapter to use a different database.
+4\. Create your account and connect it to a node
+   
+```js
+const account = createAccount({
+      seed,
+      provider,
+      depth,
+      minWeightMagnitude,
+      delay,
+      maxDepth,
+      timeSource
+});
+```
 
-      You can't use one adapter instance for multiple accounts at the same time. A private adapter is created for each new account.
-      :::
+By default, the account includes a plugin that reattaches and promotes the tail transactions of any pending bundles that your account sends.
 
-3. CDAs expire after a time that you define. To have your account use a custom source of time, create a `timeSource` method that outputs the current time in milliseconds, and pass it to your `account` object
+:::info:
+You can customize the behavior of these plugins by changing the network settings or you can build your own.
+:::
 
-      ```js
-      const account = createAccount({
-            seed,
-            provider,
-            timeSource: () => {
-                  // Get time with NTP
-                  // const time = ...
-                  return time
-            }
-      })
-      ```
+5\. Check your account's balance
+
+```js
+account.getAvailableBalance()
+.then(balance => {
+    console.log(`Your total available balance is: ${balance}`);
+})
+.catch(error => {
+    console.log(error);
+    // Close the database and stop any ongoing reattachments
+    account.stop();
+});
+```
+
+You should see your balance.
+
+:::success:Congratulations! :tada:
+You've created an account that will automatically promote and reattach transactions as well as manage the state of your seed.
+:::
+
+## Run the code
+
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+
+If you don't have a JavaScript development environment, or if this is your first time using the JavaScript client library, complete our [getting started guide](../../getting-started/js-quickstart.md).
+
+In the command-line, do the following:
+
+```bash
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/js/account-module
+npm i
+node create-account/create-account.js
+```
+
+You should see the balance of your new account.
+
+You'll also have a database file that keeps track of your seed state.
 
 ## Next steps
 
-After certain events happen, your account emits them, and allows you to listen for them. For example, you may want to monitor your account for new payments. To do so, you need to [create an event listener](../js/listen-to-events.md).
+After certain events happen in your account, it emits them, and allows you to listen for them. For example, you may want to monitor your account for new payments. To do so, you need to [create an event listener](../js/listen-to-events.md).
+
+Instead of using the default `leveldown` flavor of the [LevelDB database](https://github.com/google/leveldb), you can use the [PersistenceAdapter](https://github.com/iotaledger/iota.js/tree/next/packages/persistence#PersistenceAdapter) interface to create a custom one.
+
+:::warning:
+A new adapter instance is created for each new account, therefore you can use only one adapter instance for each account at the same time.
+:::
