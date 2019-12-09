@@ -36,11 +36,11 @@ Now you're ready to start installing packages.
 
 The Java client library is organized in packages, which contain related methods.
 
-To download the IOTA Java client library and its dependencies, you can use one of the following options:
+To install the IOTA Java client library and its dependencies, you can use one of the following options:
 
-- Download the library with Gradle
-- Download the library with Maven
-- Download the library manually
+- Install the library with Gradle
+- Install the library with Maven
+- Install the library manually
 
 If you are using a Java integrated development environment (IDE) to build your application, you can specify the group ID, artifact ID, and version number for your dependencies.
 

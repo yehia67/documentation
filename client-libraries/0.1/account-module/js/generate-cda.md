@@ -38,6 +38,17 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     });
     ```
 
+    :::info:
+    By default, this method generates a CDA, using your account's security level settings. To generate a CDA with a different security level, pass the `generateCDA()` method a `security` argument.
+    :::
+
+    ```js
+    account.generateCDA({
+        timeoutAt: Date.now() + 24 * 60 * 60 * 1000,
+        security: 3
+    }).then(cda => {
+    ```
+
 3. Use the `AsMagnetLink()` method to serialize the CDA into a magnet link and print it to the console
 
     ```js
@@ -60,6 +71,10 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```bash
     DL9CSYICJVKQRUTWBFUCZJQZ9WNBSRJOA9MGOISQZGGHOCZTXVSKDIZN9HBORNGDWRBBAFTKXGEJIAHKD
     ```
+
+:::success:
+Now you have a CDA that contains IOTA tokens, you can make payments to it.
+:::
 
 ## Run the code
 

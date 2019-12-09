@@ -6,4 +6,8 @@
 
 2. [Create a plugin to log events](../java/create-plugin.md)
 
-3. [Make your first payment](../java/make-payment.md)
+3. [Generate a conditional deposit address](../java/generate-cda.md)
+
+4. [Make your first payment](../java/make-payment.md)
+
+5. [Learn how to import/export your seed state](../java/export-seed-state.md)

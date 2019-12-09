@@ -8,88 +8,133 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 
 ## Code walkthrough
 
-1. Create an `IotaAPI` object that connects to a node
-   
-    ```java
-    IotaAPI api = new IotaAPI.Builder()
-                    
-                    .host("nodes.devnet.iota.org")
-                    
-                    .port(443)
-                    
-                    .protocol("https")
-                    
-                    .timeout(500)
-                    .build();
-    ```
+1\. Create a new seed and back it up
 
-2. Create a variable to hold your seed
-
-    ```java
-    String mySeed = "PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
-    ```
-
-    :::info:
-    If you want to use a seed from a particular location, for example a hardware wallet, you can make a custom `SeedProvider` object, and pass it to the `Builder()` constructor.
-    :::
-
-3. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a Memory Store database.
-
-    ```Java
-    AccountStore store = new AccountStoreImpl(new MemoryStore());
-    ```
-
-    :::info:
-    In the database, each account has a unique ID, which is the hash of the account's address with index 0 and security level 2.
-
-    As a result, you can use the same storage object for more than one account at the same time.
-    :::
-
-4. Create the account, using your custom settings. If you don't specify any custom settings, the account uses the [defaults](https://github.com/iotaledger/iota-java/blob/dev/jota/src/main/java/org/iota/jota/config/types/IotaDefaultConfig.java).
-   
-   ```java
-   IotaAccount account = new IotaAccount.Builder(mySeed)
-    
-                    .store(store)
-                    .api(api)
-                    .build();
-    ```
-
-:::success:Congratulations! :tada:
-You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs.
+:::info:
+Existing seeds are not safe to use because their state is unknown. As such, these seeds may have spent addresses that the account is not aware of.
 :::
 
-### Connect to a quorum of nodes
+--------------------
+### Linux
+```bash
+cat /dev/urandom |tr -dc A-Z9|head -c${1:-81}
+```
+---
+### macOS
+```bash
+cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
+```
+---
+### Windows PowerShell
+```bash
+$b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).GetBytes($b);-join($b|%{[char[]] (65..90+57..57)[$_%27]})
+```
+--------------------
 
-1. If you want to connect to more than one node, you can either create a `HttpConnector` object, or define a custom class.
+2\. Define the seed that your account will use
 
-    ```java
-    // Create an HTTP node using the default settings
-    Connection node = new HttpConnector(
-                    "http",
-                    "localhost",
-                    1337, 
-                    // Optional connection timeout
-                    500
-                );
+```java
+String mySeed = "PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
+```
+
+3\. Connect to a node
+   
+```java
+IotaAPI api = new IotaAPI.Builder()
                     
-    // Or create a custom node defined by a class
-    Connection customNode = new MyCustomNodeClass();
+    .host("nodes.devnet.iota.org")
+    
+    .port(443)
+    
+    .protocol("https")
+    
+    .timeout(500)
+    .build();
+```
 
-    // Pass that to the builder
-    IotaAPI api = new IotaAPI.Builder()
-                    // Enable local proof of work
-                    .localPoW(new PearlDiverLocalPoW())
-                    // And add the extra nodes
-                    .addNode(node)
-                    .addNode(customNode)
-                    .build();
+4\. Create a storage object to which the account can save the seed state. In this example, the seed state is stored in a JSON file.
 
-    ```
+```java
+File file = new File("seed-state-database.json");
+AccountStore store = new AccountFileStore(file);
+```
 
-## Import existing seed state
+5\. Build your account. If you don't specify any custom settings, the account uses the [defaults](https://github.com/iotaledger/iota-java/blob/dev/jota/src/main/java/org/iota/jota/config/types/IotaDefaultConfig.java).
 
-To import an existing seed state into an account, pass the storage object to the `store()` method. The seed state must be in the correct format.
+```java
+IotaAccount account = new IotaAccount.Builder(mySeed)
+    // Connect to a node
+    .api(api)
+    // Connect to the database
+    .store(store)
+    // Set the minimum weight magnitude for the Devnet (default is 14)
+    .mwm(9)
+    // Set a security level for CDAs (default is 3)
+    .securityLevel(2)
+    .build();
+```
+
+6\. Start the account
+
+```java
+account.start();
+```
+
+When you start the account, you also start any of your account's plugins. The default plugins include the following:
+
+- `IncomingTransferChecker`: Every 30 seconds, this plugin checks whether withdrawals from your account have been confirmed
+
+- `OutgoingTransferChecker`: Every 10 seconds, this plugin checks whether deposits into your account have been confirmed
+
+- `PromoterReattacher`: Every 10 seconds, this plugin [promotes or reattaches](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) any pending withdrawal or deposit transactions that the `TransferChecker` plugins find 
+
+:::info:
+You can customize the behavior of these plugins or build your own.
+:::
+
+7\. Check your account's balance
+
+```java
+long balance = account.availableBalance();
+
+System.out.print("Your balance is: " + toIntExact(balance));
+
+account.shutdown();
+```
+
+:::success:Congratulations! :tada:
+You've created an account that will automatically promote and reattach transactions as well as manage the state of your seed.
+:::
+
+## Run the code
+
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+
+You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool. If this is your first time using the Java client library, complete our [getting started guide](../../getting-started/java-quickstart.md), and follow the instructions for installing the library with Maven.
+
+In the command-line, do the following:
+
+--------------------
+### Linux and macOS
+```bash
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/java/account-module
+mvn clean install
+mvn exec:java -Dexec.mainClass="com.iota.CreateAccount"
+```
+---
+### Windows
+```bash
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/java/account-module
+mvn clean install
+mvn exec:java -D"exec.mainClass"="com.iota.CreateAccount"
+```
+--------------------
+
+You should see the balance of your new account.
+
+You'll also have a JSON file that keeps track of your seed state.
 
 ## Next steps
 

@@ -21,6 +21,8 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
 
 - **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3
 
+## Code walkthrough
+
 1. Import the packages
 
     ```go
@@ -96,7 +98,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     }
     ```
 
-8. To create a transfer bundle from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_prepare_transfers.md) method. Then, pass the returned bundle trytes to the [`sendTrytes()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_send_trytes.md) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and sending the bundle to the node
+8. To create a transfer bundle from your `transfers` object, pass it to the [`PrepareTransfers()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_prepare_transfers.md) method. Then, pass the returned bundle trytes to the [`SendTrytes()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_send_trytes.md) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and sending the bundle to the node
 
     ```go
     trytes, err := api.PrepareTransfers(seed, transfers, PrepareTransfersOptions{})

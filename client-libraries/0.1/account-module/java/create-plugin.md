@@ -1,14 +1,16 @@
-# Create a plugin
+# Create a plugin in Java
 
-**Plugins extend the functionality of an account. In this guide, you create a plugin that prints your accounts events to the console.**
+**Plugins extend the functionality of an account. In this guide, you create a plugin that prints your account's events to the console.**
 
-## Step 1. Create a plugin that prints events to the screen
+## IOTA network
 
-To explain how to create a plugin, this guide helps you to create one that prints events to the screen as they happen.
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
-To create a plugin class you can do one of the following:
+## Step 1. Create a plugin that prints events to the console
 
-- Extend the `AccountPlugin` class
+To create a plugin you can do one of the following:
+
+- Extend the `AccountPlugin` class (easiest option)
 - Implement the `Plugin` interface
 
 ### Extend the AccountPlugin class
@@ -27,8 +29,8 @@ public class TestPlugin extends AccountPlugin {
 	public boolean start() {
 		// Start any processes that you want to run continuously
 
-		// Return true if all went well, otherwise false
-	return true;
+		// Return true if all went well, otherwise return false
+		return true;
 	}
 
 	@Override
@@ -38,18 +40,18 @@ public class TestPlugin extends AccountPlugin {
 
 	@Override
 	public String name() {
-	return "AwesomeTestPlugin";
+		return "AwesomeTestPlugin";
 	}
 
 	@AccountEvent
 	public void confirmed(EventTransferConfirmed e) {
-	    System.out.println("account: " + account.getId());
+	    System.out.println("account: " + this.getAccount().getId());
 	    System.out.println("confimed: " + e.getBundle().getBundleHash());
 	}
 
 	@AccountEvent
 	public void promoted(EventPromotion e) {
-	    System.out.println("account: " + account.getId());
+	    System.out.println("account: " + this.getAccount().getId());
 	    System.out.println("promoted: " + e.getPromotedBundle());
 	}
 }
@@ -57,7 +59,7 @@ public class TestPlugin extends AccountPlugin {
 
 ### Implement the Plugin interface
 
-If you can't extend a class, or you don't want to, you can implement the `Plugin` interface. This option requires `getter` and `setter` methods for the account object with which the plugin will work.
+Instead of extending the `AccountPlugin` class, you can implement the `Plugin` interface. This option requires `getter` and `setter` methods for the account object with which the plugin will work.
 
 ```java
 public class TestPlugin implements Plugin {
@@ -113,7 +115,7 @@ public class TestPlugin implements Plugin {
 
 ## Step 2. Add the plugin class to your account object
 
-After you've created a plugin class, you can build your account with it.
+After you've created a plugin class, build and start your account with it.
 
 ```java
 Plugin myPlugin = new TestPlugin();
@@ -128,6 +130,34 @@ When the account loads the plugin, you'll see the following message: `Loaded plu
 Now, whenever a deposit or withdrawal is confirmed or promoted for your account, you'll receive a message from the plugin.
 :::
 
+## Run the code
+
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+
+You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool. If this is your first time using the Java client library, complete our [getting started guide](../../getting-started/java-quickstart.md), and follow the instructions for installing the library with Maven.
+
+In the command-line, do the following:
+
+--------------------
+### Linux and macOS
+```bash
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/java/account-module
+mvn clean install
+mvn exec:java -Dexec.mainClass="com.iota.CreatePluginAccount"
+```
+---
+### Windows
+```bash
+git clone https://github.com/JakeSCahill/iota-samples.git
+cd iota-samples/java/account-module
+mvn clean install
+mvn exec:java -D"exec.mainClass"="com.iota.CreatePluginAccount"
+```
+--------------------
+
+You should see that the event logger starts when your account does.
+
 ## Next steps
 
-Now that you have an event listener, start [making payments to/from your account](../java/make-payment.md) to test it.
+[Generate a conditional deposit address](../java/generate-cda.md).

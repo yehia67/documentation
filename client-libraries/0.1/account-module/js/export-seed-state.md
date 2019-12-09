@@ -98,7 +98,7 @@ npm i
 node export-account/export-account.js
 ```
 
-You should have a `seed-state.json` file that contains your seed state. You can use this file to import your seed state on another device.
+You should have an `exported-seed-state.json` file that contains your seed state. You can use this file to import your seed state on another device.
 
 ## Next steps
 

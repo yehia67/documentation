@@ -1,6 +1,6 @@
-# Make payments with your account in Java
+# Combine your balance into one CDA in Java
 
-**In this guide, you use your account to deposit IOTA tokens into a pre-defined CDA.**
+**You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.**
 
 ## IOTA network
 
@@ -8,41 +8,35 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 
 ## Code walkthrough
 
-1. Use the `ParseMagnetLink()` method to deserialize the predefined magnet link into a CDA 
+1. Create a CDA that has your account's total available balance as its expected amount
 
     ```java
-    String magnet = "iota://BWNYWGULIIAVRYOOFWZTSDFXFPRCFF9YEHGVBOORLGCPCJSKTHU9OKESUGZGWZXZZDLESFPPTGEHVKTTXG9BQLSIGP/?timeout_at=5174418337&multi_use=1&expected_amount=0";
+	Date timeoutAt = new Date(System.currentTimeMillis() + 24000 * 60 * 60);
 
-    ConditionalDepositAddress cda = DepositFactory.get().parse(magnet, MagnetMethod.class);
+    ConditionalDepositAddress cda = account.newDepositAddress(timeoutAt, true, account.availableBalance()).get();
     ```
 
     :::info:
-    The given magent link is for an example CDA that expires in over 100 years.
-    If you want to make a payment to a different CDA, use that one instead.
+    Available balance is the total balance of all expired CDAs, which is safe to withdraw.
+
+    Your account's total balance includes CDAs that are still active as well as expired, which is unsafe to withdraw.
     :::
 
-
-2. If you dont have a CDA that contains IOTA tokens, follow [this guide](../java/generate-cda.md)
-
-3. After making sure that the CDA is still active, send a deposit to it
+2. Transfer your total available balance to the CDA
 
     ```java
     Bundle bundle = account.send(
         cda.getDepositAddress().getHashCheckSum(), 
         cda.getRequest().getExpectedAmount(), 
-        Optional.of("Thanks for the pizza"),
-        Optional.of("ACCOUNTMODULETEST")).get();
+        Optional.of("Sweep of all addresses"),
+        Optional.of("IOTA9SWEEP")).get();
     System.out.printf("Sent deposit to %s in the bundle with the following tail transaction hash %s\n",
     bundle.getTransactions().get(bundle.getLength() - 1).getAddress(), bundle.getTransactions().get(bundle.getLength() - 1).getHash());
     ```
 
-    You should see something like the following in the output:
-
-    ```
-    Sent deposit to DL9CSYICJVKQRUTWBFUCZJQZ9WNBSRJOA9MGOISQZGGHOCZTXVSKDIZN9HBORNGDWRBBAFTKXGEJIAHKDTMAUX9ILA in the bundle with the following tail transaction hash WZEATTRJYENRALJTWPVGDQZHETIDJXPUROUM9BBPS9RJEELDMU9YNZFBSDGPQHZHMXBVCKITSMDEEQ999
-    ```
-
-Your account will reattach and promote your bundle until it's confirmed.
+:::success:
+Now your total available balance is in a single address.
+:::
 
 ## Run the code
 
@@ -58,7 +52,7 @@ In the command-line, do the following:
 git clone https://github.com/JakeSCahill/iota-samples.git
 cd iota-samples/java/account-module
 mvn clean install
-mvn exec:java -Dexec.mainClass="com.iota.MakePayment"
+mvn exec:java -Dexec.mainClass="com.iota.CombineBalance"
 ```
 ---
 ### Windows
@@ -66,7 +60,7 @@ mvn exec:java -Dexec.mainClass="com.iota.MakePayment"
 git clone https://github.com/JakeSCahill/iota-samples.git
 cd iota-samples/java/account-module
 mvn clean install
-mvn exec:java -D"exec.mainClass"="com.iota.MakePayment"
+mvn exec:java -D"exec.mainClass"="com.iota.CombineBalance"
 ```
 --------------------
 
@@ -77,4 +71,3 @@ Your seed state will contain this pending bundle until it is confirmed.
 ## Next steps
 
 [Try exporting your seed state so you back it up or import it onto another device](../java/export-seed-state.md).
-

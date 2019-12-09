@@ -1,6 +1,6 @@
 # Create an account plugin in Go
 
-**Plugins extend the functionality of an account. In this guide, you create a plugin that prints your accounts events to the console.**
+**Plugins extend the functionality of an account. In this guide, you create a plugin that prints your account's events to the console.**
 
 ## Packages
 

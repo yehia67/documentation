@@ -1,6 +1,6 @@
 # Send a micropayment in Python
 
-**To transfer IOTA tokens from one [address](root://getting-started/0.1/clients/addresses.md) to another, you need to send a [transfer bundle](root://getting-started/0.1/transactions/bundles.md) to a [node](root://getting-started/0.1/network/nodes.md). In this guide, you send a micropayment of 1 IOTA.**
+**In this guide, you send a micropayment of 1 IOTA by sending a [transfer bundle](root://getting-started/0.1/transactions/bundles.md) to a [node](root://getting-started/0.1/network/nodes.md).**
 
 ## Packages
 
@@ -108,13 +108,13 @@ To transfer your test tokens from one address to another, you need to create and
     print(result['bundle']
     ```
 
-    This method asks the node to check the balance of your seed's addresses. If your addresses have enough IOTA tokens to complete the transfer, the library creates input transactions to withdraw the full balance from enough of your addresses to fulfill the transfer. Then, the library adds those transactions to the transfer bundle and signs the bundle with the private keys of any withdrawn addresses.
+    This method asks the node to check the balance of your seed's addresses. If your addresses have enough IOTA tokens to complete the transfer, the method creates input transactions to withdraw the full balance from enough of your addresses to fulfill the transfer. Then, the library adds those transactions to the transfer bundle and signs the bundle with the private keys of any withdrawn addresses.
 
     :::info:
     Your seed never leaves your device. The library generates addresses and sends them to the node.
     :::
 
-    If the amount you want to transfer is less than the balance of your withdrawn addresses, the library creates another output transaction to transfer the remainder to an unspent address that belongs to your seed.
+    If the amount you want to transfer is less than the balance of your withdrawn addresses, the method creates another output transaction to transfer the remainder to an unspent address that belongs to your seed.
 
     In the console, you should see the bundle hash of the transaction you just sent.
 

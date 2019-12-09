@@ -1,4 +1,4 @@
-# Combine your balance in one CDA in Go
+# Combine your balance into one CDA in Go
 
 **You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.**
 
@@ -59,8 +59,12 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 	bundle, err := account.Send(cda.AsTransfer())
 	handleErr(err)
 
-	fmt.Printf("Sent deposit to %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[0].Hash)
+	fmt.Printf("Sent deposit to %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[len(bundle)-1].Hash)
     ```
+
+:::success:
+Now your total available balance is in a single address.
+:::
 
 ## Run the code
 
