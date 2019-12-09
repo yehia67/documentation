@@ -1,4 +1,4 @@
-# Create a plugin in Java
+# Create an account plugin in Java
 
 **Plugins extend the functionality of an account. In this guide, you create a plugin that prints your account's events to the console.**
 

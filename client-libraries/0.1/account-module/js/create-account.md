@@ -20,7 +20,11 @@ yarn add @iota/account ntp-client
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings:
+
+- **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
+
+- **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3
 
 ## Code walkthrough
 
@@ -96,7 +100,7 @@ const account = createAccount({
 By default, the account includes a plugin that reattaches and promotes the tail transactions of any pending bundles that your account sends.
 
 :::info:
-You can customize the behavior of these plugins by changing the network settings or you can build your own.
+The default security level for CDAs is 2. You can change this setting by passing the account a `security` field.
 :::
 
 6\. Start the account and any plugins, and open the database
