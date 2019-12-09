@@ -73,10 +73,10 @@ const delay = 1000 * 30;
 const maxDepth = 6;
 ```
 
-4\. Create a `timeSource` object that returns an accurate time, which the account will use to decide if your CDAs are still active. In this example, we use the [ntp-client](https://www.npmjs.com/package/ntp-client) package to connect to the [Google NTP (network time protocol) servers](https://developers.google.com/time/faq).
+3\. Create a `timeSource` function that returns a promise, which the account will use to decide if your CDAs are still active. In this example, we use the [ntp-client](https://www.npmjs.com/package/ntp-client) package to connect to the [Google NTP (network time protocol) servers](https://developers.google.com/time/faq).
 
 ```js
-const timeSource = ntpClient.getNetworkTime("time.google.com");
+const timeSource = () => util.promisify(ntpClient.getNetworkTime)("time.google.com", 123);
 ```
 
 5\. Create your account and connect it to a node
@@ -92,7 +92,6 @@ const account = createAccount({
       timeSource
 });
 ```
-
 
 By default, the account includes a plugin that reattaches and promotes the tail transactions of any pending bundles that your account sends.
 

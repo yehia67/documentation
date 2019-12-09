@@ -32,7 +32,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
         const cda = account.generateCDA({
                 timeoutAt: Date.now() + 24 * 60 * 60 * 1000,
                 expectedAmount: balance
-            })
+        })
     ```
 
     :::info:
