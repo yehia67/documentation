@@ -4,7 +4,7 @@
 
 Accounts have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use callback listeners. If you're interested in using a channel listener, see our guide for [creating an event-listener plugin](../go/create-plugin.md).
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
 

@@ -2,7 +2,7 @@
 
 **In this guide, you create an account to keep track of your seed state in a local database and print your account's balance to the console.**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
 
@@ -98,7 +98,7 @@ Every 30 seconds, the `transfer-poller` plugin checks whether withdrawals have b
 The `promoter-reattacher` plugin [promotes or reattaches](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) any pending withdrawal transactions that the `transfer-poller` finds.
 
 :::info:
-You can customize the behavior of these plugins or build your own.
+The default security level for CDAs is 2. You can change this setting by passing a new security level to the `WithSecurityLevel()` method.
 :::
 
 7\. Start the account and the plugins

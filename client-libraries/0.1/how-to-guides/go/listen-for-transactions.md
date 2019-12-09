@@ -1,8 +1,8 @@
 # Listen for live transactions in Go
 
-**[Nodes](root://getting-started/0.1/network/nodes.md) that run the [IRI node software](root://node-software/0.1/iri/introduction/overview.md) can enable their [zero message queue (ZMQ)](https://zeromq.org/), which allows you to subscribe to events such as transaction confirmations. In this guide, you subscribe to all transactions as well as confirmed transactions.**
+**In this guide, you listen to the Tangle for recent transactions by subscribing to the [zero message queue (ZMQ)](https://zeromq.org/) on [nodes](root://getting-started/0.1/network/nodes.md) that run the [IRI node software](root://node-software/0.1/iri/introduction/overview.md).**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following package (if you're using Go modules, you just need to reference this package):
 

@@ -1,6 +1,6 @@
-# Get started with the Go client library
+# Get started with the Java client library
 
-**To help you get started with the Go client library, this workflow guide walks you through the essentials from sending a zero-value transaction to transferring IOTA tokens and monitoring a node for live Tangle data.**
+**To help you get started with the Java client library, this workflow guide walks you through the essentials from sending a zero-value transaction to transferring IOTA tokens and monitoring a node for live Tangle data.**
 
 :::info:
 The code is also hosted on [GitHub](https://github.com/iota-community/go-iota-workshop).
@@ -20,4 +20,4 @@ If you complete this guide from beginning to end, you'll learn everything from g
 
 5. [Check the balance of an address](../go/check-balance.md)
 
-6. [Listen for live transactions on the Tangle](../go/listen-for-transactions.md)
+6. 6. [Listen for live transactions on the Tangle](../go/listen-for-transactions.md)

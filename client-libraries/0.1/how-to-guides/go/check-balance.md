@@ -1,8 +1,8 @@
-# Check the balance of an address in Go
+# Check the balance of an address in Java
 
-**The balance of [IOTA tokens](root://getting-started/0.1/clients/token.md) on [addresses](root://getting-started/0.1/clients/addresses.md) is kept up to date by all [nodes](root://getting-started/0.1/network/nodes.md) in an IOTA network. To request the balance from a node, you must send it the address whose balance you want to check.**
+**In this guide, you request the balance of [IOTA tokens](root://getting-started/0.1/clients/token.md) on [addresses](root://getting-started/0.1/clients/addresses.md) from a [node](root://getting-started/0.1/network/nodes.md).**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
 

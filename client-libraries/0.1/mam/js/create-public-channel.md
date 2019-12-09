@@ -2,7 +2,7 @@
 
 **If you want to publish messages to a channel that anyone can read, you can use a public channel. These channels are open for any user to find and decrypt the messages, using the address of the transaction that it's in. This type of channel is useful for public announcements or public social media applications that want the data to be immutable.**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following packages:
 

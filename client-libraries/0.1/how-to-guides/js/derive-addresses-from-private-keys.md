@@ -2,7 +2,7 @@
 
 **By deriving [addresses](root://getting-started/0.1/clients/addresses.md) from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following packages:
 

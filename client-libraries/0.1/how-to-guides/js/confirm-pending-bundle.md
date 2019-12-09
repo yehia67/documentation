@@ -2,7 +2,7 @@
 
 **To be referenced by a [milestone](root://getting-started/0.1/network/the-coordinator.md), a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a [bundle](root://getting-started/0.1/transactions/bundles.md) is stuck in a [pending state](root://getting-started/0.1/network/the-tangle.md#transaction-states), the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote its tail transaction.**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following package:
 

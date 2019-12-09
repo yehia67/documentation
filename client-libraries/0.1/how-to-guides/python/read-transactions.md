@@ -2,7 +2,7 @@
 
 **In this guide, you get [transactions](root://getting-started/0.1/transactions/transactions.md) from the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to filter them by their bundle hash. Then, you decode the message in the transaction and print it to the console.**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following package:
 

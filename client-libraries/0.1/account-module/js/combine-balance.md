@@ -1,8 +1,8 @@
-# Combine your balance in one CDA in JavaScript
+# Combine your balance into one CDA in JavaScript
 
 **You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following packages:
 
@@ -72,6 +72,10 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```
     Sent 1000 to TIZJIRDCZPRJMMVKSGROPKE9VGIQKOLOUSX9MCUTOEQBBHPMLYBVKBPCXJKY9SDWX9FVMOZTWNMVVEYKX in bundle:  RXIA9CBEOASNY9IRIARZFGDLK9YNGW9ZHJGJLUXOUKVGCZLPNDKALFHZWHZKQQXFTIHEIJJPN9EURO9K9
     ```
+
+:::success:
+Now your total available balance is in a single address.
+:::
 
 ## Run the code
 

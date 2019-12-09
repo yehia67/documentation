@@ -2,7 +2,7 @@
 
 **If you want to publish secret messages to a channel that only permitted users can read, you can use a restricted channel. These channels are open for any user to find, but only those with the side key can decrypt it. This type of channel is useful for private communications.**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following packages:
 

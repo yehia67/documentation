@@ -2,7 +2,7 @@
 
 **In this guide, you use your account to deposit IOTA tokens into a pre-defined CDA.**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
 
@@ -82,7 +82,7 @@ To make a payment, your account needs to have one or more CDAs that contains IOT
 	bundle, err := account.Send(cda.AsTransfer())
 	handleErr(err)
 
-	fmt.Printf("Sent deposit to %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[0].Hash)
+	fmt.Printf("Sent deposit to %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[len(bundle)-1].Hash)
     ```
 
     You should see something like the following in the output:

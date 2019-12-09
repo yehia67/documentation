@@ -2,7 +2,7 @@
 
 **In this guide, you create an account to keep track of your seed state in a local database and learn how to display your available balance.**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following packages:
 
@@ -53,7 +53,7 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
 const seed = 'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
 ```
 
-2\. Define your network settings
+3\. Define your network settings
 
 ```js
 // The node to connect to
@@ -62,24 +62,24 @@ const provider = 'https://nodes.devnet.iota.org:443';
 // How far back in the Tangle to start the tip selection
 const depth = 3;
 
-// The minimum weight magnitude is 9 on the Devnet
+// The minimum weight magnitude for the Devnet
 const minWeightMagnitude = 9;
 
-// How long to wait before the next attachment round
+// How long to wait between each reattachment round
 const delay = 1000 * 30;
 
 // The depth at which transactions are no longer promotable
-// Those transactions are automatically re-attached
+// and are automatically reattached
 const maxDepth = 6;
 ```
 
-3\. Create a `timeSource` object that returns an accurate time, which the account will use to decide if your CDAs are still active. In this example, we use the [ntp-client](https://www.npmjs.com/package/ntp-client) package to connect to the [Google NTP (network time protocol) servers](https://developers.google.com/time/faq).
+4\. Create a `timeSource` object that returns an accurate time, which the account will use to decide if your CDAs are still active. In this example, we use the [ntp-client](https://www.npmjs.com/package/ntp-client) package to connect to the [Google NTP (network time protocol) servers](https://developers.google.com/time/faq).
 
 ```js
 const timeSource = ntpClient.getNetworkTime("time.google.com");
 ```
 
-4\. Create your account and connect it to a node
+5\. Create your account and connect it to a node
    
 ```js
 const account = createAccount({
@@ -100,13 +100,13 @@ By default, the account includes a plugin that reattaches and promotes the tail 
 You can customize the behavior of these plugins by changing the network settings or you can build your own.
 :::
 
-5\. Start the account and any plugins, and open the database
+6\. Start the account and any plugins, and open the database
 
 ```js
 account.start();
 ```
 
-6\. Check your account's balance
+7\. Check your account's balance
 
 ```js
 account.getAvailableBalance()

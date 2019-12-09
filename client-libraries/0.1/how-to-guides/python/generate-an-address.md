@@ -2,7 +2,7 @@
 
 **In this guide, you learn how to generate a new address for a [seed](root://getting-started/0.1/clients/seeds.md) with a given [security level](root://getting-started/0.1/clients/security-levels.md).**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following package:
 

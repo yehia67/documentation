@@ -2,7 +2,7 @@
 
 **When you use your account to make payments, your account updates your seed state. In this guide, you learn how to export your account's seed state so that you can import it on another device or simply back it up.**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
 
@@ -34,7 +34,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 2. Create a JSON file to which to save your seed state
 
     ```go
-    f, err := os.OpenFile("seed-state.json", os.O_CREATE, 0755);
+    f, err := os.OpenFile("exported-seed-state.json", os.O_CREATE, 0755);
     handleErr(err)
 
     defer f.Close();
@@ -63,7 +63,7 @@ You've exported your seed state. Now, you can back it up or import it into an ac
 1. Read your exported seed state
 
     ```go
-    file, err := os.Open("seed-state.json")
+    file, err := os.Open("exported-seed-state.json")
     handleErr(err)
 
     defer file.Close()
@@ -115,7 +115,7 @@ go mod download
 go run export-account/export-account.go
 ```
 
-You should have a `seed-state.json` file that contains your seed state. You can use this file to import your seed state on another device.
+You should have an `exported-seed-state.json` file that contains your seed state. You can use this file to import your seed state on another device.
 
 ## Next steps
 

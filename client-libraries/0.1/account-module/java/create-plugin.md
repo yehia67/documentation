@@ -1,23 +1,6 @@
-# Create a plugin
+# Create a plugin in Java
 
 **Plugins extend the functionality of an account. In this guide, you create a plugin that prints your account's events to the console.**
-
-## IOTA classes
-
-To complete this guide, you need to reference the following classes:
-
-```bash
-jota.IotaAPI;
-jota.IotaAccount;
-jota.account.AccountStore;
-jota.account.store.AccountFileStore;
-jota.account.plugins.AccountPlugin;
-jota.account.event.events.EventTransferConfirmed;
-jota.account.event.events.EventPromotion;
-jota.account.event.AccountEvent;
-jota.account.plugins.Plugin;
-jota.error.ArgumentException;
-```
 
 ## IOTA network
 

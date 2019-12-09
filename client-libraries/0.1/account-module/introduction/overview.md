@@ -6,21 +6,116 @@
 
 The account module allows you to build an account object that keeps track of your seed state in a local database.
 
-### Example seed state
+To see your seed state, you can export it, allowing you to back it up and/or import it into another account.
 
-This is an example of an empty seed state. 
+### Example of an exported seed state
 
+These are examples of exported seed states in Go, Java, and JavaScript:
+
+--------------------
+### Go
 ```json
-{"id":"9KYMSUEUSOVQN9CPOHVHRNSYTZGBHTWYWR9LGJGYATUMQVNYFQXTEOLEMEACONMAR9AELKPVRCMGQ9MMD","date":"2019-11-22T12:50:35.7053709Z","key_index":0,"deposit_addresses":{},"pending_transfers":{}}
+{
+    // The ID of the account.
+    // The account's ID is the hash of the account's address with index 0 and security level 2
+    "id":"9KYMSUEUSOVQN9CPOHVHRNSYTZGBHTWYWR9LGJGYATUMQVNYFQXTEOLEMEACONMAR9AELKPVRCMGQ9MMD",
+    // The date that the seed state was exported
+    "date":"2019-12-09T11:32:25.1705032Z",
+    // The last key index that was used to generate the addresses.
+    // This allows the account to make sure it generates a new address
+    "key_index":2,
+    // Active addresses, their conditions, and their security levels.
+    // These allow the account to prevent withdrawals from addresses that may still receive deposits
+    "deposit_addresses":{
+        "1":{
+            "timeout_at":"2019-12-10T11:29:02.23687483Z",
+            "multi_use":true,
+            "security_level":2
+        },
+        "2":{
+            "timeout_at":"2019-12-10T11:32:09.549810701Z",
+            "multi_use":true,
+            "security_level":3
+        }
+    },
+    // Trytes of any pending transfer bundles.
+    // These allow the account to monitor pending transactions and rebroadcast or reattach them if necessary
+    "pending_transfers":{}
+}
 ```
-
-|**Field**| **Description**|**Purpose**|
-|:-----------------|:----------|
-|`id`|The account's ID is the hash of the account's address with index 0 and security level 2|Allows you to use the same database to keep track of more than one seed|
-|`date`| The last time that the seed state was updated|Allows you to check when your account was last used|
-|`key_index`|The latest index that was used to generate an address| Allows the account to make sure it generates a new address|
-|`deposit_addresses`|Active addresses|Allows the account to prevent withdrawals from addresses that may still receive deposits|
-|`pending_transfers`|Tail transaction hash of pending transfer bundles|Allows the account to monitor pending transactions and rebroadcast or reattach them if necessary|
+---
+### Java
+```json
+{
+    // The date that the seed state was exported
+    "exportedDate":1575890827622,
+    // The ID of the account.
+    // The account's ID is the hash of the account's address with index 0 and security level 2
+    "id":"NJJHM9IKUAK9DF9B9WIHYSGQPLOPMJYEWXOYXN9BHCTCLLQKGYFDKFDWNYSQJLFFMJCABVDMG9S9DH9FY",
+    "state":{
+        // The last key index that was used to generate the addresses.
+        // This allows the account to make sure it generates a new address
+        "keyIndex":2,
+        // Active addresses, their conditions, and their security levels.
+        // These allow the account to prevent withdrawals from addresses that may still receive deposits
+        "depositRequests":{
+            "0":{
+                "request":{
+                    "timeOut":1575977014862,
+                    "multiUse":true,
+                    "expectedAmount":0
+                    },
+                "securityLevel":2
+            },
+            "1":{
+                "request":{
+                    "timeOut":1575977051855,
+                    "multiUse":true,
+                    "expectedAmount":0
+                    },
+                "securityLevel":3
+            }
+        },
+    // Trytes of any pending transfer bundles.
+    // These allow the account to monitor pending transactions and rebroadcast or reattach them if necessary
+    "pendingTransfers":{},
+    // Whether the account is new (no generated addresses)
+    "new":false
+    }
+}
+```
+---
+### JavaScript
+```json
+{
+    // The last key index that was used to generate the addresses.
+    // This allows the account to make sure it generates a new address
+    "lastKeyIndex": 2,
+    // Active addresses, their conditions, and their security levels.
+    // These allow the account to prevent withdrawals from addresses that may still receive deposits
+    "deposits":[
+        {
+            "address":"RDRPSRBQPEJFRXXJYOUF9AZKAWOSHKZFDOMXJQHLOFAOMVPTQEKDKDKTKQJQ9QKGQHSJGQQZCHTAVCLUW",
+            "index":2,
+            "security":3,
+            "timeoutAt":1575974515544,
+            "multiUse":false,
+            "expectedAmount":0
+        },
+        {
+            "address":"YDXSBOKPKVXLCSGAGBLY9XGPQQFHEWDNQIHTXIHIKQGEYVU9RBUPE9GRZMPXNLDRBUZTDOQFF9NIASMYC",
+            "index":1,
+            "security":2,
+            "timeoutAt":1575974481246,
+            "multiUse":false,
+            "expectedAmount":0
+        }],
+    // Trytes of any pending transfer bundles.
+    // These allow the account to monitor pending transactions and rebroadcast or reattach them if necessary
+    "withdrawals":[]
+}
+```
+--------------------
 
 ## Conditional deposit addresses
 
@@ -30,21 +125,21 @@ Accounts use CDAs to help reduce the risk of withdrawing from [spent addresses](
 
 ### Conditions of a CDA
 
-When you create a CDA, you must specify the `timeoutAt` field to define whether it's active or expired.
+When you create a CDA, you must specify the `timeout_at` field to define whether it's active or expired.
 
 You can also specify one of the following recommended fields:
 
-- **multiUse (recommended):** A boolean that specifies if the address may receive more than one deposit.
-- **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to receive. When the address contains this amount, it's considered expired. We recommend specifying this condition.
+- **multi_use (recommended):** A boolean that specifies if the address may receive more than one deposit.
+- **expected_amount (recommended):** The amount of IOTA tokens that the address is expected to receive. When the address contains this amount, it's considered expired. We recommend specifying this condition.
 
 |  **Combination of fields** | **Withdrawal conditions**
 | :----------| :----------|
-|`timeoutAt` |The CDA can be used in withdrawals as long as it contains IOTA tokens|
-|`timeoutAt` and `multiUse` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it|
-|`timeoutAt` and `expectedAmount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount|
+|`timeout_at` |The CDA can be used in withdrawals as long as it contains IOTA tokens|
+|`timeout_at` and `multi_use` (recommended) |The CDA can be used in withdrawals as soon as it expires, regardless of how many deposits were made to it|
+|`timeout_at` and `expected_amount` (recommended) | The CDA can be used in withdrawals as soon as it contain the expected amount|
 
 :::warning:Warning
-If a CDA was created with only the `timeoutAt` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. Therefore, to avoid withdrawing from a spent address, we recommend creating CDAs with either the `multiUse` field or with the `expectedAmount` field whenever possible.
+If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. Therefore, to avoid withdrawing from a spent address, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible.
 :::
 
 ### Advice for creating CDAs

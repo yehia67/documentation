@@ -2,7 +2,7 @@
 
 **When you use your account to make payments, your account updates your seed state. In this guide, you learn how to export your account's seed state so that you can import it on another device or simply back it up.**
 
-## IOTA packages
+## Packages
 
 To complete this guide, you need to install the following packages:
 
@@ -104,7 +104,7 @@ npm i
 node export-account/export-account.js
 ```
 
-You should have a `seed-state.json` file that contains your seed state. You can use this file to import your seed state on another device.
+You should have an `exported-seed-state.json` file that contains your seed state. You can use this file to import your seed state on another device.
 
 ## Next steps
 

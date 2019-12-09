@@ -2,18 +2,6 @@
 
 **In this guide, you create an account to keep track of your seed state in a local database.**
 
-## IOTA classes
-
-To complete this guide, you need to reference the following classes:
-
-```bash
-jota.IotaAPI;
-jota.IotaAccount;
-jota.account.AccountStore;
-jota.account.store.AccountFileStore;
-jota.error.ArgumentException;
-```
-
 ## IOTA network
 
 In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
@@ -75,17 +63,21 @@ AccountStore store = new AccountFileStore(file);
 
 ```java
 IotaAccount account = new IotaAccount.Builder(mySeed)
-    .store(store)
+    // Connect to a node
     .api(api)
+    // Connect to the database
+    .store(store)
+    // Set the minimum weight magnitude for the Devnet (default is 14)
+    .mwm(9)
+    // Set a security level for CDAs (default is 3)
+    .securityLevel(2)
     .build();
 ```
 
 6\. Start the account
 
-```go
-handleErr(account.Start())
-
-defer account.Shutdown()
+```java
+account.start();
 ```
 
 When you start the account, you also start any of your account's plugins. The default plugins include the following:
