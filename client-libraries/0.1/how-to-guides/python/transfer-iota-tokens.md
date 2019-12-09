@@ -39,15 +39,14 @@ cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
 ```bash
 $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).GetBytes($b);-join($b|%{[char[]] (65..90+57..57)[$_%27]})
 ```
---------------------
-
-Alternatively, you could make use of the library to generate a random seed
-
+---
+### Python
 ```python
 from iota.crypto.types import Seed
 seed = Seed.random()
 print(seed)
 ```
+--------------------
 
 2\. [Generate a new address for your seed](../python/generate-an-address.md)
 
@@ -119,8 +118,6 @@ To transfer your test tokens from one address to another, you need to create and
 
     In the console, you should see the bundle hash of the transaction you just sent.
 
-    You can also observe the bundle and the transactions in it by using a utility such as the [Tangle explorer](https://utils.iota.org).
-
 :::success:Congratulations :tada:
 You've just sent your first transfer bundle. Your transactions are attached to the Tangle and will be forwarded to the rest of the network. Now, you just need to wait until the transaction is confirmed for your balance to be updated.
 :::
@@ -139,10 +136,4 @@ Before you run this sample code, replace the seed with your own test seed.
 
 [Check the balance of your address](../python/check-balance.md).
 
-In this scenario, you wouldn't know in advance whether the address is spent during the time it takes to create and send your bundle.
-
-For example, you are online shopping and the checkout has a QR code that gives you the option to pay in IOTA tokens. This QR code contains an address that is auto-populated in Trinity.
-
-During the time it takes you to complete the checkout and send your transfer bundle, the website owner withdraws IOTA tokens from the address in the QR code. Now that address is spent, and you have just sent IOTA tokens to it.
-
-To help stop this from happening, we recommend using the [account module](../../account-module/introduction/overview.md) to create conditional deposit addresses that specify whether they are active or expired.
+You can also read your transaction, using a utility such as the [Tangle explorer](https://utils.iota.org). Just enter your bundle hash in the search bar.
