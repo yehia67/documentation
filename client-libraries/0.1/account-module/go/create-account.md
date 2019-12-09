@@ -16,7 +16,11 @@ go get github.com/iotaledger/iota.go/trinary
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings:
+
+- **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
+
+- **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3
 
 ## Code walkthrough
 

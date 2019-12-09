@@ -26,6 +26,20 @@
 
 [How-to guides/Go/Listen for live transactions on the Tangle](/how-to-guides/go/listen-for-transactions.md)
 
+[How-to guides/Java/Get started](/how-to-guides/java/get-started.md)
+
+[How-to guides/Java/Send a "hello world" transaction](/how-to-guides/java/send-your-first-bundle.md)
+
+[How-to guides/Java/Read transactions on the Tangle](/how-to-guides/java/read-transactions.md)
+
+[How-to guides/Java/Generate a new address](/how-to-guides/java/generate-an-address.md)
+
+[How-to guides/Java/Check the balance of an address](/how-to-guides/java/check-balance.md)
+
+[How-to guides/Java/Transfer test IOTA tokens](/how-to-guides/java/transfer-iota-tokens.md)
+
+[How-to guides/Java/Listen for live transactions on the Tangle](/how-to-guides/java/listen-for-transactions.md)
+
 [How-to guides/JavaScript/Get started](/how-to-guides/js/get-started.md)
 
 [How-to guides/JavaScript/Send a "hello world" transaction](/how-to-guides/js/send-your-first-bundle.md)
@@ -86,9 +100,15 @@
 
 [Account module/Java/Create an events plugin](/account-module/java/create-plugin.md)
 
+[Account module/Java/Generate a CDA](/account-module/java/generate-cda.md)
+
 [Account module/Java/Make a payment](/account-module/java/make-payment.md)
 
+[Account module/Java/Export your seed state](/account-module/java/export-seed-state.md)
+
 [Account module/Java/Listen to events](/account-module/java/listen-to-events.md)
+
+[Account module/Java/Combine your balance](/account-module/java/combine-balance.md)
 
 [Account module/JavaScript/Get started](/account-module/js/get-started.md)
 
