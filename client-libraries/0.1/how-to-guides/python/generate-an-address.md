@@ -52,9 +52,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
 
     Starting from the given index, the connected node checks its view of the Tangle for any input transactions (pending or confirmed) that withdraw from the address.
 
-    If an address with the given index is spent or has any input transactions associated with it on the Tangle, the index is incremented until the node finds an unspent.
-
-    Because of local snapshots, a node may have pruned these input transactions from its ledger. Therefore, we should also check the node's record of spent addresses.
+    If an address with the given index is spent or has any input transactions associated with it on the Tangle, the index is incremented until the node finds an unspent. Because of local snapshots, a node may have pruned these input transactions from its ledger. Therefore, we should also check the node's record of spent addresses.
 
 6. Check if the address has ever been spent, according to the connected node
 
@@ -71,11 +69,11 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     This way of generating addresses replies on the node to return valid data about your addresses. To have more control over your addresses, we recommend keeping a record of spent ones in your own local database.
     :::
 
-    In the console, you should see an address.
+In the console, you should see an address.
 
-    ```
-    Your address is: WKJDF9LVQCVKEIVHFAOMHISHXJSGXWBJFYEQPOQKSVGZZFLTUUPBACNQZTAKXR9TFVKBGYSNSPHRNKKHA
-    ```
+```
+Your address is: WKJDF9LVQCVKEIVHFAOMHISHXJSGXWBJFYEQPOQKSVGZZFLTUUPBACNQZTAKXR9TFVKBGYSNSPHRNKKHA
+```
 
 :::success:Congratulations :tada:
 You've just generated a new unspent address. You can share this address with anyone who wants to send you a transaction.

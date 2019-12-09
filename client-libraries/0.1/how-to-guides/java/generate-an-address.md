@@ -52,22 +52,22 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     }
     ```
 
-    Starting from the given index, the connected node checks the following:
+Starting from the given index, the connected node checks the following:
 
-    - If any input transactions (pending or confirmed) in its view of the Tangle withdraw from the address
-    - If the address is in the node's list of spent addresses (addresses that were withdrawn from in confirmed transactions)
-    
-    If an address with the given index is spent, the index is incremented until the node finds one that isn't spent.
+- If any input transactions (pending or confirmed) in its view of the Tangle withdraw from the address
+- If the address is in the node's list of spent addresses (addresses that were withdrawn from in confirmed transactions)
 
-    :::warning:
-    This way of generating addresses replies on the node to return valid data about your addresses. To have more control over your addresses, we recommend using the [account module](../../account-module/introduction/overview.md) to keep track of spent addresses in your own local database.
-    :::
+If an address with the given index is spent, the index is incremented until the node finds one that isn't spent.
 
-    In the console, you should see an address.
+:::warning:
+This way of generating addresses replies on the node to return valid data about your addresses. To have more control over your addresses, we recommend using the [account module](../../account-module/introduction/overview.md) to keep track of spent addresses in your own local database.
+:::
 
-    ```
-    Your address is: WKJDF9LVQCVKEIVHFAOMHISHXJSGXWBJFYEQPOQKSVGZZFLTUUPBACNQZTAKXR9TFVKBGYSNSPHRNKKHA
-    ```
+In the console, you should see an address.
+
+```
+Your address is: WKJDF9LVQCVKEIVHFAOMHISHXJSGXWBJFYEQPOQKSVGZZFLTUUPBACNQZTAKXR9TFVKBGYSNSPHRNKKHA
+```
 
 :::success:Congratulations :tada:
 You've just generated a new unspent address. You can share this address with anyone who wants to send you a transaction.
