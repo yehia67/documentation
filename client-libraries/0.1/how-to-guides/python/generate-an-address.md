@@ -59,21 +59,21 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     print('Your address is: %s' % receiver_address )
     ```
 
-    Starting from the given index, the connected node checks if any input transactions (pending or confirmed) in its view of the Tangle withdraw from the address.
+Starting from the given index, the connected node checks if any input transactions (pending or confirmed) in its view of the Tangle withdraw from the address.
 
-    If an address with the given index is spent or has any transactions associated with it on the Tangle, the index is incremented until the node finds one that isn't used.
+If an address with the given index is spent or has any transactions associated with it on the Tangle, the index is incremented until the node finds one that isn't used.
 
-    Because of local snapshots, a node may have pruned these input transactions from its ledger. Therefore, we should also check the node's record of spent addresses.
+Because of local snapshots, a node may have pruned these input transactions from its ledger. Therefore, we should also check the node's record of spent addresses.
 
-    :::warning:
-    This way of generating addresses replies on the node to return valid data about your addresses. To have more control over your addresses, we recommend keeping a record of spent ones in your own local database.
-    :::
+:::warning:
+This way of generating addresses replies on the node to return valid data about your addresses. To have more control over your addresses, we recommend keeping a record of spent ones in your own local database.
+:::
 
-    In the console, you should see an address.
+In the console, you should see an address.
 
-    ```
-    Your address is: WKJDF9LVQCVKEIVHFAOMHISHXJSGXWBJFYEQPOQKSVGZZFLTUUPBACNQZTAKXR9TFVKBGYSNSPHRNKKHA
-    ```
+```
+Your address is: WKJDF9LVQCVKEIVHFAOMHISHXJSGXWBJFYEQPOQKSVGZZFLTUUPBACNQZTAKXR9TFVKBGYSNSPHRNKKHA
+```
 
 :::success:Congratulations :tada:
 You've just generated a new unspent address. You can share this address with anyone who wants to send you a transaction.
