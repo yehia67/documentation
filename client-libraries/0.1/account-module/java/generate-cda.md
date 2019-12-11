@@ -54,6 +54,8 @@ Now you have a CDA that contains IOTA tokens, you can make payments to it.
 
 ## Run the code
 
+These code samples are hosted on [GitHub](https://github.com/JakeSCahill/iota-samples).
+
 To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
 You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool. If this is your first time using the Java client library, complete our [getting started guide](../../getting-started/java-quickstart.md), and follow the instructions for installing the library with Maven.

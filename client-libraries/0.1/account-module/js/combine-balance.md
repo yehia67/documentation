@@ -79,6 +79,8 @@ Now your total available balance is in a single address.
 
 ## Run the code
 
+These code samples are hosted on [GitHub](https://github.com/JakeSCahill/iota-samples).
+
 To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
 If you don't have a JavaScript development environment, or if this is your first time using the JavaScript client library, complete our [getting started guide](../../getting-started/js-quickstart.md).

@@ -207,7 +207,7 @@ When you have a border router and a connected sensor server node, you can reques
 
 4. In the `client.go` file, replace the `"fe80::2ca:46ff:fed3:1967"` IPv6 address with the IPv6 address of your sensor server node to allow the client to connect to it
 
-    ```c
+    ```cpp
     var seedSensorConfig = SensorNode{
         Config: SensorConfig{
             Address: net.UDPAddr{

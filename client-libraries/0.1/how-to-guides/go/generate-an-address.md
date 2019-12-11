@@ -28,6 +28,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
         "fmt"
     )
     ```
+    
 2. Connect to a node
 
     ```go

@@ -11,7 +11,7 @@ To complete this guide, you need the following:
 - A Linux PC with an SSH client. In this guide, we use Ubuntu, but you can use other Linux distributions or macOS.
 
 :::info:Windows users
-if your device has a Windows operating system, you can use [a virtual machine (VM)](root://general/0.1/how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+If your device has a Windows operating system, you can use [a virtual machine (VM)](root://general/0.1/how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 :::
 
 - A keyboard and a monitor (optional)
