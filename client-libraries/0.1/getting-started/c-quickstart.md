@@ -161,25 +161,15 @@ The C client library is organized in packages, which contain related methods. Al
     package(default_visibility = ["//visibility:public"])
 
     cc_library(
-        name = "config",
-        hdrs = [
-            "config.h",
-        ],
-        deps = [
-            "@entangled//cclient/api",
-        ],
-    )
-
-    cc_library(
         name = "service",
         srcs = [
             "client_service.c",
         ],
         hdrs = [
             "client_service.h",
+            "config.h"
         ],
         deps = [
-            ":config",
             "@entangled//cclient/api",
         ],
     )
@@ -276,7 +266,23 @@ Whenever you connect to a node, you need to know which [IOTA network](root://get
     }
     ```
 
-4. Execute the file
+4. In the `examples` directory, create a `BUILD` file that builds your code
+
+    ```bash
+    package(default_visibility = ["//visibility:public"])
+
+    cc_binary(
+        name = "hello_world",
+        srcs = ["e01_hello_world.c"],
+        copts = ["-DLOGGER_ENABLE"],
+        linkopts = ["-pthread"],
+        deps = [
+            "//iota_client_service:service",
+        ],
+    )
+    ```
+
+5. Execute the file
 
     ```bash
     bazel run -c opt examples:hello_world
