@@ -82,4 +82,4 @@ In the console, you should see transaction data.
 
 ## Next steps
 
-Take a look at our [app blueprints](root://blueprints/0.1/introduction/overview.md) for inspiration
+Take a look at our [app blueprints](root://blueprints/0.1/introduction/overview.md) for inspiration.

@@ -280,4 +280,6 @@ We have many channels, including the following:
 
 ## Next steps
 
+Continue learning with our [Java workshop](../how-to-guides/java/get-started.md).
+
 Read our [developer's handbook](root://getting-started/0.1/references/quickstart-dev-handbook.md) for guidance on whether you should run your own node, whether you need a private IOTA network, and what you need to consider for both.
