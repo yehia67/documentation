@@ -42,25 +42,28 @@ To run this application on Windows, enter the following commands in Git Bash.
     idf.py menuconfig
     ```
 
-4. Go to **IOTA Cashier** and configure the wallet with your WiFi network credentials
+4. Go to **IOTA Cashier** and configure the following options:
+
+    |**Configuration option**|**Description**|**Notes**
+    |:----|:-----|:-----|
+    |`WiFi`|Set your WiFi credentials to allow the application to connect to the Internet |If you don't connect to a local IRI node, you must configure the WiFi settings to allow the application to connect to the remote node over the Internet |
+    |`SNTP` |Set the `Timezone` option to the [timezone](https://github.com/nayarsystems/posix_tz_db/blob/master/zones.json) that you want the application to use|By default, this application uses China Standard Time|
+    |`IRI Node`|Set the options to the IRI node to which you want the application to connect| By default, this application connects to a Devnet node over HTTPS|
+    |`Monitor interval(s)`| Set the number of seconds for which the application should wait between each check of the address| By default, this application checks the address every 30 seconds|
 
     :::info:
-    By default, this application uses China Standard Time, connects to a Devnet node, and monitors the address every 30 seconds.
-    
-    You can change the [timezone](https://github.com/nayarsystems/posix_tz_db/blob/master/zones.json) in the **SNTP** option, the IRI node in the **IRI node** option, and the monitor interval in the **Monitor interval(s)** option.
-    :::
-
     You can also see your ESP32 configuration in the `sdkconfig` file.
+    :::
     
 5. If you want to monitor the balance of a single fixed address and display it in a QR code, set the `Receiver address` option to a valid address with or without a [checksum](root://getting-started/0.1/clients/checksums.md)
     
 6. If you want the application to monitor the address for withdrawals and be able to update the QR code to a new unspent one, set the following configuration options:
     
-    |**Configuration option**|**Description**|
-    |:----|:-----|
-    |`Auto refresh address` |Whether the application generates a new address from your seed and security level whenever you withdraw from the latest address|
-    |`Seed`|The [seed](root://getting-started/0.1/clients/seeds.md) that the application uses to generate addresses|
-    |`Security Level`| The [security level](root://getting-started/0.1/clients/security-levels.md) that the application uses to generate addresses from your seed| 
+    |**Configuration option**|**Description**|**Notes**|
+    |:----|:-----|:-----|
+    |`Auto refresh address` |Set this option to `y` to allow the application to generate a new address from your seed and security level whenever you withdraw from the displayed address|
+    |`Seed`|Set this option to the [seed](root://getting-started/0.1/clients/seeds.md) that you want the application to use to generate addresses|This option is displayed only when you set the `Auto refresh address` to `y`. The seed you enter must be a valid 81-tryte seed.|
+    |`Security Level`| Set this option to the [security level](root://getting-started/0.1/clients/security-levels.md) that you want the application to use to generate addresses from your seed| This option is displayed only when you set the `Auto refresh address` to `y`. You must enter a valid security level (1, 2, or 3).|
 
 5. Flash the application to your ESP32. Replace the `$USB_PORT` placeholder with the port that the ESP32 is connected to.
 
@@ -107,7 +110,7 @@ The application monitors the Tangle for confirmed transactions that deposit IOTA
 
 If you configured the `Auto refresh address` options, when you withdraw from the displayed address, the application uses the configured seed and security level to generate a new address and displays it in a QR code.
 
-<iframe width="560" height="315" src="http://www.youtube.com/watch?v=a_qEPlbzrig" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/a_qEPlbzrig" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Troubleshooting
 
