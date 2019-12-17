@@ -4,6 +4,10 @@
 
 [ESP32/Introduction/Get started with the ESP32](/esp32/introduction/get-started.md)
 
+[ESP32/IOTA Projects/Run a command-line wallet](/esp32/iota-projects/create-a-wallet.md)
+
+[ESP32/IOTA Projects/Run an address monitor](/esp32/iota-projects/generate-address.md)
+
 [nRF52/Introduction/Get started with the nRF52](/nrf52/introduction/get-started.md)
 
 [nRF52/Setup Guides/Install ARM GCC toolchain](/nrf52/setup-guides/install-arm-gcc-toolchain.md)

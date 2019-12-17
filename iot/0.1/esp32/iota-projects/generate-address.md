@@ -1,6 +1,6 @@
-# Run a QR code address generator on an ESP32
+# Run an address monitor on an ESP32
 
-**In this guide, you set up a cashier application that allows you to generate an unspent address from your seed and display it in a QR code on an LCD screen. This application also monitors the balance of the generated address and generates a new one if IOTA tokens are ever withdrawn from it.**
+**In this guide, you set up a cashier application that allows you to display the QR code for an address on an LCD screen. This application can also monitor the balance of the address and generate a new one if IOTA tokens are ever withdrawn from it.**
 
 ## Hardware
 
@@ -17,7 +17,7 @@ To complete this guide, you need the following:
 
 ## Architecture
 
-This application uses the [C client library](root://client-libraries/0.1/getting-started/c-quickstart.md) to interact with the an IOTA network.
+This application uses the C client library to interact with the an IOTA network.
 
 ## Run the application
 
@@ -178,5 +178,5 @@ Now, you can continue to configure, build, and flash the application.
 
 ## Next steps
 
-Continue learning about IOTA with our [C workshop](../how-to-guides/c/get-started.md), then build your own application on the ESP32.
+Try running an [wallet](../iota-projects/create-a-wallet.md) on the ESP32.
 

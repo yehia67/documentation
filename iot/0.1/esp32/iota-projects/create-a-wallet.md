@@ -10,7 +10,7 @@ To complete this guide, you need the following:
 
 ## Architecture
 
-The wallet application uses the [C client library](root://client-libraries/0.1/getting-started/c-quickstart.md) to interact with the an IOTA network.
+The wallet application uses the C client library to interact with the an IOTA network.
 
 ![Application architecture](https://raw.githubusercontent.com/oopsmonk/iota_esp32_wallet/master/images/esp32_wallet_block_diagram.png)
 
@@ -121,4 +121,4 @@ abort() was called at PC 0x4008af7c on core 0
 
 Take a look at the [GitHub repository](https://github.com/oopsmonk/iota_esp32_wallet/blob/master/main/wallet_system.c) for a list of commands that the wallet application supports.
 
-Continue learning about IOTA with our [C workshop](../how-to-guides/c/get-started.md), then build your own application on the ESP32.
+Try running an [address monitor](../iota-projects/generate-address.md) on the ESP32.
