@@ -2,8 +2,6 @@
 
 [Introduction/Overview](/introduction/overview.md)
 
-[Concepts/IPv6 mesh network](/concepts/ipv6-mesh-network.md)
-
 [ESP32/Introduction/Get started with the ESP32](/esp32/introduction/get-started.md)
 
 [nRF52/Introduction/Get started with the nRF52](/nrf52/introduction/get-started.md)

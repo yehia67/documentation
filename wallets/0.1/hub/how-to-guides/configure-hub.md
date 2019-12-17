@@ -54,7 +54,7 @@ Some nodes use the SSL protocol to encrypt their API connection. In this case,  
 
 ## What rate of withdrawals and deposits do you expect?
 
-The length of time is takes to process withdrawals depends on the following options:
+The length of time it takes to process withdrawals depends on the following options:
 
 - [`--sweepInterval`](../references/command-line-options.md#sweepInterval)
 
@@ -64,7 +64,7 @@ The length of time is takes to process withdrawals depends on the following opti
 
 ### --sweepInterval
 
-Hub processes withdrawals in sweeps, which are done at regular sweep intervals.
+Hub processes withdrawals in sweeps, which are done at regular intervals.
 
 The sweep interval that you choose should depend on the rate of withdrawals and deposits that you expect.
 
@@ -76,13 +76,13 @@ Large sweeps are not recommended because they contain more transactions, which e
 
 As a result, you should also consider the maximum amount of withdrawals and deposits you want to include in a single sweep.
 
-### --sweep_max_deposit, --sweep_max_withdrawal, and --keySecLevel
+#### Maximum number of withdrawals and deposits
 
-In a sweep, each deposit consists of an output transaction, and each withdrawal consists of at least one input transaction, depending on the security level of addresses in Hub.
+In a sweep, each deposit consists of an output transaction, and each withdrawal consists of at least one input transaction, depending on the [security level](root://getting-started/0.1/clients/security-levels.md) of addresses in Hub.
 
 To limit the amount of time it takes to create a sweep and for the transactions in it to be confirmed, you should consider the maximum amount of deposits and withdrawals that should be included in a sweep.
 
-For example, if you use security level 3, each withdrawal will consist of three transactions. If the maxmimum number of withdrawals is 7, a sweep could include 21 transactions just for withdrawals.
+For example, if you use security level 3 in the [--keySecLevel](../references/command-line-options.md#iota-protocol) setting, each withdrawal will consist of three transactions. So, if the maxmimum number of withdrawals is 7 in the [--sweep_max_deposit](../references/command-line-options.md#sweeps) setting, a sweep could include 21 transactions just for withdrawals.
 
 ### --attachmentInterval
 
