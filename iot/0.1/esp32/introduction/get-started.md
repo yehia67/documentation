@@ -69,7 +69,7 @@ If the `flash` command isn't working, check the Espressif documentation for the 
 
 Follow one of the our guides:
 
-- [Create an IOTA wallet](../iota-projects/create-a-wallet.md)
+- [Run a command-line wallet](../iota-projects/create-a-wallet.md)
 
-- [Create an address generator](../iota-projects/generate-address.md)
+- [Run an address monitor](../iota-projects/generate-address.md)
 
