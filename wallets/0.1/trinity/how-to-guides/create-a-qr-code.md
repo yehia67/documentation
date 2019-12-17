@@ -1,6 +1,6 @@
 # Create a QR Code that Trinity can read
 
-**To avoid making senders enter transaction information such as your address or a message, you can create a QR code that can auto-populates the transaction fields in Trinity. In this guide, you create a QR code, using the IOTA utility website.**
+**To avoid making senders enter transaction information such as your address or a message, you can create a QR code that auto-populates the transaction fields in Trinity. In this guide, you create a QR code, using the IOTA utility website.**
 
 QR codes speed up the process of sending a transaction in Trinity by auto-populating the Address, Value, and Message fields. By allowing senders to scan a QR code, recipients such as ecommerce websites can reduce the time it takes for customers to complete a purchase.
 
