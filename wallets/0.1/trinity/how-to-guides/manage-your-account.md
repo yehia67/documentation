@@ -1,6 +1,6 @@
 # Manage your account
 
-**Trinity allows you to have multiple accounts, each of which has a unique seed.**
+**Trinity allows you to have more than one account, each of which has a unique seed.**
 
 For each of your accounts, you can do the following:
 
@@ -45,3 +45,7 @@ Trinity stores your seeds for you (unless you use a [hardware wallet](../concept
 To change the login password on a desktop, go to **Settings** > **Change password**.
 
 To change the login password on a mobile device, go to **Settings** > **Security settings** > **Change password**.
+
+## Next steps
+
+[Buy IOTA tokens](../how-to-guides/buy-iota.md)

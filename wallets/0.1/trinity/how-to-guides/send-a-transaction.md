@@ -2,6 +2,12 @@
 
 **In Trinity, you can send a transaction to a [node](root://getting-started/0.1/network/nodes.md) by entering an [address](root://getting-started/0.1/clients/addresses.md), a message, and/or an amount of [IOTA tokens](root://getting-started/0.1/clients/token.md). In this guide, you learn how to send a transaction in Trinity.**
 
+![A received transaction](../images/trinity-receive-message.png)
+
+:::info:
+The Addresses field is displayed only in [Advanced mode](../how-to-guides/change-the-general-settings.md).
+:::
+
 ## Step 1. Choose an IOTA network
 
 You can send transaction to a node on any [IOTA network](root://getting-started/0.1/network/iota-networks.md).
@@ -32,27 +38,21 @@ When you're connected to a node on your chosen IOTA network, you can send it a t
     If your account is linked to a hardware wallet, you can send either IOTA tokens or a message, but not both.
     :::
 
-    ![IOTA units](../images/sending-value-highlighted.jpg)
+    ![IOTA units](../images/sending-value-highlighted.png)
     
 4. Click **Send**
 
-    ![Sending IOTA tokens](../images/send.jpg)
+    ![Sending IOTA tokens](../images/send.png)
 
     :::info:
     If you minimize Trinity Mobile, the sending process pauses until you reopen it.
     :::
 
+:::success:
 Sent transactions are saved in the transaction history, where you can see information such as their status.
-
-![A received transaction](../images/trinity-receive-message.png)
-
-:::info:
-The Addresses field is displayed only in [Advanced mode](../how-to-guides/change-the-general-settings.md).
 :::
 
 ## Next steps
-
-[Read you balance](../how-to-guides/read-your-balance.md).
 
 [Receive a transaction](../how-to-guides/receive-a-transaction.md).
 
