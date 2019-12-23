@@ -2,6 +2,8 @@
 
 **Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses Masked Authenticated Messaging (MAM) channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.**
 
+## Business case
+
 Data is one of the most fundamental ingredients in the machine economy and the connected world. It is the foundation of the Data — Information — Knowledge — Wisdom [(DIKW) pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid).
 
 ![Data pyramid](../images/data-marketplace-otr-updates.png)
@@ -12,8 +14,6 @@ The different layers of this pyramid all rely on data. For example, sensors on c
 - **Information:** Sensor data is used to extract meaningful information about the speed of the moving objects and their relative positions
 - **Knowledge:** Information is contextualized and distilled into knowledge, telling the drivers on the road via over-the-air ​updates that the road may be congested due to a crash
 - **Wisdom:** Knowledge allows drivers to take an alternative route
-
-## Business case
 
 Over the next decade, more than 75 billion connected devices will be interacting in different manners. These devices will give rise to a machine economy where they will trade everything from storage to electricity and sensor data. The data trade in this pilot project will highlight and explore the potential in these developments. With the prospect of tens of billions of devices generating data, we will see a proliferation of data that is unmatched in history.
 
@@ -44,24 +44,6 @@ As a non-profit organisation, the IOTA Foundation has developed this project to 
 The growth of data marketplaces is an inevitable result of the IoT (Internet of Things) revolution. As physical assets such as ships, factories, vehicles, farms or buildings become digital, their digital twins will gradually act as secure data exchanges.
 
 As data streams surge across silos and carry value across organisations, traditional value chains will transition into a web of value. This paradigm will be more complex to administer, forcing business to rethink their competitive play as part of these ecosystems. Data marketplaces will emerge as a means to exchange data, monetise data streams and provide the basis of new smart business models. We refer to this new wave of value creation, for the Internet of Everything, as the Economy of Things.
-
-:::info:
-This Data Marketplace is not a launchpad for a future commercial service by the IOTA Foundation.
-:::
-
-### Objectives of the initiative
-
-The initiative’s objective was to do the following:
-
-- Produce an open source proof of concept
-- Explore business model innovation
-- Grow a co-creation ecosystem to foster permissionless innovation
-
-Like its technology, the IOTA Foundation’s approach to enabling innovation is open and permissionless. Our ambition is to enable the ecosystem to co-create and develop new solutions and business models, but not to drive and push specific solutions to market.
-
-The Data Marketplace is designed to enable an agile, experiment-driven and collective approach to innovation for its participants, but also for the IOTA Foundation itself. This initiative challenges the IOTA technology with the requirements of real life deployments and the demand of the Data Marketplace participants. We aim to adapt our technology to meet these demands.
-
-![Smart models](../images/data-marketplace-smart-models.png)
 
 ## Demo
 

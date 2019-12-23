@@ -37,12 +37,12 @@ The wallet application uses the C client library to interact with the an IOTA ne
 
 4. Go to **IOTA Wallet** and configure the following options:
 
-    |**Configuration option**|**Description**|**Notes**
+    |**Configuration option**|**Description**|**Notes**|
     |:----|:-----|:-----|
     |`WiFi`|Set your WiFi credentials to allow the application to connect to the Internet |If you don't connect to a local IRI node, you must configure the WiFi settings to allow the application to connect to the remote node over the Internet |
     |`SNTP` |Set the `Timezone` option to the [timezone](https://github.com/nayarsystems/posix_tz_db/blob/master/zones.json) that you want the application to use|By default, this application uses China Standard Time|
     |`IRI Node`|Set the options to the IRI node to which you want the application to connect| By default, this application connects to a Mainnet node over HTTPS|
-    |`Seed`| Set this option to the [seed](root://getting-started/0.1/clients/seeds.md) that you want the application to use to generate addresses and sign transactions|The seed you enter must be a valid 81-tryte seed|
+    |`Seed` (required)| Set this option to the [seed](root://getting-started/0.1/clients/seeds.md) that you want the application to use to generate addresses and sign transactions|The seed you enter must be a valid 81-tryte seed|
 
     :::info:
     You can also see your ESP32 configuration in the `sdkconfig` file.

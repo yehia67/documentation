@@ -2,16 +2,24 @@
 
 **The Coordinator is an application that's run by the IOTA Foundation and whose purpose is protect the [Tangle](../network/the-tangle.md) from attacks such as [parasite chains](https://blog.iota.org/attack-analysis-the-simple-parasite-chain-42a34bfeaf23). [Nodes](../network/nodes.md) use the Coordinator to reach a consensus on which transactions are confirmed.**
 
+When you send a [transfer bundle](../transactions/bundles.md#transfer-bundles), your balance isn't updated until all the transactions in it are confirmed.
+
+It's the Coordinator that allows your transactions to go from pending to confirmed.
+
+The Coordinator is a program that regularly sends bundles that reference and approve two new random transactions in the ledger. The signed tail transaction in the bundle is called a milestone.
+
 ## Milestones
 
-All nodes in the same [IOTA network](../network/iota-networks.md) are hard-coded with the [address](../clients/addresses.md) of a Coordinator.
+Every node in the same [IOTA network](../network/iota-networks.md) is hard-coded with the [address](../clients/addresses.md) of a Coordinator. So, whenever nodes see a milestone, they make sure it's valid by doing a number of checks, including:
 
-To prove to nodes that it owns the address, the Coordinator creates, signs, and sends [bundles](../transactions/bundles.md) of transactions called milestones at regular intervals.
+* The milestone came from the Coordinator's address
+* The milestone doesn't reference any invalid transactions
 
-These bundles contain the following:
+As a result, if the Coordinator were to ever send an invalid milestone such as one that references counterfeit transactions, the rest of the nodes would not accept it.
 
-- Enough zero-value transactions to contain the fragmented signature
-- One transaction whose [`signatureMessageFragment` field](../transactions/transactions.md#signatureMessageFragment) contains enough missing data from the Merkle tree to allow the node to rebuild it
+:::info:
+The Coordinator can't lose tokens or reverse transactions.
+:::
 
 When a transaction in a valid milestone references an existing transaction in the Tangle, nodes mark the state of that existing transaction and its entire history as confirmed.
 
@@ -27,7 +35,7 @@ To do so, the Coordinator's address is derived from a [Merkle tree](https://en.w
 
 To generate the Merkle tree, first a number of addresses and private keys are generated from the Coordinator's seed.
 
-The total number of addresses that are generated depends on the depth of the Merkle tree in this formula:
+The total number of addresses depends on the depth of the Merkle tree in this formula:
 
 2<sup>depth</sup>
 
@@ -50,6 +58,11 @@ To generate the Coordinator's address, the leaves are hashed in pairs:
 Node 1 is a hash of the result of hashing leaf 1 and leaf 2. Node 2 is a hash of the result of hashing leaf 3 and leaf 4. The Coordinator's address is a hash of the result of hashing the hash of node 1 and node 2.
 
 ## How nodes validate milestones
+
+To prove to nodes that it owns the address, the Coordinator's bundles contain the following:
+
+- Enough zero-value transactions to contain the fragmented signature
+- One transaction whose [`signatureMessageFragment` field](../transactions/transactions.md#signatureMessageFragment) contains enough missing data from the Merkle tree to allow the node to rebuild it
 
 When nodes see a transaction that's been sent from the Coordinator's address, they validate it by doing the following:
 
@@ -77,4 +90,8 @@ If the Merkle root is the same as the Coordinator's address, the bundle was sign
 
 ## Coordicide
 
-The Research Department at the IOTA Foundation is focused on a project called [Coordicide](https://coordicide.iota.org/), which is a proposal for the removal of the Coordinator. When this happens, nodes will be able to reach a consensus without milestones.
+The Research Department at the IOTA Foundation are working on a project called [Coordicide](https://coordicide.iota.org/), which is a proposal for the removal of the Coordinator. When this happens, nodes will be able to reach a consensus without milestones, making IOTA networks decentralized.
+
+## Related guides
+
+[Find out if a transaction is confirmed in JavaScript](root://client-libraries/0.1/how-to-guides/js/check-transaction-confirmation.md).
