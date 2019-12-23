@@ -417,9 +417,13 @@ curl http://localhost:50051 \
 
 ## GetSeedForAddress
 
-Gets the seed that is associated with an address,
+Gets the seed that was used to generate a given deposit address.
 
 This endpoint is useful if you want to store the seed in case outside of Hub in case of a crash in the Hub database.
+
+:::info:
+To use this endpoint, you must run Hub with the [`--GetSeedForAddress_enabled` flag](../references/command-line-options.md#signBundle).
+:::
 
 ### Parameters
 

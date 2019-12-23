@@ -124,6 +124,8 @@ Currently not used.
 
 ### GetSeedForAddressRequest
 
+To use this method, you must run Hub with the [`--GetSeedForAddress_enabled` flag](../references/command-line-options.md#signBundle).
+
 |**Field**|**Type**|**Rules**|**Description**|
 | --------------- | ----------------- | ----- | ----------- |
 | userId          | [string](#string) |   singular    |  The ID of the user that owns the deposit address|
