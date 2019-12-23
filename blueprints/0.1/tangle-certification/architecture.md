@@ -236,11 +236,11 @@ curl https://certification-system/issuer \
 
 Issues a certificate by doing the following:
 
-- Locates the issuers details
-- Increments their address index
-- Generates a new address from the seed and addressIndex
-- Creates a transaction that contains the issuer’s ID (which in turn points to their public key), the template ID, the data from the payload, the signature from the payload
-- Attaches the transaction to the Tangle and returns the transaction hash
+- Locate the issuers details
+- Increment the issuer's latest address index
+- Use the latest address index to generate a new address from the issuer's seed
+- Create a MAM message that contains the issuer’s ID (which in turn points to their public key), the template ID, the data from the payload, the signature from the payload
+- Attach the transaction to the Tangle and return the transaction hash
 
 ```
 POST https://certification-system/certificate

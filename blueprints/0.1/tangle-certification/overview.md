@@ -39,9 +39,9 @@ This solution leads to the following benefits:
 
 ## Demo
 
-Neither a demonstration of this application nor deployment instructions are  available at the moment.
+A demonstration is not available at the moment.
 
-However, the IOTA Foundation
+However, you can test the [Tangle certificate JavaScript library](root://utils/0.1/official/tangle-certificate/overview.md) that we built, using this blueprint.
  	 	 
 ## Additional resources
 
