@@ -69,6 +69,7 @@ If you've downloaded Hub, you can also run it with the `--help` flag to see a li
 | **Option** |   **Description**|**Accepted argument** | **Default**|**Notes** |
 | :------------------------ | :--------------- | :--------|:---|:---|
 |`--authProvider`| Key type to use to authenticate the `SignBundle` API call|"none": Do not use a key, "hmac": Use an [HMAC](https://en.wikipedia.org/wiki/HMAC) key|"none"||
+|`--GetSeedForAddress_enabled`|Whether to enable the `GetSeedForAddress` API call|true: Enable the API call, false: Disable the API call|false||
 |`--hmacKeyPath` |Path to the HMAC key used to authenticate the `SignBundle` API call|"/dev/null"|
 |<a name="recoverFunds"></a>`--RecoverFunds_enabled`|Whether to enable the `RecoverFunds` API call|true: Enable the API call, false: Disable the API call|false||
 |<a name="signBundle"></a>`--SignBundle_enabled`|Whether to enable the `SignBundle` API call|true: Enable the API call, false: Disable the API call|false||

@@ -19,7 +19,8 @@ If you’re not familiar with gRPC and protobuf, we recommend following the [gRP
 | CreateUser           | [CreateUserRequest](#hub.rpc.CreateUserRequest)              | [CreateUserReply](#hub.rpc.CreateUserRequest)                | Create a new user on Hub                                |
 | GetAddressInfo       | [GetAddressInfoRequest](#hub.rpc.GetAddressInfoRequest)      | [GetAddressInfoReply](#hub.rpc.GetAddressInfoRequest)        | Get the ID of the user that owns a given deposit address |
 | GetBalance           | [GetBalanceRequest](#hub.rpc.GetBalanceRequest)              | [GetBalanceReply](#hub.rpc.GetBalanceRequest)                | Get a user's available balance                     |
-| GetDepositAddress    | [GetDepositAddressRequest](#hub.rpc.GetDepositAddressRequest) | [GetDepositAddressReply](#hub.rpc.GetDepositAddressRequest)  | Create a new deposit address for a given user|
+| GetDepositAddress    | [GetDepositAddressRequest](#hub.rpc.GetDepositAddressRequest) | [GetDepositAddressReply](#hub.rpc.GetDepositAddressReply)  | Create a new deposit address for a given user|
+| GetSeedForAddress    | [GetSeedForAddressRequest](#hub.rpc.GetSeedForAddressRequest) | [GetSeedForAddressReply](#hub.rpc.GetSeedForAddressReply)  | Get the seed that was used to generate a given deposit address|
 | GetStats             | [StatsRequest](#hub.rpc.StatsRequest)                        | [StatsReply](#hub.rpc.StatsRequest)                          | Get the total amount of IOTA tokens that are stored in Hub                            |
 | GetUserHistory       | [GetUserHistoryRequest](#hub.rpc.GetUserHistoryRequest)      | [GetUserHistoryReply](#hub.rpc.GetUserHistoryRequest)        | Get the history of a user's balance |
 | ProcessTransferBatch | [ProcessTransferBatchRequest](#hub.rpc.ProcessTransferBatchRequest) | [ProcessTransferBatchReply](#hub.rpc.ProcessTransferBatchRequest) | Process a batch of buys/sells from the exchange. Note that the total amount of a batch must sum to 0. |
@@ -118,6 +119,23 @@ Currently not used.
 |**Field**|**Type**|**Rules** |**Description**|
 | ------- | ----------------- | ----- | ----------------------------- |
 | address | [string](#string) |  singular     | A new deposit address |
+
+<a name="hub.rpc.GetSeedForAddressRequest"></a>
+
+### GetSeedForAddressRequest
+
+|**Field**|**Type**|**Rules**|**Description**|
+| --------------- | ----------------- | ----- | ----------- |
+| userId          | [string](#string) |   singular    |  The ID of the user that owns the deposit address|
+| address | [string](#string)   |   singular    | The deposit address whose seed you want to generate          |
+
+<a name="hub.rpc.GetSeedForAddressReply"></a>
+
+### GetSeedForAddressReply
+
+|**Field**|**Type**|**Rules** |**Description**|
+| ------- | ----------------- | ----- | ----------------------------- |
+| seed | [string](#string) |  singular     | A new deposit address |
 
 <a name="hub.rpc.GetUserHistoryRequest"></a>
 
