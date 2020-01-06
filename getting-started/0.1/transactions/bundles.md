@@ -19,7 +19,7 @@ The other `branchTransaction` and `trunkTransaction` fields reference the tail t
 |2 | Transaction index 3 in this bundle| The same branch transaction hash as transaction index 0 and 1|This transaction is linked to transaction index 1 and 3 through the `trunkTransaction` field |
 |3 | The same branch transaction hash as all other transactions in this bundle| Transaction hash of an existing transaction in the Tangle| This transaction is called the **head transaction** |
 
-## Bundle hash
+## Bundle essence
 
 All transactions in the same bundle have the same bundle hash in their `bundle` field to tie them all together.
 
@@ -32,7 +32,7 @@ This hash is derived from the **bundle essence**, which is a hash of the values 
 - `lastIndex`
 - `timestamp`
 
-As a result, if the values of any of these transaction fields were to change, the bundle hash would change, invalidating all transactions in the bundle.
+As a result, if any values of the bundle essence were to change, the bundle hash would change, invalidating all transactions in the bundle.
 
 ## Bundle types
 
