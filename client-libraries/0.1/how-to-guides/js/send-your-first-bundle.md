@@ -105,17 +105,25 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
             return iota.sendTrytes(trytes, depth, minimumWeightMagnitude);
         })
         .then(bundle => {
-            console.log(bundle)
+            console.log(bundle[0].hash)
         })
         .catch(err => {
             console.error(err)
         });
     ```
 
-    In the console, you should see the bundle hash of the transaction you just sent.
+    In the console, you should see the tail transaction hash of the bundle you just sent.
 
 :::success:Congratulations :tada:
-You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network. This transaction is now immutable, and as long as you have its bundle hash, you can read it on the Tangle.
+You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network.
+
+You can use this tail transaction hash to read the transaction from the Tangle.
+:::
+
+:::warning:
+Nodes can delete old transactions from their local copies of the Tangle. Therefore, a time may come where you request your transaction from a node, but the node doesn't have it anymore.
+
+If you want to store data on the Tangle for extended periods of time, we recommend either [running your own node](root://node-software/0.1/iri/how-to-guides/quickstart.md) or running a permanode such as [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md).
 :::
 
 ## Run the code
@@ -128,6 +136,6 @@ Click the green button to run the sample code in this guide and see the results 
 
 ## Next steps
 
-Make a note of your transaction's bundle hash so you can [Get the transaction from the Tangle](../js/read-transactions.md) and read your message.
+Make a note of the tail transaction hash so you can [Get the transaction from the Tangle](../js/read-transactions.md) and read your message.
 
 You can also read your transaction, using a utility such as the [Tangle explorer](https://utils.iota.org).

@@ -12,7 +12,7 @@ If you complete this guide from beginning to end, you'll learn everything from g
 
 1. [Send a "hello world" transaction](../js/send-your-first-bundle.md)
 
-2. [Read transactions on the Tangle](../js/read-transactions.md)
+2. [Read transactions from the Tangle](../js/read-transactions.md)
 
 3. [Generate an address](../js/generate-an-address.md)
 
