@@ -101,10 +101,18 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
      }
     ```
 
-    In the console, you should see the transaction that you just sent.
+    In the console, you should see the tail transaction that you just sent.
 
 :::success:Congratulations :tada:
-You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network. This transaction is now immutable, and as long as you have its bundle hash, you can read it on the Tangle.
+You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network.
+
+You can use this tail transaction hash to read the transaction from the Tangle.
+:::
+
+:::warning:
+Nodes can delete old transactions from their local copies of the Tangle. Therefore, a time may come where you request your transaction from a node, but the node doesn't have it anymore.
+
+If you want to store data on the Tangle for extended periods of time, we recommend either [running your own node](root://node-software/0.1/iri/how-to-guides/quickstart.md) or running a permanode such as [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md).
 :::
 
 ## Run the code
@@ -137,6 +145,6 @@ In the console, you should see the bundle hash of the transaction you just sent.
 
 ## Next steps
 
-Make a note of the bundle hash so you can [read the transaction data on the Tangle](../java/read-transactions.md).
+Make a note of the transaction's hash so you can [read the transaction data on the Tangle](../java/read-transactions.md).
 
 You can also read your transaction, using a utility such as the [Tangle explorer](https://utils.iota.org).
