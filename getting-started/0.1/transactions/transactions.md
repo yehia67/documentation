@@ -8,7 +8,7 @@ A transaction consists of 2,673 [tryte-encoded](../introduction/ternary.md#tryte
 
 | **Field**                         | **Type**   | **Description**                                                                                                                                                                                                                   | **Length (trytes)** |
 | :----------------------------- | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ |
-|`hash`|string|Transaction hash|81|
+|`hash`|string|Transaction hash. The transaction hash is derived from the values of every transaction field and contains part of the [proof of work](../transactions/proof-of-work.md).|81|
 | <a name="signatureMessageFragment"></a>`signatureMessageFragment`      | string | A [signature](../clients/signatures.md) or a message, both of which may be _fragmented_ over many transactions in a [bundle](../transactions/bundles.md). This field contains all 9's where no message is defined. | 2,187   |
 |<a name="address"></a> `address`                       | string | Contains either the sender's or recipient's address. This field contains a recipient's address if the transaction is an [output transaction](#output-transactions).   | 81     |
 | `value`                    | integer    | Amount of IOTA tokens to either deposit (positive value) into an address or withdraw (negative value) from it                                                                                                                                                                                        | 27     |
@@ -27,8 +27,6 @@ A transaction consists of 2,673 [tryte-encoded](../introduction/ternary.md#tryte
 
 
 ## Transaction hash
-
-The transaction hash is derived from the values of every transaction field and contains part of the [proof of work](../transactions/proof-of-work.md).
 
 Along with the bundle hash, the transaction hash is part of what makes the Tangle immutable. If any of the values in the transaction fields were to change, the transaction hash would be invalid, which would also invalidate the transaction's children and whichever transactions directly or indirectly reference them in [the Tangle](../network/the-tangle.md).
 
