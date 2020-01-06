@@ -30,7 +30,7 @@
 
 [How-to guides/Go/Send a "hello world" transaction](/how-to-guides/go/send-your-first-bundle.md)
 
-[How-to guides/Go/Read transactions on the Tangle](/how-to-guides/go/read-transactions.md)
+[How-to guides/Go/Read transactions from the Tangle](/how-to-guides/go/read-transactions.md)
 
 [How-to guides/Go/Generate a new address](/how-to-guides/go/generate-an-address.md)
 
@@ -44,7 +44,7 @@
 
 [How-to guides/Java/Send a "hello world" transaction](/how-to-guides/java/send-your-first-bundle.md)
 
-[How-to guides/Java/Read transactions on the Tangle](/how-to-guides/java/read-transactions.md)
+[How-to guides/Java/Read transactions from the Tangle](/how-to-guides/java/read-transactions.md)
 
 [How-to guides/Java/Generate a new address](/how-to-guides/java/generate-an-address.md)
 
@@ -58,7 +58,7 @@
 
 [How-to guides/JavaScript/Send a "hello world" transaction](/how-to-guides/js/send-your-first-bundle.md)
 
-[How-to guides/JavaScript/Read transactions on the Tangle](/how-to-guides/js/read-transactions.md)
+[How-to guides/JavaScript/Read transactions from the Tangle](/how-to-guides/js/read-transactions.md)
 
 [How-to guides/JavaScript/Generate a new address](/how-to-guides/js/generate-an-address.md)
 
@@ -80,7 +80,7 @@
 
 [How-to guides/Python/Send a "hello world" transaction](/how-to-guides/python/send-your-first-bundle.md)
 
-[How-to guides/Python/Read transactions on the Tangle](/how-to-guides/python/read-transactions.md)
+[How-to guides/Python/Read transactions from the Tangle](/how-to-guides/python/read-transactions.md)
 
 [How-to guides/Python/Generate a new address](/how-to-guides/python/generate-an-address.md)
 

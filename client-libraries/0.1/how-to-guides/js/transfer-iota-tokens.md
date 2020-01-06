@@ -115,7 +115,9 @@ To transfer your test tokens from one address to another, you need to create and
     This method asks the node to check the balance of your seed's addresses. If your addresses have enough IOTA tokens to complete the transfer, the method creates input transactions to withdraw the full balance from enough of your addresses to fulfill the transfer. Then, the method adds those transactions to the transfer bundle and signs the bundle with the private keys of any withdrawn addresses.
 
     :::info:
-    Your seed never leaves your device. The library generates addresses and sends them to the node.
+    Your seed never leaves your device.
+    
+    The library generates addresses on your local device and sends them to the node.
     :::
 
     If the amount you want to transfer is less than the balance of your withdrawn addresses, the method creates another output transaction to transfer the remainder to an unspent address that belongs to your seed.
@@ -129,7 +131,7 @@ To transfer your test tokens from one address to another, you need to create and
     response.map(tx => console.log(tx));
     ```
 
-    In the console, you'll see information about the transactions.
+    In the console, you'll see information about the transactions in the bundle.
 
 :::success:Congratulations :tada:
 You've just sent your first transfer bundle. Your transactions are attached to the Tangle and will be forwarded to the rest of the network. Now, you just need to wait until the transaction is confirmed for your balance to be updated.

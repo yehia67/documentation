@@ -1,8 +1,6 @@
 # Change the general settings
 
-**The general settings allow you to change elements of the user interface, change your password, and change the nodes to which Trinity connects.**
-
-In Trinity, go to **Settings** to customize general settings. 
+**The general settings allow you to change elements of the user interface, change your password, and change the nodes to which Trinity connects. In this guide, you learn how to change the general settings.**
 
 ## Change the display language
 
@@ -26,3 +24,5 @@ Trinity has two modes:
 
 - **Standard mode:** Displays only the most relevant information for standard users
 - **Advanced mode:** Displays technical information, such as error logs, for advanced users
+
+## Next steps

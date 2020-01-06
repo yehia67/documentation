@@ -1,6 +1,6 @@
 # Connect to custom nodes
 
-**Trinity interacts with the Tangle through a [quorum](../concepts/node-quorum.md) of default nodes. You can choose to add one of your own nodes to the quorum, connect to a quorum of custom nodes such as those on the Devnet, or connect to a specific node to use for outsourced proof of work.**
+**Trinity interacts with the [Tangle](root://getting-started/0.1/network/the-tangle.md) through a [quorum](../concepts/node-quorum.md) of default nodes. In this guide, you learn how to add one of your own nodes to the quorum, connect to a quorum of custom nodes such as those on the [Devnet](root://getting-started/0.1/network/iota-networks.md), or connect to a specific node to use for outsourced proof of work.**
 
 ![Node management in Trinity](../images/node-management.png)
 
@@ -40,7 +40,7 @@ As well as connecting to a single custom node, you can also add multiple custom 
 
 7. Click **Save**
 
-:::success:Congratulations! :tada:
+:::success:
 All the information that Trinity displays about the Tangle is now sent from your custom nodes.
 :::
 

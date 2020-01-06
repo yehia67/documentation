@@ -55,9 +55,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     ```
 
     :::info:
-    The `from_unicode()` method supports encoding non-ASCII (UTF-8) characters, but this
-    functionality is experimental and has not yet been evaluated by the IOTA community.
-    Until this functionality is standardized, it is recommended that you only use [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters).
+    Although the `from_unicode()` method supports UTF-8 characters, we recommended using only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters) until it has been standardized across the other official libraries.
     :::
 
 5. Define a zero-value transaction that sends the message to the address
@@ -79,14 +77,21 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     ```python
     result = api.send_transfer(transfers = [tx])
 
-    print('Bundle: ')
-    print(result['bundle'].hash)
+    print(result['bundle'].tail_transaction.hash)
     ```
 
-    In the console, you should see the bundle hash of the transaction you just sent.
+    In the console, you should see the tail transaction hash of the bundle you just sent.
 
 :::success:Congratulations :tada:
-You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network. This transaction is now immutable, and as long as you have its bundle hash, you can read it on the Tangle.
+You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network.
+
+You can use this tail transaction hash to read the transaction from the Tangle.
+:::
+
+:::warning:
+Nodes can delete old transactions from their local copies of the Tangle. Therefore, a time may come where you request your transaction from a node, but the node doesn't have it anymore.
+
+If you want to store data on the Tangle for extended periods of time, we recommend either [running your own node](root://node-software/0.1/iri/how-to-guides/quickstart.md) or running a permanode such as [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md).
 :::
 
 ## Run the code

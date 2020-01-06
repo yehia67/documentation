@@ -19,7 +19,7 @@ This API is in beta, and is subject to change. We recommend that you don't use t
 
 ## CreateUser
 
-Create a new user on Hub.
+Creates a new user on Hub.
 
  ### Parameters
 	
@@ -115,7 +115,7 @@ An empty object is returned in a successful result.
 
 ## GetAddressInfo
 
-Get the ID of the user that owns a given deposit address.
+Gets the ID of the user that owns a given deposit address.
 
  ### Parameters
 	
@@ -216,7 +216,7 @@ curl http://localhost:50051 \
 
 ## GetBalance
 
-Get a user's available balance.
+Gets a user's available balance.
 
 ### Parameters
 	
@@ -316,7 +316,7 @@ curl http://localhost:50051 \
 
 ## GetDepositAddress
 
-Create a new deposit address for a given user.
+Creates a new deposit address for a given user.
 
 ### Parameters
 
@@ -415,9 +415,119 @@ curl http://localhost:50051 \
 |--|--|
 | `address` | A new 81-tryte deposit address (without checksum) |
 
+## GetSeedForAddress
+
+Gets the seed that was used to generate a given deposit address.
+
+This endpoint is useful if you want to store the seed outside of Hub.
+
+:::info:
+To use this endpoint, you must run Hub with the [`--GetSeedForAddress_enabled` flag](../references/command-line-options.md#signBundle).
+:::
+
+### Parameters
+
+|**Parameter** | **Required or Optional**|**Description** |**Type**
+|--|--|--|--|
+| `userId` |Required| The ID of the user that owns the deposit address| string|
+|`address`|Required|The deposit address whose seed you want to generate|string
+
+### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+command = {
+  "command": "GetSeedForAddress", 
+  "userId": "user-1",
+  "address": "PHWYPQECJDVEZYQFIDNMEDFGETLTRUFUERVUYQQLZHOHKQZU9QLLCGLNANXNGGXNTZLBUAALRLH9PIGHF"
+}
+
+stringified = json.dumps(command)
+
+headers = {
+    'content-type': 'application/json',
+    'X-IOTA-API-Version': '1'
+}
+
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var command = {
+  "command": "GetSeedForAddress", 
+  "userId": "user-1",
+  "address": "PHWYPQECJDVEZYQFIDNMEDFGETLTRUFUERVUYQQLZHOHKQZU9QLLCGLNANXNGGXNTZLBUAALRLH9PIGHF"
+};
+
+var options = {
+  url: 'http://localhost:50051',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+		'X-IOTA-API-Version': '1',
+    'Content-Length': Buffer.byteLength(JSON.stringify(command))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
+```bash
+curl http://localhost:50051 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{ 
+  "command": "GetSeedForAddress", 
+  "userId": "user-1",
+  "address": "PHWYPQECJDVEZYQFIDNMEDFGETLTRUFUERVUYQQLZHOHKQZU9QLLCGLNANXNGGXNTZLBUAALRLH9PIGHF"
+}'
+```
+--------------------
+
+### Response examples
+--------------------
+### 200
+```json
+{
+  "seed": "AUVEOUEVFHKZBKCSVWDQ9PJPDJZPZ9APNBLYCFLFLEBHMJUJYXEBSZFGTFDASHHGEKOHHEHIMUXKZWUTD"
+}
+```
+---
+### 400
+```json
+{
+  "error": "'command' parameter has not been specified"
+}
+```
+--------------------
+
+### Results
+
+|**Return field** | **Description** |
+|--|--|
+| `seed` | The seed that was used to generate the deposit address |
+
 ## GetStats
 
-Get the total amount of IOTA tokens that are stored in Hub.
+Gets the total amount of IOTA tokens that are stored in Hub.
 
 ### Examples
 --------------------
@@ -509,7 +619,7 @@ curl http://localhost:50051 \
 
 ## GetUserHistory
 
-Get the history of a user's balance.
+Gets the history of a user's balance.
 
 ### Parameters
 
@@ -636,7 +746,7 @@ curl http://localhost:50051 \
 
 ## ProcessTransferBatch
 
-Process a batch of buys/sells from the exchange.
+Processes a batch of buys/sells from the exchange.
 
 :::info:
 The total amount of a batch must sum to 0.
@@ -741,7 +851,7 @@ An empty object is returned in a successful result.
 
 ## BalanceSubscription
 
-Monitor a stream of balance changes since a given time.
+Monitors a stream of balance changes since a given time.
 
  ### Parameters
 	
@@ -900,7 +1010,7 @@ Depending on the value of the `type` field, the following data is returned:
 
 ## RecoverFunds
 
-Transfer IOTA tokens from a spent address to an unspent one.
+Transfers IOTA tokens from a spent address to an unspent one.
 
 :::info:
 To use this endpoint, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-options.md#recoverFunds).
@@ -1015,7 +1125,7 @@ An empty object is returned in a successful result.
 
 ## SignBundle
 
-Get a signature to add to an unsigned bundle.
+Returns a signature for a given bundle.
 
 This endpoint is useful for signing pre-built bundles that transfer IOTA tokens from a spent deposit address to two or more unspent addresses.
 
@@ -1134,7 +1244,7 @@ curl http://localhost:50051 \
 
 ## SweepDetail
 
-Get information about a sweep (confirmation status, transaction trytes, and reattachments).
+Gets information about a sweep (confirmation status, transaction trytes, and reattachments).
 
 |**Parameters** |**Required or Optional**|**Description** |**Type**|
 |--|--|--|--|
@@ -1353,7 +1463,7 @@ curl http://localhost:50051 \
 
 ## SweepSubscription
 
-Monitor a stream of all sweeps since a given time.
+Monitors a stream of all sweeps since a given time.
 
 ### Parameters
 
@@ -1468,7 +1578,7 @@ curl http://localhost:50051 \
 
 ## UserWithdraw
 
-Submit a withdrawal request from a given user's account. If request is successful, Hub includes the withdrawal in the next sweep.
+Creates a withdrawal request from a given user's account. If request is successful, Hub includes the withdrawal in the next sweep.
 
 ### Parameters
 
@@ -1578,7 +1688,7 @@ curl http://localhost:50051 \
 
 ## UserWithdrawCancel
 
-Submit a request to cancel a withdrawal.
+Creates a request to cancel a withdrawal.
 
 :::info:
 A cancelation is possible only if the withdrawal isn't already included in a sweep.
@@ -1682,7 +1792,7 @@ curl http://localhost:50051 \
 
 ## WasAddressSpentFrom
 
-Find out if a deposit address has already been withdrawn from.
+Finds out whether a given deposit address has already been withdrawn from.
 
 If this endpoint returns true, you should not deposit any more IOTA tokens into it.
 
@@ -1786,7 +1896,7 @@ curl http://localhost:50051 \
 
 ## WasWithdrawalCancelled
 
-Get the status of a canceled withdrawal.
+Gets the status of a canceled withdrawal.
 
 ### Parameters
 

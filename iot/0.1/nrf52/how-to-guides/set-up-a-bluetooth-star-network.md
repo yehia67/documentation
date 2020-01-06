@@ -1,6 +1,6 @@
 # Set up a Bluetooth star network
 
-**Star networks are useful for setting up sensor server networks that communicate through a border router. In this guide, you set up a [6LoWPAN](../../concepts/ipv6-mesh-network.md) over Bluetooth Low-Energy star network, using state-of-the-art IoT industry standards.**
+**Star networks are useful for setting up sensor server networks that communicate through a border router. In this guide, you set up a [6LoWPAN](https://en.wikipedia.org/wiki/6LoWPAN) over Bluetooth Low-Energy star network, using state-of-the-art IoT industry standards.**
 
 ## Hardware
 

@@ -6,8 +6,8 @@
 Trinity is stateful, which means that it stores a local copy of your transaction history on your device. As a result, you can still see your transaction history after a global snapshot.
 :::
 
-Go to Account management > **Tools** > **Transition**.
+1. Go to Account management > **Tools** > **Transition**.
 
-To access Account management on a mobile device, go to **Settings** > **Account management**. To access Account management on a desktop, go to the burger menu >  **Account** > **Account management**.
+2. To access Account management on a mobile device, go to **Settings** > **Account management**. To access Account management on a desktop, go to the burger menu >  **Account** > **Account management**.
 
 ![photo of snapshot transition](../images/transition.jpg)

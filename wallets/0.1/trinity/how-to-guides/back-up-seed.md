@@ -36,6 +36,11 @@ To keep your seed safe you should never do any of the following:
 - Print your seed on PDF file
 - Print your seed from a public printer or one that's connected to WiFi
 
+
+:::success:
+Now you have a backup of your seed. If you ever forget your Trinity password, you can use your seed backup to log into Trinity.
+::: 
+
 ## Next steps
 
-[Read your balance of IOTA tokens](../how-to-guides/read-your-balance.md).
+[Buy IOTA tokens](../how-to-guides/buy-iota.md)

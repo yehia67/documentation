@@ -4,7 +4,7 @@
 
 ## Packages
 
-To complete this guide, you need the following packages (if you're using Go modules, you just need to reference these packages):
+To complete this guide, you need the following packages (if you're using Go modules, you just need to reference them):
 
 ```bash
 go get github.com/iotaledger/iota.go/account/builder

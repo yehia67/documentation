@@ -1,6 +1,6 @@
-# Read transactions on the Tangle in Java
+# Read transactions from the Tangle in Java
 
-**In this guide, you get [transactions](root://getting-started/0.1/transactions/transactions.md) from the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to filter them by their bundle hash. Then, you decode the message in the transaction and print it to the console.**
+**In this guide, you read your "hello world" [transaction](root://getting-started/0.1/transactions/transactions.md) from the Tangle by giving a [node](root://getting-started/0.1/network/nodes.md) your tail transaction hash.**
 
 ## IOTA network
 
@@ -32,17 +32,21 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
             .build();
     ```
 
-3. Define the bundle hash that you want to use to filter transactions 
+3. Define the tail transaction hash of the bundle 
 
     ```java
-    String bundleHash = "HGRGBSAQSKSBCDCX9IFUKDWYTJDKEMHAKWH9LJ9JCBL9EWHLSZQZYQXDZKVICNZKWKKUNTD9OSLVVEGFA";
+    String tailTransactionHash = "GUQXLBNYXSEVNAPNJ9L9ADZIHBHRVEH9VZURPUHGQEVAFCWIDKQWTKYPOFALYZNOWGRJQURNQBGFGQDM9";
     ```
 
-4. Use the `findTransactionObjectsByBundle()` method to get transactions by the value of their `bundle` field. Then, get the message in the first transaction's `signatureMessageFragment` field, decode it, and print it to the console
+    :::info:
+    We use the tail transaction hash because, unlike the [bundle hash](root://getting-started/0.1/transactions/bundles.md#bundle-hash), the `signatureMessageFragment` field is part of the hash. Therefore, the message in the transaction is immutable.
+    :::
+
+4. Use the `getBundle()` method to get all transactions in the tail transaction's bundle. Then, get the message in the first transaction's `signatureMessageFragment` field, decode it, and print it to the console
 
     ```java
     try { 
-        List<Transaction> response = api.findTransactionObjectsByBundle(bundleHash);
+        GetBundleResponse response = api.getBundle("GUQXLBNYXSEVNAPNJ9L9ADZIHBHRVEH9VZURPUHGQEVAFCWIDKQWTKYPOFALYZNOWGRJQURNQBGFGQDM9");
         System.out.println(TrytesConverter.trytesToAscii(response.get(0).getSignatureFragments().substring(0,2186)));
     } catch (ArgumentException e) { 
         // Handle error
@@ -57,7 +61,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```
 
 :::success:Congratulations :tada:
-You've just found and read a transaction on the Tangle.
+You've just found and read a transaction from the Tangle.
 :::
 
 ## Run the code

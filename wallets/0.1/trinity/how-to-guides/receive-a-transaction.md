@@ -1,10 +1,6 @@
 # Receive a transaction
 
-**To receive a transaction, you need to generate a new address and give it to the sender. In this guide, you generate a new address in Trinity and consider in which format to give it to the sender.**
-
-:::danger:Important
-If you send a transaction that withdraws IOTA tokens from one of your addresses, you must never withdraw from that address again. Instead, you must generate a new address.
-:::
+**To receive a transaction, you need to generate a new [address](root://getting-started/0.1/clients/addresses.md) and give it to the sender. In this guide, you generate a new address in Trinity and consider in which format to give it to the sender.**
 
 1. Click **Receive**
 
@@ -16,16 +12,20 @@ If you send a transaction that withdraws IOTA tokens from one of your addresses,
     On Android devices, any application can read the content of keyboard presses and modify it. Be careful when pasting an address into another app and make sure that the address you have pasted is the same one that you copied.
     :::
 
-    ![Receiving a transaction](../images/receive.jpg)
+    ![Receiving a transaction](../images/receive.png)
     
 4. When you either receive or send a transaction, it appears on the home page. Click a transaction from the list to view information about it.
 
-![A received transaction](../images/trinity-receive-message.png)
+    ![A received transaction](../images/trinity-receive-message.png)
 
-:::info:
-The Addresses field is displayed only in [Advanced mode](../how-to-guides/change-the-general-settings.md).
+    :::info:
+    The Addresses field is displayed only in [Advanced mode](../how-to-guides/change-the-general-settings.md).
+    :::
+
+:::success:
+Now you know how to give others your addresses so they can send you transactions.
 :::
 
 ## Next steps
 
-[Read your balance](../how-to-guides/read-your-balance.md).
+[Connect to a custom node](../how-to-guides/connect-to-a-custom-node.md).

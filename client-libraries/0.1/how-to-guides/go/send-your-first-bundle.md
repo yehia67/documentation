@@ -4,7 +4,7 @@
 
 ## Packages
 
-To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
+To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference them):
 
 ```bash
 go get github.com/iotaledger/iota.go/api
@@ -55,7 +55,7 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
 4. Define an [address](root://getting-started/0.1/clients/addresses.md) to which you want to send a message
 
     ```go
-    address := trinary.Trytes("ZLGVEQ9JUZZWCZXLWVNTHBDX9G9KZTJP9VEERIIFHY9SIQKYBVAHIMLHXPQVE9IXFDDXNHQINXJDRPFDXNYVAPLZAW")
+    const address = trinary.Trytes("ZLGVEQ9JUZZWCZXLWVNTHBDX9G9KZTJP9VEERIIFHY9SIQKYBVAHIMLHXPQVE9IXFDDXNHQINXJDRPFDXNYVAPLZAW")
     ```
 
     :::info:
@@ -107,13 +107,21 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     myBundle, err := api.SendTrytes(trytes, depth, minimumWeightMagnitude)
     must(err)
 
-    fmt.Println("Bundle hash: " + myBundle[0].Bundle)
+    fmt.Println(bundle.TailTransactionHash(myBundle))
     ```
 
     In the console, you should see the bundle hash of the transaction you just sent.
 
 :::success:Congratulations :tada:
-You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network. This transaction is now immutable, and as long as you have its bundle hash, you can read it on the Tangle.
+You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network.
+
+You can use this tail transaction hash to read the transaction from the Tangle.
+:::
+
+:::warning:
+Nodes can delete old transactions from their local copies of the Tangle. Therefore, a time may come where you request your transaction from a node, but the node doesn't have it anymore.
+
+If you want to store data on the Tangle for extended periods of time, we recommend either [running your own node](root://node-software/0.1/iri/how-to-guides/quickstart.md) or running a permanode such as [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md).
 :::
 
 ## Run the code
