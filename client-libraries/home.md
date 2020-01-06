@@ -3,6 +3,9 @@
 [Client libraries overview](/0.1/introduction/overview.md)
 ## Learn what client libraries are, why they're useful, and which projects are using them
 
+[C quickstart](/0.1/getting-started/c-quickstart.md)
+## Get started with the C client library
+
 [Go quickstart](/0.1/getting-started/go-quickstart.md)
 ## Get started with the Go client library
 
