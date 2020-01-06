@@ -117,6 +117,8 @@ If you want to store data on the Tangle for extended periods of time, we recomme
 
 ## Run the code
 
+These code samples are hosted on [GitHub](https://github.com/JakeSCahill/java-iota-workshop).
+
 To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
 You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool. If this is your first time using the Java client library, complete our [getting started guide](../../getting-started/java-quickstart.md), and follow the instructions for installing the library with Maven.
@@ -141,10 +143,10 @@ mvn exec:java -D"exec.mainClass"="com.iota.SendData"
 ```
 --------------------
 
-In the console, you should see the bundle hash of the transaction you just sent.
+In the console, you should see the tail transaction hash of the bundle you just sent.
 
 ## Next steps
 
-Make a note of the transaction's hash so you can [read the transaction data on the Tangle](../java/read-transactions.md).
+Make a note of the transaction's hash so you can [read the transaction from the Tangle](../java/read-transactions.md) to see your message.
 
 You can also read your transaction, using a utility such as the [Tangle explorer](https://utils.iota.org).

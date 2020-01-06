@@ -109,7 +109,7 @@ Whenever you connect to a node, you need to know which [IOTA network](root://get
     go run connectToANode.go
     ```
 
-The node returns the following:
+The node returns something like the following:
 
 ```json
 {

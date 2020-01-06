@@ -70,6 +70,8 @@ You've learned how to export and import your seed state.
 
 ## Run the code
 
+These code samples are hosted on [GitHub](https://github.com/iota-community/account-module).
+
 To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
 You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool. If this is your first time using the Java client library, complete our [getting started guide](../../getting-started/java-quickstart.md), and follow the instructions for installing the library with Maven.
@@ -79,16 +81,16 @@ In the command-line, do the following:
 --------------------
 ### Linux and macOS
 ```bash
-git clone https://github.com/JakeSCahill/iota-samples.git
-cd iota-samples/java/account-module
+git clone https://github.com/iota-community/account-module.git
+cd account-module/java/account-module
 mvn clean install
 mvn exec:java -Dexec.mainClass="com.iota.ExportAccount"
 ```
 ---
 ### Windows
 ```bash
-git clone https://github.com/JakeSCahill/iota-samples.git
-cd iota-samples/java/account-module
+git clone https://github.com/iota-community/account-module.git
+cd account-module/java/account-module
 mvn clean install
 mvn exec:java -D"exec.mainClass"="com.iota.ExportAccount"
 ```

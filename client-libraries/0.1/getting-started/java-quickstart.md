@@ -184,7 +184,7 @@ java -cp .;jota-[VERSION]-jar-with-dependencies.jar ConnectToNode
 ```
 --------------------
 
-The node returns the following:
+The node returns something like the following:
 
 ```json
 {
@@ -227,6 +227,36 @@ For more information about these fields, see the [IRI API reference](root://node
 You've confirmed your connection to a synchronized node.
 :::
 
+## Run the code
+
+These code samples are hosted on [GitHub](https://github.com/JakeSCahill/java-iota-workshop).
+
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+
+You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool.
+
+In the command-line, do the following:
+
+--------------------
+### Linux and macOS
+```bash
+git clone https://github.com/JakeSCahill/java-iota-workshop.git
+cd java-iota-workshop
+mvn clean install
+mvn exec:java -Dexec.mainClass="com.iota.HelloWorld"
+```
+---
+### Windows
+```bash
+git clone https://github.com/JakeSCahill/java-iota-workshop.git
+cd java-iota-workshop
+mvn clean install
+mvn exec:java -D"exec.mainClass"="com.iota.HelloWorld"
+```
+--------------------
+
+In the console, you should see the response object.
+
 ## Support the project
 
 If the Java library has been useful to you and you feel like contributing, consider posting a [bug report](https://github.com/iotaledger/iota-java/issues/new-issue), feature request or a [pull request](https://github.com/iotaledger/iota-java/pulls/).  
@@ -249,5 +279,7 @@ We have many channels, including the following:
 - `-discussion`: These channels are where you can participate.
 
 ## Next steps
+
+Continue learning with our [Java workshop](../how-to-guides/java/get-started.md).
 
 Read our [developer's handbook](root://getting-started/0.1/references/quickstart-dev-handbook.md) for guidance on whether you should run your own node, whether you need a private IOTA network, and what you need to consider for both.

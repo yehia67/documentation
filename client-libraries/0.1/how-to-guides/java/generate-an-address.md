@@ -52,10 +52,10 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
     }
     ```
 
-Starting from the given index, the connected node checks the following:
+Starting from the given index, the connected node checks if the address is spent by doing the following:
 
-- If any input transactions (pending or confirmed) in its view of the Tangle withdraw from the address
-- If the address is in the node's list of spent addresses (addresses that were withdrawn from in confirmed transactions)
+- Search its view of the Tangle for input transactions that withdraw from the address
+- Search for the address in the list of spent addresses
 
 If an address with the given index is spent, the index is incremented until the node finds one that isn't spent.
 
@@ -74,6 +74,8 @@ You've just generated a new unspent address. You can share this address with any
 :::
 
 ## Run the code
+
+These code samples are hosted on [GitHub](https://github.com/JakeSCahill/java-iota-workshop).
 
 To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 

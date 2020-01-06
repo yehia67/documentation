@@ -77,7 +77,7 @@ const delay = 1000 * 30;
 const maxDepth = 6;
 ```
 
-3\. Create a `timeSource` function that returns a promise, which the account will use to decide if your CDAs are still active. In this example, we use the [ntp-client](https://www.npmjs.com/package/ntp-client) package to connect to the [Google NTP (network time protocol) servers](https://developers.google.com/time/faq).
+4\. Create a `timeSource` function that returns a promise, which the account will use to decide if your CDAs are still active. In this example, we use the [ntp-client](https://www.npmjs.com/package/ntp-client) package to connect to the [Google NTP (network time protocol) servers](https://developers.google.com/time/faq).
 
 ```js
 const timeSource = () => util.promisify(ntpClient.getNetworkTime)("time.google.com", 123);
@@ -131,6 +131,8 @@ You've created an account that will automatically promote and reattach transacti
 
 ## Run the code
 
+These code samples are hosted on [GitHub](https://github.com/iota-community/account-module).
+
 To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
 If you don't have a JavaScript development environment, or if this is your first time using the JavaScript client library, complete our [getting started guide](../../getting-started/js-quickstart.md).
@@ -138,8 +140,8 @@ If you don't have a JavaScript development environment, or if this is your first
 In the command-line, do the following:
 
 ```bash
-git clone https://github.com/JakeSCahill/iota-samples.git
-cd iota-samples/js/account-module
+git clone https://github.com/iota-community/account-module.git
+cd account-module/js/account-module
 npm i
 node create-account/create-account.js
 ```

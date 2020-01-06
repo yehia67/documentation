@@ -4,6 +4,8 @@
 
 [Getting started/Quickstart](/getting-started/quickstart.md)
 
+[Getting started/C quickstart](/getting-started/c-quickstart.md)
+
 [Getting started/Go quickstart](/getting-started/go-quickstart.md)
 
 [Getting started/Java quickstart](/getting-started/java-quickstart.md)
@@ -11,6 +13,18 @@
 [Getting started/JavaScript quickstart](/getting-started/js-quickstart.md)
 
 [Getting started/Python quickstart](/getting-started/python-quickstart.md)
+
+[How-to guides/C/Get started](/how-to-guides/c/get-started.md)
+
+[How-to guides/C/Send a "hello world" transaction](/how-to-guides/c/send-your-first-bundle.md)
+
+[How-to guides/C/Read transactions on the Tangle](/how-to-guides/c/read-transactions.md)
+
+[How-to guides/C/Generate a new address](/how-to-guides/c/generate-an-address.md)
+
+[How-to guides/C/Transfer IOTA tokens](/how-to-guides/c/transfer-iota-tokens.md)
+
+[How-to guides/C/Check the balance of an address](/how-to-guides/c/check-balance.md)
 
 [How-to guides/Go/Get started](/how-to-guides/go/get-started.md)
 
@@ -20,9 +34,9 @@
 
 [How-to guides/Go/Generate a new address](/how-to-guides/go/generate-an-address.md)
 
-[How-to guides/Go/Check the balance of an address](/how-to-guides/go/check-balance.md)
-
 [How-to guides/Go/Transfer test IOTA tokens](/how-to-guides/go/transfer-iota-tokens.md)
+
+[How-to guides/Go/Check the balance of an address](/how-to-guides/go/check-balance.md)
 
 [How-to guides/Go/Listen for live transactions on the Tangle](/how-to-guides/go/listen-for-transactions.md)
 
@@ -34,9 +48,9 @@
 
 [How-to guides/Java/Generate a new address](/how-to-guides/java/generate-an-address.md)
 
-[How-to guides/Java/Check the balance of an address](/how-to-guides/java/check-balance.md)
-
 [How-to guides/Java/Transfer test IOTA tokens](/how-to-guides/java/transfer-iota-tokens.md)
+
+[How-to guides/Java/Check the balance of an address](/how-to-guides/java/check-balance.md)
 
 [How-to guides/Java/Listen for live transactions on the Tangle](/how-to-guides/java/listen-for-transactions.md)
 
@@ -48,9 +62,9 @@
 
 [How-to guides/JavaScript/Generate a new address](/how-to-guides/js/generate-an-address.md)
 
-[How-to guides/JavaScript/Check the balance of an address](/how-to-guides/js/check-balance.md)
-
 [How-to guides/JavaScript/Transfer test IOTA tokens](/how-to-guides/js/transfer-iota-tokens.md)
+
+[How-to guides/JavaScript/Check the balance of an address](/how-to-guides/js/check-balance.md)
 
 [How-to guides/JavaScript/Listen for live transactions on the Tangle](/how-to-guides/js/listen-for-transactions.md)
 
@@ -70,9 +84,9 @@
 
 [How-to guides/Python/Generate a new address](/how-to-guides/python/generate-an-address.md)
 
-[How-to guides/Python/Check the balance of an address](/how-to-guides/python/check-balance.md)
-
 [How-to guides/Python/Transfer test IOTA tokens](/how-to-guides/python/transfer-iota-tokens.md)
+
+[How-to guides/Python/Check the balance of an address](/how-to-guides/python/check-balance.md)
 
 [How-to guides/Python/Listen for live transactions on the Tangle](/how-to-guides/python/listen-for-transactions.md)
 

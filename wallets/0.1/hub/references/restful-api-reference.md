@@ -1349,6 +1349,8 @@ curl http://localhost:50051 \
 
 ## SweepInfo
 
+Gets the withdrawal UUIDs or bundle hash of a sweep.
+
 To get a list of withdrawal UUIDs that were included in a sweep, use the following parameters:
 
 |**Parameters** |**Required or Optional**|**Description** |**Type**|

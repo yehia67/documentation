@@ -116,7 +116,7 @@ Whenever you connect to a node, you need to know which [IOTA network](root://get
     python index.py
     ```
 
-The node returns the following:
+The node returns something like the following:
 
 ```json
 {

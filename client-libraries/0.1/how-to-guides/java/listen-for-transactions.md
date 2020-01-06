@@ -52,6 +52,8 @@ You're listening to transactions
 
 ## Run the code
 
+These code samples are hosted on [GitHub](https://github.com/JakeSCahill/java-iota-workshop).
+
 To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
 You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool. If this is your first time using the Java client library, complete our [getting started guide](../../getting-started/java-quickstart.md), and follow the instructions for installing the library with Maven.
@@ -80,4 +82,4 @@ In the console, you should see transaction data.
 
 ## Next steps
 
-Take a look at our [app blueprints](root://blueprints/0.1/introduction/overview.md) for inspiration
+Take a look at our [app blueprints](root://blueprints/0.1/introduction/overview.md) for inspiration.
