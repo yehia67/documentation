@@ -39,7 +39,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     must(err)
     ```
 
-3. Define the bundle hash that you want to use to filter transactions 
+3. Define the tail transaction hash that you want to use to filter transactions 
 
     ```go
     const tailTransactionHash = trinary.Trytes("RXPDFDAUJHMSYBSWUHHNJM9YTOACXYYIRSIEIVUOGQIRUUAHQFNXQBURQJHLXWYLZLWNRMVIABKC9C999")

@@ -16,15 +16,15 @@
 
 [How-to guides/C/Get started](/how-to-guides/c/get-started.md)
 
-[How-to guides/Send a "hello world" transaction](/how-to-guides/c/send-your-first-bundle.md)
+[How-to guides/C/Send a "hello world" transaction](/how-to-guides/c/send-your-first-bundle.md)
 
-[How-to guides/Read transactions on the Tangle](/how-to-guides/c/read-transactions.md)
+[How-to guides/C/Read transactions on the Tangle](/how-to-guides/c/read-transactions.md)
 
-[How-to guides/Generate a new address](/how-to-guides/c/generate-an-address.md)
+[How-to guides/C/Generate a new address](/how-to-guides/c/generate-an-address.md)
 
-[How-to guides/Transfer IOTA tokens](/how-to-guides/c/transfer-iota-tokens.md)
+[How-to guides/C/Transfer IOTA tokens](/how-to-guides/c/transfer-iota-tokens.md)
 
-[How-to guides/Check the balance of an address](/how-to-guides/c/check-balance.md)
+[How-to guides/C/Check the balance of an address](/how-to-guides/c/check-balance.md)
 
 [How-to guides/Go/Get started](/how-to-guides/go/get-started.md)
 

@@ -6,7 +6,7 @@
 
 In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
-These settings are defined in a `config.h` file, which we create in the [getting started guide](../../getting-started/c-quickstart.md).
+The network settings are defined in a `config.h` file, which we create in the [getting started guide](../../getting-started/c-quickstart.md).
 
 ## Code walkthrough
 

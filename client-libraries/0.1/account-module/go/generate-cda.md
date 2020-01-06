@@ -73,7 +73,7 @@ Now you have a CDA that contains IOTA tokens, you can make payments to it.
 
 ## Run the code
 
-These code samples are hosted on [GitHub](https://github.com/JakeSCahill/iota-samples).
+These code samples are hosted on [GitHub](https://github.com/iota-community/account-module).
 
 To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
@@ -82,8 +82,8 @@ If you don't have a Go development environment, or if this is your first time us
 In the command-line, do the following:
 
 ```bash
-git clone https://github.com/JakeSCahill/iota-samples.git
-cd iota-samples/go/account-module
+git clone https://github.com/iota-community/account-module.git
+cd account-module/go/account-module
 go mod download
 go run generate-cda/generate-cda.go
 ```

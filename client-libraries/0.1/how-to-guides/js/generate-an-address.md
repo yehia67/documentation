@@ -63,10 +63,10 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
         });
     ```
 
-Starting from the given index, the connected node checks the following:
+Starting from the given index, the connected node checks if the address is spent by doing the following:
 
-- If any input transactions (pending or confirmed) in its view of the Tangle withdraw from the address
-- If the address is in the node's list of spent addresses (addresses that were withdrawn from in confirmed transactions)
+- Search its view of the Tangle for input transactions that withdraw from the address
+- Search for the address in the list of spent addresses
 
 If an address with the given index is spent, the index is incremented until the node finds one that isn't spent.
 

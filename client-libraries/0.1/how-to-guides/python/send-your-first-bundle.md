@@ -104,6 +104,6 @@ Click the green button to run the sample code in this guide and see the results 
 
 ## Next steps
 
-Make a note of the bundle hash so you can [read the transaction data on the Tangle](../python/read-transactions.md).
+Make a note of the tail transaction hash so you can [read the transaction from the Tangle](../python/read-transactions.md) to see your message.
 
 You can also read your transaction, using a utility such as the [Tangle explorer](https://utils.iota.org).
