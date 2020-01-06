@@ -148,6 +148,8 @@
 
 [MAM/API reference/MAM API reference](/mam/api-reference/mam-api-reference.md)
 
+[API reference/C](https://github.com/iotaledger/entangled/tree/develop/cclient/api)
+
 [API reference/Go](https://github.com/iotaledger/iota.go/tree/master/.docs/iota.go/reference)
 
 [API reference/Java](https://github.com/iotaledger/iota-java/tree/dev/docs/iota-java)
