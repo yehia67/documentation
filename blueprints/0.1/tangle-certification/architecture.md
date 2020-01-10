@@ -8,7 +8,7 @@ Running an open source project, like any human endeavor, involves uncertainty an
 
 This blueprint uses the following architecture, whereby issuers create certificates, using the certification system's API. Third parties can authenticate certificates by reading the certificate transaction from the Tangle and validating the signature, using the issuer's public key.
 
-ARCHITECTURE IMAGE
+![Tangle certification](../images/tangle-certification-architecture.png)
 
 ## Building blocks
 

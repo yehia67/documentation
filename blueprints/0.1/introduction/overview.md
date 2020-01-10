@@ -6,7 +6,7 @@ Blueprints are designed to do the following:
 
 - **Overview:** Describe a problem and a solution
 - **App architecture:** Present an architecture that shows you how to solve the problem with IOTA
-- **Deploy and test:** Explain how you can test, edit, and deploy the blueprint
+- **Deploy and test:** Explain how you can test, edit, and deploy the blueprint (if a demo is available)
 
 -------------------------
 ![Data Marketplace](../images/data-marketplace-thumbnail.png)
@@ -24,6 +24,12 @@ Documents are an important means of transporting information and contracts betwe
 ![Peer-to-peer energy grid](../images/p2p-energy-grid-thumbnail.png)
 ## [Peer-to-peer energy grid](../p2p-energy/overview.md)
 Although the supply of energy is often automated, the payment system is expensive to integrate and often requires manual intervention. By creating a peer-to-peer energy grid with IOTA, you can automate the transfer of power and the payment for that power. This automation makes your infrastructure more dynamic and easier to update.
+-------------------------
+
+-------------------------
+![Tangle certification](../images/tangle-certification-thumbnail.png)
+## [Tangle certification](../tangle-certification/overview.md)
+Certificates can be copied or changed, affecting their authenticity and credibility. This blueprint describes how to prevent counterfeit certificates by storing them on the IOTA Tangle, and allowing them to be verified by third parties.
 -------------------------
 
 -------------------------

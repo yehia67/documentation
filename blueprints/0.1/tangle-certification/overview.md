@@ -2,7 +2,7 @@
 
 **Certificates can be copied or changed, affecting their authenticity and credibility. This blueprint describes how to prevent counterfeit certificates by storing them on the IOTA Tangle, and allowing them to be verified by third parties.**
 
-![Tangle certification](../images/track-and-trace-thumbnail.png)
+![Tangle certification](../images/tangle-certification-thumbnail.png)
 
 ## Business case
 
@@ -18,6 +18,8 @@ The table below summarizes the different stakeholders and roles considered in th
 |:---------------|:--------|
 | **Issuers** | An entity that registers itself with the cerification system to be able to create certificates  |
 | **Third Parties**   | An entity that uses the certification system to verify the authenticity of a certificate |
+
+![Tangle certification](../images/tangle-certification-workflow.png)
 
 ### Challenges
 
