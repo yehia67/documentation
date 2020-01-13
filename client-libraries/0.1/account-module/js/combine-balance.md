@@ -67,7 +67,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     });
     ```
 
-    You should see that how many IOTA tokens were sent to your address as well as the bundle hash:
+    You should see how many IOTA tokens were sent to your address as well as the bundle hash:
 
     ```
     Sent 1000 to TIZJIRDCZPRJMMVKSGROPKE9VGIQKOLOUSX9MCUTOEQBBHPMLYBVKBPCXJKY9SDWX9FVMOZTWNMVVEYKX in bundle:  RXIA9CBEOASNY9IRIARZFGDLK9YNGW9ZHJGJLUXOUKVGCZLPNDKALFHZWHZKQQXFTIHEIJJPN9EURO9K9
