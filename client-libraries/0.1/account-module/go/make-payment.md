@@ -1,6 +1,6 @@
 # Make payments with your account in Go
 
-**In this guide, you use your account to deposit IOTA tokens into a pre-defined CDA.**
+**In this guide, you use your account to deposit IOTA tokens into a pre-defined conditional deposit address (CDA).**
 
 ## Packages
 
@@ -46,7 +46,7 @@ Oracles take an oracle source as an argument and return `true` if the oracle sou
     ```
 
     :::info:
-    The given magent link is for an example CDA that expires in over 100 years.
+    The given magnet link is for an example CDA that expires in over 100 years.
     If you want to make a payment to a different CDA, use that one instead.
     :::
 
@@ -91,7 +91,7 @@ To make a payment, your account needs to have one or more CDAs that contains IOT
     Sent deposit to DL9CSYICJVKQRUTWBFUCZJQZ9WNBSRJOA9MGOISQZGGHOCZTXVSKDIZN9HBORNGDWRBBAFTKXGEJIAHKDTMAUX9ILA in the bundle with the following tail transaction hash WZEATTRJYENRALJTWPVGDQZHETIDJXPUROUM9BBPS9RJEELDMU9YNZFBSDGPQHZHMXBVCKITSMDEEQ999
     ```
 
-Your account will reattach and promote your bundle until it's confirmed.
+Your account will [reattach and promote](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) your bundle until it's confirmed.
 
 ## Run the code
 

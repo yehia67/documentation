@@ -1,6 +1,6 @@
 # Generate a conditional deposit address in JavaScript
 
-**In this guide, you generate a conditional deposit address, serialize it into a magnet link, and send test IOTA tokens to it.**
+**In this guide, you generate a conditional deposit address (CDA), serialize it into a magnet link, and send test IOTA tokens to it.**
 
 ## Packages
 

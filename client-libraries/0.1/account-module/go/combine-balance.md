@@ -1,6 +1,6 @@
 # Combine your balance into one CDA in Go
 
-**You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.**
+**You may want to keep the majority of your balance on as few conditional deposit addresses (CDA) as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.**
 
 ## Packages
 
@@ -39,9 +39,9 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```
 
     :::info:
-    Available balance is the total balance of all expired CDAs, which are safe to withdraw from.
+    You account's available balance is the total balance of all expired CDAs. This balance is safe to withdraw because no one should send IOTA tokens to an expired CDA.
 
-    Your account's total balance includes CDAs that are still active and so cannot be withdrawn from.
+    Your account's total balance includes CDAs that are still active as well as expired.
     :::
 
 2. Use the oracle to make sure that the CDA is still active, then send a deposit to it

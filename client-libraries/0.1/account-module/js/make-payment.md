@@ -1,6 +1,6 @@
 # Make payments with your account in JavaScript
 
-**In this guide, you use your account to deposit IOTA tokens into a pre-defined CDA.**
+**In this guide, you use your account to deposit IOTA tokens into a pre-defined conditional deposit address (CDA).**
 
 ## Packages
 
@@ -39,7 +39,7 @@ To make a payment, your account needs to have one or more CDAs that contains IOT
     ```
 
     :::info:
-    The given magent link is for an example CDA that expires in over 100 years.
+    The given magnet link expires in over 100 years.
     If you want to make a payment to a different CDA, use that one instead.
     :::
 
@@ -51,6 +51,7 @@ To make a payment, your account needs to have one or more CDAs that contains IOT
         if(err) {
             console.error(err);
             return;
+        // Compare the current time with the timeout of the CDA
         } else if (!(CDA.isAlive(date, cda))) {
             isActive = false
         }
@@ -88,13 +89,13 @@ To make a payment, your account needs to have one or more CDAs that contains IOT
     }
     ```
 
-    You should see that how many IOTA tokens were sent to your address as well as the bundle hash:
+    You should see how many IOTA tokens were sent to your address as well as the bundle hash for your transactions:
 
     ```
     Sent 1000 to TIZJIRDCZPRJMMVKSGROPKE9VGIQKOLOUSX9MCUTOEQBBHPMLYBVKBPCXJKY9SDWX9FVMOZTWNMVVEYKX in bundle:  RXIA9CBEOASNY9IRIARZFGDLK9YNGW9ZHJGJLUXOUKVGCZLPNDKALFHZWHZKQQXFTIHEIJJPN9EURO9K9
     ```
 
-Your account will reattach and promote your bundle until it's confirmed.
+Your account will [reattach and promote](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) your bundle until it's confirmed.
 
 You can stop the reattachment routine by calling the `stopAttaching()` method.
 
