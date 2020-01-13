@@ -1,6 +1,6 @@
 # Account module overview
 
-**The account module is a stateful package that simplifies IOTA payments without you having to worry about withdrawing from spent addresses or promoting and reattaching pending transactions.**
+**The account module is a stateful package that simplifies IOTA payments without the worry of withdrawing from spent addresses or the need to promote and reattach pending transactions.**
 
 ## How the account module works
 
