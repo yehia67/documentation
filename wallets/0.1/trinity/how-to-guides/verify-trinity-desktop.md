@@ -129,25 +129,19 @@ To follow these instructions you need the `sha256sum` package, which is included
   ```
 
 3. Compare your SHA256 hash with the one in the [release notes](https://github.com/iotaledger/trinity-wallet/releases) and make sure that they match
-  
+
 ### Verify the code signature
 
 1. Download the .asc and .gpg files in the Assets section of the [release notes](https://github.com/iotaledger/trinity-wallet/releases)
 
-2. Import the Trinity GPG key. Replace the path with the path to your Trinity `.gpg` file.
+2. Import the Trinity GPG key from keyserver.ubuntu.com
 
     ```bash
-    gpg --import path/to/gpgfile
-    ```
-    
-    For example, if the file is in the `~/Downloads` directory, do the following:
-    
-    ```bash
-    gpg --import ~/Downloads/iota.foundation.subkey.trinity.public.gpg
+    gpg --keyserver keyserver.ubuntu.com --recv 466385BD0B40D9550F93C04746A440CCE5664A64
     ```
 
 3. Make sure that the following information matches the output of the command:
-  
+
     ```bash
     gpg: key 46A440CCE5664A64: public key "IOTA Foundation (IOTA Foundation Identity) <contact@iota.org>"
     ```
