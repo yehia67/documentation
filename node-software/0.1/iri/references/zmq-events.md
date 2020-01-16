@@ -16,8 +16,6 @@ All events return one or more buffer objects, which contain space-separated data
 | The latest solid subtangle milestone transaction hash| <ul><li>**Index 1:** Milestone transaction hash</li></ul>
 |`sn`|
 | Transaction that has recently been confirmed| <ul><li>**Index 1:** Index of the milestone that confirmed the transaction</li><li>**Index 2:** Transaction hash</li><li>**Index 3:** Address</li><li>**Index 4:** Trunk transaction hash</li><li>**Index 5:** Branch transaction hash</li><li>**Index 6:** Bundle hash</li></ul>
-|`sn_trytes`|
-| Transaction that has recently been confirmed| <ul><li>**Index 1:** Index of the milestone that confirmed the transaction</li><li>**Index 2:** Transaction hash</li><li>**Index 3:** Address</li><li>**Index 4:** Trunk transaction hash</li><li>**Index 5:** Branch transaction hash</li><li>**Index 6:** Bundle hash</li></ul>
 |`tx_trytes`|
 | Transaction trytes that the IRI node recently appended to its ledger| <ul><li>**Index 1:** Transaction trytes</li><li>**Index 2:** Transaction hash</li></ul>
 |<a name="tx"></a> `tx` |

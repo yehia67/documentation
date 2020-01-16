@@ -7,7 +7,7 @@ To make it easier to find the options you want to change, we've separated them i
 - **API:** How the API responds and which hosts can access it
 - **IXI:** How your node uses IXI modules
 - **Database:** What your node does with its ledger
-- **Local snapshots:** How and when your node does [local snapshots](root://getting-started/0.1/network/nodes.md#local-snapshots)
+- **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md)
 - **Network:** How your node communicates with neighbors
 - **Proof of work:** How your node does [proof of work](root://getting-started/0.1/transactions/proof-of-work.md)
 - **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes
@@ -35,11 +35,10 @@ Use these settings to customize how the API behaves and which hosts can access i
 |<a name="max-find-transactions"></a>`--max-find-transactions` |`MAX_FIND_TRANSACTIONS`|Set a maximum number of transactions that may be returned by the [`findTransactions` endpoint](../references/api-reference.md#findTransactions) |number | 100,000 | If the number of transactions exceeds this number, an error is returned
 |<a name="max-requests-list"></a>`--max-requests-list` |`MAX_REQUESTS_LIST`|Set a maximum number of parameters in an API call |number |1,000 | If the number of parameters exceeds this number, an error is returned
 |<a name="max-get-trytes"></a>`--max-get-trytes` |`MAX_GET_TRYTES`|Set a maximum number of trytes that may be returned by the [getTrytes endpoint](../references/api-reference.md#getTrytes)  |number |10,000 | If the number of trytes exceeds this number, an error is returned
-| <a name="mwm"></a>`--mwm`|`MWM`|Set the [minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)|number|9|
 |<a name="remote"></a> ` --remote `|-|Open the API interface to any host |boolean | false| When set to true, this option is equivalent to setting the `API_HOST` option to 0.0.0.0. You must add a `true` or `false` value after this flag.
 |<a name="remote-auth"></a>`--remote-auth` |`REMOTE_AUTH`|Add basic authentication for API calls in the form of username:password  | string| ""|You can use a plain text or a hashed password|
 |<a name="remote-limit-api"></a>`--remote-limit-api` |`REMOTE_LIMIT_API`|Ignore requests to certain API endpoints |array of strings |[[addNeighbors](../references/api-reference.md#addNeighbors), [getNeighbors](../references/api-reference.md#getNeighbors), [removeNeighbors](../references/api-reference.md#removeNeighbors), [attachToTangle](../references/api-reference.md#attachToTangle), [interruptAttachToTangle](../references/api-reference.md#interruptAttachToTangle)] | This option allows you to protect your node against spammers that know the IRI node's URL or IP address.
-|<a name="remote-trusted-api-hosts"></a>`--remote-trusted-api-hosts` |`REMOTE_TRUSTED_API_HOSTS`|Hosts that may call any API endpoints, including those set in the `REMOTE_LIMIT_API` option |comma-separated list of strings |localhost | You must also set the `--remote` option to `true`, or the `API_HOST` option to 0.0.0.0|
+|<a name="remote-trusted-api-hosts"></a>`--remote-trusted-api-hosts` |`REMOTE_TRUSTED_API_HOSTS`|Hosts that may call any API endpoints, including those set in the `REMOTE_LIMIT_API` option |comma-separated list of strings |localhost | You must also set the `REMOTE` option to `true`|
 
 ## Database
 
@@ -67,7 +66,7 @@ Use these settings to customize how your node uses IXI modules.
 
 ## Local snapshot
 
-Use these settings to customize how and when your node does [local snapshots](root://getting-started/0.1/network/nodes.md#local-snapshots).
+Use these settings to customize how and when your node does [local snapshots](../concepts/local-snapshot.md).
 
 | **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
 | :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
@@ -77,7 +76,7 @@ Use these settings to customize how and when your node does [local snapshots](ro
 |<a name="local-snapshots-pruning-delay"></a>`--local-snapshots-pruning-delay`|`LOCAL_SNAPSHOTS_PRUNING_DELAY`  | Amount of milestone transactions to keep in the ledger   | number starting from 10,000  | 40,000 | We recommend that you use the default value for this option, which triggers a local snapshot every 28 days  |
 |<a name="local-snapshots-interval-synced"></a>`--local-snapshots-interval-synced`|`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`  | Interval, in milestone transactions, at which snapshot files are created if the ledger is fully synchronized  |number| 10   |
 |<a name="local-snapshots-interval-unsynced"></a>`--local-snapshots-interval-unsynced`|`LOCAL_SNAPSHOTS_INTERVAL_UNSYNCED`   | Interval, in milestone transactions, at which snapshot files are created if the ledger is not fully synchronized  |number| 1,000  | This value is higher than the `LOCAL_SNAPSHOTS_INTERVAL_SYNCED` configuration option to allow the IRI to focus its resources on synchronizing with its neighbor IRI nodes|
-|<a name="local-snapshots-base-path"></a>`--local-snapshots-base-path`|`LOCAL_SNAPSHOTS_BASE_PATH`  |  Path to the snapshot file, without the file extension. |  string |  mainnet   | Prepends the `.snapshot.meta` and `.snapshot.state` files with the value of this parameter. For the default value, the files are named `mainnet.snapshot.meta` and `mainnet.snapshot.state`. You can specify a directory for the files to be added to by doing the following: `<directory>/<filename>`, which results in `directory/filename.snapshot.meta`. |
+|<a name="local-snapshots-base-path"></a>`--local-snapshots-base-path`|`LOCAL_SNAPSHOTS_BASE_PATH`  |  Path to the snapshot file, without the file extension. |  string |  mainnet   | Prepends the `.snapshot.meta` and `.snapshot.state` files with the value of this parameter. For the default value, the files are named `mainnet.snapshot.meta` and `mainnet.snapshot.state`. You can specify a directory for the files to be added to by doing the following: `<directory name>/<file name>`, which results in `folderpath/filename.snapshot.meta`. |
 
 ## Network
 
@@ -133,7 +132,8 @@ Use these settings to customize how your node validates and confirms transaction
 | |`LOCAL_SNAPSHOTS_BASE_PATH`|Set the base path for any snapshot files|"testnet"|
 |`--snapshot` |`SNAPSHOT_FILE`|Set the path to the snapshot `.txt` file|string|"/snapshotTestnet.txt"|This path must be relative to the local-snapshots base path|
 |`--snapshot-sig` |`SNAPSHOT_SIG`|Set the path to the signature for the snapshot file|string|"/snapshotTestnet.sig"|This path must be relative to the local-snapshots base path|
-|`--snapshot-timestamp` |`SNAPSHOT_TIME`|Set the oldest attachment time that new transactions can have so that the node can validate them |Unix epoch|1522306500|
+|`--snapshot-timestamp` |`SNAPSHOT_TIME`|Set the oldest attachment time that new transactions can have so that the node can validate them |Unix timestamp|1522306500|
+| `--mwm`|`MWM`|Set the minimum weight magnitude of the testnet|number|9|
 |`----milestone-start` |`MILESTONE_START_INDEX`|Set the starting milestone index that the node should use to validate and confirm transactions|number|434525|
 ||`DB_PATH`|Set the path that the node can use to save the ledger|"testnetdb"|
 ||`DB_LOG_PATH`|Set the path that the node can use to save the log file|"testnetdb.log"|

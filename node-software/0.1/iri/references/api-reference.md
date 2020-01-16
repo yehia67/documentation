@@ -11,12 +11,12 @@ All the following commands must include an HTTP header.
 | Authorization  | Bearer {token} | Optional  |
 
 :::warning:
-This API is in beta and subject to change. We recommend that you don't use this API in production applications.
+This API is in beta, and is subject to change. We recommend that you don't use this API in production applications.
 :::
 
 ## addNeighbors
 
-Adds a list of temporary neighbors to a node.
+Add a list of temporary neighbors to a node.
 
 :::info:
 The neighbors are removed if the node restarts. If you want to permanently add the neighbors to your own node, add their URIs to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option.
@@ -133,7 +133,7 @@ curl http://localhost:14265 \
 
 ## attachToTangle
 
-Does [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) for the given transaction trytes.
+Do [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) on a node for the given transaction trytes.
 
  ### Parameters
 
@@ -144,7 +144,7 @@ Does [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) f
 | `trunkTransaction` |Required| Trunk transaction hash | string|
 | `branchTransaction` |Required| Branch transaction hash | string|
 | `minWeightMagnitude` |Required| [Minimum weight magnitude](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude) | integer|
-| `trytes` |Required| String of transaction trytes. When sending transactions in a bundle, make sure that the trytes of the last transaction in the bundle are in index 0 of the array. |array of strings|
+| `trytes` |Required| String of transaction trytes |array of strings|
 
 ### Examples
 --------------------
@@ -261,7 +261,7 @@ The last 243 trytes of the return value consist of the following:
 
 ## broadcastTransactions
 
-Sends transaction trytes to a node. 
+Broadcast transaction trytes to a node. 
 
  ### Parameters
 
@@ -363,7 +363,7 @@ curl http://localhost:14265 \
 
 ## checkConsistency
 
-Checks the consistency of transactions. A consistent transaction is one where the following statements are true:
+Check the consistency of transactions. A consistent transaction is one where the following statements are true:
 - The node isn't missing the transaction's branch or trunk transactions
 - The transaction's bundle is valid
 - The transaction's branch and trunk transactions are valid
@@ -479,7 +479,7 @@ curl http://localhost:14265 \
 
 ## findTransactions
 
-Finds transactions that contain the given values in their transaction fields.
+Find transactions that contain the given values in their transaction fields.
 The parameters define the transaction fields to search for, including `bundles`, `addresses`, `tags`, and `approvees`.
 
 **Using multiple transaction fields, returns transactions hashes at the intersection of those values.** 
@@ -598,7 +598,7 @@ An array of transaction hashes, is returned in the same order for all individual
 
 ## getNodeAPIConfiguration
 
-Gets a node's API configuration settings.
+Get a node's API configuration settings.
 
 ### Examples
 --------------------
@@ -687,7 +687,7 @@ The [configuration settings](../references/iri-configuration-options.md) that th
 
 ## getBalances
 
-Gets the confirmed balance of an address.
+Get the confirmed balance of an address.
 
 If the `tips` parameter is missing, the returned balance is correct as of the latest confirmed milestone.
 
@@ -812,7 +812,7 @@ curl http://localhost:14265 \
 
 ## getInclusionStates
 
-Gets the inclusion states of a set of transactions.
+Get the inclusion states of a set of transactions.
 
 This endpoint determines if a transaction is confirmed by the network (referenced by a valid milestone).
 
@@ -944,7 +944,7 @@ curl http://localhost:14265 \
 
 ## getMissingTransactions
 
-Gets all transaction hashes that a node is currently requesting from its neighbors.
+Get all transaction hashes that a node is currently requesting from its neighbors.
 
 ### Examples
 --------------------
@@ -1031,7 +1031,7 @@ curl http://localhost:14265 \
 
 ## getNeighbors
 
-Gets a node's neighbors and their activity.
+Get a node's neighbors and their activity.
 
 ### Examples
 --------------------
@@ -1131,7 +1131,7 @@ The activity accumulates until the node restarts.
 
 ## getNodeInfo
 
-Gets information about a node.
+Get information about a node.
 
 ### Examples
 --------------------
@@ -1248,7 +1248,7 @@ curl http://localhost:14265 \
 | `latestSolidSubtangleMilestone` | Transaction hash of the latest solid milestone |
 | `latestSolidSubtangleMilestoneIndex` | Index of the latest solid milestone |
 | `milestoneStartIndex` | Start milestone for the current version of the IRI |
-|`lastSnapshottedMilestoneIndex`|Index of the last milestone that triggered a [local snapshot](root://getting-started/0.1/network/nodes.md#local-snapshots) on the node |
+|`lastSnapshottedMilestoneIndex`|Index of the last milestone that triggered a [local snapshot](../concepts/local-snapshot.md) on the node |
 | `neighbors` | Total number of connected neighbor nodes  |
 | `packetsQueueSize` | Size of the packet queue |
 | `time` | Current UNIX timestamp |
@@ -1260,7 +1260,7 @@ curl http://localhost:14265 \
 
 ## getTips
 
-Gets tip transaction hashes from a node.
+Get tip transaction hashes from a node.
 
 ### Examples
 --------------------
@@ -1350,7 +1350,7 @@ curl http://localhost:14265 \
 
 ## getTransactionsToApprove
 
-Gets two consistent tip transaction hashes to use as branch/trunk transactions.
+Get two consistent tip transaction hashes to use as branch/trunk transactions.
 
 :::info:
 This endpoint returns data only if the node is synchronized.
@@ -1460,7 +1460,7 @@ curl http://localhost:14265 \
 
 ## getTrytes
 
-Gets a transaction's contents in trytes.
+Get a transaction's contents in trytes.
 
 ### Parameters
 
@@ -1577,7 +1577,7 @@ If a node doesn't have the trytes for a given transaction hash in its ledger, th
 
 ## interruptAttachingToTangle
 
-Aborts the process that's started by the [`attachToTangle`](#attachToTangle) endpoint.
+Abort the process that's started by the [`attachToTangle`](#attachToTangle) endpoint.
 
 ### Examples
 --------------------
@@ -1759,7 +1759,7 @@ curl http://localhost:14265 \
 
 ## storeTransactions
 
-Stores transactions in a node's local storage.
+Store transactions in a node's local storage.
 
 ### Parameters
 
@@ -1862,7 +1862,7 @@ curl http://localhost:14265 \
 
 ## wereAddressesSpentFrom
 
-Checks if an address was ever withdrawn from, either in the current epoch or in any previous epochs.
+Check if an address was ever withdrawn from, either in the current epoch or in any previous epochs.
 
 If an address has a pending transaction, it's also considered 'spent'.
 

@@ -46,10 +46,10 @@ Go to the Trinity source code on [Github](https://github.com/iotaledger/trinity-
 
 We have the following channels for Trinity:
 
-- **#trinity-announcements:** A read-only channel where announcements such as new releases are made
+- `trinity-announcements`: A read-only channel where announcements such as new releases are made
 
-- **#trinity-dev:** A read-only channel where developers discuss topics and where any GitHub updates are displayed
+- `trinity-dev`: A read-only channel where developers discuss topics and where any GitHub updates are displayed
 
-- **#trinity-discussion:** An open channel where anyone is free to discuss Trinity
+- `trinity-discussion`: An open channel where anyone is free to discuss Trinity
 
-- **#trinity-translators:** An open channel where anyone is free to contribute to translation-related discussions
+- `trinity-translators`: An open channel where anyone is free to contribute to translation-related discussions

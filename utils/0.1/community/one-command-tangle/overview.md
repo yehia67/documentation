@@ -1,6 +1,6 @@
 # One-command private Tangle
 
-**For testing, you may not want to publish test data on one of the public networks. In this guide, you set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and 2.7Pi (the maximum amount) of test [IOTA tokens](root://getting-started/0.1/clients/token.md). You can use this application to test your ideas and applications without risking any monetary value.**
+**This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and 2.7Pi (the maximum amount) of test [IOTA tokens](root://getting-started/0.1/clients/token.md). You can use this application to test your ideas and applications without risking any monetary value.**
 
 :::info:Go to GitHub
 For quickstart instructions or to read the source code, [go to the GitHub repository](https://github.com/iota-community/one-command-tangle).
@@ -9,6 +9,14 @@ For quickstart instructions or to read the source code, [go to the GitHub reposi
 :::warning:
 This code still in beta development. Do not use this code in production environments.
 :::
+
+## Why use this application?
+
+For testing, you may not want to publish test data on one of the public networks. Instead, you can run your own private network with the same total supply of test tokens as those in the [IOTA Mainnet](root://getting-started/0.1/network/iota-networks.md#mainnet). This way, you can create applications that transfer data and value without anyone outside of your network seeing those transactions.
+
+When you're ready to use your application on the Mainnet, you can disconnect it from your private IRI node and connect it to one on the Mainnet.
+
+## How the one-command Tangle works
 
 The test network runs one [IRI node](root://node-software/0.1/iri/introduction/overview.md) and an instance of [Compass](root://compass/0.1/introduction/overview.md) on your localhost (not connected to the Internet).
 
