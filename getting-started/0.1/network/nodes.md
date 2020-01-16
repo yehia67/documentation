@@ -68,3 +68,25 @@ A transaction is considered confirmed when it's solid and it's directly or indir
 A node quorum is a group of nodes to which you send the same request and compare the responses for consistency.
 
 When you rely only on one node as a source of information from the Tangle, you can't be confident that it's correct. For example, that node could send you the wrong information about your available balance. To increase your confidence in a node, you can request information from a node quorum.
+
+## Local snapshots
+
+IOTA is a permissionless network. For 24 hours a day, 7 days a week, anyone can store any amount of data on the Tangle for free (just a small amount of [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) per transaction)
+
+As a result, the size of the databases that contain the Tangle are always growing, and this storage space costs a lot of money. To stop their ledgers from becoming too large, nodes often do local snapshots.
+
+A local snapshot is the process in which a node records the state of its ledger in snapshot files. Using these files, nodes can synchronizing with their neighbors a lot faster because the Tangle contains fewer transactions.
+
+## Permanodes
+
+For many business use cases, data in the IOTA Tangle needs to be stored for long periods of time. For example, financial data must be stored for 10 years in some cases, and identity data needs to be kept for the lifetime of the identity.
+
+Rather than doing local snapshots, a permanode stores the full history of the Tangle and enables applications to search the data through an extended API.
+
+## Related guides
+
+Run [IRI](root://node-software/0.1/iri/introduction/overview.md), the node software that runs on the public IOTA networks.
+
+Run [GoShimmer](root://node-software/0.1/goshimmer/introduction/overview.md), the prototype node software that will lead to Coordicide. 
+
+Run [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md), the IOTA Foundation's permanode software.

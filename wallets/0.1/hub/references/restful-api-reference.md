@@ -626,7 +626,7 @@ Gets the history of a user's balance.
 |**Parameter** | **Required or Optional**|**Description** |**Type**
 |--|--|--|--|
 | `userId` |Required| The ID of the user | string|
-| `newerThan` |Optional| The time and date from which to get the user's history. A `0` value means that Hub gets the entire history.|Unix timestamp
+| `newerThan` |Optional| The time and date from which to get the user's history. A `0` value means that Hub gets the entire history.|Unix epoch
 
 ### Examples
 --------------------
@@ -857,7 +857,7 @@ Monitors a stream of balance changes since a given time.
 	
 |**Parameters** |**Required or Optional**|**Description** |**Type**|
 |--|--|--|--|
-| `newerThan` |Required| The time and date from which to start monitoring balance changes. A `0` value means that Hub gets all balance changes.|Unix timestamp
+| `newerThan` |Required| The time and date from which to start monitoring balance changes. A `0` value means that Hub gets all balance changes.|Unix epoch
 
 ### Examples
 --------------------
@@ -1471,7 +1471,7 @@ Monitors a stream of all sweeps since a given time.
 
 |**Parameters** |**Required or Optional**|**Description** |**Type**|
 |--|--|--|--|
-| `newerThan` |Required| The time and date from which to start monitoring sweeps . A `0` value means that Hub gets all sweep events.|Unix timestamp
+| `newerThan` |Required| The time and date from which to start monitoring sweeps . A `0` value means that Hub gets all sweep events.|Unix epoch
 
 ### Examples
 --------------------
