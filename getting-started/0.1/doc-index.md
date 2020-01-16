@@ -26,6 +26,8 @@
 
 [Network/The Coordinator](/network/the-coordinator.md)
 
+[Network/Tip selection](/network/tip-selection.md)
+
 [Clients/Seeds](/clients/seeds.md)
 
 [Clients/IOTA tokens](/clients/token.md)

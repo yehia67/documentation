@@ -6,28 +6,32 @@
             "name": "iota.org"
         },
         {
-            "href": "https://ecosystem.iota.org/",
-            "name": "ecosystem"
-        },
-        {
             "href": "https://blog.iota.org/",
             "name": "news"
+        },
+        {
+            "href": "https://ecosystem.iota.org/",
+            "name": "ecosystem"
         },
         {
             "href": "https://qubic.iota.org/",
             "name": "qubic"
         },
         {
+            "href": "https://roadmap.iota.org/",
+            "name": "roadmap"
+        },
+        {
             "href": "https://training.iota.org/",
             "name": "training"
         },
         {
-            "href": "https://utils.iota.org/",
-            "name": "utils"
-        },
-        {
             "href": "https://trinity.iota.org/",
             "name": "wallet"
+        },
+        {
+            "href": "https://utils.iota.org/",
+            "name": "utils"
         }
     ],
     "popularTopics": [
