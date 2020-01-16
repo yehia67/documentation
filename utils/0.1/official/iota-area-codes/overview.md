@@ -1,4 +1,4 @@
-# IOTA area codes
+# IOTA area codes overview
 
 **IOTA area codes (IAC) are a proposed standard for tagging IOTA transactions with a geo-location, which allows you to be filter them by location.**
 

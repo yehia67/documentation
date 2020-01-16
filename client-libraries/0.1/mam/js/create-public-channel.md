@@ -104,10 +104,10 @@ In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.m
   publishAll()
     .then(async root => {
 
-      // Output asynchronously using "logData" callback function
+      // Output asyncronously using "logData" callback function
       await Mam.fetch(root, mode, null, logData)
 
-      // Output synchronously once fetch is completed
+      // Output syncronously once fetch is completed
       const result = await Mam.fetch(root, mode)
       result.messages.forEach(message => console.log('Fetched and parsed', JSON.parse(trytesToAscii(message)), '\n'))
   ```

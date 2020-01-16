@@ -8,13 +8,9 @@
 
 [Community support/Raspberry Pi pubsub/Get started](/community/raspberry-pi-pub-sub/overview.md)
 
-[Community support/ZMQ processor/Get started](/community/zmq-processor/overview.md)
-
 [Official support/IOTA area codes/Get started](/official/iota-area-codes/overview.md)
 
 [Official support/Proof of existence/Get started](/official/proof-of-existence/overview.md)
-
-[Official support/Proof-of-work proxy server/Get started](/official/proof-of-work-proxy/overview.md)
 
 [Official support/Tangle certificate creator/Get started](/official/tangle-certificate/overview.md)
 

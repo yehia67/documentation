@@ -15,7 +15,7 @@ This API is in beta, and is subject to change. We recommend that you don't use t
 
 ## getTrytes
 
-Gets a transaction's contents.
+Get a transaction's contents.
 
 ### Parameters
 
@@ -114,7 +114,7 @@ curl http://localhost:4000 \
 
 ## findTransactions
 
-Finds transactions that contain the given values in their transaction fields.
+Find transactions that contain the given values in their transaction fields.
 The parameters define the transaction fields to search for, including `bundles`, `addresses`, `tags`, `approvees`, and `hints`.
 
 :::info:

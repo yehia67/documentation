@@ -1,6 +1,6 @@
 # Design goals
 
-**Chronicle is being developed according to a set of design goals that allow it to fulfill use cases such as identity data.**
+**We develop Chronicle according to a set of design goals that allow it to fulfill use cases such as identity data.**
 
 ## Data integrity goals
 

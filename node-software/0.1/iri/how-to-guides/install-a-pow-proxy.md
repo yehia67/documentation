@@ -1,8 +1,6 @@
-# Proof-of-work proxy server
+# Install a proof-of-work proxy server
 
-**A node's [`attachToTangle`](root://node-software/0.1/iri/references/api-reference.md#attachToTangle) endpoint is resource intensive. As a result, many calls to this endpoint can sometimes cause the node to crash. In this guide, you install a dedicated proxy server to do proof of work (PoW) to intercept calls this this endpoint and do the proof of work.**
-
-## Download, build, and run the proxy server
+**The `attachToTangle` endpoint is resource intensive. As a result, many calls to this endpoint can sometimes cause a node to crash. To resolve this problem, you can install a dedicated proxy server to do proof of work (PoW) for your node.**
 
 The PoW proxy server is an implementation of [Caddy](https://caddyserver.com/) that uses IOTA middleware. This middleware allows the server to intercept calls to an IRI node's `attachToTangle` endpoint and do the PoW.
 
@@ -10,7 +8,7 @@ The PoW proxy server is an implementation of [Caddy](https://caddyserver.com/) t
 All requests to the other IRI API endpoints are forwarded to the IRI node.
 :::
 
-### Prerequisites
+## Prerequisites
 
 To complete this guide, you need the following:
 
@@ -18,7 +16,7 @@ To complete this guide, you need the following:
 - GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
 - [Git](https://git-scm.com/downloads)
 
----
+## Download, build, and run the proxy server
 
 1. In the command-line interface, check your `GOPATH` environment variable
 
@@ -162,6 +160,6 @@ To complete this guide, you need the following:
     :::
 
 :::success:Congratulations :tada:
-You have a dedicated proxy server that handles proof of work for your transactions.
+You have a dedicated proxy server that handles proof of work for your IRI node.
 :::
 

@@ -2,9 +2,29 @@
 
 **Chronicle is a permanode solution that allows you to store all transactions that reach an [IRI node](root://node-software/0.1/iri/introduction/overview.md) in a distributed database that's secure and that scales well.**
 
+## What is a permanode?
+
+A permanode stores the full history of the Tangle and enables applications to search the data through an extended API.
+
+## Why run Chronicle?
+
+IOTA is a permissionless network. Anyone can store any amount of data on the Tangle for free (just a small amount of [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) per transaction).
+
+Over time, the ledger of an IRI node accumulates many transactions, which often cause it to become larger than the node's available memory. To stop the ledger from becoming too large, these nodes often do [local snapshots](root://node-software/0.1/iri/concepts/local-snapshot.md) that prune old transactions.
+
+For many business use cases, data in the IOTA Tangle needs to be stored for longer periods of time. For example, financial data must be stored for 10 years in some cases, and identity data needs to be kept for the lifetime of the identity.
+
+Chronicle makes it easy for node owners to store all the IOTA transactions in a secure, scalable, and distributed Scylla database.
+
 :::info:
 Chronicle will be ported to Rust to align with the future strategy of the IOTA technology stack.
 :::
+
+:::info:
+[Ready to run Chronicle](../how-to-guides/get-started.md)?
+:::
+
+## How Chronicle works
 
 Chronicle receives transactions from IRI nodes through the `tx_trytes` [ZMQ event](root://node-software/0.1/iri/references/zmq-events.md). When Chronicle receives transactions, it processes them through an [Elixir](https://elixir-lang.org/) umbrella project, then it stores them in [ScyllaDB](https://www.scylladb.com/).
 
@@ -33,34 +53,6 @@ To ensure reliability and fault tolerance, Scylla stores data replicas on multip
 :::
 
 ![Data flow in Chronicle](../images/dataflow.png)
-
-## Limitations
-
-At the moment, it's not possible to filter transactions and store only a subset of them. When you run Chronicle, you must store all transactions that your node receives.
-
-## Blog posts
-
-Read the following blog posts about Chronicle:
-
-- [Introducing Chronicle - A Permanode Solution](https://blog.iota.org/introducing-chronicle-a-permanode-solution-8e506a2e0813)
-
-## Repository
-
-Go to the Chronicle source code on [Github](https://github.com/iotaledger/chronicle).
-
-## Discord channels
-
-[Join our Discord channel](https://discord.iota.org) where you can:
-
-- Take part in discussions with IOTA developers and the community
-- Ask for help
-- Share your knowledge to help others
-
-We have the following channels for Chronicle:
-
-- **#chronicle-dev:** A read-only channel where developers discuss topics and where any GitHub updates are displayed
-
-- **#chronicle-discussion:** An open channel where anyone is free to discuss Chronicle
 
 ## Next steps
 
