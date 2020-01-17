@@ -1,8 +1,8 @@
 # Set up a reverse proxy server
 
-**Clients can abuse the open API port of an IRI node by spamming API requests to it. To restrict API requests by IP address or to limit the number of API requests, you can connect your IRI node to a reverse proxy server.**
+**Clients can abuse the open API port of an IRI node by spamming API requests to it. To restrict API requests by IP address or to limit the number of API requests, you can connect your IRI node to a reverse proxy server. In this guide, you'll install [Nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) on the same Linux server as your IRI node.**
 
-Many [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy) exist. In this guide, you'll install [Nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) on the same Linux server as your IRI node.
+## Install Nginx as a reverse proxy server
 
 1. On your Linux server, open a terminal window, and install Nginx
 
@@ -44,6 +44,10 @@ Many [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy) exist.
 3. Go to a web browser and enter the IP address of your Linux server in the address bar
 
     You'll see the Nginx webpage. This page is included with Nginx to show you that the server is running. Now, you need to configure Nginx as a reverse proxy for your IRI node.
+
+    :::info:
+    If you're using a virtual private server (VPS), you may only see the default webpage of your VPS provider.
+    :::
 
 4. Create a custom configuration file called iri.conf
 
@@ -164,7 +168,7 @@ If you have more than one IRI node, you can add load balancing to evenly distrib
     }
     ```
 
-4. In the `upstream` block directive, add one `server` simple directives for each IP address of your IRI nodes
+4. In the `upstream` block directive, add one `server` simple directive for each IP address of your IRI nodes
 
     ```shell
     upstream iri {
@@ -184,6 +188,74 @@ Now, when Nginx receives multiple requests, it evenly distributes them among you
 See the Nginx documentation to [learn more about the `upstream` directive](http://nginx.org/en/docs/http/ngx_http_upstream_module.html#upstream).
 :::
 
+## Add HTTPS support
+
+By default, nodes communicate over HTTP, which is an insecure connection. To be able to connect to your node from the Trinity wallet, your node must use HTTPS.
+
+1. Generate SSL certificates and private key files. Replace the `$YOUR_EMAIL` and `$YOUR_DOMAIN` placeholders with your email address and domain.
+
+    ```bash
+    cd ~ && wget https://dl.eff.org/certbot-auto && \
+    chmod a+x certbot-auto && \
+    sudo mv certbot-auto /usr/local/bin && \
+    sudo certbot-auto --noninteractive --os-packages-only && \
+    sudo certbot-auto certonly \
+    --standalone \
+    --agree-tos \
+    --non-interactive \
+    --text \
+    --rsa-key-size 4096 \
+    --email $YOUR_EMAIL \
+    --domains '$YOUR_DOMAIN'
+    ```
+
+  :::info:
+  Here, we generate use [Let's Encrypt](https://letsencrypt.org/how-it-works/) to generate the files.
+  :::
+
+2. Open the `iri.conf` file
+
+    ```bash
+    sudo nano /etc/nginx/sites-enabled/iri.conf
+    ```
+    
+3. Add the following to the `server` block directive to give Nginx the location of your server certificate and private key files. Replace the `$DOMAIN_DIRECTORY` placeholder with the directory in which your files were saved.
+
+    ```bash
+    listen                    443 ssl http2 deferred;
+
+    ssl_certificate           /etc/letsencrypt/live/$DOMAIN_DIRECTORY/fullchain.pem;
+    ssl_certificate_key       /etc/letsencrypt/live/$DOMAIN_DIRECTORY/privkey.pem;
+    ssl_protocols             TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers               HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers on;
+    ```
+
+4. Install a script that automatically renews your certificate
+
+    ```bash
+    echo "0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && /usr/local/bin/certbot-auto renew && /bin/systemctl reload openresty" | sudo tee /etc/cron.d/cert_renew > /dev/null
+    ```
+
+    :::info:
+    After installing this script, you can ignore any expiration notification emails from Let's Encrypt.
+    :::
+
+5. Load your new configuration into Nginx
+
+    ```bash
+    sudo systemctl daemon-reload
+    sudo systemctl start nginx
+    ```
+
+6. Open port 443 on your server
+
+7. Send a request to your node's API, using HTTPS
+
+:::success: Congratulations :tada:
+You can now communicate with your node over HTTPS.
+:::
+
 ## Next steps
 
-If you want to [configure an HTTPS proxy server](https://nginx.org/en/docs/http/configuring_https_servers.html), you need to give Nginx the location of your server certificate and private key files.
+[Get started with the API](../how-to-guides/get-started-with-the-api.md).

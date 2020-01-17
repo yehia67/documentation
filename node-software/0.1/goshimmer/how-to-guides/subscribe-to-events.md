@@ -150,7 +150,7 @@ If we take this data as a random example, it corresponds to the following:
 |YMTMRYBLFPTYCLHAWJVDE...|Bundle hash|
 |BLFZJUOBAPWCXTGOCSBVJ...|Trunk transaction hash|
 |FXTZC9KKRBWSBYKCOGUDZ...|Branch transaction hash|
-|1562247720|Unix timestamp of when the node received the transaction|
+|1562247720|Unix epoch of when the node received the transaction|
 |99999999999999999999...|Empty tag|
 
 :::info:

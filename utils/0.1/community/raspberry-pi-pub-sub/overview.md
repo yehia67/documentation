@@ -1,6 +1,6 @@
 # Raspberry Pi sensor data publisher
 
-**This application sends real-time temperature data (the current temperature in Celsius) from a Raspberry Pi to the Devnet Tangle every minute. Then, it subscribes to the event stream (ZMQ) on another Devnet node and triggers a message to let you know when it receives the data.**
+**Devices often need to share data so they can process and act on it. In this guide, you use a Raspberry Pi to send real-time temperature data (the current temperature in Celsius) to the Devnet Tangle every minute. Then, you subscribe to the event stream (ZMQ) on a Devnet node so know when it receives the data.**
 
 :::info:Go to GitHub
 For quickstart instructions or to read the source code, [go to the GitHub repository](https://github.com/iota-community/raspberrypi-pubsub).
@@ -10,15 +10,7 @@ For quickstart instructions or to read the source code, [go to the GitHub reposi
 This application uses the [IOTA JavaScript client library](root://client-libraries/0.1/introduction/overview.md), which is still in beta development. Do not use this code in production environments.
 :::
 
-## Why use this application?
-
-Devices often need to share data so they can process and act on it. With IOTA, you can set up your own devices to easily share this data with each other on the Tangle by sending it in a transaction.
-
-This application is a ready-to-use template that sends temperature sensor data to the Tangle.
-
-## How the publisher works
-
-In the `raspberrypi-pubsub` directory, you have the following files:
+This application uses the following files:
 
 - `index.js`: Collects data, constructs the bundle, and sends the transaction.
 - `temp.py`: Uses the [`envirophat` library](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat) to read the current temperature from the sensor.
