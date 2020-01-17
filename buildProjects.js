@@ -219,11 +219,23 @@ async function extractTocAndValidateAssets(docsFolder, projectFolder, version, d
 
             let doc = (await fsPromises.readFile(docName)).toString();
 
+            await assetHtmlImage(doc, docName, assets);
+            await assetMarkdownImage(doc, docName, assets);
+            await htmlLinks(doc, docName);
+            await markdownLinks(doc, docName);
+            await separators(doc, docName);
+            await code(doc, docName);
+            await bold(doc, docName);
+            await italic(doc, docName);
+            await img(doc, docName);
+            await emojiChars(doc, docName);
+
             // Match all headers e.g.
             // # Blah blah
             // ## Blah blah
             // But not inside our tab controls or project topics
 
+            doc = removeMarkdownCode(doc);
             doc = removeTabControls(doc);
             doc = removeProjectTopics(doc);
 
@@ -249,17 +261,6 @@ async function extractTocAndValidateAssets(docsFolder, projectFolder, version, d
                 await reportError(`'${docName}' does not start with a level 1 heading`);
             }
 
-            await assetHtmlImage(doc, docName, assets);
-            await assetMarkdownImage(doc, docName, assets);
-
-            await htmlLinks(doc, docName);
-            await markdownLinks(doc, docName);
-            await separators(doc, docName);
-            await code(doc, docName);
-            await bold(doc, docName);
-            await italic(doc, docName);
-            await img(doc, docName);
-            await emojiChars(doc, docName);
             await spellCheck(projectFolder, doc, docName);
         } else {
             await reportError(`'${docIndexFile}' referenced '${docName}' but the file/folder does not exist or has wrong casing`);
@@ -316,6 +317,20 @@ function removeTabControls(markdown) {
 function removeProjectTopics(markdown) {
     const re = /#### (.*)\n(\[.*\]\((.*)\))?([\S\s]*?)---/gm;
     return markdown.replace(re, '');
+}
+
+function removeMarkdownCode(markdown) {
+    const re = /^```markdown[\S\s]*?```/gm;
+
+    let match;
+    do {
+        match = re.exec(markdown);
+        if (match) {
+            markdown = markdown.replace(match[0], '');
+        }
+    } while (match);
+
+    return markdown;
 }
 
 async function assetHtmlImage(markdown, docPath, assets) {
