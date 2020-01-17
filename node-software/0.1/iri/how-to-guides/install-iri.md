@@ -47,7 +47,7 @@ These are some example configurations:
 --------------------
 ### Mainnet
 
-This file configures IRI to run on the Mainnet, exposes the API on port 14265, and keeps all transactions in the ledger instead of doing [local snapshots](root://getting-started/0.1/nodes.md#local-snapshots).
+This file configures IRI to run on the Mainnet, exposes the API on port 14265, and keeps all transactions in the ledger instead of doing [local snapshots](root://getting-started/0.1/network/nodes.md#local-snapshots).
 
 ```bash
 [IRI]
@@ -298,7 +298,7 @@ These are some example configurations:
 --------------------
 ### Mainnet
 
-This file configures IRI to run on the Mainnet, exposes the API on port 14265, and keeps all transactions in the ledger instead of doing [local snapshots](root://getting-started/0.1/nodes.md#local-snapshots).
+This file configures IRI to run on the Mainnet, exposes the API on port 14265, and keeps all transactions in the ledger instead of doing [local snapshots](root://getting-started/0.1/network/nodes.md#local-snapshots).
 
 ```bash
 [IRI]
