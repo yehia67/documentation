@@ -1,6 +1,6 @@
-# MAM watcher overview
+# MAM watcher
 
-**[MAM](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e) (masked authenticated messaging) is a communication protocol that allows you to publish and subscribe to an encrypted data stream called a channel. The MAM watcher allows you to sign and send encrypted messages on a channel, then subscribe to that channel to validate, decrypt, and read the messages.**
+**Devices on the Internet of Things are often monitoring their environment and creating data. In this guide, you encrypt data and stream it on the Tangle through a Masked Authenticated Messaging (MAM) channel. This way, you can allow other devices to subscribe to your data stream through the channel.**
 
 :::info:Go to GitHub
 For quickstart instructions or to read the source code, [go to the GitHub repository](https://github.com/iota-community/mam-watcher).
@@ -9,10 +9,6 @@ For quickstart instructions or to read the source code, [go to the GitHub reposi
 :::warning:
 This application uses the [IOTA MAM library](https://www.npmjs.com/package/@iota/mam), which is still in beta development. Do not use this code in production environments.
 :::
-
-## Why use this application?
-
-Devices on the Internet of Things are often monitoring their environment and creating data. This application allows you to encrypt that data and stream it on the Tangle through a channel. This way, you can allow other devices to subscribe to your data stream through the channel.
 
 ## Prerequisites
 

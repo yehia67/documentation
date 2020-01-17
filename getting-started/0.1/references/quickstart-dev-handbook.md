@@ -29,7 +29,7 @@ The IOTA Mainnet is free to use. There are no costs associated for sending IOTA 
 
 Sending IOTA data transactions does not require clients to own any cryptocurrency.
 
-Some nodes (permanodes) such as https://thetangle.org might offer clients the option to permanently store all transactions. Transactions are usually deleted from the ledgers of nodes as a result of a [local snapshot](root://node-software/0.1/iri/concepts/local-snapshot.md).
+Some nodes (permanodes) such as https://thetangle.org might offer clients the option to permanently store all transactions. Transactions are usually deleted from the ledgers of nodes as a result of a [local snapshot](../network/nodes.md#local-snapshots).
 
 This costs is usually requested as a monthly fee paid in fiat currency.
 
