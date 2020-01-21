@@ -124,7 +124,7 @@ You've just changed the message of a tail transaction in a bundle and reattached
 :::
 
 :::warning:
-The nodes will mark either your copy or the original bundle as a double spend. Therefore, only one of them will be confirmed.
+If your original tail transaction belongs to a transfer bundle, the nodes will mark either your copy or the original bundle as a double spend. Therefore, only one of them will be confirmed.
 :::
 
 ## Run the code
