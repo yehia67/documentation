@@ -1,6 +1,6 @@
 # The IOTA token
 
-**The IOTA token is a unit of value (i, Ki, Mi, Gi, Ti, Pi) that can be transferred over an [IOTA network](../network/iota-networks.md) through [transfer bundles](../transactions/bundles.md).**
+**The IOTA token is a unit of value (i, Ki, Mi, Gi, Ti, Pi) that can be transferred over an [IOTA network](../network/iota-networks.md) in [transfer bundles](../transactions/bundles.md).**
 
 ## How the IOTA token was created
 
