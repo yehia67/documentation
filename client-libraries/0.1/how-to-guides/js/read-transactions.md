@@ -47,7 +47,9 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```
 
     :::info:
-    We use the tail transaction hash because, unlike the [bundle hash](root://getting-started/0.1/transactions/bundles.md#bundle-hash), the `signatureMessageFragment` field is part of the hash. Therefore, the message in the transaction is immutable.
+    We use the tail transaction hash because the `signatureMessageFragment` field is part of the hash. Therefore, the message in the transaction is immutable.
+
+    If you were to use the bundle hash, you may see a different message because anyone can [change the message in the tail transaction](../js/change-message-in-bundle.md) and attach a copy of the bundle to the Tangle.
     :::
 
 4. Use the [`getBundle()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getBundle) method to get all transactions in the tail transaction's bundle. Then, use the [`extractJSON()`](https://github.com/iotaledger/iota.js/tree/next/packages/extract-json) method to decode the JSON messages in the `signatureMessageFragment` fields of the bundle's transactions and print them to the console

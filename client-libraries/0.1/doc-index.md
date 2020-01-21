@@ -76,6 +76,8 @@
 
 [How-to guides/JavaScript/Derive addresses from private keys](/how-to-guides/js/derive-addresses-from-private-keys.md)
 
+[How-to guides/JavaScript/Change messages in a bundle](/how-to-guides/js/change-message-in-bundle.md)
+
 [How-to guides/Python/Get started](/how-to-guides/python/get-started.md)
 
 [How-to guides/Python/Send a "hello world" transaction](/how-to-guides/python/send-your-first-bundle.md)
