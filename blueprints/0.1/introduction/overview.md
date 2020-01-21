@@ -27,12 +27,6 @@ Although the supply of energy is often automated, the payment system is expensiv
 -------------------------
 
 -------------------------
-![Tangle certification](../images/tangle-certification-thumbnail.png)
-## [Tangle certification](../tangle-certification/overview.md)
-Certificates can be copied or changed, affecting their authenticity and credibility. This blueprint describes how to prevent counterfeit certificates by storing them on the IOTA Tangle, and allowing them to be verified by third parties.
--------------------------
-
--------------------------
 ![Tangle data storage](../images/tangle-data-storage-thumbnail.png)
 ## [Tangle data storage](../tangle-data-storage/overview.md)
 Data boosts innovation for public and private sector organisations, and can be used to create new revenue streams. However, without a vendor-neutral way of verifying data, it can't be trusted. This blueprint uses the IOTA Tangle as an immutable data structure to verify the contents of a file in a third-party storage solution.

@@ -12,8 +12,6 @@
 [Tangle Data Storage/Overview](/tangle-data-storage/overview.md)
 [Tangle Data Storage/App architecture](/tangle-data-storage/architecture.md)
 [Tangle Data Storage/Deploy and test the demo](/tangle-data-storage/deployment-and-testing.md)
-[Tangle Certification/Overview](/tangle-certification/overview.md)
-[Tangle Certification/App architecture](/tangle-certification/architecture.md)
 [Track And Trace/Overview](/track-and-trace/overview.md)
 [Track And Trace/App architecture](/track-and-trace/architecture.md)
 [Track And Trace/Deploy and test the demo](/track-and-trace/deployment-and-testing.md)
