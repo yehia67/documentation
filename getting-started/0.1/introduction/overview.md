@@ -4,24 +4,6 @@
 
 <iframe src="https://www.youtube.com/embed/Gr-LstcDcAw" frameborder="0" width="560" height="315" style="max-width: 100%;"></iframe>
 
-## How does IOTA work?
-
-An IOTA network consists of [nodes](../network/nodes.md) and clients, and anyone is free to act as either in the [public IOTA networks](../network/iota-networks.md).
-
-### Nodes
-
-Nodes are the backbone of an IOTA network as they are the only devices that have read and write access to the immutable record of transactions called the Tangle.
-
-Interconnected nodes form an IOTA network by running the same [node software](root://node-software/0.1/introduction/overview.md), allowing them to validate transactions and attach them to the Tangle.
-
-### Clients
-
-Clients are the devices that connect to nodes to transact or store data on the Tangle.
-
-All clients in an IOTA network have a secret password called a [seed](../clients/seeds.md), which acts as their identity. Seeds give clients access to [addresses](../clients/addresses.md), which are like accounts with a balance of IOTA tokens.
-
-To transfer IOTA tokens or even to send only data, clients package the transfer instructions into objects called [transactions](../transactions/transactions.md) and send them to a node to attach to the Tangle.
-
 ## Why should I use IOTA?
 
 By using IOTA, you can build applications that benefit from the following:
@@ -31,21 +13,21 @@ By using IOTA, you can build applications that benefit from the following:
 - **Confidentiality:** Control who has access to your data through encryption
 - **Micropayments:** Send small amounts of IOTA tokens without paying any fees 
 
-IOTA networks have many benefits compared to traditional ways of transferring data or value.
+![IOTA benefits](../images/iota-benefits.png)
 
-### Trust
+### Trust in data
 
-Each node in an IOTA network validates transactions, then sends them to other nodes that do the same. As a result, all valid transactions are agreed on by all nodes, removing the need to trust a single one in the network.
+Each [node](../network/nodes.md) in an [IOTA network](../network/iota-networks.md) validates [transactions](../transactions/transactions.md), then sends them to other nodes that do the same. As a result, all valid transactions are agreed on by all nodes, removing the need to trust a single one in the network.
 
 You can even run your own node to start validating transaction in the network.
 
-### Immutability
+#### Integrity
 
-All transactions in the Tangle are immutable and transparent.
+All transactions in the [Tangle](../network/the-tangle.md) are immutable and transparent.
 
 Each transaction references the transaction hashes of two previous ones. So, if the contents of any transaction were to change, the hashes would be invalid, making the transactions invalid.
 
-### Security
+#### Security and privacy
 
 IOTA uses quantum-robust one-time [signatures](../clients/signatures.md) to stop attackers from stealing IOTA tokens.
 
@@ -60,6 +42,24 @@ You can store data on the Tangle with no restrictions. All you need is a node to
 ### Scalability
 
 For each transaction that's attached to the Tangle, two previous transactions are validated. This process makes IOTA incredibly scalable because more new transactions lead to faster validations.
+
+## How does IOTA work?
+
+An IOTA network consists of nodes and clients, and anyone is free to act as either in the public IOTA networks.
+
+### Nodes
+
+Nodes are the backbone of an IOTA network as they are the only devices that have read and write access to the immutable record of transactions called the Tangle.
+
+Interconnected nodes form an IOTA network by running the same [node software](root://node-software/0.1/introduction/overview.md), allowing them to validate transactions and attach them to the Tangle.
+
+### Clients
+
+Clients are the devices that connect to nodes to transact or store data on the Tangle.
+
+All clients in an IOTA network have a secret password called a [seed](../clients/seeds.md), which acts as their identity. Seeds give clients access to [addresses](../clients/addresses.md), which are like accounts with a balance of IOTA tokens.
+
+To transfer IOTA tokens or even to send only data, clients package the transfer instructions into objects called transactions and send them to a node to attach to the Tangle.
 
 ## What are some example use cases?
 

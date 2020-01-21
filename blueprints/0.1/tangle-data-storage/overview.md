@@ -4,9 +4,9 @@
 
 ## Business case
 
-Storing, sharing and trading data is a cornerstone of business in the connected world and boosts innovation for public and private sector organisations. However, if you can't trust that the data has not been altered, then the data becomes nearly useless. By using the IOTA Tangle, businesses and connected machines will be able to easily provide veracity, security, and privacy for the data they share.
+Storing, sharing and trading data is a cornerstone of business in the connected world and boosts innovation for public and private sector organisations. However, if you can't trust that the data has not been altered, then the data becomes nearly useless. By using the IOTA Tangle, businesses and connected machines can trust in the security and privacy of the data they share.
 
-### Challenge
+### Challenges
 
 A common requirement for nearly all use cases or applications is that data must be stored for later use, for example:
 
@@ -16,7 +16,7 @@ A common requirement for nearly all use cases or applications is that data must 
 However, the Tangle is not a database. The Tangle is an immutable, distributed ledger which allows you to store a hash of data and a pointer to its location in third-party data storage.
 
 :::info:
-Although permanent storage on the Tangle isn't currently possible, the IOTA Foundation are developing a solution that will allow it. This solution is called [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md).
+Although permanent storage on the Tangle isn't currently possible, the IOTA Foundation are developing a solution for it called [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md).
 :::
 
 ### Solution

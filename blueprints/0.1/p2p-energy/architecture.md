@@ -1,94 +1,35 @@
 # Application architecture
 
-**The P2P energy grid application publishes data from sources, producers, consumers, and the grid to MAM channels through a node in an IOTA network.**
+**The P2P energy grid application publishes data to an IOTA network from sources, producers, consumers, and the grid.**
 
 :::warning:Disclaimer
 Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community.
 :::
 
-The architecture of our PoC follows a pattern, where the source, producer, consumer, and grid are interconnected through an IOTA network.
-
-IOTA technologies are advantageous in an architecture such as this because they allow entities to communicate with one another in a secure manner without needing to always be on or connected to each other.
-
-![P2P Energy PoC - Architecture Diagram](../images/p2p_architecture.png)
-
-IOTA technologies are employed as both the communication and payment mechanisms between entities that store the data on the Tangle.
-
-The implementation of the source and the consumer is intended to be a lightweight operation that can be done by embedded devices. These entities need to perform operations such as producing and consuming MAM channels, and communicating with web APIs.
-
-The producer is more complex and needs to host a web API to accept registrations, but can use the grid for any storage needs. Any more intense processes or storage requirements are offloaded to the grid.
-
-This table displays a list of all the main components of the application:
-
-**Component**|**Description**
-:-----|:------|
-**Web Server: Storage API** | Provides a facility for any entities within the system to store/retrieve arbitrary data, this allows any entities with limited storage facilities to store more data. The choice of a traditional web API instead of using the Tangle for storage is because the data on the Tangle can be removed at a snapshot.
---- | ---
-**Web Server: Registration API** | The mechanism by which Sources register with producers, and consumers/producers register with the grid. This initial handshake must be performed using traditional web APIs as the MAM channel hashes need to be communicated along with any keys to the channel data.
-**Web Server: Web portal** | A web UI that allows the grid to monitor the whole system.
-**Database** | Provides a permanent storage mechanism for the grid to use for its own data.
-
-The sources are kept as separate entities from the producers to allow for some redundancy. If a producer is offline, the sources continue logging their readings to the Tangle instead of directly to the producer. The sources are still registered with the producers so that the producers can later consolidate the data before communicating it to the grid.
-
-The grid usually does the majority of the work, which could be performed locally on the machine or outsourced to a wider infrastructure in the cloud::
-
-- Maintaining a database
-- Running a web server with a portal
-- Provisioning APIs
-- Running background tasks to process information
-
-The grid maintains its own IRI node, which enables it to communicate with neighbours in the peer-to-peer network on which the Tangle operates. By running your own IRI node, the rest of the entities can live in a LAN network, with only the grid requiring WAN access to the rest of the Tangle for syncing. The alternative is for all entities to have WAN access directly to an IRI node on Tangle.
-
-The following image shows the communication channels and the sequence of events that occur in the architecture.
+This blueprint uses the following architecture whereby the source, producer, consumer, and grid are interconnected through an IOTA network.
 
 ![P2P Energy PoC - Sequence Diagram](../images/p2p_sequence.png)
 
-## Workflows
+## Building blocks
 
-The following workflows illustrate how the different entities interact with each other.
-
-### Source to producer
-
-This image shows the sequence of events that occur when a source communicates with a producer and the Tangle.
-
-![P2P energy PoC - source workflow](../images/p2p_source.png)
-
-### Producer to grid
-
-This image shows the sequence of events that occur when a producer communicates with the grid and the Tangle.
-
-![P2P energy PoC - producer workflow](../images/p2p_producer.png)
-
-### Consumer to grid
-
-This image shows the sequence of events that occur when a consumer communicates with the grid and the Tangle.
-
-![P2P energy PoC - consumer workflow](../images/p2p_consumer.png)
-
-## Communication
-
-The communication between the different entities is a combination of MAM channels and web API calls. MAM provides a mechanism by which the entities within the system can communicate in a secure fashion, also by publishing their data to the Tangle, the entities do not require a direct line of communication at all times.
-
-A tangle transaction is issued whenever a consumer pays its bill to the grid or whenever the grid pays a producer.
+All entities communicate, using a combination of MAM channels and web API calls.
 
 ![P2P energy PoC - communication](../images/p2p_communication.png)
 
-### Source MAM output channel
+### Source MAM channel
 
-The source creates a MAM channel to tell the producer how much it has contributed over a period of time. It's expected that on registration, the values in the payload will be monitored and recorded by the producer.
-
-#### Payloads
+Sources creates a MAM channel to tell the producer how much energy they have contributed over a period of time, using the following payload:
 
 ```json
 {
    "command": "output",        /* The MAM command */
-   "startTime": 1542267468229, /* ms since 1900 */
-   "endTime": 1542267469229,   /* ms since 1900 */
+   "startTime": 1542267468229, /* Unix Epoch in milliseconds */
+   "endTime": 1542267469229,   /* Unix Epoch in milliseconds */
    "output": 1.234             /* kWh */
 }
 ```
 
-The source should publish an initial `hello` command to its channel so that the producer reading the channel can validate that it's subscribed to the correct channel.
+To allow the producer to validate that it's subscribed to the correct channel, the source publishes a `hello` command to any new channel.
 
 ```json
 {
@@ -96,7 +37,7 @@ The source should publish an initial `hello` command to its channel so that the 
 }
 ```
 
-On deregistration, the source should send a `goodbye` command to signal that the MAM channel is no longer used.
+To signal that a channel is no longer in use, the source publishes a `goodbye` command to it.
 
 ```json
 {
@@ -104,86 +45,269 @@ On deregistration, the source should send a `goodbye` command to signal that the
 }
 ```
 
+After creating a MAM channel, sources register with producers, using the [producer's registration API](#producer-registration-api).
+
+![P2P energy PoC - source workflow](../images/p2p_source.png)
+
+### Consumer MAM channel
+
+Consumers create a MAM channel to keep the grid up to date with how much they owe, using the following payload:
+
+```json
+{
+   "startTime": 1542267468229,         /* ms since 1900 */
+   "endTime": 1542267469229,           /* ms since 1900 */
+   "usage": 1.234                      /* kWh */
+}
+```
+
+After creating a MAM channel, consumers register with the grid, using the [grid's registration API](#grid-registration-api).
+
+![P2P energy PoC - consumer workflow](../images/p2p_consumer.png)
+
+### Producer MAM channel
+
+The producer creates a MAM channel to tell the grid the following:
+
+How much energy all of its sources have contributed over a period of time
+A proposed price for the energy
+An address to which to send the payment in IOTA tokens
+
+```json
+{
+   "command": "output",                    /* The MAM command */
+   "startTime": 1542267468229,             /* Unix Epoch in milliseconds */
+   "endTime": 1542267469229,               /* Unix Epoch in milliseconds */
+   "output": 1.234,                        /* kWh */
+   "producerPrice": 56789,                 /* IOTA tokens per kWh */
+   "paymentIdOrAddress": "PPPPPP...QQQQQQ" /* Method of receiving payment */
+}
+```
+
+The `producerPrice` field is not guaranteed to be met by the grid, instead the grid may calculate its own price by monitoring and recording the price for all producers. For example, the grid may pay an average of the values of all `producerPrice` fields or a weighted average based on how much the producer contributed to the grid.
+
+The `paymentIdOrAddress` can be an IOTA address or a reference ID so that the grid has another way of making payments.
+
+After creating a MAM channel, producers register with the grid, using the [grid's registration API](#grid-registration-api). This way, the grid can monitor the amount of energy that the producers generate.
+
+![P2P energy PoC - producer workflow](../images/p2p_producer.png)
+
 ### Producer registration API
 
-A source needs to be registered/deregistered with a producer so that the producer can read from the source's MAM channel. This can be achieved by using a lightweight web API on the producer.
+Producers allow sources to register their MAM channels, using an API, so that producers can monitor them.
 
 #### Register
 
-**PUT**
+Registers a new source.
 
 ```
-https://producer/registration/:registrationId
+PUT https://producer/registration/:registrationId
 ```
 
-**Request**
+##### Path parameters
 
+|**Parameter** | **Required or Optional**|**Description** | **Type**|
+|--|--|--|--|
+| `registrationId` | Required|A string of characters that identifies a source. You must generate your own random ID and keep it for future API calls. | string|
+
+##### Body parameters
+
+|**Parameter** | **Required or Optional**|**Description** | **Type**|
+|--|--|--|--|
+| `itemName` | Required|The name of your source. You can enter any name. | string|
+| `itemType` | Required|The type of energy that the source provides. You can enter any type. | string|
+| `root` | Optional|The root of the MAM channel | string|
+| `sideKey` | Optional|The side key for the MAM channel that's given in the `root` parameter. You need a side key only if the MAM channel is in restricted mode. | string|
+
+##### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+command = {
+   "itemName": "My Solar Source",
+   "itemType": "solar",
+   "root": "CCCCCC...DDDDDD",
+   "sideKey": "AAA....ZZZZZZ"
+}
+
+stringified = json.dumps(command)
+
+headers = {
+    'content-type': 'application/json'
+}
+
+request = urllib2.Request(url="https://producer/registration/:registrationId", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var body = {
+   "itemName": "My Solar Source",
+   "itemType": "solar",
+   "root": "CCCCCC...DDDDDD",
+   "sideKey": "AAA....ZZZZZZ"
+}
+
+var options = {
+  url: 'https://producer/registration/:registrationId',
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+    'Content-Length': Buffer.byteLength(JSON.stringify(body))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
+```bash
+curl https://producer/registration/:registrationId \
+-X PUT \
+-H 'Content-Type: application/json' \
+-d '{
+   "itemName": "My Solar Source",
+   "itemType": "solar",
+   "root": "CCCCCC...DDDDDD",
+   "sideKey": "AAA....ZZZZZZ"
+}'
+```
+--------------------
+
+##### Response examples
+--------------------
+### 200
 ```json
 {
-   "itemName"?: "My Solar Source",       /* free text */
-   "itemType"?: "solar",                 /* free text */
-   "root"?: "CCCCCC...DDDDDD",           /* Optional, MAM channel hash */
-   "sideKey"?: "AAA....ZZZZZZ"           /* Optional, Side key to read MAM 
-                                            channel */
+   "success": true,
+   "message": "OK"
 }
 ```
+--------------------
 
-**Response**
+##### Results
 
-```json
-{
-   "success": true,                    /* true or false */
-   "message": "OK"                     /* Or error message if fail */
-}
-```
-
-When a source registers with a producer, it can start monitoring the source's MAM channel using the MAM channel details for its energy readings.
+|**Return field** | **Description** |
+|--|--|
+| `success` | Whether the request was successful |
+| `message` | A message from the server|
 
 #### Deregister
+
+Deregisters an existing source.
+
+When a source is dereistered, the producer stops monitoring its MAM channel.
 
 ```
 DELETE https://producer/registration/:registrationId/:sideKey
 ```
 
-**Response**
+##### Path parameters
+
+|**Parameter** | **Required or Optional**|**Description** | **Type**|
+|--|--|--|--|
+| `registrationId` | Required|The registration ID that was used to register the source | string|
+| `sideKey` | Optional|If the source was registered with a side key, you must pass this parameter | string|
+
+##### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+headers = {
+    'content-type': 'application/json'
+}
+
+request = urllib2.Request(url="https://producer/registration/:registrationId/:sideKey", headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var options = {
+  url: 'https://producer/registration/:registrationId/:sideKey',
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
+```bash
+curl https://producer/registration/:registrationId/:sideKey \
+-X DELETE \
+-H 'Content-Type: application/json'
+```
+--------------------
+
+##### Response examples
+--------------------
+### 200
+```json
+{
+   "success": true,
+   "message": "OK"
+}
+```
+--------------------
+
+##### Results
+
+|**Return field** | **Description** |
+|--|--|
+| `success` | Whether the request was successful |
+| `message` | A message from the server|
+
+### Grid MAM channel
+
+When consumers register with the grid, it creates a MAM channel to tell them how much they owe over a period of time, using the following payload:
 
 ```json
 {
-   "success": true,                   /* true or false */
-   "message": "OK"                    /* Or error message if fail */
+   "command": "payment-request",           /* the command */
+   "owed": 345,                            /* amount in IOTA owed
+                                              excludes pending transactions */
+   "usage": 123,                           /* the amount of kWh the payment is for */
+   "paymentIdOrAddress": "WWWWWW...XXXXXX" /* payment address for owed
+                                              balance payment to grid */
 }
 ```
 
-The `sideKey` is passed to the delete as a measure of authentication. When a source is deregistered, the producer should stop watching the source's MAM channel.
+The `paymentIdOrAddress` can be an IOTA address or a reference ID so that the consumer has another way of making payments.
 
-### Producer MAM output channel
+After the grid has taken its cut of the IOTA tokens, the rest is paid to the producers for their energy.
 
-This MAM channel contains information on the aggregated output from the producer's sources as a time period. Additionally, a proposed price for the power supplied and payment address is provided.
-
-The grid will monitor and record the channels for all producers to use later in order to calculate the amount to pay to each producer. The payment address and requested  price can change per time period to give the Producer the ability to provide variable price power at different times.
-
-The `producerPrice` field is not guaranteed to be met by the grid, instead a consensus price amongst all the producers will be paid. The consensus price could be a regular average of all the `producerPrice` fields or a weighted average based on how much the producer contributed to the grid. The `paymentIdOrAddress` can be an IOTA address that the grid can make payments to, or a reference ID so that the grid has another way of making payments.
-
-**Payload**
-
-```json
-{
-   "command": "output",                    /* The MAM command */
-   "startTime": 1542267468229,             /* ms since 1900 */
-   "endTime": 1542267469229,               /* ms since 1900 */
-   "output": 1.234,                        /* kWh */
-   "producerPrice": 56789,                 /* IOTA per kWh */
-   "paymentIdOrAddress": "PPPPPP...QQQQQQ" /* address to receive payment */
-}
-```
-
-The producer payment addresses are where the grid sends payments. A producer can have more than one address as each time period in the producer's output channel can have a different address associated with it.
-
-### Grid registration API
-
-The grid registration API will take the form of a regular web API hosted on a web server. It is used by both the producers and consumers to register themselves with the grid. Once an entity is registered the grid will start monitoring their MAM output channels. On a successful registration an id is returned, this is then used in any future requests.
-
-Both the registering entity and the grid should publish an initial `hello` command to their respective channels so that the entity reading the channel can validate that it's subscribed to the correct channel.
+To allow the producers and consumers to validate that they're subscribed to the correct channel, the grid publishes a `hello` command to any new channel.
 
 ```json
 {
@@ -191,7 +315,7 @@ Both the registering entity and the grid should publish an initial `hello` comma
 }
 ```
 
-On unregistering both entities should send a `goodbye` command to signal that the MAM channel is no longer used.
+To signal that a channel is no longer in use, the source publishes a `goodbye` command to it.
 
 ```json
 {
@@ -199,128 +323,480 @@ On unregistering both entities should send a `goodbye` command to signal that th
 }
 ```
 
-For a consumer, the response will also return a MAM channel hash that the consumer should monitor for how much it owes the grid.
+### Grid registration API
 
-A description of the APIs is provided below.
+Grids allow producers and consumers to register themselves, using an API.
 
-#### Registration set
+#### Register
+
+Registers a new producer or consumer.
 
 ```
-PUT https://grid/registration/:registrationId
+PUT https://producer/registration/:registrationId
 ```
 
-**Request**
+##### Path parameters
 
-```json
-{
-   "itemName": "My Solar Source",         /* free text */
-   "itemType": "producer",                /* enum producer/consumer */
-   "root"?: "CCCCCC...DDDDDD",            /* MAM root hash for the channel
-                                             the grid should monitor,
-                                             optional as you may just want a  
-                                             registration id */
-   "sideKey"?: "CCC...DDDD"               /* side key for the channel,
-                                             optional, as above */
+|**Parameter** | **Required or Optional**|**Description** | **Type**|
+|--|--|--|--|
+| `registrationId` | Required|A string of characters that identifies a producer or consumer. You must generate your own random ID and keep it for future API calls. | string|
+
+##### Body parameters
+
+|**Parameter** | **Required or Optional**|**Description** | **Type**|
+|--|--|--|--|
+| `itemName` | Required|The name of your producer or consumer. You can enter any name. | string|
+| `itemType` | Required|`producer` or `consumer`| string|
+| `root` | Optional|The root of the MAM channel to register | string|
+| `sideKey` | Optional|The side key for the MAM channel that's given in the `root` parameter. You need a side key only if the MAM channel is in restricted mode. | string|
+
+##### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+command = {
+   {
+   "itemName": "Jake",
+   "itemType": "consumer",
+   "root": "CCCCCC...DDDDDD",
+   "sideKey": "AAA....ZZZZZZ"
 }
 
-**Response**
+stringified = json.dumps(command)
 
+headers = {
+    'content-type': 'application/json'
+}
+
+request = urllib2.Request(url="https://grid/registration/:registrationId", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var body = {
+   "itemName": "Jake",
+   "itemType": "consumer",
+   "root": "CCCCCC...DDDDDD",
+   "sideKey": "AAA....ZZZZZZ"
+}
+
+var options = {
+  url: 'https://grid/registration/:registrationId',
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+    'Content-Length': Buffer.byteLength(JSON.stringify(body))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
+```bash
+curl https://grid/registration/:registrationId \
+-X PUT \
+-H 'Content-Type: application/json' \
+-d '{
+   "itemName": "Jake",
+   "itemType": "consumer",
+   "root": "CCCCCC...DDDDDD",
+   "sideKey": "AAA....ZZZZZZ"
+}'
+```
+--------------------
+
+##### Response examples
+--------------------
+### 200
 ```json
 {
-   "success": true,                       /* true or false */
-   "message": "OK",                       /* Or error message if fail */
-   "root"?: "JJJJJJ...KKKKKK",            /* Optional, channel the
-                                             registered item
-                                             should monitor from the grid.
-                                             for the consumer this contains
-                                             the amount owed feed */
-   "sideKey"?: "CCC...DDDD"               /* Optional, private key for the
-                                             channel */
+   {
+   "success": true,
+   "message": "OK",
+   "root": "JJJJJJ...KKKKKK",
+   "sideKey": "CCC...DDDD"
+}
 }
 ```
+--------------------
 
-#### Registration remove
+##### Results
+
+|**Return field** | **Description** |
+|--|--|
+| `success` | Whether the request was successful |
+| `message` | A message from the server|
+|`root`| The root of the MAM channel that the consumer should monitor for payment information|
+|`sideKey`| If the MAM channel is in restricted mode, this is the side key to decrypt the message|
+
+#### Deregister
+
+Deregisters an existing MAM channel.
+
+When a MAM channel is deregistered, the grid stops monitoring it.
 
 ```
-DELETE https://grid/registration/:registration-id/:sideKey
+DELETE https://grid/registration/:registrationId/:sideKey
 ```
 
-**Response**
+##### Path parameters
 
+|**Parameter** | **Required or Optional**|**Description** | **Type**|
+|--|--|--|--|
+| `registrationId` | Required|The registration ID that was used to register the source | string|
+| `sideKey` | Optional|If the source was registered with a side key, you must pass this parameter | string|
+
+##### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+headers = {
+    'content-type': 'application/json'
+}
+
+request = urllib2.Request(url="https://grid/registration/:registrationId/:sideKey", headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var options = {
+  url: 'https://grid/registration/:registrationId/:sideKey',
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
+```bash
+curl https://grid/registration/:registrationId/:sideKey \
+-X DELETE \
+-H 'Content-Type: application/json'
+```
+--------------------
+
+##### Response examples
+--------------------
+### 200
 ```json
 {
-   "success": true,     /* true or false */
-   "message": "OK"      /* Or error message if fail */
+   "success": true,
+   "message": "OK"
 }
 ```
+--------------------
 
-The `sideKey` is passed to the delete as a measure of authentication.
+##### Results
+
+|**Return field** | **Description** |
+|--|--|
+| `success` | Whether the request was successful |
+| `message` | A message from the server|
 
 ### Grid storage API
 
-The grid storage API is available to any part of the architecture that needs to store information on a permanent basis. The API will support the standard database CRUD operations and requires an entities registration id in all calls.
+The grid storage API is available to any part of the architecture that needs to store information on a permanent basis.
 
-As the storage endpoint is permissionless any entity storing items in the grid that wants them to be private should encrypt them before storing.
+#### Register
 
-The context parameter in all the calls is for use by any entity to partition data for its own purposes.
-
-#### Set item
+Saves an item to the database.
 
 ```
 PUT https://grid/storage/item/:registration-id/:context/:id
 ```
 
-**Request**
+##### Path parameters
 
+|**Parameter** | **Required or Optional**|**Description** | **Type**|
+|--|--|--|--|
+| `registration-id` | Required|The registration ID that was used to register the producer or consumer | string|
+| `context` | Required|A name that's used to group your content. You can think of this parameter as a directory for your data.
+ | string|
+|`id`| Required|A name that identifies your data. For example `file.txt`| string|
+
+##### Body parameters
+
+|**Parameter** | **Required or Optional**|**Description** | **Type**|
+|--|--|--|--|
+| `{}` | Required|A JSON object | JSON|
+
+##### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+headers = {
+    'content-type': 'application/json'
+    }
+
+command = {
+   "myCustomData": "Some data"
+}
+
+stringified = json.dumps(command)
+
+request = urllib2.Request(url="https://grid/storage/item/:registration-id/:context/:id", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var body = {
+   "myCustomData": "Some data"
+}
+
+var options = {
+  url: 'https://grid/storage/item/:registration-id/:context/:id',
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+    'Content-Length': Buffer.byteLength(JSON.stringify(body))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
+```bash
+curl https://grid/storage/item/:registration-id/:context/:id \
+-X PUT \
+-H 'Content-Type: application/json' \
+-d '{
+   "myCustomData": "Some data"
+}'
+```
+--------------------
+
+##### Response examples
+--------------------
+### 200
 ```json
 {
-   ...    /* free-form JSON data */
+   "success": true,
+   "message": "OK"
 }
 ```
+--------------------
 
-**Response**
+##### Results
 
-```json
-{
-   "success": true,                 /* true or false */
-   "message": "OK"                  /* Or error message if fail */
-}
-```
+|**Return field** | **Description** |
+|--|--|
+| `success` | Whether the request was successful |
+| `message` | A message from the server|
 
 #### Get item
+
+Returns existing data from the database.
 
 ```
 GET https://grid/storage/:registration-id/:context/:id
 ```
 
-**Response**
+##### Path parameters
 
+|**Parameter** | **Required or Optional**|**Description** | **Type**|
+|--|--|--|--|
+| `registration-id` | Required|The registration ID that was used to register the data | string|
+| `context` | Required|The name of the context that the data is in | string|
+|`id`| Required|The name of the data that you want to read| string|
+
+##### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+headers = {
+    'content-type': 'application/json'
+}
+
+request = urllib2.Request(url="https://grid/registration/:registration-id/:context/:id", headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var options = {
+  url: 'https://grid/registration/:registration-id/:context/:id',
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
+```bash
+curl https://grid/registration/:registration-id/:context/:id \
+-X GET \
+-H 'Content-Type: application/json'
+```
+--------------------
+
+##### Response examples
+--------------------
+### 200
 ```json
 {
-   "success": true,        /* true or false */
-   "message": "OK",        /* Or error message if fail */
-   "item": ...             /* free-form JSON data */
+   "success": true,
+   "message": "OK",
+   "item": {
+      "myCustomData": "Some data"
+   }
 }
 ```
+--------------------
+
+##### Results
+
+|**Return field** | **Description** |
+|--|--|
+| `success` | Whether the request was successful |
+| `message` | A message from the server|
+|`item`|The JSON data that was found|
 
 #### Delete item
 
-By omitting the context or ID, you can remove whole folder structures.
+Deletes existing items.
 
 ```
 DELETE https://grid/storage/:registration-id/:context?/:id?
 ```
 
-**Response**
+##### Path parameters
 
+|**Parameter** | **Required or Optional**|**Description** | **Type**|
+|--|--|--|--|
+| `registration-id` | Required|The registration ID that was used to register the data. If you omit the `context` and `id` parameters, all the data that is saved for this ID will be deleted. | string|
+| `context` | Optional|The name of the context that you want to delete. If you omit the `id` parameter, all data in this context will be deleted. | string|
+|`id`| Optional|The name of the data that you want to delete| string|
+
+##### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+headers = {
+    'content-type': 'application/json'
+  }
+
+request = urllib2.Request(url="https://grid/registration/:registration-id", headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var options = {
+  url: 'https://grid/registration/:registration-id',
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
+```bash
+curl https://grid/registration/:registration-id \
+-X DELETE \
+-H 'Content-Type: application/json'
+```
+--------------------
+
+##### Response examples
+--------------------
+### 200
 ```json
 {
-   "success": true,           /* true or false */
-   "message": "OK"            /* Or error message if fail */
+   "success": true,
+   "message": "OK"
 }
 ```
+--------------------
 
-#### Read all
+##### Results
+
+|**Return field** | **Description** |
+|--|--|
+| `success` | Whether the request was successful |
+| `message` | A message from the server|
+
+#### Read all items
 
 Allows you to get items from the storage in a paged manner. Both page and page-size are optional and will default to 0 and 10 respectively.
 
@@ -342,7 +818,7 @@ GET https://grid/storage/:registration-id/:context?page?&page-size?
 }
 ```
 
-#### Example
+#### Examples
 
 A producer with a registration ID of ABC123 might want to store the details of its sources in a safe place instead of just locally for backup.
 
@@ -356,38 +832,3 @@ Or all the items for ABC123 could be deleted with
 https://grid/storage/ABC123/
 
 The producer could get all its items on page 5 with a page size of 10 with a GET call to https://grid/storage/ABC123/sources?page=5&pageSize=10
-
-### Grid MAM consumer channels
-
-When a consumer registers with the grid the grid will create a MAM channel that is updated with the payment requests. The grid will also track this information in its central DB but by providing a MAM channel a consumer can immediately see what they owe. The outstanding balance is calculated from the information read from the consumers Usage Channel in conjunction with the pricing from the producer's output channels.
-
-#### Payment payload
-
-```json
-{
-   "command": "payment-request",           /* the command */
-   "owed": 345,                            /* amount in IOTA owed
-                                              excludes pending transactions */
-   "usage": 123,                           /* the amount of kWh the payment is for */
-   "paymentIdOrAddress": "WWWWWW...XXXXXX" /* payment address for owed
-                                              balance payment to grid */
-}
-```
-
-### Grid payment addresses
-
-The payment addresses are the ones published to the consumer's channels to receive payments. The `paymentIdOrAddress` can be the an actual IOTA address or a reference that the consumer can use to make payments with a different method. After the grid has taken its cut of the IOTAs the rest will be added to a central pool which will be allocated to the producers based on time periods and asking prices.
-
-### Consumer MAM usage channel
-
-The consumer's MAM Usage Channel will be continuously updated with the consumer's usage based on time periods. The grid monitors the channel to calculate how much the consumer owes.
-
-#### Payload
-
-```json
-{
-   "startTime": 1542267468229,         /* ms since 1900 */
-   "endTime": 1542267469229,           /* ms since 1900 */
-   "usage": 1.234                      /* kWh */
-}
-```

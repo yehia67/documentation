@@ -1,24 +1,35 @@
 # Peer-to-peer energy grid
 
-**Although the supply of energy is often automated, the payment system is expensive to integrate and often requires manual intervention. By creating a peer-to-peer (P2P) energy grid with IOTA, you can automate the transfer of power and the payment for that power. This automation makes your infrastructure more dynamic and easier to update.**
+**Although the supply of energy is often automated, the payment system is expensive to integrate and often requires manual intervention. By creating a peer-to-peer (P2P) energy grid with IOTA, you can automate the transfer of power and the automatic payment for that power. This automation makes your infrastructure more dynamic and easier to update.**
 
-This blueprint demonstrates how entities in a P2P energy grid can trade energy. The distributed and machine-based nature of the P2P energy grid make this an ideal use case for IOTA. Using IOTA technologies, you can create an infrastructure where even low-powered devices can communicate with the grid in a traceable and immutable way.
+## Business case
 
-Trading energy on a P2P energy grid involves four high-level entities:
+Peer-to-peer energy (P2P) trading is the buying and selling of energy between two or more grid-connected parties. For example, anyone with excess solar energy can transfer and sell that energy to others, giving consumers more freedom over where they source their energy.
 
-**Entity** | **Role**
----|---
-**Source**|Generate electricity such as solar or wind for a producer|
-**Producer**| Manage several sources and receive payment from the grid
-**Consumer** |Use the power provided by the grid in return for payment|
-**Grid**| Coordinate the distribution of power from the producers to the consumers, and distribute payments|
- 
+At the moment, excess solar energy is sent back to the grid for a small fixed price. This way of dealing with excess energy gives the energy companies control over how much that energy is worth.
+
+The table below summarizes the different stakeholders and roles considered in this example business case. The table also shows how complex it is to keep track of all the relations involved in the handling of returnable assets.
+
+**Entity** | **Role**|
+|:---|:---|
+|**Source**|Generate electricity such as solar or wind for a producer|
+|**Producer**| Manage several sources and receive payment from the grid|
+|**Consumer** |Use the power provided by the grid in return for payment|
+|**Grid**| Coordinate the distribution of power from the producers to the consumers, and distribute payments|
 
 ![P2P Energy PoC - Use Case Picture](../images/p2p_use_case.png)
 
-:::info:
-This blueprint can be replicated in any scenario where a resource is distributed to consumers in return for payment, for example water supply.
-:::
+## Challenges
+
+To be able to sell energy to others without going through the grid, energy producers need a common network that allows payments.
+
+## Solution
+
+By using IOTA technologies, entities can communicate with the grid in a traceable and immutable way.
+
+## Demo
+
+Neither a demonstration of this application nor deployment instructions are  available at the moment.
 
 ## Additional resources
 

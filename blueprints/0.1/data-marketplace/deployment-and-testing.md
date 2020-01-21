@@ -1,4 +1,4 @@
-# Deploy and test the Data Marketplace app
+# Deploy and test the Data Marketplace demo
 
 **To start buying and selling data streams on the Data Marketplace, deploy your own application, or test it in our demo app.**
 
@@ -52,7 +52,7 @@ Choose from one of the following cloud services:
 
 ### IOTA knowledge
 
-An understanding of MAM channels.
+An understanding of [MAM channels](root://client-libraries/0.1/mam/introduction/overview.md).
 
 ## Deploy the Data Marketplace app
 
@@ -65,7 +65,7 @@ To deploy your own data marketplace, follow the instructions in these blog posts
 
 Instead of deploying your own data marketplace, you can test our demo app by adding your own device to it.
 
-1. Go to the [Dashboard ​page](https://data.iota.org/#/dashboard) to log in. Here you will see a Google OAuth login screen. Click **Sign in with Google**
+1. Go to the [Dashboard ​page](https://data.iota.org/#/dashboard) to log in. Here, you will see a Google OAuth login screen. Click **Sign in with Google**
 
 2. Create a new device
 
@@ -73,7 +73,7 @@ Instead of deploying your own data marketplace, you can test our demo app by add
     You can create up to 5 devices per account with the default settings. This number can be adjusted upon request.
     :::
 
-3. Enter some basic information about your device. Make sure you complete the fields relating to the data streams you would like to collect.
+3. Enter some information about your device. Make sure you complete the fields relating to the data streams you would like to collect.
 
     * **Device ID**: This ID should be unique among all existing sensors and will serve as access key when purchasing a data stream. Please note that the ID must begin with a letter ([a-z]) and may be followed by any number of letters, digits ([0–9]), hyphens (“-”), and underscores (“_”). Max allowed length is set to 40 characters. 
     * **Device Type**: Plain text type description, that helps other Data Marketplace participants identify potential usage of the sensors’ data stream. Typical examples: “weather station”, “tracking device”, “charging station”. 
@@ -89,27 +89,27 @@ Instead of deploying your own data marketplace, you can test our demo app by add
     * **Field Name**: Plain text parameter description that indicates the purpose of the field. Max allowed length is set to 40 characters. 
     * **Field Unit**: [Physical quantities](https://en.wikipedia.org/wiki/List_of_physical_quantities) and [units](https://whatis.techtarget.com/reference/Table-of-Physical-Units) ​abbreviation, primarily in the International [System of Units](https://whatis.techtarget.com/reference/Table-of-Physical-Units) ​(SI). It can also be a unit of [environmental measurements](https://www.fondriest.com/environmental-measurements/parameters/), like humidity, air quality, precipitation, wind speed or direction. Please keep the length of this field within 20 characters.
 
-4. Click **Download Publish Script** to download of a preconfigured .zip archive that contains examples and documentation on how to store data in the Tangle for your device
+4. Click **Download Publish Script** to download of a preconfigured `.zip` archive that contains examples and documentation on how to store data in the Tangle for your device
 
 5. Extract the content of the archive, and open the folder in a code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) to start working with the script
 
     :::info:
-    Read the README.md file before you start using the script.
+    Read the` README.md` file before you start using the script.
     :::
 
-    The script is pre-configured to publish data for the selected device. You’ll find the sensor ID and it’s secret key in the config.json file.
+    The script is pre-configured to publish data for the selected device. You’ll find the sensor ID and its secret key in the `config.json` file.
 
     If you decide to use the same script for multiple sensors, please note that the secret key should be changed as well. Otherwise you won’t be able to decrypt your published data.
 
-    By default the script runs in debug mode, which means that no data is published. All captured data is printed out in the console, so you can verify and adjust it. Once the payload looks good, you can disable debug mode by setting the debug variable to false in the config.json file (see screenshot below), and let data be published.
+    By default the script runs in debug mode, which means that no data is published. All captured data is printed out in the console, so you can verify and adjust it. Once the payload looks good, you can disable debug mode by setting the debug variable to false in the `config.json` file (see screenshot below), and let data be published.
 
-    Please note that the Proof-of-Work​ operation is conducted for every data package, which might take up to 60 seconds depending on your hardware. Please take this into account and do not interrupt the script while running this operation.
+    Please note that proof of work is done for every data package, which might take up to 60 seconds depending on your hardware. Please take this into account and do not interrupt the script while running this operation.
 
 6. See the [blog post]​(https://blog.iota.org/the-iota-data-marketplace-a-tech-intro-part-3-eea5cbcd1eb7) to learn more about publishing sensor data to IOTA Tangle
 
 ### Create and fund a new wallet
 
-You can fund a device's wallet with free IOTA tokens. We usually transfer between 100000 i and 1000000 i of Devnet tokens for free to your new device's wallet.
+You can fund a device's wallet with free IOTA tokens. We usually transfer between [100 Ki and 1 Mi](root://getting-started/0.1/clients/token.md) of Devnet tokens for free to your new device's wallet.
 
 :::info:
 Devnet tokens can't be used on the Mainnet or exchanged on any cryptocurrency exchange.
@@ -119,19 +119,17 @@ Devnet tokens can't be used on the Mainnet or exchanged on any cryptocurrency ex
 
 2. Go to the Sensor ​page, in the top right corner you will find a button to fund your wallet
 
-Please do not interrupt this operation by refreshing the page or navigating to another page of the application. Once IOTA token transfer is completed, the balance of the wallet is automatically updated.
+Do not interrupt this operation by refreshing the page or navigating to another page of the application. After the transfer is complete, the balance of the wallet is automatically updated.
 
 Alternatively, you can [use the API to fund a wallet](https://data.iota.org/static/docs#create-and-fund-wallet).
 
 ### Fund an existing wallet
 
-If your wallet balance is low, you can fund it with more Devnet tokens by using the IOTA faucet.
+If your wallet balance is low, you can fund it with more Devnet tokens by using the [IOTA faucet](root://getting-started/0.1/tutorials/get-test-tokens.md).
 
 :::info:
-Devnet tokens can't be used on the Mainnet or exchanged on any cryptocurrency exchange platform.
+You can a new address to which to send the tokens by calling the [`getUser`](https://data.iota.org/static/docs#get-user) endpoint.
 :::
-
-Go to the Faucet ​page, enter your wallet address, that you can get by calling the [`getUser`](https://data.iota.org/static/docs#get-user) endpoint. You also need to solve the captcha.
 
 ### Query a data stream
 

@@ -61,7 +61,7 @@ To run this application on Windows, enter the following commands in Git Bash.
     
     |**Configuration option**|**Description**|**Notes**|
     |:----|:-----|:-----|
-    |`Auto refresh address` |Set this option to `y` to allow the application to generate a new address from your seed and security level whenever you withdraw from the displayed address|
+    |`Auto refresh address`|Set this option to `y` to allow the application to generate a new address from your seed and security level whenever you withdraw from the displayed address|
     |`Seed`|Set this option to the [seed](root://getting-started/0.1/clients/seeds.md) that you want the application to use to generate addresses|This option is displayed only when you set the `Auto refresh address` to `y`. The seed you enter must be a valid 81-tryte seed.|
     |`Security Level`| Set this option to the [security level](root://getting-started/0.1/clients/security-levels.md) that you want the application to use to generate addresses from your seed| This option is displayed only when you set the `Auto refresh address` to `y`. You must enter a valid security level (1, 2, or 3).|
 
@@ -175,7 +175,7 @@ If you see this error message, do the following:
     cd ../../
     ```
 
-You should not see the error message about whitespace.
+You should no longer see the error message about whitespace.
 
 Now, you can continue to configure, build, and flash the application.
 

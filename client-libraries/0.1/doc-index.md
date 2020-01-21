@@ -72,9 +72,9 @@
 
 [How-to guides/JavaScript/Help a bundle to become confirmed](/how-to-guides/js/confirm-pending-bundle.md)
 
-[How-to guides/JavaScript/Convert data to/from trytes](/how-to-guides/js/derive-addresses-from-private-keys.md)
+[How-to guides/JavaScript/Convert data to/from trytes](/how-to-guides/js/convert-data-to-trytes.md)
 
-[How-to guides/JavaScript/Derive addresses from private keys](/how-to-guides/js/convert-data-to-trytes.md)
+[How-to guides/JavaScript/Derive addresses from private keys](/how-to-guides/js/derive-addresses-from-private-keys.md)
 
 [How-to guides/Python/Get started](/how-to-guides/python/get-started.md)
 

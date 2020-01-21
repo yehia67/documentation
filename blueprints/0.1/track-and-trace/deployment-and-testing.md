@@ -1,21 +1,19 @@
-# Deploy and test the track and trace app
+# Deploy and test the track and trace demo
 
-**To start tracking data on the Tangle, deploy the application and use our graphical user interface to search for and upload assets.**
+**To start tracking data on the Tangle, deploy the application and use our graphical user interface to trace existing assets and create new ones.**
 
 ## Prerequisites
 
-You must know how to do the following:
+To test and deploy this application, you need the following:
 
-- [Deploy a Firebase server](https://firebase.google.com/)
+- Node.js installed on your device
+- An instance of a [Firebase server](https://firebase.google.com/)
+- Access to an [IRI node's API](root://node-software/0.1/iri/how-to-guides/get-started-with-the-api.md)
 
-- [Connect to an IRI node](root://node-software/0.1/iri/how-to-guides/get-started-with-the-api.md)
+## Deploy the track and trace app
 
-- Create a MAM channel and send messages through it using the [JavaScript client library](https://github.com/iotaledger/mam.client.js )
+To deploy this application on your local network, complete the instructions on [GitHub](https://github.com/iotaledger/trade-poc/blob/master/firebase_functions/README.md).
 
----
+## Test the track and trace app
 
-1. Find more details and re-usable code in the [Trade-PoC GitHub repository](https://github.com/iotaledger/trade-poc)
-
-2. To deploy your track and trace web app, follow these [instructions](https://github.com/iotaledger/trade-poc/blob/master/firebase_functions/README.md)
-
-3. To deploy the Firebase server, follow these [instructions](https://github.com/iotaledger/trade-poc/blob/master/README.md)
+When the app is running, you will find on-screen instructions for creating and tracing assets.

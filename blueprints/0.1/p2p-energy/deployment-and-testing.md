@@ -1,6 +1,12 @@
-# Deploy the P2P energy grid app
+# Deploy and test the P2P energy grid demo
 
 **To start using the P2P energy grid app, deploy your own application.**
+
+:::info:
+Deployment instructions are not yet available for this blueprint.
+:::
+
+<!--
 
 ## Prerequisites
 
@@ -46,11 +52,7 @@ An understanding of MAM channels.
 
 ## Deploy the P2P energy grid app
 
-<!--The deployment instructions are documented in the [GitHub repository](https://github.com/iotaledger/poc-p2p-energy).-->
-
-:::info:
-The deployment instructions will be available in May.
-:::
+The deployment instructions are documented in the [GitHub repository](https://github.com/iotaledger/poc-p2p-energy).
 
 Sources running on RPi need the following:
 - Local area network (LAN) or wide area network (WAN) connection to the grid
@@ -70,3 +72,4 @@ Consumers running on RPi need the following:
 Grids running in the cloud or on a local server need the following:
 - WAN connection
 - Connection to an IOTA node
+-->
