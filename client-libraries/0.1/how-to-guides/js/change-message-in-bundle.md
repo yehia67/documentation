@@ -110,14 +110,16 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 
     ```js
     iota.sendTrytes(newTrytes.reverse(),3,9).then(transactions => {
-    // Print the message to the console
-    console.log(transactions[0].signatureMessageFragment);
+    // Print your new tail transaction hash to the console
+    console.log(transactions[0].hash);
     })
     ```
 
     :::info:
     You reverse the bundle array because the library expects bundles to be sent head first.
     :::
+
+Now, you can [search for your new tail transaction](https://devnet.thetangle.org/) on the Tangle and see that it's in a bundle with the same bundle hash as the original.
 
 :::success:Congratulations :tada:
 You've just changed the message of a tail transaction in a bundle and reattached a copy of that bundle to the Tangle.
