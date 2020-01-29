@@ -1,6 +1,6 @@
 # Monitor your node for incoming transactions
 
-**When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event to monitor your node for incoming transactions.**
+**When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). In this guide, you subscribe to the transaction event to monitor your node for incoming transactions.**
 
 You can receive this transaction data from a node by doing the following:
 
@@ -155,6 +155,6 @@ If we take this data as a random example, it corresponds to the following:
 
 :::info:
 The `value` field has a non-zero value so that the transaction hash is unique for each transaction. No IOTA tokens are transferred.
-At the moment, the ZMQ endpoint only supports the `tx` event.
+At the moment, the ZMQ endpoint supports only the `tx` event.
 ::: 
 

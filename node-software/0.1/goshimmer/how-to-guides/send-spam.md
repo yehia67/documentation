@@ -1,15 +1,23 @@
 # Send spam transactions to your node
 
-**To test how many transactions per second your node can process, you can use a `spammer` API endpoint to send it spam transactions.**
+**In this guide, you test how many transactions per second your node can process by using the `spammer` API endpoint to send it spam transactions.**
 
 When you send your node spam transactions, it processes them, adds them to its ledger, and forwards them to its neighbors for processing.
 
-1. Open a web browser and enter the following into the address bar. If you want to access your node through the Internet, replace `localhost` with your IP address.
+## Prerequisites
 
-    `http://localhost:8080/spammer?cmd=start`
+To complete this guide, you must have [cURL](https://curl.haxx.se/) installed on your device.
+
+---
+
+1. Open a command prompt and enter the following request. If you want to access your node over the Internet, replace `localhost` with your public IP address.
+
+    ```bash
+    curl -X POST -H 'Content-Type:application/json' -H 'X-IOTA-API-Version:1' -d "{'cmd':'start', 'tps':1000}" http://localhost:8080/spammer
+    ```
 
     :::info:
-    By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 10,000 TPS, send a request to the following endpoint `http://localhost:8080/spammer?cmd=start&tps=10000`
+    This example sends your node 1,000 transactions per second (TPS). If you want to change the TPS, you can change the value of the `tps` field.
     :::
 
 2. To check that your node is receiving transactions, open the dashboard by going to `http://localhost:8081/dashboard` in a web browser
