@@ -7,15 +7,20 @@ In this series of articles, we start from the basics to show you how to set up s
 ## Supported boards
 
 ---------------
-#### **nRF52** ####
-[nRF52](../nrf52/introduction/get-started.md)
+#### **CryptoCore** ####
+[CryptoCore](../cryptocore/introduction/get-started.md)
 
-The nRF52 is power-efficient series of microcontrollers that supports Bluetooth Low Energy (BLE), allowing you to build low-power wireless solutions.
+The CryptoCore is IOTA hardware designed for applications that need fast, dedicated proof of work and a secure memory.
 ---
 #### **ESP32** ####
 [ESP32](../esp32/introduction/get-started.md)
 
 The ESP32 is a WiFi-compatible microcontroller that also support Bluetooth Low Energy (BLE).
+---
+#### **nRF52** ####
+[nRF52](../nrf52/introduction/get-started.md)
+
+The nRF52 is a power-efficient series of microcontrollers that supports Bluetooth Low Energy (BLE), allowing you to build low-power wireless solutions.
 ---
 #### __Single-board computers__ ####
 [SBC](../sbc/introduction/get-started.md)

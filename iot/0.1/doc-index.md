@@ -2,6 +2,8 @@
 
 [Introduction/Overview](/introduction/overview.md)
 
+[CryptoCore/Introduction/Get started with the CryptoCore](/cryptocore/introduction/get-started.md)
+
 [ESP32/Introduction/Get started with the ESP32](/esp32/introduction/get-started.md)
 
 [ESP32/IOTA Projects/Run a command-line wallet](/esp32/iota-projects/create-a-wallet.md)
