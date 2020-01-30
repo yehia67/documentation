@@ -92,17 +92,7 @@ request(options, function (error, response, data) {
 ---
 ### cURL
 ```bash
-curl http://localhost:14265 \
--X POST \
--H 'Content-Type: application/json' \
--H 'X-IOTA-API-Version: 1' \
--d '{
-  "command": "addNeighbors",
-  "uris": [
-    "tcp://8.8.8.8:14265",
-    "tcp://8.8.8.8:14265"
-  ]
-}'
+curl http://localhost:14265 -X POST -H 'Content-Type: application/json' -H 'X-IOTA-API-Version: 1' -d '{"address":"", "data":""}'
 ```
 --------------------
 
@@ -554,16 +544,7 @@ request(options, function (error, response, data) {
 ---
 ### cURL
 ```bash
-curl http://localhost:14265 \
--X POST \
--H 'Content-Type: application/json' \
--H 'X-IOTA-API-Version: 1' \
--d '{
-  "command": "findTransactions",
-  "addresses": [
-    "RVORZ9SIIP9RCYMREUIXXVPQIPHVCNPQ9HZWYKFWYWZRE9JQKG9REPKIASHUUECPSQO9JT9XNMVKWYGVA"
-  ]
-}'
+curl http://localhost:8080/broadcastData -X POST -H 'Content-Type: application/json' -H 'X-IOTA-API-Version: 1' -d '{"address": "RVORZ9SIIP9RCYMREUIXXVPQIPHVCNPQ9HZWYKFWYWZRE9JQKG9REPKIASHUUECPSQO9JT9XNMVKWYGVA", "data": "TEST"}'
 ```
 --------------------
 

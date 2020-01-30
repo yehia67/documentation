@@ -34,7 +34,10 @@
 [GoShimmer/Introduction/Overview](/goshimmer/introduction/overview.md)
 [GoShimmer/How-to Guides/Run a GoShimmer node](/goshimmer/how-to-guides/run-the-node.md)
 [GoShimmer/How-to Guides/Send spam transactions to your node](/goshimmer/how-to-guides/send-spam.md)
-[GoShimmer/How-to Guides/Subscribe to events](/goshimmer/how-to-guides/subscribe-to-events.md)
-[GoShimmer/References/Command-line flags](/goshimmer/references/command-line-flags.md)
+[GoShimmer/References/API reference](/goshimmer/references/api-reference.md)
+[GoShimmer/References/Client library](https://github.com/iotaledger/goshimmer/tree/master/client)
+[GoShimmer/Community Resources/Overview](/iri/references/community-resources.md)
+[GoShimmer/Community Resources/GoShimmer playbook](https://github.com/nuriel77/goshimmer-playbook)
+
 
 
