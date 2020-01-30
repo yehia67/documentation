@@ -23,7 +23,7 @@ To complete this guide, you need the following:
     This example sends your node 1,000 transactions per second (TPS). If you want to change the TPS, you can change the value of the `tps` field.
     :::
 
-2. To check that your node is receiving transactions, open the visualizer by going to `http://localhost:8083` in a web browser
+2. To check that your node is receiving transactions, open the visualizer by going to `http://localhost:8082` in a web browser
 
     ![GoShimmer visualizer](../images/visualizer.png)
     
