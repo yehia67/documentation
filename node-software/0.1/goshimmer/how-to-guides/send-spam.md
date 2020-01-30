@@ -4,9 +4,12 @@
 
 When you send your node spam transactions, it processes them, adds them to its ledger, and forwards them to its neighbors for processing.
 
+
 ## Prerequisites
 
-To complete this guide, you must have [cURL](https://curl.haxx.se/) installed on your device.
+To complete this guide, you need the following:
+- [A GoShimmer node](../how-to-guides/run-the-node.md) with the `spammer` plugin enabled
+- [cURL](https://curl.haxx.se/) installed on your device
 
 ---
 
@@ -20,9 +23,9 @@ To complete this guide, you must have [cURL](https://curl.haxx.se/) installed on
     This example sends your node 1,000 transactions per second (TPS). If you want to change the TPS, you can change the value of the `tps` field.
     :::
 
-2. To check that your node is receiving transactions, open the dashboard by going to `http://localhost:8081/dashboard` in a web browser
+2. To check that your node is receiving transactions, open the visualizer by going to `http://localhost:8083` in a web browser
 
-    ![GoShimmer dashboard](../images/goshimmer-web-ui.png)
+    ![GoShimmer visualizer](../images/visualizer.png)
     
     :::info:
     The displayed TPS may be lower than the value of the `tps` parameter you used. The reason for this difference may be due to limits with your computer hardware.
@@ -30,4 +33,6 @@ To complete this guide, you must have [cURL](https://curl.haxx.se/) installed on
 
 ## Next steps
 
-Now that your node is receiving transactions, you can [monitor it for incoming transaction](../how-to-guides/subscribe-to-events.md) to see the transaction data.
+Go to the [GoShimmer GitHub repository](https://github.com/iotaledger/goshimmer) to learn more or to get involved in development.
+
+See the [API reference](../references/api-reference.md) to find out which other endpoints are available.

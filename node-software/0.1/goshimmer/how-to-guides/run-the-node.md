@@ -83,6 +83,8 @@ When you run the node, it joins the network by autopeering with the entry node t
     
     ```bash
     git clone https://github.com/iotaledger/goshimmer.git
+    git submodule init
+    git submodule update
     ```
 
 2. Change into the `goshimmer` directory
@@ -97,17 +99,25 @@ When you run the node, it joins the network by autopeering with the entry node t
     docker build -t goshimmer .
     ```
 
-4. Run the Docker image
+4. Open the `docker.config.json` file and replace the `enablePlugins` field with the following to enable the spammer API endpoint and the Tangle visualizer
+
+    ```bash
+    "enablePlugins":["spammer", "graph"]
+    ```
+
+    :::info:
+    You can run the image with the `-h` or `--help` flag to see a list of all configuration options.
+    :::
+
+5. Run the Docker image
 
     :::info:
     If you have [Docker Compose](https://docs.docker.com/compose/), you can also use the `docker-compose up -d` command.
     :::
 
     ```bash
-    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer --node.enablePlugins "spammer zeromq dashboard"
-    ```
-
-    Here, we run the Docker image in the background, forward the ports from your host device to the Docker container, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
+    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer
+    ```   
 
     The container ID is displayed in the console.
 
@@ -171,6 +181,8 @@ To complete this guide, you need the following:
     
     ```bash
     git clone https://github.com/iotaledger/goshimmer.git
+    git submodule init
+    git submodule update
     ```
 
 ### Step 2. Run the node
@@ -198,20 +210,28 @@ When you run the node, it joins the network by autopeering with the entry node t
 
     Now, you have a file called `goshimmer` that you need to execute.
 
-3. Use one of the following commands to execute the `goshimmer` file, depending on your operating system:
+3. Open the `config.json` file and replace the `enablePlugins` field with the following to enable the spammer API endpoint and the Tangle visualizer
+
+    ```bash
+    "enablePlugins":["spammer", "graph"]
+    ```
+
+    :::info:
+    You can run the image with the `-h` or `--help` flag to see a list of all configuration options.
+    :::
+
+4. Use one of the following commands to execute the `goshimmer` file, depending on your operating system:
 
     ```bash
     # Linux and macOS
-    ./goshimmer --node.enablePlugins "spammer zeromq dashboard"
+    ./goshimmer --node.enablePlugins "spammer"
     # Windows
-    .\ goshimmer --node.enablePlugins "spammer zeromq dashboard"
+    .\ goshimmer --node.enablePlugins "spammer"
     ```
 
-Here, we run the run the node in the background, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
-
-:::info:
-If you see a `permission denied` error, try executing the file as an administrator.
-:::
+    :::info:
+    If you see a `permission denied` error, try executing the file as an administrator.
+    :::
 
 :::success:Congratulations :tada:
 You're now running a GoShimmer node.
