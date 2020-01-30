@@ -1,6 +1,16 @@
-# CryptoCore RS232 API
+# CryptoCore API
 
-**The CryptoCore exposes an RS232 API, which you can call over a UART connection. For example, you could send API calls through a device that's connected to the CryptoCore over USB.**
+**The CryptoCore exposes an RS232 API, which you can call over a UART connection. For example, you could send API calls through a device that's connected to the CryptoCore over USB. This API reference also shows you how to use the REST API server, that we started in [this guide](../introduction/get-started.md).**
+
+<!--## REST API header
+
+All REST API requests must include an HTTP header.
+
+| **Header**       | **Value** | **Required or Optional** |
+|:---------------|:--------|:--------|
+| X-IOTA-API-Version | 1 | Required |
+| Content-Type | application/json | Required |
+-->
 
 ## setFlags
 
@@ -33,6 +43,10 @@ element by calling the [`initSecureElement`](#initsecureelement) command.
     }
 }
 ```
+
+### REST example requests
+
+
 
 ### Response examples
 

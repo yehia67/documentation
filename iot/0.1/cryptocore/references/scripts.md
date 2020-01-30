@@ -3,7 +3,7 @@
 **To make it easier to use the CryptoCore with a Raspberry Pi, we have the following scripts that take care of some common tasks.**
 
 :::info:
-All scripts are in the `raspberry_scripts` directory in the `iccfgpa_utils` GitHub repository.
+All scripts are in the `raspberry_scripts` directory in the [`iccfgpa_utils` repository](https://gitlab.com/iccfpga-rv/iccfpga-utils).
 :::
 
 ---------------
