@@ -10,6 +10,8 @@
 
 [Community support/ZMQ processor/Get started](/community/zmq-processor/overview.md)
 
+[Official support/Client load balancer/Get started](/official/load-balancer/overview.md)
+
 [Official support/IOTA area codes/Get started](/official/iota-area-codes/overview.md)
 
 [Official support/Proof of existence/Get started](/official/proof-of-existence/overview.md)
