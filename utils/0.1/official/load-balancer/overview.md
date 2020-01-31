@@ -26,7 +26,7 @@ yarn add iotaledger/client-load-balancer
 ```
 --------------------
 
-### Create an instance of the client load balancer
+## Create an instance of the client load balancer
 
 Each instance of the client load balancer can include the following options:
 
@@ -48,7 +48,6 @@ In this guide, we use a random walk strategy that selects the next node in the l
     ```
 
 2. Configure an API object with two [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) nodes 
-
 
     ```js
     const devnetApi = composeAPI({
