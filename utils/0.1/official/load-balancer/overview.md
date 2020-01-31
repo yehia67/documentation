@@ -49,7 +49,6 @@ In this guide, we use a random walk strategy that selects the next node in the l
 
 2. Configure an API object with two [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) nodes 
 
-
     ```js
     const devnetApi = composeAPI({
         nodeWalkStrategy: new RandomWalkStrategy(
