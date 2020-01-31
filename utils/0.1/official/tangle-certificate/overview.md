@@ -10,13 +10,27 @@ First, we create a certificate background that we can use to create a template. 
 
 ### Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this guide, you need the following:
 
 - Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 - Access to a command-line interface
 
-- The [`axios`](https://www.npmjs.com/package/axios) package
+### Packages
+
+To complete this guide, you need to install the following package:
+
+--------------------
+### npm
+```bash
+npm install axios
+```
+---
+### Yarn
+```bash
+yarn add axios
+```
+--------------------
 
 ### Step 1. Get API credentials
 

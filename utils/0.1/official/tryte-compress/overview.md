@@ -14,13 +14,27 @@ Then, we use the [trytes compressor API](https://github.com/iotaledger/tryte-com
 
 ### Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this guide, you need the following:
 
 - Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 - Access to a command-line interface
 
-- The `@iota/core`, `@iota/converter`, and `@iota/tryte-compress` packages
+### Packages
+
+To complete this guide, you need to install the following packages:
+
+--------------------
+### npm
+```bash
+npm install @iota/core @iota/converter @iota/tryte-compress
+```
+---
+### Yarn
+```bash
+yarn add @iota/core @iota/converter @iota/tryte-compress
+```
+--------------------
 
 ### Step 1. Set up the sample
 
