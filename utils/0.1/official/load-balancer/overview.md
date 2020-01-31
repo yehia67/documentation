@@ -26,7 +26,7 @@ yarn add iotaledger/client-load-balancer
 ```
 --------------------
 
-### Create an instance of the client load balancer
+## Create an instance of the client load balancer
 
 Each instance of the client load balancer can include the following options:
 
