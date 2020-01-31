@@ -20,12 +20,12 @@ Uploads the CryptoCore program into RAM.
 #### **flash_core.sh** ####
 [flash_core.sh](https://gitlab.com/iccfpga-rv/iccfpga-utils/blob/master/raspberry_scripts/flash_core.sh)
 
-Flashes the CryptoCore program into the SPI flash.
+Flashes the CryptoCore program into the QSPI flash.
 ---
 #### **flash_erase.sh** ####
 [flash_erase.sh](https://gitlab.com/iccfpga-rv/iccfpga-utils/blob/master/raspberry_scripts/flash_erase.sh)
 
-Deletes any programs in the SPI flash.
+Deletes any programs in the QSPI flash.
 ---
 #### **start_xvc_server.sh** ####
 [start_xvc_server.sh](https://gitlab.com/iccfpga-rv/iccfpga-utils/blob/master/raspberry_scripts/start_xvc_server.sh)

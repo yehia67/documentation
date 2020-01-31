@@ -489,7 +489,7 @@ This command needs to be called only once.
 
 ## readFlashPage
 
-Reads 4 kB pages from the SPI flash memory. The output data is in base64 format.
+Reads 4 kB pages from the QSPI flash memory. The output data is in base64 format.
 
 ### Example request
 
@@ -526,7 +526,7 @@ Reads 4 kB pages from the SPI flash memory. The output data is in base64 format.
 
 ## writeFlashPage
 
-Writes 4 kB pages to the SPI flash memory. This way, the soft CPU can update the entire
+Writes 4 kB pages to the QSPI flash memory. This way, the soft CPU can update the entire
 system by writing new bitstreams into flash.
 
 :::info:
@@ -542,7 +542,7 @@ base64(keccak384(page+data+apiKey))
 
 |**Parameter**    |**Type** |   **Description**
 |:----------- |:--------- |:-----------------------------------------------------------
-|`page`      |integer|  page number in SPI flash. Valid values are between 0 and 4095.
+|`page`      |integer|  page number in QSPI flash. Valid values are between 0 and 4095.
 |`data`     | string  | 4 kB data in base64 encoding
 |`auth`  |    string |  Checksum and authentication
                         

@@ -60,7 +60,7 @@ Complete the following steps in an ssh session between your PC and the Raspberry
 
 5. Upload the CryptoCore program
 
-  If you want the CryptoCore program to be available after a reboot, flash it into the SPI flash memory
+  If you want the CryptoCore program to be available after a reboot, flash it into the QSPI flash memory
 
   ```bash
   sudo ./flash_core.sh
@@ -72,7 +72,7 @@ Complete the following steps in an ssh session between your PC and the Raspberry
   sudo ./upload_core.sh
   ```
 
-6. If you flashed the CryptoCore program into the SPI flash memory, restart your Raspberry Pi
+6. If you flashed the CryptoCore program into the QSPI flash memory, restart your Raspberry Pi
 
 You should see a flashing LED on the CryptoCore, which means that the program was successfully uploaded.
 
