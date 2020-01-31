@@ -12,6 +12,11 @@ The following utilities are maintained by us at the IOTA Foundation. Use these l
 
 Tag an IOTA transaction with a geo-location, and find others with the same tag.
 ---
+#### **Client load balancer** ####
+[Link](../official/load-balancer/overview.md)
+
+Configure the JavaScript client library with backup nodes in case of request errors
+---
 
 #### **Proof-of-existence provider** ####
 [Link](../official/proof-of-existence/overview.md)
