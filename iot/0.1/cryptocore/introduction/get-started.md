@@ -8,7 +8,7 @@
 
 To complete this guide, you need the following:
 - A PC
-- A Raspberry Pi 3/4 with Raspbian installed on a micro SD card, SSH enabled, and the serial interface enabled
+- A Raspberry Pi 3/4 with Raspbian installed, an Internet connection, SSH enabled, and the serial interface enabled
 - A CryptoCore development kit
 
 On the CryptoCore development board, make sure that jumpers J7, J8, and J9 are set to `PI`:
@@ -20,7 +20,7 @@ On the CryptoCore development board, make sure that jumpers J7, J8, and J9 are s
 We recommend these external guides for setting up your Raspberry Pi:
 
 - [Install Raspian](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
-- [Enable SSH](https://www.raspberrypi.org/documentation/remote-access/ssh/)
+- [Connect to WiFi and enable SSH](https://www.e-tinkers.com/2017/03/boot-raspberry-pi-with-wifi-on-first-boot/)
 - [Enable the serial interface](https://www.raspberrypi.org/documentation/configuration/raspi-config.md)
 
 ## Step 1. Set up the CryptoCore development environment
