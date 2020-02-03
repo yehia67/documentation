@@ -15,7 +15,7 @@ To complete this guide, you need the following:
 1. Open a command prompt and enter the following request. If you want to access your node over the Internet, replace `localhost` with your public IP address.
 
     ```bash
-    curl -X POST -H 'Content-Type:application/json' -H 'X-IOTA-API-Version:1' -d "{'cmd':'start', 'tps':1000}" http://localhost:8080/spammer
+    curl -X GET -H 'Content-Type:application/json' -H 'X-IOTA-API-Version:1' http://127.0.0.1:8080/spammer?cmd=start&tps=1000
     ```
 
     :::info:
