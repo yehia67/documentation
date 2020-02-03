@@ -9,7 +9,7 @@
 To complete this guide, you need the following:
 - A PC
 - A Raspberry Pi 3/4 with Raspbian installed on a micro SD card, SSH enabled, and the serial interface enabled
-- A CryptoCore module
+- A CryptoCore development kit
 
 On the CryptoCore development board, make sure that jumpers J7, J8, and J9 are set to `PI`:
 
