@@ -4,8 +4,8 @@
 
 GoShimmer nodes run the prototype software that includes the following Coordicide modules:
 
-- **Auto-peering:** Each new node on the network tries to connect to four neighbors and accepts connections from a further four neighbors
-- **Node identities:** Each node creates a unique public/private key pair. The public key is used to identify nodes during auto-peering. In the future, these identities will allow nodes to receive mana.
+- **Autopeering:** Each new node on the network tries to connect to four neighbors and accepts connections from a further four neighbors
+- **Node identities:** Each node creates a unique public/private key pair. The public key is used to identify nodes during autopeering. In the future, these identities will allow nodes to receive mana.
 
 By running a GoShimmer node, you can test the cutting-edge developments in the next stage of the IOTA protocol.
 
@@ -41,7 +41,7 @@ We have the following channels for GoShimmer:
 
 ## Next steps
 
-[Run GoShimmer](../how-to-guides/run-the-node.md) to get started with testing the modules.
+[Run GoShimmer](../how-to-guides/run-the-node.md) to get started with your own node and test the modules.
 
 
 

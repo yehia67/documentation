@@ -4,11 +4,10 @@
 
 When you send your node spam transactions, it processes them, adds them to its ledger, and forwards them to its neighbors for processing.
 
-
 ## Prerequisites
 
 To complete this guide, you need the following:
-- [A GoShimmer node](../how-to-guides/run-the-node.md) with the `spammer` plugin enabled
+- [A GoShimmer node](../how-to-guides/run-the-node.md) with the `spammer` and `dashboard` plugins enabled
 - [cURL](https://curl.haxx.se/) installed on your device
 
 ---
@@ -23,9 +22,9 @@ To complete this guide, you need the following:
     This example sends your node 1,000 transactions per second (TPS). If you want to change the TPS, you can change the value of the `tps` field.
     :::
 
-2. To check that your node is receiving transactions, open the visualizer by going to `http://localhost:8082` in a web browser
+2. To check that your node is receiving transactions, open the dashboard by going to `http://127.0.0.1:8081` in a web browser
 
-    ![GoShimmer visualizer](../images/visualizer.png)
+    ![GoShimmer dashboard](../images/dashboard.png)
     
     :::info:
     The displayed TPS may be lower than the value of the `tps` parameter you used. The reason for this difference may be due to limits with your computer hardware.

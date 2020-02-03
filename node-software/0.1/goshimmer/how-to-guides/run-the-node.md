@@ -99,10 +99,10 @@ When you run the node, it joins the network by autopeering with the entry node t
     docker build -t goshimmer .
     ```
 
-4. Open the `docker.config.json` file and replace the `enablePlugins` field with the following to enable the spammer API endpoint and the Tangle visualizer
+4. Open the `docker.config.json` file and replace the `enablePlugins` field with the following to enable the spammer API endpoint, the dashboard, and the Tangle visualizer
 
     ```bash
-    "enablePlugins":["spammer", "graph"]
+    "enablePlugins":["spammer", "graph", "dashboard"]
     ```
 
     :::info:
@@ -187,7 +187,7 @@ To complete this guide, you need the following:
 
 ### Step 2. Run the node
 
-When you run the node, it joins the network by autopeering with the entry node that's run by us at the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors.
+When you run GoShimmer, your node joins the rest of the network by autopeering with the entry node, which is run by the IOTA Foundation.
 
 1. Change into the `goshimmer` directory
 
@@ -210,10 +210,10 @@ When you run the node, it joins the network by autopeering with the entry node t
 
     Now, you have a file called `goshimmer` that you need to execute.
 
-3. Open the `config.json` file and replace the `enablePlugins` field with the following to enable the spammer API endpoint and the Tangle visualizer
+3. Open the `config.json` file and replace the `enablePlugins` field with the following to enable the spammer API endpoint, the dashboard, and the Tangle visualizer
 
     ```bash
-    "enablePlugins":["spammer", "graph"]
+    "enablePlugins":["spammer", "graph", "dashboard"]
     ```
 
     :::info:
@@ -224,9 +224,9 @@ When you run the node, it joins the network by autopeering with the entry node t
 
     ```bash
     # Linux and macOS
-    ./goshimmer --node.enablePlugins "spammer"
+    ./goshimmer
     # Windows
-    .\ goshimmer --node.enablePlugins "spammer"
+    .\ goshimmer
     ```
 
     :::info:
@@ -254,4 +254,8 @@ If you don't have any accepted neighbors, make sure that you've forwarded your `
 ## Next steps
 
 Now that your node is running, you can [send it spam transactions](../how-to-guides/send-spam.md) to test how many transactions per second your node can process.
+
+To see the transactions in the GoShimmer network's Tangle, open the visualizer by going to `http://127.0.0.1:8082` in a web browser.
+
+![GoShimmer visualizer](../images/visualizer.png)
 
