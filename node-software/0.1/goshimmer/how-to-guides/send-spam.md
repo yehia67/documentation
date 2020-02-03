@@ -7,7 +7,7 @@ When you send your node spam transactions, it processes them, adds them to its l
 ## Prerequisites
 
 To complete this guide, you need the following:
-- [A GoShimmer node](../how-to-guides/run-the-node.md) with the `spammer` and `dashboard` plugins enabled
+- [A GoShimmer node](../how-to-guides/run-the-node.md) with the `spammer` and enabled
 - [cURL](https://curl.haxx.se/) installed on your device
 
 ---

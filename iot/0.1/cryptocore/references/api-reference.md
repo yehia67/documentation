@@ -507,6 +507,7 @@ Reads 4 kB pages from the QSPI flash memory. The output data is in base64 format
 ```json
 {
     "code": 200,
+    "page":0,
     "command": "readFlashPage",
     "duration": 12,
     "data":"..base64.." 
@@ -526,8 +527,7 @@ Reads 4 kB pages from the QSPI flash memory. The output data is in base64 format
 
 ## writeFlashPage
 
-Writes 4 kB pages to the QSPI flash memory. This way, the soft CPU can update the entire
-system by writing new bitstreams into flash.
+Writes one or more 4 kB pages to the QSPI flash memory. This way, the soft CPU can update the entire system by writing new bitstreams into flash.
 
 :::info:
 Before you can call this command, do the following

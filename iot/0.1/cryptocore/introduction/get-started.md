@@ -45,7 +45,7 @@ Complete the following steps in an ssh session between your PC and the Raspberry
 3. Change into the `iccfpga-utils` directory and start the installer script, which clones, compiles, and installs all submodules
 
   ```bash
-  cd iccfpga-utils
+  cd iccfpga-utils/raspberry_scripts
   ./install_raspberry.sh
   ``` 
 
@@ -54,19 +54,19 @@ Complete the following steps in an ssh session between your PC and the Raspberry
 4. Download the core and firmware files
 
   ```bash
-  cd iccfpga-utils
+  cd iccfpga-utils/raspberry_scripts
   ./download_bin.sh
   ```
 
 5. Upload the CryptoCore program
 
-  If you want the CryptoCore program to be available after a reboot, flash it into the QSPI flash memory
+  If you want the CryptoCore program to be available after a reboot, flash it into the QSPI flash memory (takes up to 7 minutes):
 
   ```bash
   sudo ./flash_core.sh
   ```
 
-  If you want the CryptoCore program only to be available until the next reboot,upload it to RAM
+  If you want the CryptoCore program to be available only until the next reboot,upload it to RAM (takes a couple of seconds):
 
   ```bash
   sudo ./upload_core.sh
