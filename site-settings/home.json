@@ -50,6 +50,10 @@
         {
             "query": "set up a private tangle",
             "name": "Private Tangle"
+        },
+        {
+            "query": "cryptocore",
+            "name": "CryptoCore"
         }
     ],
     "cards": [

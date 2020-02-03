@@ -1,4 +1,4 @@
-# Node.js quickstart
+# JavaScript quickstart
 
 **In this quickstart, you learn the basics of IOTA development in Node.js, from setting up a development environment to listening for live transaction on the Tangle.**
 

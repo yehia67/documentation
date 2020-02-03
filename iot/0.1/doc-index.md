@@ -2,6 +2,14 @@
 
 [Introduction/Overview](/introduction/overview.md)
 
+[CryptoCore/Introduction/Get started with the CryptoCore](/cryptocore/introduction/get-started.md)
+
+[CryptoCore/References/API reference](/cryptocore/references/api-reference.md)
+
+[CryptoCore/References/Utility scripts](/cryptocore/references/scripts.md)
+
+[CryptoCore/References/CryptoCore manual](https://gitlab.com/iccfpga-rv/iccfpga-manual/blob/master/iccfpga.pdf)
+
 [ESP32/Introduction/Get started with the ESP32](/esp32/introduction/get-started.md)
 
 [ESP32/IOTA Projects/Run a command-line wallet](/esp32/iota-projects/create-a-wallet.md)
