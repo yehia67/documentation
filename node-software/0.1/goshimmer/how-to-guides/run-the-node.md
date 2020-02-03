@@ -27,9 +27,9 @@ In this section, you run a node on your native filesystem, using the pre-built e
 
     ```bash
     # Linux and macOS
-    ./goshimmer --node.enablePlugins "spammer" "graph"
+    ./goshimmer --node.enablePlugins "spammer","graph"
     # Windows
-    .\goshimmer --node.enablePlugins "spammer" "graph"
+    .\goshimmer --node.enablePlugins "spammer","graph"
     ```
 
     :::info:
