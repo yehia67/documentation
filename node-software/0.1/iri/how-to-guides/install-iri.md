@@ -66,7 +66,7 @@ MWM = 14
 
 This file configures IRI to run on the Devnet, exposes the API on port 14265, and does local snapshots.
 
-These neighbors have auto-peering enabled, so they will automatically add you as a neighbor.
+These neighbors have autopeering enabled, so they will automatically add you as a neighbor.
 
 ```shell
 [IRI]
@@ -317,7 +317,7 @@ MWM = 14
 
 This command configures IRI to be compatible with the Devnet, exposes its API on port 14265, and does local snapshots.
 
-These neighbors have auto-peering enabled, so they will automatically add you as a neighbor.
+These neighbors have autopeering enabled, so they will automatically add you as a neighbor.
 
 ```shell
 [IRI]
