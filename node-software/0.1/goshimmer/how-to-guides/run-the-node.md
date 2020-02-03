@@ -1,6 +1,6 @@
 # Run a GoShimmer node
 
-**In this guide, you install and run a node on the GoShimmer network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become a release candidate for the next IOTA protocol.**
+**In this guide, you install and run a node on the GoShimmer network. When you run the GoShimmer software, your device becomes a node in the network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become a release candidate for the next IOTA protocol.**
 
 You have two options for running a node. You either can run the node as a service in a Docker container, or you can build the node from source.
 
@@ -10,7 +10,7 @@ When you run a node in a Docker container, it's similar to running it in a light
 
 Some of the advantages of running a node in a Docker container include the following:
 
-- You don't need to install all the tools and dependencies such as a compiler and the Go programming language
+- You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language
 - The node runs in the same way on any supported system architecture
 - It's easier to run the node in the background, to stop it, and to see the logs
 
@@ -19,7 +19,8 @@ Some of the advantages of running a node in a Docker container include the follo
 To complete this guide, you need the following:
 
 - [Git](https://git-scm.com/downloads)
-- [Forward ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
+
+- [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
 - A public IP address
 - [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms)
 
@@ -83,8 +84,6 @@ When you run the node, it joins the network by autopeering with the entry node t
     
     ```bash
     git clone https://github.com/iotaledger/goshimmer.git
-    git submodule init
-    git submodule update
     ```
 
 2. Change into the `goshimmer` directory
@@ -111,23 +110,29 @@ When you run the node, it joins the network by autopeering with the entry node t
 
 5. Run the Docker image
 
+    Here, we run the Docker image in the background, forward the ports from your host device to the Docker container, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
+
     :::info:
     If you have [Docker Compose](https://docs.docker.com/compose/), you can also use the `docker-compose up -d` command.
     :::
 
     ```bash
-    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer
-    ```   
+    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer --node.enablePlugins "spammer zeromq dashboard"
+    ```
 
     The container ID is displayed in the console.
 
-5. Copy the container ID, and use it to read the node's logs. Replace the `$ContainerID` placeholder with your container ID.
+    :::info:
+    To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command.
+   :::
+
+6. Copy the container ID, and use it to read the node's logs. Replace the `$ContainerID` placeholder with your container ID.
 
     ```bash
     docker logs -f $ContainerID
     ```
 
-6. To see the status screen, attach the Docker container by doing the following. Replace the `$ContainerID` placeholder with your container ID.
+7. To see the status screen, attach the Docker container by doing the following. Replace the `$ContainerID` placeholder with your container ID.
 
     ```bash
     docker attach $ContainerID
@@ -159,10 +164,11 @@ When you build the node from the source code, you need to make sure that you hav
 
 To complete this guide, you need the following:
 
-- At least version 1.13 of the Go programming language (we recommend the latest version)
+- At least version 1.12 of the Go programming language (we recommend the latest version)
 - GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
 - [Git](https://git-scm.com/downloads)
-- [Forward ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
+
+- [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
 - A public IP address
 
 ### Step 1. Download the code
@@ -181,8 +187,6 @@ To complete this guide, you need the following:
     
     ```bash
     git clone https://github.com/iotaledger/goshimmer.git
-    git submodule init
-    git submodule update
     ```
 
 ### Step 2. Run the node
@@ -215,12 +219,10 @@ When you run GoShimmer, your node joins the rest of the network by autopeering w
     ```bash
     "enablePlugins":["spammer", "graph", "dashboard"]
     ```
+    
+    Now, you have a file called `shimmer` that you need to execute.
 
-    :::info:
-    You can run the image with the `-h` or `--help` flag to see a list of all configuration options.
-    :::
-
-4. Use one of the following commands to execute the `goshimmer` file, depending on your operating system:
+4. Execute the `goshimmer` file, according to your operating system:
 
     ```bash
     # Linux and macOS
@@ -228,10 +230,11 @@ When you run GoShimmer, your node joins the rest of the network by autopeering w
     # Windows
     .\ goshimmer
     ```
+Here, we run the run the node in the background, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
 
-    :::info:
-    If you see a `permission denied` error, try executing the file as an administrator.
-    :::
+:::info:
+If you see a `permission denied` error, try executing the file as an administrator.
+:::
 
 :::success:Congratulations :tada:
 You're now running a GoShimmer node.

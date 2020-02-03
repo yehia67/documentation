@@ -50,13 +50,27 @@ In this example, we use the IOTA JavaScript library to create a zero-value trans
 
 ### Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this guide, you need the following:
 
 - Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
 - Access to a command-line interface
 
-- The `@iota/core` and `@iota/area-codes` packages
+### Packages
+
+To complete this guide, you need to install the following packages:
+
+--------------------
+### npm
+```bash
+npm install @iota/core @iota/area-codes
+```
+---
+### Yarn
+```bash
+yarn add @iota/core @iota/area-codes
+```
+--------------------
 
 ### Step 1. Find some coordinates
 
