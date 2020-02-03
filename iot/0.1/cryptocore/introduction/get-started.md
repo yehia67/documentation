@@ -60,13 +60,13 @@ Complete the following steps in an ssh session between your PC and the Raspberry
 
 5. Upload the CryptoCore program
 
-  If you want the CryptoCore program to be available after a reboot, flash it into the QSPI flash memory (flashing takes up to 7 minutes):
+  If you want the CryptoCore program to be available after a reboot, flash it into the QSPI flash memory (takes up to 7 minutes):
 
   ```bash
   sudo ./flash_core.sh
   ```
 
-  If you want the CryptoCore program to be available only until the next reboot,upload it to RAM:
+  If you want the CryptoCore program to be available only until the next reboot,upload it to RAM (takes a couple of seconds):
 
   ```bash
   sudo ./upload_core.sh
