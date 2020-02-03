@@ -2,7 +2,7 @@
 
 **IRI nodes validate transactions during the following stages: On receipt of new transactions and during the tip selection process**
 
-## New transactions
+## Validation of new transactions
 
 When an IRI node receives a new transaction, the transaction validator checks it for the following:
 
@@ -11,7 +11,7 @@ When an IRI node receives a new transaction, the transaction validator checks it
 - The transaction is not older than the last snapshot and not newer than two hours ahead of the node’s current time
 - The last trit of an address is 0 for value transactions
 
-## Tip selection
+## Transaction validation during tip selection
 
 The bundles of each transaction that the IRI node traverses during the tip selection process are checked by the bundle validator and the ledger validator.
 

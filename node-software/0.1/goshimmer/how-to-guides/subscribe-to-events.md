@@ -2,6 +2,12 @@
 
 **When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event to monitor your node for incoming transactions.**
 
+:::info:
+The latest version of GoShimmer no longer supports ZMQ.
+
+In the next version, ZMQ will be replaced by MQTT to allow you to monitor a node for transactions.
+:::
+
 You can receive this transaction data from a node by doing the following:
 
 1. Install an open-source ZMQ library
