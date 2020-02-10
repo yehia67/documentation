@@ -4,6 +4,12 @@
 
 [CryptoCore/Introduction/Get started with the CryptoCore](/cryptocore/introduction/get-started.md)
 
+[CryptoCore/IOTA projects/Send a zero-value transaction](/cryptocore/iota-projects/send-zero-value.md)
+
+[CryptoCore/IOTA projects/Do proof of work](/cryptocore/iota-projects/do-proof-of-work.md)
+
+[CryptoCore/IOTA projects/Generate a secure seed](/cryptocore/iota-projects/generate-a-seed.md)
+
 [CryptoCore/References/API reference](/cryptocore/references/api-reference.md)
 
 [CryptoCore/References/Utility scripts](/cryptocore/references/scripts.md)

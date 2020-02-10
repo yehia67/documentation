@@ -4,17 +4,17 @@
 
 [Introduction/Ternary](/introduction/ternary.md)
 
-[Quickstart/Get started for developers](root://client-libraries/0.1/getting-started/quickstart.md)
+[Quickstart/Developers](root://client-libraries/0.1/getting-started/quickstart.md)
 
-[Quickstart/Get started for exchanges](root://wallets/0.1/hub/how-to-guides/quickstart.md)
+[Quickstart/Exchanges and custodians](root://wallets/0.1/hub/how-to-guides/quickstart.md)
 
-[Quickstart/Get started with Trinity](root://wallets/0.1/trinity/how-to-guides/quickstart.md)
+[Quickstart/Trinity wallet users](root://wallets/0.1/trinity/how-to-guides/quickstart.md)
 
-[Quickstart/Get started with nodes](root://node-software/0.1/iri/how-to-guides/quickstart.md)
+[Quickstart/Node owners](root://node-software/0.1/iri/how-to-guides/quickstart.md)
 
-[Quickstart/Create a seed](/tutorials/create-a-seed.md)
+[How-to guides/Create a seed](/tutorials/create-a-seed.md)
 
-[Quickstart/Get test IOTA tokens](/tutorials/get-test-tokens.md)
+[How-to guides/Get test IOTA tokens](/tutorials/get-test-tokens.md)
 
 [Network/IOTA networks](/network/iota-networks.md)
 
