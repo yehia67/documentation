@@ -288,7 +288,49 @@ The proof of work is done by the CryptoCore in the main script in the next step.
 
 4. Save and close the file
 
-## Step 4. Do proof of work on the CryptoCore
+## Step 4. Open the serial terminal on the CryptoCore
+
+In this step, you write a script that opens a serial terminal on the CryptoCore, using Node.js.
+
+1. Install the packages
+
+    ```bash
+    cd ~/cryptocore-scripts/node-scripts
+    sudo npm i serialport
+    ```
+
+3. Create a file called `serial.js`
+
+    ```bash
+    sudo nano serial.js
+    ```
+
+4. Copy and paste the following:
+
+    ```js
+    #!/usr/bin/env node
+
+    const SerialPort = require('serialport');
+    const Readline = require('@serialport/parser-readline');
+    const port = new SerialPort("/dev/ttyS0", { baudRate: 115200 });
+    const parser = new Readline();
+
+    port.pipe(parser);
+
+    parser.on('data', function(data) {
+        console.log(data);
+        port.close(function() {});
+    });
+
+    var myArgs = process.argv.slice(2);
+
+    port.write(myArgs[0])
+    port.write("\r")
+    ```
+
+5. Save and close the file
+
+## Step 5. Do proof of work on the CryptoCore
 
 In this step, you use the CryptoCore API to do proof of work for eight transactions, using the data that's returned from the `get-branch-and-trunk.js` and `create-bundle.js` scripts.
 
@@ -336,7 +378,7 @@ In this step, you use the CryptoCore API to do proof of work for eight transacti
     ```bash
     echo "Creating bundle"
 
-    trytes=$(node /home/pi/cryptocore-scripts/node-scripts/create-bundle.js $MWM)
+    trytes=$(node ../node-scripts/create-bundle.js $MWM)
     ```
 
 6. Get two tip transaction hashes from the Tangle by executing the `get-branch-and-trunk.js` script
@@ -344,7 +386,7 @@ In this step, you use the CryptoCore API to do proof of work for eight transacti
     ```bash
     echo "Getting tip transactions"
 
-    trunk_and_branch=$(node /home/pi/cryptocore-scripts/node-scripts/get-branch-and-trunk.js $MWM)
+    trunk_and_branch=$(node ../node-scripts/get-branch-and-trunk.js $MWM)
 
     trunk=$(echo "$trunk_and_branch" | jq '.trunkTransaction')
     branch=$(echo "$trunk_and_branch" | jq '.branchTransaction')
@@ -357,7 +399,7 @@ In this step, you use the CryptoCore API to do proof of work for eight transacti
     timestamp=$(date +%s%3N)
 
     # Make sure a directory exists in which to save the transaction trytes
-    saved_transaction_directory="/home/pi/cryptocore-scripts/attached-transaction-trytes"
+    saved_transaction_directory="../attached-transaction-trytes"
 
     if [ ! -d $saved_transaction_directory ]; then
         mkdir $saved_transaction_directory
@@ -369,13 +411,13 @@ In this step, you use the CryptoCore API to do proof of work for eight transacti
 
     json_string=$(printf "$template" $trunk $branch $MWM  $timestamp $trytes)
 
-    echo "$json_string" | sudo picocom --baud 115200 --echo --imap crcrlf --exit-after 6000 /dev/ttyS0  > $saved_transaction_directory/attached_trytes.txt
+    node ../node-scripts/serial.js "$json_string" > $saved_transaction_directory/attached_trytes.txt
     ```
 
 8. Send the transaction trytes, which now include a proof of work, to the connected IOTA node by executing the `send-bundle.js` script
 
     ```bash
-    attached_trytes=$(node /home/pi/cryptocore-scripts/node-scripts/send-bundle.js $MWM)
+    attached_trytes=$(node ../node-scripts/send-bundle.js $MWM)
 
     echo "$attached_trytes"
     ```
@@ -386,11 +428,15 @@ In this step, you use the CryptoCore API to do proof of work for eight transacti
     sudo chmod 777 do_pow.sh
     ```
 
-Now you're ready to run the code and follow the prompts:
+10. Run the code and follow the prompts
 
-```bash
-sudo ./do_pow.sh
-```
+    ```bash
+    sudo ./do_pow.sh
+    ```
+
+:::success:
+You have just written a command-line interface (CLI) program that uses the CryptoCore API to do proof of work for eight transactions, then attaches the transaction to the Tangle.
+:::
 
 ## Run the code
 
@@ -415,11 +461,22 @@ In the command-line, do the following:
     sudo npm i
     ```
 
+    You should see something like the following:
+
+    ```
+    npm notice created a lockfile as package-lock.json. You should commit this file.
+    added 128 packages from 68 contributors and audited 338 packages in 34.171s
+
+    2 packages are looking for funding
+    run `npm fund` for details
+
+    found 0 vulnerabilities
+    ```
+
 3. Run the `do_pow.sh` script and respond to the prompts
 
     ```bash
     cd ~/cryptocore-scripts/bash-scripts
-    sudo chmod 777 do_pow.sh
     sudo ./do_pow.sh
     ```
 
@@ -428,9 +485,16 @@ In the command-line, do the following:
 You should see something like the following:
 
 ```bash
+Welcome to the spam bundle creator
+Are you sending transactions to the Devnet or the Mainnet? m
+Setting minimum weight magnitude to 14 for the Mainnet.
+Creating bundle
+Getting tip transactions
+Doing proof of work on CryptoCore
+14
 Successfully attached transactions to the Tangle
 Tail transaction hash:
-"ROSTRDYXHM9GHDRMZQCHQBNUHJHOBLXAWATRIL9QBBDSRKFNEPXVDHFQNKRHMU9KYKISOZTOBFORZ9999"
+"XDAHIDSSUXIPWPUSVBUWPMYIXWAWPTKLUAHUCVGQRHH9MYGUGVVNVDPRMKULLWTPYQRKSWNTXUQMA9999"
 ```
 
 To see your bundle on the Tangle, copy the tail transaction hash and paste it into a [Tangle explorer](https://utils.iota.org/).

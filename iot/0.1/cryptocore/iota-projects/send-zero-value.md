@@ -1,6 +1,6 @@
 # Send a zero-value transaction with the CryptoCore
 
-**In this guide, you create a bash script that takes a user's input to create a zero-value transaction, using the CryptoCore RS232 API.**
+**In this guide, you create a bash script that takes a user's input to create a zero-value transaction, using the CryptoCore UART API.**
 
 ## Prerequisites
 
@@ -88,9 +88,51 @@ In this step, you write a script that uses the Javascript client library to send
 
 5. Save and close the file
 
+## Step 2. Open the serial terminal on the CryptoCore
+
+In this step, you write a script that opens a serial terminal on the CryptoCore, using Node.js.
+
+1. Install the packages
+
+    ```bash
+    cd ~/cryptocore-scripts/node-scripts
+    sudo npm i serialport
+    ```
+
+3. Create a file called `serial.js`
+
+    ```bash
+    sudo nano serial.js
+    ```
+
+4. Copy and paste the following:
+
+    ```js
+    #!/usr/bin/env node
+
+    const SerialPort = require('serialport');
+    const Readline = require('@serialport/parser-readline');
+    const port = new SerialPort("/dev/ttyS0", { baudRate: 115200 });
+    const parser = new Readline();
+
+    port.pipe(parser);
+
+    parser.on('data', function(data) {
+        console.log(data);
+        port.close(function() {});
+    });
+
+    var myArgs = process.argv.slice(2);
+
+    port.write(myArgs[0])
+    port.write("\r")
+    ```
+
+5. Save and close the file
+
 Now, you're ready to use the CryptoCore to create a transaction.
 
-## Step 2. Create a zero-value transaction on the CryptoCore
+## Step 3. Create a zero-value transaction on the CryptoCore
 
 In this step, you write a bash script that prompts the user for the parameters to use to call the `jsonDataTX` endpoint on the CryptoCore. Then you save the returned transaction trytes, which include a [proof of work](root://getting-started/0.1/transactions/proof-of-work.md), to a file that the `send-tx.js` script can read.
 
@@ -183,7 +225,7 @@ In this step, you write a bash script that prompts the user for the parameters t
 
     ```bash
     # Make sure the directory exists
-    saved_transaction_directory="/home/pi/cryptocore-scripts/attached-transaction-trytes"
+    saved_transaction_directory="../attached-transaction-trytes"
 
     if [ ! -d $saved_transaction_directory ]; then
         mkdir $saved_transaction_directory
@@ -193,13 +235,13 @@ In this step, you write a bash script that prompts the user for the parameters t
 
     json_string=$(printf "$template" "$trunk" "$branch" $MWM "$address" $timestamp)
 
-    echo "$json_string" | sudo picocom --baud 115200 --echo --imap crcrlf --exit-after 100000 /dev/ttyS0 > $saved_transaction_directory/zero_value_transaction.txt
+    node ../node-scripts/serial.js "$json_string" > $saved_transaction_directory/zero_value_transaction.txt
     ```
 
 9. Execute the `send-tx.js` file and print the result to the console
 
     ```bash
-    attached_trytes=$(node /home/pi/cryptocore-scripts/node-scripts/send-tx.js $MWM)
+    attached_trytes=$(node ../node-scripts/send-tx.js $MWM)
 
     echo "$attached_trytes"
     ```
@@ -210,11 +252,15 @@ In this step, you write a bash script that prompts the user for the parameters t
     sudo chmod 777 create_tx.sh
     ```
 
-Now you're ready to run the code and follow the prompts:
+10. Run the code and follow the prompts
 
-```bash
-sudo ./create_tx.sh
-```
+    ```bash
+    sudo ./create_tx.sh
+    ```
+
+:::success:
+You have just written a command-line interface (CLI) program that uses the CryptoCore API to create a zero-value transaction, then attaches the transaction to the Tangle.
+:::
 
 ## Run the code
 
@@ -239,17 +285,49 @@ In the command-line, do the following:
     sudo npm i
     ```
 
+    You should see something like the following:
+
+    ```
+    npm notice created a lockfile as package-lock.json. You should commit this file.
+    added 128 packages from 68 contributors and audited 338 packages in 34.171s
+
+    2 packages are looking for funding
+    run `npm fund` for details
+
+    found 0 vulnerabilities
+    ```
+
 3. Run the `create_tx.sh` script and respond to the prompts
 
     ```bash
     cd ~/cryptocore-scripts/bash-scripts
-    sudo chmod 777 create_tx.sh
     sudo ./create_tx.sh
     ```
 
 4. Follow the prompts
 
-You should see the transaction object that was sent to the node.
+You should see the transaction object that was sent to the node. For example:
+
+```js
+{
+  hash: 'YQNCKGIGOZJJJGMNMAVWKJGDJLQOXDTADIJTYU9HBIGKTDKUXHBMOBXVZYWAUWOSKKYUSUIDVPNZZ9999',
+  signatureMessageFragment: 'ODGAADTCGDGDPCVCTCGADBGARBOBVBVBYBEAFCYBACVBNBEAPBACYBWBEAMBACHCZBCCYBMBYBACOBGAQD99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999',
+  address: '999999999999999999999999999999999999999999999999999999999999999999999999999999999',
+  value: 0,
+  obsoleteTag: 'CWYPTOCORE99999999999999999',
+  timestamp: 1059930011,
+  currentIndex: 0,
+  lastIndex: 0,
+  bundle: 'DAIHSSITPKSZRVHDTVLXIBPYGKLGKZBRDZSGRFYGIBXTPCZFIL9JAJDEGABAUVCJNHWAUULGXRBDGNDIZ',
+  trunkTransaction: 'HEWJUPLE9GHUDOFGCARASDIUDMXDQSV99WBSJYIXWHVCMHFGIXRTTTHBIEJGUPHCQQQGEZMZPRSRA9999',
+  branchTransaction: 'HEWJUPLE9GHUDOFGCARASDIUDMXDQSV99WBSJYIXWHVCMHFGIXRTTTHBIEJGUPHCQQQGEZMZPRSRA9999',
+  tag: 'CRYPTOCORE99999999999999999',
+  attachmentTimestamp: 1581607894939,
+  attachmentTimestampLowerBound: 0,
+  attachmentTimestampUpperBound: 11,
+  nonce: 'ICCFPGA9B9999999UVNPNVVMMMM'
+}
+```
 
 You can copy the `hash` field of your transaction object and paste it into a [Tangle explorer](https://utils.iota.org/).
 
