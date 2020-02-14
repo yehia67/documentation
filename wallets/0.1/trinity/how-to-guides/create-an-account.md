@@ -32,6 +32,4 @@ Learn to [manage your account](../how-to-guides/manage-your-account.md).
 
 Add extra account security to Trinity mobile by [setting up biometric authentication](../how-to-guides/manage-your-security-settings.md).
 
-[Buy IOTA tokens](../how-to-guides/buy-iota.md).
-
 [Send a transaction](../how-to-guides/send-a-transaction.md).
