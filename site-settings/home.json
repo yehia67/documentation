@@ -22,6 +22,10 @@
             "name": "roadmap"
         },
         {
+            "href": "https://status.iota.org/",
+            "name": "status"
+        },
+        {
             "href": "https://training.iota.org/",
             "name": "training"
         },
@@ -31,7 +35,7 @@
         },
         {
             "href": "https://utils.iota.org/",
-            "name": "utils"
+            "name": "utilities"
         }
     ],
     "popularTopics": [

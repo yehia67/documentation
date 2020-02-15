@@ -1,6 +1,6 @@
 # CryptoCore API
 
-**The CryptoCore exposes an RS232 API, which you can call over a UART connection. For example, you could send API calls through a device that's connected to the CryptoCore over USB. This API reference also shows you how to use the REST API server, that we started in [this guide](../introduction/get-started.md).**
+**The CryptoCore exposes an UART API, which you can call over a UART connection. For example, you could send API calls through a device that's connected to the CryptoCore over USB. This API reference also shows you how to use the REST API server, that we started in [this guide](../introduction/get-started.md).**
 
 <!--## REST API header
 
@@ -18,7 +18,7 @@ Sets the given flags.
 
 The following flags are available:
 
-- **keepSeedInRAM:** Reads the seed from the secure element and caches it in RAM. (Caching the seed saves 1-2 seconds for each request of the seed.)
+- **keepSeedInRAM:** Caches the seed in RAM after reading it from the secure element. (Caching the seed saves 1-2 seconds for each request of the seed.) This flag is set to `true` by default.
 
 - **debugRS232Output:** Enables debugging output on the SWD line or RS232
 
@@ -43,10 +43,6 @@ element by calling the [`initSecureElement`](#initsecureelement) command.
     }
 }
 ```
-
-### REST example requests
-
-
 
 ### Response examples
 
@@ -227,15 +223,10 @@ element by calling the [`initSecureElement`](#initsecureelement) command.
 
 ## attachToTangle
 
-Chains the given transaction trytes into a bundle, using the `trunkTransaction` and
-`branchTransaction` parameters, and does proof of work on all of them,
-using the given minimum weight magnitude.
+Chains the given transaction trytes into a bundle and does proof of work on all of them, using the given minimum weight magnitude.
 
 This command can do proof of work for a bundle that contains up to eight
-transactions. If you want to do proof of work for larger bundles, using a
-single command, you can add the branch transaction hash, trunk
-transaction hash, and timestamp to the transaction trytes yourself
-before passing them to the `doPow` command.
+transactions.
 
 ### Parameters
 
@@ -244,7 +235,7 @@ before passing them to the `doPow` command.
 |`trunkTransaction`  |       string   |       Trunk transaction hash to use to attach the bundle to the Tangle|
 |`branchTransaction`    |     string   |       Branch transaction hash to use to attach the bundle to the Tangle|
 |`minWeightMagnitude`   |    integer      |        The minimum weight magnitude to use during proof of work|
-|`timestamp`       |     integer  |      A Unix epoch timestamp to add to the transaction's 'timestamp' fields|
+|`timestamp`       |     integer  |      A Unix epoch timestamp in milliseconds to add to the transaction's 'attachmentTimestamp' field|
 |`trytes`      |   array of strings    |    Transaction trytes of up to eight transactions in a bundle|
 
 ### Example request
@@ -286,9 +277,9 @@ before passing them to the `doPow` command.
 
 ## doPow
 
-Does proof of work on an array of transaction trytes.
+Does proof of work on a bundle's transaction trytes.
 
-This command can do proof of work for up to 10 transactions at once.
+This command can do proof of work for up to eight transactions at once.
 
 ### Parameters
 
@@ -337,8 +328,7 @@ Signs a single input transaction, using the seed in the given key of the secure 
 
 :::info:
 Before you can call this command, you must initalize the secure
-element by calling the [`initSecureElement`](#initsecureelement) command, then do the following
-calculation and add the result to the `auth` parameter:
+element by calling the [`initSecureElement`](#initsecureelement) command, then do the following calculation and add the result to the `auth` parameter:
 
 ```
 keccak384(key+addressIndex+bundleHash+apiKey)
@@ -402,6 +392,22 @@ the zero-value transaction.
 
 These trytes are ready for sending to a node.
 
+### Parameters
+
+|**Parameter**|      **Type** |                                  **Description**
+|:--------------- |:--------- |:--------------------------------------------------------------------------
+|`trunkTransaction`  |       string   |       Trunk transaction hash to add to the transaction's `trunkTransaction` field|
+|`branchTransaction`    |     string   |       Branch transaction hash to add to the transaction's `branchTransaction` field|
+|`minWeightMagnitude`   |    integer      |        The minimum weight magnitude to use during proof of work|
+|`tag`       |     string  |      27 trytes to add to the transaction's `tag` field|
+|`address`      |   string |    81 tryte address to add to the transaction's `address` field|
+|`timestamp`      |   integer    |    A Unix epoch timestamp in **milliseconds** to add to the transaction's `attachmentTimestamp` field|
+|`data`      |   JSON    |    JSON data to add to the transaction's `signatureMessageFragment` field|
+
+:::warning:
+Nodes check that the `attachmentTimestamp` is no older than their oldest recorded milestone. Therefore, if the `timestamp` field is not valid, the nodes will return an `invalid trytes` error.
+:::
+
 ### Example Request
 
 ```json
@@ -444,16 +450,22 @@ These trytes are ready for sending to a node.
 
 ## initSecureElement
 
-Initializes the secure element so that the API can access the seed on
-it.
+Initializes the secure element so that the API can access it.
 
-This command is a security measure that prevents attackers from removing
-the secure element, replacing it with another and reading the AES key
-from the RISC-V firmware. Before RISC-V shares the AES key with the
+Before the RISC-V firmware shares the secret key with the
 secure element, you must call this command to prove that you know the
 key.
 
+This command is a security measure that prevents attackers from removing the secure element, replacing it with another and reading the secret key
+from the RISC-V firmware.
+
 This command needs to be called only once.
+
+### Parameters
+
+|**Parameter**|      **Type** |                                  **Description**
+|:--------------- |:--------- |:--------------------------------------------------------------------------
+|`key`  |       string   |       The secret key |
 
 ### Example Request
 

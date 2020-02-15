@@ -81,14 +81,14 @@ To complete this guide, you need the following:
     
     ```bash
     git clone https://github.com/iotaledger/goshimmer.git
-    git submodule init
-    git submodule update
     ```
 
-3. Change into the `goshimmer` directory
+3. Change into the `goshimmer` directory and download the submodules
 
     ```bash
     cd goshimmer
+    git submodule init
+    git submodule update
     ```
 
 4. Use one of the following commands to build your executable file, depending on your operating system
@@ -99,10 +99,6 @@ To complete this guide, you need the following:
     # Windows
     go build -o  goshimmer.exe
     ```
-
-    :::info:
-    If you're using Windows PowerShell, enclose `goshimmer.exe` in single quotation marks. For example: `go build -o 'goshimmer.exe'`.
-    :::
 
     Now, you have a file called `goshimmer` that you need to execute.
 
@@ -122,7 +118,7 @@ To complete this guide, you need the following:
     # Linux and macOS
     ./goshimmer
     # Windows
-    .\ goshimmer
+    goshimmer
     ```
 
     :::info:
