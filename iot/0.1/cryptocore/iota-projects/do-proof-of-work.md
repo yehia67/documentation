@@ -262,7 +262,6 @@ The proof of work is done by the CryptoCore in the main script in the next step.
     // Path to the file where the main script saved the transaction trytes
     const savedTransactionTrytes = "/home/pi/cryptocore-scripts/attached-transaction-trytes";
 
-
     // Check the file for transaction trytes
     const data = fs.readFileSync(`${savedTransactionTrytes}/attached_trytes.txt`);
     const match = data.toString().match(/(?<=({"trytes":))\["[^\]]+\]/g);
