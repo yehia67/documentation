@@ -14,6 +14,4 @@ If you complete this guide from beginning to end, you'll learn everything from i
 
 2. [Manage your account](../how-to-guides/manage-your-account.md)
 
-3. [Buy IOTA tokens](../how-to-guides/buy-iota.md)
-
-4. [Send a transaction](../how-to-guides/send-a-transaction.md)
+3. [Send a transaction](../how-to-guides/send-a-transaction.md)

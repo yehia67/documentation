@@ -23,7 +23,7 @@
 5. Select an option to [back up your seed](../how-to-guides/back-up-seed.md) and enter a login password. You will need this password every time you log into Trinity.
 
 :::success:
-Now you have a Trinity account, you can use it to send and receive transactions and even buy IOTA tokens.
+Now you have a Trinity account, you can use it to send and receive transactions, keep a record of all your seed's balance, and see your past transactions.
 :::
 
 ## Next steps
@@ -31,7 +31,5 @@ Now you have a Trinity account, you can use it to send and receive transactions 
 Learn to [manage your account](../how-to-guides/manage-your-account.md).
 
 Add extra account security to Trinity mobile by [setting up biometric authentication](../how-to-guides/manage-your-security-settings.md).
-
-[Buy IOTA tokens](../how-to-guides/buy-iota.md).
 
 [Send a transaction](../how-to-guides/send-a-transaction.md).

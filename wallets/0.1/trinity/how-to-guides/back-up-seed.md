@@ -43,4 +43,4 @@ Now you have a backup of your seed. If you ever forget your Trinity password, yo
 
 ## Next steps
 
-[Buy IOTA tokens](../how-to-guides/buy-iota.md)
+[Send a transaction](../how-to-guides/send-a-transaction.md)

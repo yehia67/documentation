@@ -48,4 +48,4 @@ To change the login password on a mobile device, go to **Settings** > **Security
 
 ## Next steps
 
-[Buy IOTA tokens](../how-to-guides/buy-iota.md)
+[Send a transaction](../how-to-guides/send-a-transaction.md)
