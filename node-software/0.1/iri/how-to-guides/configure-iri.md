@@ -86,7 +86,7 @@ Milestones are sent approximately every two minute. So, use the following formul
 
 In this scenario, the sum of `LOCAL_SNAPSHOTS_PRUNING_DELAY` + `LOCAL_SNAPSHOTS_DEPTH` is 50, 100. Therefore, the node will prune transactions that were confirmed by any milestone with an index lower than 940, 000 (990, 100 - 50,100). As a result all transactions between milestones 940, 000 and 990, 100 will be kept in the ledger.
 
-## Do you want to create snapshot files?
+## Do you want to create snapshot files as backups?
 
 After a snapshot, nodes store the state of the ledger in snapshot files, which any node can use as an entry point during synchronization.
 
@@ -119,13 +119,21 @@ These files are located in the path of the [`LOCAL_SNAPSHOTS_BASE_PATH`](../refe
 
 - 990, 100
 
-In this scenario, the IRI node is synchronized. So, at milestone 990, 110, the node will do the following:
+In this scenario, IRI is synchronized. So, at milestone 990, 110, it will do the following:
 
 - Take the previous 100 milestones and add them to the snapshot.meta file as [seen milestones](../references/data-in-the-snapshot-metadata-file.md#seen-milestone)
-- Find the solid transactions and add them as [solid entry points](../references/data-in-the-snapshot-metadata-file.md#solid-entry-point)
+- Find the solid transactions and add them to the ledger as [solid entry points](../references/data-in-the-snapshot-metadata-file.md#solid-entry-point)
 - In the snapshot.state file, add a list of all addresses and their balances
 
-When the IRI node restarts, it can use the snapshot files as the entry point to synchronize its ledger.
+When IRI restarts, it can use the snapshot files as the entry point to synchronize its ledger.
+
+## Do you want to configure the ledger?
+
+IRI stores transactions in a RockDB database, which offers many configuration options.
+
+To configure the database, you can create a file that contain [RocksDB configuration options](https://github.com/facebook/rocksdb/wiki/Setup-Options-and-Basic-Tuning). Then, pass that file to the [`DB_CONFIG_FILE`](../references/iri-configuration-options.md#db-config-file) IRI configuration option
+
+Here is an [example RockDB configuration file](https://github.com/facebook/rocksdb/blob/master/examples/rocksdb_option_file_example.ini). 
 
 ## Next steps
 

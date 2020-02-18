@@ -125,6 +125,7 @@ IRI is running in the background! Now, you can use the IRI API to start interact
     "transactionsToRequest":0,
     "features":["snapshotPruning","dnsRefresher","tipSolidification"],
     "coordinatorAddress": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
+    "dbSizeInBytes": 144800000,
     "duration": 0
     }
     ```
@@ -185,19 +186,19 @@ The pre-built IRI Java file is available on the [IOTA GitHub repository](https:/
     ```
 
     :::info:
-    Make sure that you include the whole version, for example 1.6.0-RELEASE.
+    Make sure that you include the whole version, for example 1.9.0-RELEASE.
     :::
 
 The download may take some time. If everything went well, you should see something like the following in the output:
 
 ```
 HTTP request sent, awaiting response ... 200 OK
-'/home/jake/node/iri-1.8.4-RELEASE.jar' saved [175441686/175441686]
+'/home/jake/node/iri-1.9.0-RELEASE.jar' saved [175441686/175441686]
 ```
 
 Now you can [configure IRI](#configure-the-iri).
 
-#### Build the IRI Java file from the source code
+#### Build the IRI Java file from source
 
 Instead of downloading the pre-built IRI Java file, you may want to build the file from the source code for any of the following reasons:
 
@@ -212,29 +213,11 @@ Instead of downloading the pre-built IRI Java file, you may want to build the fi
     sudo apt-get update
     ```
 
-2. Install the [Maven](https://maven.apache.org/what-is-maven.html) build tool. Change the `USER_HOME_DIR` variable to your chosen path.
+2. Install the [Maven](https://maven.apache.org/what-is-maven.html) build tool
 
     ```bash
-    export MAVEN_VERSION=3.5.4
-    export USER_HOME_DIR="/root"
-    export SHA=ce50b1c91364cb77efe3776f756a6d92b76d9038b0a0782f7d53acf1e997a14d
-    export BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
-    sudo apt-get update && apt-get install -y --no-install-recommends curl
-    sudo mkdir -p /usr/share/maven /usr/share/maven/ref
-    sudo curl -fsSL -o /tmp/apache-maven.tar.gz ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz
-
-    # Check the sha256 checksum, the output should read 'OK' if the checksum is correct
-
-    echo "${SHA} /tmp/apache-maven.tar.gz" | sha256sum -c -
-    sudo tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1
-    sudo rm -f /tmp/apache-maven.tar.gz
-    export MAVEN_HOME=/usr/share/maven
-    export MAVEN_CONFIG="${USER_HOME_DIR}/.m2"
+    sudo apt install maven
     ```
-
-    :::info:
-    The SHA256 checksum is also available on the [Apache website](https://archive.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz.sha256).
-    :::
 
 3. Install Git
 
@@ -400,6 +383,7 @@ When you've downloaded, and configured IRI, it's time to run it.
     "transactionsToRequest":0,
     "features":["snapshotPruning","dnsRefresher","tipSolidification"],
     "coordinatorAddress": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
+    "dbSizeInBytes": 144800000,
     "duration": 0
     }
     ```

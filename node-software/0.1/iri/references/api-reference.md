@@ -681,7 +681,6 @@ This API endpoint returns data only if the node is synchronized.
 |**Parameters**s |**Required or Optional**|**Description** |Type
 |--|--|--|--|
 | `addresses` |Required| Address for which to get the balance (do not include the checksum) |array of strings|
-| `threshold` |Required| Confirmation threshold between 0 and 100 | integer|
 | `tips` |Optional| Tips whose history of transactions to traverse to find the balance |array of strings|
 
 ### Examples
@@ -695,8 +694,7 @@ command = {
   "command": "getBalances",
   "addresses": [
     "DE9DVSOWIIIKEBAAHCKBWNXGXTOKVLZPLRAGKZG9GXKFRFWERKBFYMPRLAGVZTRVYPEPHBMUPDMRQ9DPZ"
-  ],
-  "threshold": 100
+  ]
 }
 
 stringified = json.dumps(command)
@@ -722,8 +720,7 @@ var command = {
   "command": "getBalances",
   "addresses": [
     "DE9DVSOWIIIKEBAAHCKBWNXGXTOKVLZPLRAGKZG9GXKFRFWERKBFYMPRLAGVZTRVYPEPHBMUPDMRQ9DPZ"
-  ],
-  "threshold": 100
+  ]
 };
 
 var options = {
@@ -754,8 +751,7 @@ curl http://localhost:14265 \
   "command": "getBalances",
   "addresses": [
     "DE9DVSOWIIIKEBAAHCKBWNXGXTOKVLZPLRAGKZG9GXKFRFWERKBFYMPRLAGVZTRVYPEPHBMUPDMRQ9DPZ"
-  ],
-  "threshold": 100
+  ]
 }'
 ```
 --------------------
@@ -1201,6 +1197,7 @@ curl http://localhost:14265 \
   "tipSolidification"
  ],
  "coordinatorAddress": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
+ "dbSizeInBytes": 144800000,
  "duration": 0
 }
 ```
@@ -1237,6 +1234,7 @@ curl http://localhost:14265 \
 | `transactionsToRequest` | Total number of transactions that the node is missing in its ledger|
 | `features` | Enabled configuration options|
 | `coordinatorAddress` | Address (Merkle root) of the Coordinator|
+| `dbSizeInBytes` |The current number of bytes in the node's database|
 | `duration` | Number of milliseconds it took to complete the request |
 
 ## getTips
