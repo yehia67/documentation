@@ -1225,7 +1225,7 @@ curl http://localhost:14265 \
 | `latestMilestoneIndex` | Index of the latest milestone |
 | `latestSolidSubtangleMilestone` | Transaction hash of the latest solid milestone |
 | `latestSolidSubtangleMilestoneIndex` | Index of the latest solid milestone |
-| `milestoneStartIndex` | Start milestone for the current version of the IRI |
+| `milestoneStartIndex` | The index of the milestone from which the node started synchronizing when it first joined the network. This index will not change unless the node's ledger is deleted and the node starts synchronizing from a new milestone index.|
 |`lastSnapshottedMilestoneIndex`|Index of the last milestone that triggered a [local snapshot](root://getting-started/0.1/network/nodes.md#local-snapshots) on the node |
 | `neighbors` | Total number of connected neighbor nodes  |
 | `packetsQueueSize` | Size of the packet queue |
