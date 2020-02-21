@@ -151,7 +151,7 @@ print jsonData
 ```js
 var request = require('request');
 
-var body = {
+var command = {
    "itemName": "My Solar Source",
    "itemType": "solar",
    "root": "CCCCCC...DDDDDD",
@@ -162,8 +162,7 @@ var options = {
   url: 'https://producer/registration/:registrationId',
   method: 'PUT',
   headers: {
-    'Content-Type': 'application/json',
-    'Content-Length': Buffer.byteLength(JSON.stringify(body))
+    'Content-Type': 'application/json'
   },
   json: command
 };
@@ -383,7 +382,7 @@ print jsonData
 ```js
 var request = require('request');
 
-var body = {
+var command = {
    "itemName": "Jake",
    "itemType": "consumer",
    "root": "CCCCCC...DDDDDD",
@@ -394,8 +393,7 @@ var options = {
   url: 'https://grid/registration/:registrationId',
   method: 'PUT',
   headers: {
-    'Content-Type': 'application/json',
-    'Content-Length': Buffer.byteLength(JSON.stringify(body))
+    'Content-Type': 'application/json'
   },
   json: command
 };
@@ -582,7 +580,7 @@ print jsonData
 ```js
 var request = require('request');
 
-var body = {
+var command = {
    "myCustomData": "Some data"
 }
 
@@ -590,8 +588,7 @@ var options = {
   url: 'https://grid/storage/item/:registration-id/:context/:id',
   method: 'PUT',
   headers: {
-    'Content-Type': 'application/json',
-    'Content-Length': Buffer.byteLength(JSON.stringify(body))
+    'Content-Type': 'application/json'
   },
   json: command
 };
