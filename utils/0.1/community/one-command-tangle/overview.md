@@ -119,8 +119,7 @@ Using the [JavaScript client library](root://client-libraries/0.1/introduction/o
      method: 'POST',
      headers: {
      'Content-Type': 'application/json',
-     'X-IOTA-API-Version': '1',
-     'Content-Length': Buffer.byteLength(JSON.stringify(command))
+     'X-IOTA-API-Version': '1'
      },
      json: command
      };
