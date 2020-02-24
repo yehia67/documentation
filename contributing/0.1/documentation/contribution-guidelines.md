@@ -1,6 +1,6 @@
 # Documentation style guide
 
-We encourage everyone with knowledge of IOTA to contribute to our documentation. To discuss the documentation, join our `#documentation-discussion` channel on [Discord](https://discord.iota.org).
+We encourage everyone with knowledge of IOTA technology to contribute to our documentation.
 
 To contribute new content:
 
@@ -20,6 +20,14 @@ To make suggestions to existing content:
 
 Thanks! :heart:
 
+## Do you have a question?
+
+If you have a general or technical question, you can use one of the following resources instead of submitting an issue:
+
+- [**Discord:**](https://discord.iota.org/) For communicating with the developers and community members
+- [**IOTA cafe:**](https://iota.cafe/) For discussing technical questions with the Research Department at the IOTA Foundation
+- [**StackExchange:**](https://iota.stackexchange.com/) For asking technical questions
+
 ## Set up GitHub
 
 Our documentation is hosted on GitHub, which is a version control tool. To create new content, or suggest changes to existing content, you must use Git or GitHub.
@@ -29,7 +37,7 @@ If you already have a GitHub account and Git is set up on your computer, go stra
 1. [Create a new GitHub account](https://github.com/) if you don't already have one
 2. [Set up Git](https://help.github.com/articles/set-up-git/)
 3. Go to our [documentation repository](https://github.com/iotaledger/documentation.git) and click **Fork** at the top of the page
-4. Copy your fork to your local machine by doing the following in the command-line interface:
+4. Copy your fork to your local machine by doing the following in a command-line interface:
 
     ```bash
     git clone https://github.com/{your username}/documentation
