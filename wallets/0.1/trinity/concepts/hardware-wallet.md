@@ -2,6 +2,10 @@
 
 **A hardware wallet, sometimes referred to as cold storage, is a physical electronic device that stores your seed and signs bundles for you offline. If you [create a Trinity account with a hardware wallet](https://trinity.iota.org/hardware), you can't send transactions without it.**
 
+:::danger:
+On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).
+:::
+
 ## How seeds are created and stored
 
 Seeds are created using a sequence of randomly generated words. These words are the key to your device. When you set up a hardware wallet, it will give you instructions to write down and never lose your randomly generated words.

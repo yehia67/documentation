@@ -2,6 +2,10 @@
 
 **By default [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) is done on the computer that is running Trinity. In this guide, you learn how to ask one of the connected nodes to do proof of work instead.**
 
+:::danger:
+On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).
+:::
+
 1. Go to **Settings** > **Node** > **Add custom nodes**,  and enter the URL or IP address of one or more nodes that you want to add
 
     :::info:

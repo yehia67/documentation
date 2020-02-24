@@ -2,6 +2,10 @@
 
 **Trinity is a mobile and desktop application with a user interface that allows you to transfer data and IOTA tokens. With Trinity you can encrypt and store one or more seeds, where each one has its own account, transaction history, and settings.**
 
+:::danger:
+On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).
+:::
+
 Trinity allows you to do the following:
 
 - Create a password-protected account to store and access your seeds

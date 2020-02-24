@@ -2,6 +2,10 @@
 
 **Trinity accounts are password-protected to secure and store your [seeds](root://getting-started/0.1/clients/seeds.md) on your mobile device or computer. In this guide, you create a new account.**
 
+:::danger:
+On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).
+:::
+
 1. [Download Trinity](https://trinity.iota.org/) and open it
 
 2. Select whether you have a seed

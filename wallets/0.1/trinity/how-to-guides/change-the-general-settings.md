@@ -2,6 +2,10 @@
 
 **The general settings allow you to change elements of the user interface, change your password, and change the nodes to which Trinity connects. In this guide, you learn how to change the general settings.**
 
+:::danger:
+On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).
+:::
+
 ## Change the display language
 
 Trinity has been translated into different languages. Select one to change the language that's displayed.
@@ -24,5 +28,3 @@ Trinity has two modes:
 
 - **Standard mode:** Displays only the most relevant information for standard users
 - **Advanced mode:** Displays technical information, such as error logs, for advanced users
-
-## Next steps

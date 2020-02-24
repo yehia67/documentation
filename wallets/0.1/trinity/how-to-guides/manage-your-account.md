@@ -2,6 +2,10 @@
 
 **Trinity allows you to have more than one account, each of which has a unique seed.**
 
+:::danger:
+On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).
+:::
+
 For each of your accounts, you can do the following:
 
 - Access your seed (not available if you use a hardware wallet)

@@ -2,6 +2,10 @@
 
 **Use this reference guide to resolve issues related to Trinity.**
 
+:::danger:
+On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).
+:::
+
 If you can't find the solution to your issue, reach out to the Trinity team on the `help` channel of the official IOTA [Discord](https://discord.iota.org/).
 
 ## Incorrect balance
@@ -26,7 +30,9 @@ During a global snapshot, nodes remove old transaction data from their ledgers t
 Trinity is stateful, which means that it stores a local copy of your transaction history on your device. As a result, you can still see your transaction history after a global snapshot.
 :::
 
-1. Go to Account management > **Tools** > **Transition**
+1. Go to **Account** > **Account management** > **Tools**
+
+2. Click **Transition**
 
 ![Snapshot transition](../images/transition.jpg)
 
