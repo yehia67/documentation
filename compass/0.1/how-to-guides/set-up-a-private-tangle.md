@@ -95,6 +95,10 @@ The Compass repository includes a tool to compute a Merkle tree and save it in a
 	bazel run //docker:layers_calculator
 	```
 
+	:::info:
+	If you see a `no such package @io_netty_netty_tcnative_boringssl_static//jar` error, see the [related issue](https://github.com/iotaledger/compass/issues/142#issuecomment-586735326) for guidance.
+	:::
+
 	This process can take some time. You should see the following in the output:
 
 	```
