@@ -6,7 +6,7 @@
 [Seeds](/0.1/clients/seeds.md)
 ## Discover how everyone and everything in IOTA can transact
 
-[Transactions](/0.1/clients/transactions.md)
+[Transactions](/0.1/transactions/transactions.md)
 ## Learn how data and value are sent using IOTA
 
 [The token](/0.1/clients/token.md)
