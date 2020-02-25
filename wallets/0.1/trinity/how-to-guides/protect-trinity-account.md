@@ -4,9 +4,9 @@
 
 To stop attackers from further transferring IOTA tokens, the IOTA Foundation made a decision to pause the Coordinator. A full report will be published shortly.
 
-The Coordinator will remain paused for seven days to give users a chance to secure their Trinity accounts.
+The Coordinator will remain paused until xx to give users a chance to secure their Trinity accounts.
 
-Depending on when and how you used the Trinity wallet, you must complete one of the following actions to secure your Trinity account before the IOTA Foundation restarts the Coordinator:
+Depending on when and how you used the Trinity wallet, you may need to take steps to protect your Trinity account before the IOTA Foundation restarts the Coordinator.
 
 ## I use Trinity with a Ledger hardware wallet
 
@@ -25,6 +25,8 @@ If you did not open Trinity in this timeframe, your seed, username, and password
 ### What to do
 
 [Install the latest version of Trinity and update your password](#install-the-latest-version-of-trinity).
+
+If you are at all unsure about the safety of your seed, we recommend [transferring your IOTA tokens to a new one](#transfer-your-iota-tokens-to-a-new-seed). 
 
 ## I know that my IOTA tokens were stolen during this attack
 
@@ -62,10 +64,14 @@ While the Coordinator is paused, you cannot transfer your IOTA tokens. Therefore
 
 When your transfer is finished, it will be sent directly to the IOTA Foundation’s server, where it will be given priority for confirmation when the Coordinator is restarted.
 
-Due to technical limitations, only balances of over 1 Mi can be transferred to a new seed with this tool. If you have a balance of less than 1 Mi that you want to transfer, you need to go through the [Identity Verification Process](#what-is-the-idenitity-verification-process).
+By transfering your IOTA tokens to a new seed, you stop the attacker from making unauthorized transfers of your IOTA tokens.
+
+:::warning:
+If more than one person uses the Seed Migration tool to transfer IOTA token from the same seed, the owner of the seed will need to go through the [Identity Verification Process](#what-is-the-idenitity-verification-process) to validate their ownership.
+:::
 
 :::info:
-If more than one person uses the Seed Migration tool to transfer IOTA token from the same seed, the owner of the seed will need to go through the Identity Verification Process to validate their ownership.
+Due to technical limitations, only balances of over 1 Mi can be transferred to a new seed with this tool. If you have a balance of less than 1 Mi that you want to transfer, you need to go through the [Identity Verification Process](#what-is-the-idenitity-verification-process).
 :::
 
 1. [Download the Seed Migration tool] from the official IOTAledger Github repository
@@ -132,5 +138,5 @@ More information on the process as well as the consequences for all affected use
 
 ## Next steps
 
-If you have any questions about Trinity, check the [Troubleshooting guide](../references/troubleshooting.md), or reach out to the IOTA community in the #help channel on [Discord](https://discord.iota.org/).
+If you have any questions, check the [FAQ](../references/faq.md) or reach out to the IOTA community in the #help channel on [Discord](https://discord.iota.org/).
 
