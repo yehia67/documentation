@@ -1,188 +1,4 @@
-# Contribute to the developer documentation
-
-We encourage everyone with knowledge of IOTA technology to contribute to our documentation.
-
-To contribute new content:
-
-1. See our [open issues](https://github.com/iotaledger/documentation/issues)
-2. Choose something that you'd like to work on, or create a new issue to suggest new content
-3. Comment on the issue to let us know that you'd like to work on it
-4. Start writing your content, following our [style guide](#style-guide)
-
-To make suggestions to existing content:
-
-1. Find the article that you want to change
-2. Start making your changes, following our [style guide](#style-guide)
-
-Thanks! :heart:
-
-## Do you have a question?
-
-If you have a general or technical question, you can use one of the following resources instead of submitting an issue:
-
-- [**Discord:**](https://discord.iota.org/) For communicating with the developers and community members
-- [**IOTA cafe:**](https://iota.cafe/) For discussing technical questions with the Research Department at the IOTA Foundation
-- [**StackExchange:**](https://iota.stackexchange.com/) For asking technical questions
-
-## Get started with your first contribution
-
-Our documentation is hosted on GitHub, which is a version control tool. To create new content, or suggest changes to existing content, you must use either Git or GitHub.
-
-If you already have a GitHub account and Git is set up on your computer, go straight to [Create a new branch](#create-a-new-branch).
-
-1. [Create a new GitHub account](https://github.com/) if you don't already have one
-
-2. [Set up Git](https://help.github.com/articles/set-up-git/)
-
-3. Go to our [documentation repository](https://github.com/iotaledger/documentation.git) and click **Fork** at the top of the page
-
-4. Copy your fork to your local machine by doing the following in a command-line interface. Replace the `$USERNAME` placeholder with your GitHub username
-
-    ```bash
-    git clone https://github.com/$USERNAME/documentation
-    ```
-
-5. Create a reference to our repository from your fork
-
-    ```bash
-    cd documentation
-    git remote add upstream https://github.com/iotaledger/documentation.git
-    git fetch upstream
-    ```
-
-Now, your `documentation` directory will contain all the documentation files.
-
-To find an existing article, you can use the URL of the documentation portal as a reference. The path to the article comes after `docs`.
-
-For example, to find the article about minimum weight magnitude, which has the following URL, you would look in the `getting-started/0.1/network` directory, and find the article called `minimum-weight-magnitude.md`:
-
-```
-https://docs.iota.org/docs/getting-started/0.1/network/minimum-weight-magnitude
-```
-
-### Create a new branch
-
-Branches help us to review content by separating your contributions into categories.
-
-The following types of contribution are appropriate for a new branch:
-
-- A new article ( a single markdown file)
-- Grammar edits and spelling corrections, and any other suggestions for an existing article
-
-1. Open a command-line interface
-
-2. Do the following:
-
-    ```bash
-    git pull upstream develop:<your branch name>
-    git push origin <your branch name>
-    ```
-
-3. To start working on your local copy of the branch, do the following:
-
-    ```bash
-    git checkout <your branch name>
-    ```
-
-Please follow our [style guide](#style-guide) when you write and edit articles.
-
-### Validate your content
-
-To make sure that you haven't introduced spelling errors or broken links, the next step is to validate your content.
-
-1. [Install Node.js](https://nodejs.org/en/download/)
-
-2. In the `documentation` directory, install the dependencies
-
-    ```bash
-    npm install
-    ```
-
-3. Run the `buildProjects` script
-
-    ```bash
-    node buildProjects
-    ```
-
-This script will do the following:
-
-- Print errors to the console
-- Create a `projects-summary.log` file, which shows the structure of the content and also highlights the errors
-- Create a spelling-summary.md file, which contains any possible spelling mistakes and suggestions
-
-To enhance the [Hunspell](https://en.wikipedia.org/wiki/Hunspell) spell checker, you can add words to the dictionary.json file, which supports regular expressions. For example:
-
-```json
-{
-    "global": [
-        "(P|p)ermission(less|ed)"
-    ],
-    "smartcity": [
-        "AstroPi"
-    ]
-}
-```
-
-If you made changes to a single directory, you can validate it alone by adding its name to the end of the `node buildProjects` command. For example, to validate only the content in the `getting-started` directory, you'd do the following:
-
-```shell
-node buildProjects getting-started
-```
-
-### Push your content to our GitHub repository
-
-After writing or editing content and validating it, the next step is to push it to our repository.
-
-1. Add your changes
-
-    ```bash
-    git add .
-    ```
-    
-    :::info:
-    You may be asked to set your account's default identity.
-    :::
-  
-    ```bash
-    Please tell me who you are
-    Run 
-    git config --global user.email "you@example.com"
-    git config --global user.name "Your Name"
-    ```
-    
-2. Commit your changes
-
-    ```bash
-    git commit -m "<Describe the changes you made>"
-    ```
-
-    :::info:
-    Make any additional changes to the same files in subsequent commits as you work. Not all changes need to be in the same commit.
-    :::
-
-3. Push your changes
-
-    ```bash
-    git push origin <your branch name>
-    ```
-    
-4. In GitHub, go to the repository that you forked from `iotaledger/documentation`, and click **Pull Request** at the top of the page
-
-5. Make sure that the base branch is `iotaledger/documentation@develop` and the head branch is `$USERNAME/documentation@$BRANCHNAME`
-
-6. Click **Update Commit Range** or **Compare & pull request**
-
-7. Give your pull request a title, and describe all the changes you're making
-
-8. Click **Submit**
-
-:::success:
-Thank you! We will now process your pull request. If there are any edits to make, we will ask you in the comments of the pull request you created.
-::: 
-
-You can continue working and commit/push new changes like you did before. Any updates will appear in the pending pull request.
-
-## Style guide
+# Style guide
 
 If you are creating or editing an article, please follow our style guide to help us do the following:
 
@@ -193,11 +9,11 @@ If you are creating or editing an article, please follow our style guide to help
 
 If you have a question about writing that we don't cover in this guide, use the [Google style guide](https://developers.google.com/style/).
 
-### Markdown
+## Markdown
 
 We use an enhanced version of markdown for our documentation. Please refer to these [tips](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) if you haven't used markdown before.
 
-#### Tabbed controls
+### Tabbed controls
 
 Tabbed controls are useful for creating content for different users or use cases such as multiple code samples.
 
@@ -217,9 +33,9 @@ This is the content in tab page 2.
 The h3 heading is the tab label.
 :::
 
-![Tabbed Control](/contribution/0.1/images/tabbed-control.png)
+![Tabbed Control](images/tabbed-control.png)
 
-#### Cards
+### Cards
 
 Cards are useful for project landing pages, where you need to list more than one type or category.
 
@@ -233,9 +49,9 @@ Data silos make it difficult to buy and sell data among different data points. T
 -------------------------
 ```
 
-![Cards](/contribution/0.1/images/card.png)
+![Cards](images/card.png)
 
-#### Colored headings
+### Colored headings
 
 Colored headings are useful for showing a clearer distinction between to different headings.
 
@@ -247,11 +63,11 @@ To create a colored heading, use the following syntax:
 ### __COMMUNITY SUPPORT__ ###
 ```
 
-![Heading Label](/contribution/0.1/images/heading-label-primary.png)
+![Heading Label](images/heading-label-primary.png)
 
-![Heading Label](/contribution/0.1/images/heading-label-secondary.png)
+![Heading Label](images/heading-label-secondary.png)
 
-#### Colored bullets
+### Colored bullets
 
 Colored bullets are useful for listing content under colored headings.
 
@@ -272,9 +88,9 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.
 ---------------
 ```
 
-![Project Topics](/contribution/0.1/images/project-topics.png)
+![Project Topics](images/project-topics.png)
 
-#### Emoji
+### Emoji
 
 Using an emoji in your content can help to engage the reader.
 
@@ -289,11 +105,11 @@ To create an emoji, use the following syntax:
 :laughing:
 ```
 
-![Emojis](/contribution/0.1/images/emojis.png)
+![Emojis](images/emojis.png)
 
 For a list of available emoji, see this JSON file: [https://github.com/muan/emojilib/blob/master/emojis.json](https://github.com/muan/emojilib/blob/master/emojis.json)
 
-#### Google maps
+### Google maps
 
 A Google map can be embedded in your content by surrounding it with `¬¬¬` fencing. You can then specify the type as `[map]` and provide the JSON configuration for the object as follows:
 
@@ -317,9 +133,9 @@ A Google map can be embedded in your content by surrounding it with `¬¬¬` fen
 ¬¬¬
 ```
 
-![Google Maps for IOTA](/contribution/0.1/images/maps.png)
+![Google Maps for IOTA](images/maps.png)
 
-#### Data feeds
+### Data feeds
 
 A feed can be embedded in your content by surrounding it with `¬¬¬` fencing. You can then specify the type as `[feed]` and provide the JSON configuration for the object as follows:
 
@@ -335,7 +151,7 @@ A feed can be embedded in your content by surrounding it with `¬¬¬` fencing. 
 
 The `displayType` field specifies how the content will be rendered on the page and the `context` field is used to determine where the data is retrieved from using the documentation api e.g. `https://docs-api.iota.org/feed/training`. The feeds list supports paging and will show it when necessary. The table of contents for the page is dynamically generated from any h2 headers in the rendered items.
 
-![Event Feed](/contribution/0.1/images/feed.png)
+![Event Feed](images/feed.png)
 
 ### Message boxes
 
@@ -361,7 +177,7 @@ Will Robinson :bomb:
 :::
 ```
 
-![Message Boxes](/contribution/0.1/images/message-boxes.png)
+![Message Boxes](images/message-boxes.png)
 
 :::info:
 Use an `info` box to bring attention to informations. For example, you may want to give the reader a hint. Without an `info` box, a user may lose precious time and become frustrated while trying to understand why something is not working.
@@ -379,11 +195,11 @@ Use a `warning` box more serious information than an `info` box to let the reade
 Use a `danger` box to warn the reader that an action may lead to lost funds or system failure.
 :::
 
-### Writing tools
+## Writing tools
 
 We recommend using a code editor that supports markdown files, for example [Visual Studio Code](https://code.visualstudio.com/) with the [markdown Lint extension](https://github.com/DavidAnson/vscode-markdownlint).
 
-### General rules
+## General rules
 
 These general rules make information easier to understand and translate.
 
@@ -398,17 +214,17 @@ These general rules make information easier to understand and translate.
 
 Research shows that the above holds true even for very technical audience. See the [GOV.UK style guide](https://www.gov.uk/guidance/content-design/writing-for-gov-uk) for examples.
 
-### UK English or US English?
+## UK English or US English?
 
 We always write in US English.
 
-### Punctuation
+## Punctuation
 
 - Always use a capital letter after colons
 - Always use an oxford comma (comma before and in a list, for example 'The Mainnet, Devnet, and Spamnet')
 - Don't use periods at the end of single sentence lists. Use periods only when list items consists of more than one sentence
 
-### Article titles
+## Article titles
 
 | **Rule** | **Example** |
 | :----| :-------|
@@ -417,7 +233,7 @@ We always write in US English.
 |Article titles in the 'How-to guides' section should always start with an infinitive| 'Run the IRI' not 'Running the IRI'|
 |Article titles in the 'References' section should always be plural nouns| 'IRI configuration options' not 'IRI configuration' or 'Configuring the IRI'|
 
-### First paragraph
+## First paragraph
 
 Always embolden the first paragraph of an article. This paragraph should explain the main purpose or point of the article in as few words as possible.
 
@@ -425,7 +241,7 @@ Make sure you answer the following questions:
 - What is the article about?
 - Why do users care about or need the information in the article?
 
-### How-to guides
+## How-to guides
 
 A how-to guide is an article that helps users achieve a task.
 
@@ -445,19 +261,19 @@ The general flow of a how-to guide would be:
 4. Steps (how to do the task)
 5. Summary of what the user has accomplished
 
-#### Write one task per article
+### Write one task per article
 
 When a how-to guide contains one task, it's easier to manage, organize, and reuse to help users find specific tasks when they need them.
 
 For example, don't combine the tasks for installing and uninstalling software in a single article. Users typically won't need these tasks at the same time.
 
-#### Create subtasks to organize long how-to guides
+### Create subtasks to organize long how-to guides
 
 Tasks that are more than 10 steps can be difficult to follow, especially if they're complicated and include substeps.
 
 If you start writing a task that contains more than 10 steps, separate them into subtasks by using headings.
 
-### Concept articles
+## Concept articles
 
 Concept articles can be written to do any of the following:
 
@@ -471,11 +287,11 @@ You should write concept articles to support tasks and user goals.
 
 Concept articles must not include task information or reference information.
 
-### Code formatting
+## Code formatting
 
 When adding code examples and snippets into an article, make sure you format it accordingly and add language identifiers for correct code highlighting. See [Creating and highlighting code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/) for more information.
 
-#### Bash
+### Bash
 
 Bash code blocks shall not contain the path.
 
