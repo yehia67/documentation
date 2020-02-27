@@ -17,7 +17,7 @@ See [this guide](../how-to-guides/protect-trinity-account.md) for steps on prote
 If you don't see any value transactions in your Trinity history, but your balance is wrong, see the [Troubleshooting guide](../references/troubleshooting.md) for help or reach out to the IOTA Foundation on [Discord](https://discord.iota.org/).
 
 :::warning:
-Please be aware that some users are impersonating members of the IOTA Foundation on Discord. Therefore, it is important that you contact members directly, by clicking their names in the right-hand panel under 'IOTA Foundation'.
+Please be aware that some users are impersonating members of the IOTA Foundation on Discord. Therefore, it is important that you contact members directly by clicking their names in the right-hand panel under 'IOTA Foundation'.
 :::
 
 ## When will the Coordinator be restarted?
@@ -70,9 +70,9 @@ If you think that your IOTA tokens were stolen, reach out to the IOTA Foundation
 Please be aware that some users are impersonating members of the IOTA Foundation on Discord. Therefore, it is important that you contact members directly by clicking their names in the right-hand panel under 'IOTA Foundation'.
 :::
 
-## What happens if the attacker uses the Seed Migration tool with a stolen seed?
+## What happens if the attacker uses the Seed Migration Tool with a stolen seed?
 
-If more than one person uses the Seed Migration tool to transfer IOTA tokens from the same seed, the owner of the seed will need to go through the [Identity Verification Process](#what-is-the-idenitity-verification-process) to validate their ownership.
+If more than one person uses the Seed Migration Tool to transfer IOTA tokens from the same seed, the owner of the seed will need to go through the [Identity Verification Process](#what-is-the-idenitity-verification-process) to validate their ownership.
 
 ## What is the Identity Verification Process?
 
@@ -81,7 +81,7 @@ To protect certain users' IOTA tokens, the IOTA Foundation may temporarily trans
 At-risk IOTA tokens include:
 
 - Those that are known to have been stolen during the attack
-- Those that belong to a seed, which was entered into the Seed Migration tool by two or more people
+- Those that belong to a seed, which was entered into the Seed Migration Tool by two or more people
 
 If you own any at-risk IOTA tokens, you may need to complete a KYC (know your customer) process with a third party to reclaim them.
 
@@ -89,9 +89,9 @@ More information on the process as well as the consequences for all affected use
 
 ## Will my pending transactions be confirmed when the Coordinator is restarted?
 
-If you use the Seed Migration tool to [transfer your IOTA tokens to a new seed](../how-to-guides/protect-trinity-account.md), any pending transactions that you sent before the Coordinator was paused will not be confirmed.
+If you use the Seed Migration Tool to [transfer your IOTA tokens to a new seed](../how-to-guides/protect-trinity-account.md), any pending transactions that you sent before the Coordinator was paused will not be confirmed.
 
-If you don't use the Seed Migration tool, any pending transactions that you sent before the Coordinator was paused may still be confirmed.
+If you don't use the Seed Migration Tool, any pending transactions that you sent before the Coordinator was paused may still be confirmed.
 
 
 
