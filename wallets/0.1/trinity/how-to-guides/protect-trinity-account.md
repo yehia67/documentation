@@ -94,6 +94,8 @@ Due to technical limitations, only balances of over 1 Mi can be transferred to a
 
     Please make sure to check that the URL in the address bar is xxx
 
+    If you are using Linux, you need to [make the downloaded file executable](https://medium.com/@peey/how-to-make-a-file-executable-in-linux-99f2070306b5).
+
 2. Open the Seed Migration tool, and either import your existing SeedVault file or enter your seed manually
 
     To find your existing seed in Trinity, go to **Account** > **Account management** >  **View seed**. Here, you can export your seed to a SeedVault file or see it in plain text.
@@ -132,9 +134,9 @@ Due to technical limitations, only balances of over 1 Mi can be transferred to a
 
     **Secured:** The Coordinator has confirmed your transfer. You are free to send value transactions, using your new seed.
 
-    **Custody period:** Your transfer has been sent to the IOTA Foundation's server, and now you just need to wait for the Coordinator to be restarted
+    **Submitted:** Your transfer has been sent to the IOTA Foundation's server, and now you just need to wait for the Coordinator to be restarted
 
-    **ID required:** Your transfer either includes stolen IOTA tokens or someone else tried to use the Seed Migration tool with your seed. Please await further details.
+    **ID Required:** Your transfer either includes stolen IOTA tokens or someone else tried to use the Seed Migration tool with your seed. Please see the [Identity Verification Process](../references/faq.md#what-is-the-idenitity-verification-process) for more information.
 
 8. Open Trinity and [create a new account](../how-to-guides/create-an-account.md) with your new seed
 
