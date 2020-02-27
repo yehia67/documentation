@@ -10,10 +10,22 @@ On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinit
 Trinity is stateful, which means that it stores a local copy of your transaction history on your device. As a result, you can still see your transaction history after a global snapshot.
 :::
 
-1. On desktop, go to **Account** > **Account management** > **Tools**
+--------------------
+### Desktop
 
-2. On mobile, go to **Settings** > **Account management**
+1. Go to **Account** > **Account management** > **Tools**
 
-3. Click **Transition**
+2. Click **Transition**
+---
+### Mobile
+
+1. Go to **Settings** > **Account management**
+
+2. Click **Transition**
+--------------------
+
+:::success:
+You should see your correct balance.
+::: 
 
 ![photo of snapshot transition](../images/transition.jpg)

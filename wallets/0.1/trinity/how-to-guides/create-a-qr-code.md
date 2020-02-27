@@ -10,7 +10,7 @@ QR codes speed up the process of sending a transaction in Trinity by auto-popula
 
 ![Example QR code](../images/qr-code.png)
 
-1. Generate a new address in Trinity
+1. Generate a new address in Trinity by clicking **Receive** > **Generate address**
 
     :::info:
     To send to an address in Trinity, it must include the 9-tryte checksum. If you generated a new address in Trinity, that address will already include the checksum.

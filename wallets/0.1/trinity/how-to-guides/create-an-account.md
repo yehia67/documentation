@@ -6,25 +6,45 @@
 On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).
 :::
 
-1. [Download Trinity](https://trinity.iota.org/) and open it
+--------------------
+### Desktop
 
-2. Select whether you have a seed
+1. If you have already downloaded Trinity, click **Add new account** in the left-hand panel, otherwise [download Trinity](https://trinity.iota.org/) and open it
+
+2. Select one of the options, depending on whether you have a seed (or a SeedVault file)
     
-    :::info:
     If you have a [hardware wallet](../concepts/hardware-wallet.md), connect it and follow the on-screen instructions. You don't need to back up your seed if you use a hardware wallet.
-    :::
    
     ![Generating a seed](../images/seed-generation.png)
 
-4. Enter an account name for your seed
+3. Enter an account name for your seed
 
-    :::info:
     You can choose to rename your account later in the [Account management](../how-to-guides/manage-your-account.md).
-    :::
 
     ![Account name](../images/account-name.jpg)
 
-5. Select an option to [back up your seed](../how-to-guides/back-up-seed.md) and enter a login password. You will need this password every time you log into Trinity.
+4. Select an option to [back up your seed](../how-to-guides/back-up-seed.md)
+
+If this is your first account, Trinity will ask you for a login password. You will need this password every time you log in.
+---
+### Mobile
+
+1. If you have already downloaded Trinity, go to **Settings** > **Account management** > **Add new account**, otherwise [download Trinity](https://trinity.iota.org/) and open it
+
+2. Select one of the options, depending on whether you already have a seed (or a SeedVault file)
+   
+    ![Generating a seed](../images/seed-generation.png)
+
+3. Enter an account name for your seed
+
+    You can choose to rename your account later in the [Account management](../how-to-guides/manage-your-account.md).
+
+4. Select an option to [back up your seed](../how-to-guides/back-up-seed.md)
+
+If this is your first account, Trinity will ask you for a login password. You will need this password every time you log in.
+--------------------
+
+
 
 :::success:
 Now you have a Trinity account, you can use it to send and receive transactions, keep a record of all your seed's balance, and see your past transactions.

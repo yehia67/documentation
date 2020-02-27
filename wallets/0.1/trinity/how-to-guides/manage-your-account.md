@@ -14,11 +14,20 @@ For each of your accounts, you can do the following:
 
 Make sure that you select the correct account to manage before completing any of these tasks.
 
-To access Account management on a mobile device, go to **Settings** > **Account management**.
+--------------------
+### Desktop
 
-To access Account management on a desktop, go to the burger menu >  **Account** > **Account management**.
+To access Account management, go to **Trinity** > **Settings** > **Account management**
 
 ![Account management](../images/account-management-menu.png)
+
+---
+### Mobile
+
+To access Account management, go to **Settings** > **Account management**
+
+![Account management](../images/account-management-menu-mobile.jpg)
+--------------------
 
 ## Access your seed
 
@@ -46,9 +55,16 @@ To change the name of an account, go to Account management, and click **Account 
 
 Trinity stores your seeds for you (unless you use a [hardware wallet](../concepts/hardware-wallet.md)) and allows you to log in with a password.
 
-To change the login password on a desktop, go to **Settings** > **Change password**.
+--------------------
+### Desktop
 
-To change the login password on a mobile device, go to **Settings** > **Security settings** > **Change password**.
+To change the login password, go to **Trinity** > **Settings** > **Change password**
+
+---
+### Mobile
+
+To change the login password, go to **Settings** > **Security settings** > **Change password**
+--------------------
 
 ## Next steps
 
