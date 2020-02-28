@@ -4,15 +4,13 @@
 
 ## What do I have to do to be safe?
 
-Depending on when and how you used the Trinity wallet, you may need to take steps to [protect your Trinity account](../how-to-guides/protect-trinity-account.md) before the IOTA Foundation restarts the [Coordinator](root://getting-started/0.1/network/the-coordinator.md).
+Depending on when and how you used the Trinity wallet, you may need to take steps to [protect your Trinity account](../how-to-guides/protect-trinity-account.md).
 
 ![Seed migration flowchart](../images/seed-migration.png)
 
 ## Were my IOTA tokens stolen?
 
-If you see any value transactions that you did not send in your Trinity history, your IOTA tokens may have been stolen.
-
-See [this guide](../how-to-guides/protect-trinity-account.md) for steps on protecting your Trinity account before the IOTA Foundation restarts the [Coordinator](root://getting-started/0.1/network/the-coordinator.md).
+If you see any value transactions that you did not send in your Trinity history, your IOTA tokens may have been stolen. Please see the Identity Verification Process.
 
 If you don't see any value transactions in your Trinity history, but your balance is wrong, see the [Troubleshooting guide](../references/troubleshooting.md) for help or reach out to the IOTA Foundation on [Discord](https://discord.iota.org/).
 
@@ -22,6 +20,7 @@ Please be aware that some users are impersonating members of the IOTA Foundation
 
 ## When will the Coordinator be restarted?
 
+The Coordinator will be restarted on 9 March 2020 to give users enough time to [protect their Trinity accounts](../how-to-guides/protect-trinity-account.md).
 
 ## The Coordinator was paused, does this mean that IOTA is centralized?
 
@@ -86,6 +85,10 @@ At-risk IOTA tokens include:
 If you own any at-risk IOTA tokens, you may need to complete a KYC (know your customer) process with a third party to reclaim them.
 
 More information on the process as well as the consequences for all affected users will be provided soon.
+
+:::info:
+We encourage affected users to file a report with their local police and to cite the following case number when doing so: LKA Berlin, Center for Cybercrime, case number: 200213-1717-i00290.
+:::
 
 ## Will my pending transactions be confirmed when the Coordinator is restarted?
 

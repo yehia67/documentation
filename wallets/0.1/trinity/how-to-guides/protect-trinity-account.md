@@ -1,8 +1,8 @@
 # Protect your Trinity account
 
-**Between 17 December 2019 and 17 February 2020, some users’ Trinity seeds and Trinity passwords were compromised during an attack on the wallet. In this guide, you learn what you can do to secure your IOTA tokens.**
+**Between 17 December 2019 and 17 February 2020, some users’ Trinity seeds and passwords were compromised during an attack on the wallet. In this guide, you learn what you can do to secure your IOTA tokens.**
 
-To stop attackers from further transferring IOTA tokens, the IOTA Foundation paused the Coordinator and released an updated version of Trinity. This version is no longer vulnerable to the attack. A full report will be published shortly.
+To stop attackers from further transferring IOTA tokens, the IOTA Foundation paused the Coordinator and released an updated version of Trinity. This version is no longer vulnerable to the attack.
 
 While the [Coordinator](root://getting-started/0.1/network/the-coordinator.md) is paused, no one can transfer their IOTA tokens on the Mainnet.
 
@@ -44,18 +44,15 @@ Although you were not affected, we recommend that you [transfer your IOTA tokens
 
 Unfortunately, the attacker managed to steal IOTA tokens from some users' Trinity accounts.
 
-The IOTA Foundation has notified all exchanges of these transfers to prevent any further movement of the stolen IOTA tokens.
+To prevent any further movement of the stolen IOTA tokens, the IOTA Foundation has notified all exchanges.
 
 ### What to do
 
-1. [Install the latest version of Trinity and update your password](#install-the-latest-version-of-trinity)
-2. [Transfer your IOTA tokens to a new seed](#transfer-your-iota-tokens-to-a-new-seed)
-
-When you have completed these steps, you may also need to go through the [Identity Verification Process](../references/faq.md#what-is-the-idenitity-verification-process) to reclaim your stolen IOTA tokens.
+Please see the [Identity Verification Process](../references/faq.md#what-is-the-idenitity-verification-process) for more information.
 
 ## I’m not sure
 
-For anyone else, you should assume that your seed and Trinity password are no longer secret. Therefore, when the Coordinator is restarted, your IOTA tokens may be at risk.
+For anyone else, you should assume that your Trinity seed and password are no longer secret. Therefore, when the Coordinator is restarted, your IOTA tokens may be at risk.
 
 ### What to do
 
@@ -66,7 +63,7 @@ For anyone else, you should assume that your seed and Trinity password are no lo
 
 ## Install the latest version of Trinity
 
-In this step, you upgrade the Trinity wallet to the latest version to remove the vulnerability.
+In this step, you upgrade the Trinity wallet to the latest version.
 
 1. [Download and install the latest version of Trinity](https://trinity.iota.org/) by clicking the **Download** button in the right-hand corner and selecting your operating system
 
@@ -79,7 +76,7 @@ In this step, you upgrade the Trinity wallet to the latest version to remove the
 3. If you have used the same password for other services or websites, change those as well
 
 :::success:
-You've downloaded the latest version of Trinity.
+You've downloaded the latest version of Trinity. This version no longer has the vulnerability.
 :::
 
 ## Transfer your IOTA tokens to a new seed
@@ -90,13 +87,13 @@ In this step, you use the Seed Migration Tool to transfer your IOTA tokens to a 
 Due to technical limitations, only balances of over 1 Mi can be transferred to a new seed with this tool.
 :::
 
-1. [Download the Seed Migration Tool] from the official IOTAledger Github repository
+1. [Download the Seed Migration Tool](http://status.iota.org/)
 
-    Please make sure to check that the URL in the address bar is xxx
+    Please make sure to check that the URL in the address bar is http://status.iota.org/
 
-    If you are using Linux, you need to [make the downloaded file executable](https://medium.com/@peey/how-to-make-a-file-executable-in-linux-99f2070306b5).
+2. If you are using Linux, you need to [make the downloaded file executable](https://medium.com/@peey/how-to-make-a-file-executable-in-linux-99f2070306b5).
 
-2. Open the Seed Migration Tool, and either import your existing SeedVault file or enter your seed manually
+3. Open the Seed Migration Tool, and either import your existing SeedVault file or enter your seed manually
 
     :::info:
     To find your existing seed in Trinity, go to **Account** > **Account management** >  **View seed**. Here, you can export your seed to a SeedVault file or see it in plain text.
@@ -104,7 +101,7 @@ Due to technical limitations, only balances of over 1 Mi can be transferred to a
 
     ![Seed Migration home page](../images/seed-migration-home.png)
 
-3. Make sure your displayed balance is correct
+4. Make sure your displayed balance is correct
 
     The displayed balance is the total balance of your seed’s first 50 addresses.
 
@@ -112,21 +109,21 @@ Due to technical limitations, only balances of over 1 Mi can be transferred to a
     This is the total amount of IOTA tokens which will be transferred to your new seed.
     :::
 
-4. If you think your balance is wrong, or you know that you have IOTA tokens on more than the first 50 addresses, click **Sync addresses**
+5. If you think your balance is wrong, or you know that you have IOTA tokens on more than the first 50 addresses, click **Sync addresses**
 
     The tool will check the balance of 50 more addresses each time you click this button.
 
     ![Seed migration balance](../images/seed-migration-balance.png)
 
-5. Choose an option to create a new seed, and follow the prompts
+6. Choose an option to create a new seed, and follow the prompts
 
     :::info:
-    The tool randomly generates a new seed for you. If you want to choose your own seed or use a Ledger hardware wallet, you can do so after the Coordinator is restarted.
+    The tool randomly generates a new seed for you. If you want to choose your own seed or use a Ledger hardware wallet, you can [create a new Trinity account](../how-to-guides/create-an-account.md) after the Coordinator is restarted.
     :::
 
-6. Save your migration log file
+7. Save your migration log file
 
-    This file contains details about the transfer to your new seed. You can use this file to check the status of your transfer, and you will need it in case you need to go through the [Identity Verification Process](../references/faq.md#what-is-the-idenitity-verification-process).
+    This file contains details about the transactions that transfer the IOTA tokens to your new seed. You can use this file to check the status of your transfer.
 
     ![Migration log file](../images/seed-migration-log.png)
 
@@ -138,13 +135,13 @@ Due to technical limitations, only balances of over 1 Mi can be transferred to a
     When your transfer is finished, it will be sent to the IOTA Foundation’s server, where it will be given priority for confirmation when the Coordinator is restarted.
     :::
 
-    Your transfer can have one of the following statuses:
+    Your transfer can have one of the following migration statuses:
 
-    **Secured:** The Coordinator has confirmed your transfer. You are free to send value transactions, using your new seed.
+    **Secured:** The Coordinator has confirmed your transactions. You are free to send value transactions, using your new seed.
 
-    **Submitted:** Your transfer has been sent to the IOTA Foundation's server, and now you just need to wait for the Coordinator to be restarted
+    **Submitted:** Your transactions has been sent to the IOTA Foundation's server, and now you just need to wait for the Coordinator to be restarted
 
-    **ID Required:** Your transfer either includes stolen IOTA tokens or someone else tried to use the Seed Migration Tool with your seed. Please see the [Identity Verification Process](../references/faq.md#what-is-the-idenitity-verification-process) for more information.
+    **ID Required:** Someone else tried to use the Seed Migration Tool with your seed. Please see the [Identity Verification Process](../references/faq.md#what-is-the-idenitity-verification-process) for more information. You will need your migration log file.
 
 8. Open Trinity and [create a new account](../how-to-guides/create-an-account.md) with your new seed
 
@@ -156,10 +153,12 @@ Due to technical limitations, only balances of over 1 Mi can be transferred to a
 
     ![View seed](../images/view-seed.png)
 
-You can repeat this process for any other seeds that you may own.
+You can repeat this process for any other seeds that you own.
 
 :::success:
 You've transferred your IOTA tokens to a new seed.
+
+Now, you just need to wait until the Coordinator is restarted for your transactions to be confirmed.
 :::
 
 ## Next steps
