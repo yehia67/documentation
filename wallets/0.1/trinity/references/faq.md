@@ -80,15 +80,11 @@ To protect certain users' IOTA tokens, the IOTA Foundation may temporarily trans
 At-risk IOTA tokens include:
 
 - Those that are known to have been stolen during the attack
-- Those that belong to a seed, which was entered into the Seed Migration Tool by two or more people
+- Those that belong to a seed that was entered into the Seed Migration Tool by two or more people
 
 If you own any at-risk IOTA tokens, you may need to complete a KYC (know your customer) process with a third party to reclaim them.
 
-More information on the process as well as the consequences for all affected users will be provided soon.
-
-:::info:
-We encourage affected users to file a report with their local police and to cite the following case number when doing so: LKA Berlin, Center for Cybercrime, case number: 200213-1717-i00290.
-:::
+More information on the process as well as the consequences for all affected users will be provided soon. Please see the [status page](http://status.iota.org/) for updates.
 
 ## Will my pending transactions be confirmed when the Coordinator is restarted?
 
