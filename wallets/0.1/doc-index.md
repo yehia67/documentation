@@ -21,6 +21,7 @@
 [Trinity/How-to Guides/Help your transactions be confirmed](/trinity/how-to-guides/auto-promote.md)
 [Trinity/How-to Guides/Perform a snapshot transition](/trinity/how-to-guides/perform-a-snapshot-transition.md)
 [Trinity/How-to Guides/Develop features on Trinity](/trinity/how-to-guides/develop-features-on-trinity.md)
+[Trinity/References/Seed migration FAQ](/trinity/references/faq.md)
 [Trinity/References/Troubleshooting](/trinity/references/troubleshooting.md)
 [Hub/Introduction/Overview](/hub/introduction/overview.md)
 [Hub/Concepts/Sweeps](/hub/concepts/sweeps.md)

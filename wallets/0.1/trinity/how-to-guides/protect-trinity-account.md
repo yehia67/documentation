@@ -155,6 +155,10 @@ Due to technical limitations, only balances of over 1 Mi can be transferred to a
 
 You can repeat this process for any other seeds that you own.
 
+:::danger:
+Do not repeat this process for the same seed again. Otherwise, you may need to go through the [Identity Verification Process](../references/faq.md#what-is-the-idenitity-verification-process).
+:::
+
 :::success:
 You've transferred your IOTA tokens to a new seed.
 
