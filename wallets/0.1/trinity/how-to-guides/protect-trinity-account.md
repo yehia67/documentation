@@ -139,7 +139,7 @@ Due to technical limitations, only balances of over 1 Mi can be transferred to a
 
     **Secured:** The Coordinator has confirmed your transactions. You are free to send value transactions, using your new seed.
 
-    **Submitted:** Your transactions has been sent to the IOTA Foundation's server, and now you just need to wait for the Coordinator to be restarted
+    **Submitted:** Your transactions have been sent to the IOTA Foundation's server, and now you just need to wait for the Coordinator to be restarted
 
     **ID Required:** Someone else tried to use the Seed Migration Tool with your seed. Please see the [Identity Verification Process](../references/faq.md#what-is-the-idenitity-verification-process) for more information. You will need your migration log file.
 
