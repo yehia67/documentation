@@ -1,8 +1,12 @@
 # Verify your Trinity desktop download
 
-**When you download Trinity Desktop, you may want to verify its authenticity to make sure that you downloaded the correct one from the IOTA Foundation GitHub repository. In this guide, you learn how to verify Trinity desktop downloads.**
+**When you download Trinity Desktop, you may want to verify its authenticity to make sure that you downloaded the correct one from the IOTA Foundation GitHub repository. In this guide, you learn how to verify Trinity Desktop downloads.**
 
-To verify the authenticity of Trinity Desktop, you can use the SHA256 hash and code signature. Instructions for both of these steps differ, depending on your operating system.
+:::danger:
+On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).
+:::
+
+To verify the authenticity of Trinity Desktop, you can check its SHA256 hash and its code signature. Instructions for both of these steps differ, depending on your operating system.
 
 ## Windows operating system
 
@@ -32,9 +36,9 @@ To verify the authenticity of Trinity Desktop, you can use the SHA256 hash and c
 
 3. In the Certification Path tab, make sure that the the following information matches the path:
 
-    * DigiCert
-    * DigiCert SHA2 Assured Code Signing CA
-    * IOTA Stiftung
+    DigiCert
+    DigiCert SHA2 Assured Code Signing CA
+    IOTA Stiftung
 
 4. Make sure that the Certificate status reads "This certificate is OK."
 
@@ -101,9 +105,9 @@ To follow these instructions you need [Xcode Command Line Tools](https://www.ics
 
 5. Make sure that the following information matches the output of the command (assuming Trinity is in the `/Applications` directory):
 
-    * `/Applications/Trinity.app: accepted`
-    * `source=Developer ID`
-    * `origin=Developer ID Application: IOTA Stiftung (UG77RJKZHH)`
+    /Applications/Trinity.app: accepted
+    source=Developer ID
+    origin=Developer ID Application: IOTA Stiftung (UG77RJKZHH)
     
     
 ## Linux operating system

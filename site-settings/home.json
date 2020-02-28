@@ -54,10 +54,6 @@
         {
             "query": "set up a private tangle",
             "name": "Private Tangle"
-        },
-        {
-            "query": "cryptocore",
-            "name": "CryptoCore"
         }
     ],
     "cards": [
@@ -72,9 +68,9 @@
             "name": "Get Started"
         },
         {
-            "href": "/docs/getting-started/0.1/references/quickstart-dev-handbook",
+            "href": "/docs/wallets/0.1/trinity/how-to-guides/protect-trinity-account",
             "image": "2.png",
-            "name": "Developer Handbook"
+            "name": "Seed Migration Tool"
         }
     ]
 }

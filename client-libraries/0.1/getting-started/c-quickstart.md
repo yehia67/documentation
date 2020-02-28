@@ -24,9 +24,7 @@ In our guides, we use a Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download
     If you're new to [Bazel](https://docs.bazel.build/versions/master/getting-started.html), we recommend reading their getting-started documentation.
     :::
 
-2. Open the [Linux Terminal](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/)
-
-3. Create a directory for your project
+2. Create a directory for your project
 
 	```bash
 	sudo mkdir my-c-iota-project

@@ -1,0 +1,108 @@
+# Seed migration FAQ
+
+**These are frequently asked questions about the recent Trinity attack and the seed migration tool.**
+
+## What do I have to do to be safe?
+
+Depending on when and how you used the Trinity wallet, you may need to take steps to [protect your Trinity account](../how-to-guides/protect-trinity-account.md).
+
+![Seed migration flowchart](../images/seed-migration.png)
+
+## Were my IOTA tokens stolen?
+
+If you see any value transactions that you did not send in your Trinity history, your IOTA tokens may have been stolen. Please see the Identity Verification Process.
+
+If you don't see any value transactions in your Trinity history, but your balance is wrong, see the [Troubleshooting guide](../references/troubleshooting.md) for help or reach out to the IOTA Foundation on [Discord](https://discord.iota.org/).
+
+:::warning:
+Please be aware that some users are impersonating members of the IOTA Foundation on Discord. Therefore, it is important that you contact members directly by clicking their names in the right-hand panel under 'IOTA Foundation'.
+:::
+
+## When will the Coordinator be restarted?
+
+The Coordinator will be restarted on 9 March 2020 to give users enough time to [protect their Trinity accounts](../how-to-guides/protect-trinity-account.md).
+
+## The Coordinator was paused, does this mean that IOTA is centralized?
+
+The [Coordinator](root://getting-started/0.1/network/the-coordinator.md) is a centralized finality device, which provides security during the network’s infancy.
+
+The Coordinator will be removed when we have an implementation of all [Coordicide](https://coordicide.iota.org/) modules.
+
+## How do I transfer my IOTA tokens?
+
+While the [Coordinator](root://getting-started/0.1/network/the-coordinator.md) is paused, no one can transfer their IOTA tokens on the Mainnet.
+
+We recommend reading [this guide](../how-to-guides/protect-trinity-account.md) if you want to transfer your IOTA tokens to a new seed before the Coordinator is restarted.
+
+## Is it safe to share my addresses with others?
+
+Yes. Addresses are public information and can be seen on Tangle explorers such as https://thetangle.org/.
+
+:::warning:
+Never share your seed or Ledger phrases with anyone.
+:::
+
+## Can the Coordinator repay the stolen IOTA tokens?
+
+No. The [Coordinator](root://getting-started/0.1/network/the-coordinator.md) cannot transfer IOTA tokens.
+
+However, to protect certain users' IOTA tokens, the IOTA Foundation may temporarily transfer any that may be deemed ‘at risk’ to another seed for safekeeping. This process would take place during a global snapshot, which would be validated by the IOTA community's nodes.
+
+## I use the IOTA light wallet, do I have to do anything? Will it still work after the Coordinator is restarted?
+
+The attack affected only the Trinity wallet. If you have never used Trinity, you don't need to do anything. When the Coordinator is restarted, you can use the light wallet to transfer IOTA tokens again.
+
+## Can I migrate directly to a Ledger hardware wallet?
+
+No. To transfer your IOTA tokens to a Ledger account, you should do the following: 
+1. [Install the latest version of Trinity and update your password](#install-the-latest-version-of-trinity)
+2. [Transfer your IOTA tokens to a new seed](#transfer-your-iota-tokens-to-a-new-seed)
+3. [Set up a ledger account](https://trinity.iota.org/hardware/) and transfer your IOTA tokens from your new seed to the Ledger
+
+## What can I do if I miss the seed migration period?
+
+We recommend [creating a new account in Trinity](../how-to-guides/create-an-account.md) and transferring your IOTA tokens to an address on your new seed.
+ 
+If you think that your IOTA tokens were stolen, reach out to the IOTA Foundation on [Discord](https://discord.iota.org/).
+ 
+:::warning:
+Please be aware that some users are impersonating members of the IOTA Foundation on Discord. Therefore, it is important that you contact members directly by clicking their names in the right-hand panel under 'IOTA Foundation'.
+:::
+
+## What happens if the attacker uses the Seed Migration Tool with a stolen seed?
+
+If more than one person uses the Seed Migration Tool to transfer IOTA tokens from the same seed, the owner of the seed will need to go through the [Identity Verification Process](#what-is-the-idenitity-verification-process) to validate their ownership.
+
+## What is the Identity Verification Process?
+
+To protect certain users' IOTA tokens, the IOTA Foundation may temporarily transfer any that may be deemed ‘at risk’ to another seed for safekeeping. This process would take place during a global snapshot, which would be validated by the IOTA community's nodes.
+
+At-risk IOTA tokens include:
+
+- Those that are known to have been stolen during the attack
+- Those that belong to a seed, which was entered into the Seed Migration Tool by two or more people
+
+If you own any at-risk IOTA tokens, you may need to complete a KYC (know your customer) process with a third party to reclaim them.
+
+More information on the process as well as the consequences for all affected users will be provided soon.
+
+:::info:
+We encourage affected users to file a report with their local police and to cite the following case number when doing so: LKA Berlin, Center for Cybercrime, case number: 200213-1717-i00290.
+:::
+
+## Will my pending transactions be confirmed when the Coordinator is restarted?
+
+If you use the Seed Migration Tool to [transfer your IOTA tokens to a new seed](../how-to-guides/protect-trinity-account.md), any pending transactions that you sent before the Coordinator was paused will not be confirmed.
+
+If you don't use the Seed Migration Tool, any pending transactions that you sent before the Coordinator was paused may still be confirmed.
+
+
+
+
+
+
+
+
+
+
+

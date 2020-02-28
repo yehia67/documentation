@@ -2,6 +2,10 @@
 
 **Trinity allows you to have more than one account, each of which has a unique seed.**
 
+:::danger:
+On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).
+:::
+
 For each of your accounts, you can do the following:
 
 - Access your seed (not available if you use a hardware wallet)
@@ -10,11 +14,20 @@ For each of your accounts, you can do the following:
 
 Make sure that you select the correct account to manage before completing any of these tasks.
 
-To access Account management on a mobile device, go to **Settings** > **Account management**.
+--------------------
+### Desktop
 
-To access Account management on a desktop, go to the burger menu >  **Account** > **Account management**.
+To access Account management, go to **Trinity** > **Settings** > **Account management**
 
 ![Account management](../images/account-management-menu.png)
+
+---
+### Mobile
+
+To access Account management, go to **Settings** > **Account management**
+
+![Account management](../images/account-management-menu-mobile.jpg)
+--------------------
 
 ## Access your seed
 
@@ -42,9 +55,16 @@ To change the name of an account, go to Account management, and click **Account 
 
 Trinity stores your seeds for you (unless you use a [hardware wallet](../concepts/hardware-wallet.md)) and allows you to log in with a password.
 
-To change the login password on a desktop, go to **Settings** > **Change password**.
+--------------------
+### Desktop
 
-To change the login password on a mobile device, go to **Settings** > **Security settings** > **Change password**.
+To change the login password, go to **Trinity** > **Settings** > **Change password**
+
+---
+### Mobile
+
+To change the login password, go to **Settings** > **Security settings** > **Change password**
+--------------------
 
 ## Next steps
 

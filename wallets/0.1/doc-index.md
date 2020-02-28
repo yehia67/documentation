@@ -6,6 +6,7 @@
 [Trinity/Concepts/Node quorum](/trinity/concepts/node-quorum.md)
 [Trinity/How-to Guides/Quickstart](/trinity/how-to-guides/quickstart.md)
 [Trinity/How-to Guides/Verify the Trinity Desktop download](/trinity/how-to-guides/verify-trinity-desktop.md)
+[Trinity/How-to Guides/Protect your Trinity account](/trinity/how-to-guides/protect-trinity-account.md)
 [Trinity/How-to Guides/Create an account](/trinity/how-to-guides/create-an-account.md)
 [Trinity/How-to Guides/Back up your seed](/trinity/how-to-guides/back-up-seed.md)
 [Trinity/How-to Guides/Send a transaction](/trinity/how-to-guides/send-a-transaction.md)
