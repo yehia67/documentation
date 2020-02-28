@@ -80,7 +80,7 @@ To protect certain users' IOTA tokens, the IOTA Foundation may temporarily trans
 At-risk IOTA tokens include:
 
 - Those that are known to have been stolen during the attack
-- Those that belong to a seed, which was entered into the Seed Migration Tool by two or more people
+- Those that belong to a seed that was entered into the Seed Migration Tool by two or more people
 
 If you own any at-risk IOTA tokens, you may need to complete a KYC (know your customer) process with a third party to reclaim them.
 
