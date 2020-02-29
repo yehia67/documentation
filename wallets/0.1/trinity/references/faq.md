@@ -32,7 +32,7 @@ The Coordinator will be removed when we have an implementation of all [Coordicid
 
 While the [Coordinator](root://getting-started/0.1/network/the-coordinator.md) is paused, no one can transfer their IOTA tokens on the Mainnet.
 
-We recommend reading [this guide](../how-to-guides/protect-trinity-account.md) if you want to transfer your IOTA tokens to a new seed before the Coordinator is restarted.
+We recommend reading [this guide](../how-to-guides/protect-trinity-account.md) if you want to migrate your IOTA tokens to a new seed before the Coordinator is restarted.
 
 ## Is it safe to share my addresses with others?
 
@@ -55,9 +55,12 @@ The attack affected only the Trinity wallet. If you have never used Trinity, you
 ## Can I migrate directly to a Ledger hardware wallet?
 
 No. To transfer your IOTA tokens to a Ledger account, you should do the following: 
-1. [Install the latest version of Trinity and update your password](#install-the-latest-version-of-trinity)
-2. [Transfer your IOTA tokens to a new seed](#transfer-your-iota-tokens-to-a-new-seed)
-3. [Set up a ledger account](https://trinity.iota.org/hardware/) and transfer your IOTA tokens from your new seed to the Ledger
+
+1. [Install the latest version of Trinity and update your password](../how-to-guides/protect-trinity-account.md#install-the-latest-version-of-trinity)
+
+2. [Migrate your IOTA tokens to a new seed](../how-to-guides/protect-trinity-account.md#migrate-your-iota-tokens-to-a-new-seed)
+
+3. After the Coordinator is restarted, [set up a ledger account](https://trinity.iota.org/hardware/) and transfer your IOTA tokens from your new seed to the Ledger
 
 ## What can I do if I miss the seed migration period?
 
@@ -71,7 +74,7 @@ Please be aware that some users are impersonating members of the IOTA Foundation
 
 ## What happens if the attacker uses the Seed Migration Tool with a stolen seed?
 
-If more than one person uses the Seed Migration Tool to transfer IOTA tokens from the same seed, the owner of the seed will need to go through the [Identity Verification Process](#what-is-the-idenitity-verification-process) to validate their ownership.
+If more than one person uses the Seed Migration Tool to migrate the same seed, the owner of the seed will need to go through the [Identity Verification Process](#what-is-the-idenitity-verification-process) to validate their ownership.
 
 ## What is the Identity Verification Process?
 
@@ -88,7 +91,7 @@ More information on the process as well as the consequences for all affected use
 
 ## Will my pending transactions be confirmed when the Coordinator is restarted?
 
-If you use the Seed Migration Tool to [transfer your IOTA tokens to a new seed](../how-to-guides/protect-trinity-account.md), any pending transactions that you sent before the Coordinator was paused will not be confirmed.
+If you use the Seed Migration Tool to [migrate your IOTA tokens to a new seed](../how-to-guides/protect-trinity-account.md#migrate-your-iota-tokens-to-a-new-seed), any pending transactions that you sent before the Coordinator was paused will not be confirmed.
 
 If you don't use the Seed Migration Tool, any pending transactions that you sent before the Coordinator was paused may still be confirmed.
 
