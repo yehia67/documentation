@@ -22,7 +22,7 @@ Seeds never leave the [Ledger hardware wallet](https://www.ledger.com/), therefo
 
 ## I use Trinity Mobile
 
-Although all evidence points towards mobile not being affected we cannot totally rule it out at this point. We recommend to use the seed migration tool anyway and change your password as a precaution.
+Although all evidence points towards mobile not being affected, we cannot totally rule it out at this point. We recommend to use the Seed Migration Tool anyway and change your password as a precaution.
 
 ### What to do
 
@@ -61,11 +61,6 @@ For anyone else, you should assume that your Trinity seed and password are no lo
 
 ---
 
-:::success:
-You've downloaded the latest version of Trinity. This version no longer has the vulnerability.
-:::
-
-
 ## Install the latest version of Trinity
 
 In this step, you upgrade the Trinity wallet to the latest version.
@@ -79,6 +74,10 @@ In this step, you upgrade the Trinity wallet to the latest version.
 2. Open Trinity and go to **Trinity** > **Settings** > **Change password** to change your existing password
 
 3. If you have used the same password for other services or websites, change those as well
+
+:::success:
+You've downloaded the latest version of Trinity. This version no longer has the vulnerability.
+:::
 
 ## Migrate your IOTA tokens to a new seed
 
