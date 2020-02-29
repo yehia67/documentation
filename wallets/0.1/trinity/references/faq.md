@@ -20,7 +20,7 @@ Please be aware that some users are impersonating members of the IOTA Foundation
 
 ## When will the Coordinator be restarted?
 
-The Coordinator will be restarted on 9 March 2020 to give users enough time to [protect their Trinity accounts](../how-to-guides/protect-trinity-account.md).
+The Coordinator will be restarted on 10 March 2020 to give users enough time to [protect their Trinity accounts](../how-to-guides/protect-trinity-account.md).
 
 ## The Coordinator was paused, does this mean that IOTA is centralized?
 
