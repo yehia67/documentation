@@ -60,11 +60,11 @@ No. To transfer your IOTA tokens to a Ledger account, you should do the followin
 
 2. [Migrate your IOTA tokens to a new seed](../how-to-guides/protect-trinity-account.md#migrate-your-iota-tokens-to-a-new-seed)
 
-3. After the Coordinator is restarted, [set up a ledger account](https://trinity.iota.org/hardware/) and transfer your IOTA tokens from your new seed to the Ledger
+3. From 10 March 2020, [set up a ledger account](https://trinity.iota.org/hardware/) and transfer your IOTA tokens from your new seed to the Ledger
 
 ## What can I do if I miss the seed migration period?
 
-We recommend [creating a new account in Trinity](../how-to-guides/create-an-account.md) and transferring your IOTA tokens to an address on your new seed.
+The migration period ends on 7 March 2020. If you did not migrate your seed before this date, we recommend [creating a new account in Trinity](../how-to-guides/create-an-account.md) and transferring your IOTA tokens to an address on your new seed either on or after 10 March 2020.
  
 If you think that your IOTA tokens were stolen, reach out to the IOTA Foundation on [Discord](https://discord.iota.org/).
  
