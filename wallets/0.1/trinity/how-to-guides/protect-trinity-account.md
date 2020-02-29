@@ -109,13 +109,13 @@ Due to technical limitations, only balances of over 1 Mi can be transferred to a
     This is the total amount of IOTA tokens which will be transferred to your new seed.
     :::
 
-5. If you think your balance is wrong, or you know that you have IOTA tokens on more than the first 50 addresses, click **Sync addresses**
+5. If you think your balance is wrong, or you know that you have IOTA tokens on more than the first 50 addresses, click **Scan more addresses**
 
     The tool will check the balance of 50 more addresses each time you click this button.
 
     ![Seed migration balance](../images/seed-migration-balance.png)
 
-6. Choose an option to create a new seed, and follow the prompts
+6. Follow the prompts to generate a seed and save it to a SeedVault file
 
     :::info:
     The tool randomly generates a new seed for you. If you want to choose your own seed or use a Ledger hardware wallet, you can [create a new Trinity account](../how-to-guides/create-an-account.md) after the Coordinator is restarted.
@@ -143,7 +143,7 @@ Due to technical limitations, only balances of over 1 Mi can be transferred to a
 
     **ID Required:** Someone else tried to use the Seed Migration Tool with your seed. Please see the [Identity Verification Process](../references/faq.md#what-is-the-idenitity-verification-process) for more information. You will need your migration log file.
 
-8. Open Trinity and [create a new account](../how-to-guides/create-an-account.md) with your new seed
+8. Open Trinity and [create a new account](../how-to-guides/create-an-account.md), using your new SeedVault file
 
     :::info:
     Until the Coordinator is restarted, your new seed’s balance will be 0. After the Coordinator is restarted, your transfers will be confirmed and you will see your correct balance.
