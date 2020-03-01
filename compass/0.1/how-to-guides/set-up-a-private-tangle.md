@@ -34,19 +34,19 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 2. Download the latest Bazel installer
 
 	```bash
-	wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
+	wget https://github.com/bazelbuild/bazel/releases/download/2.1.1/bazel-2.1.1-installer-linux-x86_64.sh
 	```
 
 3. Check that you can execute the script before you run it
 
 	```bash
-	chmod +x bazel-0.18.0-installer-linux-x86_64.sh
+	chmod +x bazel-2.1.1-installer-linux-x86_64.sh
 	```
 
 4. Install Bazel under your active user, using the `--user` flag
 
 	```bash
-	./bazel-0.18.0-installer-linux-x86_64.sh --user
+	./bazel-2.1.1-installer-linux-x86_64.sh --user
 	```
 	You may need to restart your computer after you install Bazel.
 
